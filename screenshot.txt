@@ -1,0 +1,11 @@
+用法：
+snipaste snip
+
+--area X Y WIDTH HEIGHT      开始截屏，并把选区左上角设为 (X, Y)，宽度为 WIDTH，高度为 HEIGHT
+--active-window                   截取当前最前方的活动窗口
+-o clipboard                     复制截图
+-o FILE_NAME                    将截图保存到指定文件 FILE_NAME，支持使用变量 (如含有空格需用双引号括起)
+
+示例:
+snipaste snip --area 0 0 2240 1400 -o F:\test.png
+snipaste snip --active-window -o F:\test2.png
