@@ -1,6 +1,12 @@
 import { getLevelSource, levelNames } from "./core/levelRepository";
 import { parseLevel } from "./core/levelParser";
 import {
+  CustomLevelStore,
+  customLevelSceneName,
+  parseCustomLevel,
+  type CustomLevelEntry,
+} from "./core/customLevels";
+import {
   DirectionalInput,
   type DirectionCommand,
 } from "./core/directionalInput";
@@ -69,6 +75,14 @@ export interface DebugApi {
     saveSlots: ProgressSlotSummary[];
     settings: SettingsSnapshot;
     session: SessionMenuSnapshot;
+    customLevel: {
+      id: string;
+      filename: string;
+    } | null;
+    customLevels: Array<{
+      id: string;
+      filename: string;
+    }>;
     player: {
       id: number;
       x: number;
@@ -85,6 +99,8 @@ export interface DebugApi {
   };
   impulse(dx: number, dy: number): ImpulseResult;
   loadLevel(name: string): void;
+  loadCustomLevel(id: string): boolean;
+  importCustomLevel(filename: string, source: string): string;
   reload(): void;
   restart(): boolean;
   undo(): boolean;
@@ -104,15 +120,19 @@ export class GameController {
   private readonly renderer: GameRenderer;
   private readonly progressSlots: ProgressSlotStore;
   private readonly settings: SettingsModel;
+  private readonly customLevels: CustomLevelStore;
   private progression: ProgressionModel;
   private world!: WorldModel;
   private movement!: MovementEngine;
   private inspection!: InspectionModel;
   private currentLevelName = "first_puzzle";
+  private activeCustomLevelId: string | null = null;
   private readonly devPanel: HTMLElement;
   private readonly stateOutput: HTMLElement;
   private readonly levelSelect: HTMLSelectElement;
+  private readonly customLevelInput: HTMLInputElement;
   private winTransitionTimer: number | null = null;
+  private customLevelErrorTimer: number | null = null;
   private fastTravelSession: FastTravelSession | null = null;
   private creditsActive = false;
   private creditsFromPause = false;
@@ -129,6 +149,7 @@ export class GameController {
     this.renderer = renderer;
     this.progressSlots = new ProgressSlotStore(window.localStorage);
     this.settings = new SettingsModel(window.localStorage);
+    this.customLevels = new CustomLevelStore(window.localStorage);
     this.directionalInput = new DirectionalInput(
       this.settings.snapshot().moveDelay,
     );
@@ -139,6 +160,8 @@ export class GameController {
     this.devPanel = this.createDevPanel();
     this.stateOutput = this.devPanel.querySelector("[data-state]") as HTMLElement;
     this.levelSelect = this.devPanel.querySelector("select") as HTMLSelectElement;
+    this.customLevelInput = this.createCustomLevelInput();
+    this.refreshSessionCustomLevels();
   }
 
   start(): void {
@@ -181,6 +204,8 @@ export class GameController {
       "contextmenu",
       this.onContextMenu,
     );
+    this.renderer.canvas.addEventListener("dragover", this.onDragOver);
+    this.renderer.canvas.addEventListener("drop", this.onDrop);
     window.requestAnimationFrame(this.onAnimationFrame);
   }
 
@@ -189,6 +214,9 @@ export class GameController {
       levelNames,
       getState: () => {
         const player = this.world.findPlayerBlock();
+        const activeCustomLevel = this.activeCustomLevelId
+          ? this.customLevels.find(this.activeCustomLevelId)
+          : null;
         const playerFloor =
           player.outerLevel?.getFloor(player.x, player.y) ?? null;
         return {
@@ -213,6 +241,16 @@ export class GameController {
           saveSlots: this.progressSlots.summaries(officialPuzzleNames),
           settings: this.settings.snapshot(),
           session: this.sessionMenu.snapshot(),
+          customLevel: activeCustomLevel
+            ? {
+                id: activeCustomLevel.id,
+                filename: activeCustomLevel.filename,
+              }
+            : null,
+          customLevels: this.customLevels.list().map((entry) => ({
+            id: entry.id,
+            filename: entry.filename,
+          })),
           player: {
             id: player.id,
             x: player.x,
@@ -230,7 +268,10 @@ export class GameController {
       },
       impulse: (dx, dy) => this.impulse(dx, dy),
       loadLevel: (name) => this.loadLevel(name),
-      reload: () => this.loadLevel(this.currentLevelName),
+      loadCustomLevel: (id) => this.loadCustomLevel(id),
+      importCustomLevel: (filename, source) =>
+        this.importCustomLevel(filename, source).id,
+      reload: () => this.reloadCurrentLevel(),
       restart: () => this.restart(),
       undo: () => this.undo(),
       redo: () => this.redo(),
@@ -238,6 +279,34 @@ export class GameController {
   }
 
   loadLevel(name: string): void {
+    const source = getLevelSource(name);
+    const world = parseLevel(source, name);
+    this.activateWorld(name, world, null);
+  }
+
+  private loadCustomLevel(id: string): boolean {
+    const entry = this.customLevels.find(id);
+    if (!entry) {
+      this.showCustomLevelError(new Error(`Unknown custom level "${id}"`));
+      return false;
+    }
+    try {
+      const world = parseCustomLevel(entry.source);
+      this.activateWorld(customLevelSceneName, world, entry.id);
+      this.customLevels.markLoaded(entry.id);
+      return true;
+    } catch (error) {
+      this.showCustomLevelError(error);
+      return false;
+    }
+  }
+
+  private activateWorld(
+    name: string,
+    world: WorldModel,
+    customLevelId: string | null,
+  ): void {
+    this.clearCustomLevelError();
     this.sessionMenu.reset();
     this.refreshSessionSettings();
     this.directionalInput.reset();
@@ -254,13 +323,13 @@ export class GameController {
       window.clearTimeout(this.winTransitionTimer);
       this.winTransitionTimer = null;
     }
-    const source = getLevelSource(name);
     this.currentLevelName = name;
-    this.world = parseLevel(source, name);
+    this.activeCustomLevelId = customLevelId;
+    this.world = world;
     this.world.smile = this.smileActive;
     if (name === "hub") {
       this.progression.applyToHub(this.world);
-    } else {
+    } else if (name !== customLevelSceneName) {
       this.progression.markAttempted(name);
     }
     this.persistProgression();
@@ -268,10 +337,31 @@ export class GameController {
     this.inspection = new InspectionModel(this.world);
     this.renderer.setInspection(null, false);
     this.renderer.setWorld(this.world);
-    this.levelSelect.value = name;
+    this.levelSelect.value = levelNames.includes(name) ? name : "";
     this.updateStateOutput();
     this.syncHubCompletion();
     this.syncRendererUi();
+  }
+
+  private reloadCurrentLevel(): void {
+    if (
+      this.currentLevelName === customLevelSceneName &&
+      this.activeCustomLevelId
+    ) {
+      this.loadCustomLevel(this.activeCustomLevelId);
+      return;
+    }
+    this.loadLevel(this.currentLevelName);
+  }
+
+  private importCustomLevel(
+    filename: string,
+    source: string,
+  ): CustomLevelEntry {
+    parseCustomLevel(source);
+    const result = this.customLevels.importLevel(filename, source);
+    this.refreshSessionCustomLevels(result.entry.id);
+    return result.entry;
   }
 
   private impulse(dx: number, dy: number): ImpulseResult {
@@ -573,6 +663,11 @@ export class GameController {
     } else if (action.type === "show-credits") {
       this.creditsFromPause = true;
       this.creditsActive = true;
+    } else if (action.type === "import-custom-level") {
+      this.customLevelInput.value = "";
+      this.customLevelInput.click();
+    } else if (action.type === "load-custom-level") {
+      this.loadCustomLevel(action.id);
     } else if (action.type === "open-link") {
       window.open(
         sessionLinkUrls[action.link],
@@ -617,12 +712,17 @@ export class GameController {
   private scheduleWinTransition(): void {
     if (this.winTransitionTimer !== null) return;
     const wonLevelName = this.currentLevelName;
+    const wonCustomLevelId = this.activeCustomLevelId;
     this.winTransitionTimer = window.setTimeout(() => {
       this.winTransitionTimer = null;
       if (
         this.currentLevelName !== wonLevelName ||
         !this.world.winning
       ) {
+        return;
+      }
+      if (wonLevelName === customLevelSceneName) {
+        if (wonCustomLevelId) this.loadCustomLevel(wonCustomLevelId);
         return;
       }
       const newlyWon = this.progression.markWon(wonLevelName);
@@ -750,6 +850,90 @@ export class GameController {
     );
   }
 
+  private refreshSessionCustomLevels(selectedId?: string): void {
+    this.sessionMenu.configureCustomLevels(
+      this.customLevels.list().map((entry) => ({
+        id: entry.id,
+        label: entry.displayName,
+      })),
+      selectedId,
+    );
+  }
+
+  private createCustomLevelInput(): HTMLInputElement {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.id = "custom-level-input";
+    input.name = "custom-level-files";
+    input.accept = ".txt,text/plain";
+    input.multiple = true;
+    input.hidden = true;
+    input.setAttribute("aria-label", "Import custom levels");
+    input.addEventListener("change", () => {
+      const files = [...(input.files ?? [])];
+      input.value = "";
+      if (files.length > 0) void this.importCustomLevelFiles(files);
+    });
+    document.body.appendChild(input);
+    return input;
+  }
+
+  private async importCustomLevelFiles(files: readonly File[]): Promise<void> {
+    this.clearCustomLevelError();
+    let selectedId: string | undefined;
+    let firstError: unknown = null;
+    for (const file of files) {
+      try {
+        const source = await file.text();
+        selectedId = this.importCustomLevel(file.name, source).id;
+      } catch (error) {
+        firstError ??= error;
+      }
+    }
+
+    if (this.sessionMenu.currentMode !== "title") {
+      this.sessionMenu.openCustomLevels(
+        this.currentLevelName === "hub",
+      );
+      this.refreshSessionCustomLevels(selectedId);
+      this.directionalInput.reset();
+      this.heldKeys.clear();
+    }
+    if (firstError !== null) this.showCustomLevelError(firstError);
+    this.updateStateOutput();
+    this.syncRendererUi();
+  }
+
+  private showCustomLevelError(error: unknown): void {
+    console.error("Error when loading custom level", error);
+    if (
+      this.sessionMenu.currentMode !== "title" &&
+      this.sessionMenu.currentMode !== "custom-levels"
+    ) {
+      this.sessionMenu.openCustomLevels(
+        this.currentLevelName === "hub",
+      );
+    }
+    this.sessionMenu.setCustomLevelError(true);
+    if (this.customLevelErrorTimer !== null) {
+      window.clearTimeout(this.customLevelErrorTimer);
+    }
+    this.customLevelErrorTimer = window.setTimeout(() => {
+      this.customLevelErrorTimer = null;
+      this.sessionMenu.setCustomLevelError(false);
+      this.syncRendererUi();
+    }, 2000);
+    this.updateStateOutput();
+    this.syncRendererUi();
+  }
+
+  private clearCustomLevelError(): void {
+    this.sessionMenu.setCustomLevelError(false);
+    if (this.customLevelErrorTimer === null) return;
+    window.clearTimeout(this.customLevelErrorTimer);
+    this.customLevelErrorTimer = null;
+  }
+
   private readonly onKeyDown = (event: KeyboardEvent): void => {
     if (
       event.target instanceof HTMLInputElement ||
@@ -758,6 +942,11 @@ export class GameController {
       return;
     }
     const key = event.key.toLowerCase();
+    if (key === "f5" && this.currentLevelName === customLevelSceneName) {
+      event.preventDefault();
+      this.reloadCurrentLevel();
+      return;
+    }
     if (this.creditsActive) {
       if (
         key === "enter" ||
@@ -1018,6 +1207,22 @@ export class GameController {
 
   private readonly onContextMenu = (event: MouseEvent): void => {
     if (this.inspectionEnabled()) event.preventDefault();
+  };
+
+  private readonly onDragOver = (event: DragEvent): void => {
+    const transfer = event.dataTransfer;
+    if (!transfer || ![...transfer.items].some((item) => item.kind === "file")) {
+      return;
+    }
+    event.preventDefault();
+    transfer.dropEffect = "copy";
+  };
+
+  private readonly onDrop = (event: DragEvent): void => {
+    const files = [...(event.dataTransfer?.files ?? [])];
+    if (files.length === 0) return;
+    event.preventDefault();
+    void this.importCustomLevelFiles(files);
   };
 
   private readonly onPageHide = (): void => {

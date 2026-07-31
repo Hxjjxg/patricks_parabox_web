@@ -651,6 +651,29 @@ export class GameRenderer {
       });
       text.style.wordWrapWidth = Math.min(width * 0.92, 760);
       const tip = uiState.session.tip;
+      let optionStart = 0;
+      let optionEnd = uiState.session.options.length;
+      if (uiState.session.mode === "custom-levels") {
+        const subtitleLines = uiState.session.subtitle.split("\n").length;
+        const visibleCount = Math.max(
+          3,
+          Math.min(
+            10,
+            Math.floor((height - 150 - subtitleLines * 28) / 32),
+          ),
+        );
+        optionStart = Math.min(
+          Math.max(
+            0,
+            uiState.session.selectedIndex - Math.floor(visibleCount / 2),
+          ),
+          Math.max(0, uiState.session.options.length - visibleCount),
+        );
+        optionEnd = Math.min(
+          uiState.session.options.length,
+          optionStart + visibleCount,
+        );
+      }
       text.text = tip
         ? [
             uiState.session.title,
@@ -669,13 +692,18 @@ export class GameRenderer {
         : [
             uiState.session.title,
             "",
-            ...uiState.session.options.map((option, index) =>
-              `${index === uiState.session.selectedIndex ? "›" : " "} ${option}${
-                uiState.session.values[index]
-                  ? `  ${uiState.session.values[index]}`
-                  : ""
-              }`,
-            ),
+            ...(uiState.session.subtitle
+              ? [uiState.session.subtitle, ""]
+              : []),
+            ...uiState.session.options
+              .slice(optionStart, optionEnd)
+              .map((option, visibleIndex) => {
+                const index = optionStart + visibleIndex;
+                const marker =
+                  index === uiState.session.selectedIndex ? "›" : " ";
+                const value = uiState.session.values[index];
+                return `${marker} ${option}${value ? `  ${value}` : ""}`;
+              }),
           ].join("\n");
       text.visible = true;
       return;

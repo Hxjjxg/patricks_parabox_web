@@ -65,6 +65,8 @@ export type SessionMenuAction =
   | { readonly type: "leave-puzzle" }
   | { readonly type: "return-title" }
   | { readonly type: "show-credits" }
+  | { readonly type: "import-custom-level" }
+  | { readonly type: "load-custom-level"; readonly id: string }
   | { readonly type: "open-link"; readonly link: SessionLink }
   | { readonly type: "switch-slot"; readonly slot: number }
   | { readonly type: "erase-slot"; readonly slot: number }
@@ -74,6 +76,11 @@ export type SessionMenuAction =
 export interface SessionSaveSlot {
   readonly label: string;
   readonly empty: boolean;
+}
+
+export interface SessionCustomLevel {
+  readonly id: string;
+  readonly label: string;
 }
 
 export interface SessionMenuSnapshot {
@@ -176,7 +183,6 @@ const linksOptions = [
   "Steam forum",
   "Back",
 ] as const;
-const customLevelsOptions = ["Custom levels website", "Back"] as const;
 const linkByIndex: readonly SessionLink[] = [
   "game-website",
   "dev-website",
@@ -206,6 +212,12 @@ const tipKeys = [
   "Tip_Challenging",
 ] as const;
 const confirmationOptions = ["No", "Yes"] as const;
+const customLevelsInstructions = [
+  "No custom levels found.",
+  "",
+  "Import a level file or",
+  "see the instructions webpage.",
+].join("\n");
 
 type MutableSettings = {
   -readonly [Key in keyof SessionMenuSettings]: SessionMenuSettings[Key];
@@ -275,6 +287,8 @@ export class SessionMenu {
   private recurseDepth = 0;
   private settings: MutableSettings = { ...defaultMenuSettings };
   private bonus: MutableBonus = { ...defaultBonus };
+  private customLevels: readonly SessionCustomLevel[] = [];
+  private customLevelError = false;
 
   get active(): boolean {
     return this.mode !== "none";
@@ -292,6 +306,7 @@ export class SessionMenu {
     this.eraseCandidate = null;
     this.tipIndex = 0;
     this.recurseDepth = 0;
+    this.customLevelError = false;
   }
 
   configureSettings(
@@ -321,6 +336,33 @@ export class SessionMenu {
     );
     if (this.mode === "save-slots") this.showSaveSlots();
     if (this.mode === "erase-choose") this.showEraseChoice();
+  }
+
+  configureCustomLevels(
+    levels: readonly SessionCustomLevel[],
+    selectedId?: string,
+  ): void {
+    const currentId =
+      selectedId ??
+      (this.mode === "custom-levels"
+        ? this.customLevelAtSelection()?.id
+        : undefined);
+    this.customLevels = levels.map((level) => ({ ...level }));
+    if (this.mode === "custom-levels") this.showCustomLevels(currentId);
+  }
+
+  setCustomLevelError(active: boolean): void {
+    this.customLevelError = active;
+  }
+
+  openCustomLevels(inHub?: boolean): boolean {
+    if (this.mode === "title") return false;
+    if (this.mode === "none") {
+      this.pauseWasInHub = inHub ?? false;
+      this.recurseDepth = 0;
+    }
+    this.showCustomLevels();
+    return true;
   }
 
   showTitle(): void {
@@ -687,6 +729,16 @@ export class SessionMenu {
 
     if (this.mode === "custom-levels") {
       if (this.selectedIndex === 0) {
+        return { type: "import-custom-level" };
+      }
+      const customLevel = this.customLevelAtSelection();
+      if (customLevel) {
+        return { type: "load-custom-level", id: customLevel.id };
+      }
+      if (
+        this.customLevels.length === 0 &&
+        this.selectedIndex === 1
+      ) {
         return { type: "open-link", link: "custom-levels" };
       }
       this.showExtras("Custom levels");
@@ -755,7 +807,13 @@ export class SessionMenu {
       subtitle:
         this.mode === "tips"
           ? localizeEnglish("Tip_TheseAreTipsMenu")
-          : "",
+          : this.mode === "custom-levels"
+            ? this.customLevelError
+              ? "Error when loading custom level"
+              : this.customLevels.length === 0
+                ? customLevelsInstructions
+                : "/"
+            : "",
       settings: { ...this.settings },
       bonus: { ...this.bonus },
       tip:
@@ -876,11 +934,26 @@ export class SessionMenu {
     this.eraseCandidate = null;
   }
 
-  private showCustomLevels(): void {
+  private showCustomLevels(selectedId?: string): void {
     this.mode = "custom-levels";
-    this.options = customLevelsOptions;
-    this.selectedIndex = 0;
+    this.options = [
+      "Import level",
+      ...this.customLevels.map((level) => level.label),
+      ...(this.customLevels.length === 0
+        ? ["Instructions webpage"]
+        : []),
+      "Back",
+    ];
+    const selectedIndex = selectedId
+      ? this.customLevels.findIndex((level) => level.id === selectedId) + 1
+      : 0;
+    this.selectedIndex = selectedIndex > 0 ? selectedIndex : 0;
     this.eraseCandidate = null;
+  }
+
+  private customLevelAtSelection(): SessionCustomLevel | null {
+    const index = this.selectedIndex - 1;
+    return index >= 0 ? this.customLevels[index] ?? null : null;
   }
 
   private showSaveSlots(): void {

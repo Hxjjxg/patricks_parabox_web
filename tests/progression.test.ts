@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import hubSource from "../src/assets/levels/hub.txt?raw";
+import { customLevelSceneName } from "../src/core/customLevels";
 import { parseLevel } from "../src/core/levelParser";
 import { MovementEngine } from "../src/core/movement";
 import { FloorType } from "../src/core/model";
@@ -30,6 +31,16 @@ function portalByName(
 }
 
 describe("hub progression and portals", () => {
+  it("never records custom levels as attempted or won", () => {
+    const progress = new ProgressionModel();
+    progress.markAttempted(customLevelSceneName);
+    expect(progress.markWon(customLevelSceneName)).toBe(false);
+    expect(progress.serialize()).toMatchObject({
+      attemptedLevels: [],
+      wonLevels: [],
+    });
+  });
+
   it("loads the original puzzle metadata and dependency graph", () => {
     expect(puzzleMetadata.size).toBe(364);
     expect(puzzleLinks).toHaveLength(293);

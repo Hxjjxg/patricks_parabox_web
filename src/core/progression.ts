@@ -1,5 +1,6 @@
 import puzzleDataSource from "../assets/data/puzzle_data.txt?raw";
 import puzzleLinesSource from "../assets/data/puzzle_lines.txt?raw";
+import { customLevelSceneName } from "./customLevels";
 import { Floor, FloorType, Level, WorldModel } from "./model";
 
 export interface PuzzleMetadata {
@@ -304,12 +305,13 @@ export class ProgressionModel {
   }
 
   markAttempted(levelName: string): void {
-    if (levelName === "hub") return;
+    if (levelName === "hub" || levelName === customLevelSceneName) return;
     this.attemptedLevels.add(levelName);
     this.recentPuzzle = levelName;
   }
 
   markWon(levelName: string): boolean {
+    if (levelName === customLevelSceneName) return false;
     const sizeBefore = this.wonLevels.size;
     this.wonLevels.add(levelName);
     return this.wonLevels.size !== sizeBefore;

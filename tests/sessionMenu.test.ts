@@ -198,7 +198,7 @@ describe("title, pause, and save-file flow", () => {
     });
   });
 
-  it("opens the web equivalent of the empty custom-level directory", () => {
+  it("offers import and the instructions webpage for an empty custom-level directory", () => {
     const menu = new SessionMenu();
     menu.openPause(false);
     selectOption(menu, "Extras");
@@ -207,11 +207,50 @@ describe("title, pause, and save-file flow", () => {
     expect(menu.confirm()).toEqual({ type: "none" });
     expect(menu.snapshot()).toMatchObject({
       mode: "custom-levels",
-      options: ["Custom levels website", "Back"],
+      options: ["Import level", "Instructions webpage", "Back"],
+      subtitle: expect.stringContaining("No custom levels found"),
     });
+    expect(menu.confirm()).toEqual({ type: "import-custom-level" });
+    menu.moveSelection(1);
     expect(menu.confirm()).toEqual({
       type: "open-link",
       link: "custom-levels",
+    });
+  });
+
+  it("lists imported custom levels and emits their stable ids", () => {
+    const menu = new SessionMenu();
+    menu.configureCustomLevels([
+      { id: "custom-a", label: "A level" },
+      { id: "custom-b", label: "B level" },
+    ]);
+    menu.openPause(true);
+    selectOption(menu, "Extras");
+    menu.confirm();
+    selectOption(menu, "Custom levels");
+    menu.confirm();
+
+    expect(menu.snapshot()).toMatchObject({
+      mode: "custom-levels",
+      options: ["Import level", "A level", "B level", "Back"],
+      subtitle: "/",
+    });
+    menu.moveSelection(1);
+    expect(menu.confirm()).toEqual({
+      type: "load-custom-level",
+      id: "custom-a",
+    });
+    menu.configureCustomLevels(
+      [
+        { id: "custom-a", label: "A level" },
+        { id: "custom-b", label: "B level" },
+      ],
+      "custom-b",
+    );
+    expect(menu.snapshot().selectedIndex).toBe(2);
+    expect(menu.confirm()).toEqual({
+      type: "load-custom-level",
+      id: "custom-b",
     });
   });
 
