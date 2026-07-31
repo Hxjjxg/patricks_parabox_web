@@ -1,4 +1,4 @@
-import { parseLevel } from "./levelParser";
+import { parseLevel, type ParseLevelOptions } from "./levelParser";
 import type { WorldModel } from "./model";
 
 export const customLevelSceneName = "custom_level";
@@ -152,8 +152,11 @@ function normalizeState(value: unknown): StoredCustomLevels {
   return { version: 1, entries, lastLoadedId };
 }
 
-export function parseCustomLevel(source: string): WorldModel {
-  return parseLevel(source, customLevelSceneName);
+export function parseCustomLevel(
+  source: string,
+  options?: ParseLevelOptions,
+): WorldModel {
+  return parseLevel(source, customLevelSceneName, options);
 }
 
 /** Browser-independent equivalent of the original custom_levels directory. */

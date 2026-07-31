@@ -7,6 +7,19 @@ import {
   WorldModel,
 } from "./model";
 import { localizeEnglish } from "./localization";
+import {
+  chooseRandomOrientation,
+  identityOrientation,
+  transformLevelCoordinate,
+  type LevelOrientation,
+  type OrientationRandom,
+} from "./orientation";
+
+export interface ParseLevelOptions {
+  readonly randomOrientation?: boolean;
+  readonly orientation?: LevelOrientation;
+  readonly random?: OrientationRandom;
+}
 
 interface DeferredReference {
   tokens: string[];
@@ -43,9 +56,17 @@ function copyColor(color: HsvColor): HsvColor {
   return { h: color.h, s: color.s, v: color.v };
 }
 
-export function parseLevel(source: string, levelName: string): WorldModel {
+export function parseLevel(
+  source: string,
+  levelName: string,
+  options: ParseLevelOptions = {},
+): WorldModel {
   const world = new WorldModel(levelName);
   const inHub = levelName === "hub";
+  const orientation =
+    options.randomOrientation && !inHub
+      ? options.orientation ?? chooseRandomOrientation(source, options.random)
+      : identityOrientation;
   const levelIds = new Map<number, Level>();
   const blockStack: Block[] = [];
   const references: DeferredReference[] = [];
@@ -152,7 +173,14 @@ export function parseLevel(source: string, levelName: string): WorldModel {
         } else {
           const parentLevel = blockStack.at(-1)?.subLevel;
           if (!parentLevel) throw new Error(`${context}: parent block has no sublevel`);
-          block = world.createBlock(x, y, parentLevel, subLevel);
+          const position = transformLevelCoordinate(
+            x,
+            y,
+            parentLevel.width,
+            parentLevel.height,
+            orientation,
+          );
+          block = world.createBlock(position.x, position.y, parentLevel, subLevel);
         }
 
         levelIds.set(levelId, subLevel);
@@ -192,7 +220,19 @@ export function parseLevel(source: string, levelName: string): WorldModel {
         const isPlayer = parseBool(tokens[3]);
         const possessable = parseBool(tokens[4]);
         const playerOrder = numberAt(tokens, 5, context);
-        const block = world.createBlock(x, y, parentLevel, null);
+        const position = transformLevelCoordinate(
+          x,
+          y,
+          parentLevel.width,
+          parentLevel.height,
+          orientation,
+        );
+        const block = world.createBlock(
+          position.x,
+          position.y,
+          parentLevel,
+          null,
+        );
         block.isPlayer = isPlayer;
         block.startIsPlayer = isPlayer;
         block.possessable = possessable;
@@ -214,7 +254,19 @@ export function parseLevel(source: string, levelName: string): WorldModel {
         const rawType = tokenAt(tokens, 3, context);
         const type = Object.values(FloorType).find((value) => value === rawType);
         if (!type) break;
-        const floor = world.createFloor(x, y, parentLevel, type);
+        const position = transformLevelCoordinate(
+          x,
+          y,
+          parentLevel.width,
+          parentLevel.height,
+          orientation,
+        );
+        const floor = world.createFloor(
+          position.x,
+          position.y,
+          parentLevel,
+          type,
+        );
         if (type === FloorType.LevelPortal) {
           floor.sceneName = tokenAt(tokens, 4, context);
         } else if (type === FloorType.Info) {
@@ -280,7 +332,19 @@ export function parseLevel(source: string, levelName: string): WorldModel {
     } else {
       const parentLevel = parentBlock.subLevel;
       if (!parentLevel) throw new Error(`${context}: parent block has no sublevel`);
-      block = world.createBlock(x, y, parentLevel, targetLevel);
+      const position = transformLevelCoordinate(
+        x,
+        y,
+        parentLevel.width,
+        parentLevel.height,
+        orientation,
+      );
+      block = world.createBlock(
+        position.x,
+        position.y,
+        parentLevel,
+        targetLevel,
+      );
     }
 
     block.color = copyColor(targetLevel.getExitBlock().color);

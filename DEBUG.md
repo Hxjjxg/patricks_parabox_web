@@ -443,3 +443,71 @@ threshold, axis selection, pointer ownership, tap classification, and cleanup.
 - Regression tests cover link actions, custom-level website fallback, recurse
   depth, and every return path. External URL launching remains in the
   controller; filesystem custom-level loading is a separate module.
+
+## Random orientation investigation
+
+### Observations
+
+- Scope: reproduce the original game's `Random orientation` behavior before implementing it in the Web port.
+- Environment: Windows PowerShell, Node.js 24.11.1, npm 11.6.4, .NET SDK 10.0.203. The original executable and `Assembly-CSharp.dll` are dated 2022-03-30. The game was not running when observation began.
+- Web baseline: commit `b38930a`; only the user-owned untracked `CLAUDE.md` was present. `ProgressionModel` persists the setting, but `parseLevel` receives no randomization option and `GameController` does not reload a non-Hub level when the setting changes.
+- Both AssetRipper and dnSpy output show that `LoadLevel.SetRandomization` enables randomization only when `SaveFile.Current.Randomize && !World.InHub()`.
+- The original samples horizontal mirroring and rotation until the result is not the identity transform. It samples rotation from 0/90/180/270 degrees unless any source `Block` token 14 or `Ref` token 13 has `flipH`; in that case it samples only 0/180 degrees.
+- `LoadLevel.Transform` mirrors first, then transforms coordinates with the containing level's unchanged width and height. It is called for non-root `Block`, `Wall`, `Floor`, and resolved `Ref` records. It does not change a block's own `flipH` flag.
+- The original packaged `7by3ref` text is byte-for-text identical to the Web copy. It has a 7x3 root level, includes no built-in `flipH`, and has child x coordinates up to 6. A 90- or 270-degree transform produces y coordinates up to 6 while the containing level height remains 3.
+- dnSpy confirms the live `Block.Init` directly indexes `OuterLevel.blocks[x, y]`; it does not tolerate out-of-bounds coordinates.
+- The original wraps level parsing in `LoadWithFailsafe`: any parsing exception is logged and sends the player to the Hub.
+- Minimal reproduction: enable `SaveFile.Current.Randomize`, repeatedly load `7by3ref`, and record both the chosen private transform fields and whether the requested level reaches `World.WS.Playing`.
+
+### Hypotheses
+
+#### H1: The shipped game really fails 90/270-degree loads for non-square levels (ROOT HYPOTHESIS)
+
+- Supports: the live DLL transforms coordinates into unchanged rectangular grids and `Block.Init` indexes those grids directly; `LoadWithFailsafe` explicitly catches load exceptions and returns to Hub.
+- Conflicts: a user-facing post-game option would become intermittently disruptive on several official levels.
+- Test: force the randomization setting in the observer and repeatedly load `7by3ref`; correlate odd rotations with a load exception or Hub fallback.
+
+#### H2: The runtime DLL applies an additional rectangular-level restriction absent from the AssetRipper source
+
+- Supports: a restriction to 0/180 degrees would make every transformed coordinate valid.
+- Conflicts: dnSpy's live DLL output is identical in substance to AssetRipper's `SetRandomization` and has no dimension check.
+- Test: log the live private `LoadLevel.transformRotation`; if repeated rectangular loads never select 1 or 3 while square loads do, a runtime restriction exists.
+
+#### H3: A hidden built-in `flipH` record restricts `7by3ref` to 0/180 degrees
+
+- Supports: `SetRandomization` explicitly restricts rotation when any `Block` or `Ref` has `flipH`.
+- Conflicts: the original packaged text is identical to the Web copy and every relevant token is false.
+- Test: observe whether odd rotations are selected at runtime.
+
+#### H4: The runtime changes level dimensions or tolerates temporarily out-of-bounds rotated coordinates elsewhere
+
+- Supports: successful odd-rotation loads would require behavior beyond the shown `Transform` method.
+- Conflicts: the live parser initializes each `Level` with source width/height before transforming children, and live `Block.Init` immediately indexes the fixed grid.
+- Test: when an odd rotation is observed, inspect the loaded root level width/height and transformed child positions; a successful load would confirm a hidden accommodation.
+
+### Experiments
+
+#### E1: Force randomization and correlate live transforms with rectangular loads
+
+- Change: on the observer's isolated in-memory save, set `Randomize = true`; shorten only the diagnostic timeout to 180 frames; read the two private transform fields after each load. The experiment changed exactly five lines and no Web production code.
+- Prediction: H1 is confirmed if an odd rotation is selected and the original throws an out-of-bounds load exception or falls back to Hub. H2/H3 are rejected if odd rotations are actually selected. H4 is rejected if those loads do not complete with adjusted dimensions.
+- Result: **H1 confirmed; H2, H3, and H4 rejected.** Four independent odd-rotation samples were selected: `(flip=true, rotation=1)`, `(flip=true, rotation=3)`, `(flip=false, rotation=3)`, and another `(flip=false, rotation=3)`. Every sample immediately produced `System.IndexOutOfRangeException`. A subsequent `(flip=false, rotation=2)` sample loaded `7by3ref` successfully.
+- Cleanup: the five diagnostic observer changes were reverted after recording the result, then the clean observer was rebuilt and redeployed.
+
+### Root Cause
+
+The shipped game applies 90/270-degree coordinate transforms to rectangular levels without swapping their dimensions, so random orientation genuinely has an original-game load-failsafe bug on affected layouts; the Web port must reproduce the transform selection and coordinate rules, including the resulting parse failure boundary, rather than inventing an unobserved rectangular restriction.
+
+### Fix
+
+Implemented the original transform in pure `core/orientation.ts` with injectable randomness. `levelParser` now selects one non-identity orientation per non-Hub load, applies it to source Block/Wall/Floor/Ref coordinates, preserves each block's own `flipH`, and restricts selection to 0/180 degrees when source flip flags require it. Official and custom loads use the slot setting; changing it reloads the current non-Hub level, while Hub remains untouched. Parse failures follow the original failsafe back to Hub.
+
+Verification:
+
+- Seven focused tests cover all eight coordinate transforms, all seven selectable non-identity orientations, identity retry, Block/Ref flip restrictions, every transformed record type, Hub/custom behavior, mirrored movement, and the observed `7by3ref` failure boundary.
+- Full suite: 17 files and 122 tests passed. TypeScript checking and the production Vite build passed.
+- Browser menu check on `carry_adjust`: after one move, enabling the option immediately reloaded at move count zero and moved the player from `(6,5)` to transformed `(2,5)`; disabling it restored `(6,5)`.
+- Browser Hub check: toggling retained the same player and stayed in the Bonus menu, proving no reload.
+- Browser failsafe check: deterministic 90-degree `7by3ref` loading logged `RangeError: Floor coordinate (0, 6) is outside level 0` and returned to Hub.
+- Browser custom-level check: deterministic 90-degree loading placed its player at `(1,4)`; reloading with horizontal mirror placed it at `(4,1)` while retaining the same custom-level ID.
+- Independent visual audit: 90 degrees and mirrored 270 degrees rendered correctly at desktop `1280x720 @1x` and mobile `390x844 @2x`; boards stayed square, entities/floors aligned to the grid, and recursive contents remained clipped inside their boxes without console errors.

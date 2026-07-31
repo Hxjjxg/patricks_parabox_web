@@ -279,9 +279,18 @@ export class GameController {
   }
 
   loadLevel(name: string): void {
-    const source = getLevelSource(name);
-    const world = parseLevel(source, name);
-    this.activateWorld(name, world, null);
+    try {
+      const source = getLevelSource(name);
+      const world = parseLevel(source, name, {
+        randomOrientation: this.progression.randomize,
+      });
+      this.activateWorld(name, world, null);
+    } catch (error) {
+      console.error(`Exception when loading level "${name}"`, error);
+      if (name === "hub") throw error;
+      const hub = parseLevel(getLevelSource("hub"), "hub");
+      this.activateWorld("hub", hub, null);
+    }
   }
 
   private loadCustomLevel(id: string): boolean {
@@ -291,11 +300,14 @@ export class GameController {
       return false;
     }
     try {
-      const world = parseCustomLevel(entry.source);
+      const world = parseCustomLevel(entry.source, {
+        randomOrientation: this.progression.randomize,
+      });
       this.activateWorld(customLevelSceneName, world, entry.id);
       this.customLevels.markLoaded(entry.id);
       return true;
     } catch (error) {
+      this.loadLevel("hub");
       this.showCustomLevelError(error);
       return false;
     }
@@ -642,7 +654,9 @@ export class GameController {
     } else if (action.type === "bonus-changed") {
       const previousUnlock = this.progression.unlockAllPuzzles;
       this.progression.setUnlockAllPuzzles(action.settings.unlockAllPuzzles);
-      this.progression.setRandomize(action.settings.randomOrientation);
+      const randomizeChanged = this.progression.setRandomize(
+        action.settings.randomOrientation,
+      );
       this.progression.setRandomizeMusic(action.settings.randomMusic);
       this.persistProgression();
       if (previousUnlock !== this.progression.unlockAllPuzzles) {
@@ -659,6 +673,9 @@ export class GameController {
             this.sessionMenu.moveSelection(1);
           }
         }
+      }
+      if (randomizeChanged && this.currentLevelName !== "hub") {
+        this.reloadCurrentLevel();
       }
     } else if (action.type === "show-credits") {
       this.creditsFromPause = true;
@@ -785,6 +802,9 @@ export class GameController {
     const bonusChanged =
       unlockChanged || randomizeChanged || randomizeMusicChanged;
     if (bonusChanged) this.persistProgression();
+    if (randomizeChanged && this.currentLevelName !== "hub") {
+      this.reloadCurrentLevel();
+    }
   }
 
   private applySettingsRuntime(previous?: SettingsSnapshot): void {
