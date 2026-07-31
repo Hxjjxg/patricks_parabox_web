@@ -200,6 +200,9 @@ export class Floor {
   unlocked = false;
   won = false;
   hard = 0;
+  /** Mirrors the original Floor.AnimT used by Info and DemoEnd floors. */
+  animationT = 0;
+  readonly thumbnailAnimDeltaT = 1.75;
 
   constructor(
     id: number,
@@ -441,6 +444,29 @@ export class WorldModel {
       this.levelName !== "hub" &&
       this.buttonsSatisfied &&
       this.finishesSatisfied;
+  }
+
+  /**
+   * Advance the small presentation state attached to Info/DemoEnd floors.
+   * The original updates this independently from undo history: a player on
+   * the floor ramps the value up, while leaving it ramps the value down.
+   */
+  updateFloorAnimations(elapsedSeconds: number, paused = false): void {
+    const dt = Math.max(0, elapsedSeconds);
+    for (const floor of this.floors) {
+      if (floor.type !== FloorType.Info && floor.type !== FloorType.DemoEnd) {
+        continue;
+      }
+      if (paused) {
+        floor.animationT = -0.4;
+        continue;
+      }
+      const block = floor.outerLevel.getBlock(floor.x, floor.y);
+      const delta = floor.thumbnailAnimDeltaT * dt;
+      floor.animationT = block?.isPlayer
+        ? Math.min(1, floor.animationT + delta)
+        : Math.max(0, floor.animationT - delta);
+    }
   }
 
   levelIsInfZone(level: Level | null): boolean {

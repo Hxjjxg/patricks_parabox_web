@@ -1,5 +1,18 @@
 const englishStrings = new Map<string, string>([
   [
+    "DemoEnd_ThankYou",
+    "Thank you for playing the demo of Patrick's Parabox! :)",
+  ],
+  [
+    "DemoEnd_FullGame",
+    "The full game gradually reveals many more mechanics and recursive twists as you delve deeper into the system, and features over 350 hand-crafted puzzles which each have a new idea.",
+  ],
+  [
+    "DemoEnd_Follow",
+    "If you enjoyed the demo, the full game is available for purchase now!",
+  ],
+  ["DemoEnd_Store", "Steam store page"],
+  [
     "Tip_TheseAreTipsMenu",
     "These are some general\npuzzle-solving tips that I\nfind useful.",
   ],

@@ -344,3 +344,17 @@ Verification:
 - Browser checks confirmed both `static_focus_block` and
   `oldstyle_lock_two_doors` ignore right-click inspection, while normal levels
   keep the new inspect controls.
+
+## DemoEnd floor behavior
+
+- The original `Floor.UpdateAnimation` advances `Info`/`DemoEnd` `AnimT` by
+  `1.75 * dt` while a player occupies the floor, decays it when the player
+  leaves, and writes `-0.4` while paused. The Web `WorldModel` now keeps the
+  same non-undo presentation state.
+- `test_demo_end` exposes the original three English messages through the
+  localization table. The renderer fades them in over the original 0.65
+  seconds and draws a dedicated DemoEnd floor marker.
+- Escape on a DemoEnd floor is consumed as undo, matching `World.Update`
+  instead of opening the pause menu. Other floors retain normal pause behavior.
+- Pure regression coverage verifies animation ramp/decay, pause reset, text
+  keys, Escape routing, and the smooth fade curve.

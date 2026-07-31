@@ -7,6 +7,8 @@ import {
 } from "pixi.js";
 import type { Block, HsvColor, Level, WorldModel } from "../core/model";
 import { FloorType } from "../core/model";
+import { demoEndFade, demoEndText } from "../core/demoEnd";
+import { localizeEnglish } from "../core/localization";
 import type {
   SpecialModeName,
   SpecialModeSnapshot,
@@ -541,6 +543,7 @@ export class GameRenderer {
     const text = this.modeText;
     graphics.clear();
     text.visible = false;
+    text.alpha = 1;
     if (!uiState) return;
 
     text.style.fontSize = Math.max(18, Math.min(30, height * 0.035));
@@ -550,6 +553,27 @@ export class GameRenderer {
     if (uiState.mode === "playing") {
       const floor =
         player.outerLevel?.getFloor(player.x, player.y) ?? null;
+      if (floor?.type === FloorType.DemoEnd && floor.animationT > 0) {
+        const fade = demoEndFade(floor.animationT);
+        graphics.rect(0, 0, width, height).fill({
+          color: 0x000000,
+          alpha: fade * 0.5,
+        });
+        text.text = [
+          localizeEnglish(demoEndText.thankYou),
+          "",
+          "",
+          "",
+          "",
+          localizeEnglish(demoEndText.fullGame),
+          "",
+          localizeEnglish(demoEndText.follow),
+        ].join("\n");
+        text.style.wordWrapWidth = Math.min(width * 0.7, 760);
+        text.alpha = fade;
+        text.visible = true;
+        return;
+      }
       if (floor?.type !== FloorType.Info || !floor.info) return;
       const panelWidth = Math.min(width * 0.72, 760);
       const panelHeight = Math.min(150, height * 0.22);
@@ -811,6 +835,14 @@ export class GameRenderer {
     if (type === FloorType.Info) {
       graphics
         .circle(rect.x + rect.width / 2, rect.y + rect.height / 2, size * 0.28)
+        .stroke({ color: 0xffffff, width: Math.max(2, size * 0.05) });
+      return;
+    }
+
+    if (type === FloorType.DemoEnd) {
+      graphics
+        .circle(rect.x + rect.width / 2, rect.y + rect.height / 2, size * 0.28)
+        .fill({ color: 0x000000, alpha: 0.45 })
         .stroke({ color: 0xffffff, width: Math.max(2, size * 0.05) });
     }
   }

@@ -12,6 +12,7 @@ import {
   type Level,
   type WorldModel,
 } from "./core/model";
+import { escapeActionForFloor, isDemoEndFloor } from "./core/demoEnd";
 import {
   InspectionModel,
   type InspectionSnapshot,
@@ -55,6 +56,10 @@ export interface DebugApi {
     cameraFlipH: boolean;
     playtimeSeconds: number;
     infoText: string | null;
+    demoEnd: {
+      active: boolean;
+      progress: number;
+    };
     inspection: InspectionSnapshot;
     activeSaveSlot: number;
     saveSlots: ProgressSlotSummary[];
@@ -170,6 +175,12 @@ export class GameController {
             playerFloor?.type === FloorType.Info
               ? playerFloor.info
               : null,
+          demoEnd: {
+            active: isDemoEndFloor(playerFloor),
+            progress: isDemoEndFloor(playerFloor)
+              ? playerFloor?.animationT ?? 0
+              : 0,
+          },
           inspection: this.inspection.snapshot(),
           activeSaveSlot: this.progressSlots.activeSlot,
           saveSlots: this.progressSlots.summaries(officialPuzzleNames),
@@ -715,6 +726,13 @@ export class GameController {
       this.restart();
     } else if (key === "escape") {
       event.preventDefault();
+      const player = this.world.findPlayerBlock();
+      const playerFloor =
+        player.outerLevel?.getFloor(player.x, player.y) ?? null;
+      if (escapeActionForFloor(playerFloor) === "undo") {
+        this.undo();
+        return;
+      }
       this.resetInspection();
       this.refreshSessionSaveSlots();
       if (this.sessionMenu.openPause(this.currentLevelName === "hub")) {
@@ -798,6 +816,11 @@ export class GameController {
     if (this.runtimeMode() === "playing") {
       this.applyDirectionCommand(this.directionalInput.tick(elapsed));
     }
+
+    this.world.updateFloorAnimations(
+      elapsed,
+      this.runtimeMode() !== "playing",
+    );
 
     if (this.specialModes.active) {
       const modeBefore = this.specialModes.currentMode;
