@@ -29,6 +29,7 @@ import {
 } from "./core/progressSlots";
 import {
   SessionMenu,
+  sessionLinkUrls,
   type SessionMenuAction,
   type SessionMenuSnapshot,
 } from "./core/sessionMenu";
@@ -533,6 +534,12 @@ export class GameController {
     if (action.type === "show-credits") {
       this.creditsFromPause = true;
       this.creditsActive = true;
+    } else if (action.type === "open-link") {
+      window.open(
+        sessionLinkUrls[action.link],
+        "_blank",
+        "noopener,noreferrer",
+      );
     } else if (action.type === "leave-puzzle") {
       this.loadLevel("hub");
     } else if (action.type === "return-title") {

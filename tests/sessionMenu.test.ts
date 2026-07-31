@@ -1,5 +1,8 @@
 import { describe, expect, it } from "vitest";
-import { SessionMenu } from "../src/core/sessionMenu";
+import {
+  sessionLinkUrls,
+  SessionMenu,
+} from "../src/core/sessionMenu";
 
 const slots = [
   { label: "Slot 1 — 2/364", empty: false },
@@ -18,6 +21,17 @@ function openSaveMenu(menu: SessionMenu, inHub = false): void {
   }
   expect(menu.confirm()).toEqual({ type: "none" });
   expect(menu.currentMode).toBe("save-slots");
+}
+
+function selectOption(menu: SessionMenu, option: string): void {
+  let guard = 0;
+  while (
+    menu.snapshot().options[menu.snapshot().selectedIndex] !== option
+  ) {
+    menu.moveSelection(1);
+    guard++;
+    if (guard > 32) throw new Error(`Could not select ${option}`);
+  }
 }
 
 describe("title, pause, and save-file flow", () => {
@@ -75,10 +89,18 @@ describe("title, pause, and save-file flow", () => {
     expect(menu.snapshot()).toMatchObject({
       mode: "extras",
       title: "Extras",
-      options: ["Tips", "Credits", "Back"],
+      options: [
+        "Custom levels",
+        "Tips",
+        "Credits",
+        "Links",
+        "Recurse",
+        "Back",
+      ],
       selectedIndex: 0,
     });
 
+    menu.moveSelection(1);
     expect(menu.confirm()).toEqual({ type: "none" });
     expect(menu.snapshot()).toMatchObject({
       mode: "tips",
@@ -113,7 +135,7 @@ describe("title, pause, and save-file flow", () => {
     expect(menu.confirm()).toEqual({ type: "none" });
     expect(menu.snapshot()).toMatchObject({
       mode: "extras",
-      selectedIndex: 0,
+      selectedIndex: 1,
     });
     expect(menu.cancel()).toBe(true);
     expect(menu.snapshot()).toMatchObject({
@@ -128,13 +150,100 @@ describe("title, pause, and save-file flow", () => {
     menu.moveSelection(1);
     menu.moveSelection(1);
     menu.confirm();
-    menu.moveSelection(1);
+    selectOption(menu, "Credits");
 
     expect(menu.confirm()).toEqual({ type: "show-credits" });
     expect(menu.snapshot()).toMatchObject({
       mode: "extras",
-      selectedIndex: 1,
+      selectedIndex: 2,
     });
+  });
+
+  it("matches the original Links branch and keeps the menu open after opening a URL", () => {
+    const menu = new SessionMenu();
+    menu.openPause(false);
+    menu.moveSelection(1);
+    menu.moveSelection(1);
+    menu.confirm();
+    selectOption(menu, "Links");
+    expect(menu.confirm()).toEqual({ type: "none" });
+
+    expect(menu.snapshot()).toMatchObject({
+      mode: "links",
+      options: [
+        "Game website",
+        "Dev website",
+        "Dev mailing list",
+        "Composer website",
+        "Buy soundtrack",
+        "itch.io forum",
+        "Steam forum",
+        "Back",
+      ],
+    });
+    expect(menu.confirm()).toEqual({
+      type: "open-link",
+      link: "game-website",
+    });
+    expect(sessionLinkUrls["game-website"]).toBe(
+      "https://www.patricksparabox.com",
+    );
+
+    for (let index = 0; index < 7; index++) menu.moveSelection(1);
+    expect(menu.confirm()).toEqual({ type: "none" });
+    expect(menu.snapshot()).toMatchObject({
+      mode: "extras",
+      selectedIndex: 3,
+    });
+  });
+
+  it("opens the web equivalent of the empty custom-level directory", () => {
+    const menu = new SessionMenu();
+    menu.openPause(false);
+    menu.moveSelection(1);
+    menu.moveSelection(1);
+    menu.confirm();
+
+    expect(menu.confirm()).toEqual({ type: "none" });
+    expect(menu.snapshot()).toMatchObject({
+      mode: "custom-levels",
+      options: ["Custom levels website", "Back"],
+    });
+    expect(menu.confirm()).toEqual({
+      type: "open-link",
+      link: "custom-levels",
+    });
+  });
+
+  it("adds a recursive pause layer and returns to Extras on Back or Escape", () => {
+    const menu = new SessionMenu();
+    menu.openPause(false);
+    menu.moveSelection(1);
+    menu.moveSelection(1);
+    menu.confirm();
+    selectOption(menu, "Recurse");
+
+    expect(menu.confirm()).toEqual({ type: "none" });
+    expect(menu.snapshot()).toMatchObject({
+      mode: "paused",
+      recurseDepth: 1,
+      options: ["Resume", "Leave puzzle", "Extras", "Save slot", "Back"],
+    });
+
+    menu.moveSelection(1);
+    menu.moveSelection(1);
+    menu.moveSelection(1);
+    menu.moveSelection(1);
+    expect(menu.confirm()).toEqual({ type: "none" });
+    expect(menu.snapshot()).toMatchObject({
+      mode: "extras",
+      selectedIndex: 4,
+      recurseDepth: 0,
+    });
+
+    expect(menu.cancel()).toBe(true);
+    expect(menu.cancel()).toBe(true);
+    expect(menu.snapshot().mode).toBe("none");
   });
 
   it("switches to a different slot but returns to pause for the active slot", () => {

@@ -428,3 +428,18 @@ Touch swipes now use the shared `DirectionalInput` stack under a synthetic
 loop repeats at the configured delay while the pointer remains down, and
 pointer up/cancel releases the key. The pure `TouchSwipeInput` tests cover the
 threshold, axis selection, pointer ownership, tap classification, and cleanup.
+
+## Pause-menu Extras hierarchy
+
+- The pure session menu now follows the original Extras order:
+  `Custom levels`, `Tips`, `Credits`, `Links`, `Recurse`, `Back`.
+- Links retain the original seven destinations and URLs. Opening one leaves
+  the Links menu active, matching `Application.OpenURL` behavior.
+- With no local custom-level directory, the web menu exposes the original
+  website entry and keeps it as an explicit link action.
+- `Recurse` adds a nested pause layer. Its `Back` item and Escape path both
+  return to Extras with the selection on `Recurse`, while the outermost pause
+  Escape still resumes the game.
+- Regression tests cover link actions, custom-level website fallback, recurse
+  depth, and every return path. External URL launching remains in the
+  controller; filesystem custom-level loading is a separate module.

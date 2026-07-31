@@ -6,10 +6,22 @@ export type SessionMenuMode =
   | "paused"
   | "extras"
   | "tips"
+  | "links"
+  | "custom-levels"
   | "save-slots"
   | "erase-choose"
   | "erase-confirm"
   | "erase-confirm-final";
+
+export type SessionLink =
+  | "game-website"
+  | "dev-website"
+  | "dev-mailing-list"
+  | "composer-website"
+  | "buy-soundtrack"
+  | "itch-forum"
+  | "steam-forum"
+  | "custom-levels";
 
 export type SessionMenuAction =
   | { readonly type: "none" }
@@ -17,6 +29,7 @@ export type SessionMenuAction =
   | { readonly type: "leave-puzzle" }
   | { readonly type: "return-title" }
   | { readonly type: "show-credits" }
+  | { readonly type: "open-link"; readonly link: SessionLink }
   | { readonly type: "switch-slot"; readonly slot: number }
   | { readonly type: "erase-slot"; readonly slot: number };
 
@@ -30,6 +43,7 @@ export interface SessionMenuSnapshot {
   readonly title: string;
   readonly options: readonly string[];
   readonly selectedIndex: number;
+  readonly recurseDepth: number;
   readonly subtitle: string;
   readonly tip: {
     readonly index: number;
@@ -53,8 +67,47 @@ const hubPauseOptions = [
   "Extras",
   "Save slot",
 ] as const;
-const extrasOptions = ["Tips", "Credits", "Back"] as const;
+const extrasOptions = [
+  "Custom levels",
+  "Tips",
+  "Credits",
+  "Links",
+  "Recurse",
+  "Back",
+] as const;
 const tipsOptions = ["Tip", "Back"] as const;
+const linksOptions = [
+  "Game website",
+  "Dev website",
+  "Dev mailing list",
+  "Composer website",
+  "Buy soundtrack",
+  "itch.io forum",
+  "Steam forum",
+  "Back",
+] as const;
+const customLevelsOptions = ["Custom levels website", "Back"] as const;
+const linkByIndex: readonly SessionLink[] = [
+  "game-website",
+  "dev-website",
+  "dev-mailing-list",
+  "composer-website",
+  "buy-soundtrack",
+  "itch-forum",
+  "steam-forum",
+];
+export const sessionLinkUrls: Readonly<Record<SessionLink, string>> = {
+  "game-website": "https://www.patricksparabox.com",
+  "dev-website": "https://cwpat.me/about",
+  "dev-mailing-list":
+    "https://www.patricksparabox.com#mc_embed_signup_scroll",
+  "composer-website": "https://www.ghoulnoise.com/",
+  "buy-soundtrack":
+    "https://ghoulnoise.bandcamp.com/album/patricks-parabox-original-soundtrack",
+  "itch-forum": "https://patricktraynor.itch.io/patricks-parabox/community",
+  "steam-forum": "https://steamcommunity.com/app/1260520/discussions/",
+  "custom-levels": "https://www.patricksparabox.com/custom-levels",
+};
 const tipKeys = [
   "Tip_Undo",
   "Tip_WorkBackwards",
@@ -78,6 +131,7 @@ export class SessionMenu {
   private activeSlot = 0;
   private eraseCandidate: number | null = null;
   private tipIndex = 0;
+  private recurseDepth = 0;
 
   get active(): boolean {
     return this.mode !== "none";
@@ -94,6 +148,7 @@ export class SessionMenu {
     this.pauseWasInHub = false;
     this.eraseCandidate = null;
     this.tipIndex = 0;
+    this.recurseDepth = 0;
   }
 
   configureSaveSlots(
@@ -115,6 +170,7 @@ export class SessionMenu {
     this.selectedIndex = 0;
     this.pauseWasInHub = true;
     this.eraseCandidate = null;
+    this.recurseDepth = 0;
   }
 
   dismissTitle(): boolean {
@@ -167,6 +223,11 @@ export class SessionMenu {
 
   cancel(): boolean {
     if (this.mode === "paused") {
+      if (this.recurseDepth > 0) {
+        this.recurseDepth--;
+        this.showExtras("Recurse");
+        return true;
+      }
       this.reset();
       return true;
     }
@@ -176,6 +237,14 @@ export class SessionMenu {
     }
     if (this.mode === "tips") {
       this.showExtras("Tips");
+      return true;
+    }
+    if (this.mode === "links") {
+      this.showExtras("Links");
+      return true;
+    }
+    if (this.mode === "custom-levels") {
+      this.showExtras("Custom levels");
       return true;
     }
     if (this.mode === "save-slots") {
@@ -200,6 +269,14 @@ export class SessionMenu {
     }
 
     if (this.mode === "paused") {
+      if (
+        this.recurseDepth > 0 &&
+        this.options[this.selectedIndex] === "Back"
+      ) {
+        this.recurseDepth--;
+        this.showExtras("Recurse");
+        return noAction;
+      }
       if (this.selectedIndex === 0) {
         this.reset();
         return { type: "resume" };
@@ -221,11 +298,24 @@ export class SessionMenu {
 
     if (this.mode === "extras") {
       if (this.selectedIndex === 0) {
-        this.showTips();
+        this.showCustomLevels();
         return noAction;
       }
       if (this.selectedIndex === 1) {
+        this.showTips();
+        return noAction;
+      }
+      if (this.selectedIndex === 2) {
         return { type: "show-credits" };
+      }
+      if (this.selectedIndex === 3) {
+        this.showLinks();
+        return noAction;
+      }
+      if (this.selectedIndex === 4) {
+        this.recurseDepth++;
+        this.showPause();
+        return noAction;
       }
       this.showPause("Extras");
       return noAction;
@@ -235,6 +325,21 @@ export class SessionMenu {
       if (this.selectedIndex === 1) {
         this.showExtras("Tips");
       }
+      return noAction;
+    }
+
+    if (this.mode === "links") {
+      const link = linkByIndex[this.selectedIndex];
+      if (link) return { type: "open-link", link };
+      this.showExtras("Links");
+      return noAction;
+    }
+
+    if (this.mode === "custom-levels") {
+      if (this.selectedIndex === 0) {
+        return { type: "open-link", link: "custom-levels" };
+      }
+      this.showExtras("Custom levels");
       return noAction;
     }
 
@@ -295,6 +400,7 @@ export class SessionMenu {
       title: this.titleForMode(),
       options: this.options,
       selectedIndex: this.selectedIndex,
+      recurseDepth: this.recurseDepth,
       subtitle:
         this.mode === "tips"
           ? localizeEnglish("Tip_TheseAreTipsMenu")
@@ -316,9 +422,13 @@ export class SessionMenu {
 
   private showPause(selectedOption?: string): void {
     this.mode = "paused";
-    this.options = this.pauseWasInHub
+    const baseOptions = this.pauseWasInHub
       ? hubPauseOptions
       : puzzlePauseOptions;
+    this.options =
+      this.recurseDepth > 0
+        ? [...baseOptions, "Back"]
+        : baseOptions;
     this.selectedIndex = selectedOption
       ? Math.max(0, this.options.findIndex((option) => option === selectedOption))
       : 0;
@@ -339,6 +449,20 @@ export class SessionMenu {
     this.options = tipsOptions;
     this.selectedIndex = 0;
     this.tipIndex = 0;
+    this.eraseCandidate = null;
+  }
+
+  private showLinks(): void {
+    this.mode = "links";
+    this.options = linksOptions;
+    this.selectedIndex = 0;
+    this.eraseCandidate = null;
+  }
+
+  private showCustomLevels(): void {
+    this.mode = "custom-levels";
+    this.options = customLevelsOptions;
+    this.selectedIndex = 0;
     this.eraseCandidate = null;
   }
 
@@ -374,6 +498,8 @@ export class SessionMenu {
     if (this.mode === "paused") return "Menu";
     if (this.mode === "extras") return "Extras";
     if (this.mode === "tips") return "Tips";
+    if (this.mode === "links") return "Links";
+    if (this.mode === "custom-levels") return "Custom levels";
     if (this.mode === "save-slots") return "Save files";
     if (this.mode === "erase-choose") return "Delete a save file";
     if (this.mode === "erase-confirm") return "Delete this file?";
