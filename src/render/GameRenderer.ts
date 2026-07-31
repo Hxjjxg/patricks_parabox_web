@@ -35,6 +35,11 @@ export interface RendererUiState {
     readonly areaName: string;
   } | null;
   readonly session: SessionMenuSnapshot;
+  readonly preferences: {
+    readonly grid: boolean;
+    readonly leftHanded: boolean;
+    readonly disableParticles: boolean;
+  };
 }
 
 interface Rect {
@@ -458,6 +463,7 @@ export class GameRenderer {
   }
 
   private drawVoid(graphics: Graphics, width: number, height: number): void {
+    if (this.uiState?.preferences.disableParticles) return;
     const minimum = Math.min(width, height);
     for (const square of this.voidSquares) {
       const drift = (this.elapsed * square.speed + square.phase) % 1;
@@ -499,7 +505,10 @@ export class GameRenderer {
     const spacing = controlUnit * 1.5;
     const firstActionY = focusY - spacing * 0.4;
     const secondActionY = firstActionY + spacing * 0.8;
-    const xCenter = focusX - boardWidth / 2 - controlUnit * 2;
+    const controlsOnRight = this.uiState?.preferences.leftHanded ?? false;
+    const xCenter = controlsOnRight
+      ? focusX + boardWidth / 2 + controlUnit * 2
+      : focusX - boardWidth / 2 - controlUnit * 2;
     this.controls.position.set(xCenter, 0);
     const g = this.controlGraphics;
     g.clear();
@@ -640,6 +649,7 @@ export class GameRenderer {
         color: 0x000000,
         alpha: 0.8,
       });
+      text.style.wordWrapWidth = Math.min(width * 0.92, 760);
       const tip = uiState.session.tip;
       text.text = tip
         ? [
@@ -660,7 +670,11 @@ export class GameRenderer {
             uiState.session.title,
             "",
             ...uiState.session.options.map((option, index) =>
-              `${index === uiState.session.selectedIndex ? "›" : " "} ${option}`,
+              `${index === uiState.session.selectedIndex ? "›" : " "} ${option}${
+                uiState.session.values[index]
+                  ? `  ${uiState.session.values[index]}`
+                  : ""
+              }`,
             ),
           ].join("\n");
       text.visible = true;
@@ -773,6 +787,22 @@ export class GameRenderer {
         nextAncestors,
         flipH,
       );
+    }
+
+    if (
+      this.uiState?.preferences.grid &&
+      depth <= 3 &&
+      Math.min(rect.width / level.width, rect.height / level.height) >= 6
+    ) {
+      for (let x = 1; x < level.width; x++) {
+        const lineX = rect.x + (rect.width * x) / level.width;
+        graphics.moveTo(lineX, rect.y).lineTo(lineX, rect.y + rect.height);
+      }
+      for (let y = 1; y < level.height; y++) {
+        const lineY = rect.y + (rect.height * y) / level.height;
+        graphics.moveTo(rect.x, lineY).lineTo(rect.x + rect.width, lineY);
+      }
+      graphics.stroke({ color: 0xffffff, alpha: 0.16, width: 1 });
     }
   }
 

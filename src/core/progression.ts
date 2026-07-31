@@ -25,6 +25,10 @@ export interface ProgressSnapshot {
   readonly recentArea: string | null;
   readonly nexusUnlocked: boolean;
   readonly playtimeSeconds: number;
+  /** Bonus flags are save-slot scoped in the original game. */
+  readonly unlockAllPuzzles?: boolean;
+  readonly randomize?: boolean;
+  readonly randomizeMusic?: boolean;
 }
 
 function parsePuzzleMetadata(source: string): Map<string, PuzzleMetadata> {
@@ -162,6 +166,9 @@ export class ProgressionModel {
   recentArea: string | null;
   private playtimeSecondsState: number;
   private nexusUnlockedState: boolean;
+  private unlockAllPuzzlesState: boolean;
+  private randomizeState: boolean;
+  private randomizeMusicState: boolean;
   private hubReturnPosition: {
     areaName: string;
     x: number;
@@ -186,6 +193,9 @@ export class ProgressionModel {
     this.nexusUnlockedState =
       snapshot?.nexusUnlocked ??
       (snapshot?.wonLevels?.includes("iii") ?? false);
+    this.unlockAllPuzzlesState = snapshot?.unlockAllPuzzles ?? false;
+    this.randomizeState = snapshot?.randomize ?? false;
+    this.randomizeMusicState = snapshot?.randomizeMusic ?? false;
   }
 
   get nexusUnlocked(): boolean {
@@ -194,6 +204,18 @@ export class ProgressionModel {
 
   get playtimeSeconds(): number {
     return this.playtimeSecondsState;
+  }
+
+  get unlockAllPuzzles(): boolean {
+    return this.unlockAllPuzzlesState;
+  }
+
+  get randomize(): boolean {
+    return this.randomizeState;
+  }
+
+  get randomizeMusic(): boolean {
+    return this.randomizeMusicState;
   }
 
   get allWon(): boolean {
@@ -211,6 +233,9 @@ export class ProgressionModel {
       recentArea: this.recentArea,
       nexusUnlocked: this.nexusUnlocked,
       playtimeSeconds: this.playtimeSeconds,
+      ...(this.unlockAllPuzzlesState ? { unlockAllPuzzles: true } : {}),
+      ...(this.randomizeState ? { randomize: true } : {}),
+      ...(this.randomizeMusicState ? { randomizeMusic: true } : {}),
     };
   }
 
@@ -222,6 +247,39 @@ export class ProgressionModel {
   unlockNexus(): boolean {
     if (this.nexusUnlockedState) return false;
     this.nexusUnlockedState = true;
+    return true;
+  }
+
+  toggleUnlockAllPuzzles(): boolean {
+    this.unlockAllPuzzlesState = !this.unlockAllPuzzlesState;
+    return this.unlockAllPuzzlesState;
+  }
+
+  setUnlockAllPuzzles(enabled: boolean): boolean {
+    if (this.unlockAllPuzzlesState === enabled) return false;
+    this.unlockAllPuzzlesState = enabled;
+    return true;
+  }
+
+  toggleRandomize(): boolean {
+    this.randomizeState = !this.randomizeState;
+    return this.randomizeState;
+  }
+
+  setRandomize(enabled: boolean): boolean {
+    if (this.randomizeState === enabled) return false;
+    this.randomizeState = enabled;
+    return true;
+  }
+
+  toggleRandomizeMusic(): boolean {
+    this.randomizeMusicState = !this.randomizeMusicState;
+    return this.randomizeMusicState;
+  }
+
+  setRandomizeMusic(enabled: boolean): boolean {
+    if (this.randomizeMusicState === enabled) return false;
+    this.randomizeMusicState = enabled;
     return true;
   }
 
@@ -383,9 +441,10 @@ export class ProgressionModel {
     if (!level) return false;
     if (unlockerScene === "*clear") return this.nexusUnlocked;
     if (unlockerScene === "*clear_or_unlock_all") {
-      return this.nexusUnlocked;
+      return this.nexusUnlocked || this.unlockAllPuzzlesState;
     }
     if (unlockerScene === "*all") return this.allWon;
+    if (this.unlockAllPuzzlesState) return true;
 
     let requiredCoreWins = 0;
     let areaWins = 0;
@@ -403,6 +462,7 @@ export class ProgressionModel {
   }
 
   private portalUnlocked(floor: Floor): boolean {
+    if (this.unlockAllPuzzlesState) return true;
     if (floor.won) return true;
     const incoming = incomingLinks.get(floor.sceneName) ?? [];
     if (incoming[0] && this.wonLevels.has(incoming[0].from)) return true;

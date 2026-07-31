@@ -75,6 +75,9 @@ function normalizeSnapshot(value: unknown): ProgressSnapshot | null {
       Number.isFinite(rawPlaytime) && rawPlaytime > 0
         ? rawPlaytime
         : 0,
+    ...(value.unlockAllPuzzles === true ? { unlockAllPuzzles: true } : {}),
+    ...(value.randomize === true ? { randomize: true } : {}),
+    ...(value.randomizeMusic === true ? { randomizeMusic: true } : {}),
   };
 }
 

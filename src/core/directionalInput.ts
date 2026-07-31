@@ -20,15 +20,23 @@ function directionId(direction: DirectionCommand): string {
  * immediately; sustained input repeats at the configured move delay.
  */
 export class DirectionalInput {
-  private readonly moveDelaySeconds: number;
+  private moveDelaySeconds: number;
   private readonly physicalKeys = new Map<string, string>();
   private readonly directions = new Map<string, HeldDirection>();
   private readonly directionOrder: string[] = [];
   private repeatElapsed = 0;
 
   constructor(moveDelayMilliseconds = 70) {
+    this.moveDelaySeconds = 0;
+    this.setMoveDelayMilliseconds(moveDelayMilliseconds);
+  }
+
+  setMoveDelayMilliseconds(moveDelayMilliseconds: number): void {
     this.moveDelaySeconds =
-      Math.max(0, moveDelayMilliseconds) / 1000;
+      moveDelayMilliseconds > 500
+        ? Number.POSITIVE_INFINITY
+        : Math.max(0, moveDelayMilliseconds) / 1000;
+    this.repeatElapsed = 0;
   }
 
   reset(): void {

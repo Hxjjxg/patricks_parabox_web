@@ -228,6 +228,33 @@ describe("hub progression and portals", () => {
     expect(progress.serialize().nexusUnlocked).toBe(true);
   });
 
+  it("persists bonus flags and unlocks every Hub puzzle without marking wins", () => {
+    const progress = new ProgressionModel({
+      unlockAllPuzzles: true,
+      randomize: true,
+      randomizeMusic: true,
+    });
+    const hub = parseLevel(hubSource, "hub");
+    progress.applyToHub(hub);
+
+    expect(
+      hub.floors
+        .filter((floor) => floor.type === FloorType.LevelPortal)
+        .every((floor) => floor.unlocked),
+    ).toBe(true);
+    expect(progress.wonLevels.size).toBe(0);
+    expect(progress.serialize()).toMatchObject({
+      unlockAllPuzzles: true,
+      randomize: true,
+      randomizeMusic: true,
+    });
+
+    expect(progress.setUnlockAllPuzzles(false)).toBe(true);
+    expect(progress.setRandomize(false)).toBe(true);
+    expect(progress.setRandomizeMusic(false)).toBe(true);
+    expect(progress.serialize()).not.toHaveProperty("unlockAllPuzzles");
+  });
+
   it("keeps the Hub ending locked until the final iii portal is won", () => {
     const hub = parseLevel(hubSource, "hub");
     const progress = new ProgressionModel();

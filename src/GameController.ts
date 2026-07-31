@@ -33,6 +33,7 @@ import {
   type SessionMenuAction,
   type SessionMenuSnapshot,
 } from "./core/sessionMenu";
+import { SettingsModel, type SettingsSnapshot } from "./core/settings";
 import {
   actionFloorEffect,
   SpecialModes,
@@ -66,6 +67,7 @@ export interface DebugApi {
     inspection: InspectionSnapshot;
     activeSaveSlot: number;
     saveSlots: ProgressSlotSummary[];
+    settings: SettingsSnapshot;
     session: SessionMenuSnapshot;
     player: {
       id: number;
@@ -101,6 +103,7 @@ interface FastTravelSession {
 export class GameController {
   private readonly renderer: GameRenderer;
   private readonly progressSlots: ProgressSlotStore;
+  private readonly settings: SettingsModel;
   private progression: ProgressionModel;
   private world!: WorldModel;
   private movement!: MovementEngine;
@@ -115,7 +118,7 @@ export class GameController {
   private creditsFromPause = false;
   private readonly specialModes = new SpecialModes();
   private readonly sessionMenu = new SessionMenu();
-  private readonly directionalInput = new DirectionalInput(70);
+  private readonly directionalInput: DirectionalInput;
   private readonly touchInput = new TouchSwipeInput();
   private readonly heldKeys = new Set<string>();
   private previousFrameTime: number | null = null;
@@ -125,9 +128,14 @@ export class GameController {
   constructor(renderer: GameRenderer) {
     this.renderer = renderer;
     this.progressSlots = new ProgressSlotStore(window.localStorage);
+    this.settings = new SettingsModel(window.localStorage);
+    this.directionalInput = new DirectionalInput(
+      this.settings.snapshot().moveDelay,
+    );
     this.progression = new ProgressionModel(
       this.progressSlots.activeSnapshot() ?? undefined,
     );
+    this.refreshSessionSettings();
     this.devPanel = this.createDevPanel();
     this.stateOutput = this.devPanel.querySelector("[data-state]") as HTMLElement;
     this.levelSelect = this.devPanel.querySelector("select") as HTMLSelectElement;
@@ -203,6 +211,7 @@ export class GameController {
           inspection: this.inspection.snapshot(),
           activeSaveSlot: this.progressSlots.activeSlot,
           saveSlots: this.progressSlots.summaries(officialPuzzleNames),
+          settings: this.settings.snapshot(),
           session: this.sessionMenu.snapshot(),
           player: {
             id: player.id,
@@ -230,7 +239,11 @@ export class GameController {
 
   loadLevel(name: string): void {
     this.sessionMenu.reset();
+    this.refreshSessionSettings();
     this.directionalInput.reset();
+    this.directionalInput.setMoveDelayMilliseconds(
+      this.settings.snapshot().moveDelay,
+    );
     this.touchInput.reset();
     this.fastTravelSession = null;
     this.creditsActive = false;
@@ -531,7 +544,33 @@ export class GameController {
 
   private applySessionMenuAction(action: SessionMenuAction): void {
     if (action.type === "none") return;
-    if (action.type === "show-credits") {
+    if (action.type === "settings-changed") {
+      const previousSettings = this.settings.snapshot();
+      if (this.settings.replace({ version: 1, ...action.settings })) {
+        this.applySettingsRuntime(previousSettings);
+      }
+    } else if (action.type === "bonus-changed") {
+      const previousUnlock = this.progression.unlockAllPuzzles;
+      this.progression.setUnlockAllPuzzles(action.settings.unlockAllPuzzles);
+      this.progression.setRandomize(action.settings.randomOrientation);
+      this.progression.setRandomizeMusic(action.settings.randomMusic);
+      this.persistProgression();
+      if (previousUnlock !== this.progression.unlockAllPuzzles) {
+        if (this.currentLevelName === "hub") {
+          this.loadLevel("hub");
+          this.refreshSessionSaveSlots();
+          this.refreshSessionSettings();
+          this.sessionMenu.openPause(true);
+          this.sessionMenu.openSettings();
+          const unlockIndex = this.sessionMenu
+            .snapshot()
+            .options.indexOf("Unlock all puzzles");
+          for (let index = 0; index < unlockIndex; index++) {
+            this.sessionMenu.moveSelection(1);
+          }
+        }
+      }
+    } else if (action.type === "show-credits") {
       this.creditsFromPause = true;
       this.creditsActive = true;
     } else if (action.type === "open-link") {
@@ -568,6 +607,7 @@ export class GameController {
         this.refreshSessionSaveSlots();
       }
     }
+    this.refreshSessionSettings();
     this.heldKeys.clear();
     this.directionalInput.reset();
     this.updateStateOutput();
@@ -598,6 +638,87 @@ export class GameController {
   private persistProgression(): void {
     this.progressSlots.saveActive(this.progression.serialize());
     this.playtimeSinceSave = 0;
+  }
+
+  private refreshSessionSettings(): void {
+    const settings = this.settings.snapshot();
+    this.sessionMenu.configureSettings(
+      {
+        musicVolume: settings.musicVolume,
+        soundVolume: settings.soundVolume,
+        grid: settings.grid,
+        leftHanded: settings.leftHanded,
+        enterSpeedIndex: settings.enterSpeedIndex,
+        moveDelay: settings.moveDelay,
+        allowSkippingAnimation: settings.allowSkippingAnimation,
+        instantZoom: settings.instantZoom,
+        disableParticles: settings.disableParticles,
+        fullscreen: settings.fullscreen,
+        vsync: settings.vsync,
+        language: settings.language,
+      },
+      {
+        randomOrientation: this.progression.randomize,
+        randomMusic: this.progression.randomizeMusic,
+        unlockAllPuzzles: this.progression.unlockAllPuzzles,
+      },
+    );
+  }
+
+  private commitSessionMenuState(): void {
+    const previousSettings = this.settings.snapshot();
+    const menuSettings = this.sessionMenu.settingsState();
+    if (this.settings.replace({ version: 1, ...menuSettings })) {
+      this.applySettingsRuntime(previousSettings);
+    }
+
+    const menuBonus = this.sessionMenu.bonusState();
+    const unlockChanged = this.progression.setUnlockAllPuzzles(
+      menuBonus.unlockAllPuzzles,
+    );
+    const randomizeChanged = this.progression.setRandomize(
+      menuBonus.randomOrientation,
+    );
+    const randomizeMusicChanged = this.progression.setRandomizeMusic(
+      menuBonus.randomMusic,
+    );
+    const bonusChanged =
+      unlockChanged || randomizeChanged || randomizeMusicChanged;
+    if (bonusChanged) this.persistProgression();
+  }
+
+  private applySettingsRuntime(previous?: SettingsSnapshot): void {
+    const settings = this.settings.snapshot();
+    this.directionalInput.setMoveDelayMilliseconds(settings.moveDelay);
+    if (previous && previous.fullscreen !== settings.fullscreen) {
+      this.applyFullscreenSetting(settings.fullscreen);
+    }
+    this.refreshSessionSettings();
+  }
+
+  private applyFullscreenSetting(fullscreen: boolean): void {
+    if (fullscreen) {
+      if (document.fullscreenElement || !document.fullscreenEnabled) {
+        if (!document.fullscreenEnabled) {
+          this.settings.setFullscreen(false);
+          this.refreshSessionSettings();
+        }
+        return;
+      }
+      void document.documentElement.requestFullscreen().catch(() => {
+        this.settings.setFullscreen(false);
+        this.refreshSessionSettings();
+        this.syncRendererUi();
+      });
+      return;
+    }
+    if (document.fullscreenElement) {
+      void document.exitFullscreen().catch(() => {
+        this.settings.setFullscreen(true);
+        this.refreshSessionSettings();
+        this.syncRendererUi();
+      });
+    }
   }
 
   private refreshSessionSaveSlots(): void {
@@ -708,6 +829,7 @@ export class GameController {
       }
       if (handled) {
         event.preventDefault();
+        this.commitSessionMenuState();
         this.updateStateOutput();
         this.syncRendererUi();
       }
@@ -761,6 +883,7 @@ export class GameController {
       }
       this.resetInspection();
       this.refreshSessionSaveSlots();
+      this.refreshSessionSettings();
       if (this.sessionMenu.openPause(this.currentLevelName === "hub")) {
         this.directionalInput.reset();
         this.heldKeys.clear();
@@ -1066,6 +1189,11 @@ export class GameController {
       special: this.specialModes.snapshot(),
       fastTravel,
       session: this.sessionMenu.snapshot(),
+      preferences: {
+        grid: this.settings.snapshot().grid,
+        leftHanded: this.settings.snapshot().leftHanded,
+        disableParticles: this.settings.snapshot().disableParticles,
+      },
     });
   }
 

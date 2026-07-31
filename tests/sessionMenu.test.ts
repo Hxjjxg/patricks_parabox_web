@@ -54,6 +54,7 @@ describe("title, pause, and save-file flow", () => {
     expect(menu.snapshot().options).toEqual([
       "Resume",
       "Leave puzzle",
+      "Settings",
       "Extras",
       "Save slot",
     ]);
@@ -68,9 +69,12 @@ describe("title, pause, and save-file flow", () => {
     expect(menu.snapshot().options).toEqual([
       "Resume",
       "Return to title",
+      "Settings",
       "Extras",
       "Save slot",
     ]);
+    menu.moveSelection(-1);
+    expect(menu.snapshot().selectedIndex).toBe(4);
     menu.moveSelection(-1);
     expect(menu.snapshot().selectedIndex).toBe(3);
     menu.moveSelection(-1);
@@ -83,8 +87,7 @@ describe("title, pause, and save-file flow", () => {
   it("opens the original Extras -> Tips flow and clamps tip navigation", () => {
     const menu = new SessionMenu();
     menu.openPause(false);
-    menu.moveSelection(1);
-    menu.moveSelection(1);
+    selectOption(menu, "Extras");
     expect(menu.confirm()).toEqual({ type: "none" });
     expect(menu.snapshot()).toMatchObject({
       mode: "extras",
@@ -140,15 +143,14 @@ describe("title, pause, and save-file flow", () => {
     expect(menu.cancel()).toBe(true);
     expect(menu.snapshot()).toMatchObject({
       mode: "paused",
-      selectedIndex: 2,
+      selectedIndex: 3,
     });
   });
 
   it("opens pause credits without discarding the Extras menu state", () => {
     const menu = new SessionMenu();
     menu.openPause(true);
-    menu.moveSelection(1);
-    menu.moveSelection(1);
+    selectOption(menu, "Extras");
     menu.confirm();
     selectOption(menu, "Credits");
 
@@ -162,8 +164,7 @@ describe("title, pause, and save-file flow", () => {
   it("matches the original Links branch and keeps the menu open after opening a URL", () => {
     const menu = new SessionMenu();
     menu.openPause(false);
-    menu.moveSelection(1);
-    menu.moveSelection(1);
+    selectOption(menu, "Extras");
     menu.confirm();
     selectOption(menu, "Links");
     expect(menu.confirm()).toEqual({ type: "none" });
@@ -200,8 +201,7 @@ describe("title, pause, and save-file flow", () => {
   it("opens the web equivalent of the empty custom-level directory", () => {
     const menu = new SessionMenu();
     menu.openPause(false);
-    menu.moveSelection(1);
-    menu.moveSelection(1);
+    selectOption(menu, "Extras");
     menu.confirm();
 
     expect(menu.confirm()).toEqual({ type: "none" });
@@ -218,8 +218,7 @@ describe("title, pause, and save-file flow", () => {
   it("adds a recursive pause layer and returns to Extras on Back or Escape", () => {
     const menu = new SessionMenu();
     menu.openPause(false);
-    menu.moveSelection(1);
-    menu.moveSelection(1);
+    selectOption(menu, "Extras");
     menu.confirm();
     selectOption(menu, "Recurse");
 
@@ -227,13 +226,17 @@ describe("title, pause, and save-file flow", () => {
     expect(menu.snapshot()).toMatchObject({
       mode: "paused",
       recurseDepth: 1,
-      options: ["Resume", "Leave puzzle", "Extras", "Save slot", "Back"],
+      options: [
+        "Resume",
+        "Leave puzzle",
+        "Settings",
+        "Extras",
+        "Save slot",
+        "Back",
+      ],
     });
 
-    menu.moveSelection(1);
-    menu.moveSelection(1);
-    menu.moveSelection(1);
-    menu.moveSelection(1);
+    selectOption(menu, "Back");
     expect(menu.confirm()).toEqual({ type: "none" });
     expect(menu.snapshot()).toMatchObject({
       mode: "extras",
@@ -244,6 +247,120 @@ describe("title, pause, and save-file flow", () => {
     expect(menu.cancel()).toBe(true);
     expect(menu.cancel()).toBe(true);
     expect(menu.snapshot().mode).toBe("none");
+  });
+
+  it("matches the original Settings hierarchy and exposes live values", () => {
+    const menu = new SessionMenu();
+    menu.configureSettings(
+      {
+        musicVolume: 85,
+        soundVolume: 85,
+        grid: false,
+        leftHanded: false,
+        enterSpeedIndex: 0,
+        moveDelay: 70,
+        allowSkippingAnimation: false,
+        instantZoom: false,
+        disableParticles: false,
+        fullscreen: true,
+        vsync: true,
+        language: "Default",
+      },
+      {
+        randomOrientation: false,
+        randomMusic: false,
+        unlockAllPuzzles: false,
+      },
+    );
+    menu.openPause(false);
+    selectOption(menu, "Settings");
+    expect(menu.confirm()).toEqual({ type: "none" });
+    expect(menu.snapshot()).toMatchObject({
+      mode: "settings",
+      options: [
+        "Music Volume",
+        "Sound Volume",
+        "Grid",
+        "Movement",
+        "Left-handed",
+        "Display",
+        "Controls",
+        "Bonus",
+        "Language",
+        "Unlock all puzzles",
+        "Back",
+      ],
+    });
+    expect(menu.snapshot().values.slice(0, 3)).toEqual([
+      "85%",
+      "85%",
+      "Off",
+    ]);
+
+    expect(menu.moveHorizontal(-1)).toBe(true);
+    expect(menu.snapshot().settings.musicVolume).toBe(80);
+    selectOption(menu, "Grid");
+    expect(menu.confirm()).toMatchObject({
+      type: "settings-changed",
+      settings: { musicVolume: 80, grid: true },
+    });
+    expect(menu.snapshot().values[2]).toBe("On");
+
+    selectOption(menu, "Movement");
+    menu.confirm();
+    expect(menu.snapshot()).toMatchObject({
+      mode: "movement",
+      values: ["1x", "Off", "70 ms", "Off", null],
+    });
+    expect(menu.moveHorizontal(-1)).toBe(true);
+    expect(menu.snapshot().values[0]).toBe("0.66x");
+    selectOption(menu, "Move Delay");
+    expect(menu.moveHorizontal(1)).toBe(true);
+    expect(menu.snapshot().values[2]).toBe("80 ms");
+    expect(menu.cancel()).toBe(true);
+    expect(menu.snapshot()).toMatchObject({
+      mode: "settings",
+      selectedIndex: 3,
+    });
+  });
+
+  it("keeps bonus flags slot-scoped and returns from nested settings menus", () => {
+    const menu = new SessionMenu();
+    menu.openPause(true);
+    selectOption(menu, "Settings");
+    menu.confirm();
+    selectOption(menu, "Unlock all puzzles");
+    expect(menu.confirm()).toMatchObject({
+      type: "bonus-changed",
+      settings: { unlockAllPuzzles: true },
+    });
+
+    selectOption(menu, "Bonus");
+    menu.confirm();
+    expect(menu.snapshot()).toMatchObject({
+      mode: "bonus",
+      options: ["Random orientation", "Random music", "Back"],
+      values: ["Off", "Off", null],
+    });
+    expect(menu.confirm()).toMatchObject({
+      type: "bonus-changed",
+      settings: {
+        unlockAllPuzzles: true,
+        randomOrientation: true,
+      },
+    });
+    expect(menu.cancel()).toBe(true);
+    selectOption(menu, "Language");
+    menu.confirm();
+    selectOption(menu, "English");
+    expect(menu.confirm()).toMatchObject({
+      type: "settings-changed",
+      settings: { language: "EN" },
+    });
+    expect(menu.snapshot()).toMatchObject({
+      mode: "settings",
+      selectedIndex: 8,
+    });
   });
 
   it("switches to a different slot but returns to pause for the active slot", () => {

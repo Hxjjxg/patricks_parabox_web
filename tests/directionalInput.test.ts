@@ -47,4 +47,15 @@ describe("single-player directional input stack", () => {
     expect(input.current()).toBeNull();
     expect(input.tick(1)).toBeNull();
   });
+
+  it("updates repeat delay at runtime and treats 501 as disabled", () => {
+    const input = new DirectionalInput(70);
+    input.press("d", { dx: 1, dy: 0 });
+    input.setMoveDelayMilliseconds(501);
+    expect(input.tick(60)).toBeNull();
+
+    input.setMoveDelayMilliseconds(20);
+    expect(input.tick(0.02)).toBeNull();
+    expect(input.tick(0.001)).toEqual({ dx: 1, dy: 0 });
+  });
 });
