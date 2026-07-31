@@ -358,3 +358,73 @@ Verification:
   instead of opening the pause menu. Other floors retain normal pause behavior.
 - Pure regression coverage verifies animation ramp/decay, pause reset, text
   keys, Escape routing, and the smooth fade curve.
+
+## Mobile swipe input
+
+- `TouchSwipeInput` mirrors the original mobile gesture threshold:
+  `min(viewportWidth, viewportHeight) / 15`.
+- A touch emits one dominant-axis cardinal impulse when it crosses the
+  threshold, then re-arms from the current point for the next swipe.
+- A short touch remains a tap, so recursive inspection can still open a
+  direct child box on pointer release; swipes reset inspection through the
+  normal movement path.
+- Pointer cancellation and level loads clear the active gesture. Multiple
+  simultaneous touch points are ignored while the first gesture is active.
+
+## Touch repeat investigation
+
+### Observations
+
+- A synthetic touch swipe on `multi_order_0` crossed the threshold and moved
+  once, but holding the pointer for another 160 ms did not visibly move again.
+- The same level can be blocked on the next cell, so that case alone cannot
+  distinguish a missing repeat from a legitimate blocked impulse.
+- A short touch at a recursive child opens inspection and leaves `moveCount` at
+  zero.
+
+### Hypotheses
+
+#### H1: Touch direction is not retained in the input stack (ROOT HYPOTHESIS)
+
+- Supports: the first implementation called `impulse` only from
+  `pointermove`; no state fed the frame repeat path.
+- Conflicts: none after isolating an open movement path.
+- Test: hold an upward swipe in `first_puzzle`, where consecutive cells are
+  open, and compare the move count after 200 ms.
+
+#### H2: The second impulse is blocked by the level geometry
+
+- Supports: `multi_order_0` blocks some directions immediately after its
+  starting row.
+- Conflicts: does not explain an open vertical path in `first_puzzle`.
+- Test: repeat the same gesture on the open vertical path.
+
+#### H3: Synthetic pointer events are not reaching the new listeners
+
+- Supports: browser emulation can preserve an older hot-reloaded handler.
+- Conflicts: the first swipe already changed the player position, proving the
+  pointer lifecycle is active.
+- Test: reload the level, dispatch a touch sequence, and inspect `moveCount`.
+
+### Experiments
+
+- On `multi_order_0`, the first swipe moved once; this was inconclusive because
+  the next target can be blocked.
+- On `first_puzzle`, a held upward swipe on an open path produced three moves
+  over 240 ms after the repeat path was connected; a short touch still produced
+  no movement and retained inspection behavior.
+- The mobile viewport case (`390x844`) produced one ordered move from a single
+  swipe, confirming the threshold scales with the viewport.
+
+### Root Cause
+
+The initial touch bridge emitted a one-shot impulse and never retained the
+active swipe direction for the existing movement-delay repeat loop.
+
+### Fix
+
+Touch swipes now use the shared `DirectionalInput` stack under a synthetic
+`__touch__` key. Crossing the threshold emits immediately, the animation frame
+loop repeats at the configured delay while the pointer remains down, and
+pointer up/cancel releases the key. The pure `TouchSwipeInput` tests cover the
+threshold, axis selection, pointer ownership, tap classification, and cleanup.

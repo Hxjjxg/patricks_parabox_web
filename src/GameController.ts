@@ -4,6 +4,7 @@ import {
   DirectionalInput,
   type DirectionCommand,
 } from "./core/directionalInput";
+import { TouchSwipeInput } from "./core/touchInput";
 import { MovementEngine, type ImpulseResult } from "./core/movement";
 import {
   DrawStyle,
@@ -39,6 +40,7 @@ import {
 import type { GameRenderer } from "./render/GameRenderer";
 
 const officialPuzzleNames = new Set(puzzleMetadata.keys());
+const touchDirectionKey = "__touch__";
 
 export type RuntimeMode =
   | SpecialModeName
@@ -113,6 +115,7 @@ export class GameController {
   private readonly specialModes = new SpecialModes();
   private readonly sessionMenu = new SessionMenu();
   private readonly directionalInput = new DirectionalInput(70);
+  private readonly touchInput = new TouchSwipeInput();
   private readonly heldKeys = new Set<string>();
   private previousFrameTime: number | null = null;
   private playtimeSinceSave = 0;
@@ -145,6 +148,21 @@ export class GameController {
     this.renderer.canvas.addEventListener(
       "pointerdown",
       this.onPointerDown,
+      { passive: false },
+    );
+    this.renderer.canvas.addEventListener(
+      "pointermove",
+      this.onPointerMove,
+      { passive: false },
+    );
+    this.renderer.canvas.addEventListener(
+      "pointerup",
+      this.onPointerUp,
+      { passive: false },
+    );
+    this.renderer.canvas.addEventListener(
+      "pointercancel",
+      this.onPointerCancel,
       { passive: false },
     );
     this.renderer.canvas.addEventListener("wheel", this.onWheel, {
@@ -212,6 +230,7 @@ export class GameController {
   loadLevel(name: string): void {
     this.sessionMenu.reset();
     this.directionalInput.reset();
+    this.touchInput.reset();
     this.fastTravelSession = null;
     this.creditsActive = false;
     this.creditsFromPause = false;
@@ -758,6 +777,19 @@ export class GameController {
   };
 
   private readonly onPointerDown = (event: PointerEvent): void => {
+    if (event.pointerType === "touch") {
+      if (this.runtimeMode() !== "playing") return;
+      const started = this.touchInput.start(
+        event.pointerId,
+        event.clientX,
+        event.clientY,
+      );
+      if (started) {
+        this.renderer.canvas.setPointerCapture?.(event.pointerId);
+        event.preventDefault();
+      }
+      return;
+    }
     if (!this.inspectionEnabled()) return;
     let changed = false;
     if (event.button === 2) {
@@ -777,6 +809,63 @@ export class GameController {
     event.preventDefault();
     this.syncInspection();
     this.updateStateOutput();
+  };
+
+  private readonly onPointerMove = (event: PointerEvent): void => {
+    if (event.pointerType !== "touch" || !this.touchInput.active) return;
+    const command = this.touchInput.move(
+      event.pointerId,
+      event.clientX,
+      event.clientY,
+      this.renderer.canvas.clientWidth || window.innerWidth,
+      this.renderer.canvas.clientHeight || window.innerHeight,
+    );
+    event.preventDefault();
+    if (!command) return;
+    this.directionalInput.release(touchDirectionKey);
+    this.applyDirectionCommand(
+      this.directionalInput.press(touchDirectionKey, command),
+    );
+  };
+
+  private readonly onPointerUp = (event: PointerEvent): void => {
+    if (event.pointerType !== "touch") return;
+    const result = this.touchInput.end(event.pointerId);
+    if (!result.accepted) return;
+    if (this.renderer.canvas.hasPointerCapture?.(event.pointerId)) {
+      this.renderer.canvas.releasePointerCapture(event.pointerId);
+    }
+    this.applyDirectionCommand(
+      this.directionalInput.release(touchDirectionKey),
+    );
+    event.preventDefault();
+    if (result.moved || !this.inspectionEnabled()) return;
+
+    const hit = this.renderer.inspectionHitAt(
+      event.clientX,
+      event.clientY,
+    );
+    let changed = false;
+    if (hit.block) {
+      changed = this.inspection.push(hit.block);
+    } else if (!hit.inside) {
+      changed = this.inspection.pop();
+    }
+    if (!changed) return;
+    this.syncInspection();
+    this.updateStateOutput();
+  };
+
+  private readonly onPointerCancel = (event: PointerEvent): void => {
+    if (event.pointerType !== "touch") return;
+    if (!this.touchInput.cancel(event.pointerId)) return;
+    if (this.renderer.canvas.hasPointerCapture?.(event.pointerId)) {
+      this.renderer.canvas.releasePointerCapture(event.pointerId);
+    }
+    this.applyDirectionCommand(
+      this.directionalInput.release(touchDirectionKey),
+    );
+    event.preventDefault();
   };
 
   private readonly onWheel = (event: WheelEvent): void => {
