@@ -1376,6 +1376,7 @@ export class GameController {
       this.syncRendererUi();
     }
 
+    this.renderer.renderFrame(timestamp);
     window.requestAnimationFrame(this.onAnimationFrame);
   };
 

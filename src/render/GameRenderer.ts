@@ -213,6 +213,7 @@ export class GameRenderer {
     ]);
     this.textures = await loadOriginalTextures();
     await this.app.init({
+      autoStart: false,
       resizeTo: window,
       antialias: true,
       autoDensity: true,
@@ -247,6 +248,11 @@ export class GameRenderer {
   setWorld(world: WorldModel): void {
     this.world = world;
     this.draw();
+  }
+
+  /** Present only after the controller advances this frame's model/camera. */
+  renderFrame(timestamp: number): void {
+    this.app.ticker.update(timestamp);
   }
 
   setInspection(block: Block | null, flipH: boolean): void {
@@ -760,6 +766,8 @@ export class GameRenderer {
       texture: this.textures.centerGradient,
       textureSpace: "local",
       color: 0xffffff,
+      // Native blockGradientColor.a=0.08 bypasses HSVToRGBGUI's /2 and
+      // receives the default GUI shader's x2 multiplier.
       alpha: 0.16,
     });
 

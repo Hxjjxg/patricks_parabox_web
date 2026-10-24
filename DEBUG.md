@@ -34,6 +34,20 @@ Wall contrast was destroyed before tint multiplication and wall brightness used 
 
 ### Further evidence / next experiments
 
+#### Camera presentation phase investigation
+
+- Independent phase-bracket comparison of actual Canvas PNGs shows rendered player bounds match the PREVIOUS Web model frame (16.6–16.7ms earlier), whereas numeric projection at equal native phase agrees within9e-8. At three saved phases bbox maxerror is2.71/4.29/8.56px at declared phase and1.53/1.62/1.54px at prior phase (remaining border differences are separately open). Evidence: review/camera-entry-presentation-lag.json and phase-bracket PNGs.
+- H1: capture metadata only is incorrectly associated. Supports recorder samples after controller; conflicts renderer ticker registers its draw and render before controller RAF, which also affects actual presentation. Test stamp model phase when renderer builds the actual scene and compare that stamp to recorder/model and PNG phase.
+- H2 (root candidate): independent ticker/controller RAF loops present a model state one frame late. Supports source registration order and actual PNG bounds at prior phase; conflicts: accepted input can synchronously rebuild graphics before next ticker. Same phase-stamp experiment distinguishes first-frame behavior and subsequent lag.
+- H3: native intentionally renders prior phase too. Conflicts native end-of-frame metadata and actual images agree at current native phase; test original phase bracketing and accepted-event timestamps, already available.
+- H4: long frames/PNG encoding alone explain differences. Supports variable capture intervals; conflicts exact prior-frame phase association across three independent phases. Test timestamped scene-build phase before any ordering change. No universal smoothing or curve changes are justified.
+
+Experiment: one diagnostic line stamped the player phase when `draw()` built the scene. Before correction, all8frames built the previous phase (first model .0136, rendered0; nextmodel .0302, rendered .0136). After correction all8 scene phases equal their current model phases exactly, including landing. Diagnostic source was removed; raw observations are `frame-order-before.json` and `frame-order-after.json`. Initial experiment was inconclusive because HMR destroyed its context; the stable-page rerun supplied the evidence.
+
+Root cause: Pixi started its independent ticker before the controller RAF, so both scene construction and GPU presentation preceded the model/camera update. Fix: initialize Pixi with autoStart=false and advance its ticker only after the controller finishes updating the same RAF timestamp. No curve, skip rule, queue decision or post-press delta clamp changes. Seven controller integration regressions cover8/16.7/25/50/100ms frames, one queued turn, and the between-frame stale-moving window; they fail before and pass after.
+
+Independent review replays native entry itself and compares actual synchronized Web PNGs by phase: corrected images match current phase (diagnostic bbox residual1.00/1.17/1.04px) rather than previous phase (1.69/2.68/8.50px). Numeric projections agree within1.1e-7. Remaining≈1px border geometry is a separately confirmed open defect, not scheduling tolerance expansion. Full integrated checks:303tests/25files, typecheck and build pass.
+
 - Native first/right and third/up NORMAL and BUMP_HALT samples are preserved in tests/fixtures/original-animation; the phase-aligned test uses native times and1e-6 floating tolerance, not screenshot frame numbers. Native conformance fixture infenter_zone_v2-generated-zone-dddu exercises DOWN DOWN DOWN UP and proves wentToInfZone=true.
 - Confirmed floor shading discrepancy: original black gradient alpha .08 goes directly to the default doubled-alpha GUI shader, so effective opacity .16; Web .08 gives gray89 where native83. This is a separate focused fix after wall module verification.
 - Large-wall≥256px quadrants, outer borders, timed queue/camera transitions and remaining matrix cases still need verification/correction. Original camera setup v1 captures that were not fully settled are diagnostics, not parity passes.
