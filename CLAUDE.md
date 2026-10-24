@@ -75,6 +75,7 @@ Important edge cases in movement:
 - **Infinite zone unwinding**: exit/enter loops self-detect and unwind up to 20 attempts
 - **Camera flip**: when a player enters/exits a flipped block, camera flips horizontally
 - **Auto-repeat**: holding a direction repeats only after the move animation finishes (0.1 s slide) plus `moveDelay` (70 ms default), matching the original's measured ~171 ms cadence; time before the press is never counted, so a long frame cannot fire a second step. A blocked move sets `waitingForDirectionChange` and suppresses repeats until the direction changes
+- **Queued turns**: a direction pressed while a block is still moving is deferred (`World.multiPlayerQueued` behaviour) and applied the frame the animation lands; applying it immediately would move the model a second tile mid-slide and look like a teleport. At most one move is queued at a time, matching the original. `anyBlockMoving` is recomputed right after every impulse so a press between that impulse and the next frame cannot still see the old "nothing is moving" value
 
 ## Animation System (animation.ts)
 

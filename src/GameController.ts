@@ -13,6 +13,7 @@ import {
 import { TouchSwipeInput } from "./core/touchInput";
 import { MovementEngine, type ImpulseResult } from "./core/movement";
 import {
+  computeAnyBlockMoving,
   stopAllAnimations,
   updateCameraAnimation,
   updateWorldAnimations,
@@ -147,6 +148,11 @@ export class GameController {
   /** Wall-clock of the last applied move, so a long frame cannot count
    * time from before the press towards the next auto-repeat. */
   private lastMoveAppliedAt: number | null = null;
+  /**
+   * `World.multiPlayerQueued`: a direction pressed while a block is moving is
+   * deferred until the animation finishes instead of teleporting the player.
+   */
+  private queuedDirection: DirectionCommand | null = null;
   private creditsActive = false;
   private creditsFromPause = false;
   private readonly specialModes = new SpecialModes();
@@ -338,6 +344,7 @@ export class GameController {
     this.directionalInput.reset();
     this.lastMoveDirection = { dx: 0, dy: 0 };
     this.lastMoveAppliedAt = null;
+    this.queuedDirection = null;
     this.directionalInput.setMoveDelayMilliseconds(
       this.settings.snapshot().moveDelay,
     );
@@ -435,6 +442,7 @@ export class GameController {
   private undo(): boolean {
     if (this.runtimeMode() !== "playing") return false;
     const inspectionChanged = this.resetInspection();
+    this.queuedDirection = null;
     const changed = this.movement.undo();
     if (changed || inspectionChanged) {
       this.renderer.setWorld(this.world);
@@ -451,6 +459,7 @@ export class GameController {
   private redo(): boolean {
     if (this.runtimeMode() !== "playing") return false;
     const inspectionChanged = this.resetInspection();
+    this.queuedDirection = null;
     const changed = this.movement.redo();
     if (changed || inspectionChanged) {
       this.renderer.setWorld(this.world);
@@ -467,6 +476,7 @@ export class GameController {
   private restart(): boolean {
     if (this.runtimeMode() !== "playing") return false;
     const inspectionChanged = this.resetInspection();
+    this.queuedDirection = null;
     const changed = this.movement.restart();
     if (changed || inspectionChanged) {
       this.renderer.setWorld(this.world);
@@ -1281,7 +1291,14 @@ export class GameController {
     this.advancePlaytime(Math.min(elapsed, 1 / 3));
 
     if (this.runtimeMode() === "playing" && elapsed > 0) {
-      const delta = Math.min(elapsed, 0.1);
+      // A move applied between frames must not advance its animation by the
+      // part of the frame that elapsed before the press; otherwise slides
+      // finish early and the rhythm drifts with the press phase.
+      const sinceMove =
+        this.lastMoveAppliedAt === null
+          ? elapsed
+          : Math.max(0, (timestamp - this.lastMoveAppliedAt) / 1000);
+      const delta = Math.min(elapsed, sinceMove, 0.1);
       updateWorldAnimations(this.world, {
         deltaTime: delta,
         quickAnim: this.world.drawStyle === DrawStyle.QuickAnim,
@@ -1294,6 +1311,11 @@ export class GameController {
     // Advance animations first: the original's move delay only counts frames
     // where nothing is moving, and the state must be current for this frame.
     if (this.runtimeMode() === "playing") {
+      if (this.queuedDirection && !this.world.anyBlockMoving) {
+        const queued = this.queuedDirection;
+        this.queuedDirection = null;
+        this.applyMove(queued);
+      }
       const sinceLastMove =
         this.lastMoveAppliedAt === null
           ? elapsed
@@ -1399,6 +1421,8 @@ export class GameController {
       this.lastMoveDirection = { dx: command.dx, dy: command.dy };
       this.movement.clearWaitForMoveDirChange();
     }
+    // The original accepts at most one queued move at a time.
+    if (this.queuedDirection) return;
     if (repeated) {
       // Blocked moves set WaitForMoveDirChange: holding the same direction
       // must not keep bumping until the player changes direction.
@@ -1407,9 +1431,26 @@ export class GameController {
         if (!this.world.allowSkippingAnimation) return;
         this.skipAnimations();
       }
+    } else if (this.world.anyBlockMoving) {
+      // Turning mid-slide must wait for the slide to land: applying it now
+      // would move the model a second tile while the visual is mid-animation.
+      if (!this.world.allowSkippingAnimation) {
+        this.queuedDirection = command;
+        return;
+      }
+      this.skipAnimations();
     }
+    this.applyMove(command);
+  }
+
+  private applyMove(command: DirectionCommand): void {
     this.lastMoveAppliedAt = performance.now();
     this.impulse(command.dx, command.dy);
+    // `anyBlockMoving` is only refreshed during the animation tick. A press
+    // arriving between this impulse and the next frame must not see the old
+    // "nothing is moving" value and skip the animation we just started.
+    this.world.anyBlockMoving =
+      this.world.anyBlockMoving || computeAnyBlockMoving(this.world);
   }
 
   /** `UndoManager.StopAnimations` + eye snap, used by the skip-animation pref. */
