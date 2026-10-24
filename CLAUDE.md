@@ -18,6 +18,15 @@ npm run test:watch   # Run vitest in watch mode
 
 During development, open `http://127.0.0.1:4173` and pass `?level=<name>` to load a specific level directly.
 
+## Commits
+
+Commit every completed, verified change promptly — do not wait to be asked.
+Run `npm test` before committing (plus `npm run typecheck` / `npm run build`
+for larger changes). Follow the existing message style: `feat:` / `fix:` /
+`docs:` plus an imperative summary and a short bullet list of what changed and
+why. Commit directly to `master` (this repo's workflow) and do not `push`
+unless explicitly asked.
+
 ## Tech Stack
 
 **TypeScript 7.0 + Vite 8 + PixiJS 8.19** — no physics engine, no ECS, no React. Game logic is pure TypeScript; PixiJS handles only rendering.
