@@ -90,12 +90,15 @@ export class DirectionalInput {
     return this.emitIfChanged(before);
   }
 
-  tick(elapsedSeconds: number): DirectionCommand | null {
+  tick(elapsedSeconds: number, canRepeat = true): DirectionCommand | null {
     const current = this.current();
     if (!current) {
       this.repeatElapsed = 0;
       return null;
     }
+    // The original only advances its move delay while no block is animating,
+    // so held input does not burn repeats during a slide.
+    if (!canRepeat) return null;
     this.repeatElapsed += Math.max(0, elapsedSeconds);
     if (this.repeatElapsed <= this.moveDelaySeconds) return null;
     this.repeatElapsed = 0;

@@ -1,11 +1,34 @@
 import {
   Attempt,
   Block,
+  DrawStyle,
   Floor,
   FloorType,
   Level,
   WorldModel,
 } from "./model";
+import {
+  doAnim,
+  doBumpAnim,
+  doNudgeAnim,
+  doSquishInPlace,
+  doStillPossessAnim,
+  computeAnimLength,
+  computeProjection,
+  computeProjectionParent,
+  getBumpLength,
+  getEnterLength,
+  getPossessLength,
+  makePhantom,
+  resetCameraOffset,
+  setCameraOffset,
+  stopAllAnimations,
+  type AnimationSettings,
+  type ProjectionMoveWithBlock,
+} from "./animation";
+
+/** How a turn is applied: a fresh move animates, undo/redo squish, restart snaps. */
+type TurnMode = "move" | "undo" | "redo" | "restart";
 
 export enum MoveType {
   Slide = "slide",
@@ -47,6 +70,11 @@ export interface TurnMove {
   dy: number;
   nudge: boolean;
   movedSinceRestart: boolean;
+  /** `Projection.ComputeProjection` result sampled at move time. */
+  animXOffset: number;
+  animYOffset: number;
+  animXScale: number;
+  animYScale: number;
 }
 
 export interface PlayerSwitch {
@@ -66,6 +94,14 @@ export interface Turn {
   wentToInfZoneChanged: boolean;
   isRestart: boolean;
   moveCount: number;
+  /** `UndoManager.Turn.AnimLength`. */
+  animLength: number;
+  /** `Projection.ComputeProjectionParent` camera target for cross-level moves. */
+  camX: number;
+  camY: number;
+  camXS: number;
+  camYS: number;
+  cameraMoved: boolean;
 }
 
 export interface ImpulseResult {
@@ -96,6 +132,12 @@ function createTurn(cameraFlipH: boolean): Turn {
     wentToInfZoneChanged: false,
     isRestart: false,
     moveCount: 0,
+    animLength: 0.1,
+    camX: 0,
+    camY: 0,
+    camXS: 1,
+    camYS: 1,
+    cameraMoved: false,
   };
 }
 
@@ -152,6 +194,17 @@ export class History {
     this.currentTurn = createTurn(world.cameraFlipH);
   }
 
+  get settings(): AnimationSettings {
+    return {
+      quickAnim: this.world.drawStyle === DrawStyle.QuickAnim,
+      enterSpeedIndex: this.world.enterSpeedIndex,
+    };
+  }
+
+  registerAnimLength(animLength: number): void {
+    this.currentTurn.animLength = animLength;
+  }
+
   beginTurn(): void {
     this.currentTurn = createTurn(this.world.cameraFlipH);
   }
@@ -189,19 +242,22 @@ export class History {
     const turn = this.currentTurn;
     this.future.length = 0;
     this.past.push(turn);
-    this.applyTurn(turn, true);
+    this.applyTurn(turn, true, "move");
     this.currentTurn = createTurn(this.world.cameraFlipH);
     return turn;
   }
 
   undo(): boolean {
     const moveCount = this.past.at(-1)?.moveCount;
-    if (moveCount === undefined) return false;
+    if (moveCount === undefined) {
+      if (!this.world.anyBlockMoving) this.resetPlayerEyes();
+      return false;
+    }
     while (this.past.at(-1)?.moveCount === moveCount) {
       const turn = this.past.pop();
       if (!turn) break;
       this.future.push(turn);
-      this.applyTurn(turn, false);
+      this.applyTurn(turn, false, "undo");
     }
     this.world.moveCount = this.past.at(-1)?.moveCount ?? 0;
     return true;
@@ -214,10 +270,20 @@ export class History {
       const turn = this.future.pop();
       if (!turn) break;
       this.past.push(turn);
-      this.applyTurn(turn, true);
+      this.applyTurn(turn, true, "redo");
     }
     this.world.moveCount = moveCount;
     return true;
+  }
+
+  private resetPlayerEyes(): void {
+    for (const block of this.world.playerBlocks) {
+      block.eyeXOffsetTo = 0;
+      block.eyeYOffsetTo = 0;
+      block.eyeXOffset = 0;
+      block.eyeYOffset = 0;
+      block.lookAnimT = 0;
+    }
   }
 
   restart(): boolean {
@@ -280,13 +346,17 @@ export class History {
           dy: 0,
           nudge: false,
           movedSinceRestart: block.movedSinceRestart,
+          animXOffset: 0,
+          animYOffset: 0,
+          animXScale: 1,
+          animYScale: 1,
         });
       }
     }
 
     this.future.length = 0;
     this.past.push(turn);
-    this.applyTurn(turn, true);
+    this.applyTurn(turn, true, "restart");
     this.currentTurn = createTurn(this.world.cameraFlipH);
     this.world.moveCount = 0;
     return true;
@@ -339,11 +409,25 @@ export class History {
       dy: 0,
       nudge: true,
       movedSinceRestart: block.movedSinceRestart,
+      animXOffset: 0,
+      animYOffset: 0,
+      animXScale: 1,
+      animYScale: 1,
     });
     return this.commit(this.world.moveCount + 1);
   }
 
-  private applyTurn(turn: Turn, forward: boolean): void {
+  private applyTurn(
+    turn: Turn,
+    forward: boolean,
+    mode: TurnMode,
+  ): void {
+    if (mode !== "move") {
+      stopAllAnimations(this.world);
+      for (const level of this.world.levels) level.phantoms.length = 0;
+      if (mode === "restart") this.resetPlayerEyes();
+    }
+    const previousFlip = this.world.cameraFlipH;
     for (const move of turn.moves) {
       if (forward) {
         this.moveBlock(move.block, move.toLevel, move.toX, move.toY);
@@ -357,6 +441,12 @@ export class History {
           : move.movedSinceRestart;
       }
       move.block.tempFlipH = move.block.flipH;
+    }
+
+    if (mode === "move" || mode === "redo") {
+      this.animateRedo(turn, mode === "move", previousFlip);
+    } else {
+      this.animateUndo(turn);
     }
 
     for (const playerSwitch of turn.playerSwitches) {
@@ -383,14 +473,159 @@ export class History {
       }
     }
 
+    for (const playerSwitch of turn.playerSwitches) {
+      if (mode === "move" || mode === "redo") {
+        if (mode === "move") {
+          doStillPossessAnim(playerSwitch.from, turn.animLength);
+          doStillPossessAnim(playerSwitch.to, turn.animLength);
+          playerSwitch.to.drawIsPlayer = false;
+          playerSwitch.to.eyeXOffset = playerSwitch.from.eyeXOffset;
+          playerSwitch.to.eyeYOffset = playerSwitch.from.eyeYOffset;
+        } else {
+          playerSwitch.to.eyeXOffsetTo = 0;
+          playerSwitch.to.eyeYOffsetTo = 0;
+          playerSwitch.to.eyeXOffset = 0;
+          playerSwitch.to.eyeYOffset = 0;
+          playerSwitch.to.lookAnimT = 0;
+          playerSwitch.from.eyeXOffsetTo = 0;
+          playerSwitch.from.eyeYOffsetTo = 0;
+          playerSwitch.from.eyeXOffset = 0;
+          playerSwitch.from.eyeYOffset = 0;
+          playerSwitch.from.lookAnimT = 0;
+        }
+      } else {
+        playerSwitch.to.eyeXOffsetTo = 0;
+        playerSwitch.to.eyeYOffsetTo = 0;
+        playerSwitch.to.eyeXOffset = 0;
+        playerSwitch.to.eyeYOffset = 0;
+        playerSwitch.to.lookAnimT = 0;
+      }
+    }
+
     if (turn.wentToInfZoneChanged) {
       this.world.wentToInfZone = !this.world.wentToInfZone;
+    }
+    if (mode === "undo" || mode === "redo" || mode === "restart") {
+      resetCameraOffset(this.world);
     }
     this.world.cameraFlipH = forward
       ? turn.toCameraFlipH
       : turn.fromCameraFlipH;
     this.world.computeBlockLists();
     this.world.updateButtonsPressed();
+  }
+
+  /** `UndoManager.DoRedo`'s per-turn animation section. */
+  private animateRedo(
+    turn: Turn,
+    animate: boolean,
+    previousFlip: boolean,
+  ): void {
+    const context = { quickAnim: this.settings.quickAnim };
+    for (const move of turn.moves) {
+      if (animate) {
+        if (move.nudge) {
+          if (move.block.isPlayer) {
+            doBumpAnim(move.block, move.dx, move.dy, false, context);
+            move.block.animLength = turn.animLength;
+          } else {
+            doNudgeAnim(move.block, move.dx !== 0, turn.animLength);
+          }
+        } else {
+          doAnim(
+            move.block,
+            move.animXOffset,
+            move.animYOffset,
+            move.animXScale,
+            move.animYScale,
+            turn.animLength,
+            context,
+          );
+        }
+        if (move.toFlipH !== move.fromFlipH) {
+          move.block.fadeFlipH = true;
+        }
+      }
+      if (move.block.isPlayer) {
+        move.block.eyeXOffsetTo = move.dx * 0.08;
+        move.block.eyeYOffsetTo = -move.dy * 0.08;
+        move.block.lookAnimT = 0;
+        if (move.fromFlipH !== move.toFlipH) {
+          move.block.eyeXOffset *= -1;
+        }
+        if (!animate) {
+          move.block.eyeXOffset = move.block.eyeXOffsetTo;
+          move.block.eyeYOffset = move.block.eyeYOffsetTo;
+        }
+        const floor = move.block.outerLevel?.getFloor(
+          move.block.x,
+          move.block.y,
+        );
+        if (
+          floor?.type === FloorType.Info ||
+          floor?.type === FloorType.DemoEnd ||
+          floor?.type === FloorType.Smile
+        ) {
+          move.block.eyeXOffsetTo = 0;
+          move.block.eyeYOffsetTo = 0;
+          move.block.lookAnimT = 0;
+        }
+      }
+    }
+    if (!turn.isRestart && !animate) {
+      for (const move of turn.moves) {
+        doSquishInPlace(move.block, move.dx !== 0, 0.125, context);
+      }
+    }
+    if (animate) {
+      setCameraOffset(
+        this.world,
+        turn.camX,
+        turn.camY,
+        turn.camXS,
+        turn.camYS,
+        turn.animLength,
+        turn.toCameraFlipH !== previousFlip,
+      );
+    }
+  }
+
+  /** `UndoManager.DoUndo`'s per-turn animation section. */
+  private animateUndo(turn: Turn): void {
+    if (!turn.isRestart) {
+      const context = { quickAnim: this.settings.quickAnim };
+      for (const move of turn.moves) {
+        doSquishInPlace(move.block, move.dx !== 0, 0.125, context);
+      }
+    }
+    for (const block of this.world.playerBlocks) {
+      const floor = block.outerLevel?.getFloor(block.x, block.y);
+      const nextTurn = this.past.at(-1);
+      if (
+        !nextTurn ||
+        floor?.type === FloorType.Info ||
+        floor?.type === FloorType.DemoEnd ||
+        floor?.type === FloorType.Smile
+      ) {
+        block.eyeXOffsetTo = 0;
+        block.eyeYOffsetTo = 0;
+        block.lookAnimT = 0;
+      } else if (nextTurn.playerSwitches.length > 0) {
+        block.eyeXOffsetTo = 0;
+        block.eyeYOffsetTo = 0;
+        block.lookAnimT = 0;
+      } else {
+        for (const move of nextTurn.moves) {
+          if (move.block === block) {
+            block.eyeXOffsetTo = move.dx * 0.08;
+            block.eyeYOffsetTo = -move.dy * 0.08;
+            block.lookAnimT = 0;
+          }
+        }
+      }
+      block.eyeXOffset = block.eyeXOffsetTo;
+      block.eyeYOffset = block.eyeYOffsetTo;
+    }
   }
 
   private moveBlock(block: Block, level: Level, x: number, y: number): void {
@@ -418,6 +653,11 @@ export class MovementEngine {
   private infEnterUnwindTo = -1;
   private cancelAllMovement = false;
   private portalTransition: PortalTransition | null = null;
+  /**
+   * `Movement.WaitForMoveDirChange`: after a blocked move, holding the same
+   * direction must not retry until the player changes direction.
+   */
+  private waitForMoveDirChange = false;
 
   constructor(world: WorldModel) {
     this.world = world;
@@ -495,7 +735,9 @@ export class MovementEngine {
     for (const candidate of this.world.blocks) {
       candidate.justEnteredArray = null;
       candidate.justInfEntered = false;
+      candidate.drawIsPlayer = candidate.isPlayer;
     }
+    for (const level of this.world.levels) level.phantoms.length = 0;
 
     const moved = this.attemptToSlide(block, dx, dy);
     if (moved && this.portalTransition) {
@@ -514,6 +756,15 @@ export class MovementEngine {
       };
     }
     if (!moved || this.cancelAllMovement) {
+      const quickAnim = this.history.settings.quickAnim;
+      doBumpAnim(block, dx, dy, false, { quickAnim }, getBumpLength(this.world, this.history.settings));
+      block.eyeXOffsetTo = dx * 0.08;
+      block.eyeYOffsetTo = -dy * 0.08;
+      block.lookAnimT = 0;
+      block.faceAnimT = 0;
+      if (this.world.playerBlocks.length === 1) {
+        this.waitForMoveDirChange = true;
+      }
       for (const candidate of this.world.blocks) {
         candidate.tempFlipH = candidate.flipH;
         candidate.tempInnerPush = false;
@@ -537,6 +788,14 @@ export class MovementEngine {
       turn,
       transition: null,
     };
+  }
+
+  get waitingForDirectionChange(): boolean {
+    return this.waitForMoveDirChange;
+  }
+
+  clearWaitForMoveDirChange(): void {
+    this.waitForMoveDirChange = false;
   }
 
   undo(): boolean {
@@ -802,6 +1061,12 @@ export class MovementEngine {
         this.popMove();
         return false;
       }
+      this.history.registerAnimLength(
+        computeAnimLength(
+          this.moves as unknown as ProjectionMoveWithBlock[],
+          getEnterLength(this.history.settings),
+        ),
+      );
       this.resolveMove(block, targetLevel, targetX, targetY, dx, dy);
       return true;
     }
@@ -839,6 +1104,12 @@ export class MovementEngine {
           break;
         }
       }
+      this.history.registerAnimLength(
+        computeAnimLength(
+          this.moves as unknown as ProjectionMoveWithBlock[],
+          getEnterLength(this.history.settings),
+        ),
+      );
       this.resolveMove(block, targetLevel, targetX, targetY, dx, dy);
       return true;
     }
@@ -978,6 +1249,74 @@ export class MovementEngine {
       this.possess = true;
       this.history.registerPlayerSwitch(block, blockAtTarget, dx, dy);
       if (!block.justEnteredArray) this.setJustEnteredArray(block);
+      this.history.registerAnimLength(
+        getPossessLength(this.history.settings),
+      );
+      const possessLength = getPossessLength(this.history.settings);
+      const projection = computeProjection(
+        this.moves as unknown as ProjectionMoveWithBlock[],
+        block,
+      );
+      const targetLevel = blockAtTarget.outerLevel;
+      if (targetLevel) {
+        const face = makePhantom(
+          blockAtTarget,
+          targetLevel,
+          blockAtTarget.x,
+          blockAtTarget.y,
+          possessLength,
+        );
+        face.face = true;
+        face.faceBlockForJustEnteredArray = block;
+        face.xFrom = projection.xOffset;
+        face.yFrom = projection.yOffset;
+        face.xScaleFrom = projection.xScale;
+        face.yScaleFrom = projection.yScale;
+        face.xTo = 0;
+        face.yTo = 0;
+        face.xScaleTo = 1;
+        face.yScaleTo = 1;
+        targetLevel.phantoms.push(face);
+      }
+      let exited = false;
+      for (const candidate of this.moves) {
+        if (candidate.block !== block) continue;
+        if (candidate.moveType === MoveType.Exit) exited = true;
+      }
+      const outerLevel = block.outerLevel;
+      if (exited && outerLevel) {
+        const leaving = makePhantom(
+          blockAtTarget,
+          outerLevel,
+          block.x,
+          block.y,
+          possessLength,
+        );
+        leaving.exitedFrom = outerLevel.getExitBlock();
+        leaving.face = true;
+        leaving.exiting = true;
+        leaving.exitingDX = dx;
+        leaving.exitingDY = dy;
+        if (dx !== 0) {
+          leaving.xTo = -(projection.xOffset < 0 ? -1 : 1);
+          if (outerLevel.getExitBlock()?.flipH) leaving.xTo *= -1;
+        }
+        if (dy !== 0) {
+          leaving.yTo = -(projection.yOffset < 0 ? -1 : 1);
+        }
+        outerLevel.phantoms.push(leaving);
+      }
+      if (targetLevel && outerLevel && targetLevel !== outerLevel) {
+        const camera = computeProjectionParent(
+          this.moves as unknown as ProjectionMoveWithBlock[],
+          block,
+        );
+        this.history.currentTurn.camX = camera.xOffset;
+        this.history.currentTurn.camY = camera.yOffset;
+        this.history.currentTurn.camXS = camera.xScale;
+        this.history.currentTurn.camYS = camera.yScale;
+        this.history.currentTurn.cameraMoved = true;
+      }
       return true;
     };
 
@@ -1277,11 +1616,19 @@ export class MovementEngine {
         dy: first?.dy ?? 0,
         nudge: true,
         movedSinceRestart: block.movedSinceRestart,
+        animXOffset: 0,
+        animYOffset: 0,
+        animXScale: 1,
+        animYScale: 1,
       });
       return;
     }
 
     const fromLevel = assertOuterLevel(block);
+    const projection = computeProjection(
+      this.moves as unknown as ProjectionMoveWithBlock[],
+      block,
+    );
     this.history.registerMove({
       block,
       fromLevel,
@@ -1296,7 +1643,23 @@ export class MovementEngine {
       dy,
       nudge: false,
       movedSinceRestart: block.movedSinceRestart,
+      animXOffset: projection.xOffset,
+      animYOffset: projection.yOffset,
+      animXScale: projection.xScale,
+      animYScale: projection.yScale,
     });
+
+    if (block.isPlayer && fromLevel !== toLevel) {
+      const camera = computeProjectionParent(
+        this.moves as unknown as ProjectionMoveWithBlock[],
+        block,
+      );
+      this.history.currentTurn.camX = camera.xOffset;
+      this.history.currentTurn.camY = camera.yOffset;
+      this.history.currentTurn.camXS = camera.xScale;
+      this.history.currentTurn.camYS = camera.yScale;
+      this.history.currentTurn.cameraMoved = true;
+    }
 
     if (
       block.isPlayer &&

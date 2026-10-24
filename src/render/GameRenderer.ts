@@ -6,7 +6,8 @@ import {
   TextStyle,
 } from "pixi.js";
 import type { Block, HsvColor, Level, WorldModel } from "../core/model";
-import { FloorType } from "../core/model";
+import { DrawStyle, FloorType } from "../core/model";
+import { AnimType, lerp } from "../core/animation";
 import { demoEndFade, demoEndText } from "../core/demoEnd";
 import { localizeEnglish } from "../core/localization";
 import type {
@@ -377,17 +378,29 @@ export class GameRenderer {
       this.inspectionBlock ?? world.getDefaultFocusBlock();
     const focusLevel = viewBlock.subLevel;
     if (!focusLevel) return;
-    const reservedWidth = width >= 900 ? width * 0.72 : width * 0.94;
-    const cell = Math.min(
-      reservedWidth / focusLevel.width,
-      (height * 0.82) / focusLevel.height,
-    );
-    const boardWidth = cell * focusLevel.width;
-    const boardHeight = cell * focusLevel.height;
-    const boardX = (width - boardWidth) / 2;
-    const boardY = height * 0.5 - boardHeight / 2;
-    const viewFlipH =
-      world.inputFlipH() !== this.inspectionFlipH;
+
+    // Original camera (`Draw.DrawBlocks`): the focus block always measures
+    // `focusFractNormal` of the short screen edge; enter/exit transitions
+    // scale that base rect between 1 and the level's camZoomFactor.
+    const minimum = Math.min(width, height);
+    const base = minimum * 0.82;
+    const camT = world.newCamT;
+    const camZoom = focusLevel.camZoomFactor;
+    const camXS = 1 / lerp(1 / world.newXS, 1 / camZoom, camT);
+    const camYS = 1 / lerp(1 / world.newYS, 1 / camZoom, camT);
+    const viewFlipH = world.inputFlipH() !== this.inspectionFlipH;
+    const unflippedX = lerp(world.newX, 0, camT);
+    const camY = lerp(world.newY, 0, camT);
+    const camX = viewFlipH ? -unflippedX : unflippedX;
+    const boardWidth = base * camXS;
+    const boardHeight = base * camYS;
+    const boardX = width / 2 + camX * boardWidth - boardWidth / 2;
+    const boardY = height / 2 + camY * boardHeight - boardHeight / 2;
+    world.usedXS = camXS / Math.max(camZoom, 1e-6);
+    world.usedYS = camYS / Math.max(camZoom, 1e-6);
+    world.usedX = unflippedX * camZoom;
+    world.usedY = camY * camZoom;
+
     this.inspectionBoard = {
       rect: {
         x: boardX,
@@ -398,15 +411,38 @@ export class GameRenderer {
       viewBlock,
       flipH: viewFlipH,
     };
-    this.drawLevel(
-      this.scene,
-      focusLevel,
-      viewBlock,
-      { x: boardX, y: boardY, width: boardWidth, height: boardHeight },
-      0,
-      new Set(),
-      viewFlipH,
-    );
+
+    // Draw the containing levels so enter/exit zooms show the surrounding
+    // world the way the original does.
+    let startBlock = viewBlock;
+    let startRect: Rect = {
+      x: boardX,
+      y: boardY,
+      width: boardWidth,
+      height: boardHeight,
+    };
+    let startFlipH = viewFlipH;
+    if (!this.inspectionBlock) {
+      for (let level = 0; level < 3; level++) {
+        const parent = this.goOutOneLevel(startBlock, startRect, startFlipH);
+        if (!parent) break;
+        startBlock = parent.block;
+        startRect = parent.rect;
+        startFlipH = parent.flipH;
+      }
+    }
+    const startLevel = startBlock.subLevel;
+    if (startLevel) {
+      this.drawLevel(
+        this.scene,
+        startLevel,
+        startBlock,
+        startRect,
+        0,
+        new Set(),
+        startFlipH,
+      );
+    }
 
     this.drawControls(
       boardX,
@@ -773,6 +809,8 @@ export class GameRenderer {
     ancestors: Set<Level>,
     flipH: boolean,
   ): void {
+    if (!this.onScreen(rect)) return;
+    if (rect.width <= 0.5 || rect.height <= 0.5) return;
     const fractionOfScreen =
       ((rect.width + rect.height) / 2) / Math.max(1, this.app.screen.height);
     const interiorColor = computeBlockColor(viewBlock, fractionOfScreen);
@@ -786,27 +824,69 @@ export class GameRenderer {
 
     for (const floor of level.floorList) {
       const cellRect = this.cellRect(level, floor.x, floor.y, rect, flipH);
+      if (!this.onScreen(cellRect)) continue;
       this.drawFloor(graphics, floor.type, cellRect, level);
+    }
+
+    // `Draw.ProcessTicket` draws level particles between floors and blocks.
+    if (
+      !this.uiState?.preferences.disableParticles &&
+      this.world?.drawStyle !== DrawStyle.QuickAnim
+    ) {
+      const centerX = rect.x + rect.width / 2;
+      const centerY = rect.y + rect.height / 2;
+      const showCelebration = this.world?.levelName === "hub";
+      for (const particle of level.particles) {
+        if (particle.celebration && !showCelebration) continue;
+        const width = Math.abs(rect.width * particle.size);
+        const height = Math.abs(rect.height * particle.size);
+        if (width < 0.6 || height < 0.6) continue;
+        let offsetX = rect.width * particle.x;
+        if (flipH) offsetX *= -1;
+        const offsetY = rect.height * particle.y;
+        graphics
+          .rect(
+            centerX + offsetX - width / 2,
+            centerY + offsetY - height / 2,
+            width,
+            height,
+          )
+          .fill({
+            color: hsvToRgb({
+              h: particle.hue,
+              s: particle.sat,
+              v: particle.val,
+            }),
+            alpha: particle.alpha,
+          });
+      }
     }
 
     const wallColor = computeWallColor(viewBlock, fractionOfScreen);
     for (const block of level.blockList) {
       if (block.subLevel) continue;
-      const wallRect = this.cellRect(level, block.x, block.y, rect, flipH);
+      const wallRect = this.animatedCellRect(level, block, rect, flipH);
+      if (!this.onScreen(wallRect)) continue;
       this.drawWall(graphics, level, block, wallRect, wallColor);
     }
 
     const nextAncestors = new Set(ancestors);
     nextAncestors.add(level);
-    for (const block of level.blockList) {
-      if (!block.subLevel) continue;
-      const blockRect = this.cellRect(
-        level,
-        block.x,
-        block.y,
-        rect,
-        flipH,
-      );
+    const containers = level.blockList.filter((block) => block.subLevel);
+    // Mirrors the original draw queues (still, bump, moving): moving boxes
+    // must land on top of the frame they are sliding across.
+    const ordered = [
+      ...containers.filter((block) => !block.moving),
+      ...containers.filter(
+        (block) => block.moving && block.anim === AnimType.Bump,
+      ),
+      ...containers.filter(
+        (block) => block.moving && block.anim !== AnimType.Bump,
+      ),
+    ];
+    for (const block of ordered) {
+      const blockRect = this.animatedCellRect(level, block, rect, flipH);
+      if (!this.onScreen(blockRect)) continue;
       this.drawBlock(
         graphics,
         block,
@@ -817,14 +897,54 @@ export class GameRenderer {
       );
     }
 
+    for (const phantom of level.phantoms) {
+      if (phantom.exitedFrom && phantom.exitedFrom === level.blocksWithThisAsTheirSubLevel[0]) {
+        continue;
+      }
+      const cell = this.cellRect(
+        level,
+        phantom.xpos,
+        phantom.ypos,
+        rect,
+        flipH,
+      );
+      const width = cell.width * phantom.xScale;
+      const height = cell.height * phantom.yScale;
+      const offsetX = (flipH ? -1 : 1) * phantom.x * cell.width;
+      const phantomRect: Rect = {
+        x: cell.x + offsetX + (cell.width - width) / 2,
+        y: cell.y + phantom.y * cell.height + (cell.height - height) / 2,
+        width,
+        height,
+      };
+      if (!this.onScreen(phantomRect)) continue;
+      if (phantom.face || !phantom.block.subLevel) {
+        this.drawFace(graphics, phantom.block, phantomRect, true);
+      } else {
+        this.drawBlock(
+          graphics,
+          phantom.block,
+          phantomRect,
+          depth + 1,
+          nextAncestors,
+          flipH !== phantom.block.flipH,
+        );
+      }
+    }
+
     if (
       this.uiState?.preferences.grid &&
       depth <= 3 &&
-      Math.min(rect.width / level.width, rect.height / level.height) >= 6
+      Math.min(
+        rect.width / Math.max(level.width, 1),
+        rect.height / Math.max(level.height, 1),
+      ) >= 6
     ) {
       for (let x = 1; x < level.width; x++) {
         const lineX = rect.x + (rect.width * x) / level.width;
-        graphics.moveTo(lineX, rect.y).lineTo(lineX, rect.y + rect.height);
+        graphics
+          .moveTo(lineX, rect.y)
+          .lineTo(lineX, rect.y + rect.height);
       }
       for (let y = 1; y < level.height; y++) {
         const lineY = rect.y + (rect.height * y) / level.height;
@@ -832,6 +952,76 @@ export class GameRenderer {
       }
       graphics.stroke({ color: 0xffffff, alpha: 0.16, width: 1 });
     }
+  }
+
+  private onScreen(rect: Rect): boolean {
+    return !(
+      rect.x > this.app.screen.width ||
+      rect.y > this.app.screen.height ||
+      rect.x + rect.width < 0 ||
+      rect.y + rect.height < 0
+    );
+  }
+
+  /** `Draw.GoOutOneLevel`: the parent level rect that contains `block`. */
+  private goOutOneLevel(
+    block: Block,
+    rect: Rect,
+    flipH: boolean,
+  ): { block: Block; rect: Rect; flipH: boolean } | null {
+    const outer = block.outerLevel;
+    const exitBlock = outer?.blocksWithThisAsTheirSubLevel[0];
+    if (!outer || !exitBlock) return null;
+    const width = rect.width / (block.drawXScale || 1);
+    const height = rect.height / (block.drawYScale || 1);
+    let gridX = block.x;
+    let offsetX = block.drawXOffset;
+    const nextFlipH = flipH !== block.flipH;
+    if (nextFlipH) {
+      gridX = outer.width - 1 - gridX;
+      offsetX *= -1;
+    }
+    // `GoOutOneLevel` works in block centers; our rects are top-left based.
+    const parentWidth = width * outer.width;
+    const parentHeight = height * outer.height;
+    const centerX =
+      rect.x +
+      rect.width / 2 -
+      (gridX - (outer.width - 1) / 2 + offsetX) * width;
+    const centerY =
+      rect.y +
+      rect.height / 2 +
+      (block.y - (outer.height - 1) / 2 - block.drawYOffset) * height;
+    return {
+      block: exitBlock,
+      rect: {
+        x: centerX - parentWidth / 2,
+        y: centerY - parentHeight / 2,
+        width: parentWidth,
+        height: parentHeight,
+      },
+      flipH: nextFlipH,
+    };
+  }
+
+  /** Cell rect after `Block.DrawXOffset/DrawXScale` (enter/exit/bump/nudge). */
+  private animatedCellRect(
+    level: Level,
+    block: Block,
+    rect: Rect,
+    flipH: boolean,
+  ): Rect {
+    const cell = this.cellRect(level, block.x, block.y, rect, flipH);
+    const width = cell.width * block.drawXScale;
+    const height = cell.height * block.drawYScale;
+    const offsetX = (flipH ? -1 : 1) * block.drawXOffset * cell.width;
+    const offsetY = block.drawYOffset * cell.height;
+    return {
+      x: cell.x + offsetX + (cell.width - width) / 2,
+      y: cell.y + offsetY + (cell.height - height) / 2,
+      width,
+      height,
+    };
   }
 
   private cellRect(
@@ -937,21 +1127,23 @@ export class GameRenderer {
     const filledBlockColor = hsvToRgb(block.color);
     const shadowOffset = Math.max(1, size * 0.07);
     const outlineWidth = Math.max(1.2, size * 0.035);
-    graphics
-      .rect(
-        rect.x + shadowOffset,
-        rect.y + shadowOffset,
-        rect.width,
-        rect.height,
-      )
-      .fill({ color: COLORS.shadow, alpha: 0.3 });
-
     const subLevel = block.subLevel;
-    if (!subLevel) return;
     const terminal =
+      !subLevel ||
       subLevel.filledWithWalls ||
       depth >= 7 ||
-      Math.min(rect.width, rect.height) < 11;
+      size < 11;
+
+    if (!terminal && subLevel) {
+      graphics
+        .rect(
+          rect.x + shadowOffset,
+          rect.y + shadowOffset,
+          rect.width,
+          rect.height,
+        )
+        .fill({ color: COLORS.shadow, alpha: 0.3 });
+    }
 
     if (terminal) {
       graphics
@@ -962,7 +1154,7 @@ export class GameRenderer {
           color: filledBlockColor,
         })
         .stroke({ color: shade(filledBlockColor, 0.2), width: outlineWidth });
-    } else {
+    } else if (subLevel) {
       graphics
         .rect(rect.x, rect.y, rect.width, rect.height)
         .fill(backingColor)
@@ -973,21 +1165,14 @@ export class GameRenderer {
         color: 0xffffff,
         alpha: 0.08,
       });
-      const padding = Math.max(1.5, size * 0.11);
-      const inner = {
-        x: rect.x + padding,
-        y: rect.y + padding,
-        width: rect.width - padding * 2,
-        height: rect.height - padding * 2,
-      };
       if (ancestors.has(subLevel)) {
-        this.drawRecursiveVoid(graphics, inner, backingColor, depth);
+        this.drawRecursiveVoid(graphics, rect, backingColor, depth);
       } else {
         this.drawLevel(
           graphics,
           subLevel,
           block,
-          inner,
+          rect,
           depth + 1,
           ancestors,
           flipH !== block.flipH,
@@ -995,63 +1180,97 @@ export class GameRenderer {
       }
     }
 
-    if (block.isPlayer) this.drawFace(graphics, block, rect);
-    else if (block.possessable) {
-      this.drawPossessableFace(
-        graphics,
-        rect,
-        terminal ? filledBlockColor : backingColor,
-      );
+    if (block.isPlayer || block.possessable) {
+      if (block.drawIsPlayer) {
+        this.drawFace(graphics, block, rect);
+      } else {
+        this.drawPossessableFace(
+          graphics,
+          rect,
+          terminal ? filledBlockColor : backingColor,
+        );
+      }
     }
-    if (block.flipH) this.drawFlipMark(graphics, rect);
-    if (depth === 0 && terminal) {
-      this.drawBlockMotes(graphics, block, rect, filledBlockColor);
-    }
+    if (block.flipH || block.fadeFlipH) this.drawFlipMark(graphics, rect);
   }
 
   private drawFace(
     graphics: Graphics,
     block: Block,
     rect: Rect,
+    facePhantom = false,
   ): void {
-    const size = Math.min(rect.width, rect.height);
-    const eyeWidth = Math.max(2.5, size * 0.2);
-    const eyeHeight = Math.max(2.5, size * 0.2);
+    if (!block.drawIsPlayer && !facePhantom) return;
+    const width = rect.width;
+    const height = rect.height;
+    const fractionOfScreen =
+      ((width + height) / 2) / Math.max(1, this.app.screen.height);
+    let alpha = -Math.log10(fractionOfScreen + 15) + 1.5;
+    if (block.subLevel && !block.subLevel.filledWithWalls) {
+      alpha = -Math.log10(fractionOfScreen + 1.5) + 0.5;
+    }
+    if (!block.drawIsPlayer && block.moving && block.anim === AnimType.Still) {
+      const t = block.animT / block.animLength;
+      alpha *= block.isPlayer ? 1 - t : t;
+    }
+    if (alpha < 0) return;
+
+    const blinking =
+      Math.floor(block.faceAnimT * 7.12) % 26 === 0 && block.drawIsPlayer;
+    let eyeWidth = Math.max(2.5, width * 0.2);
+    let eyeHeight = Math.max(2.5, height * 0.2);
+    if (blinking) {
+      eyeWidth *= 1.05;
+      eyeHeight *= 0.95;
+    }
+    const texture = blinking
+      ? this.textures.eyeSmall
+      : width * 0.2 < 50
+        ? this.textures.eyeSmall
+        : this.textures.eye;
+
+    // Draw.DrawFace places the eye centers at -0.25/+0.25 width around the
+    // block center and -0.05 height, biased by the look offset.
+    let leftX = -0.25;
+    let rightX = 0.25;
+    let eyeY = -0.05;
+    if (block.drawIsPlayer || facePhantom) {
+      if (block.eyeXOffset > 0) leftX += block.eyeXOffset * 1.5;
+      else leftX += block.eyeXOffset;
+      if (block.eyeXOffset < 0) rightX += block.eyeXOffset * 1.5;
+      else rightX += block.eyeXOffset;
+      eyeY += block.eyeYOffset * 1.5;
+    }
     const direction = block.flipH ? -1 : 1;
-    const centerY = rect.y + rect.height * 0.45;
-    const offset = direction * size * 0.018;
-    const eyeColor = 0x000000;
-    const fractionOfScreen = size / Math.max(1, this.app.screen.height);
-    const eyeAlpha = Math.max(
-      0,
-      Math.min(1, (-Math.log10(fractionOfScreen + 15) + 1.5) * 2),
-    );
-    const eyeTexture = size < 50 ? this.textures.eyeSmall : this.textures.eye;
+    leftX *= direction;
+    rightX *= direction;
+    const centerY = rect.y + height * (0.5 + eyeY);
+    const drawHeight = blinking ? Math.max(1.2, eyeHeight * 0.18) : eyeHeight;
     graphics
       .rect(
-        rect.x + rect.width * 0.25 + offset - eyeWidth / 2,
-        centerY - eyeHeight / 2,
+        rect.x + width * (0.5 + leftX) - eyeWidth / 2,
+        centerY - drawHeight / 2,
         eyeWidth,
-        eyeHeight,
+        drawHeight,
       )
       .fill({
-        texture: eyeTexture,
+        texture,
         textureSpace: "local",
-        color: eyeColor,
-        alpha: eyeAlpha,
+        color: 0x000000,
+        alpha,
       });
     graphics
       .rect(
-        rect.x + rect.width * 0.75 + offset - eyeWidth / 2,
-        centerY - eyeHeight / 2,
+        rect.x + width * (0.5 + rightX) - eyeWidth / 2,
+        centerY - drawHeight / 2,
         eyeWidth,
-        eyeHeight,
+        drawHeight,
       )
       .fill({
-        texture: eyeTexture,
+        texture,
         textureSpace: "local",
-        color: eyeColor,
-        alpha: eyeAlpha,
+        color: 0x000000,
+        alpha,
       });
   }
 
@@ -1077,35 +1296,6 @@ export class GameRenderer {
         eyeSize,
       )
       .fill({ texture, textureSpace: "local", color: eyeColor });
-  }
-
-  private drawBlockMotes(
-    graphics: Graphics,
-    block: Block,
-    rect: Rect,
-    color: number,
-  ): void {
-    const size = Math.min(rect.width, rect.height);
-    const mote = Math.max(2, size * 0.12);
-    const phase = this.elapsed * 0.8 + block.id * 1.73;
-    const offsets = [
-      [-0.1, 0.28],
-      [0.98, 0.72],
-      [0.5, -0.1],
-      [0.72, 1.02],
-    ] as const;
-    for (let index = 0; index < offsets.length; index++) {
-      const [ox, oy] = offsets[index]!;
-      const pulse = 0.55 + 0.25 * Math.sin(phase + index * 1.9);
-      graphics
-        .rect(
-          rect.x + rect.width * ox,
-          rect.y + rect.height * oy,
-          mote,
-          mote,
-        )
-        .fill({ color, alpha: pulse });
-    }
   }
 
   private drawFlipMark(graphics: Graphics, rect: Rect): void {

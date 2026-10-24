@@ -31,6 +31,58 @@ export interface HsvColor {
   v: number;
 }
 
+/**
+ * A floating square mote owned by a level (original `Particle`).
+ * Positions and sizes are fractions of the level rect, centred on it.
+ */
+export interface Particle {
+  x: number;
+  y: number;
+  size: number;
+  deltaX: number;
+  deltaY: number;
+  deltaSize: number;
+  slowDown: number;
+  hue: number;
+  sat: number;
+  val: number;
+  alpha: number;
+  celebration: boolean;
+}
+
+/**
+ * A transient copy of a block drawn inside a level (original `Phantom`).
+ * Used for blocks leaving a box, faces flying to a possessed twin, etc.
+ */
+export interface Phantom {
+  block: Block;
+  xpos: number;
+  ypos: number;
+  outerLevel: Level;
+  exitedFrom: Block | null;
+  face: boolean;
+  faceBlockForJustEnteredArray: Block | null;
+  jumpIn: boolean;
+  jumpOut: boolean;
+  animT: number;
+  animLength: number;
+  x: number;
+  xFrom: number;
+  xTo: number;
+  y: number;
+  yFrom: number;
+  yTo: number;
+  xScale: number;
+  xScaleFrom: number;
+  xScaleTo: number;
+  yScale: number;
+  yScaleFrom: number;
+  yScaleTo: number;
+  exiting: boolean;
+  exitingDX: number;
+  exitingDY: number;
+}
+
 export class Level {
   readonly id: number;
   width = 0;
@@ -42,6 +94,11 @@ export class Level {
   readonly infEnterBlocks: Array<Block | null> = [];
   readonly blockList: Block[] = [];
   readonly floorList: Floor[] = [];
+  /** Mirrors `Level.phantoms`: transient copies drawn during enter/exit. */
+  readonly phantoms: Phantom[] = [];
+  /** Mirrors `Level.particles`: floating motes spawned around boxes. */
+  readonly particles: Particle[] = [];
+  lastPartSpawnSide = -1;
   infEffect = false;
   infZone = false;
   camZoomFactor = 1;
@@ -160,6 +217,33 @@ export class Block {
   justEnteredArray: Block[] | null = null;
   justInfEntered = false;
   unlockerScene: string | null = null;
+  lastPartSpawnSide = -1;
+
+  // --- Procedural animation state (Block.UpdateAnimation) ---
+  moving = false;
+  animT = 0;
+  animLength = 0;
+  /** `Block.AnimType`; stored as a string to keep model independent of animation.ts. */
+  anim = "normal";
+  drawXOffset = 0;
+  drawXOffsetStart = 0;
+  drawYOffset = 0;
+  drawYOffsetStart = 0;
+  drawXScale = 1;
+  drawXScaleStart = 1;
+  drawYScale = 1;
+  drawYScaleStart = 1;
+  smallBumpHalt = false;
+  drawNudgeHoriz = false;
+  fadeFlipH = false;
+  drawIsPlayer = false;
+  faceAnimT = 8;
+  miscAnimT = 8;
+  lookAnimT = 0;
+  eyeXOffset = 0;
+  eyeYOffset = 0;
+  eyeXOffsetTo = 0;
+  eyeYOffsetTo = 0;
 
   constructor(id: number) {
     this.id = id;
@@ -202,6 +286,7 @@ export class Floor {
   hard = 0;
   /** Mirrors the original Floor.AnimT used by Info and DemoEnd floors. */
   animationT = 0;
+  lastPartSpawnSide = -1;
   readonly thumbnailAnimDeltaT = 1.75;
 
   constructor(
@@ -239,6 +324,28 @@ export class WorldModel {
     Attempt.Possess,
   ];
   drawStyle = DrawStyle.Normal;
+  /** Prefs.EnterSpeedIndex (index into EnterLengths). */
+  enterSpeedIndex = 0;
+  allowSkippingAnimation = false;
+  /** Mirrors `World.AnyBlockMoving` for the frame currently being drawn. */
+  anyBlockMoving = false;
+  /** Mirrors `Particle.particleT`. */
+  particleT = 0;
+  /** Draw.CameraMode == Title makes the player stop looking around. */
+  cameraTitle = false;
+  // --- Camera animation state (Draw.SetCameraOffset) ---
+  cameraMoving = false;
+  cameraAnimT = 0;
+  cameraAnimLength = 0;
+  newCamT = 1;
+  newX = 0;
+  newY = 0;
+  newXS = 1;
+  newYS = 1;
+  usedX = 0;
+  usedY = 0;
+  usedXS = 1;
+  usedYS = 1;
   shedEnabled = false;
   innerPushEnabled = false;
   showAttemptOrder = false;

@@ -33,6 +33,8 @@ src/
 │   ├── levelRepository.ts Vite glob imports for all level .txt files
 │   ├── progression.ts     Puzzle win tracking, hub portal unlock rules, fast travel
 │   ├── progressSlots.ts   4 save slots backed by localStorage
+│   ├── animation.ts       Procedural block animation (Block.UpdateAnimation/Projection port)
+│   ├── particles.ts       Block/level particle motes (Particle class port)
 │   ├── inspection.ts      Click-to-zoom into nested boxes (inspection camera)
 │   ├── directionalInput.ts Multi-key direction stack with configurable repeat delay
 │   ├── specialModes.ts    Post-game "Break", "Show", "Gallery" modes
@@ -72,6 +74,42 @@ Important edge cases in movement:
 - **Shed**: `shedEnabled` flag — a block exiting a level can "shed" its own level's exit block if movement is blocked
 - **Infinite zone unwinding**: exit/enter loops self-detect and unwind up to 20 attempts
 - **Camera flip**: when a player enters/exits a flipped block, camera flips horizontally
+- **Auto-repeat**: holding a direction repeats only after the move animation finishes (0.1 s slide) plus `moveDelay` (70 ms default), matching the original's measured ~171 ms cadence; time before the press is never counted, so a long frame cannot fire a second step. A blocked move sets `waitingForDirectionChange` and suppresses repeats until the direction changes
+
+## Animation System (animation.ts)
+
+Patrick's Parabox has no Unity Animator/AnimationClip assets — every animation
+is procedural. `animation.ts` ports it:
+
+- `Block` state machine (`updating via updateWorldAnimations`): per-block
+  `animT / animLength` drives `drawXOffset/drawYOffset/drawXScale/drawYScale`
+  through `AnimType` (NORMAL, ENTER_EXIT, BUMP, BUMP_HALT, NUDGE, STILL,
+  JUMP_IN, JUMP_OUT, SQUISH_IN_PLACE), plus eye look/blink (`faceAnimT`).
+- `computeProjection` / `computeProjectionParent` turn the recursive attempt
+  chain into the start offset/scale of an enter/exit move; `History` stores
+  them on each `TurnMove`/`Turn`.
+- `UndoManager.DoRedo/DoUndo` equivalents: moves animate, undo/redo squish in
+  place (0.125 s), restarts snap.
+- Camera sync (`setCameraOffset`) eases `world.newX/newY/newXS/newYS` between
+  levels; `GameRenderer` sizes the focus block at `0.82 * min(screen)` scaled
+  by that camera and draws up to 3 containing levels (`GoOutOneLevel`).
+- Phantoms (`Level.phantoms`) draw blocks leaving a box, infinite-enter
+  ghosts and the face that flies to a possessed twin.
+
+## Particle Effects (particles.ts)
+
+A straight port of the original `Particle` class. Every box (including the
+player, which is a 1×1 filled box) emits a small square mote from a random
+side every 0.6 s; motes drift outward, shrink, and are retired when they
+shrink away or leave the level's −0.5..0.5 range. Walls use the containing
+box's colour and a faster outward push. In the hub, one huge, very faint
+(alpha 0.035) mote per level drifts inward every 5.1 s. `preWarmParticles`
+seeds a freshly loaded world so motes are visible on the first frame.
+
+Particles are drawn between floors and blocks in `drawLevel`, so blocks
+occlude them exactly like the original's `Draw.ProcessTicket` particle pass.
+Portal (`spawnParticlePortal`) and celebration-edge spawners are ported but
+not yet triggered by hub progression.
 
 ## Recursive Rendering (GameRenderer.ts)
 
@@ -127,3 +165,4 @@ Based on codebase analysis, the following areas appear incomplete or unverified:
 5. **CSS for `#dev-panel`** — The dev panel (backtick key) is created in JS but its styling depends on `style.css`.
 6. **Touch/mobile controls** — No mobile input handling exists beyond pointer events for inspection.
 7. **Level completeness** — Not all original levels may be present; compare `src/assets/levels/` against the original game's level list.
+8. **Animation polish** — Clone "simple slide" clipping (blocks entering a level's other clones are drawn unclipped), closed-eye/mouth textures, and the clone-fade overlay are not ported yet; the main slide/enter/exit/bump/nudge/possess/camera animations are.

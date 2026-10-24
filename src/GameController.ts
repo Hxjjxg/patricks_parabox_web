@@ -13,8 +13,15 @@ import {
 import { TouchSwipeInput } from "./core/touchInput";
 import { MovementEngine, type ImpulseResult } from "./core/movement";
 import {
+  stopAllAnimations,
+  updateCameraAnimation,
+  updateWorldAnimations,
+} from "./core/animation";
+import { preWarmParticles, updateParticles } from "./core/particles";
+import {
   DrawStyle,
   FloorType,
+  type Block,
   type Floor,
   type Level,
   type WorldModel,
@@ -98,6 +105,8 @@ export interface DebugApi {
     }>;
   };
   impulse(dx: number, dy: number): ImpulseResult;
+  /** Live model, for automated visual/animation checks. */
+  world(): WorldModel;
   loadLevel(name: string): void;
   loadCustomLevel(id: string): boolean;
   importCustomLevel(filename: string, source: string): string;
@@ -134,6 +143,10 @@ export class GameController {
   private winTransitionTimer: number | null = null;
   private customLevelErrorTimer: number | null = null;
   private fastTravelSession: FastTravelSession | null = null;
+  private lastMoveDirection: DirectionCommand = { dx: 0, dy: 0 };
+  /** Wall-clock of the last applied move, so a long frame cannot count
+   * time from before the press towards the next auto-repeat. */
+  private lastMoveAppliedAt: number | null = null;
   private creditsActive = false;
   private creditsFromPause = false;
   private readonly specialModes = new SpecialModes();
@@ -267,6 +280,7 @@ export class GameController {
         };
       },
       impulse: (dx, dy) => this.impulse(dx, dy),
+      world: () => this.world,
       loadLevel: (name) => this.loadLevel(name),
       loadCustomLevel: (id) => this.loadCustomLevel(id),
       importCustomLevel: (filename, source) =>
@@ -322,6 +336,8 @@ export class GameController {
     this.sessionMenu.reset();
     this.refreshSessionSettings();
     this.directionalInput.reset();
+    this.lastMoveDirection = { dx: 0, dy: 0 };
+    this.lastMoveAppliedAt = null;
     this.directionalInput.setMoveDelayMilliseconds(
       this.settings.snapshot().moveDelay,
     );
@@ -346,9 +362,14 @@ export class GameController {
     }
     this.persistProgression();
     this.movement = new MovementEngine(this.world);
+    const animationSettings = this.settings.snapshot();
+    this.world.enterSpeedIndex = animationSettings.enterSpeedIndex;
+    this.world.allowSkippingAnimation =
+      animationSettings.allowSkippingAnimation;
     this.inspection = new InspectionModel(this.world);
     this.renderer.setInspection(null, false);
     this.renderer.setWorld(this.world);
+    preWarmParticles(this.world, name === "hub");
     this.levelSelect.value = levelNames.includes(name) ? name : "";
     this.updateStateOutput();
     this.syncHubCompletion();
@@ -810,6 +831,8 @@ export class GameController {
   private applySettingsRuntime(previous?: SettingsSnapshot): void {
     const settings = this.settings.snapshot();
     this.directionalInput.setMoveDelayMilliseconds(settings.moveDelay);
+    this.world.enterSpeedIndex = settings.enterSpeedIndex;
+    this.world.allowSkippingAnimation = settings.allowSkippingAnimation;
     if (previous && previous.fullscreen !== settings.fullscreen) {
       this.applyFullscreenSetting(settings.fullscreen);
     }
@@ -1257,8 +1280,40 @@ export class GameController {
     this.previousFrameTime = timestamp;
     this.advancePlaytime(Math.min(elapsed, 1 / 3));
 
+    if (this.runtimeMode() === "playing" && elapsed > 0) {
+      const delta = Math.min(elapsed, 0.1);
+      updateWorldAnimations(this.world, {
+        deltaTime: delta,
+        quickAnim: this.world.drawStyle === DrawStyle.QuickAnim,
+        handleActionFloor: (block) => this.blockIsOnActionFloor(block),
+        random: Math.random,
+      });
+      updateCameraAnimation(this.world, delta);
+    }
+
+    // Advance animations first: the original's move delay only counts frames
+    // where nothing is moving, and the state must be current for this frame.
     if (this.runtimeMode() === "playing") {
-      this.applyDirectionCommand(this.directionalInput.tick(elapsed));
+      const sinceLastMove =
+        this.lastMoveAppliedAt === null
+          ? elapsed
+          : Math.max(0, (timestamp - this.lastMoveAppliedAt) / 1000);
+      this.applyDirectionCommand(
+        this.directionalInput.tick(
+          Math.min(elapsed, sinceLastMove),
+          !this.world.anyBlockMoving,
+        ),
+        true,
+      );
+    }
+
+    if (elapsed > 0) {
+      const mode = this.runtimeMode();
+      updateParticles(this.world, Math.min(elapsed, 0.1), {
+        inHub: this.world.levelName === "hub",
+        playerParticlesEnabled:
+          mode !== "fast-travel" && mode !== "break",
+      });
     }
 
     this.world.updateFloorAnimations(
@@ -1334,9 +1389,49 @@ export class GameController {
 
   private applyDirectionCommand(
     command: DirectionCommand | null,
+    repeated = false,
   ): void {
     if (!command || this.runtimeMode() !== "playing") return;
+    const changedDirection =
+      command.dx !== this.lastMoveDirection.dx ||
+      command.dy !== this.lastMoveDirection.dy;
+    if (changedDirection) {
+      this.lastMoveDirection = { dx: command.dx, dy: command.dy };
+      this.movement.clearWaitForMoveDirChange();
+    }
+    if (repeated) {
+      // Blocked moves set WaitForMoveDirChange: holding the same direction
+      // must not keep bumping until the player changes direction.
+      if (this.movement.waitingForDirectionChange) return;
+      if (this.world.anyBlockMoving) {
+        if (!this.world.allowSkippingAnimation) return;
+        this.skipAnimations();
+      }
+    }
+    this.lastMoveAppliedAt = performance.now();
     this.impulse(command.dx, command.dy);
+  }
+
+  /** `UndoManager.StopAnimations` + eye snap, used by the skip-animation pref. */
+  private skipAnimations(): void {
+    stopAllAnimations(this.world);
+    for (const block of this.world.playerBlocks) {
+      block.eyeXOffset = block.eyeXOffsetTo;
+      block.eyeYOffset = block.eyeYOffsetTo;
+      block.lookAnimT = 0;
+    }
+  }
+
+  /** Mirrors `Block.HandleActionFloor()` for the landing-animation check. */
+  private blockIsOnActionFloor(block: Block): boolean {
+    if (!block.isPlayer) return false;
+    const floor = block.outerLevel?.getFloor(block.x, block.y);
+    return (
+      floor?.type === FloorType.BreakFloor ||
+      floor?.type === FloorType.Show ||
+      floor?.type === FloorType.GalleryFloor ||
+      floor?.type === FloorType.FastTravel
+    );
   }
 
   private handleSpecialModeKeyDown(
