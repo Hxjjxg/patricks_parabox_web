@@ -46,6 +46,7 @@ src/
 │   ├── particles.ts       Block/level particle motes (Particle class port)
 │   ├── inspection.ts      Click-to-zoom into nested boxes (inspection camera)
 │   ├── directionalInput.ts Multi-key direction stack with configurable repeat delay
+│   ├── inputQueue.ts       Pure rule for applying/queueing a direction request
 │   ├── specialModes.ts    Post-game "Break", "Show", "Gallery" modes
 │   ├── sessionMenu.ts     Pause menu, title screen, save slot selection, erase confirmations
 │   └── localization.ts    English localization strings for tips and signs

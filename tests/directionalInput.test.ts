@@ -59,3 +59,23 @@ describe("single-player directional input stack", () => {
     expect(input.tick(0.001)).toEqual({ dx: 1, dy: 0 });
   });
 });
+
+describe("directional repeat timing", () => {
+  it("does not accumulate repeat time while repeats are blocked", () => {
+    const input = new DirectionalInput(70);
+    expect(input.press("d", { dx: 1, dy: 0 })).toEqual({ dx: 1, dy: 0 });
+    expect(input.tick(0.2, false)).toBeNull();
+    // Only the time where repeats were allowed counts.
+    expect(input.tick(0.05, true)).toBeNull();
+    expect(input.tick(0.03, true)).toEqual({ dx: 1, dy: 0 });
+  });
+
+  it("restarts the repeat delay on a new direction", () => {
+    const input = new DirectionalInput(70);
+    input.press("d", { dx: 1, dy: 0 });
+    expect(input.tick(0.06)).toBeNull();
+    expect(input.press("w", { dx: 0, dy: 1 })).toEqual({ dx: 0, dy: 1 });
+    expect(input.tick(0.06)).toBeNull();
+    expect(input.tick(0.02)).toEqual({ dx: 0, dy: 1 });
+  });
+});

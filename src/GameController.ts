@@ -19,6 +19,7 @@ import {
   updateWorldAnimations,
 } from "./core/animation";
 import { preWarmParticles, updateParticles } from "./core/particles";
+import { decideDirectionRequest } from "./core/inputQueue";
 import {
   DrawStyle,
   FloorType,
@@ -1142,7 +1143,14 @@ export class GameController {
     const key = event.key.toLowerCase();
     this.heldKeys.delete(key);
     if (this.runtimeMode() === "playing") {
-      this.applyDirectionCommand(this.directionalInput.release(key));
+      const command = this.directionalInput.release(key);
+      if (!command) {
+        // Releasing everything is a direction change (0,0) in the original:
+        // it clears the blocked-repeat wait so the next press can move again.
+        this.lastMoveDirection = { dx: 0, dy: 0 };
+        this.movement.clearWaitForMoveDirChange();
+      }
+      this.applyDirectionCommand(command);
     } else {
       this.directionalInput.release(key);
     }
@@ -1421,25 +1429,21 @@ export class GameController {
       this.lastMoveDirection = { dx: command.dx, dy: command.dy };
       this.movement.clearWaitForMoveDirChange();
     }
-    // The original accepts at most one queued move at a time.
-    if (this.queuedDirection) return;
-    if (repeated) {
-      // Blocked moves set WaitForMoveDirChange: holding the same direction
-      // must not keep bumping until the player changes direction.
-      if (this.movement.waitingForDirectionChange) return;
-      if (this.world.anyBlockMoving) {
-        if (!this.world.allowSkippingAnimation) return;
-        this.skipAnimations();
-      }
-    } else if (this.world.anyBlockMoving) {
-      // Turning mid-slide must wait for the slide to land: applying it now
-      // would move the model a second tile while the visual is mid-animation.
-      if (!this.world.allowSkippingAnimation) {
-        this.queuedDirection = command;
-        return;
-      }
-      this.skipAnimations();
+    const decision = decideDirectionRequest({
+      repeated,
+      animating: this.world.anyBlockMoving,
+      alreadyQueued: this.queuedDirection !== null,
+      waitingForDirectionChange: this.movement.waitingForDirectionChange,
+      allowSkippingAnimation: this.world.allowSkippingAnimation,
+    });
+    if (decision === "ignore") return;
+    if (decision === "queue") {
+      // Turning mid-slide waits for the slide to land; applying it now would
+      // move the model a second tile while the visual is mid-animation.
+      this.queuedDirection = command;
+      return;
     }
+    if (decision === "skip-and-apply") this.skipAnimations();
     this.applyMove(command);
   }
 

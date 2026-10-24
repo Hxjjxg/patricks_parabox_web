@@ -5,9 +5,16 @@ import {
   computeProjection,
   computeProjectionParent,
   quadParabola,
+  computeAnimLength,
+  doBumpAnim,
+  doNudgeAnim,
+  doSquishInPlace,
+  makePhantom,
   resetCameraOffset,
   setCameraOffset,
   smoothStepInOut,
+  updateAnimation,
+  updatePhantoms,
   updateWorldAnimations,
   type ProjectionMoveWithBlock,
 } from "../src/core/animation";
@@ -192,5 +199,152 @@ describe("camera offset (Draw.SetCameraOffset port)", () => {
     expect(world.newXS).toBe(1);
     expect(world.newX).toBe(0);
     expect(world.cameraMoving).toBe(false);
+  });
+});
+
+describe("animation length (Projection.ComputeAnimLength port)", () => {
+  const block = {} as Block;
+  const level = mockLevel(3, 3);
+
+  it("uses the slide length when the chain only slides", () => {
+    expect(
+      computeAnimLength([move(block, "slide", level, level, { dx: 1 })], 0.5),
+    ).toBeCloseTo(0.1);
+  });
+
+  it("uses the enter length whenever the chain enters or exits", () => {
+    expect(
+      computeAnimLength([move(block, "enter", level, level, { dx: 1 })], 0.5),
+    ).toBeCloseTo(0.5);
+    expect(
+      computeAnimLength([move(block, "exit", level, level, { dx: 1 })], 0.33),
+    ).toBeCloseTo(0.33);
+  });
+});
+
+describe("animation starters (Block.Do*Anim ports)", () => {
+  const context = { quickAnim: false };
+
+  function playerBlock(): Block {
+    const world = parseLevel(getLevelSource("first_puzzle"), "first_puzzle");
+    return world.findPlayerBlock();
+  }
+
+  it("bump starts from a one-cell offset and lasts 0.22s", () => {
+    const block = playerBlock();
+    doBumpAnim(block, 1, 0, false, context);
+    expect(block.moving).toBe(true);
+    expect(block.anim).toBe(AnimType.Bump);
+    expect(block.animLength).toBeCloseTo(0.22);
+    expect(block.drawXOffsetStart).toBe(1);
+    expect(block.drawYOffsetStart).toBeCloseTo(0);
+    doBumpAnim(block, 0, -1, true, context);
+    expect(block.anim).toBe(AnimType.BumpHalt);
+    expect(block.drawYOffsetStart).toBe(1);
+  });
+
+  it("nudge keeps the block in place and only squishes", () => {
+    const block = playerBlock();
+    doNudgeAnim(block, true, 0.4);
+    expect(block.anim).toBe(AnimType.Nudge);
+    expect(block.drawNudgeHoriz).toBe(true);
+    expect(block.animLength).toBeCloseTo(0.4);
+    expect(block.drawXOffsetStart).toBe(0);
+    expect(block.drawYOffsetStart).toBe(0);
+  });
+
+  it("undo squish is in place for 0.125s", () => {
+    const block = playerBlock();
+    doSquishInPlace(block, true, 0.125, context);
+    expect(block.anim).toBe(AnimType.SquishInPlace);
+    expect(block.animLength).toBeCloseTo(0.125);
+    expect(block.moving).toBe(true);
+    expect(block.drawXOffset).toBe(0);
+    expect(block.drawYOffset).toBe(0);
+    expect(block.drawXScale).toBeGreaterThan(1);
+    expect(block.drawYScale).toBeLessThan(1);
+  });
+
+  it("chains a landing BUMP_HALT after a slide finishes", () => {
+    const world = parseLevel(getLevelSource("first_puzzle"), "first_puzzle");
+    const block = world.findPlayerBlock();
+    block.moving = true;
+    block.anim = AnimType.Normal;
+    block.animLength = 0.1;
+    block.animT = 0.11;
+    block.drawXOffsetStart = -1;
+    block.drawYOffsetStart = 0;
+    updateAnimation(block, false, false, {
+      deltaTime: 0,
+      quickAnim: false,
+      anyBlockMoving: true,
+      handleActionFloor: () => false,
+      random: () => 0.5,
+    });
+    expect(block.anim).toBe(AnimType.BumpHalt);
+    expect(block.smallBumpHalt).toBe(false);
+    expect(block.animLength).toBeCloseTo(0.22);
+
+    // Enter/exit halts are smaller.
+    block.moving = true;
+    block.anim = AnimType.EnterExit;
+    block.animLength = 0.5;
+    block.animT = 0.51;
+    block.drawXOffsetStart = 0;
+    block.drawYOffsetStart = 1;
+    updateAnimation(block, false, false, {
+      deltaTime: 0,
+      quickAnim: false,
+      anyBlockMoving: true,
+      handleActionFloor: () => false,
+      random: () => 0.5,
+    });
+    expect(block.anim).toBe(AnimType.BumpHalt);
+    expect(block.smallBumpHalt).toBe(true);
+  });
+
+  it("skips the landing bump on action floors", () => {
+    const world = parseLevel(getLevelSource("first_puzzle"), "first_puzzle");
+    const block = world.findPlayerBlock();
+    block.moving = true;
+    block.anim = AnimType.Normal;
+    block.animLength = 0.1;
+    block.animT = 0.11;
+    updateAnimation(block, false, false, {
+      deltaTime: 0,
+      quickAnim: false,
+      anyBlockMoving: true,
+      handleActionFloor: () => true,
+      random: () => 0.5,
+    });
+    expect(block.moving).toBe(false);
+    expect(block.anim).not.toBe(AnimType.BumpHalt);
+  });
+});
+
+describe("phantoms", () => {
+  it("interpolates and retires after its length", () => {
+    const world = parseLevel(getLevelSource("first_puzzle"), "first_puzzle");
+    const level = world.findPlayerBlock().outerLevel!;
+    const phantom = makePhantom(
+      world.findPlayerBlock(),
+      level,
+      2,
+      2,
+      0.2,
+    );
+    phantom.xFrom = 0;
+    phantom.xTo = 1;
+    phantom.xScaleFrom = 1;
+    phantom.xScaleTo = 0;
+    level.phantoms.push(phantom);
+
+    updatePhantoms(world, 0.1);
+    expect(phantom.x).toBeCloseTo(0.5);
+    expect(phantom.xScale).toBeCloseTo(0.5);
+    expect(level.phantoms).toContain(phantom);
+
+    updatePhantoms(world, 0.11);
+    expect(level.phantoms).not.toContain(phantom);
   });
 });
