@@ -4,6 +4,7 @@ import {
   Graphics,
   Text,
   TextStyle,
+  type Shader,
 } from "pixi.js";
 import type { Block, HsvColor, Level, WorldModel } from "../core/model";
 import { DrawStyle, FloorType } from "../core/model";
@@ -19,6 +20,8 @@ import {
   loadOriginalTextures,
   type OriginalTextures,
 } from "./originalTextures";
+
+import { autotileIndex, createWallShader, originalDrawRect, wallTint } from "./wallRendering";
 
 export type RendererMode =
   | SpecialModeName
@@ -133,19 +136,6 @@ function computeBlockColor(block: Block, fractionOfScreen: number): number {
   return hsvToRgb({ h: block.color.h, s: saturation, v: value });
 }
 
-function computeWallColor(block: Block, fractionOfScreen: number): number {
-  let saturation = block.color.s;
-  let value =
-    scaleBrightness(fractionOfScreen) * block.color.v * 2;
-  if (block.isSomeInfExitBlock) {
-    value *= 0.55;
-  } else if (isCloneRepresentation(block)) {
-    value += 0.4;
-    saturation *= 0.82;
-  }
-  return hsvToRgb({ h: block.color.h, s: saturation, v: value });
-}
-
 function channel(color: number, shift: number): number {
   return (color >> shift) & 0xff;
 }
@@ -172,90 +162,12 @@ function seededSquares(count: number): VoidSquare[] {
   }));
 }
 
-function isSolid(level: Level, x: number, y: number): boolean {
-  if (!level.inBounds(x, y)) return true;
-  const block = level.getBlock(x, y);
-  return Boolean(block && !block.subLevel);
-}
-
-function autotileIndex(level: Level, block: Block): number {
-  const up = isSolid(level, block.x, block.y + 1);
-  const down = isSolid(level, block.x, block.y - 1);
-  const right = isSolid(level, block.x + 1, block.y);
-  const left = isSolid(level, block.x - 1, block.y);
-  const topRight = up && right && isSolid(level, block.x + 1, block.y + 1);
-  const topLeft = up && left && isSolid(level, block.x - 1, block.y + 1);
-  const bottomRight =
-    down && right && isSolid(level, block.x + 1, block.y - 1);
-  const bottomLeft = down && left && isSolid(level, block.x - 1, block.y - 1);
-  const mask =
-    Number(topLeft) |
-    (Number(up) * 2) |
-    (Number(topRight) * 4) |
-    (Number(left) * 8) |
-    (Number(right) * 16) |
-    (Number(bottomLeft) * 32) |
-    (Number(down) * 64) |
-    (Number(bottomRight) * 128);
-  const thresholds: ReadonlyArray<readonly [number, number]> = [
-    [0, 47],
-    [2, 1],
-    [8, 2],
-    [10, 3],
-    [11, 4],
-    [16, 5],
-    [18, 6],
-    [22, 7],
-    [24, 8],
-    [26, 9],
-    [27, 10],
-    [30, 11],
-    [31, 12],
-    [64, 13],
-    [66, 14],
-    [72, 15],
-    [74, 16],
-    [75, 17],
-    [80, 18],
-    [82, 19],
-    [86, 20],
-    [88, 21],
-    [90, 22],
-    [91, 23],
-    [94, 24],
-    [95, 25],
-    [104, 26],
-    [106, 27],
-    [107, 28],
-    [120, 29],
-    [122, 30],
-    [123, 31],
-    [126, 32],
-    [127, 33],
-    [208, 34],
-    [210, 35],
-    [214, 36],
-    [216, 37],
-    [218, 38],
-    [219, 39],
-    [222, 40],
-    [223, 41],
-    [248, 42],
-    [250, 43],
-    [251, 44],
-    [254, 45],
-    [255, 46],
-  ];
-  let result = 47;
-  for (const [minimum, index] of thresholds) {
-    if (mask >= minimum) result = index;
-  }
-  return result;
-}
-
 export class GameRenderer {
   readonly app = new Application();
-  private readonly scene = new Graphics();
+  private readonly scene = new Container();
+  private readonly sceneLayers: Graphics[] = [];
+  private readonly wallShaders = new WeakMap<Graphics, Shader>();
+  private sceneLayerCount = 0;
   private readonly controls = new Container();
   private readonly controlGraphics = new Graphics();
   private readonly controlLabels: Text[] = [];
@@ -363,15 +275,44 @@ export class GameRenderer {
     this.controlLabels.push(move);
   }
 
+  private nextSceneLayer(): Graphics {
+    const index = this.sceneLayerCount++;
+    let graphics = this.sceneLayers[index];
+    if (!graphics) {
+      graphics = new Graphics();
+      this.sceneLayers.push(graphics);
+      this.scene.addChild(graphics);
+    }
+    graphics.visible = true;
+    graphics.clear();
+    graphics.setFillStyle({ color: 0xffffff, alpha: 1 });
+    delete graphics.context.customShader;
+    return graphics;
+  }
+
+  private nextWallLayer(tint: Float32Array): Graphics {
+    const graphics = this.nextSceneLayer();
+    let shader = this.wallShaders.get(graphics);
+    if (!shader) {
+      shader = createWallShader(this.app.renderer.limits.maxBatchableTextures);
+      this.wallShaders.set(graphics, shader);
+    }
+    shader.resources.localUniforms.uniforms.uWallTint = tint;
+    graphics.context.customShader = shader;
+    return graphics;
+  }
+
   private draw(): void {
     const world = this.world;
     if (!world) return;
     this.inspectionBoard = null;
     const width = this.app.screen.width;
     const height = this.app.screen.height;
-    this.scene.clear();
-    this.scene.rect(0, 0, width, height).fill(COLORS.void);
-    this.drawVoid(this.scene, width, height);
+    this.sceneLayerCount = 0;
+    for (const layer of this.sceneLayers) layer.visible = false;
+    const graphics = this.nextSceneLayer();
+    graphics.rect(0, 0, width, height).fill(COLORS.void);
+    this.drawVoid(graphics, width, height);
 
     const player = world.findPlayerBlock();
     const viewBlock =
@@ -434,7 +375,7 @@ export class GameRenderer {
     const startLevel = startBlock.subLevel;
     if (startLevel) {
       this.drawLevel(
-        this.scene,
+        graphics,
         startLevel,
         startBlock,
         startRect,
@@ -808,9 +749,9 @@ export class GameRenderer {
     depth: number,
     ancestors: Set<Level>,
     flipH: boolean,
-  ): void {
-    if (!this.onScreen(rect)) return;
-    if (rect.width <= 0.5 || rect.height <= 0.5) return;
+  ): Graphics {
+    if (!this.onScreen(rect)) return graphics;
+    if (rect.width <= 0.5 || rect.height <= 0.5) return graphics;
     const fractionOfScreen =
       ((rect.width + rect.height) / 2) / Math.max(1, this.app.screen.height);
     const interiorColor = computeBlockColor(viewBlock, fractionOfScreen);
@@ -862,14 +803,18 @@ export class GameRenderer {
       }
     }
 
-    const wallColor = computeWallColor(viewBlock, fractionOfScreen);
+    const cellFractionOfScreen =
+      (rect.width / level.width + rect.height / level.height) / 2 /
+      Math.max(1, this.app.screen.height);
+    const wallGraphics = this.nextWallLayer(wallTint(viewBlock, cellFractionOfScreen));
     for (const block of level.blockList) {
       if (block.subLevel) continue;
       const wallRect = this.animatedCellRect(level, block, rect, flipH);
       if (!this.onScreen(wallRect)) continue;
-      this.drawWall(graphics, level, block, wallRect, wallColor);
+      this.drawWall(wallGraphics, level, block, wallRect, 0xffffff, flipH);
     }
 
+    graphics = this.nextSceneLayer();
     const nextAncestors = new Set(ancestors);
     nextAncestors.add(level);
     const containers = level.blockList.filter((block) => block.subLevel);
@@ -887,7 +832,7 @@ export class GameRenderer {
     for (const block of ordered) {
       const blockRect = this.animatedCellRect(level, block, rect, flipH);
       if (!this.onScreen(blockRect)) continue;
-      this.drawBlock(
+      graphics = this.drawBlock(
         graphics,
         block,
         blockRect,
@@ -921,7 +866,7 @@ export class GameRenderer {
       if (phantom.face || !phantom.block.subLevel) {
         this.drawFace(graphics, phantom.block, phantomRect, true);
       } else {
-        this.drawBlock(
+        graphics = this.drawBlock(
           graphics,
           phantom.block,
           phantomRect,
@@ -952,6 +897,7 @@ export class GameRenderer {
       }
       graphics.stroke({ color: 0xffffff, alpha: 0.16, width: 1 });
     }
+    return graphics;
   }
 
   private onScreen(rect: Rect): boolean {
@@ -1034,11 +980,17 @@ export class GameRenderer {
     const width = rect.width / level.width;
     const height = rect.height / level.height;
     const screenX = flipH ? level.width - 1 - x : x;
+    const screenY = level.height - 1 - y;
+    const left = rect.x + screenX * width;
+    const top = rect.y + screenY * height;
+    // Compute each grid boundary from its common origin. Adding a separately
+    // rounded cell width can fall just below an integer and lose a whole pixel
+    // when Draw.SetDrawRect truncates it (e.g. the third puzzle at 800x600).
     return {
-      x: rect.x + screenX * width,
-      y: rect.y + (level.height - 1 - y) * height,
-      width,
-      height,
+      x: left,
+      y: top,
+      width: rect.x + (screenX + 1) * width - left,
+      height: rect.y + (screenY + 1) * height - top,
     };
   }
 
@@ -1101,14 +1053,17 @@ export class GameRenderer {
     block: Block,
     rect: Rect,
     color: number,
+    flipH: boolean,
   ): void {
-    const texture = this.textures.walls[autotileIndex(level, block)];
+    const textures = flipH ? this.textures.wallsFlip : this.textures.walls;
+    const texture = textures[autotileIndex(level, block, flipH)];
     if (!texture) return;
-    graphics.rect(rect.x, rect.y, rect.width, rect.height).fill({
-      texture,
-      textureSpace: "local",
-      color,
-    });
+    const snapped = originalDrawRect(rect, this.app.renderer.resolution);
+    if (snapped.width <= 0 || snapped.height <= 0) return;
+    // Graphics texture fills force repeat addressing, which bleeds the opposite
+    // edge under bilinear sampling. A direct quad retains Unity's clamp rule.
+    texture.source.style.addressMode = "clamp-to-edge";
+    graphics.texture(texture, color, snapped.x, snapped.y, snapped.width, snapped.height);
   }
 
   private drawBlock(
@@ -1118,7 +1073,7 @@ export class GameRenderer {
     depth: number,
     ancestors: Set<Level>,
     flipH: boolean,
-  ): void {
+  ): Graphics {
     const size = Math.min(rect.width, rect.height);
     const fractionOfScreen =
       ((rect.width + rect.height) / 2) /
@@ -1148,11 +1103,7 @@ export class GameRenderer {
     if (terminal) {
       graphics
         .rect(rect.x, rect.y, rect.width, rect.height)
-        .fill({
-          texture: this.textures.walls[46]!,
-          textureSpace: "local",
-          color: filledBlockColor,
-        })
+        .fill(filledBlockColor)
         .stroke({ color: shade(filledBlockColor, 0.2), width: outlineWidth });
     } else if (subLevel) {
       graphics
@@ -1168,7 +1119,7 @@ export class GameRenderer {
       if (ancestors.has(subLevel)) {
         this.drawRecursiveVoid(graphics, rect, backingColor, depth);
       } else {
-        this.drawLevel(
+        graphics = this.drawLevel(
           graphics,
           subLevel,
           block,
@@ -1192,6 +1143,7 @@ export class GameRenderer {
       }
     }
     if (block.flipH || block.fadeFlipH) this.drawFlipMark(graphics, rect);
+    return graphics;
   }
 
   private drawFace(

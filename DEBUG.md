@@ -19,7 +19,24 @@
 
 ### Experiments / next step
 
-Original baseline capture is pending; renderer production code is unchanged. Rendering agent owns renderer/tests, original agent owns observer/evidence, independent reviewer owns review record. Main owns this journal and verification matrix.
+Settled original reference obtained at docs/parity/evidence/original/third-baseline-settled-20261025. Three native static captures have identical pixels in the reviewer’s stable wall/floor ROIs. Original body=(216,215,216), white bevel=(255,255,255), dark bevel=(156,158,156). Original Draw.ProcessTicket computes brightness from CELL fraction .09111 at800×600, allowing gain above1 before texture multiplication.
+
+- H3 confirmed: clipping texture normalization plus whole-board rather than cell brightness caused the missing white bevel. New raw-texture and unclamped-tint tests failed before correction.
+- H1 confirmed for actual geometry: direct quads require shared grid endpoints. First corrected render exposed vertical black gaps at x317/x481 because independent floating-point expressions straddled truncation boundaries. Two exact-grid regressions failed; computing each endpoint from the common origin+index×step fixes the partition without epsilon, overlaps, or expansion.
+- H2 is a source-confirmed sampler mismatch (Pixi fill forces repeat versus native clamp). Direct quads preserve clamp; its separate contribution to the baseline defect was not isolated from fractional antialiasing. Do not claim an independent pixel attribution.
+- H4 rejected for normal masks; source-confirmed missing mirrored family/mask was corrected and separately regression tested. Live flipped output review remains part of the full matrix.
+
+### Root cause and fix
+
+Wall contrast was destroyed before tint multiplication and wall brightness used the wrong spatial scale; textured antialiased cell fills also lacked the original clamp/shared-pixel-edge contract. Raw textures, float HDR tint in a reused shader, direct clamp quads, shared grid boundaries and native endpoint truncation preserve those contracts.
+
+11 wall regressions pass (initial5 demonstrated failures, then2 precise integer-boundary cancellation failures). Independent reviewer measured repaired800×600@1 actual output: four white bevel points match255 exactly; body and dark bevel differ by at most1 channel; old internal seam rows/columns are uniform. This supports the measured module, not universal parity. Full tests at this point166/21files, typecheck and production build pass.
+
+### Further evidence / next experiments
+
+- Native first/right and third/up NORMAL and BUMP_HALT samples are preserved in tests/fixtures/original-animation; the phase-aligned test uses native times and1e-6 floating tolerance, not screenshot frame numbers. Native conformance fixture infenter_zone_v2-generated-zone-dddu exercises DOWN DOWN DOWN UP and proves wentToInfZone=true.
+- Confirmed floor shading discrepancy: original black gradient alpha .08 goes directly to the default doubled-alpha GUI shader, so effective opacity .16; Web .08 gives gray89 where native83. This is a separate focused fix after wall module verification.
+- Large-wall≥256px quadrants, outer borders, timed queue/camera transitions and remaining matrix cases still need verification/correction. Original camera setup v1 captures that were not fully settled are diagnostics, not parity passes.
 
 ## Observations
 

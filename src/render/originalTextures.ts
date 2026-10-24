@@ -31,39 +31,12 @@ async function load(filename: string): Promise<Texture> {
 }
 
 async function loadWall(filename: string): Promise<Texture> {
-  const image = new Image();
-  image.decoding = "async";
-  image.src = urlFor(filename);
-  await image.decode();
-
-  const canvas = document.createElement("canvas");
-  canvas.width = image.naturalWidth;
-  canvas.height = image.naturalHeight;
-  const context = canvas.getContext("2d", { willReadFrequently: true });
-  if (!context) throw new Error(`Could not normalize original wall ${filename}`);
-  context.drawImage(image, 0, 0);
-
-  // Unity's Graphics.DrawTexture path renders these neutral 0xC1 wall pixels
-  // as the full tint colour. AssetRipper preserves that neutral multiplier in
-  // the PNG, so normalize it before Pixi applies its own tint multiplication.
-  const pixels = context.getImageData(0, 0, canvas.width, canvas.height);
-  const neutral = 0xc1;
-  for (let index = 0; index < pixels.data.length; index += 4) {
-    pixels.data[index] = Math.min(
-      255,
-      Math.round((pixels.data[index]! * 255) / neutral),
-    );
-    pixels.data[index + 1] = Math.min(
-      255,
-      Math.round((pixels.data[index + 1]! * 255) / neutral),
-    );
-    pixels.data[index + 2] = Math.min(
-      255,
-      Math.round((pixels.data[index + 2]! * 255) / neutral),
-    );
-  }
-  context.putImageData(pixels, 0, 0);
-  return Texture.from(canvas);
+  const texture = await load(filename);
+  // Preserve the original neutral, bevel and white highlight values. The wall
+  // shader applies the (possibly >1) tint before framebuffer clamping.
+  texture.source.style.addressMode = "clamp-to-edge";
+  texture.source.style.scaleMode = "linear";
+  return texture;
 }
 
 export async function loadOriginalTextures(): Promise<OriginalTextures> {
