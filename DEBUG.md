@@ -1,5 +1,26 @@
 # Gameplay Debug Journal
 
+## 2026-10-25 rendering parity investigation
+
+### Observations
+
+- Starting revision f8e7539, clean worktree; baseline 20 test files / 155 tests pass. Third playable ID is third_puzzle (a3 and second_puzzle→third_puzzle portal link), root9×9, player(2,4), nested box(4,6).
+- Untouched real-browser capture: docs/parity/evidence/web-third-before-800x600-dpr1.png, 800×600 CSS pixels and 800×600 backing canvas, DPR≈1 after reload, identity orientation, moveCount0, default70ms move delay, animation skipping false. Thin lines cross connected pale walls; lower/right light bevel is missing.
+- Original live DLL Draw.SetDrawRect truncates both shared rectangle endpoints; DrawWall uses exact cell rectangles and selects mirrored WallTilesFlip for flipped rendering. Original bilinear wall imports clamp edges without mipmaps.
+- Pixi textured Graphics.fill invokes generateTextureFillMatrix, which forces repeat addressing. Existing Web loadWall maps neutral193 and highlight255 both to255, clipping contrast. These mechanisms require paired original output before a fix is approved.
+- Native sky capture returned 'Computer Use was not approved to use Patrick’s Parabox'. Original agent is testing supported non-UI BepInEx screenshot capture; no UI rejection bypass attempted. Chrome screenshot filePath also denied configured root; successful screenshot result was saved through filesystem tool instead.
+
+### Hypotheses
+
+- H1 (root seam hypothesis): fractional independent Graphics rectangles antialias at shared edges while original snaps shared endpoints. Supports original SetDrawRect and Web fractional geometry; conflicts: no controlled render experiment yet. Test adjacent-cell edge partition and real Canvas before/after endpoint snapping.
+- H2: Graphics texture fill repeat addressing samples the opposite texture edge, creating apparent lines/bleeding. Supports Pixi 8.19 source; conflicts: fully connected wall texture is opaque. Test direct textured quad with clamp source on same geometry.
+- H3 (root highlight hypothesis): normalizing neutral193 to255 also clips white highlights, erasing bright bevel. Supports pixel transfer math; conflicts: original tint shader transfer needs screenshot measurement. Test original neutral/highlight samples and Web texture transfer.
+- H4: wrong autotile neighbor/index mapping creates incorrect bevel directions. Supports reported wall appearance; conflicts: original unflipped mapping agrees with Web; camera-flipped selection is missing. Test all masks and mirror involution against original mapping.
+
+### Experiments / next step
+
+Original baseline capture is pending; renderer production code is unchanged. Rendering agent owns renderer/tests, original agent owns observer/evidence, independent reviewer owns review record. Main owns this journal and verification matrix.
+
 ## Observations
 
 ### Ordered player-block transaction
