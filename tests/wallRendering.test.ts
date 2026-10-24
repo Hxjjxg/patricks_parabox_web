@@ -68,10 +68,11 @@ describe("original wall draw contract", () => {
     expect(tint[0]).toBeGreaterThan(1);
     const transfer = (value: number) => Math.min(255, Math.round(value * tint[0]!));
     // Live 800x600 original: neutral 216,215,216; bevel 156,158,156; light 255.
-    expect(Math.abs(transfer(193) - 216)).toBeLessThanOrEqual(1);
+    // GPU readback preserves native neutral194 rather than CPU-decoded193.
+    expect(transfer(194)).toBe(216);
     expect(Math.abs(transfer(140) - 156)).toBeLessThanOrEqual(1);
     expect(transfer(255)).toBe(255);
-    expect(transfer(255)).toBeGreaterThan(transfer(193));
+    expect(transfer(255)).toBeGreaterThan(transfer(194));
   });
 
   it.each([1, 2])("partitions shared physical edges at fractional camera scales (DPR %s)", (resolution) => {
