@@ -760,7 +760,7 @@ export class GameRenderer {
       texture: this.textures.centerGradient,
       textureSpace: "local",
       color: 0xffffff,
-      alpha: 0.08,
+      alpha: 0.16,
     });
 
     for (const floor of level.floorList) {
@@ -1114,7 +1114,7 @@ export class GameRenderer {
         texture: this.textures.centerGradient,
         textureSpace: "local",
         color: 0xffffff,
-        alpha: 0.08,
+        alpha: 0.16,
       });
       if (ancestors.has(subLevel)) {
         this.drawRecursiveVoid(graphics, rect, backingColor, depth);
