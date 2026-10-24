@@ -90,7 +90,11 @@ export class DirectionalInput {
     return this.emitIfChanged(before);
   }
 
-  tick(elapsedSeconds: number, canRepeat = true): DirectionCommand | null {
+  tick(
+    elapsedSeconds: number,
+    canRepeat = true,
+    canEmit = true,
+  ): DirectionCommand | null {
     const current = this.current();
     if (!current) {
       this.repeatElapsed = 0;
@@ -100,6 +104,9 @@ export class DirectionalInput {
     // so held input does not burn repeats during a slide.
     if (!canRepeat) return null;
     this.repeatElapsed += Math.max(0, elapsedSeconds);
+    // Native delay continues accumulating through a settled win/queue, but
+    // only an actual eligible impulse consumes it. Automatic loads retain it.
+    if (!canEmit) return null;
     if (this.repeatElapsed <= this.moveDelaySeconds) return null;
     this.repeatElapsed = 0;
     return current;
@@ -111,6 +118,11 @@ export class DirectionalInput {
     return direction
       ? { dx: direction.dx, dy: direction.dy }
       : null;
+  }
+
+  /** Physical impulses reset the native delay, including deferred inputs. */
+  resetRepeatDelay(): void {
+    this.repeatElapsed = 0;
   }
 
   private emitIfChanged(

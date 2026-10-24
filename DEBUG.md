@@ -563,3 +563,29 @@ Verification:
 - Browser failsafe check: deterministic 90-degree `7by3ref` loading logged `RangeError: Floor coordinate (0, 6) is outside level 0` and returned to Hub.
 - Browser custom-level check: deterministic 90-degree loading placed its player at `(1,4)`; reloading with horizontal mirror placed it at `(4,1)` while retaining the same custom-level ID.
 - Independent visual audit: 90 degrees and mirrored 270 degrees rendered correctly at desktop `1280x720 @1x` and mobile `390x844 @2x`; boards stayed square, entities/floors aligned to the grid, and recursive contents remained clipped inside their boxes without console errors.
+
+
+## Queue phases / automatic win timing ? 2026-10-25
+
+### Observations
+Native stage hooks: UP accepted at73.793ms/frame301 increases count1?2; landing109.837ms/frame303 does not apply UP; next update126.501ms/frame304 applies UP and advances it by the full update delta. Release/LEFT do not replace UP. WinCount begins on landing and accumulates full landing delta, then loads at1.5s. Automatic load retains held direction/stack/repeat/blocked state. References: original-timing/DEBUG.md and evidence/original/queue-transition-phase-summary.json.
+
+### Hypotheses
+- H1 (queue root): processing queue after animation collapses distinct native phases, with counting delayed until actual impulse. Supported by source and same-update read-only hooks; no conflict. Test acceptance/landing/next-update controller assertions.
+- H2: capture scheduling creates the apparent difference. Requested/delivered controls differ, but actual phase hooks correlate within the same native frame and reject this explanation.
+- H3: differing animation curves produce the apparent queue delay. Measured NORMAL curves already conform; discrete model coordinates differ at update stages, rejecting a curve explanation.
+- H4 (win root): impulse-started setTimeout and unconditional input reset cause early level load and lost held input. Both isolated native repeats disagree with those mechanisms. Test controlled controller frame timestamps.
+
+### Experiments
+On0481573 the native acceptance regression fails expected2/received1. With queue execution moved before animation and accepted count reserved, all20 focused controller/input tests and typecheck pass. Post-press delta and manual present ordering remain covered. Native source additionally confirms queued failure decrements the reserved count and successful history commit uses the reserved count. History edge cases remain under independent native investigation.
+
+### Root Cause / Fix
+Queue processing used current landing state instead of previous AnyBlockMoving, and count reflected execution rather than acceptance. Controller now reserves count, applies queued input before animation on the next eligible update, passes that count to history, rolls back failed queued actions, and resets repeat delay on actual impulse. Win timing correction remains in progress.
+
+
+### Queue/history and win implementation results
+- Seven native history runs additionally prove: successful pending move is flushed before Undo/Restart; blocked reservation is decremented before undo; acceptance preserves future; successful physical impulse clears future; successful redo cancels pending without flushing, failed redo preserves it. Controller regressions cover these boundaries with the same native routes.
+- Win timeout removed. Win time accumulates only after animation recomputation reports settled/no queue, includes the full landing delta, and resets on pause. Automatic loads preserve direction stack, held state, last direction, repeat accumulation, and blocked-direction state; explicit debug loads retain their existing reset behavior.
+- Actual browser artifact web-queue-native-phases-after: UP delivered66ms reserves count2 while still(3,2); landing101.2ms; queued action begins117.9ms on next frame with animT=.0167. This matches native phase order; requested timer duration is not treated as delivered time parity.
+- Isolated browser web-win-held-after: landing101.2ms, second_puzzle load1600.7ms, held movement on next frame1617.4ms, no repress; landing-to-load1.4995s with16.6ms landing delta. Source/native count1.5 including full landing frame is satisfied. Detailed actual events in evidence/web-controller-native-phase-summary.json.
+- Focused controller/input:27tests pass; typecheck and production build pass. Integrated run had319passing tests and8expected failing-before tutorial tests from the renderer agent's next in-progress module; no existing/controller regression failed. Full final integrated checks remain mandatory.

@@ -142,7 +142,7 @@ export class GameController {
   private readonly stateOutput: HTMLElement;
   private readonly levelSelect: HTMLSelectElement;
   private readonly customLevelInput: HTMLInputElement;
-  private winTransitionTimer: number | null = null;
+  private winTransitionElapsed = 0;
   private customLevelErrorTimer: number | null = null;
   private fastTravelSession: FastTravelSession | null = null;
   private lastMoveDirection: DirectionCommand = { dx: 0, dy: 0 };
@@ -153,7 +153,7 @@ export class GameController {
    * `World.multiPlayerQueued`: a direction pressed while a block is moving is
    * deferred until the animation finishes instead of teleporting the player.
    */
-  private queuedDirection: DirectionCommand | null = null;
+  private queuedDirection: (DirectionCommand & { moveCount: number }) | null = null;
   private creditsActive = false;
   private creditsFromPause = false;
   private readonly specialModes = new SpecialModes();
@@ -299,13 +299,13 @@ export class GameController {
     };
   }
 
-  loadLevel(name: string): void {
+  loadLevel(name: string, preserveControls = false): void {
     try {
       const source = getLevelSource(name);
       const world = parseLevel(source, name, {
         randomOrientation: this.progression.randomize,
       });
-      this.activateWorld(name, world, null);
+      this.activateWorld(name, world, null, preserveControls);
     } catch (error) {
       console.error(`Exception when loading level "${name}"`, error);
       if (name === "hub") throw error;
@@ -314,7 +314,7 @@ export class GameController {
     }
   }
 
-  private loadCustomLevel(id: string): boolean {
+  private loadCustomLevel(id: string, preserveControls = false): boolean {
     const entry = this.customLevels.find(id);
     if (!entry) {
       this.showCustomLevelError(new Error(`Unknown custom level "${id}"`));
@@ -324,7 +324,7 @@ export class GameController {
       const world = parseCustomLevel(entry.source, {
         randomOrientation: this.progression.randomize,
       });
-      this.activateWorld(customLevelSceneName, world, entry.id);
+      this.activateWorld(customLevelSceneName, world, entry.id, preserveControls);
       this.customLevels.markLoaded(entry.id);
       return true;
     } catch (error) {
@@ -338,27 +338,27 @@ export class GameController {
     name: string,
     world: WorldModel,
     customLevelId: string | null,
+    preserveControls = false,
   ): void {
     this.clearCustomLevelError();
     this.sessionMenu.reset();
     this.refreshSessionSettings();
-    this.directionalInput.reset();
-    this.lastMoveDirection = { dx: 0, dy: 0 };
+    if (!preserveControls) {
+      this.directionalInput.reset();
+      this.lastMoveDirection = { dx: 0, dy: 0 };
+      this.directionalInput.setMoveDelayMilliseconds(
+        this.settings.snapshot().moveDelay,
+      );
+      this.heldKeys.clear();
+    }
     this.lastMoveAppliedAt = null;
     this.queuedDirection = null;
-    this.directionalInput.setMoveDelayMilliseconds(
-      this.settings.snapshot().moveDelay,
-    );
     this.touchInput.reset();
     this.fastTravelSession = null;
     this.creditsActive = false;
     this.creditsFromPause = false;
     this.specialModes.reset();
-    this.heldKeys.clear();
-    if (this.winTransitionTimer !== null) {
-      window.clearTimeout(this.winTransitionTimer);
-      this.winTransitionTimer = null;
-    }
+    this.winTransitionElapsed = 0;
     this.currentLevelName = name;
     this.activeCustomLevelId = customLevelId;
     this.world = world;
@@ -369,7 +369,10 @@ export class GameController {
       this.progression.markAttempted(name);
     }
     this.persistProgression();
-    this.movement = new MovementEngine(this.world);
+    this.movement = new MovementEngine(
+      this.world,
+      preserveControls && this.movement?.waitingForDirectionChange,
+    );
     const animationSettings = this.settings.snapshot();
     this.world.enterSpeedIndex = animationSettings.enterSpeedIndex;
     this.world.allowSkippingAnimation =
@@ -405,7 +408,7 @@ export class GameController {
     return result.entry;
   }
 
-  private impulse(dx: number, dy: number): ImpulseResult {
+  private impulse(dx: number, dy: number, acceptedMoveCount?: number): ImpulseResult {
     if (this.runtimeMode() !== "playing") {
       return {
         moved: false,
@@ -417,7 +420,7 @@ export class GameController {
     }
     this.resetInspection();
     const worldDx = this.world.inputFlipH() ? -dx : dx;
-    const result = this.movement.applyDirectionalInput(worldDx, dy);
+    const result = this.movement.applyDirectionalInput(worldDx, dy, acceptedMoveCount);
     if (result.transition) {
       this.progression.enterPortal(
         result.transition.floor,
@@ -443,7 +446,9 @@ export class GameController {
   private undo(): boolean {
     if (this.runtimeMode() !== "playing") return false;
     const inspectionChanged = this.resetInspection();
-    this.queuedDirection = null;
+    // UndoManager refuses an empty past before flushing, otherwise commits
+    // the accepted impulse and undoes that newest move-count group.
+    if (this.movement.history.past.length > 0) this.flushQueuedDirection();
     const changed = this.movement.undo();
     if (changed || inspectionChanged) {
       this.renderer.setWorld(this.world);
@@ -460,8 +465,10 @@ export class GameController {
   private redo(): boolean {
     if (this.runtimeMode() !== "playing") return false;
     const inspectionChanged = this.resetInspection();
-    this.queuedDirection = null;
     const changed = this.movement.redo();
+    // Native UndoInput resets the queue only after a successful redo. Redo
+    // itself does not flush the reservation or alter the future on acceptance.
+    if (changed) this.queuedDirection = null;
     if (changed || inspectionChanged) {
       this.renderer.setWorld(this.world);
       this.updateStateOutput();
@@ -477,8 +484,9 @@ export class GameController {
   private restart(): boolean {
     if (this.runtimeMode() !== "playing") return false;
     const inspectionChanged = this.resetInspection();
-    this.queuedDirection = null;
+    this.flushQueuedDirection();
     const changed = this.movement.restart();
+    this.movement.clearWaitForMoveDirChange();
     if (changed || inspectionChanged) {
       this.renderer.setWorld(this.world);
       this.updateStateOutput();
@@ -491,14 +499,7 @@ export class GameController {
   }
 
   private syncWinTransition(): void {
-    if (this.currentLevelName !== "hub" && this.world.winning) {
-      this.scheduleWinTransition();
-      return;
-    }
-    if (this.winTransitionTimer !== null) {
-      window.clearTimeout(this.winTransitionTimer);
-      this.winTransitionTimer = null;
-    }
+    if (!this.world.winning) this.winTransitionElapsed = 0;
   }
 
   private startFastTravel(): boolean {
@@ -758,30 +759,29 @@ export class GameController {
     this.syncRendererUi();
   }
 
-  private scheduleWinTransition(): void {
-    if (this.winTransitionTimer !== null) return;
+  private advanceWinTransition(elapsed: number): void {
+    if (this.currentLevelName === "hub" || !this.world.winning) {
+      this.winTransitionElapsed = 0;
+      return;
+    }
+    if (this.world.anyBlockMoving || this.queuedDirection) return;
+    // World.UpdateInner increments WinCount after landing, including this
+    // update's full delta. It is paused while the playing update is paused.
+    this.winTransitionElapsed += elapsed;
+    if (this.winTransitionElapsed < 1.5) return;
     const wonLevelName = this.currentLevelName;
     const wonCustomLevelId = this.activeCustomLevelId;
-    this.winTransitionTimer = window.setTimeout(() => {
-      this.winTransitionTimer = null;
-      if (
-        this.currentLevelName !== wonLevelName ||
-        !this.world.winning
-      ) {
-        return;
-      }
-      if (wonLevelName === customLevelSceneName) {
-        if (wonCustomLevelId) this.loadCustomLevel(wonCustomLevelId);
-        return;
-      }
-      const newlyWon = this.progression.markWon(wonLevelName);
-      const nextLevel = this.progression.nextLevelAfterWin(
-        wonLevelName,
-        newlyWon,
-      );
-      this.persistProgression();
-      this.loadLevel(nextLevel);
-    }, 1500);
+    if (wonLevelName === customLevelSceneName) {
+      if (wonCustomLevelId) this.loadCustomLevel(wonCustomLevelId, true);
+      return;
+    }
+    const newlyWon = this.progression.markWon(wonLevelName);
+    const nextLevel = this.progression.nextLevelAfterWin(
+      wonLevelName,
+      newlyWon,
+    );
+    this.persistProgression();
+    this.loadLevel(nextLevel, true);
   }
 
   private persistProgression(): void {
@@ -1128,6 +1128,7 @@ export class GameController {
       this.refreshSessionSaveSlots();
       this.refreshSessionSettings();
       if (this.sessionMenu.openPause(this.currentLevelName === "hub")) {
+        this.winTransitionElapsed = 0;
         this.directionalInput.reset();
         this.heldKeys.clear();
         this.updateStateOutput();
@@ -1298,7 +1299,7 @@ export class GameController {
     this.previousFrameTime = timestamp;
     this.advancePlaytime(Math.min(elapsed, 1 / 3));
 
-    if (this.runtimeMode() === "playing" && elapsed > 0) {
+    if (this.runtimeMode() === "playing") {
       // A move applied between frames must not advance its animation by the
       // part of the frame that elapsed before the press; otherwise slides
       // finish early and the rhythm drifts with the press phase.
@@ -1307,34 +1308,29 @@ export class GameController {
           ? elapsed
           : Math.max(0, (timestamp - this.lastMoveAppliedAt) / 1000);
       const delta = Math.min(elapsed, sinceMove, 0.1);
-      updateWorldAnimations(this.world, {
-        deltaTime: delta,
-        quickAnim: this.world.drawStyle === DrawStyle.QuickAnim,
-        handleActionFloor: (block) => this.blockIsOnActionFloor(block),
-        random: Math.random,
-      });
-      updateCameraAnimation(this.world, delta);
-    }
-
-    // Advance animations first: the original's move delay only counts frames
-    // where nothing is moving, and the state must be current for this frame.
-    if (this.runtimeMode() === "playing") {
-      if (this.queuedDirection && !this.world.anyBlockMoving) {
-        const queued = this.queuedDirection;
-        this.queuedDirection = null;
-        this.applyMove(queued);
-      }
-      const sinceLastMove =
-        this.lastMoveAppliedAt === null
-          ? elapsed
-          : Math.max(0, (timestamp - this.lastMoveAppliedAt) / 1000);
+      // Native PlayerMovementLogic and the queued impulse run against the
+      // previous update's AnyBlockMoving, before animations are advanced.
       this.applyDirectionCommand(
         this.directionalInput.tick(
-          Math.min(elapsed, sinceLastMove),
+          Math.min(elapsed, sinceMove),
           !this.world.anyBlockMoving,
+          !this.world.winning && this.queuedDirection === null,
         ),
         true,
       );
+      if (this.queuedDirection && !this.world.anyBlockMoving) {
+        this.flushQueuedDirection();
+      }
+      if (elapsed > 0) {
+        updateWorldAnimations(this.world, {
+          deltaTime: delta,
+          quickAnim: this.world.drawStyle === DrawStyle.QuickAnim,
+          handleActionFloor: (block) => this.blockIsOnActionFloor(block),
+          random: Math.random,
+        });
+        updateCameraAnimation(this.world, delta);
+      }
+      this.advanceWinTransition(elapsed);
     }
 
     if (elapsed > 0) {
@@ -1430,6 +1426,7 @@ export class GameController {
       this.lastMoveDirection = { dx: command.dx, dy: command.dy };
       this.movement.clearWaitForMoveDirChange();
     }
+    if (this.world.winning) return;
     const decision = decideDirectionRequest({
       repeated,
       animating: this.world.anyBlockMoving,
@@ -1441,21 +1438,34 @@ export class GameController {
     if (decision === "queue") {
       // Turning mid-slide waits for the slide to land; applying it now would
       // move the model a second tile while the visual is mid-animation.
-      this.queuedDirection = command;
+      this.queuedDirection = { ...command, moveCount: ++this.world.moveCount };
+      this.updateStateOutput();
       return;
     }
     if (decision === "skip-and-apply") this.skipAnimations();
     this.applyMove(command);
   }
 
-  private applyMove(command: DirectionCommand): void {
+  private applyMove(command: DirectionCommand, acceptedMoveCount?: number): void {
     this.lastMoveAppliedAt = performance.now();
-    this.impulse(command.dx, command.dy);
+    this.directionalInput.resetRepeatDelay();
+    const result = this.impulse(command.dx, command.dy, acceptedMoveCount);
+    if (acceptedMoveCount !== undefined && !result.moved && !result.transition) {
+      this.world.moveCount--;
+      this.updateStateOutput();
+    }
     // `anyBlockMoving` is only refreshed during the animation tick. A press
     // arriving between this impulse and the next frame must not see the old
     // "nothing is moving" value and skip the animation we just started.
     this.world.anyBlockMoving =
       this.world.anyBlockMoving || computeAnyBlockMoving(this.world);
+  }
+
+  private flushQueuedDirection(): void {
+    const queued = this.queuedDirection;
+    if (!queued) return;
+    this.queuedDirection = null;
+    this.applyMove(queued, queued.moveCount);
   }
 
   /** `UndoManager.StopAnimations` + eye snap, used by the skip-animation pref. */

@@ -657,18 +657,23 @@ export class MovementEngine {
    * `Movement.WaitForMoveDirChange`: after a blocked move, holding the same
    * direction must not retry until the player changes direction.
    */
-  private waitForMoveDirChange = false;
+  private waitForMoveDirChange: boolean;
 
-  constructor(world: WorldModel) {
+  constructor(world: WorldModel, waitForMoveDirChange = false) {
     this.world = world;
     this.history = new History(world);
+    this.waitForMoveDirChange = waitForMoveDirChange;
   }
 
   impulse(block: Block, dx: number, dy: number): ImpulseResult {
     return this.impulseBlock(block, dx, dy, this.world.moveCount + 1);
   }
 
-  applyDirectionalInput(dx: number, dy: number): ImpulseResult {
+  applyDirectionalInput(
+    dx: number,
+    dy: number,
+    acceptedMoveCount = this.world.moveCount + 1,
+  ): ImpulseResult {
     if (Math.abs(dx) + Math.abs(dy) !== 1) {
       throw new Error(`Impulse must be cardinal, received (${dx}, ${dy})`);
     }
@@ -681,7 +686,7 @@ export class MovementEngine {
         transition: null,
       };
     }
-    const moveCount = this.world.moveCount + 1;
+    const moveCount = acceptedMoveCount;
     let moved = false;
     let possessed = false;
     let turn: Turn | null = null;

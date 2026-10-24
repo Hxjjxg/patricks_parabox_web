@@ -63,3 +63,10 @@ Walk = U R D L R R U U L D R U L L D D R U R D L U. Start positions must be reco
 7. Wall candidate:11 regressions pass, including demonstrated pre-fix failures for contrast/raw textures/sampler/mirror/snapping and exact third-level float-cancellation cases. Repaired800×600@1 white bevels match255; base/dark bevel channels differ at most1; original seam row272 and column372 are uniform. Main real Canvas capture: `evidence/web-third-after-800x600-dpr1.png`. Fractional/DPR/motion review is ongoing, not a blanket pass.
 8. Native timing artifacts now cover first tap/hold/rapid/alternating/repress/history, third tap, enter/exit/nesting/flips and genuine infinity entry. Direct setup cameras need full settling; affected v1 artifacts are diagnostics only. Native animation phase conformance tests cover actual first/right and third/up measured NORMAL+BUMP_HALT frames.
 9. Confirmed separate discrepancy: floor gradient .08 Web vs native effective .16 (native shader doubles alpha). Large≥256px WallBig branch and border differences remain open; full scope is not complete.
+
+
+## Verified controller phase module ? 2026-10-25
+- Queue acceptance/landing/next-update execution: native queue-transition-phase-summary and Web web-controller-native-phase-summary establish matched discrete ordering and reserved count; actual delivered key times are retained, not assumed equal to requested durations.
+- Native queued-history source/runtime cases are covered by controller regressions: successful/blocked queued Undo, Restart/undo-restart, unsuccessful redo preserving pending, successful redo cancelling pending while preserving its recorded move count. Broader actual Web/history matrix review remains in progress.
+- First-win held UP: source/runtime two isolated native repeats plus isolated actual Web show landing-based1.5s countdown, direct second_puzzle load and next-update held movement without repress. Explicit level loads still reset input; automatic loads retain controls.
+- These bounded timing results do not approve the full visual/camera/input matrix. Renderer borders/tutorial and confirmed infinity/flip scene defects remain active work.
