@@ -72,14 +72,6 @@ Assembly-CSharp.dll
 
 你可以使用 chrome-devtools-mcp 来调试 Web 部分。
 
-你可以查看：
-
-```text
-F:\parabox_web\screenshot.txt
-```
-
-里面的方法来使用 Snipaste 截图游戏窗口。
-
 ## 技术栈
 
 使用：
