@@ -316,6 +316,9 @@ export class WorldModel {
   readonly levelName: string;
   readonly levels: Level[] = [];
   readonly blocks: Block[] = [];
+  /** Native UnlockableWall records survive removal of their blocking tile. */
+  readonly hubUnlockWalls: Block[] = [];
+  hubNexusUnlocked = false;
   readonly floors: Floor[] = [];
   readonly fastTravelFloors: Floor[] = [];
   /**

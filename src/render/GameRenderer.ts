@@ -35,6 +35,8 @@ import { phantomGeometry, shouldDrawPhantom } from "./phantomRendering";
 import {alternateLevels,gridBoards,tuiLayout,tuiGlyphs,useAlternateDrawStyle,type AlternateStyleContext,type TuiGlyph} from "./alternateStyles";
 import {nativeTuiGlyphQuad} from "./nativeTuiFont";
 import {meetsNativeDrawSize,nativeDrawPolicy} from "./drawPolicy";
+import { advanceHubPortalFlashTime, buildHubConnections, captureHubUnlockWalls, hubConnectionLineColor, hubConnectionRectangles,
+  hubPortalClampRect, hubPortalMarkerRect, hubPortalShadowRect, hubPortalShadowAlpha, type HubConnection } from "./hubPortalRendering";
 import { infinityGlyphQuads } from "./infinityRendering";
 import { flipShineQuad } from "./flipShineRendering";
 import { goalCellRect, goalStrips, goalTint } from "./goalRendering";
@@ -219,6 +221,9 @@ export class GameRenderer {
   private readonly voidSquares = seededSquares(55);
   private textures!: OriginalTextures;
   private world: WorldModel | null = null;
+  private hubConnections: HubConnection[] = [];
+  private portalFlashT = 0;
+  private portalMarkerTickets: Array<{floor: Floor; rect: Rect; clip: Rect | null}> = [];
   private elapsed = 0;
   private readonly shadowTextures: Texture[] = [];
   private shadowTextureCount = 0;
@@ -267,11 +272,14 @@ export class GameRenderer {
     this.buildControlLabels();
     this.app.ticker.add((ticker) => {
       this.elapsed += ticker.deltaMS / 1000;
+      this.portalFlashT = advanceHubPortalFlashTime(this.portalFlashT, ticker.deltaMS / 1000);
       this.draw();
     });
   }
 
   setWorld(world: WorldModel): void {
+    if (this.world !== world) this.hubConnections = world.levelName === "hub"
+      ? buildHubConnections(world.floors, captureHubUnlockWalls(world.hubUnlockWalls), {nexusUnlocked: world.hubNexusUnlocked}) : [];
     this.world = world;
     this.draw();
   }
@@ -913,16 +921,26 @@ export class GameRenderer {
     this.activePassRoot=targetRoot??this.scene;
     this.pendingTickets=[{block,rect,staticRect:rect,depth,flipH,parents:[],clip,priority:0,cloneFade}];
     this.effectTickets=[];
+    this.portalMarkerTickets=[];
     while (this.pendingTickets.length) {
       let index=0;
       for (let i=1;i<this.pendingTickets.length;i++) if (this.pendingTickets[i]!.priority<this.pendingTickets[index]!.priority) index=i;
       const ticket=this.pendingTickets.splice(index,1)[0]!;
+      if (ticket.floor) {
+        this.activeSceneContainer=this.maskedScene(ticket.clip);
+        this.drawFloor(this.nextSceneLayer(), ticket.floor.type, ticket.rect, ticket.floor.outerLevel, ticket.floor);
+        continue;
+      }
       if (!ticket.block.subLevel || ticket.depth>=15 || ticket.clip && (ticket.clip.width<=0 || ticket.clip.height<=0)) continue;
       this.currentTicket=ticket;
       this.activeSceneContainer=this.maskedScene(ticket.clip);
       this.drawLevel(this.nextSceneLayer(),ticket.block.subLevel,ticket.block,ticket.rect,ticket.depth,new Set(),ticket.flipH,ticket.staticRect,ticket.parents);
     }
     this.currentTicket=null;
+    for (const ticket of this.portalMarkerTickets) {
+      this.activeSceneContainer=this.maskedScene(ticket.clip);
+      this.drawHubPortalMarker(this.nextSceneLayer(), ticket.floor, ticket.rect);
+    }
     const effects=this.effectTickets;
     for (const player of [false,true]) for (const ticket of effects) {
       if (!ticket.facePhantom && !ticket.block.isPlayer && !ticket.block.possessable) continue;
@@ -985,10 +1003,26 @@ export class GameRenderer {
     drawInfZoneFrame(graphics, viewBlock, rect, staticRect,
       this.app.screen.width, this.app.screen.height, this.app.renderer?.resolution ?? 1);
 
-    for (const floor of level.floorList) {
+    if (meetsNativeDrawSize(cellWidth, cellHeight, policy.minDrawSize)) {
+      this.drawHubConnections(graphics, level, viewBlock, rect, flipH);
+    }
+    // Native draws locked/won portal bodies before unlocked unsolved ones.
+    const floors = this.world?.levelName === "hub" ? [
+      ...level.floorList.filter(floor => floor.type !== FloorType.LevelPortal || !floor.unlocked || floor.won),
+      ...level.floorList.filter(floor => floor.type === FloorType.LevelPortal && floor.unlocked && !floor.won),
+    ] : level.floorList;
+    for (const floor of floors) {
       if(!meetsNativeDrawSize(cellWidth,cellHeight,policy.minDrawSize))continue;
       const cellRect = this.cellRect(level, floor.x, floor.y, rect, flipH);
       if (!this.onScreen(cellRect)) continue;
+      if (floor.type === FloorType.LevelPortal && this.pendingTickets) {
+        this.drawHubPortalShadow(graphics, floor, cellRect, rect, flipH);
+        const inheritedClip = this.currentTicket?.clip ?? null;
+        this.pendingTickets.push({block: viewBlock, floor, rect: cellRect, staticRect: cellRect,
+          depth: depth + 1, flipH, parents, clip: inheritedClip, priority: 0});
+        this.portalMarkerTickets.push({floor, rect: cellRect, clip: inheritedClip});
+        continue;
+      }
       this.drawFloor(graphics, floor.type, cellRect, level, floor);
     }
 
@@ -1183,6 +1217,49 @@ export class GameRenderer {
       rect.x + rect.width < 0 ||
       rect.y + rect.height < 0
     );
+  }
+
+  private drawHubConnections(graphics: Graphics, level: Level, parent: Block, rect: Rect, flipH: boolean): void {
+    if (this.world?.levelName !== "hub") return;
+    const lines = (this.hubConnections ?? []).filter(line => line.floor.outerLevel === level);
+    if (!lines.length) return;
+    const resolution = this.app.renderer?.resolution ?? 1;
+    const clip = originalDrawRect(rect, resolution);
+    const active = hubConnectionLineColor(parent.color, true, rect.width, rect.height, this.app.screen.height);
+    const inactive = hubConnectionLineColor(parent.color, false, rect.width, rect.height, this.app.screen.height);
+    // The native final lit-pass argument is unused: retain both opaque passes.
+    for (const litPass of [false, true]) for (const line of lines) {
+      const cell = this.cellRect(level, line.floor.x, line.floor.y, rect, flipH);
+      const geometry = {x: (cell.x + cell.width / 2) * resolution, y: (cell.y + cell.height / 2) * resolution,
+        cellWidth: cell.width * resolution, cellHeight: cell.height * resolution};
+      for (const segment of hubConnectionRectangles(line, geometry, false, litPass)) {
+        const left = Math.max(segment.x / resolution, clip.x), top = Math.max(segment.y / resolution, clip.y);
+        const right = Math.min((segment.x + segment.width) / resolution, clip.x + clip.width);
+        const bottom = Math.min((segment.y + segment.height) / resolution, clip.y + clip.height);
+        if (right > left && bottom > top) graphics.rect(left, top, right - left, bottom - top)
+          .fill({color: line.lit ? active : inactive, alpha: 1});
+      }
+    }
+  }
+
+  private drawHubPortalShadow(graphics: Graphics, floor: Floor, rect: Rect, parentRect: Rect, flipH: boolean): void {
+    const resolution = this.app.renderer?.resolution ?? 1;
+    const shadow = hubPortalShadowRect(floor, {centerX: (rect.x + rect.width / 2) * resolution,
+      centerY: (rect.y + rect.height / 2) * resolution, width: rect.width * resolution, height: rect.height * resolution},
+      this.app.screen.width * resolution, this.app.screen.height * resolution, {flipH,
+        clamp: hubPortalClampRect({x: parentRect.x * resolution, y: parentRect.y * resolution,
+          width: parentRect.width * resolution, height: parentRect.height * resolution})});
+    if (shadow) graphics.rect(shadow.x / resolution, shadow.y / resolution, shadow.width / resolution, shadow.height / resolution)
+      .fill({color: 0x000000, alpha: hubPortalShadowAlpha});
+  }
+
+  private drawHubPortalMarker(graphics: Graphics, floor: Floor, rect: Rect): void {
+    const resolution = this.app.renderer?.resolution ?? 1;
+    const marker = hubPortalMarkerRect(floor, {centerX: (rect.x + rect.width / 2) * resolution,
+      centerY: (rect.y + rect.height / 2) * resolution, width: rect.width * resolution, height: rect.height * resolution},
+      this.portalFlashT ?? 0);
+    if (marker) graphics.rect(marker.x / resolution, marker.y / resolution, marker.width / resolution, marker.height / resolution)
+      .fill({color: 0xffffff, alpha: 1});
   }
 
   private shadowTexture(original: Texture, uv: Rect): Texture {

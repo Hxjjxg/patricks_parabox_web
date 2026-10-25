@@ -338,6 +338,12 @@ export class ProgressionModel {
 
   applyToHub(world: WorldModel): void {
     if (world.levelName !== "hub") return;
+    world.hubNexusUnlocked = this.nexusUnlocked;
+    for (const block of world.blocks) {
+      if (!block.subLevel && block.unlockerScene && !world.hubUnlockWalls.includes(block)) {
+        world.hubUnlockWalls.push(block);
+      }
+    }
 
     for (const floor of world.floors) {
       if (floor.type !== FloorType.LevelPortal) continue;
