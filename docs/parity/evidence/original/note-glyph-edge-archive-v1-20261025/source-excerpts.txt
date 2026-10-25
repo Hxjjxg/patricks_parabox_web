@@ -1,0 +1,88 @@
+1202: 	public static void DrawEverything()
+1203: 	{
+1204: 		screenWidth = Screen.width;
+1205: 		screenHeight = Screen.height;
+1206: 		if (World.State == World.WS.Initializing)
+1207: 		{
+1208: 			return;
+1209: 		}
+1210: 		if (textguiStyle == null)
+1211: 		{
+1212: 			textguiStyle = new GUIStyle(GUI.skin.GetStyle("Label"))
+1213: 			{
+1214: 				font = instance.MainFont,
+1215: 				fontSize = 20,
+1216: 				fontStyle = FontStyle.Bold
+1217: 			};
+1218: 		}
+1219: 		SetDrawRect(0.0, 0.0, screenWidth, screenHeight);
+1220: 		DrawTexture(instance.FullWhiteTex, blackColor);
+1221: 		bool flag = World.State == World.WS.Paused && PauseMenu.Menu == PauseMenu.M.LanguageStartup;
+1222: 		if ((World.State != World.WS.Break || !(Break.transitionT > 0.5f)) && (DrawStyle == DS.NORMAL || DrawStyle == DS.QUICK_ANIM || !UseGridOrTUIDrawStyle()) && !PauseMenu.InBreakMenu() && !PauseMenu.InShowMenu() && !Controls.devShrinkScreenDown && (!receptionPerformanceHack || CameraMode == CM.Title))
+1223: 		{
+1224: 			DrawVoid();
+1225: 		}
+1226: 		DrawBlocks();
+
+1477: 	public static void DrawText(string text, Color color, TextAnchor alignment, int fontSize = 20, SquareFont font = SquareFont.Main)
+1478: 	{
+1479: 		textguiStyle.normal.textColor = color;
+1480: 		textguiStyle.alignment = alignment;
+1481: 		textguiStyle.fontSize = fontSize;
+1482: 		switch (font)
+1483: 		{
+1484: 		case SquareFont.Main:
+1485: 			textguiStyle.font = instance.MainFont;
+1486: 			textguiStyle.fontStyle = FontStyle.Normal;
+1487: 			break;
+1488: 		case SquareFont.FixedWidth:
+1489: 			textguiStyle.font = instance.FixedWidthFont;
+1490: 			textguiStyle.fontStyle = FontStyle.Normal;
+1491: 			break;
+1492: 		}
+1493: 		GUI.Label(drawRect, text, textguiStyle);
+
+2473: 		if (World.State == World.WS.Playing && !Controls.devShrinkScreenDown && (World.State != World.WS.Paused || FocusBlock.OuterLevel == null))
+2474: 		{
+2475: 			DrawControlsText((float)blockX, (float)blockY, (float)blockWidth, (float)blockHeight, (float)num16);
+2476: 		}
+
+5493: 	private static void UpdateVoid()
+5494: 	{
+5495: 		bool flag = ((float)screenWidth != screenWidthLast || (float)screenHeight != screenHeightLast) && recordedResolution;
+5496: 		float num = Mathf.Min(screenWidth, screenHeight);
+5497: 		for (int i = 0; i < voidParticles.Count; i++)
+5498: 		{
+5499: 			VoidParticle voidParticle = voidParticles[i];
+5500: 			if (flag)
+5501: 			{
+5502: 				voidParticle.x = Mathf.Lerp(0f, screenWidth, Mathf.InverseLerp(0f, screenWidthLast, voidParticle.x));
+5503: 				voidParticle.y = Mathf.Lerp(0f, screenHeight, Mathf.InverseLerp(0f, screenHeightLast, voidParticle.y));
+5504: 			}
+5505: 			voidParticle.direction += voidParticle.dDirection * Time.deltaTime;
+5506: 			voidParticle.sizeT += Time.deltaTime * voidParticle.dSizeT;
+5507: 			float t = Util.QuadOscillate(voidParticle.sizeT) * voidParticle.maxSizeScale;
+5508: 			voidParticle.size = Mathf.Lerp(0.018f, 0.04f, t);
+5509: 			float num2 = Mathf.Lerp(0.23f, 0.38f, t) / 2f;
+5510: 			voidParticle.color = new Color(num2, num2, num2);
+
+5528: 	private static void DrawVoid()
+5529: 	{
+5530: 		if (Prefs.DisableParticles)
+5531: 		{
+5532: 			return;
+5533: 		}
+5534: 		if (DrawStyle == DS.QUICK_ANIM)
+5535: 		{
+5536: 			DrawVoidOld();
+5537: 			return;
+5538: 		}
+5539: 		float num = Mathf.Min(screenWidth, screenHeight);
+5540: 		for (int i = 0; i < voidParticles.Count; i++)
+5541: 		{
+5542: 			VoidParticle voidParticle = voidParticles[i];
+5543: 			float num2 = voidParticle.size * num;
+5544: 			float x = voidParticle.x;
+5545: 			SetDrawRect(y: voidParticle.y - num2 / 2f, x: x - num2 / 2f, width: num2, height: num2);
+5546: 			DrawTexture(instance.FullWhiteTex, voidParticle.color);
+5547: 		}
