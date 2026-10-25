@@ -1,0 +1,36 @@
+[
+  {
+    "command": [
+      "npm",
+      "run",
+      "typecheck"
+    ],
+    "GOMAXPROCS": "2",
+    "startUtc": "2026-10-25T10:52:49.077278+00:00",
+    "exitCode": 0,
+    "log": "verification-typecheck.log"
+  },
+  {
+    "command": [
+      "npm",
+      "test",
+      "--",
+      "--maxWorkers=1"
+    ],
+    "GOMAXPROCS": "2",
+    "startUtc": "2026-10-25T10:52:50.618094+00:00",
+    "exitCode": 0,
+    "log": "verification-test.log"
+  },
+  {
+    "command": [
+      "npm",
+      "run",
+      "build"
+    ],
+    "GOMAXPROCS": "2",
+    "startUtc": "2026-10-25T10:54:52.915834+00:00",
+    "exitCode": 0,
+    "log": "build.log"
+  }
+]

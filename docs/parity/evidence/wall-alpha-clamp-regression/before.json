@@ -1,0 +1,140 @@
+{
+  "method": "Actual production shader; nearest premultiplied white texture over opaque black; exact native source-clamp law, no screenshot or AA tolerance",
+  "width": 5,
+  "height": 3,
+  "glError": 0,
+  "passed": false,
+  "results": [
+    {
+      "tint": 0.5,
+      "expected": [
+        0,
+        32,
+        64,
+        96
+      ],
+      "scope": "non-HDR partial coverage",
+      "rgba": [
+        [
+          0,
+          0,
+          0,
+          255
+        ],
+        [
+          32,
+          32,
+          32,
+          255
+        ],
+        [
+          64,
+          64,
+          64,
+          255
+        ],
+        [
+          96,
+          96,
+          96,
+          255
+        ],
+        [
+          128,
+          128,
+          128,
+          255
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "tint": 1,
+      "expected": [
+        0,
+        64,
+        128,
+        192,
+        255
+      ],
+      "scope": "unit tint and opaque control",
+      "rgba": [
+        [
+          0,
+          0,
+          0,
+          255
+        ],
+        [
+          64,
+          64,
+          64,
+          255
+        ],
+        [
+          128,
+          128,
+          128,
+          255
+        ],
+        [
+          192,
+          192,
+          192,
+          255
+        ],
+        [
+          255,
+          255,
+          255,
+          255
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "tint": 2,
+      "expected": [
+        0,
+        64,
+        128,
+        192,
+        255
+      ],
+      "scope": "HDR source clamp before coverage",
+      "rgba": [
+        [
+          0,
+          0,
+          0,
+          255
+        ],
+        [
+          128,
+          128,
+          128,
+          255
+        ],
+        [
+          255,
+          255,
+          255,
+          255
+        ],
+        [
+          255,
+          255,
+          255,
+          255
+        ],
+        [
+          255,
+          255,
+          255,
+          255
+        ]
+      ],
+      "passed": false
+    }
+  ]
+}

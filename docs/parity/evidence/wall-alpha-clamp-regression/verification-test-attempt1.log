@@ -1,0 +1,344 @@
+
+> parabox-web@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.10 F:/parabox_web
+
+[vitest-pool]: Failed to terminate forks worker for test files F:/parabox_web/tests/hubPortalConnections.test.ts. Error: The child process was torn down or never initialized. This is a bug in Vitest.
+    at ForksPoolWorker.get fork [as fork] (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3129:26)
+    at ForksPoolWorker.off (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3078:8)
+    at PoolRunner.stop (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:2958:16)
+    at Pool.schedule (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3484:35)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+[vitest-pool]: Failed to terminate forks worker for test files F:/parabox_web/tests/wallRendering.test.ts. Error: The child process was torn down or never initialized. This is a bug in Vitest.
+    at ForksPoolWorker.get fork [as fork] (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3129:26)
+    at ForksPoolWorker.off (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3078:8)
+    at PoolRunner.stop (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:2958:16)
+    at Pool.schedule (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3484:35)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+[vitest-pool]: Failed to terminate forks worker for test files F:/parabox_web/tests/hubShortcutRendering.test.ts. Error: The child process was torn down or never initialized. This is a bug in Vitest.
+    at ForksPoolWorker.get fork [as fork] (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3129:26)
+    at ForksPoolWorker.off (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3078:8)
+    at PoolRunner.stop (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:2958:16)
+    at Pool.schedule (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3484:35)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+[vitest-pool]: Failed to terminate forks worker for test files F:/parabox_web/tests/alternateStyles.test.ts. Error: The child process was torn down or never initialized. This is a bug in Vitest.
+    at ForksPoolWorker.get fork [as fork] (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3129:26)
+    at ForksPoolWorker.off (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3078:8)
+    at PoolRunner.stop (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:2958:16)
+    at Pool.schedule (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3484:35)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+[vitest-pool]: Failed to terminate forks worker for test files F:/parabox_web/tests/nativeCaptionWrapping.test.ts. Error: The child process was torn down or never initialized. This is a bug in Vitest.
+    at ForksPoolWorker.get fork [as fork] (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3129:26)
+    at ForksPoolWorker.off (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3078:8)
+    at PoolRunner.stop (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:2958:16)
+    at Pool.schedule (file:///F:/parabox_web/node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3484:35)
+    at processTicksAndRejections (node:internal/process/task_queues:103:5)
+
+<--- Last few GCs --->
+
+[18376:00000241E3C08000]     2559 ms: Mark-Compact 24.8 (48.1) -> 12.9 (47.4) MB, pooled: 1 MB, 3.16 / 0.00 ms  (+ 0.1 ms in 32 steps since start of marking, biggest step 0.0 ms, walltime since start of marking 9 ms) (average mu = 0.999, current mu = 0.99[18376:00000241E3C08000]     2599 ms: Scavenge (interleaved) 29.0 (47.4) -> 15.8 (47.4) MB, pooled: 1 MB, 1.36 / 0.01 ms  (average mu = 0.999, current mu = 0.999) allocation failure; 
+
+FATAL ERROR: Zone Allocation failed - process out of memory
+----- Native stack trace -----
+
+ 1: 00007FF7833D97FF 
+ 2: 00007FF78401DA77 
+ 3: 00007FF783998A46 
+ 4: 00007FF783559AC6 
+ 5: 00007FF78506C3DA 
+ 6: 00007FF78506B91C 
+ 7: 00007FF78504BE3A 
+ 8: 00007FF78503179F 
+ 9: 00007FF784CE8252 
+10: 00007FF7849FADED 
+11: 00007FF7849F16DB 
+12: 00007FF783F916FF 
+13: 00007FF783F5678D 
+14: 00007FF783F56485 
+15: 00007FF7847EFDDF 
+16: 00007FF7833293EE 
+17: 00007FF784072DE6 
+18: 00007FF7852B4173 
+19: 00007FFC2A94E8D7 
+20: 00007FFC2AFFC34C 
+
+<--- Last few GCs --->
+
+[36012:000001719091B000]      768 ms: Scavenge 9.9 (12.9) -> 8.7 (17.4) MB, pooled: 0 MB, 0.82 / 0.00 ms  (average mu = 1.000, current mu = 1.000) allocation failure; 
+[36012:000001719091B000]     1018 ms: Scavenge 12.4 (17.9) -> 10.8 (18.6) MB, pooled: 0 MB, 0.86 / 0.01 ms  (average mu = 1.000, current mu = 1.000) task; 
+[36012:000001719091B000]     2959 ms: Scavenge 13.5 (19.0) -> 12.3 (28.5) MB, pooled: 0 MB, 2.02 / 0.03 ms  (average mu = 1.000, current mu = 1.000) task; 
+
+FATAL ERROR: NewSpace::EnsureCurrentCapacity Allocation failed - JavaScript heap out of memory
+----- Native stack trace -----
+
+ 1: 00007FF7833D97FF 
+ 2: 00007FF78401DA77 
+ 3: 00007FF783E1E327 
+ 4: 00007FF783DDEDC3 
+ 5: 00007FF783E2072A 
+ 6: 00007FF783E1FD56 
+ 7: 00007FF783E30CE2 
+ 8: 00007FF783E3080B 
+ 9: 00007FF7852989AD 
+10: 00007FF783E1BDF0 
+11: 00007FF783E14F54 
+12: 00007FF78332B72A 
+13: 00007FF783329F10 
+14: 00007FF78408545B 
+15: 00007FF784084FCF 
+16: 00007FF7834E7A2F 
+17: 00007FF783366D52 
+18: 00007FF783433A0C 
+19: 00007FF78444C302 
+20: 00007FF7852A20B4 
+21: 00007FFC2A94E8D7 
+22: 00007FFC2AFFC34C 
+node:internal/modules/run_main:76
+  const type = getNearestParentPackageJSONType(mainPath);
+               ^
+
+Error: Invalid package config \\?\F:\parabox_web\node_modules\vitest\package.json.
+    at shouldUseESMLoader (node:internal/modules/run_main:76:16)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:147:20)
+    at node:internal/main/run_main_module:33:47 {
+  code: 'ERR_INVALID_PACKAGE_CONFIG'
+}
+
+Node.js v24.11.1
+
+<--- Last few GCs --->
+
+[30480:0000020813609000]     7041 ms: Scavenge 17.7 (29.4) -> 13.7 (31.4) MB, pooled: 0 MB, 1.90 / 0.35 ms  (average mu = 0.999, current mu = 0.999) task; 
+[30480:0000020813609000]     7777 ms: Scavenge 22.9 (33.5) -> 18.6 (50.5) MB, pooled: 0 MB, 3.88 / 0.05 ms  (average mu = 0.999, current mu = 0.999) allocation failure; 
+[30480:0000020813609000]     7856 ms: Scavenge 32.4 (51.0) -> 19.1 (52.3) MB, pooled: 0 MB, 2.85 / 0.00 ms  (average mu = 0.999, current mu = 0.999) allocation failure; 
+
+FATAL ERROR: Zone Allocation failed - process out of memory
+----- Native stack trace -----
+
+ 1: 00007FF7833D97FF 
+ 2: 00007FF78401DA77 
+ 3: 00007FF783998A46 
+ 4: 00007FF7838C3E0C 
+ 5: 00007FF7837B1FDF 
+ 6: 00007FF7838BEEEB 
+ 7: 00007FF7838931AE 
+ 8: 00007FF783891637 
+ 9: 00007FF783871825 
+10: 00007FF78386E83A 
+11: 00007FF783F916FF 
+12: 00007FF78387031B 
+13: 00007FF7847EFDDF 
+14: 00007FF7833293EE 
+15: 00007FF784072DE6 
+16: 00007FF7852B4173 
+17: 00007FFC2A94E8D7 
+18: 00007FFC2AFFC34C 
+[vitest-pool]: Timeout terminating forks worker for test files F:/parabox_web/tests/hubPortalConnections.test.ts.
+[vitest-pool]: Timeout terminating forks worker for test files F:/parabox_web/tests/wallRendering.test.ts.
+[vitest-pool]: Timeout terminating forks worker for test files F:/parabox_web/tests/hubShortcutRendering.test.ts.
+[vitest-pool]: Timeout terminating forks worker for test files F:/parabox_web/tests/alternateStyles.test.ts.
+[vitest-pool]: Timeout terminating forks worker for test files F:/parabox_web/tests/nativeCaptionWrapping.test.ts.
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 11 unhandled errors during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Worker forks emitted error.
+ ❯ EventEmitter.onTaskError node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3459:21
+ ❯ EventEmitter.emit node:events:508:28
+ ❯ ChildProcess.emitUnexpectedExit node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3025:22
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+Caused by: Error: Worker exited unexpectedly
+ ❯ ChildProcess.emitUnexpectedExit node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3023:33
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Worker forks emitted error.
+ ❯ EventEmitter.onTaskError node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3459:21
+ ❯ EventEmitter.emit node:events:508:28
+ ❯ ChildProcess.emitUnexpectedExit node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3025:22
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+Caused by: Error: Worker exited unexpectedly
+ ❯ ChildProcess.emitUnexpectedExit node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3023:33
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Worker forks emitted error.
+ ❯ EventEmitter.onTaskError node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3459:21
+ ❯ EventEmitter.emit node:events:508:28
+ ❯ ChildProcess.emitUnexpectedExit node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3025:22
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+Caused by: Error: Worker exited unexpectedly
+ ❯ ChildProcess.emitUnexpectedExit node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3023:33
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Worker forks emitted error.
+ ❯ EventEmitter.onTaskError node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3459:21
+ ❯ EventEmitter.emit node:events:508:28
+ ❯ ChildProcess.emitUnexpectedExit node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3025:22
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+Caused by: Error: Worker exited unexpectedly
+ ❯ ChildProcess.emitUnexpectedExit node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3023:33
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Worker forks emitted error.
+ ❯ EventEmitter.onTaskError node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3459:21
+ ❯ EventEmitter.emit node:events:508:28
+ ❯ ChildProcess.emitUnexpectedExit node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3025:22
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+Caused by: Error: Worker exited unexpectedly
+ ❯ ChildProcess.emitUnexpectedExit node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3023:33
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Failed to start forks worker for test files F:/parabox_web/tests/hubPortalConnections.test.ts.
+ ❯ node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3465:94
+ ❯ processTicksAndRejections node:internal/process/task_queues:103:5
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3465:5
+
+Caused by: Error: spawn UNKNOWN
+ ❯ ChildProcess.spawn node:internal/child_process:421:11
+ ❯ spawn node:child_process:796:9
+ ❯ fork node:child_process:174:10
+ ❯ ForksPoolWorker.start node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3084:18
+ ❯ node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:2899:119
+ ❯ Traces.$ node_modules/vitest/dist/chunks/traces.DT5aQ62U.js:142:27
+ ❯ PoolRunner.start node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:2899:23
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3465:18
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3492:15
+ ❯ processTicksAndRejections node:internal/process/task_queues:103:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { errno: -4094, code: 'UNKNOWN', syscall: 'spawn' }
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Failed to start forks worker for test files F:/parabox_web/tests/wallRendering.test.ts.
+ ❯ node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3465:94
+ ❯ processTicksAndRejections node:internal/process/task_queues:103:5
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3465:5
+
+Caused by: Error: spawn UNKNOWN
+ ❯ ChildProcess.spawn node:internal/child_process:421:11
+ ❯ spawn node:child_process:796:9
+ ❯ fork node:child_process:174:10
+ ❯ ForksPoolWorker.start node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3084:18
+ ❯ node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:2899:119
+ ❯ Traces.$ node_modules/vitest/dist/chunks/traces.DT5aQ62U.js:142:27
+ ❯ PoolRunner.start node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:2899:23
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3465:18
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3492:15
+ ❯ processTicksAndRejections node:internal/process/task_queues:103:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { errno: -4094, code: 'UNKNOWN', syscall: 'spawn' }
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Failed to start forks worker for test files F:/parabox_web/tests/hubShortcutRendering.test.ts.
+ ❯ node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3465:94
+ ❯ processTicksAndRejections node:internal/process/task_queues:103:5
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3465:5
+
+Caused by: Error: spawn UNKNOWN
+ ❯ ChildProcess.spawn node:internal/child_process:421:11
+ ❯ spawn node:child_process:796:9
+ ❯ fork node:child_process:174:10
+ ❯ ForksPoolWorker.start node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3084:18
+ ❯ node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:2899:119
+ ❯ Traces.$ node_modules/vitest/dist/chunks/traces.DT5aQ62U.js:142:27
+ ❯ PoolRunner.start node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:2899:23
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3465:18
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3492:15
+ ❯ processTicksAndRejections node:internal/process/task_queues:103:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { errno: -4094, code: 'UNKNOWN', syscall: 'spawn' }
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Failed to start forks worker for test files F:/parabox_web/tests/alternateStyles.test.ts.
+ ❯ node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3465:94
+ ❯ processTicksAndRejections node:internal/process/task_queues:103:5
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3465:5
+
+Caused by: Error: spawn UNKNOWN
+ ❯ ChildProcess.spawn node:internal/child_process:421:11
+ ❯ spawn node:child_process:796:9
+ ❯ fork node:child_process:174:10
+ ❯ ForksPoolWorker.start node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3084:18
+ ❯ node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:2899:119
+ ❯ Traces.$ node_modules/vitest/dist/chunks/traces.DT5aQ62U.js:142:27
+ ❯ PoolRunner.start node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:2899:23
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3465:18
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3492:15
+ ❯ processTicksAndRejections node:internal/process/task_queues:103:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { errno: -4094, code: 'UNKNOWN', syscall: 'spawn' }
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Failed to start forks worker for test files F:/parabox_web/tests/nativeCaptionWrapping.test.ts.
+ ❯ node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3465:94
+ ❯ processTicksAndRejections node:internal/process/task_queues:103:5
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3465:5
+
+Caused by: Error: spawn UNKNOWN
+ ❯ ChildProcess.spawn node:internal/child_process:421:11
+ ❯ spawn node:child_process:796:9
+ ❯ fork node:child_process:174:10
+ ❯ ForksPoolWorker.start node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3084:18
+ ❯ node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:2899:119
+ ❯ Traces.$ node_modules/vitest/dist/chunks/traces.DT5aQ62U.js:142:27
+ ❯ PoolRunner.start node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:2899:23
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3465:18
+ ❯ Pool.schedule node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3492:15
+ ❯ processTicksAndRejections node:internal/process/task_queues:103:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { errno: -4094, code: 'UNKNOWN', syscall: 'spawn' }
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+Error: [vitest-pool]: Worker forks emitted error.
+ ❯ EventEmitter.onTaskError node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3459:21
+ ❯ EventEmitter.emit node:events:508:28
+ ❯ ChildProcess.emitUnexpectedExit node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3025:22
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+Caused by: Error: Worker exited unexpectedly
+ ❯ ChildProcess.emitUnexpectedExit node_modules/vitest/dist/chunks/cli-api.BK8pd4xc.js:3023:33
+ ❯ ChildProcess.emit node:events:508:28
+ ❯ Process.ChildProcess._handle.onexit node:internal/child_process:294:12
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  69 passed (73)
+      Tests  998 passed (1032)
+     Errors  11 errors
+   Start at  18:49:30
+   Duration  25.17s (transform 41.61s, setup 0ms, import 236.72s, tests 7.76s, environment 21ms)
+

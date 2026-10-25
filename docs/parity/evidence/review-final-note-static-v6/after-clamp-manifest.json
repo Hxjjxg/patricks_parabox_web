@@ -1,0 +1,54 @@
+{
+  "inputs": [
+    {
+      "path": "docs/parity/evidence/original/third-baseline-settled-20261025/static-0.png",
+      "sha256": "88aeac94e7f5653b6e58e42c3ce4268907197fee9eb424eda05d5522df80cb78"
+    },
+    {
+      "path": "docs/parity/evidence/web-production-candidate-v6/static/800x600-dpr1/third_puzzle/end.png",
+      "sha256": "2334cc33356ee1096d8680147c2400e1819451ca6648f2e1b8ad01de596c1ede"
+    },
+    {
+      "path": "docs/parity/evidence/web-wall-alpha-clamp-after-dev/third-800x600-dpr1/start.png",
+      "sha256": "aca511d89880a911e3b413bbe2e2bed1f19232c4728843832fe82e2f7e41d01f"
+    },
+    {
+      "path": "docs/parity/evidence/web-wall-alpha-clamp-after-dev/third-800x600-dpr1/end.png",
+      "sha256": "c1c4d13b4372e4a068f98751b804963ed43dbec081c112a7fd9a8199b4b15bd9"
+    },
+    {
+      "path": "docs/parity/evidence/web-wall-alpha-clamp-after-dev/third-800x600-dpr1/trace.json",
+      "sha256": "b0544c866bcf01d6c4cedb7b0822bc4dcb4d83143c884dbb01fb6563be2ce17d"
+    },
+    {
+      "path": "docs/parity/evidence/web-wall-alpha-clamp-after-dev/third-800x600-dpr1/sha256.json",
+      "sha256": "8421fedd72181fd6ec92867519a56360f17a90fd1cbab254c08f6f26946dc864"
+    },
+    {
+      "path": "docs/parity/evidence/web-wall-alpha-clamp-after-dev/comparison-first.json",
+      "sha256": "e62b9a2fc735185f26c6bc795ea5a7995c2bc824181a0bf727507033c538414f"
+    }
+  ],
+  "sourceProvenance": {
+    "head": "e8befc5",
+    "claim": "Actual dev Canvas with only uncommitted native alpha clamp; not frozen production or completed parity",
+    "sourceSha256": {
+      "src/render/wallRendering.ts": "d05c138db2dbbfac5fcd0135a3adfdf0248625195bf6405d73a223a93dadd199",
+      "src/render/GameRenderer.ts": "4c794eb59029599bc3bea109fbf8fb55f489f0fa5862d871328e04dcf8004c38",
+      "src/render/originalTextures.ts": "a7010afcc0819f5f8dcfe69ff3cfe2bb4311768b5568575ba2b37941b2823025",
+      "scripts/parity-capture-web.js": "6ffae31c62be86e57477abdd627fc70c746d51113e5120f7ec70e96867f9a26c",
+      "scripts/parity-wall-alpha-browser.ts": "2f3ec6c51c2582282a5056cf8c9ef8388314caee0c06ee625481c33fac440e53"
+    }
+  },
+  "reviewScope": "Offline full native/start/end PNGs and unscaled native/after ROI plate",
+  "beforeEvidenceHashesPreserved": {
+    ".gitattributes": "e97602ab9cac70102245345c5ab0fc9830df8b17f1072b188265a662a3a547ae",
+    "manifest.json": "2ec65714677f0eee334694aed684ea61549be159a423a34d152f81bddb7a691b",
+    "metrics.json": "69effdceff48f441e0be29f6c42ccb41722dce5c5351c68c854a5e1a08a4a0e3",
+    "native-static-repeat-check.json": "b686af1b24a80d231c5e2842dc5fe159c167d4baa695775d3a5f7db618169893",
+    "review.py": "6d2163ceb8cf388a864bd6b5c68b29b6ac203a065295681f54f99c87583cd374",
+    "static-native-final-crops.png": "e8729fd86b1371897a4feb65a9e04b65056a3c067f3e0e40fa4b9d0f81636478",
+    "hashes.json": "c925dc07f68bda97daef4a812912dfbc784b9df2f0f7995f7c46d69891d9951f"
+  },
+  "derivedPlate": "after-clamp-native-final-crops.png"
+}

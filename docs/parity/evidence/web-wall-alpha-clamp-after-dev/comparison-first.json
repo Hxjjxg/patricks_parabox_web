@@ -1,0 +1,98 @@
+{
+  "scope": "Actual uncommitted corrected Canvas; all coordinate/image comparisons unshifted; no AA tolerance or completed parity credit",
+  "paths": [
+    "docs/parity/evidence/original/third-baseline-settled-20261025/static-0.png",
+    "docs/parity/evidence/web-production-candidate-v6/static/800x600-dpr1/third_puzzle/end.png",
+    "docs\\parity\\evidence\\web-wall-alpha-clamp-after-dev\\third-800x600-dpr1\\end.png"
+  ],
+  "sha256": [
+    "88aeac94e7f5653b6e58e42c3ce4268907197fee9eb424eda05d5522df80cb78",
+    "2334cc33356ee1096d8680147c2400e1819451ca6648f2e1b8ad01de596c1ede",
+    "c1c4d13b4372e4a068f98751b804963ed43dbec081c112a7fd9a8199b4b15bd9"
+  ],
+  "frames": 1,
+  "images": 2,
+  "sourceProvenance": {
+    "head": "e8befc5",
+    "claim": "Actual dev Canvas with only uncommitted native alpha clamp; not frozen production or completed parity",
+    "sourceSha256": {
+      "src/render/wallRendering.ts": "d05c138db2dbbfac5fcd0135a3adfdf0248625195bf6405d73a223a93dadd199",
+      "src/render/GameRenderer.ts": "4c794eb59029599bc3bea109fbf8fb55f489f0fa5862d871328e04dcf8004c38",
+      "src/render/originalTextures.ts": "a7010afcc0819f5f8dcfe69ff3cfe2bb4311768b5568575ba2b37941b2823025",
+      "scripts/parity-capture-web.js": "6ffae31c62be86e57477abdd627fc70c746d51113e5120f7ec70e96867f9a26c",
+      "scripts/parity-wall-alpha-browser.ts": "2f3ec6c51c2582282a5056cf8c9ef8388314caee0c06ee625481c33fac440e53"
+    }
+  },
+  "rois": [
+    {
+      "name": "Lcorner",
+      "roi": [
+        414,
+        298,
+        612,
+        340
+      ],
+      "beforeMax": 17,
+      "beforeAbove1": 4,
+      "afterMax": 1,
+      "afterAbove1": 0,
+      "afterDifferentPixels": 41,
+      "remainingPixelsAbove1": []
+    },
+    {
+      "name": "lower-notch",
+      "roi": [
+        303,
+        370,
+        443,
+        456
+      ],
+      "beforeMax": 20,
+      "beforeAbove1": 10,
+      "afterMax": 1,
+      "afterAbove1": 0,
+      "afterDifferentPixels": 66,
+      "remainingPixelsAbove1": []
+    }
+  ],
+  "worstBeforeAnchors": [
+    {
+      "x": 428,
+      "y": 321,
+      "native": [
+        190,
+        190,
+        190
+      ],
+      "before": [
+        207,
+        207,
+        207
+      ],
+      "after": [
+        190,
+        190,
+        190
+      ]
+    },
+    {
+      "x": 323,
+      "y": 382,
+      "native": [
+        214,
+        214,
+        214
+      ],
+      "before": [
+        234,
+        234,
+        234
+      ],
+      "after": [
+        213,
+        213,
+        213
+      ]
+    }
+  ]
+}

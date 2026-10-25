@@ -63,9 +63,17 @@ export function createWallShader(maxTextures: number): Shader {
       main: localUniformBitGroup2.vertex!.main + "\nvColor = vec4<f32>(vColor.rgb * localUniforms.uWallTint, vColor.a);",
     },
   };
+  // Native clamps straight GUI RGB before source-alpha compositing. With
+  // premultiplied samples, RGB <= alpha is the equivalent final-fragment bound.
+  const glClamp = { name: "native-gui-rgb-clamp", fragment: {
+    end: "finalColor.rgb = min(finalColor.rgb, vec3(finalColor.a));",
+  } };
+  const gpuClamp = { name: "native-gui-rgb-clamp", fragment: {
+    end: "finalColor = vec4<f32>(min(finalColor.rgb, vec3<f32>(finalColor.a)), finalColor.a);",
+  } };
   return new Shader({
-    glProgram: compileHighShaderGlProgram({ name: "original-walls", bits: [colorBitGl, generateTextureBatchBitGl(maxTextures), glLocal, roundPixelsBitGl] }),
-    gpuProgram: compileHighShaderGpuProgram({ name: "original-walls", bits: [colorBit, generateTextureBatchBit(maxTextures), gpuLocal, roundPixelsBit] }),
+    glProgram: compileHighShaderGlProgram({ name: "original-walls", bits: [colorBitGl, generateTextureBatchBitGl(maxTextures), glLocal, roundPixelsBitGl, glClamp] }),
+    gpuProgram: compileHighShaderGpuProgram({ name: "original-walls", bits: [colorBit, generateTextureBatchBit(maxTextures), gpuLocal, roundPixelsBit, gpuClamp] }),
     resources: {
       localUniforms: new UniformGroup({
         uColor: { value: new Float32Array([1, 1, 1, 1]), type: "vec4<f32>" },

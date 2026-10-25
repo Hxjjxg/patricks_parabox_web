@@ -27,3 +27,20 @@ The Note capture metadata describes real Intro control activation followed by th
 Measurements and exact corner pixel lists are in [metrics.json](evidence/review-final-note-static-v6/metrics.json). [review.py](evidence/review-final-note-static-v6/review.py) reproduces hashes, fixed-coordinate diagnostics and the unscaled plate without modifying inputs. Conclusions cover only these four image pairs, not other routes, sizes, DPRs, font requests or the complete game.
 
 Released to main: this report and evidence/review-final-note-static-v6/** only; all new and unstaged. No other reviewer's files were touched.
+
+## After-clamp development follow-up
+
+I viewed the actual corrected800×600 start/end PNGs, the retained native full PNG again, and the separate [unscaled native/after crop plate](evidence/review-final-note-static-v6/after-clamp-native-final-crops.png). This is an **uncommitted development capture, not frozen final-v6**. End PNG SHA-256 is c1c4d13b4372e4a068f98751b804963ed43dbec081c112a7fd9a8199b4b15bd9. Capture/trace hashes match, and the captured/current wallRendering.ts SHA matches d05c138db2dbbfac5fcd0135a3adfdf0248625195bf6405d73a223a93dadd199.
+
+Independent fixed-coordinate results:
+
+| Region | Before max / pixels differing>1 | After max / pixels differing>1 | Remaining nonexact pixels |
+| --- | --- | --- | --- |
+| L-corner [414,298,612,340] |17 /4|1 /0|41|
+| Lower notch [303,370,443,456] |20 /10|1 /0|66|
+
+At(428,321), corrected RGB190 now equals native190. At(323,382), corrected213 remains different from native214. The gray93/88 and white255 neighbor samples remain exact; all seven previously sampled flat interiors are unchanged from the before capture, including its existing one-byte yellow-fill difference. The top-bevel ROI is also unchanged, retaining331 one-byte-different pixels. Corrected start/end are exact within these three fixed ROIs.
+
+The full images and unscaled joins show the previously excessive bright edge coverage reduced without an adjacent gross geometry or fill regression in these inspected areas. This measured improvement **does not establish an AA tolerance**: the41/66 remaining corner pixels are not approved by borrowing the1/255 flat-interior allowance. Background particle clocks remain unmatched. No shift, resampling, fitted mask or acceptance change was applied.
+
+The trace has only **one recorded rAF and two PNGs** under CPU pacing; player(2,4), camera0, playing/static. This does not validate sustained timing, other scenes/DPRs, Note after the change, frozen production, or the overall test/build run. Before metrics/manifests/hash files remain byte-exact. Separate [after manifest](evidence/review-final-note-static-v6/after-clamp-manifest.json), [metrics with every remaining pixel](evidence/review-final-note-static-v6/after-clamp-metrics.json), [reproducer](evidence/review-final-note-static-v6/after-clamp-review.py), and [after-only hashes](evidence/review-final-note-static-v6/after-clamp-hashes.json) preserve this follow-up without overwriting the before evidence.

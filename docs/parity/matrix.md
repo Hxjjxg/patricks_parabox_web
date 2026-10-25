@@ -4,7 +4,14 @@ Started 2026-10-25 at `f8e7539` with clean worktree. Full task is the user attac
 
 ## Current acceptance state — 2026-10-25
 
-- Production source revision `ac5afc3` integrates Hub rendering after `cdd7c98`
+- The current wall shader adds native HDR/alpha ordering after `ac5afc3`;
+  all 80 files / 1189 tests, typecheck and build pass with bounded concurrency.
+  Three actual GPU coverage cases show red-before/green-after, with unchanged
+  low/unit controls and glError0. Independent actual dev-Canvas recheck
+  confirms dominant corner errors fall17/20->1, while remaining one-byte
+  differences have no new AA acceptance. Full frozen integration replay of
+  this correction is pending. See `wall-alpha-clamp-regression.md`.
+- Earlier frozen-v6 source revision `ac5afc3` integrates Hub rendering after `cdd7c98`
   adds native count/unlock/celebration runtime. All 80 files / 1189 tests,
   typecheck and production build pass. Frozen v6 verifies 1005 source hashes,
   142 immutable bundle hashes and 2415 raw capture-file hashes. Its 77 actual
@@ -40,8 +47,9 @@ Started 2026-10-25 at `f8e7539` with clean worktree. Full task is the user attac
 - Independent final-v6 native/static review confirms 14 localized curved-edge
   pixels with channel differences above1 in two fixed ROIs; maxima17/20 at
   (428,321)/(323,382). Native7x7 neighborhoods repeat byte-exact across three
-  frames, and neighboring backgrounds match. Cause remains under investigation;
-  no clock waiver, fitted shift or new edge tolerance is used. This does not
+  frames, and neighboring backgrounds match. The HDR/alpha correction reduces
+  both maxima to1; independent follow-up retains41/66 nonexact pixels without
+  a new AA tolerance or pass. No clock waiver or fitted shift is used. This does not
   alter the existing qualified flat-interior/seam detector results. See
   `final-note-static-review.md` and its exact residual metrics.
 - Final Note crops match all six line-bottom supports at 800x600, 1001x733
