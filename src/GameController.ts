@@ -22,6 +22,7 @@ import {
 } from "./core/animation";
 import { preWarmParticles, updateParticles } from "./core/particles";
 import { decideDirectionRequest } from "./core/inputQueue";
+import {updateHubPortalCelebrations, updateHubCelebrationClock} from "./core/hubCaptionLifecycle";
 import {
   DrawStyle,
   FloorType,
@@ -380,9 +381,11 @@ export class GameController {
     this.currentLevelName = name;
     this.activeCustomLevelId = customLevelId;
     const pauseCamera = this.world?.pauseCamera ?? world.pauseCamera;
+    const hubCounting = this.world?.hubCounting ?? false;
     pauseCamera.clearCameraUnpause();
     this.pauseEntryPending = false;
     this.world = world;
+    this.world.hubCounting = hubCounting;
     this.world.pauseCamera = pauseCamera;
     this.world.smile = this.smileActive;
     if (name === "hub") {
@@ -775,6 +778,7 @@ export class GameController {
         : held.some(direction => direction.dy === 1) ? 1 : 0};
     } else if (action.type === "return-title") {
       this.progression.clearRecentPuzzle();
+      this.progression.resetHubAnimations();
       this.loadLevel("hub");
       this.sessionMenu.showTitle();
     } else if (action.type === "switch-slot") {
@@ -1343,6 +1347,7 @@ export class GameController {
         : Math.max(0, (timestamp - this.previousFrameTime) / 1000);
     this.previousFrameTime = timestamp;
     const skipHubAnimation = this.firstFrameInHub;
+    let floorAnimationsHandled = false;
     this.firstFrameInHub = false;
     this.advancePlaytime(Math.min(elapsed, 1 / 3));
     if (this.runtimeMode() === 'paused') {
@@ -1416,6 +1421,7 @@ export class GameController {
       if (elapsed > 0) {
         if (!skipHubAnimation) updateWorldAnimations(this.world, {
           deltaTime: delta,
+          nonMovementDeltaTime: elapsed,
           quickAnim: this.world.drawStyle === DrawStyle.QuickAnim,
           handleActionFloor: (block) => this.blockIsOnActionFloor(block),
           random: Math.random,
@@ -1424,6 +1430,11 @@ export class GameController {
         updateCameraAnimation(this.world, delta);
         this.world.pauseCamera.tick(elapsed, {paused: false});
       }
+      if (!skipHubAnimation) {
+        this.world.updateFloorAnimations(elapsed, false);
+        updateHubPortalCelebrations(this.world, elapsed);
+      }
+      floorAnimationsHandled = true;
       const destination = advanceHubEntry(this.world, elapsed);
       if (destination) {
         const carriedMoving = this.world.anyBlockMoving;
@@ -1452,10 +1463,11 @@ export class GameController {
       });
     }
 
-    if (!skipHubAnimation) this.world.updateFloorAnimations(
-      elapsed,
-      this.runtimeMode() !== "playing",
-    );
+    if (!floorAnimationsHandled) {
+      this.world.updateFloorAnimations(elapsed, this.runtimeMode() !== "playing");
+      updateHubPortalCelebrations(this.world, elapsed);
+    }
+    updateHubCelebrationClock(this.world, elapsed, this.runtimeMode() === "playing");
 
     if (this.specialModes.active) {
       const modeBefore = this.specialModes.currentMode;
@@ -1546,7 +1558,7 @@ export class GameController {
       this.movement.clearWaitForMoveDirChange();
       this.directionalInput.markDirectionChanged();
     }
-    if (this.world.winning || this.world.transitioning) return;
+    if (this.world.winning || this.world.transitioning || this.world.hubUnlocking || this.world.hubCelebrationLevel) return;
     const decision = decideDirectionRequest({
       repeated,
       animating: this.world.anyBlockMoving,

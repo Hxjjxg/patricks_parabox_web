@@ -2,6 +2,7 @@ import puzzleDataSource from "../assets/data/puzzle_data.txt?raw";
 import puzzleLinesSource from "../assets/data/puzzle_lines.txt?raw";
 import { customLevelSceneName } from "./customLevels";
 import { Floor, FloorType, Level, WorldModel } from "./model";
+import {createHubCaptionWallState, startHubCaptionCounting, type HubCaptionCounts} from "./hubCaptionState";
 
 export interface PuzzleMetadata {
   readonly name: string;
@@ -167,6 +168,10 @@ export class ProgressionModel {
   recentPuzzle: string | null;
   returnOffset: { dx: number; dy: number };
   recentArea: string | null;
+  private hubLoaded = false;
+  private readonly wallUnlockAnimPlayed = new Set<string>();
+  private readonly celebrationPlayed = new Set<string>();
+  private levelsNewlyWon = 0;
   private playtimeSecondsState: number;
   private nexusUnlockedState: boolean;
   private unlockAllPuzzlesState: boolean;
@@ -296,6 +301,11 @@ export class ProgressionModel {
     this.recentPuzzle = null;
   }
 
+  /** Native title/save-selection paths reset the next Hub load's history gate. */
+  resetHubAnimations(): void {
+    this.hubLoaded = false;
+  }
+
   setHubReturnPosition(
     areaName: string,
     x: number,
@@ -316,7 +326,9 @@ export class ProgressionModel {
     if (levelName === customLevelSceneName) return false;
     const sizeBefore = this.wonLevels.size;
     this.wonLevels.add(levelName);
-    return this.wonLevels.size !== sizeBefore;
+    const newlyWon = this.wonLevels.size !== sizeBefore;
+    if (newlyWon) this.levelsNewlyWon++;
+    return newlyWon;
   }
 
   nextLevelAfterWin(levelName: string, newlyWon: boolean): string {
@@ -340,6 +352,12 @@ export class ProgressionModel {
 
   applyToHub(world: WorldModel): void {
     if (world.levelName !== "hub") return;
+    const firstHubLoad = !this.hubLoaded;
+    if (firstHubLoad) {
+      this.wallUnlockAnimPlayed.clear();
+      this.celebrationPlayed.clear();
+      this.hubLoaded = true;
+    }
     world.hubNexusUnlocked = this.nexusUnlocked;
     for (const block of world.blocks) {
       if (!block.subLevel && block.unlockerScene && !world.hubUnlockWalls.includes(block)) {
@@ -363,6 +381,20 @@ export class ProgressionModel {
       );
       level.hubShortcutWon =
         areaPortals.length > 0 && areaPortals.every((floor) => floor.won);
+      if (level.hubShortcutWon) {
+        if (!this.celebrationPlayed.has(level.hubAreaName) && !firstHubLoad) {
+          world.hubCelebration = {...world.hubCelebration, active: true, levelAttached: true};
+          world.hubCelebrationLevel = level;
+          for (const floor of areaPortals) {
+            world.hubCelebrationNumLevels++;
+            floor.hubCelebration = {...floor.hubCelebration,
+              celebrationIndex: Number(puzzleMetadata.get(floor.sceneName)!.referenceName) - 1};
+          }
+        }
+        this.celebrationPlayed.add(level.hubAreaName);
+      } else {
+        this.celebrationPlayed.delete(level.hubAreaName);
+      }
     }
 
     const levelByArea = (areaName: string): Level | undefined =>
@@ -382,14 +414,41 @@ export class ProgressionModel {
       if (reception) reception.hubShortcutWon = true;
     }
 
-    for (const block of [...world.blocks]) {
-      if (
-        block.subLevel === null &&
-        block.unlockerScene &&
-        this.hubWallUnlocked(block.outerLevel, block.unlockerScene)
-      ) {
-        world.removeBlock(block);
+    let centerAnimating = false;
+    for (let index = world.blocks.length - 1; index >= 0; index--) {
+      const block = world.blocks[index]!;
+      if (block.subLevel || !block.unlockerScene || !block.outerLevel) continue;
+      const counts = this.hubWallCounts(block.outerLevel, block.unlockerScene);
+      if (counts) block.hubCaptionState = createHubCaptionWallState(counts);
+      const open = this.hubWallUnlocked(block.outerLevel, block.unlockerScene);
+      block.hubShortcutOpen = open;
+      const area = block.outerLevel.hubAreaName, center = area === "Area_Center";
+      const special = ["*clear", "*clear_or_unlock_all", "*all"].includes(block.unlockerScene);
+      if (open) {
+        if ((!this.wallUnlockAnimPlayed.has(area) || center && centerAnimating)
+          && !this.unlockAllPuzzlesState && !firstHubLoad && !special) {
+          block.hubCaptionState = createHubCaptionWallState(counts!,
+            {unlocking: true, unlockingSuppressSound: center && centerAnimating});
+          world.hubUnlocking = true;
+          if (center) centerAnimating = true;
+        } else {
+          world.removeBlock(block);
+        }
+        this.wallUnlockAnimPlayed.add(area);
+      } else if (!block.unlockerScene.startsWith("*")) {
+        this.wallUnlockAnimPlayed.delete(area);
       }
+    }
+    if (this.levelsNewlyWon > 0) {
+      for (let index = world.blocks.length - 1; index >= 0; index--) {
+        const block = world.blocks[index]!;
+        if (!block.subLevel && block.unlockerScene && !block.unlockerScene.startsWith("*")
+          && block.outerLevel?.hubAreaName === this.recentArea && block.hubCaptionState) {
+          block.hubCaptionState = startHubCaptionCounting(block.hubCaptionState, this.levelsNewlyWon);
+          world.hubCounting = true;
+        }
+      }
+      this.levelsNewlyWon = 0;
     }
 
     world.computeBlockLists();
@@ -456,6 +515,13 @@ export class ProgressionModel {
     if (unlockerScene === "*all") return this.allWon;
     if (this.unlockAllPuzzlesState) return true;
 
+    const counts = this.hubWallCounts(level, unlockerScene)!;
+    return counts.numSolved >= counts.numRequired;
+  }
+
+  private hubWallCounts(level: Level, unlockerScene: string): HubCaptionCounts | null {
+    if (unlockerScene === "*all") return {numRequired: puzzleMetadata.size, numSolved: this.wonLevels.size, numSolvedUncapped: 0};
+    if (unlockerScene === "*clear" || unlockerScene === "*clear_or_unlock_all" || this.unlockAllPuzzlesState) return null;
     let requiredCoreWins = 0;
     let areaWins = 0;
     for (const floor of level.floorList) {
@@ -467,8 +533,7 @@ export class ProgressionModel {
     }
     if (level.hubAreaName === "Area_Swap") requiredCoreWins--;
     if (level.hubAreaName === "Area_Wall") requiredCoreWins--;
-    areaWins = Math.min(areaWins, requiredCoreWins);
-    return areaWins >= requiredCoreWins;
+    return {numRequired: requiredCoreWins, numSolved: Math.min(areaWins, requiredCoreWins), numSolvedUncapped: areaWins};
   }
 
   private portalUnlocked(floor: Floor): boolean {
@@ -481,7 +546,8 @@ export class ProgressionModel {
     const parentLevel = exitBlock.outerLevel;
     const gatewayOpen =
       parentLevel !== null &&
-      parentLevel.getBlock(exitBlock.x, exitBlock.y + 1) === null;
+      (parentLevel.getBlock(exitBlock.x, exitBlock.y + 1) === null
+        || Boolean(parentLevel.getBlock(exitBlock.x, exitBlock.y + 1)?.hubCaptionState?.unlocking));
     if (!gatewayOpen && floor.outerLevel.hubAreaName !== "Area_Intro") {
       return false;
     }
@@ -498,7 +564,7 @@ export class ProgressionModel {
         return this.wonLevels.has(incoming[0]?.from ?? "");
       }
       return !floor.outerLevel.blockList.some(
-        (block) => block.subLevel === null && block.unlockerScene !== null,
+        (block) => block.subLevel === null && block.unlockerScene !== null && !block.hubCaptionState?.unlocking,
       );
     }
 

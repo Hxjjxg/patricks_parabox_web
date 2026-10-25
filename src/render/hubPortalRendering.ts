@@ -32,7 +32,8 @@ export interface HubConnection extends HubLineRoute {
 /** Snapshot before applyToHub removes open walls, as native LoadLevel does. */
 export function captureHubUnlockWalls(blocks: readonly Block[]): HubUnlockWall[] {
   return blocks.flatMap(block => block.outerLevel && !block.subLevel && block.unlockerScene
-    ? [{x: block.x, y: block.y, level: block.outerLevel, unlockerScene: block.unlockerScene, originalBlock: block}]
+    ? [{x: block.x, y: block.y, level: block.outerLevel, unlockerScene: block.unlockerScene, originalBlock: block,
+      ...(block.hubShortcutOpen === null ? {} : {open: block.hubShortcutOpen})}]
     : []);
 }
 

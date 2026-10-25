@@ -1,4 +1,5 @@
 import {PauseCamera, type PauseCameraMode} from './pauseCamera';
+import type {HubCaptionWallState, HubCelebrationClock, HubPortalCelebrationState} from './hubCaptionState';
 
 export enum Attempt {
   Push = "push",
@@ -219,6 +220,9 @@ export class Block {
   justEnteredArray: Block[] | null = null;
   justInfEntered = false;
   unlockerScene: string | null = null;
+  hubCaptionState: HubCaptionWallState | null = null;
+  /** Native route-open record is independent of a retained unlocking tile. */
+  hubShortcutOpen: boolean | null = null;
   lastPartSpawnSide = -1;
 
   // --- Procedural animation state (Block.UpdateAnimation) ---
@@ -286,6 +290,7 @@ export class Floor {
   unlocked = false;
   won = false;
   hard = 0;
+  hubCelebration: HubPortalCelebrationState = {celebrationIndex: 0, celebrationPopped: false, celebrationSizeT: 0};
   /** Mirrors the original Floor.AnimT used by Info and DemoEnd floors. */
   animationT = 0;
   lastPartSpawnSide = -1;
@@ -321,6 +326,11 @@ export class WorldModel {
   /** Native UnlockableWall records survive removal of their blocking tile. */
   readonly hubUnlockWalls: Block[] = [];
   hubNexusUnlocked = false;
+  hubCounting = false;
+  hubUnlocking = false;
+  hubCelebration: HubCelebrationClock = {active: false, t: -1.25, playedStartSound: false, levelAttached: false};
+  hubCelebrationLevel: Level | null = null;
+  hubCelebrationNumLevels = 0;
   readonly floors: Floor[] = [];
   readonly fastTravelFloors: Floor[] = [];
   /**

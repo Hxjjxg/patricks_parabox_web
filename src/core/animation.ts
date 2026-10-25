@@ -1,4 +1,5 @@
 import { DrawStyle, type Block, type Level, type Phantom, type WorldModel } from "./model";
+import {updateHubCaptionBlock} from "./hubCaptionLifecycle";
 
 /**
  * Procedural block animation, ported from the original game's
@@ -91,6 +92,8 @@ function randomInt(
 
 export interface AnimationContext {
   readonly deltaTime: number;
+  /** Hub count/unlock timers use full frame time, not post-press movement time. */
+  readonly nonMovementDeltaTime?: number;
   /** `Draw.DrawStyle == DS.QUICK_ANIM`. */
   readonly quickAnim: boolean;
   /** Previous frame's `World.AnyBlockMoving`. */
@@ -556,7 +559,9 @@ export function updateWorldAnimations(
         ? BumpLengthMulti
         : BumpLengthNormal,
   };
-  for (const block of world.blocks) {
+  for (let index = 0; index < world.blocks.length; index++) {
+    const block = world.blocks[index]!;
+    updateHubCaptionBlock(world, block, context.nonMovementDeltaTime ?? context.deltaTime, context.random);
     if (!isAnimatedBlock(block)) continue;
     updateAnimation(block, true, true, fullContext);
   }

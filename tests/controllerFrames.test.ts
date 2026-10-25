@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { GameController } from '../src/GameController';
 import type { GameRenderer, RendererUiState } from '../src/render/GameRenderer';
 import { stopAllAnimations } from '../src/core/animation';
+import {createHubCaptionWallState} from '../src/core/hubCaptionState';
 import nativeInputBoundaries from './fixtures/original-input-boundaries.json';
 import nativeHistoryRepeats from './fixtures/original-history-repeat.json';
 
@@ -459,4 +460,76 @@ describe('original delivered control update conformance', () => {
       }
     });
   }
+});
+
+// These inject source-contract transient states into the actual controller scheduler.
+// Natural Hub load/history initialization is independently covered by hubCaptionLoadIntegration.
+describe('native Hub caption controller stage ordering', () => {
+  function celebration(h: ReturnType<typeof controllerHarness>, t: number) {
+    const world = h.api.world();
+    const level = world.levels.find(level => level.hubAreaName === 'Area_Intro')!;
+    world.hubCelebrationLevel = level; world.hubCelebrationNumLevels = 9;
+    world.hubCelebration = {active: true, t, playedStartSound: false, levelAttached: true};
+    for (const floor of level.floorList) floor.hubCelebration = {celebrationIndex: 8, celebrationPopped: false, celebrationSizeT: 0};
+    return {world, level, floor: level.floorList.find(f => f.sceneName === 'first_puzzle')!};
+  }
+  it('gives wall timers full elapsed while preserving the 1ms post-press player phase', () => {
+    const h = controllerHarness(); h.frame(0);
+    const world = h.api.world(), wall = world.blocks.find(b => !b.subLevel && !b.isPlayer)!;
+    wall.hubCaptionState = {...createHubCaptionWallState({numRequired: 3, numSolved: 1, numSolvedUncapped: 1}), counting: true, countingTotalDelta: 1};
+    world.hubCounting = true;
+    h.press('ArrowRight', 299); h.frame(300); h.release('ArrowRight', 301);
+    expect(wall.hubCaptionState.countingT).toBe(Math.fround(-1.5));
+    expect(h.presented.at(-1)!.t).toBeCloseTo(.001, 10);
+    expect(h.api.getState().moveCount).toBe(1);
+  });
+  it('uses the previous global clock for portal eligibility, then advances the clock', () => {
+    const h = controllerHarness('hub', ['third_puzzle']); h.frame(0);
+    const {world, floor} = celebration(h, -.01); floor.hubCelebration = {...floor.hubCelebration, celebrationIndex: 0};
+    h.frame(100);
+    expect(floor.hubCelebration.celebrationPopped).toBe(false);
+    expect(world.hubCelebration.t).toBe(Math.fround(.09));
+    h.frame(200); expect(floor.hubCelebration).toMatchObject({celebrationPopped: true, celebrationSizeT: Math.fround(.1)});
+  });
+  it('skips walls/floors on the first playing Hub tick but still advances the later clock', () => {
+    const h = controllerHarness(); h.frame(0); h.api.loadLevel('hub');
+    const {world, floor} = celebration(h, 0); floor.hubCelebration = {...floor.hubCelebration, celebrationIndex: 0};
+    const wall = world.blocks.find(b => b.hubCaptionState)!;
+    wall.hubCaptionState = {...wall.hubCaptionState!, counting: true, countingTotalDelta: 1};
+    h.frame(100);
+    expect(wall.hubCaptionState.countingT).toBe(-2.5); expect(floor.hubCelebration.celebrationPopped).toBe(false);
+    expect(world.hubCelebration.t).toBe(Math.fround(.1));
+    h.frame(200); expect(wall.hubCaptionState.countingT).toBeGreaterThan(-2.5);
+    expect(floor.hubCelebration.celebrationPopped).toBe(true);
+  });
+  it('updates paused portal growth even on the first Hub tick and freezes wall/global clocks', () => {
+    const h = controllerHarness(); h.frame(0); h.api.loadLevel('hub');
+    const {world, floor} = celebration(h, 0); floor.hubCelebration = {...floor.hubCelebration, celebrationIndex: 0};
+    const wall = world.blocks.find(b => b.hubCaptionState)!;
+    wall.hubCaptionState = {...wall.hubCaptionState!, unlocking: true};
+    h.press('Escape', 1); h.frame(100); h.release('Escape', 101);
+    expect(h.api.getState().mode).toBe('paused');
+    expect(floor.hubCelebration).toMatchObject({celebrationPopped: true, celebrationSizeT: Math.fround(.1)});
+    expect(wall.hubCaptionState.unlockingT).toBe(0); expect(world.hubCelebration.t).toBe(0);
+    h.frame(200); expect(floor.hubCelebration.celebrationSizeT).toBe(Math.fround(.2));
+    expect(world.hubCelebration.t).toBe(0);
+  });
+  it.each(['unlocking', 'celebration'] as const)('gates physical movement while %s is active', gate => {
+    const h = controllerHarness(); h.frame(0); const world = h.api.world();
+    if (gate === 'unlocking') world.hubUnlocking = true; else world.hubCelebrationLevel = world.levels[0]!;
+    h.press('ArrowRight', 1); h.frame(16.7); h.release('ArrowRight', 17);
+    expect(h.api.getState().moveCount).toBe(0);
+  });
+  it('births sixteen edge particles after the particle update, then moves them next update', () => {
+    vi.spyOn(Math, 'random').mockReturnValue(.5);
+    const h = controllerHarness('hub', ['third_puzzle']); h.frame(0);
+    const {world, level} = celebration(h, 3.2); level.particles.length = 0;
+    for (const floor of level.floorList) floor.hubCelebration = {...floor.hubCelebration, celebrationPopped: true};
+    h.frame(100);
+    const particles = level.particles.filter(p => p.celebration); expect(particles).toHaveLength(16);
+    expect(world.hubCelebrationLevel).toBeNull();
+    expect(particles.every(p => p.size === Math.fround(.05))).toBe(true);
+    const initialY = particles[0]!.y; expect(initialY).toBe(Math.fround(Math.fround(.5) + Math.fround(Math.fround(.05) * Math.fround(.3))));
+    h.frame(200); expect(particles[0]!.y).toBeLessThan(initialY); expect(particles[0]!.size).toBeLessThan(Math.fround(.05));
+  });
 });
