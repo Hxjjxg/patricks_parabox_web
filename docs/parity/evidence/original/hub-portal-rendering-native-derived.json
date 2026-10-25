@@ -1,0 +1,879 @@
+{
+  "schemaVersion": 1,
+  "derivedOn": "2026-10-25",
+  "scope": "Existing paired images and read-only native source/exported asset mapping. No native recapture, production edits, or browser actions.",
+  "pairedImages": {
+    "web": {
+      "path": "docs/parity/evidence/web-hub-arrival-after-dev/third-win-held/motion-0003-jumpOut-0.5.png",
+      "sha256": "1d80f26b4567cff950c6128b64adab324f414abe2a9c190827ce1a1acaa975b0"
+    },
+    "native": {
+      "path": "docs/parity/evidence/original/intro-third-win-held-native-v1-20261025/frame-0096.png",
+      "sha256": "96f51ab4fcc627d529e7c36e522e57cff199e4183c3499544cbeb691d42160aa"
+    },
+    "nativeCaptureMetadata": {
+      "file": "frame-0096.png",
+      "imageCaptured": true,
+      "frame": 1155063,
+      "elapsedMs": 1891.05225,
+      "deltaMs": 24.156,
+      "control": "RIGHT",
+      "eventIndex": 0,
+      "eventStartMs": 0,
+      "moveCount": 1,
+      "levelName": "hub",
+      "outerLevel": 0,
+      "x": 4,
+      "y": 5,
+      "anim": "JUMP_OUT",
+      "animT": 0.241956323,
+      "animLength": 0.5,
+      "drawXOffset": 0,
+      "drawYOffset": -1.5150522,
+      "drawXScale": 0.5613257,
+      "drawYScale": 0.5613257,
+      "anyBlockMoving": true,
+      "cameraFlipH": false,
+      "cameraAnimT": 0.1,
+      "cameraAnimLength": 0.1,
+      "newCamT": 1,
+      "newX": 0,
+      "newY": 0,
+      "newXS": 1,
+      "newYS": 1
+    },
+    "nativeProgress": 0.483912646,
+    "comparisonLimit": "Missing static scene layers; native progress is near but not exactly .5 and particles/marker clock differ.",
+    "nativeCaptureMetadataArtifact": {
+      "path": "docs/parity/evidence/original/intro-third-win-held-native-v1-20261025/capture.json",
+      "sha256": "7ca31983dc7c3f4921d9dc55bb08b65c20ea19e0bbbc0d80045edfde3870a014"
+    }
+  },
+  "assetCatalog": {
+    "root": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails",
+    "pngCount": 368,
+    "allDimensions": [
+      128,
+      128
+    ],
+    "allMode": "RGBA",
+    "totalPngBytes": 1339204,
+    "missingForPuzzleData": [],
+    "catalogSha256": "9f0cd990824649715c688d9193a0b1d872e6b1cd627639b15e1d113c0dd28ad6",
+    "catalogHashDefinition": "SHA-256 of UTF-8 newline-joined sorted filename:sha256 records, no trailing newline",
+    "cacheOwner": "Hub.puzzleData[scene].thumbnail",
+    "cacheLoader": "Resources.Load(\"level_thumbnails/\"+scene,typeof(Texture2D))",
+    "perDrawLoadAttemptLimit": 30,
+    "fallback": "FullWhiteTex",
+    "notUsedForPortalCache": [
+      "Floor.ThumbnailTex",
+      "live miniature world",
+      "runtime RenderTexture"
+    ]
+  },
+  "sourceDerived": {
+    "sourceRoot": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp",
+    "sources": [
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/Draw.cs",
+        "sha256": "e26bd1a20c0db16bf15f3961e368aa2f947880399b7361cc6ad9bbe862b012bd"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/Hub.cs",
+        "sha256": "5b839816239a1a0a52e8d87cf654cc8c1d5da5b88cb4e0676dd3cf128b308357"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/Floor.cs",
+        "sha256": "6782e66144d781b6044d3604856b49f6481655c37ce33c8a979dac8b3411fa49"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/LoadLevel.cs",
+        "sha256": "7de74bb1364a9b7178d912b8eb0439178cf89234c305fda87cedfaa182f10f6d"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/Block.cs",
+        "sha256": "b93af533734b8d4fe5457263f11ba80f8857361fc9c80cc3cf541c7e6fccb0d9"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/Screenshot.cs",
+        "sha256": "6b45805c0d0aa947b0840c3381095f4249b1922a62dfab4036095683cbfb562b"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/Util.cs",
+        "sha256": "bcf11cca4be1f7c773e73e9703270ae896d9b5242d9c3a5bd8a6928e22d5ef24"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scenes/init.unity",
+        "sha256": "740a77400910ab9b90f809243de4bf578a6d35a4dfa905624c08be225404e1c0"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/levels/hub.txt",
+        "sha256": "15d5e77bf7a6d17af6d4f75316f11f8c5113847ff6b224c9d83c2b0abf07fa9c"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/puzzle_data.txt",
+        "sha256": "3fe81e08feb1ce474882f6a7efd254cf76f0266251d80787ba95e3d35dd9651b"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/puzzle_lines.txt",
+        "sha256": "00dc3d880e56c4153f2705ceaeefa524bd124d7659ffc2fcee55fa97559539aa"
+      }
+    ],
+    "intro": {
+      "hubAreaName": "Area_Intro",
+      "size": [
+        11,
+        11
+      ],
+      "sourceBlockLine": 1422,
+      "portals": {
+        "enter": {
+          "scene": "enter",
+          "x": 2,
+          "y": 4,
+          "hubSourceLine": 1468,
+          "sourceLine": 85,
+          "hard": 0,
+          "eyesJump": false,
+          "referenceName": "a4",
+          "thumbnail": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/enter.png",
+            "sha256": "8a59cd6dfe53542b44dc16bc51bd53f99eef4b2a7e0af3a017e462965e56ba86",
+            "size": [
+              128,
+              128
+            ],
+            "mode": "RGBA",
+            "bytes": 2817,
+            "cornerRGBA": [
+              214,
+              215,
+              214,
+              255
+            ]
+          },
+          "importerMeta": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/enter.png.meta",
+            "sha256": "3a4c3b2e5bd618ad8404144c27cff9b3d00c24ea5193ed36ea5fd39c5ee8b7b9"
+          },
+          "spriteMetadata": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/enter.asset",
+            "sha256": "06fc42749de9012ce03077405917a0940c8805f5c4d51ce48edb4e275ddf156d"
+          },
+          "importer": {
+            "enableMipMap": 0,
+            "sRGBTexture": 1,
+            "filterMode": 1,
+            "wrapU": 1,
+            "wrapV": 1
+          }
+        },
+        "elbow_finish_idiom": {
+          "scene": "elbow_finish_idiom",
+          "x": 3,
+          "y": 4,
+          "hubSourceLine": 1469,
+          "sourceLine": 82,
+          "hard": 0,
+          "eyesJump": false,
+          "referenceName": "a5",
+          "thumbnail": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/elbow_finish_idiom.png",
+            "sha256": "f09a0b35fedc7180469637d74929f31373c2e531867adb542f814ba6d5bda476",
+            "size": [
+              128,
+              128
+            ],
+            "mode": "RGBA",
+            "bytes": 2406,
+            "cornerRGBA": [
+              214,
+              215,
+              214,
+              255
+            ]
+          },
+          "importerMeta": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/elbow_finish_idiom.png.meta",
+            "sha256": "51da18f8f28c33649e7da3e2791460a1036901c77fe355d70e9e57e96d558594"
+          },
+          "spriteMetadata": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/elbow_finish_idiom.asset",
+            "sha256": "c7d6d5e04411e596de59bb004aecc2aa19162d04cddf9771fa045a8f11b40ff3"
+          },
+          "importer": {
+            "enableMipMap": 0,
+            "sRGBTexture": 1,
+            "filterMode": 1,
+            "wrapU": 1,
+            "wrapV": 1
+          }
+        },
+        "round_corners": {
+          "scene": "round_corners",
+          "x": 4,
+          "y": 4,
+          "hubSourceLine": 1470,
+          "sourceLine": 293,
+          "hard": 0,
+          "eyesJump": false,
+          "referenceName": "a6",
+          "thumbnail": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/round_corners.png",
+            "sha256": "e4eb17b9af706fa1859e804ea2b366963786fbb19ace4c1982cd8d7a8ab380df",
+            "size": [
+              128,
+              128
+            ],
+            "mode": "RGBA",
+            "bytes": 3505,
+            "cornerRGBA": [
+              219,
+              219,
+              219,
+              255
+            ]
+          },
+          "importerMeta": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/round_corners.png.meta",
+            "sha256": "2c502a3554af289c763d7c31372a2a02c0f8f2cc6d4a676595f017b598ecd81c"
+          },
+          "spriteMetadata": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/round_corners.asset",
+            "sha256": "ffb6eb94361ad5a3622cb09b96586c887cf710e043b92f687c40420daf2edc55"
+          },
+          "importer": {
+            "enableMipMap": 0,
+            "sRGBTexture": 1,
+            "filterMode": 1,
+            "wrapU": 1,
+            "wrapV": 1
+          }
+        },
+        "third_puzzle": {
+          "scene": "third_puzzle",
+          "x": 4,
+          "y": 6,
+          "hubSourceLine": 1471,
+          "sourceLine": 329,
+          "hard": 0,
+          "eyesJump": false,
+          "referenceName": "a3",
+          "thumbnail": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/third_puzzle.png",
+            "sha256": "58d9f3296073db2c4450170bf749b144a788facc47e77b5de5e11ee44d137146",
+            "size": [
+              128,
+              128
+            ],
+            "mode": "RGBA",
+            "bytes": 2407,
+            "cornerRGBA": [
+              214,
+              215,
+              214,
+              255
+            ]
+          },
+          "importerMeta": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/third_puzzle.png.meta",
+            "sha256": "c766fcfa0b94e4acd8104b8c07f4acb991c847101e0909744dca146fab0981da"
+          },
+          "spriteMetadata": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/third_puzzle.asset",
+            "sha256": "cc70a4e0d4af8161e686ead249ac5f1309ea9ebb401e353a38736a33a9fdd64c"
+          },
+          "importer": {
+            "enableMipMap": 0,
+            "sRGBTexture": 1,
+            "filterMode": 1,
+            "wrapU": 1,
+            "wrapV": 1
+          }
+        },
+        "separate": {
+          "scene": "separate",
+          "x": 5,
+          "y": 4,
+          "hubSourceLine": 1472,
+          "sourceLine": 295,
+          "hard": 0,
+          "eyesJump": false,
+          "referenceName": "a7",
+          "thumbnail": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/separate.png",
+            "sha256": "4027b69ffa0e3aaa133006a6e42eae3be7a896790e619be5d4907b0154a3d0b0",
+            "size": [
+              128,
+              128
+            ],
+            "mode": "RGBA",
+            "bytes": 2523,
+            "cornerRGBA": [
+              214,
+              215,
+              214,
+              255
+            ]
+          },
+          "importerMeta": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/separate.png.meta",
+            "sha256": "612c056df6735873535c80e80f430fd39c0a5b3f8123145905fb1fb3c0a8b0e2"
+          },
+          "spriteMetadata": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/separate.asset",
+            "sha256": "eb5afeda12b5f0d97b505763058a1aa3faad4ed2c634dcbe6edb70f1d10c49a7"
+          },
+          "importer": {
+            "enableMipMap": 0,
+            "sRGBTexture": 1,
+            "filterMode": 1,
+            "wrapU": 1,
+            "wrapV": 1
+          }
+        },
+        "second_puzzle": {
+          "scene": "second_puzzle",
+          "x": 5,
+          "y": 6,
+          "hubSourceLine": 1473,
+          "sourceLine": 294,
+          "hard": 0,
+          "eyesJump": false,
+          "referenceName": "a2",
+          "thumbnail": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/second_puzzle.png",
+            "sha256": "de4ce55e163ee06f3dc45fcb17635c19d9a147c24af15d4edb71c8a1c7cc17d9",
+            "size": [
+              128,
+              128
+            ],
+            "mode": "RGBA",
+            "bytes": 2663,
+            "cornerRGBA": [
+              214,
+              215,
+              214,
+              255
+            ]
+          },
+          "importerMeta": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/second_puzzle.png.meta",
+            "sha256": "e063798e4f5b0f2f2a3c641395d0ccd2272c93a0a29d62bb1652328dc8e0c554"
+          },
+          "spriteMetadata": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/second_puzzle.asset",
+            "sha256": "871634f9f5123c9543ddf55a3e63989bbf98b3f085b7e5b7280477029e910a6c"
+          },
+          "importer": {
+            "enableMipMap": 0,
+            "sRGBTexture": 1,
+            "filterMode": 1,
+            "wrapU": 1,
+            "wrapV": 1
+          }
+        },
+        "enter_two_sides": {
+          "scene": "enter_two_sides",
+          "x": 6,
+          "y": 4,
+          "hubSourceLine": 1474,
+          "sourceLine": 90,
+          "hard": 0,
+          "eyesJump": false,
+          "referenceName": "a8",
+          "thumbnail": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/enter_two_sides.png",
+            "sha256": "6c5461357b22d6df2b4252b0c4c2c51782ea5e2e1728f38158beb90ddc382ac3",
+            "size": [
+              128,
+              128
+            ],
+            "mode": "RGBA",
+            "bytes": 2753,
+            "cornerRGBA": [
+              209,
+              209,
+              209,
+              255
+            ]
+          },
+          "importerMeta": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/enter_two_sides.png.meta",
+            "sha256": "ee77f6460f15384f52e7753cf5e1f06940d72d1d8584076ae6192a08b018321e"
+          },
+          "spriteMetadata": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/enter_two_sides.asset",
+            "sha256": "df7bc6fbf3f705ead74615d1af867a2a727b4309e94374816f4028f1c45ccfa2"
+          },
+          "importer": {
+            "enableMipMap": 0,
+            "sRGBTexture": 1,
+            "filterMode": 1,
+            "wrapU": 1,
+            "wrapV": 1
+          }
+        },
+        "first_puzzle": {
+          "scene": "first_puzzle",
+          "x": 6,
+          "y": 6,
+          "hubSourceLine": 1475,
+          "sourceLine": 95,
+          "hard": 0,
+          "eyesJump": false,
+          "referenceName": "a1",
+          "thumbnail": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/first_puzzle.png",
+            "sha256": "4f88af757b1f660f9ab8b6ea8b4540d4ea415d3e4b59a067e5ff7d06234d4227",
+            "size": [
+              128,
+              128
+            ],
+            "mode": "RGBA",
+            "bytes": 2883,
+            "cornerRGBA": [
+              209,
+              209,
+              209,
+              255
+            ]
+          },
+          "importerMeta": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/first_puzzle.png.meta",
+            "sha256": "98632eef5985e9885b61157da9ad178106df2bdeb4eeea960f1ade2cd39183a1"
+          },
+          "spriteMetadata": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/first_puzzle.asset",
+            "sha256": "c200ba1e6fb796d580a3527e8501ac3636b5cbef55cf8f3190b23e1b9ca36b79"
+          },
+          "importer": {
+            "enableMipMap": 0,
+            "sRGBTexture": 1,
+            "filterMode": 1,
+            "wrapU": 1,
+            "wrapV": 1
+          }
+        },
+        "lock_door": {
+          "scene": "lock_door",
+          "x": 7,
+          "y": 4,
+          "hubSourceLine": 1476,
+          "sourceLine": 193,
+          "hard": 0,
+          "eyesJump": false,
+          "referenceName": "a9",
+          "thumbnail": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/lock_door.png",
+            "sha256": "d4b9e6eca1de2b329ae31a116ff491478e384526621c54f933a90446c9784078",
+            "size": [
+              128,
+              128
+            ],
+            "mode": "RGBA",
+            "bytes": 2649,
+            "cornerRGBA": [
+              209,
+              209,
+              209,
+              255
+            ]
+          },
+          "importerMeta": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/lock_door.png.meta",
+            "sha256": "33c3d0e61a598667465ae8edc74ac8d547bce9a713d9b29b2e54197a3b00e35a"
+          },
+          "spriteMetadata": {
+            "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/level_thumbnails/lock_door.asset",
+            "sha256": "f6e07712ddd9481151c76c3b9115e45b0dbfb4ac13a55e7ff600b019a8208578"
+          },
+          "importer": {
+            "enableMipMap": 0,
+            "sRGBTexture": 1,
+            "filterMode": 1,
+            "wrapU": 1,
+            "wrapV": 1
+          }
+        }
+      },
+      "shortcutWalls": [
+        {
+          "x": 5,
+          "y": 2,
+          "unlockerScene": "lock_door",
+          "hubSourceLine": 1445
+        },
+        {
+          "x": 5,
+          "y": 10,
+          "unlockerScene": "*clear",
+          "hubSourceLine": 1446
+        }
+      ],
+      "referenceBlocks": [
+        {
+          "x": 5,
+          "y": 1,
+          "areaName": "Area_Enter"
+        }
+      ],
+      "resourceLinks": [
+        {
+          "from": "elbow_finish_idiom",
+          "to": "round_corners",
+          "immediate": true,
+          "sourceLine": 55
+        },
+        {
+          "from": "enter",
+          "to": "elbow_finish_idiom",
+          "immediate": true,
+          "sourceLine": 57
+        },
+        {
+          "from": "enter_two_sides",
+          "to": "lock_door",
+          "immediate": true,
+          "sourceLine": 64
+        },
+        {
+          "from": "first_puzzle",
+          "to": "second_puzzle",
+          "immediate": true,
+          "sourceLine": 67
+        },
+        {
+          "from": "round_corners",
+          "to": "separate",
+          "immediate": true,
+          "sourceLine": 239
+        },
+        {
+          "from": "second_puzzle",
+          "to": "third_puzzle",
+          "immediate": true,
+          "sourceLine": 240
+        },
+        {
+          "from": "separate",
+          "to": "enter_two_sides",
+          "immediate": true,
+          "sourceLine": 241
+        },
+        {
+          "from": "third_puzzle",
+          "to": "enter",
+          "immediate": false,
+          "sourceLine": 270
+        }
+      ],
+      "visibleLineRoutes": [
+        {
+          "from": "third_puzzle",
+          "to": "enter",
+          "shape": "HorizFirstL",
+          "localWaypoints": [
+            [
+              4,
+              6
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "thick": true,
+          "litFrom": "enter.Unlocked"
+        },
+        {
+          "from": "lock_door",
+          "toAreaReference": "Area_Enter",
+          "shape": "VertFirstS",
+          "localWaypoints": [
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              5,
+              1
+            ]
+          ],
+          "thick": true,
+          "litFrom": "lock_door unlockable wall open"
+        }
+      ],
+      "corePortalRequirement": 9
+    },
+    "portal": {
+      "sizeCells": 1,
+      "ordinaryTextureRect": "one cell, no added rounded outline",
+      "rawNormalRGBA": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "rawLockedRGBA": [
+        0.08,
+        0.08,
+        0.08,
+        0.5
+      ],
+      "effectiveNormalInterpretation": "approximately unchanged RGB, opaque",
+      "effectiveLockedInterpretation": "approximately RGB*0.16, opaque",
+      "colorConventionEvidence": [
+        "Draw.HSVToRGBGUI halves RGBA",
+        "Scenes/init.unity Mat:fileID0",
+        "existing native pixel samples below"
+      ],
+      "hardCategoryPreviewInset": 0.8,
+      "screenshotGeneratedSize": [
+        128,
+        128
+      ],
+      "screenshotResize": "Point"
+    },
+    "marker": {
+      "primitive": "white FullWhiteTex square, not flag sprite",
+      "condition": "Unlocked && !Won && !ScreenshottingBlocks && (Hard != 2 || !World.unlocking)",
+      "oscillator": "QuadOscillate(portalFlashT*0.5)",
+      "periodSeconds": 2,
+      "sideFractionRange": [
+        0.25,
+        0.42
+      ],
+      "centerOffsetCellFractions": [
+        -0.42,
+        -0.42
+      ],
+      "queue": "qPortalMarker after moving queues, before possessable/face"
+    },
+    "lines": {
+      "thickWidth": "max(1,int(cellWidth*0.32))",
+      "thinWidth": "max(1,int(cellWidth*0.12))",
+      "rasterSplit": "sm=width/2 integer, sp=width-sm",
+      "rectSnapping": "truncate both endpoints toward zero",
+      "immediatePuzzleLinksDrawConnections": false,
+      "managedIlProof": {
+        "sha256": "cfcb386a623cf6c86c225163c0f90b0e1409357fcdb39222dd446acecb7240bc",
+        "openingInstructions": [
+          "IL_0000: ldarg.0",
+          "IL_0001: ldfld Floor/UnlockLine[] Floor::UnlockLines",
+          "IL_0006: stloc.0",
+          "IL_0007: ldc.i4.0",
+          "IL_0008: stloc.1",
+          "IL_0009: br IL_024d",
+          "IL_000e: ldloc.0",
+          "IL_000f: ldloc.1",
+          "IL_0010: ldelem.ref",
+          "IL_0011: stloc.2",
+          "IL_0012: ldloc.2",
+          "IL_0013: ldfld System.Boolean Floor/UnlockLine::lit",
+          "IL_0018: brtrue.s IL_0021",
+          "IL_001a: ldsfld System.Boolean World::ScreenshottingBlocks",
+          "IL_001f: br.s IL_0022",
+          "IL_0021: ldc.i4.1",
+          "IL_0022: stloc.3",
+          "IL_0023: ldloc.3",
+          "IL_0024: ldloc.2",
+          "IL_0025: ldfld System.Boolean Floor/UnlockLine::lit",
+          "IL_002a: bne.un IL_0249",
+          "IL_002f: ldloc.2",
+          "IL_0030: ldfld System.Boolean Floor/UnlockLine::finishToReception",
+          "IL_0035: brfalse.s IL_0051"
+        ],
+        "path": "F:/Patricks.Parabox_inject_debug/Patrick's Parabox_Data/Managed/Assembly-CSharp.dll",
+        "method": "Draw.DrawPortalLines",
+        "parameters": [
+          {
+            "name": "floor",
+            "index": 0
+          },
+          {
+            "name": "childX",
+            "index": 1
+          },
+          {
+            "name": "childY",
+            "index": 2
+          },
+          {
+            "name": "staticChildWidth",
+            "index": 3
+          },
+          {
+            "name": "staticChildHeight",
+            "index": 4
+          },
+          {
+            "name": "xpos",
+            "index": 5
+          },
+          {
+            "name": "ypos",
+            "index": 6
+          },
+          {
+            "name": "lineColorActive",
+            "index": 7
+          },
+          {
+            "name": "lineColorInactive",
+            "index": 8
+          },
+          {
+            "name": "lit",
+            "index": 9
+          }
+        ],
+        "finalLitParameterReferenceCount": 0
+      }
+    },
+    "shortcutFraction": {
+      "source": "DrawWall when numRequired != 0",
+      "numerator": "numSolved - (Counting ? CountingDelta : 0)",
+      "denominator": "numRequired",
+      "fontSize": "int(h*0.42)",
+      "textCenterOffsetYFractions": [
+        -0.26,
+        0.26
+      ],
+      "separatorSizeFractions": [
+        0.6,
+        0.05
+      ],
+      "eyeAssetUsed": false,
+      "countingIncrementPeriodSeconds": 0.3,
+      "countingScaleMax": 1.5
+    }
+  },
+  "measuredImageEvidence": {
+    "pixelSamples": [
+      {
+        "scene": "first_puzzle",
+        "thumbnailCornerRGBA": [
+          209,
+          209,
+          209,
+          255
+        ],
+        "nativePixels": [
+          {
+            "xy": [
+              465,
+              275
+            ],
+            "rgb": [
+              210,
+              211,
+              210
+            ]
+          },
+          {
+            "xy": [
+              445,
+              233
+            ],
+            "rgb": [
+              210,
+              211,
+              210
+            ]
+          }
+        ]
+      },
+      {
+        "scene": "second_puzzle",
+        "thumbnailCornerRGBA": [
+          214,
+          215,
+          214,
+          255
+        ],
+        "nativePixels": [
+          {
+            "xy": [
+              420,
+              275
+            ],
+            "rgb": [
+              34,
+              34,
+              34
+            ]
+          },
+          {
+            "xy": [
+              400,
+              233
+            ],
+            "rgb": [
+              34,
+              34,
+              34
+            ]
+          }
+        ]
+      },
+      {
+        "scene": "enter",
+        "thumbnailCornerRGBA": [
+          214,
+          215,
+          214,
+          255
+        ],
+        "nativePixels": [
+          {
+            "xy": [
+              244,
+              365
+            ],
+            "rgb": [
+              215,
+              216,
+              215
+            ]
+          },
+          {
+            "xy": [
+              265,
+              324
+            ],
+            "rgb": [
+              215,
+              216,
+              215
+            ]
+          }
+        ]
+      }
+    ],
+    "visibleCornerMarkerScenes": [
+      "first_puzzle",
+      "enter"
+    ],
+    "fractionVisualObservation": "1/9; lower numeral9 resembles an eye at this scale",
+    "precisionLimit": "Native/imported texture samples differ by 1-2 channel values at some bright edges; effective tint factors are corroborated, not exact full-texel parity."
+  },
+  "limits": [
+    "No new native render capture",
+    "No complete Hub renderer parity claim",
+    "No native/Web animation time equality claim",
+    "Only the shown Intro route shapes were derived and checked here; other areas retain source routing rules"
+  ]
+}
