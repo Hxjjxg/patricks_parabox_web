@@ -12,6 +12,26 @@ interface DrawingMethods {
 }
 
 describe("original block backing gradient", () => {
+  it.each(["player", "gold"])("renders native compressed %s contents through the wall-texture path", (target) => {
+    const world = parseLevel(getLevelSource("third_puzzle"), "third_puzzle");
+    const block = target === "player" ? world.findPlayerBlock() : world.getDefaultFocusBlock().subLevel!.getBlock(4, 6)!;
+    // LoadLevel.FillLevelWithWalls and MaybeFillDonut both compact to1x1.
+    expect(block.subLevel!.filledWithWalls).toBe(true);
+    expect(block.subLevel!.width).toBe(1);
+    const walls: Block[] = [];
+    const graphics = { rect: () => graphics, fill: () => graphics, stroke: () => graphics } as unknown as Graphics;
+    const receiver = Object.assign(Object.create(GameRenderer.prototype), {
+      app: { screen: { width: 800, height: 600 }, renderer: { resolution: 1 } },
+      world, textures: { centerGradient: {} },
+      onScreen: () => true, nextWallLayer: () => graphics, nextSceneLayer: () => graphics,
+      drawWall: (_graphics: Graphics, _level: Level, wall: Block) => walls.push(wall),
+      drawFace: () => {},
+    });
+    receiver.drawBlock(graphics, block, { x: 263, y: 272, width: 55, height: 55 }, 0, new Set(), false);
+    expect(walls.map((wall) => wall.id)).toEqual(block.subLevel!.blockList.map((wall) => wall.id));
+    expect(walls).toHaveLength(1);
+  });
+
   it.each(["level", "nested block"])("preserves the native GUI alpha transfer in the %s draw path", (path) => {
     const world = parseLevel(getLevelSource("third_puzzle"), "third_puzzle");
     const block = world.getDefaultFocusBlock();
@@ -31,14 +51,13 @@ describe("original block backing gradient", () => {
       },
     };
     const graphics = recorder as unknown as Graphics;
-    const receiver = {
-      app: { screen: { height: 600 } },
+    const receiver = Object.assign(Object.create(GameRenderer.prototype), {
+      app: { screen: { width: 800, height: 600 }, renderer: { resolution: 1 } },
       textures: { centerGradient: gradient },
       onScreen: () => true,
       nextWallLayer: () => graphics,
       nextSceneLayer: () => graphics,
-      drawLevel: () => graphics,
-    };
+    });
     const methods = GameRenderer.prototype as unknown as DrawingMethods;
     const rect = { x: 154, y: 54, width: 492, height: 492 };
     if (path === "level") {

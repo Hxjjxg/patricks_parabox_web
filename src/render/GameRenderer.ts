@@ -764,12 +764,14 @@ export class GameRenderer {
     flipH: boolean,
     staticRect: Rect = rect,
   ): Graphics {
+    if (depth >= 15) return graphics;
     if (!this.onScreen(rect)) return graphics;
     if (rect.width <= 0.5 || rect.height <= 0.5) return graphics;
     const fractionOfScreen =
       ((rect.width + rect.height) / 2) / Math.max(1, this.app.screen.height);
     const interiorColor = computeBlockColor(viewBlock, fractionOfScreen);
-    graphics.rect(rect.x, rect.y, rect.width, rect.height).fill(interiorColor);
+    // Native DrawBlock makes only the backing transparent in infinity zones.
+    if (!level.infZone) graphics.rect(rect.x, rect.y, rect.width, rect.height).fill(interiorColor);
     graphics.rect(rect.x, rect.y, rect.width, rect.height).fill({
       texture: this.textures.centerGradient,
       textureSpace: "local",
@@ -1151,18 +1153,15 @@ export class GameRenderer {
     flipH: boolean,
     staticRect: Rect = rect,
   ): Graphics {
-    const size = Math.min(rect.width, rect.height);
+    // ProcessTicket refuses the entire child backing/face ticket at depth15.
+    if (depth + 1 >= 15) return graphics;
     const fractionOfScreen =
       ((rect.width + rect.height) / 2) /
       Math.max(1, this.app.screen.height);
     const backingColor = computeBlockColor(block, fractionOfScreen);
     const filledBlockColor = hsvToRgb(block.color);
     const subLevel = block.subLevel;
-    const terminal =
-      !subLevel ||
-      subLevel.filledWithWalls ||
-      depth >= 7 ||
-      size < 11;
+    const terminal = !subLevel;
 
     if (terminal) {
       graphics
@@ -1173,29 +1172,9 @@ export class GameRenderer {
           this.app.screen.width, this.app.screen.height, this.app.renderer?.resolution ?? 1);
       }
     } else if (subLevel) {
-      graphics
-        .rect(rect.x, rect.y, rect.width, rect.height)
-        .fill(backingColor);
-      graphics.rect(rect.x, rect.y, rect.width, rect.height).fill({
-        texture: this.textures.centerGradient,
-        textureSpace: "local",
-        color: 0xffffff,
-        alpha: 0.16,
-      });
-      if (ancestors.has(subLevel)) {
-        this.drawRecursiveVoid(graphics, rect, backingColor, depth);
-      } else {
-        graphics = this.drawLevel(
-          graphics,
-          subLevel,
-          block,
-          rect,
-          depth + 1,
-          ancestors,
-          flipH !== block.flipH,
-          staticRect,
-        );
-      }
+      graphics = this.drawLevel(
+        graphics, subLevel, block, rect, depth + 1, ancestors, flipH !== block.flipH, staticRect,
+      );
     }
 
     if (block.isPlayer || block.possessable) {
@@ -1329,28 +1308,4 @@ export class GameRenderer {
       });
   }
 
-  private drawRecursiveVoid(
-    graphics: Graphics,
-    rect: Rect,
-    color: number,
-    depth: number,
-  ): void {
-    graphics.rect(rect.x, rect.y, rect.width, rect.height).fill(COLORS.void);
-    const rings = Math.min(5, 2 + depth);
-    for (let i = 0; i < rings; i++) {
-      const inset = ((i + 1) / (rings + 2)) * Math.min(rect.width, rect.height) * 0.5;
-      graphics
-        .rect(
-          rect.x + inset,
-          rect.y + inset,
-          Math.max(0, rect.width - inset * 2),
-          Math.max(0, rect.height - inset * 2),
-        )
-        .stroke({
-          color,
-          width: Math.max(0.5, Math.min(rect.width, rect.height) * 0.025),
-          alpha: 0.6 - i * 0.08,
-        });
-    }
-  }
 }
