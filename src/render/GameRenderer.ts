@@ -28,6 +28,7 @@ import { nativeFocusRect, pixelResolution } from "./focusGeometry";
 import { clipShadow, shadowRect, wallShadowCull } from "./shadowRendering";
 import { largeWallQuads } from "./wallBigRendering";
 import { faceQuads } from "./faceRendering";
+import { phantomGeometry, shouldDrawPhantom } from "./phantomRendering";
 import { infinityGlyphQuads } from "./infinityRendering";
 import { flipShineQuad } from "./flipShineRendering";
 import { goalCellRect, goalStrips, goalTint } from "./goalRendering";
@@ -65,7 +66,7 @@ interface Rect {
 }
 
 interface EffectTicket {
-  block: Block; rect: Rect; depth: number; flipH: boolean; clip: Rect | null; cloneFade?:boolean;
+  block: Block; rect: Rect; depth: number; flipH: boolean; clip: Rect | null; cloneFade?:boolean; facePhantom?:boolean;
 }
 
 interface InspectionBoard {
@@ -826,16 +827,20 @@ export class GameRenderer {
     this.currentTicket=null;
     const effects=this.effectTickets;
     for (const player of [false,true]) for (const ticket of effects) {
-      if ((!ticket.block.isPlayer && !ticket.block.possessable) || ticket.block.drawIsPlayer!==player) continue;
+      if (!ticket.facePhantom && !ticket.block.isPlayer && !ticket.block.possessable) continue;
+      if ((ticket.facePhantom || ticket.block.drawIsPlayer)!==player) continue;
       this.activeSceneContainer=this.maskedScene(ticket.clip);
-      this.drawFace(this.nextSceneLayer(),ticket.block,ticket.rect,false,ticket.flipH!==ticket.block.flipH,ticket.cloneFade);
+      this.drawFace(this.nextSceneLayer(),ticket.block,ticket.rect,!!ticket.facePhantom,
+        ticket.facePhantom?ticket.flipH:ticket.flipH!==ticket.block.flipH,ticket.cloneFade);
     }
     for (const ticket of effects) {
+      if (ticket.facePhantom) continue;
       if (!ticket.block.isSomeInfEnterBlock && !ticket.block.isSomeInfExitBlock) continue;
       this.activeSceneContainer=this.maskedScene(ticket.clip);
       this.drawInfEffect(this.nextSceneLayer(),ticket.block,ticket.rect,ticket.cloneFade);
     }
     for (const ticket of effects) {
+      if (ticket.facePhantom) continue;
       if (!ticket.block.flipH && !ticket.block.fadeFlipH && ticket.block.specialEffect!==2 && ticket.block.specialEffect!==3 && !ticket.cloneFade) continue;
       this.activeSceneContainer=this.maskedScene(ticket.clip);
       this.drawFlipShine(this.nextSceneLayer(),ticket.block,ticket.rect,ticket.flipH,ticket.depth,ticket.cloneFade);
@@ -997,7 +1002,7 @@ export class GameRenderer {
     }
 
     for (const phantom of level.phantoms) {
-      if (phantom.exitedFrom && phantom.exitedFrom === level.blocksWithThisAsTheirSubLevel[0]) {
+      if (!shouldDrawPhantom(phantom,viewBlock,this.world?.drawStyle ?? DrawStyle.Normal)) {
         continue;
       }
       const cell = this.cellRect(
@@ -1007,22 +1012,18 @@ export class GameRenderer {
         rect,
         flipH,
       );
-      const width = cell.width * phantom.xScale;
-      const height = cell.height * phantom.yScale;
-      const offsetX = (flipH ? -1 : 1) * phantom.x * cell.width;
-      const phantomRect: Rect = {
-        x: cell.x + offsetX + (cell.width - width) / 2,
-        y: cell.y + phantom.y * cell.height + (cell.height - height) / 2,
-        width,
-        height,
-      };
+      const geometry=phantomGeometry(phantom,cell,rect,viewBlock,flipH,phase,this.currentTicket?.clip ?? null);
+      const phantomRect=geometry.rect;
       if (!this.onScreen(phantomRect)) continue;
-      if (phantom.face || !phantom.block.subLevel) {
+      if (phantom.face && this.pendingTickets) {
+        this.effectTickets.push({block:phantom.block,rect:phantomRect,depth:depth+1,flipH,
+          clip:geometry.clip,facePhantom:true});
+      } else if (phantom.face || !phantom.block.subLevel) {
         this.drawFace(graphics, phantom.block, phantomRect, true, flipH);
       } else if (this.pendingTickets) {
         this.pendingTickets.push({block:phantom.block,rect:phantomRect,staticRect:cell,depth:depth+1,
           flipH:flipH!==(phantom.block.flipH!==phantom.block.fadeFlipH),parents:[viewBlock,...parents],
-          clip:this.currentTicket?.clip ?? null,priority:2});
+          clip:geometry.clip,priority:2});
       } else {
         graphics = this.drawBlock(
           graphics,

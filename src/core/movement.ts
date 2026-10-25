@@ -457,9 +457,11 @@ export class History {
           playerSwitch.from.playerOrder === playerSwitch.order
         ) {
           playerSwitch.from.isPlayer = false;
+          playerSwitch.from.drawIsPlayer = false;
           playerSwitch.from.playerOrder = playerSwitch.orderBackup;
         }
         playerSwitch.to.isPlayer = true;
+        playerSwitch.to.drawIsPlayer = true;
         playerSwitch.to.playerOrder = playerSwitch.order;
       } else {
         if (
@@ -467,9 +469,11 @@ export class History {
           playerSwitch.to.playerOrder === playerSwitch.order
         ) {
           playerSwitch.to.isPlayer = false;
+          playerSwitch.to.drawIsPlayer = false;
           playerSwitch.to.playerOrder = playerSwitch.orderBackup;
         }
         playerSwitch.from.isPlayer = true;
+        playerSwitch.from.drawIsPlayer = true;
         playerSwitch.from.playerOrder = playerSwitch.order;
       }
     }
