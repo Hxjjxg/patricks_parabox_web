@@ -1,0 +1,2568 @@
+{
+  "schemaVersion": 1,
+  "derivedOn": "2026-10-25",
+  "scope": "Extraction from existing six native portal/body-entry runs and three ordinary-move undo boundary runs; no new capture or production changes.",
+  "sourceDerived": {
+    "sourceRoot": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp",
+    "entry": {
+      "logicalMoveOntoPortal": false,
+      "incrementsMoveCount": true,
+      "completesHistoryTurn": false,
+      "bodyAnim": "JUMP_IN",
+      "bodyTargetScale": 0.1111111111111111,
+      "bodyDrawX": "(portalX-playerX)*q",
+      "bodyDrawY": "-(portalY-playerY)*q-4*q*(1-q)",
+      "bodyScale": "1+(1/9-1)*q",
+      "q": "min(AnimT/AnimLength,1)",
+      "sceneCompletionComparison": "TransitionCounter >= transitionLength",
+      "movingStopExemption": "JUMP_IN is exempt from AnimT > AnimLength stop"
+    },
+    "cancellation": {
+      "undoEligibilityComparison": "Time.time > nextUndoTime",
+      "undoDuringTransitionCalls": "CancelJumpIn, not UndoManager.Undo",
+      "logicalPositionUnchanged": true,
+      "moveCountUnchanged": true,
+      "historyUnchanged": true,
+      "squishLength": 0.125,
+      "clearsTransition": true,
+      "transitionCounterAfter": 0,
+      "clearsQueue": true,
+      "clearsPhantoms": true,
+      "controls": [
+        "Undo via undo schedule",
+        "Escape sets Controls.undo via same schedule",
+        "RestartPressed calls CancelJumpIn directly"
+      ],
+      "sourceOnlyBoundaries": [
+        "Eligible cancellation precedes the same-update transition threshold test",
+        "Escape and Restart cancellation",
+        "QUICK_ANIM StopAnimations exception",
+        "eyesJump face-phantom entry"
+      ]
+    },
+    "queue": {
+      "reserveWhileTransitioning": false,
+      "heldDirectionStateStillUpdates": true,
+      "loadedPuzzleMovingFlagPreserved": true,
+      "firstFollowingUpdateRecomputesMoving": true
+    },
+    "sourceFiles": [
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/Movement.cs",
+        "sha256": "e2b13b05d8bf8e62b3f101de12754d7b8a3908dfbb8cbf1fec5a66da2bfe9377"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/World.cs",
+        "sha256": "bb97089b150c26d5fa0bd5abf3af3e9a114da39148b96ad601c19ade1fe2e512"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/LoadLevel.cs",
+        "sha256": "7de74bb1364a9b7178d912b8eb0439178cf89234c305fda87cedfaa182f10f6d"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/UndoInput.cs",
+        "sha256": "fc3380c993e1528eb009d194f01c1449665a1d25b61edac4f1b9fecd13cb49df"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/UndoManager.cs",
+        "sha256": "b99bd5424c0d3e6e71f9cbca284ce010c31c4acdd74223e51c6650938cae716a"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/Projection.cs",
+        "sha256": "718fb430a8ec8ec405138a5b605cf4d705d0f58db125a9440fbf7df775ee5d80"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/Block.cs",
+        "sha256": "b93af533734b8d4fe5457263f11ba80f8857361fc9c80cc3cf541c7e6fccb0d9"
+      },
+      {
+        "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/Phantom.cs",
+        "sha256": "dd33c278bc52273606768753c0379d3d4a0b4eb30105e753ad3377a7cc0a836b"
+      }
+    ]
+  },
+  "measured": {
+    "portalEntries": {
+      "hub-enter-cancel-reenter-native-v1-20261025": {
+        "inputArtifacts": [
+          {
+            "path": "docs/parity/evidence/original/hub-enter-cancel-reenter-native-v1-20261025/phases.json",
+            "sha256": "0d7aa07de3f101abe3cfb7e75e09095ccc09aa59dc1ee7a9e5e81208bf4e643e"
+          },
+          {
+            "path": "docs/parity/evidence/original/hub-enter-cancel-reenter-native-v1-20261025/capture.json",
+            "sha256": "ca2fcfcc2d51297a03d05c20fb7bad4698f29a1921b2adfb1b1c7faaceb3de62"
+          },
+          {
+            "path": "docs/parity/evidence/original/hub-enter-cancel-reenter-native-v1-20261025/probe.json",
+            "sha256": "9262a3d719f206de1ad9cd301a2d1c8073d21b4c63f3f5f892b7671191014869"
+          }
+        ],
+        "timedCommands": [
+          "DOWN:40",
+          "NONE:80",
+          "UNDO:40",
+          "NONE:620",
+          "DOWN:900",
+          "NONE:300"
+        ],
+        "captureOptions": {
+          "screenWidth": 800,
+          "screenHeight": 600,
+          "moveDelay": 70,
+          "allowSkippingAnimation": false,
+          "instantZoom": false
+        },
+        "firstMidLastJumpDraw": [
+          {
+            "file": "frame-0001.png",
+            "frame": 195017,
+            "elapsedMs": 22.8881836,
+            "deltaMs": 22.8949,
+            "control": "DOWN",
+            "moveCount": 8,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 2,
+            "y": 5,
+            "anim": "JUMP_IN",
+            "animT": 0.0228949,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": -0.128982574,
+            "drawXScale": 0.959297955,
+            "drawYScale": 0.959297955,
+            "anyBlockMoving": true
+          },
+          {
+            "file": "frame-0046.png",
+            "frame": 195062,
+            "elapsedMs": 1019.19556,
+            "deltaMs": 24.7428989,
+            "control": "DOWN",
+            "moveCount": 9,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 2,
+            "y": 5,
+            "anim": "JUMP_IN",
+            "animT": 0.1896993,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": -0.562422633,
+            "drawXScale": 0.6627568,
+            "drawYScale": 0.6627568,
+            "anyBlockMoving": true
+          },
+          {
+            "file": "frame-0060.png",
+            "frame": 195076,
+            "elapsedMs": 1319.67163,
+            "deltaMs": 25.0148,
+            "control": "DOWN",
+            "moveCount": 9,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 2,
+            "y": 5,
+            "anim": "JUMP_IN",
+            "animT": 0.490182728,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": 0.9033693,
+            "drawXScale": 0.128564045,
+            "drawYScale": 0.128564045,
+            "anyBlockMoving": true
+          }
+        ],
+        "loadedPuzzleHook": {
+          "phase": "level-after:enter",
+          "frame": 195077,
+          "elapsedMs": 1354.52271,
+          "deltaMs": 34.8558,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "enter",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": true,
+          "transitionCounter": 0.52503854,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "loadedPuzzleUpdateEnd": {
+          "phase": "update-after",
+          "frame": 195077,
+          "elapsedMs": 1354.52271,
+          "deltaMs": 34.8558,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "enter",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": false,
+          "transitionCounter": 0.52503854,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "firstFollowingUpdateEnd": {
+          "phase": "update-after",
+          "frame": 195078,
+          "elapsedMs": 1379.02832,
+          "deltaMs": 24.4965,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "enter",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "transitionCounter": 0.52503854,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        }
+      },
+      "hub-enter-direction-change-native-v1-20261025": {
+        "inputArtifacts": [
+          {
+            "path": "docs/parity/evidence/original/hub-enter-direction-change-native-v1-20261025/phases.json",
+            "sha256": "feaec744ba02562c4f645e792f44e64dced26138ad4f9bab0fec92722451cd1e"
+          },
+          {
+            "path": "docs/parity/evidence/original/hub-enter-direction-change-native-v1-20261025/capture.json",
+            "sha256": "29f2e51488367abcf252c5cccbc5f8844068fbc2c0161242d627e12197c18985"
+          },
+          {
+            "path": "docs/parity/evidence/original/hub-enter-direction-change-native-v1-20261025/probe.json",
+            "sha256": "e4d747063e95e61bc8f862c7cd3c95421504d911560a3acb6ac09d778c8fc4ef"
+          }
+        ],
+        "timedCommands": [
+          "DOWN:40",
+          "RIGHT:700",
+          "NONE:300"
+        ],
+        "captureOptions": {
+          "screenWidth": 800,
+          "screenHeight": 600,
+          "moveDelay": 70,
+          "allowSkippingAnimation": false,
+          "instantZoom": false
+        },
+        "firstMidLastJumpDraw": [
+          {
+            "file": "frame-0001.png",
+            "frame": 195357,
+            "elapsedMs": 25.2227783,
+            "deltaMs": 25.2295,
+            "control": "DOWN",
+            "moveCount": 8,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 2,
+            "y": 5,
+            "anim": "JUMP_IN",
+            "animT": 0.0252295,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": -0.141192526,
+            "drawXScale": 0.955147564,
+            "drawYScale": 0.955147564,
+            "anyBlockMoving": true
+          },
+          {
+            "file": "frame-0012.png",
+            "frame": 195368,
+            "elapsedMs": 265.5182,
+            "deltaMs": 21.0666,
+            "control": "RIGHT",
+            "moveCount": 8,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 2,
+            "y": 5,
+            "anim": "JUMP_IN",
+            "animT": 0.2655228,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": -0.465099066,
+            "drawXScale": 0.527959466,
+            "drawYScale": 0.527959466,
+            "anyBlockMoving": true
+          },
+          {
+            "file": "frame-0022.png",
+            "frame": 195378,
+            "elapsedMs": 495.910645,
+            "deltaMs": 20.5112,
+            "control": "RIGHT",
+            "moveCount": 8,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 2,
+            "y": 5,
+            "anim": "JUMP_IN",
+            "animT": 0.4959052,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": 0.9593202,
+            "drawXScale": 0.118390776,
+            "drawYScale": 0.118390776,
+            "anyBlockMoving": true
+          }
+        ],
+        "loadedPuzzleHook": {
+          "phase": "level-after:enter",
+          "frame": 195379,
+          "elapsedMs": 520.980835,
+          "deltaMs": 25.0763,
+          "requestedControl": "RIGHT",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "enter",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": true,
+          "transitionCounter": 0.5209815,
+          "moveDelayCounter": 1000,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "loadedPuzzleUpdateEnd": {
+          "phase": "update-after",
+          "frame": 195379,
+          "elapsedMs": 520.980835,
+          "deltaMs": 25.0763,
+          "requestedControl": "RIGHT",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "enter",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": false,
+          "transitionCounter": 0.5209815,
+          "moveDelayCounter": 1000,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "firstFollowingUpdateEnd": {
+          "phase": "update-after",
+          "frame": 195380,
+          "elapsedMs": 544.7693,
+          "deltaMs": 23.782299,
+          "requestedControl": "RIGHT",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "enter",
+          "moveCount": 1,
+          "queued": true,
+          "queueIndex": 0,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "transitionCounter": 0.5209815,
+          "moveDelayCounter": 1000,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        }
+      },
+      "hub-first-portal-leave-native-v1-20261025": {
+        "inputArtifacts": [
+          {
+            "path": "docs/parity/evidence/original/hub-first-portal-leave-native-v1-20261025/phases.json",
+            "sha256": "149d785a19296748b2bb60aa6ff45cf163e641a68661260056f13817322a2848"
+          },
+          {
+            "path": "docs/parity/evidence/original/hub-first-portal-leave-native-v1-20261025/capture.json",
+            "sha256": "922ffd00d37ed86fa605e9f33ae60bb6d613e0cc13d252b48310ad1973f49559"
+          },
+          {
+            "path": "docs/parity/evidence/original/hub-first-portal-leave-native-v1-20261025/probe.json",
+            "sha256": "19d84716cb5e83b26ecab5323aedde29b3ece45353d977a68a7f4f6ec4c7e584"
+          }
+        ],
+        "timedCommands": [
+          "DOWN:1000",
+          "NONE:200",
+          "ESCAPE:40",
+          "NONE:120",
+          "DOWN:40",
+          "NONE:120",
+          "CONFIRM:40",
+          "NONE:1200"
+        ],
+        "captureOptions": {
+          "screenWidth": 800,
+          "screenHeight": 600,
+          "moveDelay": 70,
+          "allowSkippingAnimation": false,
+          "instantZoom": false
+        },
+        "firstMidLastJumpDraw": [
+          {
+            "file": "frame-0001.png",
+            "frame": 76620,
+            "elapsedMs": 36.857605,
+            "deltaMs": 36.8622971,
+            "control": "DOWN",
+            "moveCount": 4,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 6,
+            "y": 7,
+            "anim": "JUMP_IN",
+            "animT": 0.0368623,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": -0.199432522,
+            "drawXScale": 0.934467,
+            "drawYScale": 0.934467,
+            "anyBlockMoving": true
+          },
+          {
+            "file": "frame-0011.png",
+            "frame": 76630,
+            "elapsedMs": 258.781433,
+            "deltaMs": 20.9585,
+            "control": "DOWN",
+            "moveCount": 4,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 6,
+            "y": 7,
+            "anim": "JUMP_IN",
+            "animT": 0.2587821,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": -0.481201828,
+            "drawXScale": 0.539943,
+            "drawYScale": 0.539943,
+            "anyBlockMoving": true
+          },
+          {
+            "file": "frame-0021.png",
+            "frame": 76640,
+            "elapsedMs": 491.6458,
+            "deltaMs": 23.3267,
+            "control": "DOWN",
+            "moveCount": 4,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 6,
+            "y": 7,
+            "anim": "JUMP_IN",
+            "animT": 0.4916499,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": 0.9176145,
+            "drawXScale": 0.125955746,
+            "drawYScale": 0.125955746,
+            "anyBlockMoving": true
+          }
+        ],
+        "loadedPuzzleHook": {
+          "phase": "level-after:first_puzzle",
+          "frame": 76641,
+          "elapsedMs": 511.94,
+          "deltaMs": 20.2957,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "first_puzzle",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": true,
+          "transitionCounter": 0.5119456,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "loadedPuzzleUpdateEnd": {
+          "phase": "update-after",
+          "frame": 76641,
+          "elapsedMs": 511.94,
+          "deltaMs": 20.2957,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "first_puzzle",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": false,
+          "transitionCounter": 0.5119456,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "firstFollowingUpdateEnd": {
+          "phase": "update-after",
+          "frame": 76642,
+          "elapsedMs": 536.506653,
+          "deltaMs": 24.5641,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "first_puzzle",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "transitionCounter": 0.5119456,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        }
+      },
+      "hub-second-portal-leave-native-v1-20261025": {
+        "inputArtifacts": [
+          {
+            "path": "docs/parity/evidence/original/hub-second-portal-leave-native-v1-20261025/phases.json",
+            "sha256": "26eb57fa7e87c1eb5c05a22a1010afff8d93b0c2078067406d471a6386558441"
+          },
+          {
+            "path": "docs/parity/evidence/original/hub-second-portal-leave-native-v1-20261025/capture.json",
+            "sha256": "f2dc104bf8bd8d437d42d92f3bd512f4356e4bee0bf471c54f4fefae281b6fd4"
+          },
+          {
+            "path": "docs/parity/evidence/original/hub-second-portal-leave-native-v1-20261025/probe.json",
+            "sha256": "5c01a43b626d9e7851a449a4436ad41066be84de9a22f9ef722e645aa9e8f164"
+          }
+        ],
+        "timedCommands": [
+          "DOWN:1000",
+          "NONE:200",
+          "ESCAPE:40",
+          "NONE:120",
+          "DOWN:40",
+          "NONE:120",
+          "CONFIRM:40",
+          "NONE:1200"
+        ],
+        "captureOptions": {
+          "screenWidth": 800,
+          "screenHeight": 600,
+          "moveDelay": 70,
+          "allowSkippingAnimation": false,
+          "instantZoom": false
+        },
+        "firstMidLastJumpDraw": [
+          {
+            "file": "frame-0001.png",
+            "frame": 78019,
+            "elapsedMs": 31.4712524,
+            "deltaMs": 31.4672,
+            "control": "DOWN",
+            "moveCount": 3,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 5,
+            "y": 7,
+            "anim": "JUMP_IN",
+            "animT": 0.0314672,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": -0.172960222,
+            "drawXScale": 0.9440583,
+            "drawYScale": 0.9440583,
+            "anyBlockMoving": true
+          },
+          {
+            "file": "frame-0013.png",
+            "frame": 78031,
+            "elapsedMs": 259.429932,
+            "deltaMs": 17.4359016,
+            "control": "DOWN",
+            "moveCount": 3,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 5,
+            "y": 7,
+            "anim": "JUMP_IN",
+            "animT": 0.25942412,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": -0.479730725,
+            "drawXScale": 0.538801551,
+            "drawYScale": 0.538801551,
+            "anyBlockMoving": true
+          },
+          {
+            "file": "frame-0024.png",
+            "frame": 78042,
+            "elapsedMs": 486.0382,
+            "deltaMs": 18.5498,
+            "control": "DOWN",
+            "moveCount": 3,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 5,
+            "y": 7,
+            "anim": "JUMP_IN",
+            "animT": 0.4860338,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": 0.8634589,
+            "drawXScale": 0.135939911,
+            "drawYScale": 0.135939911,
+            "anyBlockMoving": true
+          }
+        ],
+        "loadedPuzzleHook": {
+          "phase": "level-after:second_puzzle",
+          "frame": 78043,
+          "elapsedMs": 509.82666,
+          "deltaMs": 23.7867,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "second_puzzle",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": true,
+          "transitionCounter": 0.5098205,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 4,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "loadedPuzzleUpdateEnd": {
+          "phase": "update-after",
+          "frame": 78043,
+          "elapsedMs": 509.82666,
+          "deltaMs": 23.7867,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "second_puzzle",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": false,
+          "transitionCounter": 0.5098205,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 4,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "firstFollowingUpdateEnd": {
+          "phase": "update-after",
+          "frame": 78044,
+          "elapsedMs": 529.9835,
+          "deltaMs": 20.1605,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "second_puzzle",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "transitionCounter": 0.5098205,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 4,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        }
+      },
+      "hub-third-portal-leave-native-v1-20261025": {
+        "inputArtifacts": [
+          {
+            "path": "docs/parity/evidence/original/hub-third-portal-leave-native-v1-20261025/phases.json",
+            "sha256": "8f5dc9edb18f8498a02ab405b3e2411c5aa195169eed395a2f1f23bdc206cc91"
+          },
+          {
+            "path": "docs/parity/evidence/original/hub-third-portal-leave-native-v1-20261025/capture.json",
+            "sha256": "01436193405bf6abbcea629ddf710bdafb8297c02550f032112db7a627f6b7f3"
+          },
+          {
+            "path": "docs/parity/evidence/original/hub-third-portal-leave-native-v1-20261025/probe.json",
+            "sha256": "20f65602a8433d8d88b25e1b688675902069c7191b3cfef7678d7c4525a19357"
+          }
+        ],
+        "timedCommands": [
+          "DOWN:1000",
+          "NONE:200",
+          "ESCAPE:40",
+          "NONE:120",
+          "DOWN:40",
+          "NONE:120",
+          "CONFIRM:40",
+          "NONE:1200"
+        ],
+        "captureOptions": {
+          "screenWidth": 800,
+          "screenHeight": 600,
+          "moveDelay": 70,
+          "allowSkippingAnimation": false,
+          "instantZoom": false
+        },
+        "firstMidLastJumpDraw": [
+          {
+            "file": "frame-0001.png",
+            "frame": 79063,
+            "elapsedMs": 38.9709473,
+            "deltaMs": 38.9706,
+            "control": "DOWN",
+            "moveCount": 4,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 4,
+            "y": 7,
+            "anim": "JUMP_IN",
+            "animT": 0.0389706,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": -0.2095243,
+            "drawXScale": 0.930718958,
+            "drawYScale": 0.930718958,
+            "anyBlockMoving": true
+          },
+          {
+            "file": "frame-0011.png",
+            "frame": 79073,
+            "elapsedMs": 267.0517,
+            "deltaMs": 27.5749989,
+            "control": "DOWN",
+            "moveCount": 4,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 4,
+            "y": 7,
+            "anim": "JUMP_IN",
+            "animT": 0.267054975,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": -0.4612361,
+            "drawXScale": 0.5252356,
+            "drawYScale": 0.5252356,
+            "anyBlockMoving": true
+          },
+          {
+            "file": "frame-0021.png",
+            "frame": 79083,
+            "elapsedMs": 497.001648,
+            "deltaMs": 19.465,
+            "control": "DOWN",
+            "moveCount": 4,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 4,
+            "y": 7,
+            "anim": "JUMP_IN",
+            "animT": 0.497004151,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": 0.9701851,
+            "drawXScale": 0.116437063,
+            "drawYScale": 0.116437063,
+            "anyBlockMoving": true
+          }
+        ],
+        "loadedPuzzleHook": {
+          "phase": "level-after:third_puzzle",
+          "frame": 79084,
+          "elapsedMs": 526.886,
+          "deltaMs": 29.8795,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "third_puzzle",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": true,
+          "transitionCounter": 0.526883662,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 4,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "loadedPuzzleUpdateEnd": {
+          "phase": "update-after",
+          "frame": 79084,
+          "elapsedMs": 526.886,
+          "deltaMs": 29.8795,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "third_puzzle",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": false,
+          "transitionCounter": 0.526883662,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 4,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "firstFollowingUpdateEnd": {
+          "phase": "update-after",
+          "frame": 79085,
+          "elapsedMs": 554.855347,
+          "deltaMs": 27.9697,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "third_puzzle",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "transitionCounter": 0.526883662,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 4,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        }
+      },
+      "hub-enter-portal-leave-native-v1-20261025": {
+        "inputArtifacts": [
+          {
+            "path": "docs/parity/evidence/original/hub-enter-portal-leave-native-v1-20261025/phases.json",
+            "sha256": "1192ba887759059ab81d7f439cf98e9956a6db07a8cad3b30086e3ccc2739148"
+          },
+          {
+            "path": "docs/parity/evidence/original/hub-enter-portal-leave-native-v1-20261025/capture.json",
+            "sha256": "e0288d231c4eec5b8588f649a895774b81f0f33d8214fb4f6212ec9875b2e645"
+          },
+          {
+            "path": "docs/parity/evidence/original/hub-enter-portal-leave-native-v1-20261025/probe.json",
+            "sha256": "b7b1bc2c1906a6eb48408fd72973294d75e7c0f29fafae865e8273bf7646437a"
+          }
+        ],
+        "timedCommands": [
+          "DOWN:1000",
+          "NONE:200",
+          "ESCAPE:40",
+          "NONE:120",
+          "DOWN:40",
+          "NONE:120",
+          "CONFIRM:40",
+          "NONE:1200"
+        ],
+        "captureOptions": {
+          "screenWidth": 800,
+          "screenHeight": 600,
+          "moveDelay": 70,
+          "allowSkippingAnimation": false,
+          "instantZoom": false
+        },
+        "firstMidLastJumpDraw": [
+          {
+            "file": "frame-0001.png",
+            "frame": 64066,
+            "elapsedMs": 32.25708,
+            "deltaMs": 32.2544022,
+            "control": "DOWN",
+            "moveCount": 8,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 2,
+            "y": 5,
+            "anim": "JUMP_IN",
+            "animT": 0.0322544,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": -0.176880836,
+            "drawXScale": 0.942658842,
+            "drawYScale": 0.942658842,
+            "anyBlockMoving": true
+          },
+          {
+            "file": "frame-0012.png",
+            "frame": 64077,
+            "elapsedMs": 257.904053,
+            "deltaMs": 16.6729,
+            "control": "DOWN",
+            "moveCount": 8,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 2,
+            "y": 5,
+            "anim": "JUMP_IN",
+            "animT": 0.25789693,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": -0.483208358,
+            "drawXScale": 0.541516542,
+            "drawYScale": 0.541516542,
+            "anyBlockMoving": true
+          },
+          {
+            "file": "frame-0023.png",
+            "frame": 64088,
+            "elapsedMs": 478.652954,
+            "deltaMs": 18.2911015,
+            "control": "DOWN",
+            "moveCount": 8,
+            "levelName": "hub",
+            "outerLevel": 0,
+            "x": 2,
+            "y": 5,
+            "anim": "JUMP_IN",
+            "animT": 0.478646219,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": 0.7937579,
+            "drawXScale": 0.149073392,
+            "drawYScale": 0.149073392,
+            "anyBlockMoving": true
+          }
+        ],
+        "loadedPuzzleHook": {
+          "phase": "level-after:enter",
+          "frame": 64089,
+          "elapsedMs": 500.8011,
+          "deltaMs": 22.1517,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "enter",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": true,
+          "transitionCounter": 0.5007979,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "loadedPuzzleUpdateEnd": {
+          "phase": "update-after",
+          "frame": 64089,
+          "elapsedMs": 500.8011,
+          "deltaMs": 22.1517,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "enter",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": false,
+          "transitionCounter": 0.5007979,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "firstFollowingUpdateEnd": {
+          "phase": "update-after",
+          "frame": 64090,
+          "elapsedMs": 526.8707,
+          "deltaMs": 26.0721,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "enter",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "transitionCounter": 0.5007979,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        }
+      }
+    },
+    "cancelReenter": {
+      "captureId": "hub-enter-cancel-reenter-native-v1-20261025",
+      "landmarks": {
+        "firstPortalImpulse": {
+          "phase": "impulse-after",
+          "frame": 195017,
+          "elapsedMs": 22.8881836,
+          "deltaMs": 22.8949,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "hub",
+          "moveCount": 8,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": true,
+          "transitionCounter": 0,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 5,
+            "anim": "JUMP_IN",
+            "animT": 0,
+            "animLength": 0.5
+          },
+          "history": {
+            "pastCount": 7,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "firstUndoDelivered": {
+          "phase": "controls-delivered",
+          "frame": 195023,
+          "elapsedMs": 158.14209,
+          "deltaMs": 18.5579014,
+          "requestedControl": "UNDO",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "hub",
+          "moveCount": 8,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": true,
+          "transitionCounter": 0.1395917,
+          "moveDelayCounter": 1000,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": 0,
+          "dirs": "",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 5,
+            "anim": "JUMP_IN",
+            "animT": 0.1395917,
+            "animLength": 0.5
+          },
+          "history": {
+            "pastCount": 7,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "cancelledUpdateEnd": {
+          "phase": "update-after",
+          "frame": 195023,
+          "elapsedMs": 158.14209,
+          "deltaMs": 18.5579014,
+          "requestedControl": "UNDO",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "hub",
+          "moveCount": 8,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "transitionCounter": 0,
+          "moveDelayCounter": 1000,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": 0,
+          "dirs": "",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 5,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0.0185579,
+            "animLength": 0.125
+          },
+          "history": {
+            "pastCount": 7,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "reenterImpulse": {
+          "phase": "impulse-after",
+          "frame": 195054,
+          "elapsedMs": 849.0143,
+          "deltaMs": 19.518,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "hub",
+          "moveCount": 9,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": true,
+          "transitionCounter": 0,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 5,
+            "anim": "JUMP_IN",
+            "animT": 0,
+            "animLength": 0.5
+          },
+          "history": {
+            "pastCount": 7,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "naturalLoad": {
+          "phase": "level-after:enter",
+          "frame": 195077,
+          "elapsedMs": 1354.52271,
+          "deltaMs": 34.8558,
+          "requestedControl": "DOWN",
+          "controls": {
+            "up": false,
+            "down": true,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "enter",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": true,
+          "transitionCounter": 0.52503854,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": -1,
+          "dirs": "Down",
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "captureEnd": {
+          "phase": "capture-end",
+          "frame": 195111,
+          "elapsedMs": 2055.603,
+          "deltaMs": 18.4317989,
+          "requestedControl": "NONE",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "enter",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "transitionCounter": 0.52503854,
+          "moveDelayCounter": 1000.30945,
+          "waitForMoveDirChange": false,
+          "dxLast": 0,
+          "dyLast": 0,
+          "dirs": "",
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.2259835,
+            "animLength": 0.22
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        }
+      },
+      "historyUndoEvents": 0,
+      "cancelledDraw": {
+        "file": "frame-0007.png",
+        "frame": 195023,
+        "elapsedMs": 158.14209,
+        "deltaMs": 18.5579014,
+        "control": "UNDO",
+        "moveCount": 8,
+        "levelName": "hub",
+        "outerLevel": 0,
+        "x": 2,
+        "y": 5,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0185579,
+        "animLength": 0.125,
+        "drawXOffset": 0,
+        "drawYOffset": 0,
+        "drawXScale": 0.7824655,
+        "drawYScale": 1.10876727,
+        "anyBlockMoving": false
+      }
+    },
+    "directionChange": {
+      "captureId": "hub-enter-direction-change-native-v1-20261025",
+      "rightHeldTransitionUpdates": 20,
+      "queuedDuringTransition": false,
+      "landmarks": {
+        "firstRightDuringEntry": {
+          "phase": "update-after",
+          "frame": 195359,
+          "elapsedMs": 69.0918,
+          "deltaMs": 23.7622,
+          "requestedControl": "RIGHT",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "hub",
+          "moveCount": 8,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": true,
+          "transitionCounter": 0.06909411,
+          "moveDelayCounter": 1000,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 5,
+            "anim": "JUMP_IN",
+            "animT": 0.06909411,
+            "animLength": 0.5
+          },
+          "history": {
+            "pastCount": 7,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "lastRightDuringEntry": {
+          "phase": "update-after",
+          "frame": 195378,
+          "elapsedMs": 495.910645,
+          "deltaMs": 20.5112,
+          "requestedControl": "RIGHT",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "hub",
+          "moveCount": 8,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": true,
+          "transitionCounter": 0.4959052,
+          "moveDelayCounter": 1000,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 5,
+            "anim": "JUMP_IN",
+            "animT": 0.4959052,
+            "animLength": 0.5
+          },
+          "history": {
+            "pastCount": 7,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "loadedPuzzleHook": {
+          "phase": "level-after:enter",
+          "frame": 195379,
+          "elapsedMs": 520.980835,
+          "deltaMs": 25.0763,
+          "requestedControl": "RIGHT",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "enter",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": true,
+          "transitionCounter": 0.5209815,
+          "moveDelayCounter": 1000,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "firstFollowingMovementAfter": {
+          "phase": "movement-after",
+          "frame": 195380,
+          "elapsedMs": 544.7693,
+          "deltaMs": 23.782299,
+          "requestedControl": "RIGHT",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "enter",
+          "moveCount": 1,
+          "queued": true,
+          "queueIndex": 0,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": false,
+          "transitionCounter": 0.5209815,
+          "moveDelayCounter": 1000,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "firstFollowingUpdateEnd": {
+          "phase": "update-after",
+          "frame": 195380,
+          "elapsedMs": 544.7693,
+          "deltaMs": 23.782299,
+          "requestedControl": "RIGHT",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "enter",
+          "moveCount": 1,
+          "queued": true,
+          "queueIndex": 0,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "transitionCounter": 0.5209815,
+          "moveDelayCounter": 1000,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "reservedRightImpulse": {
+          "phase": "impulse-after",
+          "frame": 195381,
+          "elapsedMs": 563.2324,
+          "deltaMs": 18.468,
+          "requestedControl": "RIGHT",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "enter",
+          "moveCount": 1,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "transitionCounter": 0.5209815,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "reservedRightTurn": {
+          "phase": "history-after:TurnCompleted",
+          "frame": 195381,
+          "elapsedMs": 563.2324,
+          "deltaMs": 18.468,
+          "requestedControl": "RIGHT",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "enter",
+          "moveCount": 1,
+          "queued": true,
+          "queueIndex": 0,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "transitionCounter": 0.5209815,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        }
+      }
+    },
+    "ordinaryMoveUndoBoundaries": {
+      "first-undo-boundary-25-20261025": {
+        "inputArtifacts": [
+          {
+            "path": "docs/parity/evidence/original/first-undo-boundary-25-20261025/phases.json",
+            "sha256": "9292b1c0b5e6d1d85908e592cf95ba763914a2f83d78291dd077a60051e39696"
+          },
+          {
+            "path": "docs/parity/evidence/original/first-undo-boundary-25-20261025/capture.json",
+            "sha256": "10a5c3191cb7b5dfa3956e2c431b3c1d831f6ab60885b6c9ad9a4e22b9f27984"
+          }
+        ],
+        "firstDeliveredUndo": {
+          "phase": "controls-delivered",
+          "frame": 585,
+          "elapsedMs": 59.4072342,
+          "deltaMs": 16.6766,
+          "requestedControl": "UNDO",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "first_puzzle",
+          "moveCount": 1,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": false,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0427308,
+            "animLength": 0.1
+          },
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "historyBeforeUndo": {
+          "phase": "history-before:Undo",
+          "frame": 585,
+          "elapsedMs": 59.4072342,
+          "deltaMs": 16.6766,
+          "requestedControl": "UNDO",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "first_puzzle",
+          "moveCount": 1,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": false,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0427308,
+            "animLength": 0.1
+          },
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "historyAfterUndo": {
+          "phase": "history-after:Undo",
+          "frame": 585,
+          "elapsedMs": 59.4072342,
+          "deltaMs": 16.6766,
+          "requestedControl": "UNDO",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "first_puzzle",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "transitioning": false,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0,
+            "animLength": 0.125
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 1,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        }
+      },
+      "first-undo-boundary-95-20261025": {
+        "inputArtifacts": [
+          {
+            "path": "docs/parity/evidence/original/first-undo-boundary-95-20261025/phases.json",
+            "sha256": "9f33fb5bb51a7b65cced2e17bdb44b82037d734ae0cc17a8e175065197c66f61"
+          },
+          {
+            "path": "docs/parity/evidence/original/first-undo-boundary-95-20261025/capture.json",
+            "sha256": "095f633601a0602e2a477d678d53791011de9aac44f109de02823243d2cdfe0b"
+          }
+        ],
+        "firstDeliveredUndo": {
+          "phase": "controls-delivered",
+          "frame": 674,
+          "elapsedMs": 117.033958,
+          "deltaMs": 16.677599,
+          "requestedControl": "UNDO",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "first_puzzle",
+          "moveCount": 1,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0,
+            "animLength": 0.22
+          },
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "historyBeforeUndo": {
+          "phase": "history-before:Undo",
+          "frame": 674,
+          "elapsedMs": 117.033958,
+          "deltaMs": 16.677599,
+          "requestedControl": "UNDO",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "first_puzzle",
+          "moveCount": 1,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0,
+            "animLength": 0.22
+          },
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "historyAfterUndo": {
+          "phase": "history-after:Undo",
+          "frame": 674,
+          "elapsedMs": 117.033958,
+          "deltaMs": 16.677599,
+          "requestedControl": "UNDO",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "first_puzzle",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "moveDelayCounter": 0,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0,
+            "animLength": 0.125
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 1,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        }
+      },
+      "first-undo-boundary-105-20261025": {
+        "inputArtifacts": [
+          {
+            "path": "docs/parity/evidence/original/first-undo-boundary-105-20261025/phases.json",
+            "sha256": "e3f3103701820a4f4268467408930931ac467820c18f6b9ef98d7512d36faa78"
+          },
+          {
+            "path": "docs/parity/evidence/original/first-undo-boundary-105-20261025/capture.json",
+            "sha256": "134a38ebb56e0b26a6dd3c27bc296b1f400a8b3b4e78273610dfed8515770847"
+          }
+        ],
+        "firstDeliveredUndo": {
+          "phase": "controls-delivered",
+          "frame": 764,
+          "elapsedMs": 134.934418,
+          "deltaMs": 16.6719,
+          "requestedControl": "UNDO",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "first_puzzle",
+          "moveCount": 1,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "moveDelayCounter": 0.0166619,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0.0166619,
+            "animLength": 0.22
+          },
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "historyBeforeUndo": {
+          "phase": "history-before:Undo",
+          "frame": 764,
+          "elapsedMs": 134.934418,
+          "deltaMs": 16.6719,
+          "requestedControl": "UNDO",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "first_puzzle",
+          "moveCount": 1,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "moveDelayCounter": 0.0166619,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0.0166619,
+            "animLength": 0.22
+          },
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        },
+        "historyAfterUndo": {
+          "phase": "history-after:Undo",
+          "frame": 764,
+          "elapsedMs": 134.934418,
+          "deltaMs": 16.6719,
+          "requestedControl": "UNDO",
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "levelName": "first_puzzle",
+          "moveCount": 0,
+          "queued": false,
+          "queueIndex": 0,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "transitioning": false,
+          "moveDelayCounter": 0.0166619,
+          "waitForMoveDirChange": false,
+          "dxLast": 1,
+          "dyLast": 0,
+          "dirs": "Right",
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0,
+            "animLength": 0.125
+          },
+          "history": {
+            "pastCount": 0,
+            "futureCount": 1,
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "No runtime sample exactly on the 0.5-second portal completion boundary",
+    "The 25/95/105 directories are ordinary .1-second movement undo runs, not portal boundary runs",
+    "Requested duration labels are not actual control-delivery timestamps",
+    "No new native capture was performed"
+  ],
+  "validation": {
+    "entryDrawFramesChecked": 140,
+    "bodyCurveMaxAbsYOffsetError": 1.0549056017605807e-07,
+    "bodyCurveMaxAbsScaleError": 6.666666663157628e-08,
+    "bodyCurveTolerance": 5e-07,
+    "portalLoadOrderingCases": 6,
+    "cancelHistoryRetained": true,
+    "ordinaryUndoHistoryTransferCases": 3
+  }
+}
