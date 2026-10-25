@@ -188,3 +188,10 @@ native LowerCenter rectangles/cursors/colors, TextGenerator and FontEngine
 metrics. analyze-tui-font.py independently measures100 exact glyph masks;
 summarize-tui-font.py appends provenance and retains the earlier fadedV1
 as diagnostic. No game font, GUI geometry or rendering math is changed.
+
+capture-intro-taps.ps1 -Level first_puzzle (and second_puzzle/third_puzzle)
+records four independent fresh GoToLevel cardinal taps. Each40ms request is
+followed by400ms release; actual delivered controls and all native frames
+are retained. summarize-intro-taps.py validates complete reset snapshots,
+actual control delivery, one accepted turn and every800x600 PNG, and adds
+intro-fresh-tap-native-index.json without replacing earlier references.

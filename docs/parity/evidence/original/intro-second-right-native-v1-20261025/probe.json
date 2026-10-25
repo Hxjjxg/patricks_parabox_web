@@ -1,0 +1,14 @@
+{
+  "id": "intro-second-right-native-v1-20261025",
+  "level": "second_puzzle",
+  "freshLoad": true,
+  "setup": [],
+  "direction": "RIGHT",
+  "requestedTapMs": 40,
+  "requestedReleaseMs": 400,
+  "timedCommands": [
+    "RIGHT:40",
+    "NONE:400"
+  ],
+  "note": "Each direction invokes a separate original GoToLevel. Nominal coroutine duration is not an exact delivered-input boundary; phases.json records actual controls/update/history."
+}
