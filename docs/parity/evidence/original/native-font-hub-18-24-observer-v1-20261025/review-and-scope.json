@@ -1,0 +1,47 @@
+{
+  "diagnosticSourcePreparedAndCompiled": true,
+  "buildWarnings": 0,
+  "buildErrors": 0,
+  "requestedFontSizes": [
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    32,
+    41
+  ],
+  "diagnosticSourceSha256": "37714a60a96431dbe9e3b5d2518e3da3a7869a767015e6067ba0ad22e56c31f0",
+  "diagnosticDllSha256": "ddfb757cd20ece7d5e6bc8ef9f04c76e03dc0dd0cc9c656624795012d8a0bcd9",
+  "deployed": false,
+  "rejections": [
+    {
+      "action": "Combined debug process stop, diagnostic DLL copy and relaunch",
+      "result": "Rejected before execution",
+      "reason": "blocked by policy"
+    },
+    {
+      "action": "Narrower diagnostic DLL deployment command, save safeguard and old request cleanup",
+      "result": "Rejected before execution",
+      "reason": "blocked by policy"
+    }
+  ],
+  "safeActions": [
+    "Original process graceful CloseMainWindow succeeded",
+    "Save-only exact restoration succeeded",
+    "Normal original debug executable launch succeeded",
+    "Original installed isolated motion captures succeeded"
+  ],
+  "noDeploymentRetryAfterMainInstruction": true,
+  "installedObserverSizeGuard": "Plugin.cs656,668 accepts only12/16/20; original metrics/face loops also hardcode12/16/20",
+  "extendedNativeFontDataCaptured": false
+}
