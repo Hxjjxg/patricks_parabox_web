@@ -783,3 +783,6 @@ Observe: independentlocalHub.cs114?123 shows referenceName=raw.Substring(1), raw
 Fix: applyexactlyone slice(1) atparsing, preserve referenceNameWithOldLetter, correct demonstrablywrong descriptor expectations to1glyph anddigits3. All364suffixes checkednumeric withrawprefixretained. Previousfont-unavailabilitydocumenta1claim explicitlycorrected; unavailable nativefont sizes/visualapproval remainunresolved. No glyphscale/fallback invented.
 
 Hubreferenceverification:54focusedcasespass;full76files/1143workspacecasespass,typecheck/buildpass (includes19unintegratedHubstatemechanismcases,notlifecyclecredit). Source-onlymetadatafix;productioncaptiondispatch/unsupportedfontsizecoverage remainsopen.
+
+## Hub caption lifecycle source mechanisms ? 2026-10-25
+Independent sourceaudit hub-caption-lifecycle-findings.md identifies native loadtime histories/counts, exactfloat count/unlocktimers, perwall globalfalseassignments/forwardremovalskip, portal-before-clock and pausedfloorgrowth. PurehubCaptionState helper19mechanismtests pass (47withdescriptors atrelease; latestfullworkspace1143green). Helpers are notyetwired; source-onlymodulecommit doesnotclaim gamebehavior/captionvisibility orvisualapproval. Native extendedfontcoverage stillunavailable.
