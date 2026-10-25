@@ -11,6 +11,7 @@ export interface PuzzleMetadata {
   readonly hard: number;
   readonly eyesJump: boolean;
   readonly referenceName: string;
+  readonly referenceNameWithOldLetter: string;
 }
 
 export interface PuzzleLink {
@@ -64,7 +65,8 @@ function parsePuzzleMetadata(source: string): Map<string, PuzzleMetadata> {
       palette: Number(palette),
       hard: Number(hard),
       eyesJump: eyesJump === "1",
-      referenceName,
+      referenceName: referenceName.slice(1),
+      referenceNameWithOldLetter: referenceName,
     });
   }
   return metadata;

@@ -777,3 +777,9 @@ Hypotheses: H1(root) explicit missingDrawWall branch, supported nativecode,accep
 Fix: terminal non-face branch submits new parent-tint wall layer at actualpassorder, usescurrentlogicallevel forautotile,stacks existinggeometryclip, draws directnormalfaceonlyforpossessable/player, thenrestoresparentcontainer. No rendererqueue,depth,cull,scale,timingorfit changed. Nativevisualparityremainsunverified; actualafter/greenregressionspending.
 
 Terminalbranchresult:44focusedcasesandtypecheckpass;fullnpmtestNOexclusions75files/1141pass,typecheck/buildpass.19Hubmechanismcasesincludedwithoutintegrationcredit. All5productionhashesequalactualaftercapture. Mainviewedearlyoffscreenandlaterfilledcopy;nativeLLLRimagesunavailable,notoriginalvisualapproval.
+
+## Native Hub numeric reference metadata ? 2026-10-25
+Observe: independentlocalHub.cs114?123 shows referenceName=raw.Substring(1), raw preservedseparately. Currentparserretains a1/a2/a3 and descriptor expects2glyphsfora1. Hypotheses H1(root) missingparserprefixstage supported all364rawtokens/source; H2fontglyphmapping cannotexplain wrongdescriptorstring beforeglyphlayout; H3pausedcamera/cache cannotexplain staticpuzzleMetadata values. Two newsource regressions failbefore on n20!=20 and a1/a2/a3!=1/2/3.
+Fix: applyexactlyone slice(1) atparsing, preserve referenceNameWithOldLetter, correct demonstrablywrong descriptor expectations to1glyph anddigits3. All364suffixes checkednumeric withrawprefixretained. Previousfont-unavailabilitydocumenta1claim explicitlycorrected; unavailable nativefont sizes/visualapproval remainunresolved. No glyphscale/fallback invented.
+
+Hubreferenceverification:54focusedcasespass;full76files/1143workspacecasespass,typecheck/buildpass (includes19unintegratedHubstatemechanismcases,notlifecyclecredit). Source-onlymetadatafix;productioncaptiondispatch/unsupportedfontsizecoverage remainsopen.

@@ -11,7 +11,7 @@ Recovered source: `F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts
 - The ordinary800×600 Intro cell height previously derived by the rendering investigation is approximately44.727, yielding fraction font18. This attempt did not freshly log the native `DrawText` argument.
 - Draw3664–3673: a paused unlocked portal uses `Hub.puzzleData[floor.SceneName].referenceName`, black shadow then white foreground, MiddleCenter, integer truncation of float `height * 0.55f`, with shadow offset0.06 of the cell dimensions. `indexDisplayName` is not the source field.
 - Applying the reference formula to the ordinary cell would suggest24, but the paused camera changes physical cell height. The rendering investigation's settled800×600 paused estimates are reference13 and fraction10. This attempt supplies no independent pixel or native argument verification of those estimates.
-- Intro reference labels are a1…a9; ordinary count glyph coverage needs digits0…9, with minus useful for edge states. Font25/32/41 remain open alongside18 and the actual paused size.
+- Corrected after the independent Hub.cs114–123 source audit: native referenceName drops exactly the raw token's first character, so Intro labels are1…9, not a1…a9. The raw old-letter token is stored separately. Ordinary count glyph coverage needs digits0…9, with minus useful for edge states. Font25/32/41 remain open alongside18 and the actual paused size; this correction supplies no new glyph evidence.
 
 The supported12/16/20 data and the separately committed Note glyph-background findings remain valid; this investigation neither expands nor invalidates those earlier datasets. Scaling a supported glyph is not a substitute for native size coverage.
 

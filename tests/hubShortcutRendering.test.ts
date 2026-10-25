@@ -175,11 +175,11 @@ describe("DrawPortal paused reference projection", () => {
   it("uses canonical reference text and full cell, then shadow and white foreground", () => {
     const {portal} = grid(), floor = portal("first_puzzle"); floor.hard = 2; floor.won = true;
     const result = hubPausedPortalReference(floor, {...geometry, height: 30}, {paused: true})!;
-    expect(result.foreground).toMatchObject({text: "a1", fontSize: 16, alignment: "MiddleCenter", rect: {x: 60, y: 50, width: 80, height: 60}, guiColor: {r: 1, g: 1, b: 1, a: 1}});
+    expect(result.foreground).toMatchObject({text: "1", fontSize: 16, alignment: "MiddleCenter", rect: {x: 60, y: 50, width: 80, height: 60}, guiColor: {r: 1, g: 1, b: 1, a: 1}});
     expect(result.shadow.guiColor).toEqual({r: 0, g: 0, b: 0, a: 1});
     expect(result.shadow.rect.x).toBe(Math.fround(60 + Math.fround(40 * Math.fround(.06))));
     expect(result.shadow.rect.y).toBe(Math.fround(50 + Math.fround(30 * Math.fround(.06))));
-    expect(result.foreground.glyphs).toHaveLength(2);
+    expect(result.foreground.glyphs).toHaveLength(1);
   });
   it.each([{paused: false}, {paused: true, inBreakMenu: true}])("respects the native menu gates %j", options => {
     const {portal} = grid(); expect(hubPausedPortalReference(portal("first_puzzle"), geometry, options)).toBeNull();
@@ -206,7 +206,7 @@ describe("DrawPortal paused reference projection", () => {
     const cell = Math.fround(492 / 11);
     const result = hubPausedPortalReference(floor, {...geometry, width: cell, height: cell}, {paused: true})!;
     expect(result.foreground.fontSize).toBe(24);
-    expect(result.foreground.text).toBe("a3"); expect(result.foreground.glyphs).toBeNull();
+    expect(result.foreground.text).toBe("3"); expect(result.foreground.glyphs).toBeNull();
     expect(result.shadow.glyphs).toBeNull();
   });
 });
