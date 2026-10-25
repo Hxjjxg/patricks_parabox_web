@@ -1,0 +1,1383 @@
+{
+  "schemaVersion": 2,
+  "baselineWebRevision": "f8e7539",
+  "originalRoot": "F:/Patricks.Parabox_inject_debug",
+  "captureMethod": "Unity ScreenCapture.CaptureScreenshotAsTexture at WaitForEndOfFrame",
+  "timedInputMethod": "Controls.Update Harmony postfix; original World/Movement/UndoInput/Draw otherwise natural",
+  "defaultSettings": {
+    "moveDelay": 70,
+    "allowSkippingAnimation": false,
+    "instantZoom": false,
+    "randomOrientation": false
+  },
+  "motionCaptureCadence": {
+    "targetFrameRate": 60,
+    "vSyncCount": 0,
+    "note": "PNG capture can lengthen intervals; exact actual deltaMs recorded. Not evidence of uninstrumented native frame pacing."
+  },
+  "setup": "Commands before pipe execute through existing structural Impulse coordinator with StopAnimations after setup commands only. V2 waits >=0.8 real seconds AND newCamT>=1 before recording. No StopAnimations occurs in timed timeline.",
+  "entries": [
+    {
+      "id": "third-baseline-20261025",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 800,
+      "height": 600,
+      "status": "failed",
+      "note": "Hidden launch produced all-black frames; never a baseline.",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/third-baseline-20261025"
+    },
+    {
+      "id": "third-baseline-settled-20261025",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "note": "Initial-state static baseline after startup fade; three repeats.",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/third-baseline-settled-20261025"
+    },
+    {
+      "id": "first_puzzle-static-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "note": "Initial-state static.",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/first_puzzle-static-20261025"
+    },
+    {
+      "id": "second_puzzle-static-20261025",
+      "level": "second_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "note": "Initial-state static.",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/second_puzzle-static-20261025"
+    },
+    {
+      "id": "first-tap-right-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:120",
+        "NONE:180"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "note": "Single-level start; original slide and landing.",
+      "requestCommands": "| RIGHT:120 NONE:180",
+      "directory": "docs/parity/evidence/original/first-tap-right-20261025"
+    },
+    {
+      "id": "first-hold-up-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "UP:750",
+        "NONE:150"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "note": "Original hold cadence and blocked suppression.",
+      "requestCommands": "| UP:750 NONE:150",
+      "directory": "docs/parity/evidence/original/first-hold-up-20261025"
+    },
+    {
+      "id": "first-rapid-turns-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:40",
+        "UP:40",
+        "LEFT:40",
+        "DOWN:40",
+        "NONE:200"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "note": "Original queued-direction acceptance and delayed application.",
+      "requestCommands": "| RIGHT:40 UP:40 LEFT:40 DOWN:40 NONE:200",
+      "directory": "docs/parity/evidence/original/first-rapid-turns-20261025"
+    },
+    {
+      "id": "first-alternating-repress-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:40",
+        "LEFT:40",
+        "RIGHT:40",
+        "LEFT:40",
+        "NONE:160",
+        "RIGHT:40",
+        "NONE:180"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "note": "Alternation plus release and re-press.",
+      "requestCommands": "| RIGHT:40 LEFT:40 RIGHT:40 LEFT:40 NONE:160 RIGHT:40 NONE:180",
+      "directory": "docs/parity/evidence/original/first-alternating-repress-20261025"
+    },
+    {
+      "id": "first-undo-redo-restart-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:40",
+        "NONE:160",
+        "UNDO:25",
+        "NONE:160",
+        "REDO:25",
+        "NONE:160",
+        "RESTART:25",
+        "NONE:160"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "note": "Original undo/redo squish and restart snap.",
+      "requestCommands": "| RIGHT:40 NONE:160 UNDO:25 NONE:160 REDO:25 NONE:160 RESTART:25 NONE:160",
+      "directory": "docs/parity/evidence/original/first-undo-redo-restart-20261025"
+    },
+    {
+      "id": "third-tap-up-20261025",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "UP:40",
+        "NONE:180"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "note": "Third-level walls during motion.",
+      "requestCommands": "| UP:40 NONE:180",
+      "directory": "docs/parity/evidence/original/third-tap-up-20261025"
+    },
+    {
+      "id": "infenter-zone-dddu-static-20261025",
+      "level": "infenter_zone_v2",
+      "setup": [
+        "DOWN",
+        "DOWN",
+        "DOWN",
+        "UP"
+      ],
+      "timedCommands": [],
+      "width": 800,
+      "height": 600,
+      "status": "diagnostic",
+      "note": "Structural infinity true; v1 frame-count camera settle insufficient.",
+      "requestCommands": "DOWN DOWN DOWN UP",
+      "directory": "docs/parity/evidence/original/infenter-zone-dddu-static-20261025"
+    },
+    {
+      "id": "infenter-zone-dddu-motion-20261025",
+      "level": "infenter_zone_v2",
+      "setup": [
+        "DOWN",
+        "DOWN",
+        "DOWN"
+      ],
+      "timedCommands": [
+        "UP:40",
+        "NONE:320"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "diagnostic",
+      "note": "v1 cross-level setup camera not fully settled; superseded by v2.",
+      "requestCommands": "DOWN DOWN DOWN | UP:40 NONE:320",
+      "directory": "docs/parity/evidence/original/infenter-zone-dddu-motion-20261025"
+    },
+    {
+      "id": "enter-camera-entry-20261025",
+      "level": "enter",
+      "setup": [
+        "UP",
+        "RIGHT",
+        "UP",
+        "UP",
+        "LEFT",
+        "UP",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT"
+      ],
+      "timedCommands": [
+        "RIGHT:40",
+        "NONE:620"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "diagnostic",
+      "note": "Superseded by v2 standardized elapsed-time settle.",
+      "requestCommands": "UP RIGHT UP UP LEFT UP RIGHT RIGHT RIGHT RIGHT | RIGHT:40 NONE:620",
+      "directory": "docs/parity/evidence/original/enter-camera-entry-20261025"
+    },
+    {
+      "id": "enter-camera-exit-20261025",
+      "level": "enter",
+      "setup": [
+        "UP",
+        "RIGHT",
+        "UP",
+        "UP",
+        "LEFT",
+        "UP",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT"
+      ],
+      "timedCommands": [
+        "LEFT:40",
+        "NONE:620"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "diagnostic",
+      "note": "v1 cross-level setup camera not fully settled; superseded by v2.",
+      "requestCommands": "UP RIGHT UP UP LEFT UP RIGHT RIGHT RIGHT RIGHT RIGHT | LEFT:40 NONE:620",
+      "directory": "docs/parity/evidence/original/enter-camera-exit-20261025"
+    },
+    {
+      "id": "carry-nesting-entry-20261025",
+      "level": "carry",
+      "setup": [
+        "LEFT",
+        "LEFT",
+        "LEFT"
+      ],
+      "timedCommands": [
+        "LEFT:40",
+        "NONE:620"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "note": "Setup has no previous camera transform; starts newXS=1.",
+      "requestCommands": "LEFT LEFT LEFT | LEFT:40 NONE:620",
+      "directory": "docs/parity/evidence/original/carry-nesting-entry-20261025"
+    },
+    {
+      "id": "flip-short-crossing-20261025",
+      "level": "1by1_playerr_flip2",
+      "setup": [
+        "RIGHT",
+        "RIGHT"
+      ],
+      "timedCommands": [
+        "DOWN:40",
+        "NONE:620"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "note": "Setup has no previous camera transform; original cameraFlipH false to true.",
+      "requestCommands": "RIGHT RIGHT | DOWN:40 NONE:620",
+      "directory": "docs/parity/evidence/original/flip-short-crossing-20261025"
+    },
+    {
+      "id": "enter-camera-entry-v2-20261025",
+      "level": "enter",
+      "setup": [
+        "UP",
+        "RIGHT",
+        "UP",
+        "UP",
+        "LEFT",
+        "UP",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT"
+      ],
+      "timedCommands": [
+        "RIGHT:40",
+        "NONE:620"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "note": "10 setup moves; player outer0 at5,5. Timed RIGHT enters outer3 at0,2.",
+      "requestCommands": "UP RIGHT UP UP LEFT UP RIGHT RIGHT RIGHT RIGHT | RIGHT:40 NONE:620",
+      "directory": "docs/parity/evidence/original/enter-camera-entry-v2-20261025"
+    },
+    {
+      "id": "enter-camera-exit-v2-20261025",
+      "level": "enter",
+      "setup": [
+        "UP",
+        "RIGHT",
+        "UP",
+        "UP",
+        "LEFT",
+        "UP",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT"
+      ],
+      "timedCommands": [
+        "LEFT:40",
+        "NONE:620"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "note": "11 setup moves; player outer3 at0,2. Timed LEFT exits outer0 at5,5.",
+      "requestCommands": "UP RIGHT UP UP LEFT UP RIGHT RIGHT RIGHT RIGHT RIGHT | LEFT:40 NONE:620",
+      "directory": "docs/parity/evidence/original/enter-camera-exit-v2-20261025"
+    },
+    {
+      "id": "infenter-zone-dddu-motion-v2-20261025",
+      "level": "infenter_zone_v2",
+      "setup": [
+        "DOWN",
+        "DOWN",
+        "DOWN"
+      ],
+      "timedCommands": [
+        "UP:40",
+        "NONE:620"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "note": "Settled setup outer7 player1,2; timed UP generates zone, ends outer14 at3,4.",
+      "requestCommands": "DOWN DOWN DOWN | UP:40 NONE:620",
+      "directory": "docs/parity/evidence/original/infenter-zone-dddu-motion-v2-20261025"
+    },
+    {
+      "id": "third-800x600-repeat-v2-20261025",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "note": "Restored comparison size; repeated stable wall samples.",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/third-800x600-repeat-v2-20261025"
+    },
+    {
+      "id": "third_puzzle-1001x733-static-v2-20261025",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 1001,
+      "height": 733,
+      "status": "valid",
+      "note": "Actual native Screen dimensions verified; no browser-DPR claim.",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/third_puzzle-1001x733-static-v2-20261025"
+    },
+    {
+      "id": "first_puzzle-1001x733-static-v2-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 1001,
+      "height": 733,
+      "status": "valid",
+      "note": "Actual native Screen dimensions verified; no browser-DPR claim.",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/first_puzzle-1001x733-static-v2-20261025"
+    },
+    {
+      "id": "second_puzzle-1001x733-static-v2-20261025",
+      "level": "second_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 1001,
+      "height": 733,
+      "status": "valid",
+      "note": "Actual native Screen dimensions verified; no browser-DPR claim.",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/second_puzzle-1001x733-static-v2-20261025"
+    },
+    {
+      "id": "third_puzzle-1280x720-static-v2-20261025",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 1280,
+      "height": 720,
+      "status": "valid",
+      "note": "Actual native Screen dimensions verified; no browser-DPR claim.",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/third_puzzle-1280x720-static-v2-20261025"
+    },
+    {
+      "id": "first_puzzle-1280x720-static-v2-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 1280,
+      "height": 720,
+      "status": "valid",
+      "note": "Actual native Screen dimensions verified; no browser-DPR claim.",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/first_puzzle-1280x720-static-v2-20261025"
+    },
+    {
+      "id": "second_puzzle-1280x720-static-v2-20261025",
+      "level": "second_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 1280,
+      "height": 720,
+      "status": "valid",
+      "note": "Actual native Screen dimensions verified; no browser-DPR claim.",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/second_puzzle-1280x720-static-v2-20261025"
+    },
+    {
+      "id": "first-win-hub-isolated-20261025",
+      "level": "first_puzzle",
+      "setup": [
+        "UP",
+        "UP",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT",
+        "DOWN",
+        "DOWN",
+        "UP",
+        "LEFT",
+        "LEFT",
+        "LEFT",
+        "LEFT",
+        "UP"
+      ],
+      "events": "UP:40 NONE:2300",
+      "note": "Artifact name assumed Hub before observation. ACTUAL target is second_puzzle at1602.6ms, moveCount0. Temporary empty in-memory save;3 disk saves suppressed; before/after save hash equal.",
+      "timedCommands": [
+        "UP:40",
+        "NONE:2300"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": "UP UP RIGHT RIGHT RIGHT DOWN DOWN UP LEFT LEFT LEFT LEFT UP | UP:40 NONE:2300",
+      "directory": "docs/parity/evidence/original/first-win-hub-isolated-20261025"
+    },
+    {
+      "id": "first-win-held-up-isolated-20261025",
+      "level": "first_puzzle",
+      "setup": [
+        "UP",
+        "UP",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT",
+        "DOWN",
+        "DOWN",
+        "UP",
+        "LEFT",
+        "LEFT",
+        "LEFT",
+        "LEFT",
+        "UP"
+      ],
+      "events": "UP:2100 NONE:500",
+      "note": "ACTUAL target second_puzzle at1606.35ms; held UP moves4,2 to4,3 at1623.02ms, to4,4 at1796.67ms. Disk save unchanged;3 saves suppressed; in-memory save restored.",
+      "timedCommands": [
+        "UP:2100",
+        "NONE:500"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": "UP UP RIGHT RIGHT RIGHT DOWN DOWN UP LEFT LEFT LEFT LEFT UP | UP:2100 NONE:500",
+      "directory": "docs/parity/evidence/original/first-win-held-up-isolated-20261025"
+    },
+    {
+      "id": "first-blocked-repress-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "events": "UP:750 NONE:120 UP:40 NONE:260",
+      "note": "Three moves then one blocked bump; release and re-press creates another BUMP while moveCount remains3.",
+      "timedCommands": [
+        "UP:750",
+        "NONE:120",
+        "UP:40",
+        "NONE:260"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": "| UP:750 NONE:120 UP:40 NONE:260",
+      "directory": "docs/parity/evidence/original/first-blocked-repress-20261025"
+    },
+    {
+      "id": "possess-focused-motion-20261025",
+      "level": "possess_first",
+      "setup": [
+        "LEFT",
+        "DOWN",
+        "DOWN",
+        "LEFT"
+      ],
+      "events": "LEFT:40 NONE:620",
+      "note": "Player ownership actually changes original block index41 to34; stationary0.5s possession animation.",
+      "timedCommands": [
+        "LEFT:40",
+        "NONE:620"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": "LEFT DOWN DOWN LEFT | LEFT:40 NONE:620",
+      "directory": "docs/parity/evidence/original/possess-focused-motion-20261025"
+    },
+    {
+      "id": "eat-focused-motion-20261025",
+      "level": "eat_same_side",
+      "setup": [
+        "LEFT"
+      ],
+      "events": "LEFT:40 NONE:620",
+      "note": "Target box index25 moves outer0 to player sublevel3 at0,2 while player moves2,3 to1,3; actual eat.",
+      "timedCommands": [
+        "LEFT:40",
+        "NONE:620"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": "LEFT | LEFT:40 NONE:620",
+      "directory": "docs/parity/evidence/original/eat-focused-motion-20261025"
+    },
+    {
+      "id": "shed-focused-motion-20261025",
+      "level": "shed_first",
+      "setup": [
+        "RIGHT",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT",
+        "UP"
+      ],
+      "events": "UP:40 NONE:620",
+      "note": "Player exits outer3 to outer0 at5,5; old containing box moves5,5 to5,4; actual shed.",
+      "timedCommands": [
+        "UP:40",
+        "NONE:620"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": "RIGHT RIGHT RIGHT RIGHT UP | UP:40 NONE:620",
+      "directory": "docs/parity/evidence/original/shed-focused-motion-20261025"
+    },
+    {
+      "id": "cycle-camera-entry-20261025",
+      "level": "cycle_line",
+      "setup": [
+        "UP",
+        "RIGHT",
+        "RIGHT",
+        "UP",
+        "RIGHT",
+        "UP",
+        "RIGHT",
+        "RIGHT",
+        "DOWN",
+        "DOWN",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT",
+        "UP"
+      ],
+      "events": "UP:40 NONE:620",
+      "note": "Actual player boundary crossing outer0 at6,5 to outer5 at1,0 in cyclic level topology.",
+      "timedCommands": [
+        "UP:40",
+        "NONE:620"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": "UP RIGHT RIGHT UP RIGHT UP RIGHT RIGHT DOWN DOWN RIGHT RIGHT RIGHT RIGHT UP | UP:40 NONE:620",
+      "directory": "docs/parity/evidence/original/cycle-camera-entry-20261025"
+    },
+    {
+      "id": "second-up-push-20261025",
+      "level": "second_puzzle",
+      "setup": [
+        "UP"
+      ],
+      "events": "UP:40 NONE:260",
+      "note": "Actual push chain: player4,3 to4,4; boxes4,4 to4,5 and4,5 to4,6.",
+      "timedCommands": [
+        "UP:40",
+        "NONE:260"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": "UP | UP:40 NONE:260",
+      "directory": "docs/parity/evidence/original/second-up-push-20261025"
+    },
+    {
+      "id": "third-integer-1280x900-static-20261025",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 1280,
+      "height": 900,
+      "status": "valid",
+      "requestCommands": "",
+      "note": "Native integer-cell case: board738px,9cells,82px per cell; actual Screen1280x900.",
+      "directory": "docs/parity/evidence/original/third-integer-1280x900-static-20261025"
+    },
+    {
+      "id": "third-restored-800x600-after-gpu-20261025",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": "",
+      "note": "Restores native comparison viewport after integer-scale probe.",
+      "directory": "docs/parity/evidence/original/third-restored-800x600-after-gpu-20261025"
+    },
+    {
+      "id": "first-queue-phase-r40-u40-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:40",
+        "UP:40",
+        "NONE:300"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "| RIGHT:40 UP:40 NONE:300",
+      "note": "Exact UP acceptance, landing, next-update application after release.",
+      "directory": "docs/parity/evidence/original/first-queue-phase-r40-u40-20261025",
+      "phaseTrace": "phases.json",
+      "frames": 24,
+      "phaseSamples": 129,
+      "observerSourceSha256": "56a729bb5733f145f97707420016a0b20e6c9cb7d53dc762f3f59a5c6b737981"
+    },
+    {
+      "id": "first-queue-phase-competing-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:40",
+        "UP:20",
+        "LEFT:40",
+        "NONE:300"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "| RIGHT:40 UP:20 LEFT:40 NONE:300",
+      "note": "Accepted UP survives actual LEFT before application.",
+      "directory": "docs/parity/evidence/original/first-queue-phase-competing-20261025",
+      "phaseTrace": "phases.json",
+      "frames": 26,
+      "phaseSamples": 140,
+      "observerSourceSha256": "56a729bb5733f145f97707420016a0b20e6c9cb7d53dc762f3f59a5c6b737981"
+    },
+    {
+      "id": "first-win-held-phase-a-20261025",
+      "level": "first_puzzle",
+      "setup": [
+        "UP",
+        "UP",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT",
+        "DOWN",
+        "DOWN",
+        "UP",
+        "LEFT",
+        "LEFT",
+        "LEFT",
+        "LEFT",
+        "UP"
+      ],
+      "timedCommands": [
+        "UP:2100",
+        "NONE:500"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "IsolatedMotion",
+      "requestCommands": "UP UP RIGHT RIGHT RIGHT DOWN DOWN UP LEFT LEFT LEFT LEFT UP | UP:2100 NONE:500",
+      "note": "Repeat A: landing starts win timer; held controller state survives load.",
+      "directory": "docs/parity/evidence/original/first-win-held-phase-a-20261025",
+      "phaseTrace": "phases.json",
+      "frames": 154,
+      "phaseSamples": 784,
+      "observerSourceSha256": "56a729bb5733f145f97707420016a0b20e6c9cb7d53dc762f3f59a5c6b737981"
+    },
+    {
+      "id": "first-win-held-phase-b-20261025",
+      "level": "first_puzzle",
+      "setup": [
+        "UP",
+        "UP",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT",
+        "DOWN",
+        "DOWN",
+        "UP",
+        "LEFT",
+        "LEFT",
+        "LEFT",
+        "LEFT",
+        "UP"
+      ],
+      "timedCommands": [
+        "UP:2100",
+        "NONE:500"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "IsolatedMotion",
+      "requestCommands": "UP UP RIGHT RIGHT RIGHT DOWN DOWN UP LEFT LEFT LEFT LEFT UP | UP:2100 NONE:500",
+      "note": "Repeat B: landing starts win timer; held controller state survives load.",
+      "directory": "docs/parity/evidence/original/first-win-held-phase-b-20261025",
+      "phaseTrace": "phases.json",
+      "frames": 150,
+      "phaseSamples": 764,
+      "observerSourceSha256": "56a729bb5733f145f97707420016a0b20e6c9cb7d53dc762f3f59a5c6b737981"
+    },
+    {
+      "id": "first-queue-success-undo-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:20",
+        "UP:20",
+        "UNDO:30",
+        "NONE:200",
+        "REDO:30",
+        "NONE:200"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "| RIGHT:20 UP:20 UNDO:30 NONE:200 REDO:30 NONE:200",
+      "directory": "docs/parity/evidence/original/first-queue-success-undo-20261025",
+      "frames": 30,
+      "phaseTrace": "phases.json",
+      "phaseSamples": 170,
+      "note": "Queued history edge: success-undo. Exact history method boundaries and top-first stack counts recorded."
+    },
+    {
+      "id": "first-queue-success-restart-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:20",
+        "UP:20",
+        "RESTART:30",
+        "NONE:200",
+        "UNDO:30",
+        "NONE:200"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "| RIGHT:20 UP:20 RESTART:30 NONE:200 UNDO:30 NONE:200",
+      "directory": "docs/parity/evidence/original/first-queue-success-restart-20261025",
+      "frames": 32,
+      "phaseTrace": "phases.json",
+      "phaseSamples": 180,
+      "note": "Queued history edge: success-restart. Exact history method boundaries and top-first stack counts recorded."
+    },
+    {
+      "id": "first-queue-blocked-undo-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:20",
+        "NONE:1",
+        "RIGHT:1",
+        "UNDO:30",
+        "NONE:200",
+        "REDO:30",
+        "NONE:200"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "| RIGHT:20 NONE:1 RIGHT:1 UNDO:30 NONE:200 REDO:30 NONE:200",
+      "directory": "docs/parity/evidence/original/first-queue-blocked-undo-20261025",
+      "frames": 32,
+      "phaseTrace": "phases.json",
+      "phaseSamples": 179,
+      "note": "Queued history edge: blocked-undo. Exact history method boundaries and top-first stack counts recorded."
+    },
+    {
+      "id": "first-queue-blocked-settle-undo-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:20",
+        "NONE:1",
+        "RIGHT:1",
+        "NONE:260",
+        "UNDO:30",
+        "NONE:200"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "| RIGHT:20 NONE:1 RIGHT:1 NONE:260 UNDO:30 NONE:200",
+      "directory": "docs/parity/evidence/original/first-queue-blocked-settle-undo-20261025",
+      "frames": 24,
+      "phaseTrace": "phases.json",
+      "phaseSamples": 136,
+      "note": "Queued history edge: blocked-settle-undo. Exact history method boundaries and top-first stack counts recorded."
+    },
+    {
+      "id": "first-queue-redo-cancels-reservation-20261025",
+      "level": "first_puzzle",
+      "setup": [
+        "LEFT",
+        "DOWN",
+        "UP",
+        "UNDO"
+      ],
+      "timedCommands": [
+        "LEFT:20",
+        "RIGHT:20",
+        "REDO:30",
+        "NONE:250"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "LEFT DOWN UP UNDO | LEFT:20 RIGHT:20 REDO:30 NONE:250",
+      "directory": "docs/parity/evidence/original/first-queue-redo-cancels-reservation-20261025",
+      "frames": 21,
+      "phaseTrace": "phases.json",
+      "phaseSamples": 115,
+      "note": "Queued history edge: redo-cancels-reservation. Exact history method boundaries and top-first stack counts recorded."
+    },
+    {
+      "id": "first-queue-redo-empty-preserves-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:20",
+        "UP:20",
+        "REDO:30",
+        "NONE:300"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "| RIGHT:20 UP:20 REDO:30 NONE:300",
+      "directory": "docs/parity/evidence/original/first-queue-redo-empty-preserves-20261025",
+      "frames": 22,
+      "phaseTrace": "phases.json",
+      "phaseSamples": 126,
+      "note": "Queued history edge: redo-empty-preserves. Exact history method boundaries and top-first stack counts recorded."
+    },
+    {
+      "id": "first-queue-success-clears-redo-20261025",
+      "level": "first_puzzle",
+      "setup": [
+        "LEFT",
+        "DOWN",
+        "UP",
+        "UNDO"
+      ],
+      "timedCommands": [
+        "LEFT:20",
+        "RIGHT:20",
+        "NONE:250",
+        "REDO:30",
+        "NONE:200"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "LEFT DOWN UP UNDO | LEFT:20 RIGHT:20 NONE:250 REDO:30 NONE:200",
+      "directory": "docs/parity/evidence/original/first-queue-success-clears-redo-20261025",
+      "frames": 26,
+      "phaseTrace": "phases.json",
+      "phaseSamples": 145,
+      "note": "Queued history edge: success-clears-redo. Exact history method boundaries and top-first stack counts recorded."
+    },
+    {
+      "id": "first-undo-boundary-25-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:25",
+        "UNDO:30",
+        "NONE:300"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "| RIGHT:25 UNDO:30 NONE:300",
+      "directory": "docs/parity/evidence/original/first-undo-boundary-25-20261025",
+      "frames": 22,
+      "phaseTrace": "phases.json",
+      "phaseSamples": 121,
+      "note": "Actual delivered bitmasks, direction stack/repeat and original history cooldown fields. Nominal delay is not exact delivery time."
+    },
+    {
+      "id": "first-undo-boundary-95-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:95",
+        "UNDO:30",
+        "NONE:300"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "| RIGHT:95 UNDO:30 NONE:300",
+      "directory": "docs/parity/evidence/original/first-undo-boundary-95-20261025",
+      "frames": 26,
+      "phaseTrace": "phases.json",
+      "phaseSamples": 141,
+      "note": "Actual delivered bitmasks, direction stack/repeat and original history cooldown fields. Nominal delay is not exact delivery time."
+    },
+    {
+      "id": "first-undo-boundary-105-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:105",
+        "UNDO:30",
+        "NONE:300"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "| RIGHT:105 UNDO:30 NONE:300",
+      "directory": "docs/parity/evidence/original/first-undo-boundary-105-20261025",
+      "frames": 27,
+      "phaseTrace": "phases.json",
+      "phaseSamples": 146,
+      "note": "Actual delivered bitmasks, direction stack/repeat and original history cooldown fields. Nominal delay is not exact delivery time."
+    },
+    {
+      "id": "first-overlap-up-right-reveal-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "UP:20",
+        "UP+RIGHT:40",
+        "UP:160",
+        "NONE:500"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "| UP:20 UP+RIGHT:40 UP:160 NONE:500",
+      "directory": "docs/parity/evidence/original/first-overlap-up-right-reveal-20261025",
+      "frames": 44,
+      "phaseTrace": "phases.json",
+      "phaseSamples": 234,
+      "note": "Actual delivered bitmasks, direction stack/repeat and original history cooldown fields. Nominal delay is not exact delivery time."
+    },
+    {
+      "id": "first-simultaneous-up-right-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "UP+RIGHT:40",
+        "UP:160",
+        "NONE:500"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "| UP+RIGHT:40 UP:160 NONE:500",
+      "directory": "docs/parity/evidence/original/first-simultaneous-up-right-20261025",
+      "frames": 43,
+      "phaseTrace": "phases.json",
+      "phaseSamples": 228,
+      "note": "Actual delivered bitmasks, direction stack/repeat and original history cooldown fields. Nominal delay is not exact delivery time."
+    },
+    {
+      "id": "first-overlap-right-up-reveal-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:20",
+        "UP+RIGHT:40",
+        "RIGHT:160",
+        "NONE:500"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "| RIGHT:20 UP+RIGHT:40 RIGHT:160 NONE:500",
+      "directory": "docs/parity/evidence/original/first-overlap-right-up-reveal-20261025",
+      "frames": 45,
+      "phaseTrace": "phases.json",
+      "phaseSamples": 239,
+      "note": "Actual delivered bitmasks, direction stack/repeat and original history cooldown fields. Nominal delay is not exact delivery time."
+    },
+    {
+      "id": "first-simultaneous-up-down-20261025",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "UP+DOWN:40",
+        "UP:160",
+        "NONE:500"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "| UP+DOWN:40 UP:160 NONE:500",
+      "directory": "docs/parity/evidence/original/first-simultaneous-up-down-20261025",
+      "frames": 43,
+      "phaseTrace": "phases.json",
+      "phaseSamples": 228,
+      "note": "Actual delivered bitmasks, direction stack/repeat and original history cooldown fields. Nominal delay is not exact delivery time."
+    },
+    {
+      "id": "first-blocked-held-release-phase-20261025",
+      "level": "first_puzzle",
+      "setup": [
+        "RIGHT"
+      ],
+      "timedCommands": [
+        "RIGHT:300",
+        "NONE:40",
+        "RIGHT:300",
+        "NONE:200"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "RIGHT | RIGHT:300 NONE:40 RIGHT:300 NONE:200",
+      "directory": "docs/parity/evidence/original/first-blocked-held-release-phase-20261025",
+      "frames": 51,
+      "phaseTrace": "phases.json",
+      "phaseSamples": 265,
+      "note": "Actual delivered bitmasks, direction stack/repeat and original history cooldown fields. Nominal delay is not exact delivery time."
+    },
+    {
+      "id": "third-color-submission-20261025",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Static",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/third-color-submission-20261025",
+      "colorTrace": "colors.json",
+      "note": "Read-only actual native DrawTexture raw Color values and final drawRect, same-frame PNG. ExplicitColor32Candidate is only a conversion candidate; managed native argument remains Color."
+    },
+    {
+      "id": "third-ticket-800x600-20261025",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Static",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/third-ticket-800x600-20261025",
+      "colorTrace": "colors.json",
+      "note": "Exact native focus and ticket doubles, static sizes, raw GUI colors and final drawRect values with same-frame PNG. Restores800x600 when indicated."
+    },
+    {
+      "id": "third-ticket-1001x733-20261025",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 1001,
+      "height": 733,
+      "status": "valid",
+      "mode": "Static",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/third-ticket-1001x733-20261025",
+      "colorTrace": "colors.json",
+      "note": "Exact native focus and ticket doubles, static sizes, raw GUI colors and final drawRect values with same-frame PNG. Restores800x600 when indicated."
+    },
+    {
+      "id": "third-ticket-1280x720-20261025",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 1280,
+      "height": 720,
+      "status": "valid",
+      "mode": "Static",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/third-ticket-1280x720-20261025",
+      "colorTrace": "colors.json",
+      "note": "Exact native focus and ticket doubles, static sizes, raw GUI colors and final drawRect values with same-frame PNG. Restores800x600 when indicated."
+    },
+    {
+      "id": "third-rendertrace-restored-800x600-20261025",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Static",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/third-rendertrace-restored-800x600-20261025",
+      "colorTrace": "colors.json",
+      "note": "Exact native focus and ticket doubles, static sizes, raw GUI colors and final drawRect values with same-frame PNG. Restores800x600 when indicated."
+    },
+    {
+      "id": "first-history-hold-acceleration-20261025",
+      "level": "first_puzzle",
+      "setup": [
+        "UP",
+        "DOWN",
+        "UP",
+        "DOWN",
+        "UP",
+        "DOWN",
+        "UP",
+        "DOWN"
+      ],
+      "timedCommands": [
+        "UNDO:3000",
+        "REDO:3000",
+        "NONE:80",
+        "UNDO:40",
+        "NONE:80",
+        "REDO:40",
+        "NONE:300"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "UP DOWN UP DOWN UP DOWN UP DOWN | UNDO:3000 REDO:3000 NONE:80 UNDO:40 NONE:80 REDO:40 NONE:300",
+      "directory": "docs/parity/evidence/original/first-history-hold-acceleration-20261025",
+      "phaseTrace": "phases.json",
+      "note": "Held history acceleration through empty stacks to .04 minimum spacing."
+    },
+    {
+      "id": "first-history-switch-cooldown-20261025",
+      "level": "first_puzzle",
+      "setup": [
+        "UP",
+        "DOWN",
+        "UP",
+        "DOWN",
+        "UP",
+        "DOWN"
+      ],
+      "timedCommands": [
+        "UNDO:40",
+        "REDO:300",
+        "UNDO:300",
+        "NONE:80",
+        "REDO:40",
+        "NONE:300"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "UP DOWN UP DOWN UP DOWN | UNDO:40 REDO:300 UNDO:300 NONE:80 REDO:40 NONE:300",
+      "directory": "docs/parity/evidence/original/first-history-switch-cooldown-20261025",
+      "phaseTrace": "phases.json",
+      "note": "History direction switch before current cooldown expires and release reset."
+    },
+    {
+      "id": "first-history-simultaneous-20261025",
+      "level": "first_puzzle",
+      "setup": [
+        "UP",
+        "DOWN",
+        "UP",
+        "DOWN",
+        "UP",
+        "DOWN"
+      ],
+      "timedCommands": [
+        "UNDO+REDO:500",
+        "REDO:350",
+        "NONE:80",
+        "UNDO+RIGHT:300",
+        "NONE:300"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "UP DOWN UP DOWN UP DOWN | UNDO+REDO:500 REDO:350 NONE:80 UNDO+RIGHT:300 NONE:300",
+      "directory": "docs/parity/evidence/original/first-history-simultaneous-20261025",
+      "phaseTrace": "phases.json",
+      "note": "Undo priority over simultaneous redo; direction input with held undo."
+    },
+    {
+      "id": "first-history-restart-interrupt-20261025",
+      "level": "first_puzzle",
+      "setup": [
+        "UP",
+        "DOWN",
+        "UP",
+        "DOWN",
+        "UP",
+        "DOWN"
+      ],
+      "timedCommands": [
+        "UNDO:40",
+        "UNDO+RESTART:250",
+        "NONE:300",
+        "REDO+RESTART:300",
+        "NONE:300"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Motion",
+      "requestCommands": "UP DOWN UP DOWN UP DOWN | UNDO:40 UNDO+RESTART:250 NONE:300 REDO+RESTART:300 NONE:300",
+      "directory": "docs/parity/evidence/original/first-history-restart-interrupt-20261025",
+      "phaseTrace": "phases.json",
+      "note": "Restart pressed during history cooldown and redo before restart in same update."
+    },
+    {
+      "id": "first-win-player-drawflags-20261025",
+      "level": "first_puzzle",
+      "setup": [
+        "UP",
+        "UP",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT",
+        "DOWN",
+        "DOWN",
+        "UP",
+        "LEFT",
+        "LEFT",
+        "LEFT",
+        "LEFT",
+        "UP"
+      ],
+      "timedCommands": [
+        "UP:1900",
+        "NONE:300"
+      ],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "IsolatedMotion",
+      "requestCommands": "UP UP RIGHT RIGHT RIGHT DOWN DOWN UP LEFT LEFT LEFT LEFT UP | UP:1900 NONE:300",
+      "directory": "docs/parity/evidence/original/first-win-player-drawflags-20261025",
+      "phaseTrace": "phases.json",
+      "note": "First automatic second-level frame proves DrawIsPlayer initializes true; persisted save unchanged."
+    },
+    {
+      "id": "third-restored-history-flags-800x600-20261025",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "mode": "Static",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/third-restored-history-flags-800x600-20261025",
+      "colorTrace": "colors.json",
+      "note": "Restored settled baseline after history/drawflags probes; observer source and deployed DLL verified."
+    }
+  ],
+  "gpuReadbacks": [
+    {
+      "id": "gpu-wall12-neutral-20261025",
+      "selection": "12",
+      "textures": 2,
+      "status": "valid",
+      "purpose": "Direct neutral texture readback confirms compressed texture decoder rounding; no wall tint or texture normalization applied.",
+      "directory": "docs/parity/evidence/original/gpu-wall12-neutral-20261025"
+    },
+    {
+      "id": "gpu-walls-all-20261025",
+      "selection": "ALL",
+      "textures": 96,
+      "status": "valid",
+      "purpose": "Complete original normal/flip GPU texture set with per-file hashes, starting AssetRipper/Web hashes, opaque pixel and alpha audits.",
+      "directory": "docs/parity/evidence/original/gpu-walls-all-20261025"
+    },
+    {
+      "id": "gpu-wallbig-controls-20261025",
+      "selection": "EXTRAS",
+      "textures": 27,
+      "status": "valid-partial",
+      "purpose": "Native WallBig13+WallBigFlip13+MouseZoom. Keyboard controls absent due name-filter mismatch; superseded control capture follows.",
+      "directory": "docs/parity/evidence/original/gpu-wallbig-controls-20261025",
+      "supersededBy": "gpu-wallbig-keyboard-v2-20261025"
+    },
+    {
+      "id": "gpu-wallbig-keyboard-v2-20261025",
+      "selection": "EXTRAS",
+      "textures": 31,
+      "status": "valid",
+      "purpose": "Complete WallBig13+WallBigFlip13, configured keyboard Z/X/R/Escape and MouseZoom; neutral original GPU texels.",
+      "directory": "docs/parity/evidence/original/gpu-wallbig-keyboard-v2-20261025"
+    },
+    {
+      "id": "gpu-eyes-buttons-gradient-20261025",
+      "selection": "RENDER",
+      "textures": 17,
+      "status": "valid",
+      "purpose": "Seventeen exact original eye, button, gradient, ArrowKeys/WASD texture fields; neutral original GPU texels.",
+      "directory": "docs/parity/evidence/original/gpu-eyes-buttons-gradient-20261025"
+    }
+  ],
+  "phaseTraceMethod": "Read-only hooks around World.UpdateInner, PlayerMovementLogic, queued impulse, GoToLevel and UndoManager history calls; controls-delivered follows timed Controls.Update postfix. undoDirection and playerDrawFlags added for held-history and fresh automatic-load probes."
+}

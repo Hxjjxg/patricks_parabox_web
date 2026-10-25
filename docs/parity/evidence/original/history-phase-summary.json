@@ -1,0 +1,5032 @@
+{
+  "schemaVersion": 1,
+  "scope": "Native queue/history method phase evidence, top-first history count arrays. See manifest for exact setup and timed requests.",
+  "captures": {
+    "first-queue-success-undo-20261025": {
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:20",
+        "UP:20",
+        "UNDO:30",
+        "NONE:200",
+        "REDO:30",
+        "NONE:200"
+      ],
+      "events": [
+        {
+          "phase": "request:RIGHT",
+          "frame": 6611,
+          "elapsedMs": 0,
+          "deltaMs": 16.6673012,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 0,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 1,
+          "frameImage": "frame-0000.png"
+        },
+        {
+          "phase": "movement-after",
+          "frame": 6612,
+          "elapsedMs": 20.4582214,
+          "deltaMs": 20.4608,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 5,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "impulse-before",
+          "frame": 6612,
+          "elapsedMs": 20.4582214,
+          "deltaMs": 20.4608,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 6,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "history-before:TurnCompleted",
+          "frame": 6612,
+          "elapsedMs": 20.4582214,
+          "deltaMs": 20.4608,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 1
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 7,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "history-after:TurnCompleted",
+          "frame": 6612,
+          "elapsedMs": 20.4582214,
+          "deltaMs": 20.4608,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 8,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "impulse-after",
+          "frame": 6612,
+          "elapsedMs": 20.4582214,
+          "deltaMs": 20.4608,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 9,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "request:UP",
+          "frame": 6612,
+          "elapsedMs": 20.4582214,
+          "deltaMs": 20.4608,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0204608,
+            "animLength": 0.1
+          },
+          "sampleIndex": 11,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "movement-after",
+          "frame": 6613,
+          "elapsedMs": 45.53604,
+          "deltaMs": 25.0764,
+          "controls": {
+            "up": true,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0204608,
+            "animLength": 0.1
+          },
+          "sampleIndex": 15,
+          "frameImage": "frame-0002.png"
+        },
+        {
+          "phase": "request:UNDO",
+          "frame": 6613,
+          "elapsedMs": 45.53604,
+          "deltaMs": 25.0764,
+          "controls": {
+            "up": true,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0455372,
+            "animLength": 0.1
+          },
+          "sampleIndex": 17,
+          "frameImage": "frame-0002.png"
+        },
+        {
+          "phase": "history-before:Undo",
+          "frame": 6614,
+          "elapsedMs": 62.20627,
+          "deltaMs": 16.67,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0455372,
+            "animLength": 0.1
+          },
+          "sampleIndex": 22,
+          "frameImage": "frame-0003.png"
+        },
+        {
+          "phase": "impulse-before",
+          "frame": 6614,
+          "elapsedMs": 62.20627,
+          "deltaMs": 16.67,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0455372,
+            "animLength": 0.1
+          },
+          "sampleIndex": 23,
+          "frameImage": "frame-0003.png"
+        },
+        {
+          "phase": "history-before:TurnCompleted",
+          "frame": 6614,
+          "elapsedMs": 62.20627,
+          "deltaMs": 16.67,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 1
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0455372,
+            "animLength": 0.1
+          },
+          "sampleIndex": 24,
+          "frameImage": "frame-0003.png"
+        },
+        {
+          "phase": "history-after:TurnCompleted",
+          "frame": 6614,
+          "elapsedMs": 62.20627,
+          "deltaMs": 16.67,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 3,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 25,
+          "frameImage": "frame-0003.png"
+        },
+        {
+          "phase": "impulse-after",
+          "frame": 6614,
+          "elapsedMs": 62.20627,
+          "deltaMs": 16.67,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 3,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 26,
+          "frameImage": "frame-0003.png"
+        },
+        {
+          "phase": "history-after:Undo",
+          "frame": 6614,
+          "elapsedMs": 62.20627,
+          "deltaMs": 16.67,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [
+              2
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0,
+            "animLength": 0.125
+          },
+          "sampleIndex": 27,
+          "frameImage": "frame-0003.png"
+        },
+        {
+          "phase": "request:NONE",
+          "frame": 6615,
+          "elapsedMs": 78.868866,
+          "deltaMs": 16.6616,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [
+              2
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0.0333316,
+            "animLength": 0.125
+          },
+          "sampleIndex": 34,
+          "frameImage": "frame-0004.png"
+        },
+        {
+          "phase": "request:REDO",
+          "frame": 6627,
+          "elapsedMs": 285.938263,
+          "deltaMs": 16.6574,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [
+              2
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0.139957,
+            "animLength": 0.125
+          },
+          "sampleIndex": 95,
+          "frameImage": "frame-0016.png"
+        },
+        {
+          "phase": "history-before:Redo",
+          "frame": 6628,
+          "elapsedMs": 302.604675,
+          "deltaMs": 16.6669,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": true,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [
+              2
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0.139957,
+            "animLength": 0.125
+          },
+          "sampleIndex": 100,
+          "frameImage": "frame-0017.png"
+        },
+        {
+          "phase": "history-after:Redo",
+          "frame": 6628,
+          "elapsedMs": 302.604675,
+          "deltaMs": 16.6669,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": true,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 3,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0,
+            "animLength": 0.125
+          },
+          "sampleIndex": 101,
+          "frameImage": "frame-0017.png"
+        },
+        {
+          "phase": "request:NONE",
+          "frame": 6629,
+          "elapsedMs": 319.267273,
+          "deltaMs": 16.660099,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": true,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 3,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0.033327,
+            "animLength": 0.125
+          },
+          "sampleIndex": 108,
+          "frameImage": "frame-0018.png"
+        }
+      ]
+    },
+    "first-queue-success-restart-20261025": {
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:20",
+        "UP:20",
+        "RESTART:30",
+        "NONE:200",
+        "UNDO:30",
+        "NONE:200"
+      ],
+      "events": [
+        {
+          "phase": "request:RIGHT",
+          "frame": 6782,
+          "elapsedMs": 0,
+          "deltaMs": 16.6656,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 0,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 1,
+          "frameImage": "frame-0000.png"
+        },
+        {
+          "phase": "movement-after",
+          "frame": 6783,
+          "elapsedMs": 17.0974731,
+          "deltaMs": 17.0993,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 5,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "impulse-before",
+          "frame": 6783,
+          "elapsedMs": 17.0974731,
+          "deltaMs": 17.0993,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 6,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "history-before:TurnCompleted",
+          "frame": 6783,
+          "elapsedMs": 17.0974731,
+          "deltaMs": 17.0993,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 1
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 7,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "history-after:TurnCompleted",
+          "frame": 6783,
+          "elapsedMs": 17.0974731,
+          "deltaMs": 17.0993,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 8,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "impulse-after",
+          "frame": 6783,
+          "elapsedMs": 17.0974731,
+          "deltaMs": 17.0993,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 9,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "request:UP",
+          "frame": 6784,
+          "elapsedMs": 33.77533,
+          "deltaMs": 16.6752,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0337745026,
+            "animLength": 0.1
+          },
+          "sampleIndex": 16,
+          "frameImage": "frame-0002.png"
+        },
+        {
+          "phase": "movement-after",
+          "frame": 6785,
+          "elapsedMs": 50.4302979,
+          "deltaMs": 16.6589012,
+          "controls": {
+            "up": true,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0337745026,
+            "animLength": 0.1
+          },
+          "sampleIndex": 20,
+          "frameImage": "frame-0003.png"
+        },
+        {
+          "phase": "request:RESTART",
+          "frame": 6786,
+          "elapsedMs": 68.65692,
+          "deltaMs": 18.222,
+          "controls": {
+            "up": true,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0686554,
+            "animLength": 0.1
+          },
+          "sampleIndex": 27,
+          "frameImage": "frame-0004.png"
+        },
+        {
+          "phase": "history-before:RestartLevel",
+          "frame": 6787,
+          "elapsedMs": 85.31952,
+          "deltaMs": 16.6688,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": true
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0686554,
+            "animLength": 0.1
+          },
+          "sampleIndex": 32,
+          "frameImage": "frame-0005.png"
+        },
+        {
+          "phase": "impulse-before",
+          "frame": 6787,
+          "elapsedMs": 85.31952,
+          "deltaMs": 16.6688,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": true
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0686554,
+            "animLength": 0.1
+          },
+          "sampleIndex": 33,
+          "frameImage": "frame-0005.png"
+        },
+        {
+          "phase": "history-before:TurnCompleted",
+          "frame": 6787,
+          "elapsedMs": 85.31952,
+          "deltaMs": 16.6688,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": true
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 1
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0686554,
+            "animLength": 0.1
+          },
+          "sampleIndex": 34,
+          "frameImage": "frame-0005.png"
+        },
+        {
+          "phase": "history-after:TurnCompleted",
+          "frame": 6787,
+          "elapsedMs": 85.31952,
+          "deltaMs": 16.6688,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": true
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 3,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 35,
+          "frameImage": "frame-0005.png"
+        },
+        {
+          "phase": "impulse-after",
+          "frame": 6787,
+          "elapsedMs": 85.31952,
+          "deltaMs": 16.6688,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": true
+          },
+          "moveCount": 2,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 3,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 36,
+          "frameImage": "frame-0005.png"
+        },
+        {
+          "phase": "history-after:RestartLevel",
+          "frame": 6787,
+          "elapsedMs": 85.31952,
+          "deltaMs": 16.6688,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": true
+          },
+          "moveCount": 0,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 3,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              0,
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": true,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 37,
+          "frameImage": "frame-0005.png"
+        },
+        {
+          "phase": "request:NONE",
+          "frame": 6788,
+          "elapsedMs": 101.989746,
+          "deltaMs": 16.6669,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": true
+          },
+          "moveCount": 0,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 3,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              0,
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": true,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 44,
+          "frameImage": "frame-0006.png"
+        },
+        {
+          "phase": "request:UNDO",
+          "frame": 6800,
+          "elapsedMs": 304.367065,
+          "deltaMs": 17.0964012,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 0,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 3,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              0,
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": true,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 105,
+          "frameImage": "frame-0018.png"
+        },
+        {
+          "phase": "history-before:Undo",
+          "frame": 6801,
+          "elapsedMs": 321.044922,
+          "deltaMs": 16.6774,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 0,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 3,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              0,
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": true,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 110,
+          "frameImage": "frame-0019.png"
+        },
+        {
+          "phase": "history-after:Undo",
+          "frame": 6801,
+          "elapsedMs": 321.044922,
+          "deltaMs": 16.6774,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              0
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": true,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 3,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 111,
+          "frameImage": "frame-0019.png"
+        },
+        {
+          "phase": "request:NONE",
+          "frame": 6802,
+          "elapsedMs": 337.6999,
+          "deltaMs": 16.6562,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              0
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": true,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 3,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 118,
+          "frameImage": "frame-0020.png"
+        }
+      ]
+    },
+    "first-queue-blocked-undo-20261025": {
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:20",
+        "NONE:1",
+        "RIGHT:1",
+        "UNDO:30",
+        "NONE:200",
+        "REDO:30",
+        "NONE:200"
+      ],
+      "events": [
+        {
+          "phase": "request:RIGHT",
+          "frame": 6890,
+          "elapsedMs": 0,
+          "deltaMs": 16.6657,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 0,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 1,
+          "frameImage": "frame-0000.png"
+        },
+        {
+          "phase": "movement-after",
+          "frame": 6891,
+          "elapsedMs": 16.9754028,
+          "deltaMs": 16.982,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 5,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "impulse-before",
+          "frame": 6891,
+          "elapsedMs": 16.9754028,
+          "deltaMs": 16.982,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 6,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "history-before:TurnCompleted",
+          "frame": 6891,
+          "elapsedMs": 16.9754028,
+          "deltaMs": 16.982,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 1
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 7,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "history-after:TurnCompleted",
+          "frame": 6891,
+          "elapsedMs": 16.9754028,
+          "deltaMs": 16.982,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 8,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "impulse-after",
+          "frame": 6891,
+          "elapsedMs": 16.9754028,
+          "deltaMs": 16.982,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 9,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "request:NONE",
+          "frame": 6892,
+          "elapsedMs": 33.64563,
+          "deltaMs": 16.6689987,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.033651,
+            "animLength": 0.1
+          },
+          "sampleIndex": 16,
+          "frameImage": "frame-0002.png"
+        },
+        {
+          "phase": "request:RIGHT",
+          "frame": 6893,
+          "elapsedMs": 51.0940552,
+          "deltaMs": 17.4429989,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.051094003,
+            "animLength": 0.1
+          },
+          "sampleIndex": 22,
+          "frameImage": "frame-0003.png"
+        },
+        {
+          "phase": "movement-after",
+          "frame": 6894,
+          "elapsedMs": 67.76428,
+          "deltaMs": 16.6743011,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.051094003,
+            "animLength": 0.1
+          },
+          "sampleIndex": 26,
+          "frameImage": "frame-0004.png"
+        },
+        {
+          "phase": "request:UNDO",
+          "frame": 6894,
+          "elapsedMs": 67.76428,
+          "deltaMs": 16.6743011,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0677683055,
+            "animLength": 0.1
+          },
+          "sampleIndex": 28,
+          "frameImage": "frame-0004.png"
+        },
+        {
+          "phase": "history-before:Undo",
+          "frame": 6895,
+          "elapsedMs": 84.43451,
+          "deltaMs": 16.672,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0677683055,
+            "animLength": 0.1
+          },
+          "sampleIndex": 33,
+          "frameImage": "frame-0005.png"
+        },
+        {
+          "phase": "impulse-before",
+          "frame": 6895,
+          "elapsedMs": 84.43451,
+          "deltaMs": 16.672,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0677683055,
+            "animLength": 0.1
+          },
+          "sampleIndex": 34,
+          "frameImage": "frame-0005.png"
+        },
+        {
+          "phase": "impulse-after",
+          "frame": 6895,
+          "elapsedMs": 84.43451,
+          "deltaMs": 16.672,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP",
+            "animT": 0,
+            "animLength": 0.22
+          },
+          "sampleIndex": 35,
+          "frameImage": "frame-0005.png"
+        },
+        {
+          "phase": "history-after:Undo",
+          "frame": 6895,
+          "elapsedMs": 84.43451,
+          "deltaMs": 16.672,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 0,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 1,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [
+              1
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0,
+            "animLength": 0.125
+          },
+          "sampleIndex": 36,
+          "frameImage": "frame-0005.png"
+        },
+        {
+          "phase": "request:NONE",
+          "frame": 6896,
+          "elapsedMs": 101.089478,
+          "deltaMs": 16.6542015,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 0,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 1,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [
+              1
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0.0333262,
+            "animLength": 0.125
+          },
+          "sampleIndex": 43,
+          "frameImage": "frame-0006.png"
+        },
+        {
+          "phase": "request:REDO",
+          "frame": 6908,
+          "elapsedMs": 303.222656,
+          "deltaMs": 17.3592987,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 0,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 1,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [
+              1
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0.133389309,
+            "animLength": 0.125
+          },
+          "sampleIndex": 104,
+          "frameImage": "frame-0018.png"
+        },
+        {
+          "phase": "history-before:Redo",
+          "frame": 6909,
+          "elapsedMs": 321.342468,
+          "deltaMs": 18.1215,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": true,
+            "restart": false
+          },
+          "moveCount": 0,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 1,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [
+              1
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0.133389309,
+            "animLength": 0.125
+          },
+          "sampleIndex": 109,
+          "frameImage": "frame-0019.png"
+        },
+        {
+          "phase": "history-after:Redo",
+          "frame": 6909,
+          "elapsedMs": 321.342468,
+          "deltaMs": 18.1215,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": true,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0,
+            "animLength": 0.125
+          },
+          "sampleIndex": 110,
+          "frameImage": "frame-0019.png"
+        },
+        {
+          "phase": "request:NONE",
+          "frame": 6910,
+          "elapsedMs": 338.020325,
+          "deltaMs": 16.674099,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": true,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0.0347955972,
+            "animLength": 0.125
+          },
+          "sampleIndex": 117,
+          "frameImage": "frame-0020.png"
+        }
+      ]
+    },
+    "first-queue-blocked-settle-undo-20261025": {
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:20",
+        "NONE:1",
+        "RIGHT:1",
+        "NONE:260",
+        "UNDO:30",
+        "NONE:200"
+      ],
+      "events": [
+        {
+          "phase": "request:RIGHT",
+          "frame": 26193,
+          "elapsedMs": 0,
+          "deltaMs": 16.673399,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 0,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 1,
+          "frameImage": "frame-0000.png"
+        },
+        {
+          "phase": "movement-after",
+          "frame": 26194,
+          "elapsedMs": 27.83966,
+          "deltaMs": 27.8417,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 5,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "impulse-before",
+          "frame": 26194,
+          "elapsedMs": 27.83966,
+          "deltaMs": 27.8417,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 6,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "history-before:TurnCompleted",
+          "frame": 26194,
+          "elapsedMs": 27.83966,
+          "deltaMs": 27.8417,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 1
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 7,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "history-after:TurnCompleted",
+          "frame": 26194,
+          "elapsedMs": 27.83966,
+          "deltaMs": 27.8417,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 8,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "impulse-after",
+          "frame": 26194,
+          "elapsedMs": 27.83966,
+          "deltaMs": 27.8417,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 9,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "request:NONE",
+          "frame": 26194,
+          "elapsedMs": 27.83966,
+          "deltaMs": 27.8417,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0278417,
+            "animLength": 0.1
+          },
+          "sampleIndex": 11,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "request:RIGHT",
+          "frame": 26195,
+          "elapsedMs": 57.1517944,
+          "deltaMs": 29.312,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0571537,
+            "animLength": 0.1
+          },
+          "sampleIndex": 17,
+          "frameImage": "frame-0002.png"
+        },
+        {
+          "phase": "movement-after",
+          "frame": 26196,
+          "elapsedMs": 82.36694,
+          "deltaMs": 25.2121,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0571537,
+            "animLength": 0.1
+          },
+          "sampleIndex": 21,
+          "frameImage": "frame-0003.png"
+        },
+        {
+          "phase": "request:NONE",
+          "frame": 26196,
+          "elapsedMs": 82.36694,
+          "deltaMs": 25.2121,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0823658,
+            "animLength": 0.1
+          },
+          "sampleIndex": 23,
+          "frameImage": "frame-0003.png"
+        },
+        {
+          "phase": "impulse-before",
+          "frame": 26198,
+          "elapsedMs": 131.17981,
+          "deltaMs": 28.3569984,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0,
+            "animLength": 0.22
+          },
+          "sampleIndex": 33,
+          "frameImage": "frame-0005.png"
+        },
+        {
+          "phase": "impulse-after",
+          "frame": 26198,
+          "elapsedMs": 131.17981,
+          "deltaMs": 28.3569984,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP",
+            "animT": 0,
+            "animLength": 0.22
+          },
+          "sampleIndex": 34,
+          "frameImage": "frame-0005.png"
+        },
+        {
+          "phase": "request:UNDO",
+          "frame": 26207,
+          "elapsedMs": 352.645874,
+          "deltaMs": 18.7759,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP",
+            "animT": 0.23104699,
+            "animLength": 0.22
+          },
+          "sampleIndex": 81,
+          "frameImage": "frame-0014.png"
+        },
+        {
+          "phase": "history-before:Undo",
+          "frame": 26208,
+          "elapsedMs": 373.1842,
+          "deltaMs": 20.5425987,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP",
+            "animT": 0.23104699,
+            "animLength": 0.22
+          },
+          "sampleIndex": 86,
+          "frameImage": "frame-0015.png"
+        },
+        {
+          "phase": "history-after:Undo",
+          "frame": 26208,
+          "elapsedMs": 373.1842,
+          "deltaMs": 20.5425987,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 0,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 1,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [
+              1
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0,
+            "animLength": 0.125
+          },
+          "sampleIndex": 87,
+          "frameImage": "frame-0015.png"
+        },
+        {
+          "phase": "request:NONE",
+          "frame": 26209,
+          "elapsedMs": 397.850037,
+          "deltaMs": 24.6657,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": true,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 0,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 1,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [
+              1
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0.0452082977,
+            "animLength": 0.125
+          },
+          "sampleIndex": 94,
+          "frameImage": "frame-0016.png"
+        }
+      ]
+    },
+    "first-queue-redo-cancels-reservation-20261025": {
+      "setup": [
+        "LEFT",
+        "DOWN",
+        "UP",
+        "UNDO"
+      ],
+      "timedCommands": [
+        "LEFT:20",
+        "RIGHT:20",
+        "REDO:30",
+        "NONE:250"
+      ],
+      "events": [
+        {
+          "phase": "request:LEFT",
+          "frame": 25929,
+          "elapsedMs": 0,
+          "deltaMs": 16.6646,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0,
+            "animLength": 0.125
+          },
+          "sampleIndex": 1,
+          "frameImage": "frame-0000.png"
+        },
+        {
+          "phase": "movement-after",
+          "frame": 25930,
+          "elapsedMs": 19.91272,
+          "deltaMs": 19.9153,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": true,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": true,
+          "queueDX": -1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0,
+            "animLength": 0.125
+          },
+          "sampleIndex": 5,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "impulse-before",
+          "frame": 25930,
+          "elapsedMs": 19.91272,
+          "deltaMs": 19.9153,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": true,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": true,
+          "queueDX": -1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0,
+            "animLength": 0.125
+          },
+          "sampleIndex": 6,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "impulse-after",
+          "frame": 25930,
+          "elapsedMs": 19.91272,
+          "deltaMs": 19.9153,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": true,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0,
+            "animLength": 0.22
+          },
+          "sampleIndex": 7,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "request:RIGHT",
+          "frame": 25931,
+          "elapsedMs": 41.31317,
+          "deltaMs": 21.4025,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": true,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.0413178,
+            "animLength": 0.22
+          },
+          "sampleIndex": 14,
+          "frameImage": "frame-0002.png"
+        },
+        {
+          "phase": "movement-after",
+          "frame": 25932,
+          "elapsedMs": 60.0280762,
+          "deltaMs": 18.7095,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.0413178,
+            "animLength": 0.22
+          },
+          "sampleIndex": 18,
+          "frameImage": "frame-0003.png"
+        },
+        {
+          "phase": "request:REDO",
+          "frame": 25933,
+          "elapsedMs": 89.73694,
+          "deltaMs": 29.7144,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.0897417,
+            "animLength": 0.22
+          },
+          "sampleIndex": 25,
+          "frameImage": "frame-0004.png"
+        },
+        {
+          "phase": "history-before:Redo",
+          "frame": 25934,
+          "elapsedMs": 107.86438,
+          "deltaMs": 18.1230011,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": true,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.0897417,
+            "animLength": 0.22
+          },
+          "sampleIndex": 30,
+          "frameImage": "frame-0005.png"
+        },
+        {
+          "phase": "history-after:Redo",
+          "frame": 25934,
+          "elapsedMs": 107.86438,
+          "deltaMs": 18.1230011,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": true,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 3,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              3,
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0,
+            "animLength": 0.125
+          },
+          "sampleIndex": 31,
+          "frameImage": "frame-0005.png"
+        },
+        {
+          "phase": "request:NONE",
+          "frame": 25935,
+          "elapsedMs": 124.534607,
+          "deltaMs": 16.6707,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": true,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 3,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              3,
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 2,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0.0347937,
+            "animLength": 0.125
+          },
+          "sampleIndex": 38,
+          "frameImage": "frame-0006.png"
+        }
+      ]
+    },
+    "first-queue-redo-empty-preserves-20261025": {
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:20",
+        "UP:20",
+        "REDO:30",
+        "NONE:300"
+      ],
+      "events": [
+        {
+          "phase": "request:RIGHT",
+          "frame": 26097,
+          "elapsedMs": 0,
+          "deltaMs": 16.6674,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 0,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 1,
+          "frameImage": "frame-0000.png"
+        },
+        {
+          "phase": "movement-after",
+          "frame": 26098,
+          "elapsedMs": 26.6876221,
+          "deltaMs": 26.6849,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 5,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "impulse-before",
+          "frame": 26098,
+          "elapsedMs": 26.6876221,
+          "deltaMs": 26.6849,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 6,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "history-before:TurnCompleted",
+          "frame": 26098,
+          "elapsedMs": 26.6876221,
+          "deltaMs": 26.6849,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 0,
+            "futureCount": 0,
+            "pastMoveCounts": [],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 1
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0
+          },
+          "sampleIndex": 7,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "history-after:TurnCompleted",
+          "frame": 26098,
+          "elapsedMs": 26.6876221,
+          "deltaMs": 26.6849,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 8,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "impulse-after",
+          "frame": 26098,
+          "elapsedMs": 26.6876221,
+          "deltaMs": 26.6849,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 9,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "request:UP",
+          "frame": 26098,
+          "elapsedMs": 26.6876221,
+          "deltaMs": 26.6849,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 1,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0266849,
+            "animLength": 0.1
+          },
+          "sampleIndex": 11,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "movement-after",
+          "frame": 26099,
+          "elapsedMs": 43.35785,
+          "deltaMs": 16.674099,
+          "controls": {
+            "up": true,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0266849,
+            "animLength": 0.1
+          },
+          "sampleIndex": 15,
+          "frameImage": "frame-0002.png"
+        },
+        {
+          "phase": "request:REDO",
+          "frame": 26100,
+          "elapsedMs": 60.0204468,
+          "deltaMs": 16.6607,
+          "controls": {
+            "up": true,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0600197,
+            "animLength": 0.1
+          },
+          "sampleIndex": 22,
+          "frameImage": "frame-0003.png"
+        },
+        {
+          "phase": "history-before:Redo",
+          "frame": 26101,
+          "elapsedMs": 76.6906738,
+          "deltaMs": 16.6688,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": true,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0600197,
+            "animLength": 0.1
+          },
+          "sampleIndex": 27,
+          "frameImage": "frame-0004.png"
+        },
+        {
+          "phase": "history-after:Redo",
+          "frame": 26101,
+          "elapsedMs": 76.6906738,
+          "deltaMs": 16.6688,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": true,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0600197,
+            "animLength": 0.1
+          },
+          "sampleIndex": 28,
+          "frameImage": "frame-0004.png"
+        },
+        {
+          "phase": "request:NONE",
+          "frame": 26102,
+          "elapsedMs": 95.75653,
+          "deltaMs": 19.0635014,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": true,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.095752,
+            "animLength": 0.1
+          },
+          "sampleIndex": 35,
+          "frameImage": "frame-0005.png"
+        },
+        {
+          "phase": "impulse-before",
+          "frame": 26104,
+          "elapsedMs": 136.123657,
+          "deltaMs": 17.8499,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0,
+            "animLength": 0.22
+          },
+          "sampleIndex": 45,
+          "frameImage": "frame-0007.png"
+        },
+        {
+          "phase": "history-before:TurnCompleted",
+          "frame": 26104,
+          "elapsedMs": 136.123657,
+          "deltaMs": 17.8499,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 1,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 1
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0,
+            "animLength": 0.22
+          },
+          "sampleIndex": 46,
+          "frameImage": "frame-0007.png"
+        },
+        {
+          "phase": "history-after:TurnCompleted",
+          "frame": 26104,
+          "elapsedMs": 136.123657,
+          "deltaMs": 17.8499,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": true,
+          "queueDX": 0,
+          "queueDY": 1,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 3,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 47,
+          "frameImage": "frame-0007.png"
+        },
+        {
+          "phase": "impulse-after",
+          "frame": 26104,
+          "elapsedMs": 136.123657,
+          "deltaMs": 17.8499,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 3,
+            "y": 3,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 48,
+          "frameImage": "frame-0007.png"
+        }
+      ]
+    },
+    "first-queue-success-clears-redo-20261025": {
+      "setup": [
+        "LEFT",
+        "DOWN",
+        "UP",
+        "UNDO"
+      ],
+      "timedCommands": [
+        "LEFT:20",
+        "RIGHT:20",
+        "NONE:250",
+        "REDO:30",
+        "NONE:200"
+      ],
+      "events": [
+        {
+          "phase": "request:LEFT",
+          "frame": 26328,
+          "elapsedMs": 0,
+          "deltaMs": 16.6665,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0,
+            "animLength": 0.125
+          },
+          "sampleIndex": 1,
+          "frameImage": "frame-0000.png"
+        },
+        {
+          "phase": "movement-after",
+          "frame": 26329,
+          "elapsedMs": 20.5841064,
+          "deltaMs": 20.5831985,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": true,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": true,
+          "queueDX": -1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0,
+            "animLength": 0.125
+          },
+          "sampleIndex": 5,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "impulse-before",
+          "frame": 26329,
+          "elapsedMs": 20.5841064,
+          "deltaMs": 20.5831985,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": true,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": true,
+          "queueDX": -1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "SQUISH_IN_PLACE",
+            "animT": 0,
+            "animLength": 0.125
+          },
+          "sampleIndex": 6,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "impulse-after",
+          "frame": 26329,
+          "elapsedMs": 20.5841064,
+          "deltaMs": 20.5831985,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": true,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0,
+            "animLength": 0.22
+          },
+          "sampleIndex": 7,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "request:RIGHT",
+          "frame": 26329,
+          "elapsedMs": 20.5841064,
+          "deltaMs": 20.5831985,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": true,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 2,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.0205832,
+            "animLength": 0.22
+          },
+          "sampleIndex": 9,
+          "frameImage": "frame-0001.png"
+        },
+        {
+          "phase": "movement-after",
+          "frame": 26330,
+          "elapsedMs": 38.19275,
+          "deltaMs": 17.6034,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.0205832,
+            "animLength": 0.22
+          },
+          "sampleIndex": 13,
+          "frameImage": "frame-0002.png"
+        },
+        {
+          "phase": "request:NONE",
+          "frame": 26331,
+          "elapsedMs": 57.5408936,
+          "deltaMs": 19.3513,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": true,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.0575379,
+            "animLength": 0.22
+          },
+          "sampleIndex": 20,
+          "frameImage": "frame-0003.png"
+        },
+        {
+          "phase": "impulse-before",
+          "frame": 26339,
+          "elapsedMs": 249.526978,
+          "deltaMs": 20.2973,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.229224414,
+            "animLength": 0.22
+          },
+          "sampleIndex": 60,
+          "frameImage": "frame-0011.png"
+        },
+        {
+          "phase": "history-before:TurnCompleted",
+          "frame": 26339,
+          "elapsedMs": 249.526978,
+          "deltaMs": 20.2973,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 2,
+            "futureCount": 1,
+            "pastMoveCounts": [
+              2,
+              1
+            ],
+            "futureMoveCounts": [
+              3
+            ],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 1
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 1,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.229224414,
+            "animLength": 0.22
+          },
+          "sampleIndex": 61,
+          "frameImage": "frame-0011.png"
+        },
+        {
+          "phase": "history-after:TurnCompleted",
+          "frame": 26339,
+          "elapsedMs": 249.526978,
+          "deltaMs": 20.2973,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": true,
+          "queueDX": 1,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 3,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              3,
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 62,
+          "frameImage": "frame-0011.png"
+        },
+        {
+          "phase": "impulse-after",
+          "frame": 26339,
+          "elapsedMs": 249.526978,
+          "deltaMs": 20.2973,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 3,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              3,
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0,
+            "animLength": 0.1
+          },
+          "sampleIndex": 63,
+          "frameImage": "frame-0011.png"
+        },
+        {
+          "phase": "request:REDO",
+          "frame": 26342,
+          "elapsedMs": 315.238953,
+          "deltaMs": 21.1269,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": false,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 3,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              3,
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0.08601309,
+            "animLength": 0.1
+          },
+          "sampleIndex": 80,
+          "frameImage": "frame-0014.png"
+        },
+        {
+          "phase": "history-before:Redo",
+          "frame": 26343,
+          "elapsedMs": 334.7397,
+          "deltaMs": 19.5026,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": true,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 3,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              3,
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0.08601309,
+            "animLength": 0.1
+          },
+          "sampleIndex": 85,
+          "frameImage": "frame-0015.png"
+        },
+        {
+          "phase": "history-after:Redo",
+          "frame": 26343,
+          "elapsedMs": 334.7397,
+          "deltaMs": 19.5026,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": true,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": true,
+          "history": {
+            "pastCount": 3,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              3,
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0.08601309,
+            "animLength": 0.1
+          },
+          "sampleIndex": 86,
+          "frameImage": "frame-0015.png"
+        },
+        {
+          "phase": "request:NONE",
+          "frame": 26344,
+          "elapsedMs": 352.516174,
+          "deltaMs": 17.7768,
+          "controls": {
+            "up": false,
+            "down": false,
+            "left": false,
+            "right": false,
+            "undo": false,
+            "redo": true,
+            "restart": false
+          },
+          "moveCount": 3,
+          "queued": false,
+          "queueDX": 0,
+          "queueDY": 0,
+          "anyBlockMoving": false,
+          "history": {
+            "pastCount": 3,
+            "futureCount": 0,
+            "pastMoveCounts": [
+              3,
+              2,
+              1
+            ],
+            "futureMoveCounts": [],
+            "pastTopIsRestart": false,
+            "futureTopIsRestart": false,
+            "currentTurnMoveCount": 0,
+            "currentTurnMoves": 0
+          },
+          "player": {
+            "outerLevel": 0,
+            "x": 2,
+            "y": 1,
+            "anim": "BUMP_HALT",
+            "animT": 0.0177768,
+            "animLength": 0.22
+          },
+          "sampleIndex": 93,
+          "frameImage": "frame-0016.png"
+        }
+      ]
+    }
+  }
+}
