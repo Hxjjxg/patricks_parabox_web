@@ -1,0 +1,5354 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-25",
+  "status": "native contracts prepared; actual integrated Web Canvas replay and review pending",
+  "ownership": "Documentation only; no browser/native input, production change, staging or commit.",
+  "captureWebScript": {
+    "path": "scripts/parity-capture-web.js",
+    "sha256": "6ffae31c62be86e57477abdd627fc70c746d51113e5120f7ec70e96867f9a26c",
+    "optionsProperty": "captureWebOptions",
+    "endingAssertionProperty": "expectedEndingStructural",
+    "nativeNamesToWeb": "NORMAL->normal; BUMP_HALT->bumpHalt; preserve phase/length numerically. Prefer recorded Web animation strings when aligning, never relabel a mismatched state."
+  },
+  "provenance": {
+    "nativeIndex": {
+      "path": "docs/parity/evidence/original/recursive-family-native-index.json",
+      "sha256": "268d41186fe91d429205440f8a80eeff413ebe9af8b7ef8ca7cbb6e7e8caa834"
+    },
+    "captureGenerator": {
+      "path": "scripts/parity-original/capture-recursive-family.ps1",
+      "sha256": "3873c0b6fdf3a1ca7c47262e9a1ac69b4f9512895bd05347ec865eb6bdef26af"
+    },
+    "nativeIndexGenerator": {
+      "path": "scripts/parity-original/summarize-recursive-families.py",
+      "sha256": "a8ff0be310928aec79f627ac7705ea9b1b1a4456c0d6ddd417cad4145bad1e78"
+    },
+    "structuralHarness": {
+      "path": "tests/originalConformance.test.ts",
+      "sha256": "bbd2ee858d9bd5cf6186d5c28795adfffeb7fbdc725af7d2d63dab6e46bb838e"
+    },
+    "nativeSourceRoot": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp",
+    "nativeSourceHashes": {
+      "Draw.cs": "e26bd1a20c0db16bf15f3961e368aa2f947880399b7361cc6ad9bbe862b012bd",
+      "Projection.cs": "718fb430a8ec8ec405138a5b605cf4d705d0f58db125a9440fbf7df775ee5d80",
+      "Movement.cs": "e2b13b05d8bf8e62b3f101de12754d7b8a3908dfbb8cbf1fec5a66da2bfe9377",
+      "UndoManager.cs": "b99bd5424c0d3e6e71f9cbca284ce010c31c4acdd74223e51c6650938cae716a",
+      "World.cs": "bb97089b150c26d5fa0bd5abf3af3e9a114da39148b96ad601c19ade1fe2e512",
+      "Block.cs": "b93af533734b8d4fe5457263f11ba80f8857361fc9c80cc3cf541c7e6fccb0d9"
+    }
+  },
+  "matchingRules": [
+    "Attempts and accepted turns are distinct; retain blocked inputs in event delivery. All indices under perInput are 1-based.",
+    "Use native history-before:TurnCompleted for accepted Movement.moves; later preview recomputation reuses the scratch list.",
+    "Native raw movement/focus block indices can differ from pruned structural snapshot indices. Do not equate them by number alone.",
+    "captureWebOptions.events use observed native eventStartMs and observed release-minus-press duration from actual capture metadata, not synthetic accepted-only timing.",
+    "Declared source schedule is each direction40ms then NONE650ms. Native observed timings include instrumented frame boundaries; browser actual dispatch timestamps must be retained and checked.",
+    "Native primary phase anchors select actual saved PNGs nearest target phases and retain actual phase and error. Requested target labels are not actual observed phases.",
+    "A null native image is unsupported image evidence even when state metadata exists. No missing frame is rendered or interpolated.",
+    "Compare actual player identity/state, animation kind/length/phase and camera phase before image comparison. Do not compare by nominal elapsed time alone.",
+    "Native terminal PNGs can retain BUMP_HALT offsets although AnyBlockMoving is false; structural endpoint equality does not establish equal final animation phase.",
+    "These contracts cover the native retained direction routes only; undo/redo/restart, extra setup, suffix inputs and generated-zone claims need their own evidence."
+  ],
+  "routes": [
+    {
+      "id": "infenter-first-walk-native-v1-20261025",
+      "level": "infenter_first_2",
+      "sequence": "URDLRRUULDRULLDDRURDLU",
+      "setup": [],
+      "rrSetupIncluded": false,
+      "startingStateKind": "Fresh source level, settled before capture; no direction setup.",
+      "nativeCaptureSettings": {
+        "requestId": "infenter-first-walk-native-v1-20261025",
+        "level": "infenter_first_2",
+        "screenWidth": 800,
+        "screenHeight": 600,
+        "targetFrameRate": 60,
+        "vSyncCount": 0,
+        "moveDelay": 70,
+        "allowSkippingAnimation": false,
+        "instantZoom": false,
+        "screenshotStride": 8
+      },
+      "drawStyle": "NORMAL",
+      "declaredNativeTimeline": [
+        "UP:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650"
+      ],
+      "counts": {
+        "attemptedInputs": 22,
+        "acceptedTurns": 22,
+        "blockedAttempts": 0,
+        "frameStates": 910,
+        "savedPngs": 214,
+        "metadataOnlyFrames": 696
+      },
+      "blockedAttemptIndices": [],
+      "startingStructural": {
+        "levelName": "infenter_first_2",
+        "moveCount": 0,
+        "winning": false,
+        "buttonsSatisfied": false,
+        "finishesSatisfied": false,
+        "wentToInfZone": false,
+        "pastCount": 0,
+        "futureCount": 0,
+        "player": {
+          "index": 25,
+          "outer": 0,
+          "sub": 1,
+          "x": 4,
+          "y": 4,
+          "isPlayer": true,
+          "playerOrder": 0,
+          "flipH": false,
+          "movedSinceRestart": false
+        },
+        "blockCount": 71,
+        "snapshotHash": "29b5b0728e0bc6e3727283ecbe2ce044bc830fb2cc912e12a6ee3f27ba4bf08f"
+      },
+      "expectedEndingStructural": {
+        "levelName": "infenter_first_2",
+        "moveCount": 22,
+        "winning": false,
+        "buttonsSatisfied": false,
+        "finishesSatisfied": true,
+        "wentToInfZone": false,
+        "pastCount": 22,
+        "futureCount": 0,
+        "player": {
+          "index": 25,
+          "outer": 0,
+          "sub": 1,
+          "x": 5,
+          "y": 5,
+          "isPlayer": true,
+          "playerOrder": 0,
+          "flipH": false,
+          "movedSinceRestart": true
+        },
+        "blockCount": 71,
+        "snapshotHash": "adbd51ca2d050316db75552f2f02798b529b8949fbdc80b28529a014b43a840f"
+      },
+      "nativeStartFrame": {
+        "file": "frame-0000.png",
+        "frame": 31081,
+        "elapsedMs": 0,
+        "eventIndex": 0,
+        "control": "UP",
+        "moveCount": 0,
+        "outerLevel": 0,
+        "x": 4,
+        "y": 4,
+        "anim": "NORMAL",
+        "animT": 0,
+        "animLength": 0,
+        "drawXOffset": 0,
+        "drawYOffset": 0,
+        "drawXScale": 1,
+        "drawYScale": 1,
+        "anyBlockMoving": false,
+        "cameraFlipH": false,
+        "cameraAnimT": 0.5,
+        "cameraAnimLength": 0.5,
+        "newCamT": 1,
+        "newX": 0,
+        "newY": 0,
+        "newXS": 1,
+        "newYS": 1
+      },
+      "nativeEndFrame": {
+        "file": "frame-0909.png",
+        "frame": 31990,
+        "elapsedMs": 15540.9961,
+        "eventIndex": 43,
+        "control": "NONE",
+        "moveCount": 22,
+        "outerLevel": 0,
+        "x": 5,
+        "y": 5,
+        "anim": "BUMP_HALT",
+        "animT": 0.235931888,
+        "animLength": 0.22,
+        "drawXOffset": 0,
+        "drawYOffset": 0,
+        "drawXScale": 1,
+        "drawYScale": 1,
+        "anyBlockMoving": false,
+        "cameraFlipH": false,
+        "cameraAnimT": 0.1,
+        "cameraAnimLength": 0.1,
+        "newCamT": 1,
+        "newX": 0,
+        "newY": 0,
+        "newXS": 1,
+        "newYS": 1
+      },
+      "coverage": {
+        "strictInfiniteEnter": [],
+        "strictInfiniteExit": [],
+        "endpointWentToInfZone": false,
+        "generatedZoneCredit": false,
+        "cloneEntryTurns": 0,
+        "note": "Strict predicates require accepted Enter.infEnterNum>=0 or Exit.infExitNum>=0; cloneEntry alone and a level name do not satisfy them."
+      },
+      "captureWebOptions": {
+        "level": "infenter_first_2",
+        "setupActions": [],
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowUp",
+            "duration": 55.76706
+          },
+          {
+            "at": 712.436646,
+            "key": "ArrowRight",
+            "duration": 44.63965399999995
+          },
+          {
+            "at": 1410.305,
+            "key": "ArrowDown",
+            "duration": 61.538749999999936
+          },
+          {
+            "at": 2125.229,
+            "key": "ArrowLeft",
+            "duration": 54.66065000000026
+          },
+          {
+            "at": 2831.1272,
+            "key": "ArrowRight",
+            "duration": 41.133800000000065
+          },
+          {
+            "at": 3536.1062,
+            "key": "ArrowRight",
+            "duration": 58.36479999999983
+          },
+          {
+            "at": 4246.658,
+            "key": "ArrowUp",
+            "duration": 43.388999999999214
+          },
+          {
+            "at": 4940.12061,
+            "key": "ArrowUp",
+            "duration": 50.00292999999965
+          },
+          {
+            "at": 5641.979,
+            "key": "ArrowLeft",
+            "duration": 50.003420000000006
+          },
+          {
+            "at": 6346.22168,
+            "key": "ArrowDown",
+            "duration": 43.50684000000001
+          },
+          {
+            "at": 7043.56,
+            "key": "ArrowRight",
+            "duration": 58.33062999999947
+          },
+          {
+            "at": 7752.6167,
+            "key": "ArrowUp",
+            "duration": 51.166300000000774
+          },
+          {
+            "at": 8458.172,
+            "key": "ArrowLeft",
+            "duration": 54.568999999999505
+          },
+          {
+            "at": 9173.648,
+            "key": "ArrowLeft",
+            "duration": 40.39500000000044
+          },
+          {
+            "at": 9872.643,
+            "key": "ArrowDown",
+            "duration": 54.68299999999908
+          },
+          {
+            "at": 10593.22,
+            "key": "ArrowDown",
+            "duration": 51.14720000000125
+          },
+          {
+            "at": 11303.2949,
+            "key": "ArrowRight",
+            "duration": 51.735099999999875
+          },
+          {
+            "at": 12007.835,
+            "key": "ArrowUp",
+            "duration": 52.337900000000445
+          },
+          {
+            "at": 12715.5605,
+            "key": "ArrowRight",
+            "duration": 56.015699999999924
+          },
+          {
+            "at": 13422.9961,
+            "key": "ArrowDown",
+            "duration": 55.86329999999907
+          },
+          {
+            "at": 14138.9043,
+            "key": "ArrowLeft",
+            "duration": 53.03219999999965
+          },
+          {
+            "at": 14851.6543,
+            "key": "ArrowUp",
+            "duration": 50.70119999999952
+          }
+        ],
+        "settleMs": 650,
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "expectedStarting": {
+          "levelName": "infenter_first_2",
+          "moveCount": 0,
+          "winning": false,
+          "moving": false,
+          "wentToInfZone": false,
+          "cameraFlipH": false,
+          "player": {
+            "outer": 0,
+            "x": 4,
+            "y": 4
+          }
+        },
+        "captureStateChanges": true,
+        "captureMotion": true,
+        "captureCameraMotion": true
+      },
+      "sourceNominalEventSchedule": {
+        "pressEveryMs": 690,
+        "holdMs": 40,
+        "releaseMs": 650,
+        "note": "Alternate source-spec replay only. Do not silently substitute this nominal timing for the observed event schedule above."
+      },
+      "perInput": [
+        {
+          "attempt": 1,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 1,
+          "fixtureHashAfter": "99bca696370ab4d45648385f155988ccf919b612bc53cec5ea8e5138bdbdc4c1",
+          "nativePressAtMs": 0,
+          "nativeReleaseAtMs": 55.76706,
+          "lastSavedFrame": {
+            "file": "frame-0041.png",
+            "frame": 31122,
+            "elapsedMs": 693.4128,
+            "moveCount": 1,
+            "outerLevel": 0,
+            "x": 4,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.233520508,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31082,
+            "elapsedMs": 22.4342346,
+            "moveCount": 1,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 2,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 2,
+          "fixtureHashAfter": "916666e1720178f85520aa6088664c11f573b5dbe667eafb25b4f19f119a4037",
+          "nativePressAtMs": 712.436646,
+          "nativeReleaseAtMs": 757.0763,
+          "lastSavedFrame": {
+            "file": "frame-0082.png",
+            "frame": 31163,
+            "elapsedMs": 1391.12854,
+            "moveCount": 2,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.233344018,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31124,
+            "elapsedMs": 737.0491,
+            "moveCount": 2,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 3,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 3,
+          "fixtureHashAfter": "1dea0a96794210b91f49ad6787123cb22274bd9673828f679a085c11c19836bf",
+          "nativePressAtMs": 1410.305,
+          "nativeReleaseAtMs": 1471.84375,
+          "lastSavedFrame": {
+            "file": "frame-0123.png",
+            "frame": 31204,
+            "elapsedMs": 2108.57,
+            "moveCount": 3,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.235255912,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31165,
+            "elapsedMs": 1428.16919,
+            "moveCount": 3,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 4,
+          "command": "LEFT",
+          "accepted": true,
+          "moveCountAfter": 4,
+          "fixtureHashAfter": "220bc075026f529246898a3d0b377c78756f09b6d4775b7768fc0088ef6bd9e3",
+          "nativePressAtMs": 2125.229,
+          "nativeReleaseAtMs": 2179.88965,
+          "lastSavedFrame": {
+            "file": "frame-0163.png",
+            "frame": 31244,
+            "elapsedMs": 2798.75952,
+            "moveCount": 4,
+            "outerLevel": 0,
+            "x": 4,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.2220626,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31206,
+            "elapsedMs": 2143.56982,
+            "moveCount": 4,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 5,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 5,
+          "fixtureHashAfter": "9ddff076ae548bb304fc849d83cd730ffc30c1be2f0241b22d565b312a2f521f",
+          "nativePressAtMs": 2831.1272,
+          "nativeReleaseAtMs": 2872.261,
+          "lastSavedFrame": {
+            "file": "frame-0204.png",
+            "frame": 31285,
+            "elapsedMs": 3518.00537,
+            "moveCount": 5,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.23428829,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31246,
+            "elapsedMs": 2853.57275,
+            "moveCount": 5,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 6,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 6,
+          "fixtureHashAfter": "fc543dc53c1dd86bda186cd3a17156c80a6fa395791f4facbfe2952e34cca848",
+          "nativePressAtMs": 3536.1062,
+          "nativeReleaseAtMs": 3594.471,
+          "lastSavedFrame": {
+            "file": "frame-0245.png",
+            "frame": 31326,
+            "elapsedMs": 4223.56055,
+            "moveCount": 6,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.220058993,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31287,
+            "elapsedMs": 3554.76,
+            "moveCount": 6,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 7,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 7,
+          "fixtureHashAfter": "ec53710889435618325e9fca616943caa438a7e0fbc16067141a241e41628a14",
+          "nativePressAtMs": 4246.658,
+          "nativeReleaseAtMs": 4290.047,
+          "lastSavedFrame": {
+            "file": "frame-0284.png",
+            "frame": 31365,
+            "elapsedMs": 4923.454,
+            "moveCount": 7,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.233234808,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31328,
+            "elapsedMs": 4269.379,
+            "moveCount": 7,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 8,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 8,
+          "fixtureHashAfter": "14ffb1604a6a2967beac79463ed786d76f77ed09ae75f94cb235dd945eff626f",
+          "nativePressAtMs": 4940.12061,
+          "nativeReleaseAtMs": 4990.12354,
+          "lastSavedFrame": {
+            "file": "frame-0326.png",
+            "frame": 31407,
+            "elapsedMs": 5625.23633,
+            "moveCount": 8,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 6,
+            "anim": "BUMP_HALT",
+            "animT": 0.233570889,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31367,
+            "elapsedMs": 4956.791,
+            "moveCount": 8,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 9,
+          "command": "LEFT",
+          "accepted": true,
+          "moveCountAfter": 9,
+          "fixtureHashAfter": "b45a3b6811d287e1e8a57de5e8465a3fd6d26cc5ebdf16948b638cbcda984159",
+          "nativePressAtMs": 5641.979,
+          "nativeReleaseAtMs": 5691.98242,
+          "lastSavedFrame": {
+            "file": "frame-0368.png",
+            "frame": 31449,
+            "elapsedMs": 6328.323,
+            "moveCount": 9,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 6,
+            "anim": "BUMP_HALT",
+            "animT": 0.235194415,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31409,
+            "elapsedMs": 5658.64551,
+            "moveCount": 9,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 10,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 10,
+          "fixtureHashAfter": "379b1cdeb74bb347b660bf8829c252339c0b5181b7a9de1f6f1e086fe943f3df",
+          "nativePressAtMs": 6346.22168,
+          "nativeReleaseAtMs": 6389.72852,
+          "lastSavedFrame": {
+            "file": "frame-0409.png",
+            "frame": 31490,
+            "elapsedMs": 7026.093,
+            "moveCount": 10,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.2354827,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31451,
+            "elapsedMs": 6371.704,
+            "moveCount": 10,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 11,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 11,
+          "fixtureHashAfter": "bc5ad94c2b1518f43a84ea1b166200ef06fcb7982d700134e3ca319440fa1446",
+          "nativePressAtMs": 7043.56,
+          "nativeReleaseAtMs": 7101.89063,
+          "lastSavedFrame": {
+            "file": "frame-0450.png",
+            "frame": 31531,
+            "elapsedMs": 7735.096,
+            "moveCount": 11,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.235643208,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31492,
+            "elapsedMs": 7061.6416,
+            "moveCount": 11,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 12,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 12,
+          "fixtureHashAfter": "b15e699db04c46c24372f20cc24c80e8b9b9ef926ce3e5d4d99c45a9acd6fd84",
+          "nativePressAtMs": 7752.6167,
+          "nativeReleaseAtMs": 7803.783,
+          "lastSavedFrame": {
+            "file": "frame-0492.png",
+            "frame": 31573,
+            "elapsedMs": 8440.598,
+            "moveCount": 12,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 6,
+            "anim": "BUMP_HALT",
+            "animT": 0.234277174,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31533,
+            "elapsedMs": 7769.287,
+            "moveCount": 12,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 13,
+          "command": "LEFT",
+          "accepted": true,
+          "moveCountAfter": 13,
+          "fixtureHashAfter": "cb73078d865b6fa3caf5371000fc1954fd0814358857bf854e67d8d7d384a93d",
+          "nativePressAtMs": 8458.172,
+          "nativeReleaseAtMs": 8512.741,
+          "lastSavedFrame": {
+            "file": "frame-0533.png",
+            "frame": 31614,
+            "elapsedMs": 9150.479,
+            "moveCount": 13,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 6,
+            "anim": "BUMP_HALT",
+            "animT": 0.2408544,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31575,
+            "elapsedMs": 8475.044,
+            "moveCount": 13,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 14,
+          "command": "LEFT",
+          "accepted": true,
+          "moveCountAfter": 14,
+          "fixtureHashAfter": "0fe880cc13148f743ec4aa0c6932a970476d2fbf5f555cf408d4f12369c34859",
+          "nativePressAtMs": 9173.648,
+          "nativeReleaseAtMs": 9214.043,
+          "lastSavedFrame": {
+            "file": "frame-0574.png",
+            "frame": 31655,
+            "elapsedMs": 9855.977,
+            "moveCount": 14,
+            "outerLevel": 0,
+            "x": 4,
+            "y": 6,
+            "anim": "BUMP_HALT",
+            "animT": 0.2229171,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31616,
+            "elapsedMs": 9194.1875,
+            "moveCount": 14,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 15,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 15,
+          "fixtureHashAfter": "6db99321b2f193eb2057905269122d6c1fca664286f0e9df81ba19cf7257fd38",
+          "nativePressAtMs": 9872.643,
+          "nativeReleaseAtMs": 9927.326,
+          "lastSavedFrame": {
+            "file": "frame-0616.png",
+            "frame": 31697,
+            "elapsedMs": 10576.3584,
+            "moveCount": 15,
+            "outerLevel": 0,
+            "x": 4,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.2378605,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31657,
+            "elapsedMs": 9892.834,
+            "moveCount": 15,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 16,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 16,
+          "fixtureHashAfter": "96f0ac290386e880cfd41068fa26a0e81b338e5f466c3d426fc81427dbc7455d",
+          "nativePressAtMs": 10593.22,
+          "nativeReleaseAtMs": 10644.3672,
+          "lastSavedFrame": {
+            "file": "frame-0658.png",
+            "frame": 31739,
+            "elapsedMs": 11286.2285,
+            "moveCount": 16,
+            "outerLevel": 0,
+            "x": 4,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.220723808,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31699,
+            "elapsedMs": 10611.0342,
+            "moveCount": 16,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 17,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 17,
+          "fixtureHashAfter": "387504f17250d7c2398d002ac067e66a2d70e131172d209a3001bff68fb19f21",
+          "nativePressAtMs": 11303.2949,
+          "nativeReleaseAtMs": 11355.03,
+          "lastSavedFrame": {
+            "file": "frame-0700.png",
+            "frame": 31781,
+            "elapsedMs": 11988.7119,
+            "moveCount": 17,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.2333317,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31741,
+            "elapsedMs": 11320.16,
+            "moveCount": 17,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 18,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 18,
+          "fixtureHashAfter": "0b9f99997262b19011834c8053ec2f12e62e91e516875f67c71792a524264438",
+          "nativePressAtMs": 12007.835,
+          "nativeReleaseAtMs": 12060.1729,
+          "lastSavedFrame": {
+            "file": "frame-0742.png",
+            "frame": 31823,
+            "elapsedMs": 12698.8828,
+            "moveCount": 18,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.235715091,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31783,
+            "elapsedMs": 12024.51,
+            "moveCount": 18,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 19,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 19,
+          "fixtureHashAfter": "6735f6b5cc5ecb452948aa766163ebe7b1205396a3ec317159f453177d835f23",
+          "nativePressAtMs": 12715.5605,
+          "nativeReleaseAtMs": 12771.5762,
+          "lastSavedFrame": {
+            "file": "frame-0783.png",
+            "frame": 31864,
+            "elapsedMs": 13406.3223,
+            "moveCount": 19,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.222495109,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31825,
+            "elapsedMs": 12736.79,
+            "moveCount": 19,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 20,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 20,
+          "fixtureHashAfter": "375110ea46f3f78db9a820c74cf9df43e3e85ec90d303f3e67eec8993a139604",
+          "nativePressAtMs": 13422.9961,
+          "nativeReleaseAtMs": 13478.8594,
+          "lastSavedFrame": {
+            "file": "frame-0825.png",
+            "frame": 31906,
+            "elapsedMs": 14122.2344,
+            "moveCount": 20,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.233775213,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31866,
+            "elapsedMs": 13439.6631,
+            "moveCount": 20,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 21,
+          "command": "LEFT",
+          "accepted": true,
+          "moveCountAfter": 21,
+          "fixtureHashAfter": "85cf8ddfde09d2eee9c7669b65c0cd866774ab0c14ac678695d1ef9dc0be7b3e",
+          "nativePressAtMs": 14138.9043,
+          "nativeReleaseAtMs": 14191.9365,
+          "lastSavedFrame": {
+            "file": "frame-0867.png",
+            "frame": 31948,
+            "elapsedMs": 14834.9873,
+            "moveCount": 21,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.238794789,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31908,
+            "elapsedMs": 14156.0322,
+            "moveCount": 21,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 22,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 22,
+          "fixtureHashAfter": "adbd51ca2d050316db75552f2f02798b529b8949fbdc80b28529a014b43a840f",
+          "nativePressAtMs": 14851.6543,
+          "nativeReleaseAtMs": 14902.3555,
+          "lastSavedFrame": {
+            "file": "frame-0909.png",
+            "frame": 31990,
+            "elapsedMs": 15540.9961,
+            "moveCount": 22,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.235931888,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 31950,
+            "elapsedMs": 14868.3164,
+            "moveCount": 22,
+            "cloneEntry": false
+          }
+        }
+      ],
+      "nativePhaseSelections": [
+        {
+          "attempt": 1,
+          "moveCount": 1,
+          "firstPrimaryMotionState": {
+            "file": "frame-0001.png",
+            "frame": 31082,
+            "elapsedMs": 22.4342346,
+            "eventIndex": 0,
+            "control": "UP",
+            "moveCount": 1,
+            "outerLevel": 0,
+            "x": 4,
+            "y": 5,
+            "anim": "NORMAL",
+            "animT": 0.022435,
+            "animLength": 0.1,
+            "drawXOffset": 0,
+            "drawYOffset": 0.77565,
+            "drawXScale": 0.8607863,
+            "drawYScale": 1.0696069,
+            "anyBlockMoving": true,
+            "cameraFlipH": false,
+            "cameraAnimT": 0.022435,
+            "cameraAnimLength": 0.1,
+            "newCamT": 1,
+            "newX": 0,
+            "newY": 0,
+            "newXS": 1,
+            "newYS": 1
+          },
+          "phaseAnchors": [
+            {
+              "requestedPhase": 0.25,
+              "actualPhase": 0.22435,
+              "phaseDifference": -0.025650000000000006,
+              "frame": {
+                "file": "frame-0001.png",
+                "frame": 31082,
+                "elapsedMs": 22.4342346,
+                "eventIndex": 0,
+                "control": "UP",
+                "moveCount": 1,
+                "outerLevel": 0,
+                "x": 4,
+                "y": 5,
+                "anim": "NORMAL",
+                "animT": 0.022435,
+                "animLength": 0.1,
+                "drawXOffset": 0,
+                "drawYOffset": 0.77565,
+                "drawXScale": 0.8607863,
+                "drawYScale": 1.0696069,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.022435,
+                "cameraAnimLength": 0.1,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": true,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label."
+            },
+            {
+              "requestedPhase": 0.5,
+              "actualPhase": 0.557688,
+              "phaseDifference": 0.05768799999999996,
+              "frame": {
+                "file": "frame-0003.png",
+                "frame": 31084,
+                "elapsedMs": 55.76706,
+                "eventIndex": 1,
+                "control": "NONE",
+                "moveCount": 1,
+                "outerLevel": 0,
+                "x": 4,
+                "y": 5,
+                "anim": "NORMAL",
+                "animT": 0.0557688,
+                "animLength": 0.1,
+                "drawXOffset": 0,
+                "drawYOffset": 0.442312,
+                "drawXScale": 0.8026623,
+                "drawYScale": 1.09866881,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.0557688,
+                "cameraAnimLength": 0.1,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": true,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label."
+            },
+            {
+              "requestedPhase": 0.75,
+              "actualPhase": 0.557688,
+              "phaseDifference": -0.19231200000000004,
+              "frame": {
+                "file": "frame-0003.png",
+                "frame": 31084,
+                "elapsedMs": 55.76706,
+                "eventIndex": 1,
+                "control": "NONE",
+                "moveCount": 1,
+                "outerLevel": 0,
+                "x": 4,
+                "y": 5,
+                "anim": "NORMAL",
+                "animT": 0.0557688,
+                "animLength": 0.1,
+                "drawXOffset": 0,
+                "drawYOffset": 0.442312,
+                "drawXScale": 0.8026623,
+                "drawYScale": 1.09866881,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.0557688,
+                "cameraAnimLength": 0.1,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": false,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label.",
+              "unsupportedTargetReason": "Requested phase lies outside retained primary-motion PNG coverage; nearest image remains diagnostic only."
+            },
+            {
+              "requestedPhase": 1,
+              "actualPhase": 0.557688,
+              "phaseDifference": -0.44231200000000004,
+              "frame": {
+                "file": "frame-0003.png",
+                "frame": 31084,
+                "elapsedMs": 55.76706,
+                "eventIndex": 1,
+                "control": "NONE",
+                "moveCount": 1,
+                "outerLevel": 0,
+                "x": 4,
+                "y": 5,
+                "anim": "NORMAL",
+                "animT": 0.0557688,
+                "animLength": 0.1,
+                "drawXOffset": 0,
+                "drawYOffset": 0.442312,
+                "drawXScale": 0.8026623,
+                "drawYScale": 1.09866881,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.0557688,
+                "cameraAnimLength": 0.1,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": false,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label.",
+              "unsupportedTargetReason": "Requested phase lies outside retained primary-motion PNG coverage; nearest image remains diagnostic only."
+            }
+          ],
+          "cameraPhaseAnchors": [],
+          "savedPrimaryPhaseRange": [
+            0.22435,
+            0.557688
+          ]
+        },
+        {
+          "attempt": 22,
+          "moveCount": 22,
+          "firstPrimaryMotionState": {
+            "file": "frame-0869.png",
+            "frame": 31950,
+            "elapsedMs": 14868.3164,
+            "eventIndex": 42,
+            "control": "UP",
+            "moveCount": 22,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 5,
+            "anim": "NORMAL",
+            "animT": 0.0166614,
+            "animLength": 0.1,
+            "drawXOffset": 0,
+            "drawYOffset": 0.833386,
+            "drawXScale": 0.888916969,
+            "drawYScale": 1.05554152,
+            "anyBlockMoving": true,
+            "cameraFlipH": false,
+            "cameraAnimT": 0.0166614,
+            "cameraAnimLength": 0.1,
+            "newCamT": 1,
+            "newX": 0,
+            "newY": 0,
+            "newXS": 1,
+            "newYS": 1
+          },
+          "phaseAnchors": [
+            {
+              "requestedPhase": 0.25,
+              "actualPhase": 0.16661399999999998,
+              "phaseDifference": -0.08338600000000002,
+              "frame": {
+                "file": "frame-0869.png",
+                "frame": 31950,
+                "elapsedMs": 14868.3164,
+                "eventIndex": 42,
+                "control": "UP",
+                "moveCount": 22,
+                "outerLevel": 0,
+                "x": 5,
+                "y": 5,
+                "anim": "NORMAL",
+                "animT": 0.0166614,
+                "animLength": 0.1,
+                "drawXOffset": 0,
+                "drawYOffset": 0.833386,
+                "drawXScale": 0.888916969,
+                "drawYScale": 1.05554152,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.0166614,
+                "cameraAnimLength": 0.1,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": true,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label."
+            },
+            {
+              "requestedPhase": 0.5,
+              "actualPhase": 0.50701,
+              "phaseDifference": 0.007009999999999961,
+              "frame": {
+                "file": "frame-0871.png",
+                "frame": 31952,
+                "elapsedMs": 14902.3555,
+                "eventIndex": 43,
+                "control": "NONE",
+                "moveCount": 22,
+                "outerLevel": 0,
+                "x": 5,
+                "y": 5,
+                "anim": "NORMAL",
+                "animT": 0.050701,
+                "animLength": 0.1,
+                "drawXOffset": 0,
+                "drawYOffset": 0.492990017,
+                "drawXScale": 0.800039351,
+                "drawYScale": 1.09998035,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.050701,
+                "cameraAnimLength": 0.1,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": true,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label."
+            },
+            {
+              "requestedPhase": 0.75,
+              "actualPhase": 0.50701,
+              "phaseDifference": -0.24299000000000004,
+              "frame": {
+                "file": "frame-0871.png",
+                "frame": 31952,
+                "elapsedMs": 14902.3555,
+                "eventIndex": 43,
+                "control": "NONE",
+                "moveCount": 22,
+                "outerLevel": 0,
+                "x": 5,
+                "y": 5,
+                "anim": "NORMAL",
+                "animT": 0.050701,
+                "animLength": 0.1,
+                "drawXOffset": 0,
+                "drawYOffset": 0.492990017,
+                "drawXScale": 0.800039351,
+                "drawYScale": 1.09998035,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.050701,
+                "cameraAnimLength": 0.1,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": false,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label.",
+              "unsupportedTargetReason": "Requested phase lies outside retained primary-motion PNG coverage; nearest image remains diagnostic only."
+            },
+            {
+              "requestedPhase": 1,
+              "actualPhase": 0.50701,
+              "phaseDifference": -0.49299000000000004,
+              "frame": {
+                "file": "frame-0871.png",
+                "frame": 31952,
+                "elapsedMs": 14902.3555,
+                "eventIndex": 43,
+                "control": "NONE",
+                "moveCount": 22,
+                "outerLevel": 0,
+                "x": 5,
+                "y": 5,
+                "anim": "NORMAL",
+                "animT": 0.050701,
+                "animLength": 0.1,
+                "drawXOffset": 0,
+                "drawYOffset": 0.492990017,
+                "drawXScale": 0.800039351,
+                "drawYScale": 1.09998035,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.050701,
+                "cameraAnimLength": 0.1,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": false,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label.",
+              "unsupportedTargetReason": "Requested phase lies outside retained primary-motion PNG coverage; nearest image remains diagnostic only."
+            }
+          ],
+          "cameraPhaseAnchors": [],
+          "savedPrimaryPhaseRange": [
+            0.16661399999999998,
+            0.50701
+          ]
+        }
+      ],
+      "unsupportedTails": [
+        "No retained inputs after attempt 22.",
+        "No undo/redo/restart/pause tail in this native route.",
+        "Sparse short primary motions do not retain PNGs through every requested .75/1 tail; see targetWithinSavedPrimaryPhaseRange and raw metadata-only frames."
+      ],
+      "webReplayStatus": "not run by this document-only audit",
+      "provenance": {
+        "route.json": {
+          "path": "docs/parity/evidence/original/infenter-first-walk-native-v1-20261025/route.json",
+          "sha256": "8f2daf075ac356696e830295fc3f307d4d17b1eb78e0cb07e18301af04570502"
+        },
+        "capture.json": {
+          "path": "docs/parity/evidence/original/infenter-first-walk-native-v1-20261025/capture.json",
+          "sha256": "8c2b4a2faa2d0578506fe0a5edbfbdedae8303099c0b02c0ae4ec4e3d5078759"
+        },
+        "phases.json": {
+          "path": "docs/parity/evidence/original/infenter-first-walk-native-v1-20261025/phases.json",
+          "sha256": "11ab05a8a1623db7b8f3bb84006653f9db5b053d1fb7709c1c2d8e587d205ef4"
+        },
+        "start-state.json": {
+          "path": "docs/parity/evidence/original/infenter-first-walk-native-v1-20261025/start-state.json",
+          "sha256": "606608bb972537c1263506320b820d9ac53ce2fd2da35e80df06e2403238fae5"
+        },
+        "end-state.json": {
+          "path": "docs/parity/evidence/original/infenter-first-walk-native-v1-20261025/end-state.json",
+          "sha256": "8aea7281ea8629c51cee885281f1081bd23563c2dea9bc16ff4b42072f7a6243"
+        },
+        "observer-build.json": {
+          "path": "docs/parity/evidence/original/infenter-first-walk-native-v1-20261025/observer-build.json",
+          "sha256": "83ab129454aec38bcd94b7f5d1ad966e6e920c3403f5b7516b4c077352db7f15"
+        },
+        "hashes.json": {
+          "path": "docs/parity/evidence/original/infenter-first-walk-native-v1-20261025/hashes.json",
+          "sha256": "9e35313dbe860f5c305bcd656d0405d416a69beeb356248f3a2a3d305b51554c"
+        },
+        "infenter_first_2-walk.json": {
+          "path": "tests/fixtures/original/infenter_first_2-walk.json",
+          "sha256": "55dbcd4e1512d998a994fb2a7c1012d52aab051a5dcf75bc1bc8f29cf04d7659"
+        },
+        "infenter_first_2.txt": {
+          "path": "src/assets/levels/infenter_first_2.txt",
+          "sha256": "08c4b0d09efed742aedb6259848bf7f407be7e18b108f9563857db5537f1dcab"
+        },
+        "selectedPngs": {
+          "frame-0000.png": "23cfce5681eb2b017e7645e41aa855160a3b75ce2040553b999adfb67219dd36",
+          "frame-0001.png": "5f29da975d7c178f1c67b8372efb63eb61f10a77a6d061df29d868c82ade18f6",
+          "frame-0003.png": "6e8c3f671d2e445e3f1b48663e2ec1781db7b54b6aa96f2b257a3ba7daa9bc92",
+          "frame-0869.png": "bc37131e76bd8434e4f72baec5c143fd58cfab17c145bf5a7ed83760bd9d95a8",
+          "frame-0871.png": "4fd3ad5b8ac451cd8e297b072de877e20b8562c5d6c3dca61c91d05bfdb05498",
+          "frame-0909.png": "93f0be11e03e32f16e5b03536f886968a356932a8b6f00241817179079a73775"
+        }
+      },
+      "observerBuild": {
+        "sourceSha256": "ee7713a31c186402aedfaafb849b1479894ee09c8472716c52ff2bd0b89f6a8f",
+        "dllSha256": "3279a93d7069e6c1ae9027cbcf24ac89660b635b4a456df8681928b0e028f9e6",
+        "buildWarnings": 0,
+        "buildErrors": 0,
+        "note": "Read-only phase and shine submission observer; sparse PNG encoding only. Native rules run unchanged."
+      }
+    },
+    {
+      "id": "infenter-zone-focused-native-v1-20261025",
+      "level": "infenter_zone_v2",
+      "sequence": "URDLRRUULDRULLDDRURDLURRRRRUUUUULLLLLDDDD",
+      "setup": [],
+      "rrSetupIncluded": false,
+      "startingStateKind": "Fresh source level, settled before capture; no direction setup.",
+      "nativeCaptureSettings": {
+        "requestId": "infenter-zone-focused-native-v1-20261025",
+        "level": "infenter_zone_v2",
+        "screenWidth": 800,
+        "screenHeight": 600,
+        "targetFrameRate": 60,
+        "vSyncCount": 0,
+        "moveDelay": 70,
+        "allowSkippingAnimation": false,
+        "instantZoom": false,
+        "screenshotStride": 8
+      },
+      "drawStyle": "NORMAL",
+      "declaredNativeTimeline": [
+        "UP:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650"
+      ],
+      "counts": {
+        "attemptedInputs": 41,
+        "acceptedTurns": 29,
+        "blockedAttempts": 12,
+        "frameStates": 1633,
+        "savedPngs": 376,
+        "metadataOnlyFrames": 1257
+      },
+      "blockedAttemptIndices": [
+        14,
+        24,
+        25,
+        26,
+        27,
+        29,
+        30,
+        31,
+        32,
+        35,
+        36,
+        37
+      ],
+      "startingStructural": {
+        "levelName": "infenter_zone_v2",
+        "moveCount": 0,
+        "winning": false,
+        "buttonsSatisfied": true,
+        "finishesSatisfied": false,
+        "wentToInfZone": false,
+        "pastCount": 0,
+        "futureCount": 0,
+        "player": {
+          "index": 57,
+          "outer": 0,
+          "sub": 10,
+          "x": 4,
+          "y": 4,
+          "isPlayer": true,
+          "playerOrder": 0,
+          "flipH": false,
+          "movedSinceRestart": false
+        },
+        "blockCount": 87,
+        "snapshotHash": "32a53fe71859961d00a9f1ed90d179dd8b6072be5e63a4fb3ccc14cf64e10a61"
+      },
+      "expectedEndingStructural": {
+        "levelName": "infenter_zone_v2",
+        "moveCount": 29,
+        "winning": false,
+        "buttonsSatisfied": false,
+        "finishesSatisfied": false,
+        "wentToInfZone": false,
+        "pastCount": 29,
+        "futureCount": 0,
+        "player": {
+          "index": 57,
+          "outer": 0,
+          "sub": 10,
+          "x": 5,
+          "y": 2,
+          "isPlayer": true,
+          "playerOrder": 0,
+          "flipH": false,
+          "movedSinceRestart": true
+        },
+        "blockCount": 87,
+        "snapshotHash": "a1803ed62bf17385e05e0174997800de741519e1b6679c4f9e82838d9458dfe0"
+      },
+      "nativeStartFrame": {
+        "file": "frame-0000.png",
+        "frame": 92678,
+        "elapsedMs": 0,
+        "eventIndex": 0,
+        "control": "UP",
+        "moveCount": 0,
+        "outerLevel": 0,
+        "x": 4,
+        "y": 4,
+        "anim": "NORMAL",
+        "animT": 0,
+        "animLength": 0,
+        "drawXOffset": 0,
+        "drawYOffset": 0,
+        "drawXScale": 1,
+        "drawYScale": 1,
+        "anyBlockMoving": false,
+        "cameraFlipH": false,
+        "cameraAnimT": 0.1,
+        "cameraAnimLength": 0.1,
+        "newCamT": 1,
+        "newX": 0,
+        "newY": 0,
+        "newXS": 1,
+        "newYS": 1
+      },
+      "nativeEndFrame": {
+        "file": "frame-1632.png",
+        "frame": 94310,
+        "elapsedMs": 29020.4473,
+        "eventIndex": 81,
+        "control": "NONE",
+        "moveCount": 29,
+        "outerLevel": 0,
+        "x": 5,
+        "y": 2,
+        "anim": "BUMP_HALT",
+        "animT": 0.1815567,
+        "animLength": 0.22,
+        "drawXOffset": 0,
+        "drawYOffset": 0.0140523342,
+        "drawXScale": 1.01405227,
+        "drawYScale": 0.971895337,
+        "anyBlockMoving": false,
+        "cameraFlipH": false,
+        "cameraAnimT": 0.5,
+        "cameraAnimLength": 0.5,
+        "newCamT": 1,
+        "newX": 0,
+        "newY": 0,
+        "newXS": 1,
+        "newYS": 1
+      },
+      "coverage": {
+        "strictInfiniteEnter": [
+          {
+            "frame": 94272,
+            "elapsedMs": 28358.81,
+            "routeInput": 41,
+            "control": "DOWN",
+            "moveCount": 29,
+            "player": {
+              "outerLevel": 0,
+              "x": 5,
+              "y": 3,
+              "anim": "BUMP_HALT",
+              "animT": 0.2273895,
+              "animLength": 0.22
+            },
+            "cloneEntry": false,
+            "attemptMoves": [
+              {
+                "block": 57,
+                "type": "Slide",
+                "infExitNum": 0,
+                "infEnterNum": 0,
+                "fromLevel": 0,
+                "toLevel": 0,
+                "shed": false
+              },
+              {
+                "block": 74,
+                "type": "Slide",
+                "infExitNum": 0,
+                "infEnterNum": 0,
+                "fromLevel": 0,
+                "toLevel": 0,
+                "shed": false
+              },
+              {
+                "block": 59,
+                "type": "Enter",
+                "infExitNum": 0,
+                "infEnterNum": 0,
+                "fromLevel": -1,
+                "toLevel": 7,
+                "shed": false
+              }
+            ],
+            "strictMoves": [
+              {
+                "block": 59,
+                "type": "Enter",
+                "infExitNum": 0,
+                "infEnterNum": 0,
+                "fromLevel": -1,
+                "toLevel": 7,
+                "shed": false
+              }
+            ]
+          }
+        ],
+        "strictInfiniteExit": [],
+        "endpointWentToInfZone": false,
+        "generatedZoneCredit": false,
+        "cloneEntryTurns": 0,
+        "note": "Strict predicates require accepted Enter.infEnterNum>=0 or Exit.infExitNum>=0; cloneEntry alone and a level name do not satisfy them."
+      },
+      "captureWebOptions": {
+        "level": "infenter_zone_v2",
+        "setupActions": [],
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowUp",
+            "duration": 54.7409058
+          },
+          {
+            "at": 708.9691,
+            "key": "ArrowRight",
+            "duration": 46.119699999999966
+          },
+          {
+            "at": 1409.24072,
+            "key": "ArrowDown",
+            "duration": 53.54308999999989
+          },
+          {
+            "at": 2133.621,
+            "key": "ArrowLeft",
+            "duration": 42.11434999999983
+          },
+          {
+            "at": 2837.16577,
+            "key": "ArrowRight",
+            "duration": 58.27343999999994
+          },
+          {
+            "at": 3546.24951,
+            "key": "ArrowRight",
+            "duration": 44.2504899999999
+          },
+          {
+            "at": 4245.56738,
+            "key": "ArrowUp",
+            "duration": 47.17236999999932
+          },
+          {
+            "at": 4958.031,
+            "key": "ArrowUp",
+            "duration": 48.64500000000044
+          },
+          {
+            "at": 5672.29443,
+            "key": "ArrowLeft",
+            "duration": 41.66456999999991
+          },
+          {
+            "at": 6371.98633,
+            "key": "ArrowDown",
+            "duration": 52.6503900000007
+          },
+          {
+            "at": 7087.021,
+            "key": "ArrowRight",
+            "duration": 46.501000000000204
+          },
+          {
+            "at": 7783.56152,
+            "key": "ArrowUp",
+            "duration": 41.221480000000156
+          },
+          {
+            "at": 8490.601,
+            "key": "ArrowLeft",
+            "duration": 60.3179999999993
+          },
+          {
+            "at": 9211.854,
+            "key": "ArrowLeft",
+            "duration": 41.14400000000023
+          },
+          {
+            "at": 9911.926,
+            "key": "ArrowDown",
+            "duration": 47.22600000000057
+          },
+          {
+            "at": 10624.5117,
+            "key": "ArrowDown",
+            "duration": 42.076200000001336
+          },
+          {
+            "at": 11322.4795,
+            "key": "ArrowRight",
+            "duration": 46.195300000001225
+          },
+          {
+            "at": 12022.3545,
+            "key": "ArrowUp",
+            "duration": 42.022500000000946
+          },
+          {
+            "at": 12717.9873,
+            "key": "ArrowRight",
+            "duration": 41.534200000000055
+          },
+          {
+            "at": 13425.2324,
+            "key": "ArrowDown",
+            "duration": 46.248999999999796
+          },
+          {
+            "at": 14132.6064,
+            "key": "ArrowLeft",
+            "duration": 58.53359999999884
+          },
+          {
+            "at": 14858.1465,
+            "key": "ArrowUp",
+            "duration": 47.867199999998775
+          },
+          {
+            "at": 15569.1377,
+            "key": "ArrowRight",
+            "duration": 63.97950000000128
+          },
+          {
+            "at": 16297.501,
+            "key": "ArrowRight",
+            "duration": 40.81739999999991
+          },
+          {
+            "at": 17008.4688,
+            "key": "ArrowRight",
+            "duration": 41.0612000000001
+          },
+          {
+            "at": 17700.3945,
+            "key": "ArrowRight",
+            "duration": 56.15240000000267
+          },
+          {
+            "at": 18418.4883,
+            "key": "ArrowRight",
+            "duration": 58.6836000000003
+          },
+          {
+            "at": 19141.1289,
+            "key": "ArrowUp",
+            "duration": 46.32619999999952
+          },
+          {
+            "at": 19841.1875,
+            "key": "ArrowUp",
+            "duration": 45.51559999999881
+          },
+          {
+            "at": 20554.8711,
+            "key": "ArrowUp",
+            "duration": 41.748899999998685
+          },
+          {
+            "at": 21268.875,
+            "key": "ArrowUp",
+            "duration": 40.92380000000048
+          },
+          {
+            "at": 21967.88,
+            "key": "ArrowUp",
+            "duration": 64.91100000000006
+          },
+          {
+            "at": 22688.5371,
+            "key": "ArrowLeft",
+            "duration": 42.480499999997846
+          },
+          {
+            "at": 23397.5215,
+            "key": "ArrowLeft",
+            "duration": 50.94850000000224
+          },
+          {
+            "at": 24105.59,
+            "key": "ArrowLeft",
+            "duration": 42.52720000000045
+          },
+          {
+            "at": 24805.2832,
+            "key": "ArrowLeft",
+            "duration": 46.23439999999755
+          },
+          {
+            "at": 25502.03,
+            "key": "ArrowLeft",
+            "duration": 45.02860000000146
+          },
+          {
+            "at": 26199.7676,
+            "key": "ArrowDown",
+            "duration": 64.59240000000136
+          },
+          {
+            "at": 26919.082,
+            "key": "ArrowDown",
+            "duration": 46.326200000003155
+          },
+          {
+            "at": 27624.8477,
+            "key": "ArrowDown",
+            "duration": 44.097600000000966
+          },
+          {
+            "at": 28337.0215,
+            "key": "ArrowDown",
+            "duration": 42.188500000000204
+          }
+        ],
+        "settleMs": 650,
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "expectedStarting": {
+          "levelName": "infenter_zone_v2",
+          "moveCount": 0,
+          "winning": false,
+          "moving": false,
+          "wentToInfZone": false,
+          "cameraFlipH": false,
+          "player": {
+            "outer": 0,
+            "x": 4,
+            "y": 4
+          }
+        },
+        "captureStateChanges": true,
+        "captureMotion": true,
+        "captureCameraMotion": true
+      },
+      "sourceNominalEventSchedule": {
+        "pressEveryMs": 690,
+        "holdMs": 40,
+        "releaseMs": 650,
+        "note": "Alternate source-spec replay only. Do not silently substitute this nominal timing for the observed event schedule above."
+      },
+      "perInput": [
+        {
+          "attempt": 1,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 1,
+          "fixtureHashAfter": "c3794bf62ab676e346d4a76ea5a80636dd5f311239c8c8b19c6f98885725a9c9",
+          "nativePressAtMs": 0,
+          "nativeReleaseAtMs": 54.7409058,
+          "lastSavedFrame": {
+            "file": "frame-0039.png",
+            "frame": 92717,
+            "elapsedMs": 689.224243,
+            "moveCount": 1,
+            "outerLevel": 0,
+            "x": 4,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.2383273,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 92679,
+            "elapsedMs": 32.3410034,
+            "moveCount": 1,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 2,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 2,
+          "fixtureHashAfter": "997943dfb50cffedc55d78cbfdc85aa6ea32d79d7499dda7ad583e4ccbc5560c",
+          "nativePressAtMs": 708.9691,
+          "nativeReleaseAtMs": 755.0888,
+          "lastSavedFrame": {
+            "file": "frame-0078.png",
+            "frame": 92756,
+            "elapsedMs": 1376.93787,
+            "moveCount": 2,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.224572986,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 92719,
+            "elapsedMs": 729.7745,
+            "moveCount": 2,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 3,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 3,
+          "fixtureHashAfter": "13f498aebd92135a059c9c6aac8eb6ed38a223dc42e688a8a20cd593d1c7bb2d",
+          "nativePressAtMs": 1409.24072,
+          "nativeReleaseAtMs": 1462.78381,
+          "lastSavedFrame": {
+            "file": "frame-0118.png",
+            "frame": 92796,
+            "elapsedMs": 2111.19849,
+            "moveCount": 3,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.239298478,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 92758,
+            "elapsedMs": 1433.27332,
+            "moveCount": 3,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 4,
+          "command": "LEFT",
+          "accepted": true,
+          "moveCountAfter": 4,
+          "fixtureHashAfter": "c8ac3b5034024164b2489a3ad40323e326a380cd7c7c9086ff6683d902398c8b",
+          "nativePressAtMs": 2133.621,
+          "nativeReleaseAtMs": 2175.73535,
+          "lastSavedFrame": {
+            "file": "frame-0157.png",
+            "frame": 92835,
+            "elapsedMs": 2812.19482,
+            "moveCount": 4,
+            "outerLevel": 0,
+            "x": 4,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.2356437,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 92798,
+            "elapsedMs": 2156.69238,
+            "moveCount": 4,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 5,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 5,
+          "fixtureHashAfter": "9d8ba79682b9941fa23b9abbde05d452b64bf935e7ca4e7d34133565de93570a",
+          "nativePressAtMs": 2837.16577,
+          "nativeReleaseAtMs": 2895.43921,
+          "lastSavedFrame": {
+            "file": "frame-0197.png",
+            "frame": 92875,
+            "elapsedMs": 3525.94751,
+            "moveCount": 5,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.2266357,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 92837,
+            "elapsedMs": 2853.836,
+            "moveCount": 5,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 6,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 6,
+          "fixtureHashAfter": "788407ae2eb1646c3ebeb6143bf632ae9e0d355963478ad892ad8d3b454bd749",
+          "nativePressAtMs": 3546.24951,
+          "nativeReleaseAtMs": 3590.5,
+          "lastSavedFrame": {
+            "file": "frame-0235.png",
+            "frame": 92913,
+            "elapsedMs": 4226.3335,
+            "moveCount": 6,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.236420289,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 92877,
+            "elapsedMs": 3567.726,
+            "moveCount": 6,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 7,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 7,
+          "fixtureHashAfter": "78d0b40c533297ea0ace375314a538ba0d1fc46f7e8378f190f85fc32ac4eedc",
+          "nativePressAtMs": 4245.56738,
+          "nativeReleaseAtMs": 4292.73975,
+          "lastSavedFrame": {
+            "file": "frame-0275.png",
+            "frame": 92953,
+            "elapsedMs": 4937.004,
+            "moveCount": 7,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.228344575,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 92915,
+            "elapsedMs": 4272.171,
+            "moveCount": 7,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 8,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 8,
+          "fixtureHashAfter": "1044733802ae7a65caec8b3a0a65dcae4f603dbcfb0324d7a918fff2bfb0f427",
+          "nativePressAtMs": 4958.031,
+          "nativeReleaseAtMs": 5006.676,
+          "lastSavedFrame": {
+            "file": "frame-0313.png",
+            "frame": 92991,
+            "elapsedMs": 5648.758,
+            "moveCount": 8,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 6,
+            "anim": "BUMP_HALT",
+            "animT": 0.225242,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 92955,
+            "elapsedMs": 4977.15771,
+            "moveCount": 8,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 9,
+          "command": "LEFT",
+          "accepted": true,
+          "moveCountAfter": 9,
+          "fixtureHashAfter": "f7cdf9de3b2ff4a8f9c7a566a018438c42e8e08f475bd22dd03c27457c296000",
+          "nativePressAtMs": 5672.29443,
+          "nativeReleaseAtMs": 5713.959,
+          "lastSavedFrame": {
+            "file": "frame-0352.png",
+            "frame": 93030,
+            "elapsedMs": 6353.28662,
+            "moveCount": 9,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 6,
+            "anim": "BUMP_HALT",
+            "animT": 0.233847022,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 92993,
+            "elapsedMs": 5690.826,
+            "moveCount": 9,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 10,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 10,
+          "fixtureHashAfter": "fbf476d51a393c86c90c7df6e881feab7acffbf58880c2c8e8b9beddea639864",
+          "nativePressAtMs": 6371.98633,
+          "nativeReleaseAtMs": 6424.63672,
+          "lastSavedFrame": {
+            "file": "frame-0391.png",
+            "frame": 93069,
+            "elapsedMs": 7061.989,
+            "moveCount": 10,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.226906121,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 93032,
+            "elapsedMs": 6394.661,
+            "moveCount": 10,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 11,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 11,
+          "fixtureHashAfter": "02d842332048b48550f4cee7adcd461e84dc415b8ec01636e894dd8fcf636cae",
+          "nativePressAtMs": 7087.021,
+          "nativeReleaseAtMs": 7133.522,
+          "lastSavedFrame": {
+            "file": "frame-0430.png",
+            "frame": 93108,
+            "elapsedMs": 7759.60547,
+            "moveCount": 11,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.2429813,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 93071,
+            "elapsedMs": 7111.107,
+            "moveCount": 11,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 12,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 12,
+          "fixtureHashAfter": "0f1dba31b751b7910876e84e130a6a3ea6ef36ff88dc6037807d7b84b259be98",
+          "nativePressAtMs": 7783.56152,
+          "nativeReleaseAtMs": 7824.783,
+          "lastSavedFrame": {
+            "file": "frame-0470.png",
+            "frame": 93148,
+            "elapsedMs": 8471.916,
+            "moveCount": 12,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 6,
+            "anim": "BUMP_HALT",
+            "animT": 0.225385189,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 93110,
+            "elapsedMs": 7804.74072,
+            "moveCount": 12,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 13,
+          "command": "LEFT",
+          "accepted": true,
+          "moveCountAfter": 13,
+          "fixtureHashAfter": "36c54ddd41bcb289df7b4282e786bc8fcb5b018482f13e356ba6b81f855e0188",
+          "nativePressAtMs": 8490.601,
+          "nativeReleaseAtMs": 8550.919,
+          "lastSavedFrame": {
+            "file": "frame-0511.png",
+            "frame": 93189,
+            "elapsedMs": 9190.674,
+            "moveCount": 13,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 6,
+            "anim": "BUMP_HALT",
+            "animT": 0.2390042,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 93150,
+            "elapsedMs": 8507.782,
+            "moveCount": 13,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 14,
+          "command": "LEFT",
+          "accepted": false,
+          "moveCountAfter": 13,
+          "fixtureHashAfter": "36c54ddd41bcb289df7b4282e786bc8fcb5b018482f13e356ba6b81f855e0188",
+          "nativePressAtMs": 9211.854,
+          "nativeReleaseAtMs": 9252.998,
+          "lastSavedFrame": {
+            "file": "frame-0551.png",
+            "frame": 93229,
+            "elapsedMs": 9892.112,
+            "moveCount": 13,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 6,
+            "anim": "BUMP",
+            "animT": 0.232492208,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 15,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 14,
+          "fixtureHashAfter": "c7b03af3efe37e3242c8ab9d598e0e6aae75820229212738a06b123024044e34",
+          "nativePressAtMs": 9911.926,
+          "nativeReleaseAtMs": 9959.152,
+          "lastSavedFrame": {
+            "file": "frame-0590.png",
+            "frame": 93268,
+            "elapsedMs": 10604.4,
+            "moveCount": 14,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.229209512,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 93231,
+            "elapsedMs": 9940.132,
+            "moveCount": 14,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 16,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 15,
+          "fixtureHashAfter": "f85ce9c7c92029f0cfc8ab3ecfef5ff9c0697e11d84ef935288a137c09e865a7",
+          "nativePressAtMs": 10624.5117,
+          "nativeReleaseAtMs": 10666.5879,
+          "lastSavedFrame": {
+            "file": "frame-0631.png",
+            "frame": 93309,
+            "elapsedMs": 11303.9551,
+            "moveCount": 15,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.2352978,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 93270,
+            "elapsedMs": 10644.9434,
+            "moveCount": 15,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 17,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 16,
+          "fixtureHashAfter": "19433dd618e9650552ecc0ade11bbc56d4a89a363f52c35ddb018131e9643c98",
+          "nativePressAtMs": 11322.4795,
+          "nativeReleaseAtMs": 11368.6748,
+          "lastSavedFrame": {
+            "file": "frame-0671.png",
+            "frame": 93349,
+            "elapsedMs": 12005.6836,
+            "moveCount": 16,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.220896184,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 93311,
+            "elapsedMs": 11342.7734,
+            "moveCount": 16,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 18,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 17,
+          "fixtureHashAfter": "60cb8a1d4c8c2c27c4b9edaf1315a70edaaa9d232ecb51ec8d8876e29b2baff3",
+          "nativePressAtMs": 12022.3545,
+          "nativeReleaseAtMs": 12064.377,
+          "lastSavedFrame": {
+            "file": "frame-0710.png",
+            "frame": 93388,
+            "elapsedMs": 12685.8672,
+            "moveCount": 17,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.227551788,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 93351,
+            "elapsedMs": 12045.2344,
+            "moveCount": 17,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 19,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 18,
+          "fixtureHashAfter": "e1fae56e76f4bda2fea788bfc8bc7e8a3739edea3655d3069ba16d4b43f5b8bf",
+          "nativePressAtMs": 12717.9873,
+          "nativeReleaseAtMs": 12759.5215,
+          "lastSavedFrame": {
+            "file": "frame-0750.png",
+            "frame": 93428,
+            "elapsedMs": 13392.4336,
+            "moveCount": 18,
+            "outerLevel": 0,
+            "x": 7,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.222631708,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 93390,
+            "elapsedMs": 12741.5088,
+            "moveCount": 18,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 20,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 19,
+          "fixtureHashAfter": "a85d29556960de902487fc5174be7d5ff058d41a60e4d1a86d69c218bb8f3991",
+          "nativePressAtMs": 13425.2324,
+          "nativeReleaseAtMs": 13471.4814,
+          "lastSavedFrame": {
+            "file": "frame-0789.png",
+            "frame": 93467,
+            "elapsedMs": 14109.1465,
+            "moveCount": 19,
+            "outerLevel": 0,
+            "x": 7,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.230049491,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 93430,
+            "elapsedMs": 13451.7441,
+            "moveCount": 19,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 21,
+          "command": "LEFT",
+          "accepted": true,
+          "moveCountAfter": 20,
+          "fixtureHashAfter": "b0a89f2fbb0725789374701e9c6ac52a05c0290fab9979ea715955c3489febe9",
+          "nativePressAtMs": 14132.6064,
+          "nativeReleaseAtMs": 14191.14,
+          "lastSavedFrame": {
+            "file": "frame-0829.png",
+            "frame": 93507,
+            "elapsedMs": 14839.31,
+            "moveCount": 20,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.222636,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 93469,
+            "elapsedMs": 14152.5879,
+            "moveCount": 20,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 22,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 21,
+          "fixtureHashAfter": "070ae15209bab102099689d2ed72e314e026237357a4162ba3898654db02e40c",
+          "nativePressAtMs": 14858.1465,
+          "nativeReleaseAtMs": 14906.0137,
+          "lastSavedFrame": {
+            "file": "frame-0869.png",
+            "frame": 93547,
+            "elapsedMs": 15545.7,
+            "moveCount": 21,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.224615812,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 93509,
+            "elapsedMs": 14878.44,
+            "moveCount": 21,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 23,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 22,
+          "fixtureHashAfter": "1502081074f5981247046de72cfd7cb4511039761f867a831816ba0d8dfa8957",
+          "nativePressAtMs": 15569.1377,
+          "nativeReleaseAtMs": 15633.1172,
+          "lastSavedFrame": {
+            "file": "frame-0911.png",
+            "frame": 93589,
+            "elapsedMs": 16279.4033,
+            "moveCount": 22,
+            "outerLevel": 0,
+            "x": 7,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.2337078,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 93549,
+            "elapsedMs": 15585.9531,
+            "moveCount": 22,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 24,
+          "command": "RIGHT",
+          "accepted": false,
+          "moveCountAfter": 22,
+          "fixtureHashAfter": "1502081074f5981247046de72cfd7cb4511039761f867a831816ba0d8dfa8957",
+          "nativePressAtMs": 16297.501,
+          "nativeReleaseAtMs": 16338.3184,
+          "lastSavedFrame": {
+            "file": "frame-0951.png",
+            "frame": 93629,
+            "elapsedMs": 16987.8535,
+            "moveCount": 22,
+            "outerLevel": 0,
+            "x": 7,
+            "y": 5,
+            "anim": "BUMP",
+            "animT": 0.2308744,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 25,
+          "command": "RIGHT",
+          "accepted": false,
+          "moveCountAfter": 22,
+          "fixtureHashAfter": "1502081074f5981247046de72cfd7cb4511039761f867a831816ba0d8dfa8957",
+          "nativePressAtMs": 17008.4688,
+          "nativeReleaseAtMs": 17049.53,
+          "lastSavedFrame": {
+            "file": "frame-0990.png",
+            "frame": 93668,
+            "elapsedMs": 17683.0137,
+            "moveCount": 22,
+            "outerLevel": 0,
+            "x": 7,
+            "y": 5,
+            "anim": "BUMP",
+            "animT": 0.228013724,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 26,
+          "command": "RIGHT",
+          "accepted": false,
+          "moveCountAfter": 22,
+          "fixtureHashAfter": "1502081074f5981247046de72cfd7cb4511039761f867a831816ba0d8dfa8957",
+          "nativePressAtMs": 17700.3945,
+          "nativeReleaseAtMs": 17756.5469,
+          "lastSavedFrame": {
+            "file": "frame-1031.png",
+            "frame": 93709,
+            "elapsedMs": 18395.7832,
+            "moveCount": 22,
+            "outerLevel": 0,
+            "x": 7,
+            "y": 5,
+            "anim": "BUMP",
+            "animT": 0.23459658,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 27,
+          "command": "RIGHT",
+          "accepted": false,
+          "moveCountAfter": 22,
+          "fixtureHashAfter": "1502081074f5981247046de72cfd7cb4511039761f867a831816ba0d8dfa8957",
+          "nativePressAtMs": 18418.4883,
+          "nativeReleaseAtMs": 18477.1719,
+          "lastSavedFrame": {
+            "file": "frame-1072.png",
+            "frame": 93750,
+            "elapsedMs": 19121.5215,
+            "moveCount": 22,
+            "outerLevel": 0,
+            "x": 7,
+            "y": 5,
+            "anim": "BUMP",
+            "animT": 0.2233942,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 28,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 23,
+          "fixtureHashAfter": "f7c133cfd1dc0b11998b0d181b9a84df1e80c261eca7a54ba8774da862bffc58",
+          "nativePressAtMs": 19141.1289,
+          "nativeReleaseAtMs": 19187.4551,
+          "lastSavedFrame": {
+            "file": "frame-1112.png",
+            "frame": 93790,
+            "elapsedMs": 19821.1367,
+            "moveCount": 23,
+            "outerLevel": 0,
+            "x": 7,
+            "y": 6,
+            "anim": "BUMP_HALT",
+            "animT": 0.238547578,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 93752,
+            "elapsedMs": 19168.0137,
+            "moveCount": 23,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 29,
+          "command": "UP",
+          "accepted": false,
+          "moveCountAfter": 23,
+          "fixtureHashAfter": "f7c133cfd1dc0b11998b0d181b9a84df1e80c261eca7a54ba8774da862bffc58",
+          "nativePressAtMs": 19841.1875,
+          "nativeReleaseAtMs": 19886.7031,
+          "lastSavedFrame": {
+            "file": "frame-1152.png",
+            "frame": 93830,
+            "elapsedMs": 20534.8047,
+            "moveCount": 23,
+            "outerLevel": 0,
+            "x": 7,
+            "y": 6,
+            "anim": "BUMP",
+            "animT": 0.2269719,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 30,
+          "command": "UP",
+          "accepted": false,
+          "moveCountAfter": 23,
+          "fixtureHashAfter": "f7c133cfd1dc0b11998b0d181b9a84df1e80c261eca7a54ba8774da862bffc58",
+          "nativePressAtMs": 20554.8711,
+          "nativeReleaseAtMs": 20596.62,
+          "lastSavedFrame": {
+            "file": "frame-1192.png",
+            "frame": 93870,
+            "elapsedMs": 21246.6133,
+            "moveCount": 23,
+            "outerLevel": 0,
+            "x": 7,
+            "y": 6,
+            "anim": "BUMP",
+            "animT": 0.2225362,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 31,
+          "command": "UP",
+          "accepted": false,
+          "moveCountAfter": 23,
+          "fixtureHashAfter": "f7c133cfd1dc0b11998b0d181b9a84df1e80c261eca7a54ba8774da862bffc58",
+          "nativePressAtMs": 21268.875,
+          "nativeReleaseAtMs": 21309.7988,
+          "lastSavedFrame": {
+            "file": "frame-1231.png",
+            "frame": 93909,
+            "elapsedMs": 21944.3359,
+            "moveCount": 23,
+            "outerLevel": 0,
+            "x": 7,
+            "y": 6,
+            "anim": "BUMP",
+            "animT": 0.231693208,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 32,
+          "command": "UP",
+          "accepted": false,
+          "moveCountAfter": 23,
+          "fixtureHashAfter": "f7c133cfd1dc0b11998b0d181b9a84df1e80c261eca7a54ba8774da862bffc58",
+          "nativePressAtMs": 21967.88,
+          "nativeReleaseAtMs": 22032.791,
+          "lastSavedFrame": {
+            "file": "frame-1272.png",
+            "frame": 93950,
+            "elapsedMs": 22665.4063,
+            "moveCount": 23,
+            "outerLevel": 0,
+            "x": 7,
+            "y": 6,
+            "anim": "BUMP",
+            "animT": 0.2338246,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 33,
+          "command": "LEFT",
+          "accepted": true,
+          "moveCountAfter": 24,
+          "fixtureHashAfter": "2923fff96e9dc47795995ad09bbee531924a0a191055954540c28ec73ce81e1e",
+          "nativePressAtMs": 22688.5371,
+          "nativeReleaseAtMs": 22731.0176,
+          "lastSavedFrame": {
+            "file": "frame-1313.png",
+            "frame": 93991,
+            "elapsedMs": 23374.8164,
+            "moveCount": 24,
+            "outerLevel": 0,
+            "x": 6,
+            "y": 6,
+            "anim": "BUMP_HALT",
+            "animT": 0.220727712,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 93952,
+            "elapsedMs": 22709.8848,
+            "moveCount": 24,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 34,
+          "command": "LEFT",
+          "accepted": true,
+          "moveCountAfter": 25,
+          "fixtureHashAfter": "471a1ad4bc81dc1f0b40df8952cd7604740db95f10c8acf2a6f44ce9649e8577",
+          "nativePressAtMs": 23397.5215,
+          "nativeReleaseAtMs": 23448.47,
+          "lastSavedFrame": {
+            "file": "frame-1354.png",
+            "frame": 94032,
+            "elapsedMs": 24083.4648,
+            "moveCount": 25,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 6,
+            "anim": "BUMP_HALT",
+            "animT": 0.23787193,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 93993,
+            "elapsedMs": 23414.1836,
+            "moveCount": 25,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 35,
+          "command": "LEFT",
+          "accepted": false,
+          "moveCountAfter": 25,
+          "fixtureHashAfter": "471a1ad4bc81dc1f0b40df8952cd7604740db95f10c8acf2a6f44ce9649e8577",
+          "nativePressAtMs": 24105.59,
+          "nativeReleaseAtMs": 24148.1172,
+          "lastSavedFrame": {
+            "file": "frame-1393.png",
+            "frame": 94071,
+            "elapsedMs": 24782.0137,
+            "moveCount": 25,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 6,
+            "anim": "BUMP",
+            "animT": 0.231742308,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 36,
+          "command": "LEFT",
+          "accepted": false,
+          "moveCountAfter": 25,
+          "fixtureHashAfter": "471a1ad4bc81dc1f0b40df8952cd7604740db95f10c8acf2a6f44ce9649e8577",
+          "nativePressAtMs": 24805.2832,
+          "nativeReleaseAtMs": 24851.5176,
+          "lastSavedFrame": {
+            "file": "frame-1432.png",
+            "frame": 94110,
+            "elapsedMs": 25477.9824,
+            "moveCount": 25,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 6,
+            "anim": "BUMP",
+            "animT": 0.2202347,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 37,
+          "command": "LEFT",
+          "accepted": false,
+          "moveCountAfter": 25,
+          "fixtureHashAfter": "471a1ad4bc81dc1f0b40df8952cd7604740db95f10c8acf2a6f44ce9649e8577",
+          "nativePressAtMs": 25502.03,
+          "nativeReleaseAtMs": 25547.0586,
+          "lastSavedFrame": {
+            "file": "frame-1471.png",
+            "frame": 94149,
+            "elapsedMs": 26180.1152,
+            "moveCount": 25,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 6,
+            "anim": "BUMP",
+            "animT": 0.2260974,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 38,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 26,
+          "fixtureHashAfter": "be20d5ceced04a13e06339613bddef98b0e2aacf5b01c1946d523a5b72b8b5fc",
+          "nativePressAtMs": 26199.7676,
+          "nativeReleaseAtMs": 26264.36,
+          "lastSavedFrame": {
+            "file": "frame-1512.png",
+            "frame": 94190,
+            "elapsedMs": 26899.7813,
+            "moveCount": 26,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 5,
+            "anim": "BUMP_HALT",
+            "animT": 0.22075218,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 94151,
+            "elapsedMs": 26220.4434,
+            "moveCount": 26,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 39,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 27,
+          "fixtureHashAfter": "aac39c3d2ae7a9dcf0f6dd66d7ed5f4ab5cb268dc8c5e2881395c1cccbd9d427",
+          "nativePressAtMs": 26919.082,
+          "nativeReleaseAtMs": 26965.4082,
+          "lastSavedFrame": {
+            "file": "frame-1552.png",
+            "frame": 94230,
+            "elapsedMs": 27602.9668,
+            "moveCount": 27,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 4,
+            "anim": "BUMP_HALT",
+            "animT": 0.229535788,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 94192,
+            "elapsedMs": 26945.8,
+            "moveCount": 27,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 40,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 28,
+          "fixtureHashAfter": "7e1cc1894cb50f2a2264c9977f35b5a786bc3940615d4f412563229d62d652de",
+          "nativePressAtMs": 27624.8477,
+          "nativeReleaseAtMs": 27668.9453,
+          "lastSavedFrame": {
+            "file": "frame-1592.png",
+            "frame": 94270,
+            "elapsedMs": 28318.16,
+            "moveCount": 28,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 3,
+            "anim": "BUMP_HALT",
+            "animT": 0.2273895,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 94232,
+            "elapsedMs": 27648.6973,
+            "moveCount": 28,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 41,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 29,
+          "fixtureHashAfter": "a1803ed62bf17385e05e0174997800de741519e1b6679c4f9e82838d9458dfe0",
+          "nativePressAtMs": 28337.0215,
+          "nativeReleaseAtMs": 28379.21,
+          "lastSavedFrame": {
+            "file": "frame-1632.png",
+            "frame": 94310,
+            "elapsedMs": 29020.4473,
+            "moveCount": 29,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0.1815567,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 94272,
+            "elapsedMs": 28358.81,
+            "moveCount": 29,
+            "cloneEntry": false
+          }
+        }
+      ],
+      "nativePhaseSelections": [
+        {
+          "attempt": 1,
+          "moveCount": 1,
+          "firstPrimaryMotionState": {
+            "file": "frame-0001.png",
+            "frame": 92679,
+            "elapsedMs": 32.3410034,
+            "eventIndex": 0,
+            "control": "UP",
+            "moveCount": 1,
+            "outerLevel": 0,
+            "x": 4,
+            "y": 5,
+            "anim": "NORMAL",
+            "animT": 0.0323421,
+            "animLength": 0.1,
+            "drawXOffset": 0,
+            "drawYOffset": 0.676579,
+            "drawXScale": 0.824944139,
+            "drawYScale": 1.087528,
+            "anyBlockMoving": true,
+            "cameraFlipH": false,
+            "cameraAnimT": 0.0323421,
+            "cameraAnimLength": 0.1,
+            "newCamT": 1,
+            "newX": 0,
+            "newY": 0,
+            "newXS": 1,
+            "newYS": 1
+          },
+          "phaseAnchors": [
+            {
+              "requestedPhase": 0.25,
+              "actualPhase": 0.32342099999999996,
+              "phaseDifference": 0.07342099999999996,
+              "frame": {
+                "file": "frame-0001.png",
+                "frame": 92679,
+                "elapsedMs": 32.3410034,
+                "eventIndex": 0,
+                "control": "UP",
+                "moveCount": 1,
+                "outerLevel": 0,
+                "x": 4,
+                "y": 5,
+                "anim": "NORMAL",
+                "animT": 0.0323421,
+                "animLength": 0.1,
+                "drawXOffset": 0,
+                "drawYOffset": 0.676579,
+                "drawXScale": 0.824944139,
+                "drawYScale": 1.087528,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.0323421,
+                "cameraAnimLength": 0.1,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": false,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label.",
+              "unsupportedTargetReason": "Requested phase lies outside retained primary-motion PNG coverage; nearest image remains diagnostic only."
+            },
+            {
+              "requestedPhase": 0.5,
+              "actualPhase": 0.547427,
+              "phaseDifference": 0.047427,
+              "frame": {
+                "file": "frame-0002.png",
+                "frame": 92680,
+                "elapsedMs": 54.7409058,
+                "eventIndex": 1,
+                "control": "NONE",
+                "moveCount": 1,
+                "outerLevel": 0,
+                "x": 4,
+                "y": 5,
+                "anim": "NORMAL",
+                "animT": 0.0547427,
+                "animLength": 0.1,
+                "drawXOffset": 0,
+                "drawYOffset": 0.452573,
+                "drawXScale": 0.8017995,
+                "drawYScale": 1.09910035,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.0547427,
+                "cameraAnimLength": 0.1,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": true,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label."
+            },
+            {
+              "requestedPhase": 0.75,
+              "actualPhase": 0.547427,
+              "phaseDifference": -0.202573,
+              "frame": {
+                "file": "frame-0002.png",
+                "frame": 92680,
+                "elapsedMs": 54.7409058,
+                "eventIndex": 1,
+                "control": "NONE",
+                "moveCount": 1,
+                "outerLevel": 0,
+                "x": 4,
+                "y": 5,
+                "anim": "NORMAL",
+                "animT": 0.0547427,
+                "animLength": 0.1,
+                "drawXOffset": 0,
+                "drawYOffset": 0.452573,
+                "drawXScale": 0.8017995,
+                "drawYScale": 1.09910035,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.0547427,
+                "cameraAnimLength": 0.1,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": false,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label.",
+              "unsupportedTargetReason": "Requested phase lies outside retained primary-motion PNG coverage; nearest image remains diagnostic only."
+            },
+            {
+              "requestedPhase": 1,
+              "actualPhase": 0.547427,
+              "phaseDifference": -0.452573,
+              "frame": {
+                "file": "frame-0002.png",
+                "frame": 92680,
+                "elapsedMs": 54.7409058,
+                "eventIndex": 1,
+                "control": "NONE",
+                "moveCount": 1,
+                "outerLevel": 0,
+                "x": 4,
+                "y": 5,
+                "anim": "NORMAL",
+                "animT": 0.0547427,
+                "animLength": 0.1,
+                "drawXOffset": 0,
+                "drawYOffset": 0.452573,
+                "drawXScale": 0.8017995,
+                "drawYScale": 1.09910035,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.0547427,
+                "cameraAnimLength": 0.1,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": false,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label.",
+              "unsupportedTargetReason": "Requested phase lies outside retained primary-motion PNG coverage; nearest image remains diagnostic only."
+            }
+          ],
+          "cameraPhaseAnchors": [],
+          "savedPrimaryPhaseRange": [
+            0.32342099999999996,
+            0.547427
+          ]
+        },
+        {
+          "attempt": 41,
+          "moveCount": 29,
+          "firstPrimaryMotionState": {
+            "file": "frame-1594.png",
+            "frame": 94272,
+            "elapsedMs": 28358.81,
+            "eventIndex": 80,
+            "control": "DOWN",
+            "moveCount": 29,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 2,
+            "anim": "NORMAL",
+            "animT": 0.0217912,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": -0.9564176,
+            "drawXScale": 0.966653645,
+            "drawYScale": 1.01667321,
+            "anyBlockMoving": true,
+            "cameraFlipH": false,
+            "cameraAnimT": 0.0217912,
+            "cameraAnimLength": 0.5,
+            "newCamT": 1,
+            "newX": 0,
+            "newY": 0,
+            "newXS": 1,
+            "newYS": 1
+          },
+          "phaseAnchors": [
+            {
+              "requestedPhase": 0.25,
+              "actualPhase": 0.351158,
+              "phaseDifference": 0.10115800000000003,
+              "frame": {
+                "file": "frame-1603.png",
+                "frame": 94281,
+                "elapsedMs": 28512.6035,
+                "eventIndex": 81,
+                "control": "NONE",
+                "moveCount": 29,
+                "outerLevel": 0,
+                "x": 5,
+                "y": 2,
+                "anim": "NORMAL",
+                "animT": 0.175579,
+                "animLength": 0.5,
+                "drawXOffset": 0,
+                "drawYOffset": -0.648842,
+                "drawXScale": 0.817723155,
+                "drawYScale": 1.09113848,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.175579,
+                "cameraAnimLength": 0.5,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": true,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label."
+            },
+            {
+              "requestedPhase": 0.5,
+              "actualPhase": 0.625134,
+              "phaseDifference": 0.12513399999999997,
+              "frame": {
+                "file": "frame-1611.png",
+                "frame": 94289,
+                "elapsedMs": 28649.582,
+                "eventIndex": 81,
+                "control": "NONE",
+                "moveCount": 29,
+                "outerLevel": 0,
+                "x": 5,
+                "y": 2,
+                "anim": "NORMAL",
+                "animT": 0.312567,
+                "animLength": 0.5,
+                "drawXOffset": 0,
+                "drawYOffset": -0.374866,
+                "drawXScale": 0.8125268,
+                "drawYScale": 1.09373665,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.312567,
+                "cameraAnimLength": 0.5,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": true,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label."
+            },
+            {
+              "requestedPhase": 0.75,
+              "actualPhase": 0.625134,
+              "phaseDifference": -0.12486600000000003,
+              "frame": {
+                "file": "frame-1611.png",
+                "frame": 94289,
+                "elapsedMs": 28649.582,
+                "eventIndex": 81,
+                "control": "NONE",
+                "moveCount": 29,
+                "outerLevel": 0,
+                "x": 5,
+                "y": 2,
+                "anim": "NORMAL",
+                "animT": 0.312567,
+                "animLength": 0.5,
+                "drawXOffset": 0,
+                "drawYOffset": -0.374866,
+                "drawXScale": 0.8125268,
+                "drawYScale": 1.09373665,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.312567,
+                "cameraAnimLength": 0.5,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": true,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label."
+            },
+            {
+              "requestedPhase": 1,
+              "actualPhase": 0.8970476,
+              "phaseDifference": -0.10295240000000005,
+              "frame": {
+                "file": "frame-1619.png",
+                "frame": 94297,
+                "elapsedMs": 28785.5371,
+                "eventIndex": 81,
+                "control": "NONE",
+                "moveCount": 29,
+                "outerLevel": 0,
+                "x": 5,
+                "y": 2,
+                "anim": "NORMAL",
+                "animT": 0.4485238,
+                "animLength": 0.5,
+                "drawXOffset": 0,
+                "drawYOffset": -0.102952421,
+                "drawXScale": 0.9261174,
+                "drawYScale": 1.03694129,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.4485238,
+                "cameraAnimLength": 0.5,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": false,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label.",
+              "unsupportedTargetReason": "Requested phase lies outside retained primary-motion PNG coverage; nearest image remains diagnostic only."
+            }
+          ],
+          "cameraPhaseAnchors": [],
+          "savedPrimaryPhaseRange": [
+            0.0435824,
+            0.8970476
+          ]
+        }
+      ],
+      "unsupportedTails": [
+        "No retained inputs after attempt 41.",
+        "No undo/redo/restart/pause tail in this native route.",
+        "Sparse short primary motions do not retain PNGs through every requested .75/1 tail; see targetWithinSavedPrimaryPhaseRange and raw metadata-only frames."
+      ],
+      "webReplayStatus": "not run by this document-only audit",
+      "provenance": {
+        "route.json": {
+          "path": "docs/parity/evidence/original/infenter-zone-focused-native-v1-20261025/route.json",
+          "sha256": "56f568514921fa0d8c443a4a789fb2c1a358425fce9a317d8770a2ac7c89a57b"
+        },
+        "capture.json": {
+          "path": "docs/parity/evidence/original/infenter-zone-focused-native-v1-20261025/capture.json",
+          "sha256": "89f032fa560d73552d8e8416c4b4325a58cf3b66af38f2c4169ff74dc33ceb5e"
+        },
+        "phases.json": {
+          "path": "docs/parity/evidence/original/infenter-zone-focused-native-v1-20261025/phases.json",
+          "sha256": "c8aca96fd7d020cd069ab48169d8b378bbdd9686427974b3443ef79be1bf70c3"
+        },
+        "start-state.json": {
+          "path": "docs/parity/evidence/original/infenter-zone-focused-native-v1-20261025/start-state.json",
+          "sha256": "c61d1978b3baa28fcc0dc0d4aab80e85c8670ea75a8e19ad5f9614231c2dd2ba"
+        },
+        "end-state.json": {
+          "path": "docs/parity/evidence/original/infenter-zone-focused-native-v1-20261025/end-state.json",
+          "sha256": "9cb0a3aca7f153072eb5ce3f2fa332b11392f19ba3974f8577897100e6d88ac9"
+        },
+        "observer-build.json": {
+          "path": "docs/parity/evidence/original/infenter-zone-focused-native-v1-20261025/observer-build.json",
+          "sha256": "83ab129454aec38bcd94b7f5d1ad966e6e920c3403f5b7516b4c077352db7f15"
+        },
+        "hashes.json": {
+          "path": "docs/parity/evidence/original/infenter-zone-focused-native-v1-20261025/hashes.json",
+          "sha256": "207daa65cb363a835d4175e063b37e2d5b90c5b168d60ca0b0eb83c44e57945e"
+        },
+        "infenter_zone_v2-focused.json": {
+          "path": "tests/fixtures/original/infenter_zone_v2-focused.json",
+          "sha256": "c64a04e6e27b4639866d6a07a69f027464881fe01420c1d23d8be6bf29ac48f0"
+        },
+        "infenter_zone_v2.txt": {
+          "path": "src/assets/levels/infenter_zone_v2.txt",
+          "sha256": "3db0eb56225523f47726dc2ba5165447ccc3b8abd197de35652f5e16388a7e1e"
+        },
+        "selectedPngs": {
+          "frame-0000.png": "687dc1bcb17697475dd771edad043698b85d2eb8f094c3c2d349487b9b358428",
+          "frame-0001.png": "478c9c7e9e1388a8845bfa3bc448ea8c8e40041da4d2350ae85efa58262b0d0d",
+          "frame-0002.png": "2418c04258659ab37b3a4dce8ba79219368b515feec67b9cf9dc387d883d4164",
+          "frame-1603.png": "8126fb71386d314c26481c0fd44f48edde58e2284f09185a6273423ba4a59c24",
+          "frame-1611.png": "1f292dfd6b78b5214b71a7ad8f0b1641931d26fbdce47051227535d89695a0a3",
+          "frame-1619.png": "be9dad23dd4c68d20f51838b66cb24b265b6a845be75cc105c3c6d693a41a94d",
+          "frame-1632.png": "0ed20f44904bff4cbc9e304541296a206d58b946319704673a7b0931ed9b51ed"
+        }
+      },
+      "observerBuild": {
+        "sourceSha256": "ee7713a31c186402aedfaafb849b1479894ee09c8472716c52ff2bd0b89f6a8f",
+        "dllSha256": "3279a93d7069e6c1ae9027cbcf24ac89660b635b4a456df8681928b0e028f9e6",
+        "buildWarnings": 0,
+        "buildErrors": 0,
+        "note": "Read-only phase and shine submission observer; sparse PNG encoding only. Native rules run unchanged."
+      }
+    },
+    {
+      "id": "flip-recursive-long-native-v1-20261025",
+      "level": "1by1_playerr_flip2",
+      "sequence": "DDRURLUDDLUDDLRUDRUDLDRDULDRRRD",
+      "setup": [],
+      "rrSetupIncluded": false,
+      "startingStateKind": "Fresh source level, settled before capture; no direction setup.",
+      "nativeCaptureSettings": {
+        "requestId": "flip-recursive-long-native-v1-20261025",
+        "level": "1by1_playerr_flip2",
+        "screenWidth": 800,
+        "screenHeight": 600,
+        "targetFrameRate": 60,
+        "vSyncCount": 0,
+        "moveDelay": 70,
+        "allowSkippingAnimation": false,
+        "instantZoom": false,
+        "screenshotStride": 8
+      },
+      "drawStyle": "NORMAL",
+      "declaredNativeTimeline": [
+        "DOWN:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "UP:40",
+        "NONE:650",
+        "LEFT:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "RIGHT:40",
+        "NONE:650",
+        "DOWN:40",
+        "NONE:650"
+      ],
+      "counts": {
+        "attemptedInputs": 31,
+        "acceptedTurns": 19,
+        "blockedAttempts": 12,
+        "frameStates": 1268,
+        "savedPngs": 304,
+        "metadataOnlyFrames": 964
+      },
+      "blockedAttemptIndices": [
+        2,
+        3,
+        10,
+        13,
+        14,
+        15,
+        18,
+        21,
+        22,
+        23,
+        24,
+        27
+      ],
+      "startingStructural": {
+        "levelName": "1by1_playerr_flip2",
+        "moveCount": 0,
+        "winning": false,
+        "buttonsSatisfied": false,
+        "finishesSatisfied": false,
+        "wentToInfZone": false,
+        "pastCount": 0,
+        "futureCount": 0,
+        "player": {
+          "index": 51,
+          "outer": 0,
+          "sub": 1,
+          "x": 3,
+          "y": 2,
+          "isPlayer": true,
+          "playerOrder": 0,
+          "flipH": false,
+          "movedSinceRestart": false
+        },
+        "blockCount": 123,
+        "snapshotHash": "89cbad4693cc53ea4d287e7f4ca50830ef9866e129e67f80323bc113b832a6fd"
+      },
+      "expectedEndingStructural": {
+        "levelName": "1by1_playerr_flip2",
+        "moveCount": 19,
+        "winning": false,
+        "buttonsSatisfied": false,
+        "finishesSatisfied": false,
+        "wentToInfZone": false,
+        "pastCount": 19,
+        "futureCount": 0,
+        "player": {
+          "index": 51,
+          "outer": 1,
+          "sub": 1,
+          "x": 0,
+          "y": 0,
+          "isPlayer": true,
+          "playerOrder": 0,
+          "flipH": true,
+          "movedSinceRestart": true
+        },
+        "blockCount": 123,
+        "snapshotHash": "538084cf1d5c04ca022ec6b8f5e7530a2c9da03e706fe7c419376117e2686b2e"
+      },
+      "nativeStartFrame": {
+        "file": "frame-0000.png",
+        "frame": 108823,
+        "elapsedMs": 0,
+        "eventIndex": 0,
+        "control": "DOWN",
+        "moveCount": 0,
+        "outerLevel": 0,
+        "x": 3,
+        "y": 2,
+        "anim": "NORMAL",
+        "animT": 0,
+        "animLength": 0,
+        "drawXOffset": 0,
+        "drawYOffset": 0,
+        "drawXScale": 1,
+        "drawYScale": 1,
+        "anyBlockMoving": false,
+        "cameraFlipH": false,
+        "cameraAnimT": 0.5,
+        "cameraAnimLength": 0.5,
+        "newCamT": 1,
+        "newX": 0,
+        "newY": 0,
+        "newXS": 1,
+        "newYS": 1
+      },
+      "nativeEndFrame": {
+        "file": "frame-1267.png",
+        "frame": 110090,
+        "elapsedMs": 21990.31,
+        "eventIndex": 61,
+        "control": "NONE",
+        "moveCount": 19,
+        "outerLevel": 1,
+        "x": 0,
+        "y": 0,
+        "anim": "BUMP_HALT",
+        "animT": 0.1904213,
+        "animLength": 0.22,
+        "drawXOffset": 0,
+        "drawYOffset": 0.008901581,
+        "drawXScale": 1.0089016,
+        "drawYScale": 0.9821968,
+        "anyBlockMoving": false,
+        "cameraFlipH": true,
+        "cameraAnimT": 0.5,
+        "cameraAnimLength": 0.5,
+        "newCamT": 1,
+        "newX": -1,
+        "newY": 3,
+        "newXS": 0.111111112,
+        "newYS": 0.111111112
+      },
+      "coverage": {
+        "strictInfiniteEnter": [],
+        "strictInfiniteExit": [],
+        "endpointWentToInfZone": false,
+        "generatedZoneCredit": false,
+        "cloneEntryTurns": 1,
+        "note": "Strict predicates require accepted Enter.infEnterNum>=0 or Exit.infExitNum>=0; cloneEntry alone and a level name do not satisfy them."
+      },
+      "captureWebOptions": {
+        "level": "1by1_playerr_flip2",
+        "setupActions": [],
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowDown",
+            "duration": 40.1611328
+          },
+          {
+            "at": 709.060669,
+            "key": "ArrowDown",
+            "duration": 55.02319299999999
+          },
+          {
+            "at": 1416.87012,
+            "key": "ArrowRight",
+            "duration": 55.95398
+          },
+          {
+            "at": 2134.674,
+            "key": "ArrowUp",
+            "duration": 53.40583000000015
+          },
+          {
+            "at": 2855.27051,
+            "key": "ArrowRight",
+            "duration": 55.87749000000031
+          },
+          {
+            "at": 3568.49658,
+            "key": "ArrowLeft",
+            "duration": 55.57276000000002
+          },
+          {
+            "at": 4287.735,
+            "key": "ArrowUp",
+            "duration": 42.20600000000013
+          },
+          {
+            "at": 4992.49268,
+            "key": "ArrowDown",
+            "duration": 44.61669999999958
+          },
+          {
+            "at": 5695.89258,
+            "key": "ArrowDown",
+            "duration": 55.80142000000069
+          },
+          {
+            "at": 6402.359,
+            "key": "ArrowLeft",
+            "duration": 57.49499999999989
+          },
+          {
+            "at": 7115.53955,
+            "key": "ArrowUp",
+            "duration": 43.51806999999917
+          },
+          {
+            "at": 7819.321,
+            "key": "ArrowDown",
+            "duration": 50.582320000000436
+          },
+          {
+            "at": 8530.976,
+            "key": "ArrowDown",
+            "duration": 47.576999999999316
+          },
+          {
+            "at": 9239.5625,
+            "key": "ArrowLeft",
+            "duration": 47.7455000000009
+          },
+          {
+            "at": 9942.108,
+            "key": "ArrowRight",
+            "duration": 45.53299999999945
+          },
+          {
+            "at": 10649.6885,
+            "key": "ArrowUp",
+            "duration": 57.388600000000224
+          },
+          {
+            "at": 11375.4883,
+            "key": "ArrowDown",
+            "duration": 40.17669999999998
+          },
+          {
+            "at": 12066.62,
+            "key": "ArrowRight",
+            "duration": 58.95999999999913
+          },
+          {
+            "at": 12783.1875,
+            "key": "ArrowUp",
+            "duration": 55.740200000000186
+          },
+          {
+            "at": 13495.2236,
+            "key": "ArrowDown",
+            "duration": 51.46780000000035
+          },
+          {
+            "at": 14205.7188,
+            "key": "ArrowLeft",
+            "duration": 40.070299999999406
+          },
+          {
+            "at": 14900.9395,
+            "key": "ArrowDown",
+            "duration": 58.86909999999989
+          },
+          {
+            "at": 15619.9492,
+            "key": "ArrowRight",
+            "duration": 51.31540000000132
+          },
+          {
+            "at": 16331.4209,
+            "key": "ArrowDown",
+            "duration": 54.67289999999957
+          },
+          {
+            "at": 17043.9141,
+            "key": "ArrowUp",
+            "duration": 40.115899999997055
+          },
+          {
+            "at": 17735.6875,
+            "key": "ArrowLeft",
+            "duration": 51.31450000000041
+          },
+          {
+            "at": 18455.9473,
+            "key": "ArrowDown",
+            "duration": 42.55659999999989
+          },
+          {
+            "at": 19151.55,
+            "key": "ArrowRight",
+            "duration": 46.47999999999956
+          },
+          {
+            "at": 19854.98,
+            "key": "ArrowRight",
+            "duration": 59.66259999999966
+          },
+          {
+            "at": 20581.375,
+            "key": "ArrowRight",
+            "duration": 50.64500000000044
+          },
+          {
+            "at": 21298.5684,
+            "key": "ArrowDown",
+            "duration": 43.24409999999989
+          }
+        ],
+        "settleMs": 650,
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "expectedStarting": {
+          "levelName": "1by1_playerr_flip2",
+          "moveCount": 0,
+          "winning": false,
+          "moving": false,
+          "wentToInfZone": false,
+          "cameraFlipH": false,
+          "player": {
+            "outer": 0,
+            "x": 3,
+            "y": 2
+          }
+        },
+        "captureStateChanges": true,
+        "captureMotion": true,
+        "captureCameraMotion": true
+      },
+      "sourceNominalEventSchedule": {
+        "pressEveryMs": 690,
+        "holdMs": 40,
+        "releaseMs": 650,
+        "note": "Alternate source-spec replay only. Do not silently substitute this nominal timing for the observed event schedule above."
+      },
+      "perInput": [
+        {
+          "attempt": 1,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 1,
+          "fixtureHashAfter": "7a64d29765526d7fcb9fa29e5cc1f9375a1c4b332c13fe7d19010c1b41b72467",
+          "nativePressAtMs": 0,
+          "nativeReleaseAtMs": 40.1611328,
+          "lastSavedFrame": {
+            "file": "frame-0040.png",
+            "frame": 108863,
+            "elapsedMs": 690.094,
+            "moveCount": 1,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "BUMP_HALT",
+            "animT": 0.222095519,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 108824,
+            "elapsedMs": 21.54541,
+            "moveCount": 1,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 2,
+          "command": "DOWN",
+          "accepted": false,
+          "moveCountAfter": 1,
+          "fixtureHashAfter": "7a64d29765526d7fcb9fa29e5cc1f9375a1c4b332c13fe7d19010c1b41b72467",
+          "nativePressAtMs": 709.060669,
+          "nativeReleaseAtMs": 764.083862,
+          "lastSavedFrame": {
+            "file": "frame-0080.png",
+            "frame": 108903,
+            "elapsedMs": 1392.01355,
+            "moveCount": 1,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.2366448,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 3,
+          "command": "RIGHT",
+          "accepted": false,
+          "moveCountAfter": 1,
+          "fixtureHashAfter": "7a64d29765526d7fcb9fa29e5cc1f9375a1c4b332c13fe7d19010c1b41b72467",
+          "nativePressAtMs": 1416.87012,
+          "nativeReleaseAtMs": 1472.8241,
+          "lastSavedFrame": {
+            "file": "frame-0121.png",
+            "frame": 108944,
+            "elapsedMs": 2109.665,
+            "moveCount": 1,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.223135918,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 4,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 2,
+          "fixtureHashAfter": "37c5a27f20162f5f24fd89a2a32b965ab8f9728492b82a2dca6b4ac37780ab25",
+          "nativePressAtMs": 2134.674,
+          "nativeReleaseAtMs": 2188.07983,
+          "lastSavedFrame": {
+            "file": "frame-0162.png",
+            "frame": 108985,
+            "elapsedMs": 2835.60181,
+            "moveCount": 2,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0.2431055,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 108946,
+            "elapsedMs": 2153.91553,
+            "moveCount": 2,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 5,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 3,
+          "fixtureHashAfter": "b8006c58c7baedff59cdbbc6edbc37679cc0704b4a7a878ad992c93bfef223a5",
+          "nativePressAtMs": 2855.27051,
+          "nativeReleaseAtMs": 2911.148,
+          "lastSavedFrame": {
+            "file": "frame-0203.png",
+            "frame": 109026,
+            "elapsedMs": 3549.31641,
+            "moveCount": 3,
+            "outerLevel": 0,
+            "x": 4,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0.220381722,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 108987,
+            "elapsedMs": 2872.467,
+            "moveCount": 3,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 6,
+          "command": "LEFT",
+          "accepted": true,
+          "moveCountAfter": 4,
+          "fixtureHashAfter": "78b4d951544bb3119fb98e7ab3f0923f485e6c79dfeec8c48f2500efa04daf50",
+          "nativePressAtMs": 3568.49658,
+          "nativeReleaseAtMs": 3624.06934,
+          "lastSavedFrame": {
+            "file": "frame-0245.png",
+            "frame": 109068,
+            "elapsedMs": 4269.18,
+            "moveCount": 4,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0.2382094,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 109028,
+            "elapsedMs": 3586.029,
+            "moveCount": 4,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 7,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 5,
+          "fixtureHashAfter": "ce71be0f4cb896639e42d63b45e04b24947228b36e6b6f4fa40031eafe98a287",
+          "nativePressAtMs": 4287.735,
+          "nativeReleaseAtMs": 4329.941,
+          "lastSavedFrame": {
+            "file": "frame-0286.png",
+            "frame": 109109,
+            "elapsedMs": 4972.336,
+            "moveCount": 5,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 3,
+            "anim": "BUMP_HALT",
+            "animT": 0.23430109,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 109070,
+            "elapsedMs": 4309.494,
+            "moveCount": 5,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 8,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 6,
+          "fixtureHashAfter": "1ed93c248279a6aa3cdcb305ac057df930defce0ecb1e0c7b66c986b063bb9da",
+          "nativePressAtMs": 4992.49268,
+          "nativeReleaseAtMs": 5037.10938,
+          "lastSavedFrame": {
+            "file": "frame-0327.png",
+            "frame": 109150,
+            "elapsedMs": 5678.726,
+            "moveCount": 6,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0.2333368,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 109111,
+            "elapsedMs": 5010.40625,
+            "moveCount": 6,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 9,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 7,
+          "fixtureHashAfter": "e7fc0d2671ddfdef8b48a75f25a5bfb4a458f46ea35a10091730910849bf33a8",
+          "nativePressAtMs": 5695.89258,
+          "nativeReleaseAtMs": 5751.694,
+          "lastSavedFrame": {
+            "file": "frame-0368.png",
+            "frame": 109191,
+            "elapsedMs": 6384.04834,
+            "moveCount": 7,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "BUMP_HALT",
+            "animT": 0.233575508,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 109152,
+            "elapsedMs": 5717.377,
+            "moveCount": 7,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 10,
+          "command": "LEFT",
+          "accepted": false,
+          "moveCountAfter": 7,
+          "fixtureHashAfter": "e7fc0d2671ddfdef8b48a75f25a5bfb4a458f46ea35a10091730910849bf33a8",
+          "nativePressAtMs": 6402.359,
+          "nativeReleaseAtMs": 6459.854,
+          "lastSavedFrame": {
+            "file": "frame-0409.png",
+            "frame": 109232,
+            "elapsedMs": 7093.338,
+            "moveCount": 7,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.2292775,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 11,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 8,
+          "fixtureHashAfter": "e72f2c4a511cdb8035526180bd615826b80da6c513e7861f52410a07283009ab",
+          "nativePressAtMs": 7115.53955,
+          "nativeReleaseAtMs": 7159.05762,
+          "lastSavedFrame": {
+            "file": "frame-0450.png",
+            "frame": 109273,
+            "elapsedMs": 7802.658,
+            "moveCount": 8,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0.221213788,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 109234,
+            "elapsedMs": 7138.22949,
+            "moveCount": 8,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 12,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 9,
+          "fixtureHashAfter": "e5767336b06d7d177eebbe9deb17cc78b43d15477c344b99aee672b22c383ef7",
+          "nativePressAtMs": 7819.321,
+          "nativeReleaseAtMs": 7869.90332,
+          "lastSavedFrame": {
+            "file": "frame-0491.png",
+            "frame": 109314,
+            "elapsedMs": 8507.8125,
+            "moveCount": 9,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "BUMP_HALT",
+            "animT": 0.239032,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 109275,
+            "elapsedMs": 7835.9834,
+            "moveCount": 9,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 13,
+          "command": "DOWN",
+          "accepted": false,
+          "moveCountAfter": 9,
+          "fixtureHashAfter": "e5767336b06d7d177eebbe9deb17cc78b43d15477c344b99aee672b22c383ef7",
+          "nativePressAtMs": 8530.976,
+          "nativeReleaseAtMs": 8578.553,
+          "lastSavedFrame": {
+            "file": "frame-0531.png",
+            "frame": 109354,
+            "elapsedMs": 9218.994,
+            "moveCount": 9,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.224058792,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 14,
+          "command": "LEFT",
+          "accepted": false,
+          "moveCountAfter": 9,
+          "fixtureHashAfter": "e5767336b06d7d177eebbe9deb17cc78b43d15477c344b99aee672b22c383ef7",
+          "nativePressAtMs": 9239.5625,
+          "nativeReleaseAtMs": 9287.308,
+          "lastSavedFrame": {
+            "file": "frame-0571.png",
+            "frame": 109394,
+            "elapsedMs": 9924.744,
+            "moveCount": 9,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.2243572,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 15,
+          "command": "RIGHT",
+          "accepted": false,
+          "moveCountAfter": 9,
+          "fixtureHashAfter": "e5767336b06d7d177eebbe9deb17cc78b43d15477c344b99aee672b22c383ef7",
+          "nativePressAtMs": 9942.108,
+          "nativeReleaseAtMs": 9987.641,
+          "lastSavedFrame": {
+            "file": "frame-0612.png",
+            "frame": 109435,
+            "elapsedMs": 10630.7988,
+            "moveCount": 9,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.2288695,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 16,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 10,
+          "fixtureHashAfter": "304b457a69996affeed161ab0ac4a0ee949d4f7eb065293303293c1471f5dcca",
+          "nativePressAtMs": 10649.6885,
+          "nativeReleaseAtMs": 10707.0771,
+          "lastSavedFrame": {
+            "file": "frame-0654.png",
+            "frame": 109477,
+            "elapsedMs": 11355.9727,
+            "moveCount": 10,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0.2202874,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 109437,
+            "elapsedMs": 10668.915,
+            "moveCount": 10,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 17,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 11,
+          "fixtureHashAfter": "b19dcd57cad86ec8a0b1e4f053e7efdf5bcf7a65bd01abc4d0bd4e4a084f6077",
+          "nativePressAtMs": 11375.4883,
+          "nativeReleaseAtMs": 11415.665,
+          "lastSavedFrame": {
+            "file": "frame-0695.png",
+            "frame": 109518,
+            "elapsedMs": 12049.8652,
+            "moveCount": 11,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "BUMP_HALT",
+            "animT": 0.23373279,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 109479,
+            "elapsedMs": 11399.002,
+            "moveCount": 11,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 18,
+          "command": "RIGHT",
+          "accepted": false,
+          "moveCountAfter": 11,
+          "fixtureHashAfter": "b19dcd57cad86ec8a0b1e4f053e7efdf5bcf7a65bd01abc4d0bd4e4a084f6077",
+          "nativePressAtMs": 12066.62,
+          "nativeReleaseAtMs": 12125.58,
+          "lastSavedFrame": {
+            "file": "frame-0736.png",
+            "frame": 109559,
+            "elapsedMs": 12757.0039,
+            "moveCount": 11,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.232304886,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 19,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 12,
+          "fixtureHashAfter": "36dbf6f03c7368a44b0af928f0daebbf2f89a7b074d2330610575e59ef62889f",
+          "nativePressAtMs": 12783.1875,
+          "nativeReleaseAtMs": 12838.9277,
+          "lastSavedFrame": {
+            "file": "frame-0776.png",
+            "frame": 109599,
+            "elapsedMs": 13472.8086,
+            "moveCount": 12,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0.222444,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 109561,
+            "elapsedMs": 12801.8037,
+            "moveCount": 12,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 20,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 13,
+          "fixtureHashAfter": "feab5beed0761a36c6bce2ddb8777c4bd43f5423977cf4d5398432d25ac48cfd",
+          "nativePressAtMs": 13495.2236,
+          "nativeReleaseAtMs": 13546.6914,
+          "lastSavedFrame": {
+            "file": "frame-0818.png",
+            "frame": 109641,
+            "elapsedMs": 14189.0566,
+            "moveCount": 13,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "BUMP_HALT",
+            "animT": 0.234908387,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 109601,
+            "elapsedMs": 13511.917,
+            "moveCount": 13,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 21,
+          "command": "LEFT",
+          "accepted": false,
+          "moveCountAfter": 13,
+          "fixtureHashAfter": "feab5beed0761a36c6bce2ddb8777c4bd43f5423977cf4d5398432d25ac48cfd",
+          "nativePressAtMs": 14205.7188,
+          "nativeReleaseAtMs": 14245.7891,
+          "lastSavedFrame": {
+            "file": "frame-0858.png",
+            "frame": 109681,
+            "elapsedMs": 14879.791,
+            "moveCount": 13,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.2324548,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 22,
+          "command": "DOWN",
+          "accepted": false,
+          "moveCountAfter": 13,
+          "fixtureHashAfter": "feab5beed0761a36c6bce2ddb8777c4bd43f5423977cf4d5398432d25ac48cfd",
+          "nativePressAtMs": 14900.9395,
+          "nativeReleaseAtMs": 14959.8086,
+          "lastSavedFrame": {
+            "file": "frame-0899.png",
+            "frame": 109722,
+            "elapsedMs": 15597.4883,
+            "moveCount": 13,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.22140941,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 23,
+          "command": "RIGHT",
+          "accepted": false,
+          "moveCountAfter": 13,
+          "fixtureHashAfter": "feab5beed0761a36c6bce2ddb8777c4bd43f5423977cf4d5398432d25ac48cfd",
+          "nativePressAtMs": 15619.9492,
+          "nativeReleaseAtMs": 15671.2646,
+          "lastSavedFrame": {
+            "file": "frame-0940.png",
+            "frame": 109763,
+            "elapsedMs": 16304.81,
+            "moveCount": 13,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.224588335,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 24,
+          "command": "DOWN",
+          "accepted": false,
+          "moveCountAfter": 13,
+          "fixtureHashAfter": "feab5beed0761a36c6bce2ddb8777c4bd43f5423977cf4d5398432d25ac48cfd",
+          "nativePressAtMs": 16331.4209,
+          "nativeReleaseAtMs": 16386.0938,
+          "lastSavedFrame": {
+            "file": "frame-0981.png",
+            "frame": 109804,
+            "elapsedMs": 17018.9219,
+            "moveCount": 13,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "BUMP",
+            "animT": 0.2316,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 25,
+          "command": "UP",
+          "accepted": true,
+          "moveCountAfter": 14,
+          "fixtureHashAfter": "ef3f9ff1e5a7e232e11d851107dccf20fdfd0cf2e729168075f1721229ad3415",
+          "nativePressAtMs": 17043.9141,
+          "nativeReleaseAtMs": 17084.03,
+          "lastSavedFrame": {
+            "file": "frame-1021.png",
+            "frame": 109844,
+            "elapsedMs": 17719.01,
+            "moveCount": 14,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0.221103817,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 109806,
+            "elapsedMs": 17064.5137,
+            "moveCount": 14,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 26,
+          "command": "LEFT",
+          "accepted": true,
+          "moveCountAfter": 15,
+          "fixtureHashAfter": "acbf691d20b5f2b405856287ca96e9f6a7404d4ace9dd1b3272e788884b59183",
+          "nativePressAtMs": 17735.6875,
+          "nativeReleaseAtMs": 17787.002,
+          "lastSavedFrame": {
+            "file": "frame-1063.png",
+            "frame": 109886,
+            "elapsedMs": 18436.86,
+            "moveCount": 15,
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0.2358647,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 109846,
+            "elapsedMs": 17753.6621,
+            "moveCount": 15,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 27,
+          "command": "DOWN",
+          "accepted": false,
+          "moveCountAfter": 15,
+          "fixtureHashAfter": "acbf691d20b5f2b405856287ca96e9f6a7404d4ace9dd1b3272e788884b59183",
+          "nativePressAtMs": 18455.9473,
+          "nativeReleaseAtMs": 18498.5039,
+          "lastSavedFrame": {
+            "file": "frame-1102.png",
+            "frame": 109925,
+            "elapsedMs": 19134.8867,
+            "moveCount": 15,
+            "outerLevel": 0,
+            "x": 2,
+            "y": 2,
+            "anim": "BUMP",
+            "animT": 0.2353534,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          }
+        },
+        {
+          "attempt": 28,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 16,
+          "fixtureHashAfter": "98546cb4fcf1a5b077bb87d06a8b6187f9e243fee9f8d9c4e3aef57c40124812",
+          "nativePressAtMs": 19151.55,
+          "nativeReleaseAtMs": 19198.03,
+          "lastSavedFrame": {
+            "file": "frame-1142.png",
+            "frame": 109965,
+            "elapsedMs": 19838.2715,
+            "moveCount": 16,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0.222461313,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 109927,
+            "elapsedMs": 19180.8,
+            "moveCount": 16,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 29,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 17,
+          "fixtureHashAfter": "85fa30eac3d2dd8bea976cf42c0112867d2f0db7d0cfddfae37000d8b3e3c179",
+          "nativePressAtMs": 19854.98,
+          "nativeReleaseAtMs": 19914.6426,
+          "lastSavedFrame": {
+            "file": "frame-1184.png",
+            "frame": 110007,
+            "elapsedMs": 20561.4023,
+            "moveCount": 17,
+            "outerLevel": 0,
+            "x": 4,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0.2336205,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 109967,
+            "elapsedMs": 19874.8789,
+            "moveCount": 17,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 30,
+          "command": "RIGHT",
+          "accepted": true,
+          "moveCountAfter": 18,
+          "fixtureHashAfter": "3a9ca261521c76811538e58b51d8074b36eb4052542f66923901853c5609092e",
+          "nativePressAtMs": 20581.375,
+          "nativeReleaseAtMs": 20632.02,
+          "lastSavedFrame": {
+            "file": "frame-1226.png",
+            "frame": 110049,
+            "elapsedMs": 21280.3945,
+            "moveCount": 18,
+            "outerLevel": 0,
+            "x": 5,
+            "y": 2,
+            "anim": "BUMP_HALT",
+            "animT": 0.2395733,
+            "animLength": 0.22,
+            "cameraFlipH": false,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 110009,
+            "elapsedMs": 20598.0371,
+            "moveCount": 18,
+            "cloneEntry": false
+          }
+        },
+        {
+          "attempt": 31,
+          "command": "DOWN",
+          "accepted": true,
+          "moveCountAfter": 19,
+          "fixtureHashAfter": "538084cf1d5c04ca022ec6b8f5e7530a2c9da03e706fe7c419376117e2686b2e",
+          "nativePressAtMs": 21298.5684,
+          "nativeReleaseAtMs": 21341.8125,
+          "lastSavedFrame": {
+            "file": "frame-1267.png",
+            "frame": 110090,
+            "elapsedMs": 21990.31,
+            "moveCount": 19,
+            "outerLevel": 1,
+            "x": 0,
+            "y": 0,
+            "anim": "BUMP_HALT",
+            "animT": 0.1904213,
+            "animLength": 0.22,
+            "cameraFlipH": true,
+            "newCamT": 1
+          },
+          "acceptedPhaseRef": {
+            "phase": "history-before:TurnCompleted",
+            "frame": 110051,
+            "elapsedMs": 21317.8262,
+            "moveCount": 19,
+            "cloneEntry": true
+          }
+        }
+      ],
+      "nativePhaseSelections": [
+        {
+          "attempt": 1,
+          "moveCount": 1,
+          "firstPrimaryMotionState": {
+            "file": "frame-0001.png",
+            "frame": 108824,
+            "elapsedMs": 21.54541,
+            "eventIndex": 0,
+            "control": "DOWN",
+            "moveCount": 1,
+            "outerLevel": 0,
+            "x": 3,
+            "y": 1,
+            "anim": "NORMAL",
+            "animT": 0.0215376,
+            "animLength": 0.1,
+            "drawXOffset": 0,
+            "drawYOffset": -0.784624,
+            "drawXScale": 0.8648087,
+            "drawYScale": 1.06759572,
+            "anyBlockMoving": true,
+            "cameraFlipH": false,
+            "cameraAnimT": 0.0215376,
+            "cameraAnimLength": 0.1,
+            "newCamT": 1,
+            "newX": 0,
+            "newY": 0,
+            "newXS": 1,
+            "newYS": 1
+          },
+          "phaseAnchors": [
+            {
+              "requestedPhase": 0.25,
+              "actualPhase": 0.21537599999999998,
+              "phaseDifference": -0.034624000000000016,
+              "frame": {
+                "file": "frame-0001.png",
+                "frame": 108824,
+                "elapsedMs": 21.54541,
+                "eventIndex": 0,
+                "control": "DOWN",
+                "moveCount": 1,
+                "outerLevel": 0,
+                "x": 3,
+                "y": 1,
+                "anim": "NORMAL",
+                "animT": 0.0215376,
+                "animLength": 0.1,
+                "drawXOffset": 0,
+                "drawYOffset": -0.784624,
+                "drawXScale": 0.8648087,
+                "drawYScale": 1.06759572,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.0215376,
+                "cameraAnimLength": 0.1,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": true,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label."
+            },
+            {
+              "requestedPhase": 0.5,
+              "actualPhase": 0.401541,
+              "phaseDifference": -0.09845900000000002,
+              "frame": {
+                "file": "frame-0002.png",
+                "frame": 108825,
+                "elapsedMs": 40.1611328,
+                "eventIndex": 1,
+                "control": "NONE",
+                "moveCount": 1,
+                "outerLevel": 0,
+                "x": 3,
+                "y": 1,
+                "anim": "NORMAL",
+                "animT": 0.0401541,
+                "animLength": 0.1,
+                "drawXOffset": 0,
+                "drawYOffset": -0.598459,
+                "drawXScale": 0.807755351,
+                "drawYScale": 1.09612238,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.0401541,
+                "cameraAnimLength": 0.1,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": false,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label.",
+              "unsupportedTargetReason": "Requested phase lies outside retained primary-motion PNG coverage; nearest image remains diagnostic only."
+            },
+            {
+              "requestedPhase": 0.75,
+              "actualPhase": 0.401541,
+              "phaseDifference": -0.348459,
+              "frame": {
+                "file": "frame-0002.png",
+                "frame": 108825,
+                "elapsedMs": 40.1611328,
+                "eventIndex": 1,
+                "control": "NONE",
+                "moveCount": 1,
+                "outerLevel": 0,
+                "x": 3,
+                "y": 1,
+                "anim": "NORMAL",
+                "animT": 0.0401541,
+                "animLength": 0.1,
+                "drawXOffset": 0,
+                "drawYOffset": -0.598459,
+                "drawXScale": 0.807755351,
+                "drawYScale": 1.09612238,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.0401541,
+                "cameraAnimLength": 0.1,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": false,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label.",
+              "unsupportedTargetReason": "Requested phase lies outside retained primary-motion PNG coverage; nearest image remains diagnostic only."
+            },
+            {
+              "requestedPhase": 1,
+              "actualPhase": 0.401541,
+              "phaseDifference": -0.5984590000000001,
+              "frame": {
+                "file": "frame-0002.png",
+                "frame": 108825,
+                "elapsedMs": 40.1611328,
+                "eventIndex": 1,
+                "control": "NONE",
+                "moveCount": 1,
+                "outerLevel": 0,
+                "x": 3,
+                "y": 1,
+                "anim": "NORMAL",
+                "animT": 0.0401541,
+                "animLength": 0.1,
+                "drawXOffset": 0,
+                "drawYOffset": -0.598459,
+                "drawXScale": 0.807755351,
+                "drawYScale": 1.09612238,
+                "anyBlockMoving": true,
+                "cameraFlipH": false,
+                "cameraAnimT": 0.0401541,
+                "cameraAnimLength": 0.1,
+                "newCamT": 1,
+                "newX": 0,
+                "newY": 0,
+                "newXS": 1,
+                "newYS": 1
+              },
+              "targetWithinSavedPrimaryPhaseRange": false,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label.",
+              "unsupportedTargetReason": "Requested phase lies outside retained primary-motion PNG coverage; nearest image remains diagnostic only."
+            }
+          ],
+          "cameraPhaseAnchors": [],
+          "savedPrimaryPhaseRange": [
+            0.21537599999999998,
+            0.401541
+          ]
+        },
+        {
+          "attempt": 31,
+          "moveCount": 19,
+          "firstPrimaryMotionState": {
+            "file": "frame-1228.png",
+            "frame": 110051,
+            "elapsedMs": 21317.8262,
+            "eventIndex": 60,
+            "control": "DOWN",
+            "moveCount": 19,
+            "outerLevel": 1,
+            "x": 0,
+            "y": 0,
+            "anim": "NORMAL",
+            "animT": 0.0192523,
+            "animLength": 0.5,
+            "drawXOffset": 0,
+            "drawYOffset": -0.9614954,
+            "drawXScale": 0.9703824,
+            "drawYScale": 1.01480877,
+            "anyBlockMoving": true,
+            "cameraFlipH": true,
+            "cameraAnimT": 0.0192523,
+            "cameraAnimLength": 0.5,
+            "newCamT": 0.0385046,
+            "newX": -1,
+            "newY": 3,
+            "newXS": 0.111111112,
+            "newYS": 0.111111112
+          },
+          "phaseAnchors": [
+            {
+              "requestedPhase": 0.25,
+              "actualPhase": 0.3664384,
+              "phaseDifference": 0.1164384,
+              "frame": {
+                "file": "frame-1237.png",
+                "frame": 110060,
+                "elapsedMs": 21481.7969,
+                "eventIndex": 61,
+                "control": "NONE",
+                "moveCount": 19,
+                "outerLevel": 1,
+                "x": 0,
+                "y": 0,
+                "anim": "NORMAL",
+                "animT": 0.1832192,
+                "animLength": 0.5,
+                "drawXOffset": 0,
+                "drawYOffset": -0.6335616,
+                "drawXScale": 0.814271,
+                "drawYScale": 1.09286451,
+                "anyBlockMoving": true,
+                "cameraFlipH": true,
+                "cameraAnimT": 0.1832192,
+                "cameraAnimLength": 0.5,
+                "newCamT": 0.3664384,
+                "newX": -1,
+                "newY": 3,
+                "newXS": 0.111111112,
+                "newYS": 0.111111112
+              },
+              "targetWithinSavedPrimaryPhaseRange": true,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label."
+            },
+            {
+              "requestedPhase": 0.5,
+              "actualPhase": 0.3664384,
+              "phaseDifference": -0.1335616,
+              "frame": {
+                "file": "frame-1237.png",
+                "frame": 110060,
+                "elapsedMs": 21481.7969,
+                "eventIndex": 61,
+                "control": "NONE",
+                "moveCount": 19,
+                "outerLevel": 1,
+                "x": 0,
+                "y": 0,
+                "anim": "NORMAL",
+                "animT": 0.1832192,
+                "animLength": 0.5,
+                "drawXOffset": 0,
+                "drawYOffset": -0.6335616,
+                "drawXScale": 0.814271,
+                "drawYScale": 1.09286451,
+                "anyBlockMoving": true,
+                "cameraFlipH": true,
+                "cameraAnimT": 0.1832192,
+                "cameraAnimLength": 0.5,
+                "newCamT": 0.3664384,
+                "newX": -1,
+                "newY": 3,
+                "newXS": 0.111111112,
+                "newYS": 0.111111112
+              },
+              "targetWithinSavedPrimaryPhaseRange": true,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label."
+            },
+            {
+              "requestedPhase": 0.75,
+              "actualPhase": 0.633565306,
+              "phaseDifference": -0.11643469399999995,
+              "frame": {
+                "file": "frame-1245.png",
+                "frame": 110068,
+                "elapsedMs": 21615.3555,
+                "eventIndex": 61,
+                "control": "NONE",
+                "moveCount": 19,
+                "outerLevel": 1,
+                "x": 0,
+                "y": 0,
+                "anim": "NORMAL",
+                "animT": 0.316782653,
+                "animLength": 0.5,
+                "drawXOffset": 0,
+                "drawYOffset": -0.3664347,
+                "drawXScale": 0.814271748,
+                "drawYScale": 1.09286416,
+                "anyBlockMoving": true,
+                "cameraFlipH": true,
+                "cameraAnimT": 0.316782653,
+                "cameraAnimLength": 0.5,
+                "newCamT": 0.6335653,
+                "newX": -1,
+                "newY": 3,
+                "newXS": 0.111111112,
+                "newYS": 0.111111112
+              },
+              "targetWithinSavedPrimaryPhaseRange": true,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label."
+            },
+            {
+              "requestedPhase": 1,
+              "actualPhase": 0.90066272,
+              "phaseDifference": -0.09933727999999997,
+              "frame": {
+                "file": "frame-1253.png",
+                "frame": 110076,
+                "elapsedMs": 21748.9023,
+                "eventIndex": 61,
+                "control": "NONE",
+                "moveCount": 19,
+                "outerLevel": 1,
+                "x": 0,
+                "y": 0,
+                "anim": "NORMAL",
+                "animT": 0.45033136,
+                "animLength": 0.5,
+                "drawXOffset": 0,
+                "drawYOffset": -0.09933728,
+                "drawXScale": 0.9284245,
+                "drawYScale": 1.03578782,
+                "anyBlockMoving": true,
+                "cameraFlipH": true,
+                "cameraAnimT": 0.45033136,
+                "cameraAnimLength": 0.5,
+                "newCamT": 0.9006627,
+                "newX": -1,
+                "newY": 3,
+                "newXS": 0.111111112,
+                "newYS": 0.111111112
+              },
+              "targetWithinSavedPrimaryPhaseRange": false,
+              "comparisonUse": "Match Web to actualPhase and actual state; requestedPhase is only a lookup label.",
+              "unsupportedTargetReason": "Requested phase lies outside retained primary-motion PNG coverage; nearest image remains diagnostic only."
+            }
+          ],
+          "cameraPhaseAnchors": [
+            {
+              "requestedPhase": 0.25,
+              "actualPhase": 0.3664384,
+              "phaseDifference": 0.1164384,
+              "frame": {
+                "file": "frame-1237.png",
+                "frame": 110060,
+                "elapsedMs": 21481.7969,
+                "eventIndex": 61,
+                "control": "NONE",
+                "moveCount": 19,
+                "outerLevel": 1,
+                "x": 0,
+                "y": 0,
+                "anim": "NORMAL",
+                "animT": 0.1832192,
+                "animLength": 0.5,
+                "drawXOffset": 0,
+                "drawYOffset": -0.6335616,
+                "drawXScale": 0.814271,
+                "drawYScale": 1.09286451,
+                "anyBlockMoving": true,
+                "cameraFlipH": true,
+                "cameraAnimT": 0.1832192,
+                "cameraAnimLength": 0.5,
+                "newCamT": 0.3664384,
+                "newX": -1,
+                "newY": 3,
+                "newXS": 0.111111112,
+                "newYS": 0.111111112
+              },
+              "comparisonUse": "Match Web to actual camera phase and actual state; requestedPhase is only a lookup label."
+            },
+            {
+              "requestedPhase": 0.5,
+              "actualPhase": 0.3664384,
+              "phaseDifference": -0.1335616,
+              "frame": {
+                "file": "frame-1237.png",
+                "frame": 110060,
+                "elapsedMs": 21481.7969,
+                "eventIndex": 61,
+                "control": "NONE",
+                "moveCount": 19,
+                "outerLevel": 1,
+                "x": 0,
+                "y": 0,
+                "anim": "NORMAL",
+                "animT": 0.1832192,
+                "animLength": 0.5,
+                "drawXOffset": 0,
+                "drawYOffset": -0.6335616,
+                "drawXScale": 0.814271,
+                "drawYScale": 1.09286451,
+                "anyBlockMoving": true,
+                "cameraFlipH": true,
+                "cameraAnimT": 0.1832192,
+                "cameraAnimLength": 0.5,
+                "newCamT": 0.3664384,
+                "newX": -1,
+                "newY": 3,
+                "newXS": 0.111111112,
+                "newYS": 0.111111112
+              },
+              "comparisonUse": "Match Web to actual camera phase and actual state; requestedPhase is only a lookup label."
+            },
+            {
+              "requestedPhase": 0.75,
+              "actualPhase": 0.6335653,
+              "phaseDifference": -0.1164347,
+              "frame": {
+                "file": "frame-1245.png",
+                "frame": 110068,
+                "elapsedMs": 21615.3555,
+                "eventIndex": 61,
+                "control": "NONE",
+                "moveCount": 19,
+                "outerLevel": 1,
+                "x": 0,
+                "y": 0,
+                "anim": "NORMAL",
+                "animT": 0.316782653,
+                "animLength": 0.5,
+                "drawXOffset": 0,
+                "drawYOffset": -0.3664347,
+                "drawXScale": 0.814271748,
+                "drawYScale": 1.09286416,
+                "anyBlockMoving": true,
+                "cameraFlipH": true,
+                "cameraAnimT": 0.316782653,
+                "cameraAnimLength": 0.5,
+                "newCamT": 0.6335653,
+                "newX": -1,
+                "newY": 3,
+                "newXS": 0.111111112,
+                "newYS": 0.111111112
+              },
+              "comparisonUse": "Match Web to actual camera phase and actual state; requestedPhase is only a lookup label."
+            },
+            {
+              "requestedPhase": 1,
+              "actualPhase": 0.9006627,
+              "phaseDifference": -0.09933729999999996,
+              "frame": {
+                "file": "frame-1253.png",
+                "frame": 110076,
+                "elapsedMs": 21748.9023,
+                "eventIndex": 61,
+                "control": "NONE",
+                "moveCount": 19,
+                "outerLevel": 1,
+                "x": 0,
+                "y": 0,
+                "anim": "NORMAL",
+                "animT": 0.45033136,
+                "animLength": 0.5,
+                "drawXOffset": 0,
+                "drawYOffset": -0.09933728,
+                "drawXScale": 0.9284245,
+                "drawYScale": 1.03578782,
+                "anyBlockMoving": true,
+                "cameraFlipH": true,
+                "cameraAnimT": 0.45033136,
+                "cameraAnimLength": 0.5,
+                "newCamT": 0.9006627,
+                "newX": -1,
+                "newY": 3,
+                "newXS": 0.111111112,
+                "newYS": 0.111111112
+              },
+              "comparisonUse": "Match Web to actual camera phase and actual state; requestedPhase is only a lookup label."
+            }
+          ],
+          "savedPrimaryPhaseRange": [
+            0.0385046,
+            0.90066272
+          ]
+        }
+      ],
+      "unsupportedTails": [
+        "No retained inputs after attempt 31.",
+        "No undo/redo/restart/pause tail in this native route.",
+        "No RR prefix in the31-input flip route; adding RR changes the native starting state.",
+        "Sparse short primary motions do not retain PNGs through every requested .75/1 tail; see targetWithinSavedPrimaryPhaseRange and raw metadata-only frames."
+      ],
+      "webReplayStatus": "not run by this document-only audit",
+      "provenance": {
+        "route.json": {
+          "path": "docs/parity/evidence/original/flip-recursive-long-native-v1-20261025/route.json",
+          "sha256": "ccea0d29936300feaf2a1e1ff025b84d93b38143c0cf4418906b6b4fc648d8be"
+        },
+        "capture.json": {
+          "path": "docs/parity/evidence/original/flip-recursive-long-native-v1-20261025/capture.json",
+          "sha256": "8e4f283703782468a4edfb0949b372de204216cb3e38fc0d35e5ef5a932eba6a"
+        },
+        "phases.json": {
+          "path": "docs/parity/evidence/original/flip-recursive-long-native-v1-20261025/phases.json",
+          "sha256": "04db67da42519f02218d3b15698eb3e6f951212c95c13dfb7b74441dfed59603"
+        },
+        "start-state.json": {
+          "path": "docs/parity/evidence/original/flip-recursive-long-native-v1-20261025/start-state.json",
+          "sha256": "92fa32726a1c4b5181d221cb673d6b6844faddc56f083bf9d17792047a40ed4f"
+        },
+        "end-state.json": {
+          "path": "docs/parity/evidence/original/flip-recursive-long-native-v1-20261025/end-state.json",
+          "sha256": "6c005d79f917ff788d90cae761d44f881eba64f9a5305a636590da61f6c4f772"
+        },
+        "observer-build.json": {
+          "path": "docs/parity/evidence/original/flip-recursive-long-native-v1-20261025/observer-build.json",
+          "sha256": "83ab129454aec38bcd94b7f5d1ad966e6e920c3403f5b7516b4c077352db7f15"
+        },
+        "hashes.json": {
+          "path": "docs/parity/evidence/original/flip-recursive-long-native-v1-20261025/hashes.json",
+          "sha256": "83cb3f8440456529e2a2b4ace8ed0788ebfc33a4fefe18780eac7ce827da8ecd"
+        },
+        "structural-state.json": {
+          "path": "docs/parity/evidence/original/flip-recursive-long-native-v1-20261025/structural-state.json",
+          "sha256": "7f8cb0181aa7d4532dcb83fe5bb1c8d133c45276781685d08cff51837341fdcc"
+        },
+        "1by1_playerr_flip2-long-route.json": {
+          "path": "tests/fixtures/original/1by1_playerr_flip2-long-route.json",
+          "sha256": "7f8cb0181aa7d4532dcb83fe5bb1c8d133c45276781685d08cff51837341fdcc"
+        },
+        "1by1_playerr_flip2.txt": {
+          "path": "src/assets/levels/1by1_playerr_flip2.txt",
+          "sha256": "d1445b967948028c9c8548e489595a5d7a9b98b2c73c41b23472be1b03dc18c8"
+        },
+        "selectedPngs": {
+          "frame-0000.png": "e0232fd42f7ea6d1263a86881710ed3f278728214228730eb4690ff113409815",
+          "frame-0001.png": "b68e4518511e012dc460ea7eb4a370dc7651baea6d230780b2dfd216879fd1fe",
+          "frame-0002.png": "7f2311e207c502291bc10605a143a56e3b5f4275a9d6a540939b85524df97880",
+          "frame-1237.png": "c53f36408fa445d2da1957472b821b8bc191376b323aa9799990e625ea05f2ce",
+          "frame-1245.png": "46f33b3e864835a1c38470623439c51ad8c9d034627db31358e4e8a7d7514f16",
+          "frame-1253.png": "80ee5522c34ad52d35564405b8861cdf1852a872bf2ae2602d464578cdee6100",
+          "frame-1267.png": "881b2e5da74233abfa613a28b00364cc3a6af2d4c4a31b915a3d546bc02dd902"
+        }
+      },
+      "observerBuild": {
+        "sourceSha256": "ee7713a31c186402aedfaafb849b1479894ee09c8472716c52ff2bd0b89f6a8f",
+        "dllSha256": "3279a93d7069e6c1ae9027cbcf24ac89660b635b4a456df8681928b0e028f9e6",
+        "buildWarnings": 0,
+        "buildErrors": 0,
+        "note": "Read-only phase and shine submission observer; sparse PNG encoding only. Native rules run unchanged."
+      }
+    }
+  ]
+}
