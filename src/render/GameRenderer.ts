@@ -4,6 +4,7 @@ import {
   Graphics,
   Text,
   TextStyle,
+  Texture, Rectangle,
   type Shader,
 } from "pixi.js";
 import type { Block, HsvColor, Level, WorldModel } from "../core/model";
@@ -24,6 +25,7 @@ import {
 import { autotileIndex, createWallShader, originalDrawRect, wallTint } from "./wallRendering";
 import { drawBlockBorder } from "./borderRendering";
 import { nativeFocusRect, pixelResolution } from "./focusGeometry";
+import { clipShadow, shadowRect, wallShadowCull } from "./shadowRendering";
 
 export type RendererMode =
   | SpecialModeName
@@ -199,6 +201,8 @@ export class GameRenderer {
   private textures!: OriginalTextures;
   private world: WorldModel | null = null;
   private elapsed = 0;
+  private readonly shadowTextures: Texture[] = [];
+  private shadowTextureCount = 0;
   private uiState: RendererUiState | null = null;
   private inspectionBlock: Block | null = null;
   private inspectionFlipH = false;
@@ -317,6 +321,7 @@ export class GameRenderer {
     const width = this.app.screen.width;
     const height = this.app.screen.height;
     this.sceneLayerCount = 0;
+    this.shadowTextureCount = 0;
     for (const layer of this.sceneLayers) layer.visible = false;
     const graphics = this.nextSceneLayer();
     graphics.rect(0, 0, width, height).fill(COLORS.void);
@@ -813,6 +818,33 @@ export class GameRenderer {
       }
     }
 
+    // Native ProcessTicket submits every child shadow before walls or boxes.
+    if (this.world?.drawStyle !== DrawStyle.QuickAnim) {
+      const resolution = this.app.renderer?.resolution ?? 1;
+      for (const block of level.blockList) {
+        if (!block.subLevel && wallShadowCull(level, block)) continue;
+        const blockRect = this.animatedCellRect(level, block, rect, flipH);
+        const staticCell = this.cellRect(level, block.x, block.y, rect, flipH);
+        const shadow = shadowRect(block, blockRect, staticCell, flipH, this.app.screen.width, this.app.screen.height, resolution);
+        if (!shadow) continue;
+        const clipped = clipShadow(shadow, rect, resolution);
+        if (!clipped) continue;
+        if (block.subLevel) {
+          graphics.rect(clipped.rect.x, clipped.rect.y, clipped.rect.width, clipped.rect.height).fill({ color: 0x000000, alpha: 0.3 });
+        } else {
+          const family = flipH ? this.textures.wallsFlip : this.textures.walls;
+          let texture = family[autotileIndex(level, block, flipH)];
+          if (!texture) continue;
+          const uv = clipped.uv;
+          if (uv.x !== 0 || uv.y !== 0 || uv.width !== 1 || uv.height !== 1) texture = this.shadowTexture(texture, uv);
+          texture.source.style.addressMode = "clamp-to-edge";
+          graphics.setFillStyle({ color: 0x000000, alpha: 0.3 });
+          graphics.texture(texture, 0x000000, clipped.rect.x, clipped.rect.y, clipped.rect.width, clipped.rect.height);
+          graphics.setFillStyle({ color: 0xffffff, alpha: 1 });
+        }
+      }
+    }
+
     const cellFractionOfScreen =
       (rect.width / level.width + rect.height / level.height) / 2 /
       Math.max(1, this.app.screen.height);
@@ -922,6 +954,22 @@ export class GameRenderer {
       rect.x + rect.width < 0 ||
       rect.y + rect.height < 0
     );
+  }
+
+  private shadowTexture(original: Texture, uv: Rect): Texture {
+    const index = this.shadowTextureCount++;
+    const frame = new Rectangle(original.frame.x + uv.x * original.frame.width, original.frame.y + uv.y * original.frame.height,
+      uv.width * original.frame.width, uv.height * original.frame.height);
+    let texture = this.shadowTextures[index];
+    if (!texture) {
+      texture = new Texture({ source: original.source, frame });
+      this.shadowTextures.push(texture);
+    } else {
+      texture.source = original.source;
+      texture.frame.copyFrom(frame);
+      texture.updateUvs();
+    }
+    return texture;
   }
 
   /** `Draw.GoOutOneLevel`: the parent level rect that contains `block`. */
@@ -1096,24 +1144,12 @@ export class GameRenderer {
       Math.max(1, this.app.screen.height);
     const backingColor = computeBlockColor(block, fractionOfScreen);
     const filledBlockColor = hsvToRgb(block.color);
-    const shadowOffset = Math.max(1, size * 0.07);
     const subLevel = block.subLevel;
     const terminal =
       !subLevel ||
       subLevel.filledWithWalls ||
       depth >= 7 ||
       size < 11;
-
-    if (!terminal && subLevel) {
-      graphics
-        .rect(
-          rect.x + shadowOffset,
-          rect.y + shadowOffset,
-          rect.width,
-          rect.height,
-        )
-        .fill({ color: COLORS.shadow, alpha: 0.3 });
-    }
 
     if (terminal) {
       graphics
