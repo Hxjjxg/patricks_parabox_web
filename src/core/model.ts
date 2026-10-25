@@ -342,6 +342,8 @@ export class WorldModel {
   /** Draw.CameraMode == Title makes the player stop looking around. */
   cameraTitle = false;
   // --- Camera animation state (Draw.SetCameraOffset) ---
+  /** Movement.Impulse resets this; cross-level player/possession paths set it. */
+  cameraMovedThisTurn = false;
   cameraMoving = false;
   cameraAnimT = 0;
   cameraAnimLength = 0;

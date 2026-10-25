@@ -1,10 +1,10 @@
 ﻿import { describe,expect,it } from "vitest";
 import { Block,DrawStyle,Level } from "../src/core/model";
 import { GameRenderer } from "../src/render/GameRenderer";
-function draw(block:Block) {
+function draw(block:Block,cameraPhase=1) {
   const quads:Array<{rect:number[];alpha:number}>=[];let rect:number[]=[];
   const g={rect:(...n:number[])=>{rect=n;return g;},fill:(fill:{alpha:number})=>{quads.push({rect,alpha:fill.alpha});return g;}};
-  const receiver=Object.assign(Object.create(GameRenderer.prototype),{app:{screen:{width:800,height:600},renderer:{resolution:1}},world:{drawStyle:DrawStyle.Normal}});
+  const receiver=Object.assign(Object.create(GameRenderer.prototype),{app:{screen:{width:800,height:600},renderer:{resolution:1}},world:{drawStyle:DrawStyle.Normal,cameraAnimT:cameraPhase,cameraAnimLength:1}});
   receiver.drawFlipShine(g,block,{x:100,y:200,width:100,height:100},false,1);return quads;
 }
 function flipped(){const block=new Block(1);block.subLevel=new Level(1,3,3);block.flipH=true;block.miscAnimT=1;return block;}
@@ -18,6 +18,10 @@ describe("actual native flip shine",()=>{
   });
   it("interpolates fadeFlipH intensity with the source flip direction",()=>{
     const block=flipped();block.fadeFlipH=true;block.animT=0.25;block.animLength=1;
-    expect(draw(block)[0]!.alpha).toBeCloseTo(0.11,6);
+    expect(draw(block,0.25)[0]!.alpha).toBeCloseTo(0.11,6);
+  });
+  it("uses global camera transition time instead of the individual block clock",()=>{
+    const block=flipped();block.fadeFlipH=true;block.animT=0.25;block.animLength=1;
+    expect(draw(block,0.75)[0]!.alpha).toBeCloseTo(0.33,6);
   });
 });

@@ -6,7 +6,7 @@ import type { WallRect } from "./wallRendering";
 export interface InfExitPreview { dx: number; dy: number; exitBlocks: Block[] }
 export interface SceneTicket {
   block: Block; rect: WallRect; staticRect: WallRect; depth: number; flipH: boolean;
-  parents: Block[]; clip: WallRect | null; priority: number;
+  parents: Block[]; clip: WallRect | null; priority: number; cloneFade?: boolean;
 }
 
 /** Native ShouldSimpleSlide compares ordered block representations, not levels. */

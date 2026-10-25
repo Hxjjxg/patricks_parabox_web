@@ -7,7 +7,7 @@ const f = Math.fround;
 
 /** Draw.DrawFace float arithmetic, then SetDrawRect's integer endpoints. */
 export function faceQuads(block: Block, rect: WallRect, screenHeight: number, flipH: boolean,
-  resolution = 1, facePhantom = false): Array<{ rect: WallRect; texture: EyeTexture; alpha: number }> {
+  resolution = 1, facePhantom = false, cloneFade=false,phase=1): Array<{ rect: WallRect; texture: EyeTexture; alpha: number }> {
   const player = block.drawIsPlayer || facePhantom;
   const width = f(rect.width), height = f(rect.height);
   const cx = f(rect.x + rect.width / 2), cy = f(rect.y + rect.height / 2);
@@ -17,6 +17,11 @@ export function faceQuads(block: Block, rect: WallRect, screenHeight: number, fl
   if (!player && block.moving && block.anim === AnimType.Still) {
     const t = f(block.animT / block.animLength);
     alpha = f(alpha * (block.isPlayer ? f(1 - t) : t));
+  }
+  if(cloneFade&&block.subLevel){
+    const canonical=block.subLevel.getExitBlock();
+    const a=block.possessable||block.isPlayer?1:0,b=canonical.possessable||canonical.isPlayer?1:0;
+    alpha=f(alpha*f(a+f((b-a)*phase)));
   }
   if (alpha < 0) return [];
   let eyeWidth = f(width * f(0.2)), eyeHeight = f(height * f(0.2));

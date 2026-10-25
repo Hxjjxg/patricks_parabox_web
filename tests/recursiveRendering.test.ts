@@ -26,7 +26,10 @@ describe("native recursive scene contents", () => {
     if (path === "root") h.receiver.drawLevel(h.graphics, level, block, rect, 0, new Set(), false);
     else h.receiver.drawBlock(h.graphics, block, rect, 0, new Set(), false);
     expect(h.fills.filter((fill) => typeof fill === "number")).toEqual([]);
-    expect(h.fills.filter((fill) => typeof fill === "object")).toHaveLength(1);
+    // Native transparent backing retains its gradient plus the early white-alpha open-edge frame.
+    const objects=h.fills.filter((fill):fill is Record<string,unknown>=>typeof fill==="object"&&fill!==null);
+    expect(objects.filter(fill=>"texture" in fill)).toHaveLength(1);
+    expect(objects.filter(fill=>!("texture" in fill))).toEqual(Array(4).fill({color:0xffffff,alpha:0.4}));
   });
 
   it("draws repeated world faces to native ticket depth15 instead of replacing them with synthetic frames", () => {

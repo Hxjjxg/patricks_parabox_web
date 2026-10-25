@@ -1,6 +1,7 @@
 ﻿import type { Block } from "../core/model";
 import { DrawStyle } from "../core/model";
 import { originalDrawRect, type WallRect } from "./wallRendering";
+import { flipIntensity } from "./cloneFocusRendering";
 const f=Math.fround;
 function quadInOut(k:number):number {
   k=f(k*2);
@@ -10,13 +11,10 @@ function quadInOut(k:number):number {
 }
 
 /** DrawFlipShine3916: clipped vertical band; never a diagonal marker. */
-export function flipShineQuad(block:Block,rect:WallRect,screenHeight:number,flipH:boolean,depth:number,style:DrawStyle,resolution=1):
+export function flipShineQuad(block:Block,rect:WallRect,screenHeight:number,flipH:boolean,depth:number,style:DrawStyle,resolution=1,cloneFade=false,transitionPhase=block.animLength?f(block.animT/block.animLength):1):
   {rect:WallRect;alpha:number}|null {
   if (!block.subLevel || block.subLevel.filledWithWalls || style===DrawStyle.Grid && depth===0) return null;
-  let intensity=block.specialEffect===2 || block.specialEffect===3?1:block.flipH?1:0;
-  if (block.fadeFlipH && block.specialEffect!==2 && block.specialEffect!==3) {
-    const phase=f(block.animT/block.animLength);intensity=block.flipH?phase:f(1-phase);
-  }
+  const intensity=flipIntensity(block,transitionPhase,cloneFade);
   const fraction=f(f(f(f(rect.width)+f(rect.height))/2)/f(screenHeight));
   const alpha=f(Math.min(f(f(-f(Math.log10(f(fraction+f(0.5)))))+f(0.18)),f(0.22))*intensity)*2;
   if (alpha<=0) return null;

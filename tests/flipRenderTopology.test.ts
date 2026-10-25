@@ -14,6 +14,8 @@ function actualRrdWorld() {
     expect(engine.applyDirectionalInput(dx!,dy!).moved).toBe(true);
     updateWorldAnimations(world,context); updateWorldAnimations(world,context);
   }
+  // The actual controller advances the camera separately from block animations.
+  world.cameraAnimT = 0.5; world.cameraAnimLength = 0.5;
   world.cameraMoving = false; world.newCamT = 1;
   // Actual native flip-recursive-preview-topology-20261025: four previews,
   // each via preplaced infinity reference101, bridge from level1 to root0.

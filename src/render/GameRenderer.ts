@@ -31,6 +31,7 @@ import { faceQuads } from "./faceRendering";
 import { infinityGlyphQuads } from "./infinityRendering";
 import { flipShineQuad } from "./flipShineRendering";
 import { goalCellRect, goalStrips, goalTint } from "./goalRendering";
+import { cameraTransitionPhase, cloneAncestor, cloneFocus, cloneFocusEligible, cloneIntensity, cloneTransitionOpacity } from "./cloneFocusRendering";
 import { previewClip, shouldSimpleSlide, simpleSlideRect, stackClip, type InfExitPreview, type SceneTicket } from "./renderContext";
 
 export type RendererMode =
@@ -64,7 +65,7 @@ interface Rect {
 }
 
 interface EffectTicket {
-  block: Block; rect: Rect; depth: number; flipH: boolean; clip: Rect | null;
+  block: Block; rect: Rect; depth: number; flipH: boolean; clip: Rect | null; cloneFade?:boolean;
 }
 
 interface InspectionBoard {
@@ -123,12 +124,6 @@ function hsvToRgb({ h, s, v }: HsvColor): number {
   );
 }
 
-function isCloneRepresentation(block: Block): boolean {
-  return Boolean(
-    block.subLevel && block.subLevel.getExitBlock() !== block,
-  );
-}
-
 function scaleBrightness(fractionOfScreen: number): number {
   return (
     -0.25 *
@@ -137,15 +132,16 @@ function scaleBrightness(fractionOfScreen: number): number {
   );
 }
 
-function computeBlockColor(block: Block, fractionOfScreen: number): number {
+function computeBlockColor(block: Block, fractionOfScreen: number, cloneFade=false,phase=1): number {
   let saturation = block.color.s;
   let value =
     block.color.v * scaleBrightness(fractionOfScreen) * 0.9;
   if (block.isSomeInfExitBlock) {
     value *= 0.55;
-  } else if (isCloneRepresentation(block)) {
-    value += 0.42;
-    saturation *= 0.76;
+  } else {
+    const intensity=cloneIntensity(block,cloneFade,phase);
+    value += 0.42*intensity;
+    saturation *= 1-0.24*intensity;
   }
   return guiHsvColor({ h: block.color.h, s: saturation, v: value });
 }
@@ -168,6 +164,8 @@ function seededSquares(count: number): VoidSquare[] {
 export class GameRenderer {
   readonly app = new Application();
   private readonly scene = new Container();
+  private readonly transitionScene = new Container();
+  private activePassRoot:Container|null=null;
   private readonly sceneLayers: Graphics[] = [];
   private readonly wallShaders = new WeakMap<Graphics, Shader>();
   private sceneLayerCount = 0;
@@ -246,6 +244,7 @@ export class GameRenderer {
       letterSpacing: 1,
     });
     this.app.stage.addChild(this.winText);
+    this.app.stage.addChild(this.transitionScene);
     this.app.stage.addChild(this.modeOverlay);
     this.modeText.anchor.set(0.5);
     this.app.stage.addChild(this.modeText);
@@ -324,6 +323,7 @@ export class GameRenderer {
     const world = this.world;
     if (!world) return;
     this.inspectionBoard = null;
+    if(this.transitionScene)this.transitionScene.visible=false;
     const width = this.app.screen.width;
     const height = this.app.screen.height;
     this.sceneLayerCount = 0;
@@ -337,8 +337,11 @@ export class GameRenderer {
     this.drawVoid(graphics, width, height);
 
     const player = world.findPlayerBlock();
-    const viewBlock =
-      this.inspectionBlock ?? world.getDefaultFocusBlock();
+    const instantZoom=this.uiState?.session?.settings?.instantZoom ?? false;
+    const renderMode=this.uiState?.mode ?? "playing";
+    const focusChoice=cloneFocus(world,this.inspectionBlock,renderMode,instantZoom);
+    const viewBlock = focusChoice.block;
+    const transitionPhase=cameraTransitionPhase(world);
     const focusLevel = viewBlock.subLevel;
     if (!focusLevel) return;
 
@@ -385,17 +388,26 @@ export class GameRenderer {
     };
     let startFlipH = viewFlipH;
     let startDepth = 0;
+    let cloneTicket: {block:Block;rect:Rect;depth:number;flipH:boolean}|null=focusChoice.clone
+      ? {block:focusChoice.clone,rect:{...focusRect},depth:0,flipH:viewFlipH}:null;
+    const ancestorPath:Block[]=[];
     if (!this.inspectionBlock) {
       for (let level = 0; level < 3; level++) {
+        const outer=startBlock.outerLevel;
         const parent = this.goOutOneLevel(startBlock, startRect, startFlipH);
-        if (!parent) break;
-        startBlock = parent.block;
+        if (!parent||!outer) break;
+        ancestorPath.push(startBlock);
+        const representation=cloneAncestor(ancestorPath,player,outer,level,transitionPhase<.5,cloneFocusEligible(world,instantZoom));
+        startBlock = representation?.block ?? parent.block;
         startRect = parent.rect;
         startFlipH = parent.flipH;
         startDepth--;
+        if(!cloneTicket&&representation)cloneTicket={block:representation.clone,rect:{...startRect},depth:startDepth,flipH:startFlipH};
       }
     }
-    if (world.drawStyle !== DrawStyle.QuickAnim && (this.uiState?.mode ?? "playing") === "playing") {
+    const cloneOverlay=cloneTicket!==null && world.anyBlockMoving && renderMode==="playing" && !instantZoom;
+    const overlayPhase=world.cameraMoving?transitionPhase:0;
+    if (world.drawStyle !== DrawStyle.QuickAnim && renderMode === "playing" && (!cloneOverlay||overlayPhase>=.5)) {
       const previews = (world as WorldModel & {infExitPreviews?: InfExitPreview[]}).infExitPreviews ?? [];
       for (const preview of previews) {
         let block = preview.exitBlocks[0];
@@ -430,6 +442,14 @@ export class GameRenderer {
       ? 0.72 + Math.sin(this.elapsed * 4) * 0.18
       : 0;
     this.winText.position.set(width / 2, Math.max(32, boardY - 34));
+    if(cloneOverlay&&cloneTicket){
+      const overlayRoot=this.transitionScene??this.scene;
+      overlayRoot.visible=true;
+      this.activeSceneContainer=overlayRoot;
+      this.nextSceneLayer().rect(0,0,width,height).fill({color:0x000000,alpha:cloneTransitionOpacity(overlayPhase)});
+      this.drawScenePass(cloneTicket.block,cloneTicket.rect,cloneTicket.depth,cloneTicket.flipH,null,true,overlayRoot);
+      this.activeSceneContainer=this.scene;
+    }
     this.drawModeOverlay(width, height, player);
   }
 
@@ -774,7 +794,7 @@ export class GameRenderer {
   }
 
   private maskedScene(clip: Rect | null): Container {
-    if (!clip) return this.scene;
+    if (!clip) return this.activePassRoot??this.scene;
     const index=this.maskPassCount++;
     let pass=this.maskPasses[index];
     if (!pass) {
@@ -784,13 +804,15 @@ export class GameRenderer {
     }
     pass.container.visible=true;
     pass.mask.clear().rect(clip.x,clip.y,clip.width,clip.height).fill(0xffffff);
-    this.scene.addChild(pass.container);
+    (this.activePassRoot??this.scene).addChild(pass.container);
     return pass.container;
   }
 
   /** Native queues exhaust still/bump/moving geometry before all eye/glyph passes. */
-  private drawScenePass(block: Block, rect: Rect, depth: number, flipH: boolean, clip: Rect | null): void {
-    this.pendingTickets=[{block,rect,staticRect:rect,depth,flipH,parents:[],clip,priority:0}];
+  private drawScenePass(block: Block, rect: Rect, depth: number, flipH: boolean, clip: Rect | null,cloneFade=false,targetRoot?:Container): void {
+    const previousRoot=this.activePassRoot;
+    this.activePassRoot=targetRoot??this.scene;
+    this.pendingTickets=[{block,rect,staticRect:rect,depth,flipH,parents:[],clip,priority:0,cloneFade}];
     this.effectTickets=[];
     while (this.pendingTickets.length) {
       let index=0;
@@ -806,19 +828,19 @@ export class GameRenderer {
     for (const player of [false,true]) for (const ticket of effects) {
       if ((!ticket.block.isPlayer && !ticket.block.possessable) || ticket.block.drawIsPlayer!==player) continue;
       this.activeSceneContainer=this.maskedScene(ticket.clip);
-      this.drawFace(this.nextSceneLayer(),ticket.block,ticket.rect,false,ticket.flipH!==ticket.block.flipH);
+      this.drawFace(this.nextSceneLayer(),ticket.block,ticket.rect,false,ticket.flipH!==ticket.block.flipH,ticket.cloneFade);
     }
     for (const ticket of effects) {
       if (!ticket.block.isSomeInfEnterBlock && !ticket.block.isSomeInfExitBlock) continue;
       this.activeSceneContainer=this.maskedScene(ticket.clip);
-      this.drawInfEffect(this.nextSceneLayer(),ticket.block,ticket.rect);
+      this.drawInfEffect(this.nextSceneLayer(),ticket.block,ticket.rect,ticket.cloneFade);
     }
     for (const ticket of effects) {
-      if (!ticket.block.flipH && !ticket.block.fadeFlipH && ticket.block.specialEffect!==2 && ticket.block.specialEffect!==3) continue;
+      if (!ticket.block.flipH && !ticket.block.fadeFlipH && ticket.block.specialEffect!==2 && ticket.block.specialEffect!==3 && !ticket.cloneFade) continue;
       this.activeSceneContainer=this.maskedScene(ticket.clip);
-      this.drawFlipShine(this.nextSceneLayer(),ticket.block,ticket.rect,ticket.flipH,ticket.depth);
+      this.drawFlipShine(this.nextSceneLayer(),ticket.block,ticket.rect,ticket.flipH,ticket.depth,ticket.cloneFade);
     }
-    this.pendingTickets=null;this.effectTickets=[];this.activeSceneContainer=this.scene;
+    this.pendingTickets=null;this.effectTickets=[];this.activePassRoot=previousRoot;this.activeSceneContainer=this.scene;
   }
 
   private drawLevel(
@@ -837,7 +859,9 @@ export class GameRenderer {
     if (rect.width <= 0.5 || rect.height <= 0.5) return graphics;
     const fractionOfScreen =
       ((rect.width + rect.height) / 2) / Math.max(1, this.app.screen.height);
-    const interiorColor = computeBlockColor(viewBlock, fractionOfScreen);
+    const cloneFade=this.currentTicket?.cloneFade ?? false;
+    const phase=this.world?cameraTransitionPhase(this.world):1;
+    const interiorColor = computeBlockColor(viewBlock, fractionOfScreen,cloneFade,phase);
     // Native snaps each backing/gradient draw quad, while retaining the unrounded ticket for children.
     const backingRect = originalDrawRect(rect, this.app.renderer?.resolution ?? 1);
     if (!level.infZone) graphics.rect(backingRect.x, backingRect.y, backingRect.width, backingRect.height).fill(interiorColor);
@@ -923,7 +947,7 @@ export class GameRenderer {
     const cellFractionOfScreen =
       (rect.width / level.width + rect.height / level.height) / 2 /
       Math.max(1, this.app.screen.height);
-    const wallGraphics = this.nextWallLayer(wallTint(viewBlock, cellFractionOfScreen));
+    const wallGraphics = this.nextWallLayer(wallTint(viewBlock, cellFractionOfScreen,cloneFade?1-phase:undefined));
     for (const block of level.blockList) {
       if (block.subLevel) continue;
       const wallRect = this.animatedCellRect(level, block, rect, flipH);
@@ -1031,7 +1055,7 @@ export class GameRenderer {
       }
       graphics.stroke({ color: 0xffffff, alpha: 0.16, width: 1 });
     }
-    if (this.pendingTickets) this.effectTickets.push({block:viewBlock,rect,depth,flipH,clip:this.currentTicket?.clip ?? null});
+    if (this.pendingTickets) this.effectTickets.push({block:viewBlock,rect,depth,flipH,clip:this.currentTicket?.clip ?? null,cloneFade});
     else this.drawInfEffect(graphics, viewBlock, rect);
     return graphics;
   }
@@ -1277,8 +1301,8 @@ export class GameRenderer {
     return graphics;
   }
 
-  private drawInfEffect(graphics: Graphics, block: Block, rect: Rect): void {
-    for (const glyph of infinityGlyphQuads(block, rect, this.app.screen.height, this.app.renderer?.resolution ?? 1)) {
+  private drawInfEffect(graphics: Graphics, block: Block, rect: Rect,cloneFade=false): void {
+    for (const glyph of infinityGlyphQuads(block, rect, this.app.screen.height, this.app.renderer?.resolution ?? 1,cloneFade,this.world?cameraTransitionPhase(this.world):1)) {
       if (glyph.rect.width <= 0 || glyph.rect.height <= 0 || glyph.alpha <= 0) continue;
       graphics.rect(glyph.rect.x, glyph.rect.y, glyph.rect.width, glyph.rect.height).fill({
         texture: this.textures[glyph.texture], textureSpace: "local", color: 0xffffff, alpha: glyph.alpha,
@@ -1287,10 +1311,10 @@ export class GameRenderer {
   }
 
   private drawFace(
-    graphics: Graphics, block: Block, rect: Rect, facePhantom = false, flipH = false,
+    graphics: Graphics, block: Block, rect: Rect, facePhantom = false, flipH = false,cloneFade=false,
   ): void {
     if (this.world?.drawStyle === DrawStyle.QuickAnim) return;
-    for (const eye of faceQuads(block, rect, this.app.screen.height, flipH, this.app.renderer?.resolution ?? 1, facePhantom)) {
+    for (const eye of faceQuads(block, rect, this.app.screen.height, flipH, this.app.renderer?.resolution ?? 1, facePhantom,cloneFade,this.world?cameraTransitionPhase(this.world):1)) {
       if (eye.rect.width <= 0 || eye.rect.height <= 0) continue;
       graphics.rect(eye.rect.x, eye.rect.y, eye.rect.width, eye.rect.height).fill({
         texture: this.textures[eye.texture], textureSpace: "local", color: 0x000000, alpha: eye.alpha,
@@ -1298,8 +1322,8 @@ export class GameRenderer {
     }
   }
 
-  private drawFlipShine(graphics:Graphics,block:Block,rect:Rect,flipH:boolean,depth:number):void {
-    const band=flipShineQuad(block,rect,this.app.screen.height,flipH,depth,this.world?.drawStyle ?? DrawStyle.Normal,this.app.renderer?.resolution ?? 1);
+  private drawFlipShine(graphics:Graphics,block:Block,rect:Rect,flipH:boolean,depth:number,cloneFade=false):void {
+    const band=flipShineQuad(block,rect,this.app.screen.height,flipH,depth,this.world?.drawStyle ?? DrawStyle.Normal,this.app.renderer?.resolution ?? 1,cloneFade,this.world?cameraTransitionPhase(this.world):1);
     if (band) graphics.rect(band.rect.x,band.rect.y,band.rect.width,band.rect.height).fill({color:0xffffff,alpha:band.alpha});
   }
 

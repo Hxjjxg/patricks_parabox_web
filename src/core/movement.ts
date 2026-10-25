@@ -690,6 +690,7 @@ export class MovementEngine {
       infExitDetected: this.infExitDetected, cancelAllMovement: this.cancelAllMovement,
       portalTransition: this.portalTransition,
     };
+    const cameraMovedThisTurn = this.world.cameraMovedThisTurn;
     const temporary = this.world.blocks.map(block => ({
       block, flipH: block.tempFlipH, innerPush: block.tempInnerPush,
     }));
@@ -714,6 +715,7 @@ export class MovementEngine {
       for (const { block, flipH, innerPush } of temporary) {
         block.tempFlipH = flipH; block.tempInnerPush = innerPush;
       }
+      this.world.cameraMovedThisTurn = cameraMovedThisTurn;
       Object.assign(this, scratch);
     }
   }
@@ -810,6 +812,7 @@ export class MovementEngine {
       candidate.justInfEntered = false;
       candidate.drawIsPlayer = candidate.isPlayer;
     }
+    this.world.cameraMovedThisTurn = false;
     for (const level of this.world.levels) level.phantoms.length = 0;
 
     const moved = this.attemptToSlide(block, dx, dy);
@@ -1400,6 +1403,7 @@ export class MovementEngine {
         this.history.currentTurn.camXS = camera.xScale;
         this.history.currentTurn.camYS = camera.yScale;
         this.history.currentTurn.cameraMoved = true;
+        this.world.cameraMovedThisTurn = true;
       }
       return true;
     };
@@ -1749,6 +1753,7 @@ export class MovementEngine {
       this.history.currentTurn.camXS = camera.xScale;
       this.history.currentTurn.camYS = camera.yScale;
       this.history.currentTurn.cameraMoved = true;
+      this.world.cameraMovedThisTurn = true;
     }
 
     if (

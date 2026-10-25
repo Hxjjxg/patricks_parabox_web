@@ -3,13 +3,14 @@ import { originalDrawRect, type WallRect } from "./wallRendering";
 const f = Math.fround;
 
 /** DrawInfEffect: one90percent glyph or the native float vertical stack. */
-export function infinityGlyphQuads(block: Block, rect: WallRect, screenHeight: number, resolution = 1):
+export function infinityGlyphQuads(block: Block, rect: WallRect, screenHeight: number, resolution = 1,cloneFade=false,phase=1):
   Array<{ rect: WallRect; texture: "infParticle" | "infParticleOutline"; alpha: number }> {
   if (!block.isSomeInfEnterBlock && !block.isSomeInfExitBlock) return [];
   const count = block.isSomeInfEnterBlock ? block.someInfEnterNum + 1 : (block.subLevel?.infExitBlocks.indexOf(block) ?? -1) + 1;
   if (count <= 0) return [];
   const fraction = f(f(f(rect.width + rect.height) / 2) / f(screenHeight));
-  const alpha = Math.max(0, Math.min(1, f(f(-f(Math.log10(f(fraction + f(0.5))))) + f(0.22)) * 2));
+  const rawAlpha=f(f(-f(Math.log10(f(fraction + f(0.5))))) + f(0.22));
+  const alpha = Math.max(0, Math.min(1, f(rawAlpha*(cloneFade?f(1-phase):1)) * 2));
   const texture: "infParticle" | "infParticleOutline" = block.isSomeInfEnterBlock ? "infParticleOutline" : "infParticle";
   const cx = rect.x + rect.width / 2, cy = rect.y + rect.height / 2;
   if (count === 1) {

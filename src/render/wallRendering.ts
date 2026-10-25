@@ -24,13 +24,14 @@ export function originalDrawRect(rect: WallRect, resolution: number): WallRect {
 }
 
 /** ProcessTicket uses the size of one CELL, not the whole containing board. */
-export function wallTint(block: Block, cellFractionOfScreen: number): Float32Array {
+export function wallTint(block: Block, cellFractionOfScreen: number, cloneFadeIntensity?:number): Float32Array {
   let saturation = block.color.s;
   let value = (-0.25 * Math.log(cellFractionOfScreen + 0.005) / Math.log(20) + 0.5) * block.color.v * 2;
   if (block.isSomeInfExitBlock) value *= 0.55;
-  else if (block.subLevel && block.subLevel.getExitBlock() !== block) {
-    value += 0.4;
-    saturation *= 0.82;
+  else {
+    const intensity=cloneFadeIntensity ?? (block.subLevel && block.subLevel.getExitBlock() !== block?1:0);
+    value += 0.4*intensity;
+    saturation *= 1-0.18*intensity;
   }
   const hue = ((block.color.h % 1) + 1) % 1;
   const sector = hue * 6;
