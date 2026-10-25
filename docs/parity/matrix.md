@@ -4,13 +4,17 @@ Started 2026-10-25 at `f8e7539` with clean worktree. Full task is the user attac
 
 ## Current acceptance state — 2026-10-25
 
-- The current wall shader adds native HDR/alpha ordering after `ac5afc3`;
-  all 80 files / 1189 tests, typecheck and build pass with bounded concurrency.
-  Three actual GPU coverage cases show red-before/green-after, with unchanged
-  low/unit controls and glError0. Independent actual dev-Canvas recheck
-  confirms dominant corner errors fall17/20->1, while remaining one-byte
-  differences have no new AA acceptance. Full frozen integration replay of
-  this correction is pending. See `wall-alpha-clamp-regression.md`.
+- Frozen-v7 source `e04a40c` adds native HDR/alpha ordering after `ac5afc3`.
+  All77 v6 contracts are replayed unchanged (only lifecycle transport identity
+  changes), retaining8611 rAF records/2336 PNGs and2413 verified raw hashes.
+  All1005 source/142 bundle hashes verify. The identical tested source retains
+ 80 files/1189 tests, typecheck and3 red-before/green-after GPU coverage cases;
+  a fresh frozen production build passes. No test rerun is relabeled.
+  Independent final-source inspection of six v7 samples confirms corner
+  maxima17/20->1 without gross adjacent regression. Remaining top/L/notch
+ 331/41/66 one-byte edge pixels are unresolved/unapproved. No AA tolerance
+  changes. See `evidence/web-production-candidate-v7/README.md` and
+  `final-v7-clamp-review.md`; full native family/phase acceptance stays open.
 - Earlier frozen-v6 source revision `ac5afc3` integrates Hub rendering after `cdd7c98`
   adds native count/unlock/celebration runtime. All 80 files / 1189 tests,
   typecheck and production build pass. Frozen v6 verifies 1005 source hashes,

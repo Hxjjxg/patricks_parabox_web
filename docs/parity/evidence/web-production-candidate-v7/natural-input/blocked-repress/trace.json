@@ -1,0 +1,8094 @@
+{
+  "options": {
+    "level": "first_puzzle",
+    "dir": "blocked-repress",
+    "events": [
+      {
+        "at": 0,
+        "key": "ArrowUp",
+        "duration": 750
+      },
+      {
+        "at": 870,
+        "key": "ArrowUp",
+        "duration": 40
+      }
+    ],
+    "settleMs": 650,
+    "captureMotion": true,
+    "captureCameraMotion": true,
+    "captureStateChanges": true,
+    "expectedViewport": {
+      "width": 800,
+      "height": 600,
+      "dpr": 1
+    },
+    "revision": "6427161 immutable v4 archive"
+  },
+  "recordedAt": "2026-10-25T11:14:29.880Z",
+  "viewport": {
+    "width": 800,
+    "height": 600,
+    "dpr": 1.0000000298023224,
+    "canvasWidth": 800,
+    "canvasHeight": 600
+  },
+  "setupTimings": [],
+  "starting": {
+    "timestamp": 1213.7999999970198,
+    "action": "start",
+    "levelName": "first_puzzle",
+    "moveCount": 0,
+    "winning": false,
+    "mode": "playing",
+    "transition": {
+      "active": false,
+      "counter": 0,
+      "length": 0,
+      "scene": null
+    },
+    "session": {
+      "mode": "none",
+      "selectedIndex": 0,
+      "selectedOption": null
+    },
+    "moving": false,
+    "wentToInfZone": false,
+    "cameraFlipH": false,
+    "inspection": {
+      "inspectedBlockId": null,
+      "viewBlockId": 0,
+      "viewLevelId": 0,
+      "flipH": false
+    },
+    "camera": {
+      "t": 0,
+      "length": 0,
+      "phase": 1,
+      "moving": false,
+      "x": 0,
+      "y": 0,
+      "xs": 1,
+      "ys": 1
+    },
+    "pauseCamera": {
+      "zoomT": 0,
+      "controlsZoomT": 0,
+      "cameraUnpause": false,
+      "cameraUnpauseIgnoreOneDelta": false,
+      "cameraUnpauseLastY": 0
+    },
+    "player": {
+      "id": 27,
+      "x": 2,
+      "y": 2,
+      "outer": 0,
+      "outerId": 0,
+      "t": 0,
+      "length": 0,
+      "anim": "normal",
+      "ox": 0,
+      "oy": 0,
+      "sx": 1,
+      "sy": 1
+    },
+    "animated": []
+  },
+  "ending": {
+    "timestamp": 2849.5,
+    "action": "01-Up",
+    "levelName": "first_puzzle",
+    "moveCount": 3,
+    "winning": false,
+    "mode": "playing",
+    "transition": {
+      "active": false,
+      "counter": 0,
+      "length": 0,
+      "scene": null
+    },
+    "session": {
+      "mode": "none",
+      "selectedIndex": 0,
+      "selectedOption": null
+    },
+    "moving": false,
+    "wentToInfZone": false,
+    "cameraFlipH": false,
+    "inspection": {
+      "inspectedBlockId": null,
+      "viewBlockId": 0,
+      "viewLevelId": 0,
+      "flipH": false
+    },
+    "camera": {
+      "t": 0.1,
+      "length": 0.1,
+      "phase": 1,
+      "moving": false,
+      "x": 0,
+      "y": 0,
+      "xs": 1,
+      "ys": 1
+    },
+    "pauseCamera": {
+      "zoomT": 0,
+      "controlsZoomT": 0,
+      "cameraUnpause": false,
+      "cameraUnpauseIgnoreOneDelta": false,
+      "cameraUnpauseLastY": 0
+    },
+    "player": {
+      "id": 27,
+      "x": 2,
+      "y": 5,
+      "outer": 0,
+      "outerId": 0,
+      "t": 0.22340000000298008,
+      "length": 0.22,
+      "anim": "bump",
+      "ox": 0,
+      "oy": 0,
+      "sx": 1,
+      "sy": 1
+    },
+    "animated": [
+      {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      }
+    ]
+  },
+  "events": [
+    {
+      "type": "keydown",
+      "key": "ArrowUp",
+      "timestamp": 1243.8999999985099,
+      "state": {
+        "timestamp": 1244.2000000029802,
+        "action": "00-Up",
+        "levelName": "first_puzzle",
+        "moveCount": 0,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0,
+          "length": 0,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "pauseCamera": {
+          "zoomT": 0,
+          "controlsZoomT": 0,
+          "cameraUnpause": false,
+          "cameraUnpauseIgnoreOneDelta": false,
+          "cameraUnpauseLastY": 0
+        },
+        "player": {
+          "id": 27,
+          "x": 2,
+          "y": 2,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0,
+          "length": 0,
+          "anim": "normal",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": []
+      }
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowUp",
+      "timestamp": 1997,
+      "state": {
+        "timestamp": 1997,
+        "action": "00-Up",
+        "levelName": "first_puzzle",
+        "moveCount": 3,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": true,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "pauseCamera": {
+          "zoomT": 0,
+          "controlsZoomT": 0,
+          "cameraUnpause": false,
+          "cameraUnpauseIgnoreOneDelta": false,
+          "cameraUnpauseLastY": 0
+        },
+        "player": {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.21460000000298035,
+          "length": 0.22,
+          "anim": "bump",
+          "ox": 0,
+          "oy": -0.0006993141990908613,
+          "sx": 1.000699314199091,
+          "sy": 0.9986013716018183
+        },
+        "animated": [
+          {
+            "id": 27,
+            "x": 2,
+            "y": 5,
+            "outer": 0,
+            "t": 0.21460000000298035,
+            "length": 0.22,
+            "ox": 0,
+            "oy": -0.0006993141990908613,
+            "sx": 1.000699314199091,
+            "sy": 0.9986013716018183
+          }
+        ]
+      }
+    },
+    {
+      "type": "keydown",
+      "key": "ArrowUp",
+      "timestamp": 2121.2000000029802,
+      "state": {
+        "timestamp": 2121.2999999970198,
+        "action": "01-Up",
+        "levelName": "first_puzzle",
+        "moveCount": 3,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "pauseCamera": {
+          "zoomT": 0,
+          "controlsZoomT": 0,
+          "cameraUnpause": false,
+          "cameraUnpauseIgnoreOneDelta": false,
+          "cameraUnpauseLastY": 0
+        },
+        "player": {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.2309000000029803,
+          "length": 0.22,
+          "anim": "bump",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 27,
+            "x": 2,
+            "y": 5,
+            "outer": 0,
+            "t": 0.2309000000029803,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      }
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowUp",
+      "timestamp": 2163.60000000149,
+      "state": {
+        "timestamp": 2163.7000000029802,
+        "action": "01-Up",
+        "levelName": "first_puzzle",
+        "moveCount": 3,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": true,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "pauseCamera": {
+          "zoomT": 0,
+          "controlsZoomT": 0,
+          "cameraUnpause": false,
+          "cameraUnpauseIgnoreOneDelta": false,
+          "cameraUnpauseLastY": 0
+        },
+        "player": {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.040200000002980234,
+          "length": 0.22,
+          "anim": "bump",
+          "ox": 0,
+          "oy": -0.030305303084160365,
+          "sx": 1.0303053030841605,
+          "sy": 0.9393893938316793
+        },
+        "animated": [
+          {
+            "id": 27,
+            "x": 2,
+            "y": 5,
+            "outer": 0,
+            "t": 0.040200000002980234,
+            "length": 0.22,
+            "ox": 0,
+            "oy": -0.030305303084160365,
+            "sx": 1.0303053030841605,
+            "sy": 0.9393893938316793
+          }
+        ]
+      }
+    }
+  ],
+  "frames": [
+    {
+      "timestamp": 1228.3,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 1,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 3,
+          "outer": 0,
+          "t": 0,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 1,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1278.4,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.03419999999701986,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.03419999999701986,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.6580000000298014,
+        "sx": 0.8199712000075339,
+        "sy": 1.090014399996233
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 3,
+          "outer": 0,
+          "t": 0.03419999999701986,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.6580000000298014,
+          "sx": 0.8199712000075339,
+          "sy": 1.090014399996233
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1295,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.05079999999701977,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.05079999999701977,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.4920000000298024,
+        "sx": 0.8000511999996186,
+        "sy": 1.0999744000001908
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 3,
+          "outer": 0,
+          "t": 0.05079999999701977,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.4920000000298024,
+          "sx": 0.8000511999996186,
+          "sy": 1.0999744000001908
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1311.6,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.06739999999701968,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.06739999999701968,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.3260000000298032,
+        "sx": 0.8242207999917028,
+        "sy": 1.0878896000041487
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 3,
+          "outer": 0,
+          "t": 0.06739999999701968,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.3260000000298032,
+          "sx": 0.8242207999917028,
+          "sy": 1.0878896000041487
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1328.4,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.08419999999701985,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.08419999999701985,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.15800000002980152,
+        "sx": 0.8935711999836926,
+        "sy": 1.0532144000081538
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 3,
+          "outer": 0,
+          "t": 0.08419999999701985,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.15800000002980152,
+          "sx": 0.8935711999836926,
+          "sy": 1.0532144000081538
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1345,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1361.7,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.016700000000000045,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": -0.0031073919609316456,
+        "sx": 1.0031073919609317,
+        "sy": 0.9937852160781367
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 3,
+          "outer": 0,
+          "t": 0.016700000000000045,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.0031073919609316456,
+          "sx": 1.0031073919609317,
+          "sy": 0.9937852160781367
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1378.2,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.03320000000000005,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": -0.010914743200601082,
+        "sx": 1.0109147432006012,
+        "sy": 0.9781705135987978
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 3,
+          "outer": 0,
+          "t": 0.03320000000000005,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.010914743200601082,
+          "sx": 1.0109147432006012,
+          "sy": 0.9781705135987978
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1395,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.05,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": -0.021600300525920366,
+        "sx": 1.0216003005259204,
+        "sy": 0.9567993989481592
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 3,
+          "outer": 0,
+          "t": 0.05,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.021600300525920366,
+          "sx": 1.0216003005259204,
+          "sy": 0.9567993989481592
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1411.6,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.06659999999999991,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": -0.03279181848234404,
+        "sx": 1.0327918184823441,
+        "sy": 0.934416363035312
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 3,
+          "outer": 0,
+          "t": 0.06659999999999991,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.03279181848234404,
+          "sx": 1.0327918184823441,
+          "sy": 0.934416363035312
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1428.4,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.016800000000000183,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 4,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.016800000000000183,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.8319999999999982,
+        "sx": 0.8881791999999991,
+        "sy": 1.0559104000000006
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 4,
+          "outer": 0,
+          "t": 0.016800000000000183,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.8319999999999982,
+          "sx": 0.8881791999999991,
+          "sy": 1.0559104000000006
+        }
+      ],
+      "motionId": "motion-0003-normal",
+      "cameraMotionId": "camera-0002"
+    },
+    {
+      "timestamp": 1461.6,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.049000000001490206,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 4,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.049000000001490206,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.5099999999850979,
+        "sx": 0.8000799999997616,
+        "sy": 1.0999600000001193
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 4,
+          "outer": 0,
+          "t": 0.049000000001490206,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.5099999999850979,
+          "sx": 0.8000799999997616,
+          "sy": 1.0999600000001193
+        }
+      ],
+      "motionId": "motion-0003-normal",
+      "cameraMotionId": "camera-0002"
+    },
+    {
+      "timestamp": 1478.3,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.06570000000149025,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 4,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.06570000000149025,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.34299999998509756,
+        "sx": 0.8197192000037435,
+        "sy": 1.0901403999981283
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 4,
+          "outer": 0,
+          "t": 0.06570000000149025,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.34299999998509756,
+          "sx": 0.8197192000037435,
+          "sy": 1.0901403999981283
+        }
+      ],
+      "motionId": "motion-0003-normal",
+      "cameraMotionId": "camera-0002"
+    },
+    {
+      "timestamp": 1494.9,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.08230000000149038,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 4,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.08230000000149038,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.1769999999850963,
+        "sx": 0.8834632000077023,
+        "sy": 1.0582683999961489
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 4,
+          "outer": 0,
+          "t": 0.08230000000149038,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.1769999999850963,
+          "sx": 0.8834632000077023,
+          "sy": 1.0582683999961489
+        }
+      ],
+      "motionId": "motion-0003-normal",
+      "cameraMotionId": "camera-0002"
+    },
+    {
+      "timestamp": 1511.6,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.0990000000014902,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 4,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.0990000000014902,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.00999999998509804,
+        "sx": 0.9920800000116832,
+        "sy": 1.0039599999941584
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 4,
+          "outer": 0,
+          "t": 0.0990000000014902,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.00999999998509804,
+          "sx": 0.9920800000116832,
+          "sy": 1.0039599999941584
+        }
+      ],
+      "motionId": "motion-0003-normal",
+      "cameraMotionId": "camera-0002"
+    },
+    {
+      "timestamp": 1528.2,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 4,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0002"
+    },
+    {
+      "timestamp": 1544.9,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 4,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.016700000000000045,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": -0.0031073919609316456,
+        "sx": 1.0031073919609317,
+        "sy": 0.9937852160781367
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 4,
+          "outer": 0,
+          "t": 0.016700000000000045,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.0031073919609316456,
+          "sx": 1.0031073919609317,
+          "sy": 0.9937852160781367
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0002"
+    },
+    {
+      "timestamp": 1561.6,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 4,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.03339999999999986,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": -0.011029879489105856,
+        "sx": 1.011029879489106,
+        "sy": 0.9779402410217883
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 4,
+          "outer": 0,
+          "t": 0.03339999999999986,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.011029879489105856,
+          "sx": 1.011029879489106,
+          "sy": 0.9779402410217883
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0002"
+    },
+    {
+      "timestamp": 1578.3,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 4,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.05009999999999991,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": -0.021667930052591974,
+        "sx": 1.021667930052592,
+        "sy": 0.956664139894816
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 4,
+          "outer": 0,
+          "t": 0.05009999999999991,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.021667930052591974,
+          "sx": 1.021667930052592,
+          "sy": 0.956664139894816
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0002"
+    },
+    {
+      "timestamp": 1594.9,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 4,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.06670000000000004,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": -0.03285694117205112,
+        "sx": 1.0328569411720512,
+        "sy": 0.9342861176558978
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 4,
+          "outer": 0,
+          "t": 0.06670000000000004,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.03285694117205112,
+          "sx": 1.0328569411720512,
+          "sy": 0.9342861176558978
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0002"
+    },
+    {
+      "timestamp": 1611.6,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.01669999999999982,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.01669999999999982,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.8330000000000019,
+        "sx": 0.888711200000001,
+        "sy": 1.0556443999999996
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.01669999999999982,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.8330000000000019,
+          "sx": 0.888711200000001,
+          "sy": 1.0556443999999996
+        }
+      ],
+      "motionId": "motion-0005-normal",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1645.2,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.04989999999999987,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.04989999999999987,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.5010000000000013,
+        "sx": 0.8000008000000001,
+        "sy": 1.0999996
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.04989999999999987,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.5010000000000013,
+          "sx": 0.8000008000000001,
+          "sy": 1.0999996
+        }
+      ],
+      "motionId": "motion-0005-normal",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1661.5,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.06619999999999981,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.06619999999999981,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.33800000000000185,
+        "sx": 0.8209951999999996,
+        "sy": 1.0895024000000002
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.06619999999999981,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.33800000000000185,
+          "sx": 0.8209951999999996,
+          "sy": 1.0895024000000002
+        }
+      ],
+      "motionId": "motion-0005-normal",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1678.3,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.08299999999999977,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.08299999999999977,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.17000000000000237,
+        "sx": 0.8871199999999988,
+        "sy": 1.0564400000000007
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.08299999999999977,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.17000000000000237,
+          "sx": 0.8871199999999988,
+          "sy": 1.0564400000000007
+        }
+      ],
+      "motionId": "motion-0005-normal",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1694.8,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.09949999999999977,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.09949999999999977,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.005000000000002336,
+        "sx": 0.9960199999999981,
+        "sy": 1.0019900000000008
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.09949999999999977,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.005000000000002336,
+          "sx": 0.9960199999999981,
+          "sy": 1.0019900000000008
+        }
+      ],
+      "motionId": "motion-0005-normal",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1711.5,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [],
+      "motionId": "motion-0006-bumpHalt",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1728.2,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.016700000000000045,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": -0.0031073919609316456,
+        "sx": 1.0031073919609317,
+        "sy": 0.9937852160781367
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.016700000000000045,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.0031073919609316456,
+          "sx": 1.0031073919609317,
+          "sy": 0.9937852160781367
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1744.9,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.03340000000000009,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": -0.011029879489105986,
+        "sx": 1.011029879489106,
+        "sy": 0.977940241021788
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.03340000000000009,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.011029879489105986,
+          "sx": 1.011029879489106,
+          "sy": 0.977940241021788
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1761.5,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.05,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": -0.021600300525920366,
+        "sx": 1.0216003005259204,
+        "sy": 0.9567993989481592
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.05,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.021600300525920366,
+          "sx": 1.0216003005259204,
+          "sy": 0.9567993989481592
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1778.2,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.06670000000000005,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": -0.03285694117205112,
+        "sx": 1.0328569411720512,
+        "sy": 0.9342861176558978
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.06670000000000005,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.03285694117205112,
+          "sx": 1.0328569411720512,
+          "sy": 0.9342861176558978
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1794.9,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.016700000000000045,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.006214783921863291,
+        "sx": 1.0062147839218634,
+        "sy": 0.9875704321562734
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.016700000000000045,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.006214783921863291,
+          "sx": 1.0062147839218634,
+          "sy": 0.9875704321562734
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1811.5,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.030900000002980276,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.01923967258029348,
+        "sx": 1.0192396725802935,
+        "sy": 0.9615206548394131
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.030900000002980276,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.01923967258029348,
+          "sx": 1.0192396725802935,
+          "sy": 0.9615206548394131
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1828.1,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.047500000002980186,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.03983611946304167,
+        "sx": 1.0398361194630417,
+        "sy": 0.9203277610739167
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.047500000002980186,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.03983611946304167,
+          "sx": 1.0398361194630417,
+          "sy": 0.9203277610739167
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1844.9,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.06430000000298036,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.06256095312190435,
+        "sx": 1.0625609531219045,
+        "sy": 0.8748780937561913
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.06430000000298036,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.06256095312190435,
+          "sx": 1.0625609531219045,
+          "sy": 0.8748780937561913
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1861.5,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.08090000000298027,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.08270751630669397,
+        "sx": 1.082707516306694,
+        "sy": 0.8345849673866121
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.08090000000298027,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.08270751630669397,
+          "sx": 1.082707516306694,
+          "sy": 0.8345849673866121
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1878.1,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.09750000000298017,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.09641951540359073,
+        "sx": 1.0964195154035907,
+        "sy": 0.8071609691928185
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.09750000000298017,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.09641951540359073,
+          "sx": 1.0964195154035907,
+          "sy": 0.8071609691928185
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1894.8,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.11420000000298022,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.09957377730969603,
+        "sx": 1.099573777309696,
+        "sy": 0.800852445380608
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.11420000000298022,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.09957377730969603,
+          "sx": 1.099573777309696,
+          "sy": 0.800852445380608
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1911.5,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.13090000000298027,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.0905417999974982,
+        "sx": 1.0905417999974982,
+        "sy": 0.8189164000050037
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.13090000000298027,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.0905417999974982,
+          "sx": 1.0905417999974982,
+          "sy": 0.8189164000050037
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1928.2,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.14760000000298032,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.07293568384307446,
+        "sx": 1.0729356838430746,
+        "sy": 0.854128632313851
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.14760000000298032,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.07293568384307446,
+          "sx": 1.0729356838430746,
+          "sy": 0.854128632313851
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1944.8,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.16420000000298024,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.051090832152210365,
+        "sx": 1.0510908321522103,
+        "sy": 0.8978183356955793
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.16420000000298024,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.051090832152210365,
+          "sx": 1.0510908321522103,
+          "sy": 0.8978183356955793
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1961.5,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.1809000000029803,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.028922190679972093,
+        "sx": 1.0289221906799721,
+        "sy": 0.9421556186400558
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.1809000000029803,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.028922190679972093,
+          "sx": 1.0289221906799721,
+          "sy": 0.9421556186400558
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1978.2,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.19760000000298034,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.010751461454914447,
+        "sx": 1.0107514614549145,
+        "sy": 0.9784970770901711
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.19760000000298034,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.010751461454914447,
+          "sx": 1.0107514614549145,
+          "sy": 0.9784970770901711
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 1995.2,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.21460000000298035,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.0006993141990908613,
+        "sx": 1.000699314199091,
+        "sy": 0.9986013716018183
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.21460000000298035,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.0006993141990908613,
+          "sx": 1.000699314199091,
+          "sy": 0.9986013716018183
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2011.5,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2309000000029803,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.2309000000029803,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2028.1,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2309000000029803,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.2309000000029803,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2044.7,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2309000000029803,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.2309000000029803,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2061.5,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2309000000029803,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.2309000000029803,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2078.1,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2309000000029803,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.2309000000029803,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2094.7,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2309000000029803,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.2309000000029803,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2111.4,
+      "action": "00-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2309000000029803,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.2309000000029803,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0007-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2128.1,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.006800000002980141,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.001099198798839073,
+        "sx": 1.0010991987988391,
+        "sy": 0.9978016024023219
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.006800000002980141,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.001099198798839073,
+          "sx": 1.0010991987988391,
+          "sy": 0.9978016024023219
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2144.8,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.023500000002980415,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.011742054848711542,
+        "sx": 1.0117420548487115,
+        "sy": 0.9765158903025769
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.023500000002980415,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.011742054848711542,
+          "sx": 1.0117420548487115,
+          "sy": 0.9765158903025769
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2161.5,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.040200000002980234,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.030305303084160365,
+        "sx": 1.0303053030841605,
+        "sy": 0.9393893938316793
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.040200000002980234,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.030305303084160365,
+          "sx": 1.0303053030841605,
+          "sy": 0.9393893938316793
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2178,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.056700000002980235,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.05231744358031853,
+        "sx": 1.0523174435803186,
+        "sy": 0.8953651128393629
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.056700000002980235,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.05231744358031853,
+          "sx": 1.0523174435803186,
+          "sy": 0.8953651128393629
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2194.7,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.07340000000298005,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.07415484538302287,
+        "sx": 1.074154845383023,
+        "sy": 0.8516903092339543
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.07340000000298005,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.07415484538302287,
+          "sx": 1.074154845383023,
+          "sy": 0.8516903092339543
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2211.6,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.09030000000298015,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.09152675026535001,
+        "sx": 1.09152675026535,
+        "sy": 0.8169464994693001
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.09030000000298015,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.09152675026535001,
+          "sx": 1.09152675026535,
+          "sy": 0.8169464994693001
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2228,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.10670000000298024,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.09973540000047305,
+        "sx": 1.099735400000473,
+        "sy": 0.8005291999990539
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.10670000000298024,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.09973540000047305,
+          "sx": 1.099735400000473,
+          "sy": 0.8005291999990539
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2244.7,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.12340000000298007,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.0959096474813565,
+        "sx": 1.0959096474813566,
+        "sy": 0.8081807050372871
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.12340000000298007,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.0959096474813565,
+          "sx": 1.0959096474813566,
+          "sy": 0.8081807050372871
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2261.5,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.14020000000298025,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.08152622208541747,
+        "sx": 1.0815262220854176,
+        "sy": 0.8369475558291651
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.14020000000298025,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.08152622208541747,
+          "sx": 1.0815262220854176,
+          "sy": 0.8369475558291651
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2278,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.15670000000298023,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.06123226340699779,
+        "sx": 1.061232263406998,
+        "sy": 0.8775354731860044
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.15670000000298023,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.06123226340699779,
+          "sx": 1.061232263406998,
+          "sy": 0.8775354731860044
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2294.6,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.17330000000298015,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.03876773658505951,
+        "sx": 1.0387677365850596,
+        "sy": 0.922464526829881
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.17330000000298015,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.03876773658505951,
+          "sx": 1.0387677365850596,
+          "sy": 0.922464526829881
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2311.8,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.19050000000298042,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.01771883921544205,
+        "sx": 1.0177188392154422,
+        "sy": 0.9645623215691159
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.19050000000298042,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.01771883921544205,
+          "sx": 1.0177188392154422,
+          "sy": 0.9645623215691159
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2327.9,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.20660000000298034,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": -0.004090352515165496,
+        "sx": 1.0040903525151654,
+        "sy": 0.991819294969669
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.20660000000298034,
+          "length": 0.22,
+          "ox": 0,
+          "oy": -0.004090352515165496,
+          "sx": 1.0040903525151654,
+          "sy": 0.991819294969669
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2344.7,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2361.3,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2377.9,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2394.7,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2411.3,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2428,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2444.6,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2461.2,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2478.6,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2494.7,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2511.2,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2527.9,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2544.6,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2561.2,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2578,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2594.5,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2611.2,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2628,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2644.6,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2661.2,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2677.9,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2694.6,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2711.2,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2727.9,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2744.5,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2761.2,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2777.8,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2794.5,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2811.2,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    },
+    {
+      "timestamp": 2827.8,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22340000000298008,
+        "length": 0.22,
+        "anim": "bump",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 2,
+          "y": 5,
+          "outer": 0,
+          "t": 0.22340000000298008,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0008-bump",
+      "cameraMotionId": "camera-0003"
+    }
+  ],
+  "images": [
+    {
+      "name": "start",
+      "timestamp": 1214.7999999970198
+    },
+    {
+      "name": "state-0000",
+      "timestamp": 1228.3,
+      "frameIndex": 0
+    },
+    {
+      "name": "camera-0001-0",
+      "action": "00-Up",
+      "timestamp": 1228.3,
+      "phase": 1,
+      "frameIndex": 0
+    },
+    {
+      "name": "camera-0001-0.25",
+      "action": "00-Up",
+      "timestamp": 1228.3,
+      "phase": 1,
+      "frameIndex": 0
+    },
+    {
+      "name": "camera-0001-0.5",
+      "action": "00-Up",
+      "timestamp": 1228.3,
+      "phase": 1,
+      "frameIndex": 0
+    },
+    {
+      "name": "camera-0001-0.75",
+      "action": "00-Up",
+      "timestamp": 1228.3,
+      "phase": 1,
+      "frameIndex": 0
+    },
+    {
+      "name": "camera-0001-1",
+      "action": "00-Up",
+      "timestamp": 1228.3,
+      "phase": 1,
+      "frameIndex": 0
+    },
+    {
+      "name": "motion-0001-normal-0.25",
+      "action": "00-Up",
+      "timestamp": 1278.4,
+      "phase": 0.34199999997019853,
+      "frameIndex": 1
+    },
+    {
+      "name": "motion-0001-normal-0.5",
+      "action": "00-Up",
+      "timestamp": 1295,
+      "phase": 0.5079999999701976,
+      "frameIndex": 2
+    },
+    {
+      "name": "motion-0001-normal-0.75",
+      "action": "00-Up",
+      "timestamp": 1328.4,
+      "phase": 0.8419999999701985,
+      "frameIndex": 4
+    },
+    {
+      "name": "state-0005",
+      "timestamp": 1345,
+      "frameIndex": 5
+    },
+    {
+      "name": "motion-0002-bumpHalt-0.25",
+      "action": "00-Up",
+      "timestamp": 1411.6,
+      "phase": 0.3027272727272723,
+      "frameIndex": 9
+    },
+    {
+      "name": "state-0010",
+      "timestamp": 1428.4,
+      "frameIndex": 10
+    },
+    {
+      "name": "camera-0002-0",
+      "action": "00-Up",
+      "timestamp": 1428.4,
+      "phase": 1,
+      "frameIndex": 10
+    },
+    {
+      "name": "camera-0002-0.25",
+      "action": "00-Up",
+      "timestamp": 1428.4,
+      "phase": 1,
+      "frameIndex": 10
+    },
+    {
+      "name": "camera-0002-0.5",
+      "action": "00-Up",
+      "timestamp": 1428.4,
+      "phase": 1,
+      "frameIndex": 10
+    },
+    {
+      "name": "camera-0002-0.75",
+      "action": "00-Up",
+      "timestamp": 1428.4,
+      "phase": 1,
+      "frameIndex": 10
+    },
+    {
+      "name": "camera-0002-1",
+      "action": "00-Up",
+      "timestamp": 1428.4,
+      "phase": 1,
+      "frameIndex": 10
+    },
+    {
+      "name": "motion-0003-normal-0.25",
+      "action": "00-Up",
+      "timestamp": 1461.6,
+      "phase": 0.490000000014902,
+      "frameIndex": 11
+    },
+    {
+      "name": "motion-0003-normal-0.5",
+      "action": "00-Up",
+      "timestamp": 1478.3,
+      "phase": 0.6570000000149024,
+      "frameIndex": 12
+    },
+    {
+      "name": "motion-0003-normal-0.75",
+      "action": "00-Up",
+      "timestamp": 1494.9,
+      "phase": 0.8230000000149037,
+      "frameIndex": 13
+    },
+    {
+      "name": "state-0015",
+      "timestamp": 1528.2,
+      "frameIndex": 15
+    },
+    {
+      "name": "motion-0004-bumpHalt-0.25",
+      "action": "00-Up",
+      "timestamp": 1594.9,
+      "phase": 0.30318181818181833,
+      "frameIndex": 19
+    },
+    {
+      "name": "state-0020",
+      "timestamp": 1611.6,
+      "frameIndex": 20
+    },
+    {
+      "name": "camera-0003-0",
+      "action": "00-Up",
+      "timestamp": 1611.6,
+      "phase": 1,
+      "frameIndex": 20
+    },
+    {
+      "name": "camera-0003-0.25",
+      "action": "00-Up",
+      "timestamp": 1611.6,
+      "phase": 1,
+      "frameIndex": 20
+    },
+    {
+      "name": "camera-0003-0.5",
+      "action": "00-Up",
+      "timestamp": 1611.6,
+      "phase": 1,
+      "frameIndex": 20
+    },
+    {
+      "name": "camera-0003-0.75",
+      "action": "00-Up",
+      "timestamp": 1611.6,
+      "phase": 1,
+      "frameIndex": 20
+    },
+    {
+      "name": "camera-0003-1",
+      "action": "00-Up",
+      "timestamp": 1611.6,
+      "phase": 1,
+      "frameIndex": 20
+    },
+    {
+      "name": "motion-0005-normal-0.25",
+      "action": "00-Up",
+      "timestamp": 1645.2,
+      "phase": 0.49899999999999867,
+      "frameIndex": 21
+    },
+    {
+      "name": "motion-0005-normal-0.5",
+      "action": "00-Up",
+      "timestamp": 1661.5,
+      "phase": 0.6619999999999981,
+      "frameIndex": 22
+    },
+    {
+      "name": "motion-0005-normal-0.75",
+      "action": "00-Up",
+      "timestamp": 1678.3,
+      "phase": 0.8299999999999976,
+      "frameIndex": 23
+    },
+    {
+      "name": "state-0025",
+      "timestamp": 1711.5,
+      "frameIndex": 25
+    },
+    {
+      "name": "motion-0006-bumpHalt-0.25",
+      "action": "00-Up",
+      "timestamp": 1778.2,
+      "phase": 0.3031818181818184,
+      "frameIndex": 29
+    },
+    {
+      "name": "state-0030",
+      "timestamp": 1794.9,
+      "frameIndex": 30
+    },
+    {
+      "name": "motion-0007-bump-0.25",
+      "action": "00-Up",
+      "timestamp": 1844.9,
+      "phase": 0.29227272728627435,
+      "frameIndex": 33
+    },
+    {
+      "name": "motion-0007-bump-0.5",
+      "action": "00-Up",
+      "timestamp": 1894.8,
+      "phase": 0.5190909091044555,
+      "frameIndex": 36
+    },
+    {
+      "name": "motion-0007-bump-0.75",
+      "action": "00-Up",
+      "timestamp": 1961.5,
+      "phase": 0.822272727286274,
+      "frameIndex": 40
+    },
+    {
+      "name": "state-0043",
+      "timestamp": 2011.5,
+      "frameIndex": 43
+    },
+    {
+      "name": "motion-0007-bump-1",
+      "action": "00-Up",
+      "timestamp": 2011.5,
+      "phase": 1.0495454545590013,
+      "frameIndex": 43
+    },
+    {
+      "name": "state-0050",
+      "timestamp": 2128.1,
+      "frameIndex": 50
+    },
+    {
+      "name": "motion-0008-bump-0.25",
+      "action": "01-Up",
+      "timestamp": 2178,
+      "phase": 0.25772727274081925,
+      "frameIndex": 53
+    },
+    {
+      "name": "motion-0008-bump-0.5",
+      "action": "01-Up",
+      "timestamp": 2244.7,
+      "phase": 0.5609090909226366,
+      "frameIndex": 57
+    },
+    {
+      "name": "motion-0008-bump-0.75",
+      "action": "01-Up",
+      "timestamp": 2294.6,
+      "phase": 0.7877272727408189,
+      "frameIndex": 60
+    },
+    {
+      "name": "state-0063",
+      "timestamp": 2344.7,
+      "frameIndex": 63
+    },
+    {
+      "name": "motion-0008-bump-1",
+      "action": "01-Up",
+      "timestamp": 2344.7,
+      "phase": 1.0154545454680912,
+      "frameIndex": 63
+    },
+    {
+      "name": "end",
+      "timestamp": 2831.39999999851
+    }
+  ],
+  "structuralEnding": {
+    "levelName": "first_puzzle",
+    "moveCount": 3,
+    "winning": false,
+    "buttonsSatisfied": false,
+    "finishesSatisfied": false,
+    "wentToInfZone": false,
+    "blocks": [
+      {
+        "index": 0,
+        "outer": -1,
+        "sub": 0,
+        "x": -1,
+        "y": -1,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 1,
+        "outer": 0,
+        "sub": -1,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 2,
+        "outer": 0,
+        "sub": -1,
+        "x": 0,
+        "y": 1,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 3,
+        "outer": 0,
+        "sub": -1,
+        "x": 0,
+        "y": 2,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 4,
+        "outer": 0,
+        "sub": -1,
+        "x": 0,
+        "y": 3,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 5,
+        "outer": 0,
+        "sub": -1,
+        "x": 0,
+        "y": 4,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 6,
+        "outer": 0,
+        "sub": -1,
+        "x": 0,
+        "y": 5,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 7,
+        "outer": 0,
+        "sub": -1,
+        "x": 0,
+        "y": 6,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 8,
+        "outer": 0,
+        "sub": -1,
+        "x": 1,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 9,
+        "outer": 0,
+        "sub": -1,
+        "x": 1,
+        "y": 6,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 10,
+        "outer": 0,
+        "sub": -1,
+        "x": 2,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 11,
+        "outer": 0,
+        "sub": -1,
+        "x": 2,
+        "y": 6,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 12,
+        "outer": 0,
+        "sub": -1,
+        "x": 3,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 13,
+        "outer": 0,
+        "sub": -1,
+        "x": 3,
+        "y": 6,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 14,
+        "outer": 0,
+        "sub": -1,
+        "x": 4,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 15,
+        "outer": 0,
+        "sub": -1,
+        "x": 4,
+        "y": 1,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 16,
+        "outer": 0,
+        "sub": -1,
+        "x": 4,
+        "y": 2,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 17,
+        "outer": 0,
+        "sub": -1,
+        "x": 4,
+        "y": 6,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 18,
+        "outer": 0,
+        "sub": -1,
+        "x": 5,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 19,
+        "outer": 0,
+        "sub": -1,
+        "x": 5,
+        "y": 6,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 20,
+        "outer": 0,
+        "sub": -1,
+        "x": 6,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 21,
+        "outer": 0,
+        "sub": -1,
+        "x": 6,
+        "y": 1,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 22,
+        "outer": 0,
+        "sub": -1,
+        "x": 6,
+        "y": 2,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 23,
+        "outer": 0,
+        "sub": -1,
+        "x": 6,
+        "y": 3,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 24,
+        "outer": 0,
+        "sub": -1,
+        "x": 6,
+        "y": 4,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 25,
+        "outer": 0,
+        "sub": -1,
+        "x": 6,
+        "y": 5,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 26,
+        "outer": 0,
+        "sub": -1,
+        "x": 6,
+        "y": 6,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 27,
+        "outer": 0,
+        "sub": 1,
+        "x": 2,
+        "y": 5,
+        "isPlayer": true,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": true
+      },
+      {
+        "index": 28,
+        "outer": 1,
+        "sub": -1,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 29,
+        "outer": 0,
+        "sub": 2,
+        "x": 5,
+        "y": 3,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 30,
+        "outer": 2,
+        "sub": -1,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 31,
+        "outer": -1,
+        "sub": 3,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 32,
+        "outer": 3,
+        "sub": 0,
+        "x": 3,
+        "y": 3,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      }
+    ]
+  },
+  "provenance": {
+    "previewOrigin": "http://localhost:4187",
+    "claim": "Actual immutable production Canvas; incomplete native evidence is not a parity pass",
+    "candidate": "web-production-candidate-v7",
+    "head": "e04a40c5ee352bef46cb3fb309675a32f953cd67",
+    "manifestSha256": "81f5499c87cca7fb9aea79080581b988baad6b55bd48d6f163c282310b7a4bf2"
+  }
+}

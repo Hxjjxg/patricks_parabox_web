@@ -1,0 +1,44 @@
+{
+  "scope": "Actual naturally triggered lifecycle coverage only; final native font/image/effect parity remains incomplete.",
+  "cases": [
+    {
+      "case": "count-pause-800x540",
+      "traceSha256": "359b421bc5e6bcee5073d0f9d0f4fcc7d22c910d82b8495dd0b509376d376726",
+      "initialWon": 0,
+      "endingWon": 1,
+      "recordedRafFramesByPhase": {
+        "counting": 65,
+        "unlocking": 0,
+        "edgeParticles": 0,
+        "celebration": 0,
+        "paused": 39
+      }
+    },
+    {
+      "case": "natural-count",
+      "traceSha256": "4c0f78c0cbc941d56cb6e1d93bdb4b23cc8ef63f9368924f1bff2c0066ab245e",
+      "initialWon": 0,
+      "endingWon": 1,
+      "recordedRafFramesByPhase": {
+        "counting": 63,
+        "unlocking": 0,
+        "edgeParticles": 0,
+        "celebration": 0,
+        "paused": 0
+      }
+    },
+    {
+      "case": "nine-win-celebration-pause",
+      "traceSha256": "bfcd74cc2abcc368310ef60250af581ca059dc01ca70a92987c8de18de812c0c",
+      "initialWon": 8,
+      "endingWon": 9,
+      "recordedRafFramesByPhase": {
+        "counting": 65,
+        "unlocking": 171,
+        "edgeParticles": 234,
+        "celebration": 477,
+        "paused": 36
+      }
+    }
+  ]
+}
