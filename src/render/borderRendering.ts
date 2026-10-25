@@ -1,6 +1,6 @@
 import type { Graphics } from "pixi.js";
 import { AnimType } from "../core/animation";
-import type { Block, HsvColor, Level } from "../core/model";
+import { DrawStyle, FloorType, type Block, type HsvColor, type Level } from "../core/model";
 import { originalDrawRect, type WallRect } from "./wallRendering";
 
 /** Native measured GUI transfer: round half-color to bytes, then double. */
@@ -76,9 +76,18 @@ export function isInfinityBorder(block: Block): boolean {
   return block.isSomeInfExitBlock || Boolean(block.outerLevel?.infZone && block.subLevel && !block.subLevel.filledWithWalls && block.specialEffect !== 12);
 }
 
+export interface BlockBorderContext {
+  readonly screenshottingBlocks?: boolean;
+  readonly inHub?: boolean;
+  readonly buttonsSatisfied?: boolean;
+  readonly drawStyle?: DrawStyle;
+  readonly depth?: number;
+}
+
 export function drawBlockBorder(
   graphics: Graphics, block: Block, rect: WallRect, staticRect: WallRect, flipH: boolean,
   screenWidth: number, screenHeight: number, resolution = 1, time = 0,
+  context: BlockBorderContext = {},
 ): void {
   if (!block.subLevel) return;
   const thickness = borderThickness(block, rect, staticRect, screenWidth, screenHeight, resolution);
@@ -87,7 +96,15 @@ export function drawBlockBorder(
   const k = (phase < 0.5 ? phase * 2 : 1 - (phase - 0.5) * 2) * 2;
   // Util decrements k before evaluating BOTH factors in the second branch.
   const oscillation = k < 1 ? 0.5*k*k : -0.5*((k-1)*(k-3)-1);
-  const color = block.locked ? 0xff0000 : infinity ? guiHsvColor({h:0.15,s:1,v:0.65+0.35*oscillation})
+  // Block.CoveringButton uses the logical destination and current IsPlayer,
+  // independently of global winning/ButtonsSatisfied or moving draw flags.
+  const floor = block.outerLevel?.getFloor(block.x, block.y);
+  const covering = floor?.type === (block.isPlayer ? FloorType.PlayerButton : FloorType.Button);
+  const coveredWhite = !context.screenshottingBlocks && covering
+    && (!context.inHub || context.buttonsSatisfied)
+    && (context.drawStyle !== DrawStyle.Grid || (context.depth ?? 0) !== 0);
+  const color = block.locked ? 0xff0000 : coveredWhite ? 0xffffff
+    : infinity ? guiHsvColor({h:0.15,s:1,v:0.65+0.35*oscillation})
     : guiHsvColor({ h: block.color.h, s: block.color.s * 1.2, v: block.color.v * 0.18 });
   const strips = infinity ? [
     {x:flipH?rect.x+rect.width-thickness:rect.x,y:rect.y,width:thickness,height:rect.height},

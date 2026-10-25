@@ -1128,7 +1128,9 @@ export class GameRenderer {
     graphics = this.nextSceneLayer();
     if (this.world?.drawStyle !== DrawStyle.QuickAnim || isInfinityBorder(viewBlock)) {
       drawBlockBorder(graphics, viewBlock, rect, staticRect, flipH,
-        this.app.screen.width, this.app.screen.height, this.app.renderer?.resolution ?? 1, this.elapsed ?? 0);
+        this.app.screen.width, this.app.screen.height, this.app.renderer?.resolution ?? 1, this.elapsed ?? 0,
+        {inHub: this.world?.levelName === "hub", buttonsSatisfied: this.world?.buttonsSatisfied ?? false,
+          drawStyle: this.world?.drawStyle ?? DrawStyle.Normal, depth});
     }
     const nextAncestors = new Set(ancestors);
     nextAncestors.add(level);
@@ -1515,7 +1517,9 @@ export class GameRenderer {
         .fill(filledBlockColor);
       if (this.world?.drawStyle !== DrawStyle.QuickAnim || isInfinityBorder(block)) {
         drawBlockBorder(graphics, block, rect, staticRect, flipH !== block.flipH,
-          this.app.screen.width, this.app.screen.height, this.app.renderer?.resolution ?? 1, this.elapsed ?? 0);
+          this.app.screen.width, this.app.screen.height, this.app.renderer?.resolution ?? 1, this.elapsed ?? 0,
+          {inHub: this.world?.levelName === "hub", buttonsSatisfied: this.world?.buttonsSatisfied ?? false,
+            drawStyle: this.world?.drawStyle ?? DrawStyle.Normal, depth: depth + 1});
       }
     } else if (subLevel) {
       graphics = this.drawLevel(
