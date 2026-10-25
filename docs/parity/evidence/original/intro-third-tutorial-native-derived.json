@@ -1,0 +1,1126 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-25",
+  "scope": "Natural third_puzzle from actual Area_Intro portal; four captions and wrapped Note in native framebuffer",
+  "sources": {
+    "PauseMenu.cs": {
+      "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/PauseMenu.cs",
+      "sha256": "380c0d5a5c93de8eaeaf0238e5a1a6a677dc0f27aa7f8dae817a18d043ee21b0"
+    },
+    "World.cs": {
+      "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/World.cs",
+      "sha256": "bb97089b150c26d5fa0bd5abf3af3e9a114da39148b96ad601c19ade1fe2e512"
+    },
+    "Draw.cs": {
+      "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/Draw.cs",
+      "sha256": "e26bd1a20c0db16bf15f3961e368aa2f947880399b7361cc6ad9bbe862b012bd"
+    },
+    "Movement.cs": {
+      "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/Movement.cs",
+      "sha256": "e2b13b05d8bf8e62b3f101de12754d7b8a3908dfbb8cbf1fec5a66da2bfe9377"
+    },
+    "Block.cs": {
+      "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/Block.cs",
+      "sha256": "b93af533734b8d4fe5457263f11ba80f8857361fc9c80cc3cf541c7e6fccb0d9"
+    },
+    "Hub.cs": {
+      "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/Hub.cs",
+      "sha256": "5b839816239a1a0a52e8d87cf654cc8c1d5da5b88cb4e0676dd3cf128b308357"
+    },
+    "Level.cs": {
+      "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Scripts/Assembly-CSharp/Level.cs",
+      "sha256": "030d9d13cb6676ec0ec9989dd6ab46e3e22f733fa95a74cbc72458c85e515f29"
+    }
+  },
+  "localization": {
+    "path": "F:/AssetRipper_win_x64/parabox/ExportedProject/Assets/Resources/localization.txt",
+    "sha256": "2f1bdd3fc3119e624f44d4cfbaa7b20aede341088e4a7e685da588aedb0ad10d",
+    "key": "Control_UndoAReset",
+    "line": 167,
+    "english": "Note: You can undo a reset"
+  },
+  "sourceReferences": [
+    "Level.cs:126-140 stores actual hubAreaName",
+    "Draw.cs:5131-5203 tutorial branch and five rows",
+    "Draw.cs:5211-5310 caption/icon/Note rectangles",
+    "Draw.cs:1308-1310 endpoint truncation",
+    "Draw.cs:1477-1493 Main GUI.Label style",
+    "Draw.cs:2591-2602 pause focus fraction",
+    "Draw.cs:5446-5454 font size and screen-space aspect threshold"
+  ],
+  "priorRuntimeStyle": {
+    "path": "docs/parity/evidence/original/native-main-font-viewport-1001x733-v5-20261025/font-metrics.json",
+    "sha256": "9dbbf3dfbe1a5aa4dd0e2ab193558fd4b1cba5677609602e68ee0edffc2161dd",
+    "sourceStyle": {
+      "fontName": "Jost-SemiBold",
+      "fontSize": 16,
+      "fontStyle": "Normal",
+      "alignment": "MiddleCenter",
+      "wordWrap": true,
+      "richText": true,
+      "clipping": "Clip",
+      "padding": [
+        0,
+        0,
+        3,
+        3
+      ],
+      "contentOffset": [
+        0,
+        0
+      ]
+    },
+    "scope": "Prior Move-only Main GUIStyle measurement, not fresh Note telemetry"
+  },
+  "captures": [
+    {
+      "id": "intro-third-tutorial-800x600-native-v1-20261025",
+      "requestedScreen": [
+        800,
+        600
+      ],
+      "actualScreen": [
+        800,
+        600
+      ],
+      "referenceWebDpr": 1,
+      "resampled": false,
+      "frameCount": 96,
+      "start": {
+        "phase": "capture-start",
+        "frame": 2683404,
+        "elapsedMs": 0,
+        "requestedControl": "NONE",
+        "controls": {
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false,
+          "undo": false,
+          "redo": false,
+          "restart": false
+        },
+        "levelName": "hub",
+        "moveCount": 3,
+        "queued": false,
+        "player": {
+          "outerLevel": 0,
+          "x": 4,
+          "y": 7,
+          "anim": "NORMAL",
+          "animT": 0,
+          "animLength": 0.1
+        },
+        "worldState": "Playing"
+      },
+      "portalLoad": {
+        "phase": "level-after:third_puzzle",
+        "frame": 2683434,
+        "elapsedMs": 516.1133,
+        "requestedControl": "NONE",
+        "controls": {
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false,
+          "undo": false,
+          "redo": false,
+          "restart": false
+        },
+        "levelName": "third_puzzle",
+        "moveCount": 0,
+        "queued": false,
+        "player": {
+          "outerLevel": 0,
+          "x": 2,
+          "y": 4,
+          "anim": "NORMAL",
+          "animT": 0,
+          "animLength": 0
+        },
+        "worldState": "Playing"
+      },
+      "settledFrame": {
+        "file": "frame-0095.png",
+        "imageCaptured": true,
+        "frame": 2683499,
+        "elapsedMs": 1647.46094,
+        "deltaMs": 16.6589012,
+        "control": "NONE",
+        "eventIndex": 1,
+        "eventStartMs": 54.19922,
+        "moveCount": 0,
+        "levelName": "third_puzzle",
+        "outerLevel": 0,
+        "x": 2,
+        "y": 4,
+        "anim": "NORMAL",
+        "animT": 0,
+        "animLength": 0,
+        "drawXOffset": 0,
+        "drawYOffset": 0,
+        "drawXScale": 1,
+        "drawYScale": 1,
+        "anyBlockMoving": false,
+        "cameraFlipH": false,
+        "cameraAnimT": 0.1,
+        "cameraAnimLength": 0.1,
+        "newCamT": 1,
+        "newX": 0,
+        "newY": 0,
+        "newXS": 1,
+        "newYS": 1
+      },
+      "geometrySourceDerived": {
+        "derivation": "Source formulas with float32 arithmetic; SetDrawRect truncates endpoints toward zero. Source-derived expected GUI rectangles, not V14 per-label measurements.",
+        "useScreenSpaceControls": true,
+        "focusRectSourceInputs": {
+          "center": [
+            400,
+            300
+          ],
+          "width": 492.0,
+          "height": 492.0,
+          "camZoomFactor": 1
+        },
+        "focusFractionPause": 0.44857144355773926,
+        "fontSize": 12,
+        "xCenter": 77.0,
+        "rowSpacing": 90.0,
+        "rows": [
+          {
+            "action": "Undo",
+            "text": "\nUndo",
+            "xCenter": 77.0,
+            "yCenter": 120.0,
+            "fontSize": 12,
+            "captionGuiRect": [
+              -223,
+              -166.5,
+              600,
+              600
+            ],
+            "iconRect": [
+              50,
+              79,
+              54,
+              54
+            ]
+          },
+          {
+            "action": "Redo",
+            "text": "\nRedo",
+            "xCenter": 77.0,
+            "yCenter": 210.0,
+            "fontSize": 12,
+            "captionGuiRect": [
+              -223,
+              -76.5,
+              600,
+              600
+            ],
+            "iconRect": [
+              50,
+              169,
+              54,
+              54
+            ]
+          },
+          {
+            "action": "Restart",
+            "text": "\nReset puzzle",
+            "xCenter": 77.0,
+            "yCenter": 300.0,
+            "fontSize": 12,
+            "captionGuiRect": [
+              -223,
+              13.500000953674316,
+              600,
+              600
+            ],
+            "iconRect": [
+              50,
+              259,
+              54,
+              54
+            ]
+          },
+          {
+            "action": "Pause",
+            "text": "\nMenu",
+            "xCenter": 77.0,
+            "yCenter": 390.0,
+            "fontSize": 12,
+            "captionGuiRect": [
+              -223,
+              103.5,
+              600,
+              600
+            ],
+            "iconRect": [
+              50,
+              349,
+              54,
+              54
+            ]
+          },
+          {
+            "action": "",
+            "text": "Note: You can undo a reset",
+            "xCenter": 77.0,
+            "yCenter": 480.0,
+            "fontSize": 12,
+            "captionGuiRect": [
+              32,
+              390,
+              90,
+              180
+            ],
+            "visibleLines": [
+              "Note: You can",
+              "undo a reset"
+            ]
+          }
+        ]
+      },
+      "noteInkMeasurement": {
+        "method": "Within source Note x extent and yCenter plus/minus2.2*fontSize, pixels with minRGB>150 and maxRGB-minRGB<10; contiguous nonempty row runs yield exclusive-edge ink bounds. Not GUI cursors/baselines.",
+        "crop": [
+          32,
+          453,
+          122,
+          506
+        ],
+        "lineInkBounds": [
+          [
+            38,
+            468,
+            116,
+            476
+          ],
+          [
+            43,
+            484,
+            111,
+            493
+          ]
+        ]
+      },
+      "isolation": {
+        "savePath": "C:/Users/lenov/AppData/LocalLow/Patrick Traynor/Patrick's Parabox/save1.txt",
+        "beforeHash": "40e7f4ce65bc9819119c0a83f967a77bfa1d20fe78651307329b23a8e271304a",
+        "afterHash": "40e7f4ce65bc9819119c0a83f967a77bfa1d20fe78651307329b23a8e271304a",
+        "unchanged": true,
+        "suppressedSaveCalls": 1,
+        "previousInMemorySaveRestored": true
+      },
+      "probe": {
+        "id": "intro-third-tutorial-800x600-native-v1-20261025",
+        "mode": "IsolatedMotion",
+        "level": "hub",
+        "requestedScreen": [
+          800,
+          600
+        ],
+        "save": "SAVE nexus=0 recent=Area_Intro won=first_puzzle,second_puzzle",
+        "setup": [
+          "LEFT",
+          "DOWN",
+          "DOWN"
+        ],
+        "timedCommands": [
+          "DOWN:40",
+          "NONE:1600"
+        ],
+        "inputBoundary": "controls-delivered after actual Controls.Update; ordinary portal transition to third_puzzle",
+        "note": "Actual Area_Intro third portal, not direct third_puzzle load. Existing observer exposes no tutorial Note/caption GUI rects or wrapped cursors; source-derived geometry must be labeled separately."
+      },
+      "files": {
+        "capture.json": "28e8bcf6dd7fbe0c92d5bed63593a8a90cd0a10e4ae71cf27d515d96cae8585c",
+        "end-state.json": "b97823287e0839da1c593db7fae7bd0b3a3a29b6f61bf3aa79e8ef966bb52f3b",
+        "frame-0000.png": "288c166f96fc7b25ba0494889480f180e994d763539b27959cfdb56604c3baf3",
+        "frame-0001.png": "160e6da8fe1553ac6e9e274ac39ae69c7e6a841c3444ad0bb0b35046924bf1e6",
+        "frame-0002.png": "516419498fbe3e63bf97d9959bab5a41f5c3893225d20ac13708975e519538cf",
+        "frame-0003.png": "a61a96d538baa1a6e11a634dd3c93a957be97987f3d53aced7c02bd5af541ce1",
+        "frame-0004.png": "3ff585c75de5df88dd1996cdd58972e5f6bb1cc23849e05077313011145271b8",
+        "frame-0005.png": "e2c1cb581f61d0d045147acbc97342eaab9a3fb82c1bb433dc1ff00fa14da1db",
+        "frame-0006.png": "1933a17cb141147f2e0082ad2dbe5e1af917f241d76a1d5aa3d6f8414bc83599",
+        "frame-0007.png": "33b5300e3d4617263cf59b0f7417b62ed82e2d3faa050d14cd055154a9b1f281",
+        "frame-0008.png": "dc8f47bc2b6edf5c050bb656c2aed6631da61ea52372e6653a0187486cd877a4",
+        "frame-0009.png": "4ff2103ac53d25e62b4f3af8c824b0e6a7d7ead8fa8fd9136b1dbb531ed781bb",
+        "frame-0010.png": "f82dd8bb5cad63e688395180acf43a96d404c57d5016947ad554fe192421f544",
+        "frame-0011.png": "5d1f3b85c456d5a946cf3df705c9c63e1ebbd4042edba4f0979b0ad478d19def",
+        "frame-0012.png": "d39f225096f68e1496d8b39a0c735db4db2ae5ca9ba6e63e1fcef5696374e0c8",
+        "frame-0013.png": "1ca6ff663d74157cfa9d26bd66e82613456c67a2d54e664799b384ebefa0d4bd",
+        "frame-0014.png": "10a2dd0ee0ed1f9d26f74d97ab1cb97b5d6b63d31a0294b68f52aa935b44abb1",
+        "frame-0015.png": "a830f8999892a27a2fe7ebc92c19e80c9c90fc9c513b0ca7392059844f2a30e9",
+        "frame-0016.png": "addf4e7e8eeaad549125d639130bfa8536fb23feafc36d1cddb939a0f59c71b9",
+        "frame-0017.png": "57e07c23e6eebafe3a2906f5590420a5c0ba0ba2c59543524ae378fb01418513",
+        "frame-0018.png": "6931528a5e83d87cf7a982628687722a5b4dd2c6b3d1930c98b2fdfdc679d2b8",
+        "frame-0019.png": "834556053fca74f7f1ca47ebf3bd94588b875534bd3d06eac95f4e557672b6f1",
+        "frame-0020.png": "7a7a316e48eaa445df61bb68c5fd540470faa165680c4baf616345b65e3d5638",
+        "frame-0021.png": "9c3cdbac9aef230694fba0da92da415fd732f2b2a2e7fc7266bba6c56b6f1016",
+        "frame-0022.png": "d6edabfe85ea120495af49c399a2267aab2ee21b6cd102d39de1866e5ff6c515",
+        "frame-0023.png": "4280fbcfbc9da0b3cc7e2f97eacc0d7b31991966424731b41b4c7265ccb4b3c5",
+        "frame-0024.png": "1e6972a5633a1cc2bd29ead3f836c8780f2eab85a47e90ec717a57007e84908b",
+        "frame-0025.png": "8320aa8cf0835df29eb730fb29e12c82571616fc764d3f123d17accde345681e",
+        "frame-0026.png": "4761e70320800cbd110198219d883776b95cf21e0c21b81ed9ee60d1f7e81c9f",
+        "frame-0027.png": "c136e34cd7d042e868ade0145f30c987a825e60a01841f2e43d514b9d7c55727",
+        "frame-0028.png": "2f9830b6a6da4e3e3b4362c0cc9b864867802e3a7636ba32086a03d1559ecda9",
+        "frame-0029.png": "9919e3be484b92ca907e5ca8035225f2aeec857140429b818e3553d960068ba1",
+        "frame-0030.png": "1ee483d98f6f9a851c4d4ba9bcee000c314dfb765d006ed7b61dbfad5fbe975f",
+        "frame-0031.png": "f6fb206cac2d9208a4d35b2881e57cac80f8511ed89862748fb456b1b6b48914",
+        "frame-0032.png": "2ef04d84a74ecb7de23a032bf50bee7a5c238e4d535b527a28c056ed99c416f8",
+        "frame-0033.png": "5a837404ccb3a3df1310bf8886f272636399f19d83fed8cd6794b4f07b32382f",
+        "frame-0034.png": "b0230354a442858c2191288c53b9f663243736693781eaa5d3ff9407dfc95045",
+        "frame-0035.png": "fd519b4cbba0294816a6b8febe3e38d0a415eeacb938fe6a32eaa7871f82bdb8",
+        "frame-0036.png": "f7791ee9aabc81d78dbabb3ce4047175c5bdab4b33aa7dbd0d2977ab4742d162",
+        "frame-0037.png": "74858442b73bee6db56a322af1b5c3a2ba97761e4734103f2699b5925ef48c10",
+        "frame-0038.png": "12a88d06678c0d041973123ae16573999bad0e61a25ff07ecdfbbe173486086a",
+        "frame-0039.png": "b132c872ad4e265ce83584006abfd796e7a4a98f49d3b98314f1d5ccf109ca66",
+        "frame-0040.png": "1442b0f061dab133c6e6a7094be5665a7f2c11726a01812cab6a03c4249a806c",
+        "frame-0041.png": "10ff11d57a41b0ce275ba843238ba64dc9136bafc6f0c15c41e1b067ad59b4f5",
+        "frame-0042.png": "37b3b64fec0871f4672ba08b3475910d5ed8e2a505f799af1d703c47c83afc22",
+        "frame-0043.png": "e301dfdd7ff4b050b4d98a7a058be8a49fa89312823ba48e487fd396b9972370",
+        "frame-0044.png": "4d8d7655372457478adce915115c27f3afdeaa51bfe6fe9b3d015b77e139debd",
+        "frame-0045.png": "1883db4b1bf3a3a391e7afbd30ee6296565cc907ae2e609dd3c4c17d8e488467",
+        "frame-0046.png": "dd7d9c00054372bad2dc742ce3cd52cafe5fd6bcb54aabc1d295f97b859e7d99",
+        "frame-0047.png": "db921520e8a2865e74ee796f76881db966036c935d9df0063057c74b7b90fc29",
+        "frame-0048.png": "6c3a94f5ddeeff00bfeac49e6b6e506017f4e7892898a6038f0cf3b4938cd580",
+        "frame-0049.png": "ecb67b74595d2059d123507abd7f817b2542ec513b4dd79c7dca52bc61ea920b",
+        "frame-0050.png": "e9b17b87755c3ca1cab6e341b7b1ffcc8ae9ac65d1c2d980a7e3774a02922715",
+        "frame-0051.png": "cc33fc1a7aeb0c4e85fe4e95e4691fc03bb1a3dc20238633ca15782602ad05b7",
+        "frame-0052.png": "0a3ac2b8eb29ecb5eeb06f3a559dff14c122e146e9b721a17093de79bf1a5f5b",
+        "frame-0053.png": "782391cb4578acdf5a27bcfc0384a26966a98aa160bc502762ab2c766fe00a3f",
+        "frame-0054.png": "f17f9f88bd711eaeeb8cff55378d39476a12470ada9e96de7891c2014b7d97ed",
+        "frame-0055.png": "6741b9aca02937a9ce9515e39eb8759c7b2f87da310d6aeb2f5249b18d08daae",
+        "frame-0056.png": "93fcbf5d0747660d02fe3719df4bdd044260ebe5da5714cbdfa0a694a1a1d966",
+        "frame-0057.png": "92ac169bef3eb7078aff613b0b5fc3a0e671f64ff208970ba37a88652af376ce",
+        "frame-0058.png": "dcb2d26f65c147ae28028d586da583f733915209ada40b40d1d797685fd5b477",
+        "frame-0059.png": "71f3a89563e0db61971b903bad895e7ee1b577f16f2a1c11ad68b39ef10c20c4",
+        "frame-0060.png": "e2675c4aefa431e5c607c4142f0ed90bdc7066bc83ed59282ac4b2b7bd4d8096",
+        "frame-0061.png": "03041a8d894cb436c60b873ccd7905215e644fa61d59b369969896859bdcf3b5",
+        "frame-0062.png": "d59c4b6adcaa7fae45bd0ae6511cecef7693fe089c9ffb545f30c76f7e0ba23d",
+        "frame-0063.png": "ace05e5938e3e641fa01b90af15d256fb38493b495b4c7919cd078a7aa5e37f9",
+        "frame-0064.png": "0b0f9886e3c5505071ba5e85caecaa44c1682e4aa17e2c749c2af3b0fad14a5a",
+        "frame-0065.png": "48e13d0d400bc01e1479848e09da53950f15bead5af8abe925e76afa8c780c10",
+        "frame-0066.png": "81cd164b49d2bf7d42dc1c11b2a3ad0550d6ab8b5590207bcefd9f3006a11d30",
+        "frame-0067.png": "bfa6f651e2ad92d9617401bac6738d33c9d418b463de5e2e3bf709fdbe7cf32f",
+        "frame-0068.png": "20b8c154fa34d51304a0876201407ba71604bfac71e972c66934b20f4b1bb704",
+        "frame-0069.png": "577bd41080d3dbec4698a0e102fe3fb68450fc1078e954fc03086ec4961607c6",
+        "frame-0070.png": "3a0f8e1df7cf4a8e1d999b1b834bf1ee04684cfefdf21d0a99ef72fc9e4c1c20",
+        "frame-0071.png": "907fd9387b165c2e08ef4c8619a90501bd36a81c5be7838faf52a658b44dc14c",
+        "frame-0072.png": "dfef16c722df3aaee15d884e82c9127594311ffc8fa5a88a849d2ce459cdaf30",
+        "frame-0073.png": "12bfbef8d028c57d751f6c9c31a5ff2afa5a74cc18c8e49799b480eee93a8015",
+        "frame-0074.png": "8c134d8e38fd5e26200f0fcd2fb2726420760edfae16af593711ca524b972265",
+        "frame-0075.png": "dc18c0d626d690c6e86ab0abfcf472668ef89a386f3ffed3429beb893e91ceaf",
+        "frame-0076.png": "997051b77b39cfa436deda95c08ae72229af5118f7fc37105126dbeab6aef2ad",
+        "frame-0077.png": "84b1ee7b1ee9928f1a00f7ec7700837835ae7c9a6555dbb9cdc0ebbbee3bd570",
+        "frame-0078.png": "08dde917272bbd58a63fa489ed7ba6950d88832a88680b6c8da3b58794693c25",
+        "frame-0079.png": "243f84f9bfaf9f4ddf2ebec90958fbc45d60f2aba10aa08845a6e310e38e9758",
+        "frame-0080.png": "f2f4ac43af35169aa2b7afadc54b9729d655126bec1f7185163117210018fc62",
+        "frame-0081.png": "da26568be271d0333876da07ee3c83073ecb6011758d1a9ff39f93b0b6e275ef",
+        "frame-0082.png": "ffd454d0338cfd78f84ebeded2bf0da8d45518823b363416d1b7e8f6ba49635f",
+        "frame-0083.png": "b094deca3d921ec462d0088dceb7998eaba42995119de440002b1f43d60b9f55",
+        "frame-0084.png": "d1b57b2bc9e287fdca2e35329f778b7b3c5f59c36890dbcae4051b864d63063d",
+        "frame-0085.png": "d39e26263dbe6d7e7ab0c81b15e2997ce7cca4015f01d8f3306817c2221e3e32",
+        "frame-0086.png": "3e57c71c9f1663100c799b212ca100aac3348f152e9da9c476244963738b0346",
+        "frame-0087.png": "a4453c19aa109eb5342265961762f8b6ebcea61cd1db6b205fa09e74b173d3f3",
+        "frame-0088.png": "3ab11fca69fe936cdf76e7582ff930264f00ff3de051e8d1891c4b6cff18c333",
+        "frame-0089.png": "75a6e53637c0bbdc806321e24a076192f0be5fa7e23d99b295706c31585fbaa5",
+        "frame-0090.png": "93b7728712680d1ee3260b38b0416ea2b84c7705e90e6086e1b2a49c4127d59e",
+        "frame-0091.png": "30fef5040b45515d045fc9b810b11e8917cd998017641bed2571eba58f9acb8b",
+        "frame-0092.png": "e2977abeb2a441f54f7f1a38b96e19aee3ba81ea3df77c3769a8ef74d5f47f42",
+        "frame-0093.png": "7bf806e08c1fe0d7ed28f9950da9dfc40e887631d3fa24198f9a809f57d6d691",
+        "frame-0094.png": "17b0fcb8ff535e97a52145c104f489c940e1effe7c8ec3b00b946842d7b5e18a",
+        "frame-0095.png": "fd73a319f3d6fd69f682ce573d319f9257c86ef5953b3f804208b1dd1a778499",
+        "hub-start-state.json": "2e197f335c50ff1cac8cc973d0315cd0e672b530b14058ead9652f9aadb60011",
+        "inspection.json": "61f01ef4ebab85b6fb7f61182cfd392ba37df0e9b741df8188571d6d4bf204e9",
+        "isolation.json": "813db21e0afcd4ec8d6433aa3a9d90fe89542d784de1c1dd95db7bebd8516734",
+        "observer-build.json": "e7db0be32ae0baf2c04c0bbaebb821ed62a4fe30a3af9b49a130dbf09ebe628b",
+        "phases.json": "a20d169afe6f585999137661f53bfa53bd1810c26d269a33eee0d15bc657073a",
+        "probe.json": "d48df69a72299c84aa3532f68c8a14a89ddd68d9f8ad13e42cbed699243e9ee5",
+        "shine.json": "fddafb57e9687ae93ebda7d4f2cf55d875476efa13fe7920a8cff2260df7f672",
+        "start-state.json": "2f4284e8dda68cfe5ca503e1f807b150c39d261ef95175e59c556bfeea8c3a84"
+      }
+    },
+    {
+      "id": "intro-third-tutorial-1001x733-native-v1-20261025",
+      "requestedScreen": [
+        1001,
+        733
+      ],
+      "actualScreen": [
+        1001,
+        733
+      ],
+      "referenceWebDpr": 1,
+      "resampled": false,
+      "frameCount": 66,
+      "start": {
+        "phase": "capture-start",
+        "frame": 2682839,
+        "elapsedMs": 0,
+        "requestedControl": "NONE",
+        "controls": {
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false,
+          "undo": false,
+          "redo": false,
+          "restart": false
+        },
+        "levelName": "hub",
+        "moveCount": 3,
+        "queued": false,
+        "player": {
+          "outerLevel": 0,
+          "x": 4,
+          "y": 7,
+          "anim": "NORMAL",
+          "animT": 0,
+          "animLength": 0.1
+        },
+        "worldState": "Playing"
+      },
+      "portalLoad": {
+        "phase": "level-after:third_puzzle",
+        "frame": 2682860,
+        "elapsedMs": 519.53125,
+        "requestedControl": "NONE",
+        "controls": {
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false,
+          "undo": false,
+          "redo": false,
+          "restart": false
+        },
+        "levelName": "third_puzzle",
+        "moveCount": 0,
+        "queued": false,
+        "player": {
+          "outerLevel": 0,
+          "x": 2,
+          "y": 4,
+          "anim": "NORMAL",
+          "animT": 0,
+          "animLength": 0
+        },
+        "worldState": "Playing"
+      },
+      "settledFrame": {
+        "file": "frame-0065.png",
+        "imageCaptured": true,
+        "frame": 2682904,
+        "elapsedMs": 1640.13672,
+        "deltaMs": 29.9162,
+        "control": "NONE",
+        "eventIndex": 1,
+        "eventStartMs": 49.3164063,
+        "moveCount": 0,
+        "levelName": "third_puzzle",
+        "outerLevel": 0,
+        "x": 2,
+        "y": 4,
+        "anim": "NORMAL",
+        "animT": 0,
+        "animLength": 0,
+        "drawXOffset": 0,
+        "drawYOffset": 0,
+        "drawXScale": 1,
+        "drawYScale": 1,
+        "anyBlockMoving": false,
+        "cameraFlipH": false,
+        "cameraAnimT": 0.1,
+        "cameraAnimLength": 0.1,
+        "newCamT": 1,
+        "newX": 0,
+        "newY": 0,
+        "newXS": 1,
+        "newYS": 1
+      },
+      "geometrySourceDerived": {
+        "derivation": "Source formulas with float32 arithmetic; SetDrawRect truncates endpoints toward zero. Source-derived expected GUI rectangles, not V14 per-label measurements.",
+        "useScreenSpaceControls": true,
+        "focusRectSourceInputs": {
+          "center": [
+            500,
+            366
+          ],
+          "width": 601.0599975585938,
+          "height": 601.0599975585938,
+          "camZoomFactor": 1
+        },
+        "focusFractionPause": 0.4595721960067749,
+        "fontSize": 16,
+        "xCenter": 99.98500061035156,
+        "rowSpacing": 109.95000457763672,
+        "rows": [
+          {
+            "action": "Undo",
+            "text": "\nUndo",
+            "xCenter": 99.98500061035156,
+            "yCenter": 146.09999084472656,
+            "fontSize": 16,
+            "captionGuiRect": [
+              -266,
+              -203.50750732421875,
+              732,
+              732
+            ],
+            "iconRect": [
+              67,
+              96,
+              65,
+              66
+            ]
+          },
+          {
+            "action": "Redo",
+            "text": "\nRedo",
+            "xCenter": 99.98500061035156,
+            "yCenter": 256.04998779296875,
+            "fontSize": 16,
+            "captionGuiRect": [
+              -266,
+              -93.50749969482422,
+              732,
+              732
+            ],
+            "iconRect": [
+              67,
+              206,
+              65,
+              66
+            ]
+          },
+          {
+            "action": "Restart",
+            "text": "\nReset puzzle",
+            "xCenter": 99.98500061035156,
+            "yCenter": 366.0,
+            "fontSize": 16,
+            "captionGuiRect": [
+              -266,
+              16.49250030517578,
+              732,
+              732
+            ],
+            "iconRect": [
+              67,
+              316,
+              65,
+              66
+            ]
+          },
+          {
+            "action": "Pause",
+            "text": "\nMenu",
+            "xCenter": 99.98500061035156,
+            "yCenter": 475.95001220703125,
+            "fontSize": 16,
+            "captionGuiRect": [
+              -266,
+              125.49250030517578,
+              732,
+              733
+            ],
+            "iconRect": [
+              67,
+              426,
+              65,
+              66
+            ]
+          },
+          {
+            "action": "",
+            "text": "Note: You can undo a reset",
+            "xCenter": 99.98500061035156,
+            "yCenter": 585.9000244140625,
+            "fontSize": 16,
+            "captionGuiRect": [
+              45,
+              475,
+              109,
+              220
+            ],
+            "visibleLines": [
+              "Note: You can",
+              "undo a reset"
+            ]
+          }
+        ]
+      },
+      "noteInkMeasurement": {
+        "method": "Within source Note x extent and yCenter plus/minus2.2*fontSize, pixels with minRGB>150 and maxRGB-minRGB<10; contiguous nonempty row runs yield exclusive-edge ink bounds. Not GUI cursors/baselines.",
+        "crop": [
+          45,
+          550,
+          154,
+          621
+        ],
+        "lineInkBounds": [
+          [
+            48,
+            568,
+            150,
+            579
+          ],
+          [
+            54,
+            590,
+            144,
+            602
+          ]
+        ]
+      },
+      "isolation": {
+        "savePath": "C:/Users/lenov/AppData/LocalLow/Patrick Traynor/Patrick's Parabox/save1.txt",
+        "beforeHash": "40e7f4ce65bc9819119c0a83f967a77bfa1d20fe78651307329b23a8e271304a",
+        "afterHash": "40e7f4ce65bc9819119c0a83f967a77bfa1d20fe78651307329b23a8e271304a",
+        "unchanged": true,
+        "suppressedSaveCalls": 1,
+        "previousInMemorySaveRestored": true
+      },
+      "probe": {
+        "id": "intro-third-tutorial-1001x733-native-v1-20261025",
+        "mode": "IsolatedMotion",
+        "level": "hub",
+        "requestedScreen": [
+          1001,
+          733
+        ],
+        "save": "SAVE nexus=0 recent=Area_Intro won=first_puzzle,second_puzzle",
+        "setup": [
+          "LEFT",
+          "DOWN",
+          "DOWN"
+        ],
+        "timedCommands": [
+          "DOWN:40",
+          "NONE:1600"
+        ],
+        "inputBoundary": "controls-delivered after actual Controls.Update; ordinary portal transition to third_puzzle",
+        "note": "Actual Area_Intro third portal, not direct third_puzzle load. Existing observer exposes no tutorial Note/caption GUI rects or wrapped cursors; source-derived geometry must be labeled separately."
+      },
+      "files": {
+        "capture.json": "c4379511b1b0b6db6909a8bbf2159e58cab6f4216e8a263ff4f57144e18e5283",
+        "end-state.json": "8aa70ba02b3d27e292c8a77612e17f160d71c3174ff87c527455b88cd817d704",
+        "frame-0000.png": "01a6df108e628792fe60de1fd5e9e22a45dc9b4c37f68a413789142125401a29",
+        "frame-0001.png": "941a7129bf3d524fe22e0febf59532ef49bd8025e05b2d09f662dd1834e9f8f9",
+        "frame-0002.png": "edfe5f070ac54252cbfa592ada183aa533812a720bbbbf730a0fd73f857720b0",
+        "frame-0003.png": "455eb5c7d1d48d8dc6ebc9fd57080e697b18a353090b4ffef566e53d95677ef2",
+        "frame-0004.png": "78e5a11398ce4c9ec5fdf84323a5e63124fa1051004baf9d861b45e3b41d6e02",
+        "frame-0005.png": "fad4d7b25d660280dc6c59eff6a28858927c54789283c8dcf698960d27c98ed0",
+        "frame-0006.png": "ab6a230e0ca5e2a035c8f9fbbc08a8b169ae2705055f79ded7f3b32c8ba13536",
+        "frame-0007.png": "8c795db1d2842ea871ee114faaa8818ff81b9029b5217fdc86664e9a05579255",
+        "frame-0008.png": "0443298e21b82457a0d29de362b9b050a77fcda96fbaa08c29ca0a9b28566f8e",
+        "frame-0009.png": "0f7d2aa2caa736f309a867cbbf8110bc08e6840d0dac43e7b3130665c941171f",
+        "frame-0010.png": "d811f7c239a57a02a6f8db73432fbe7d8debfe4be25485d1718bfa64f9554ffa",
+        "frame-0011.png": "dc23845af376b33051e3bb0958fb7bce5f7efbb18fcd258d71fed82b304a059d",
+        "frame-0012.png": "7332e3ae475e2d6adec1cd72e99312aabc6ec03ab48262fba899bace53bd5121",
+        "frame-0013.png": "c316340688c306a03869374fbe726a5028eb1b0aee3d6a5a10c09d0a3e2060d8",
+        "frame-0014.png": "768682a5ea6f32ce09be0bf8a781c40ffba4fd44023a2436c0978b2a9ba3fcfb",
+        "frame-0015.png": "fd6e6d6ea0c1445a4bae87777c7b4cfdab4f7f15ce855cfd9648165076be2ac1",
+        "frame-0016.png": "d796d172318428b25a975c1413066bd51a44e08dd15cc70fb2f65184039cd296",
+        "frame-0017.png": "2be53c3d78250da5206cc7fc4944b8bfa574168827e3fe8c924bbac90e210294",
+        "frame-0018.png": "22f73120e7e7d71eb24e44e945844d81cb44d7fb7a66953ad5a37ce86160a8e0",
+        "frame-0019.png": "5c73f5e8bc612fd7775c5a790c7dcb2e16d363547de28836bd60d6b0bce75489",
+        "frame-0020.png": "4dc29ec1c5551fe278a7f3c181321a4b335574a93134aadcb4abba93f8f9c0f0",
+        "frame-0021.png": "9d9ef48648b4f1554fb7fd3d99db4aaf164896092ba7b149a5dc251902129f64",
+        "frame-0022.png": "424550dfd1239703f29458f811f9c1ae31443002912c9f8ea8057608098a1100",
+        "frame-0023.png": "0acdb79ec1b8e301de2f00522a20e64d1fa3c42db769fdf48faa75c9fac57f44",
+        "frame-0024.png": "47813db6623199b1399ae094599c83f77e1f6eb9a225b23e587d4e96ab82dd2f",
+        "frame-0025.png": "33428ebb9c055dba95ae1b6eb6eebf3d94e2169aba23e1fa8bda09ad34eb9b13",
+        "frame-0026.png": "d1f9156be54c9a8b42cb7c9b474876c1b62b96334cefe185b869c7d52e4358bf",
+        "frame-0027.png": "f1deb1916902affbf4afa58d51bb047b008624a1fb78713f2d78c78340900c5b",
+        "frame-0028.png": "4bfd108150db3ba3236eefecd0cc725c4d1d8f2b1de1e526623ecc2d844b041c",
+        "frame-0029.png": "dc6cb83c46c1fb4a02e18a6a3c120af2e4e232e37bec1a6256e81e32742eb1a4",
+        "frame-0030.png": "ee184615537279d1b8866ca4c10333e32e956cb6e9994cc9b8e5e89e0faf3129",
+        "frame-0031.png": "f3c16e4ea7472052b88703cce66dcbca7a2c410e9e7d5f43b87ab2e675b32371",
+        "frame-0032.png": "8095778815cfd04cce789ccaa2c7cb265298c570ec7a844d7cdc6ea81174720b",
+        "frame-0033.png": "ec2ad68362895474e0b19b525496d2008f2d9ccba7ef29da31dabbe91223a1e9",
+        "frame-0034.png": "82065db6d618a13233d673116361dd87a5436145426a4514779d3e4ef2ff5ee2",
+        "frame-0035.png": "c487e2279cb584b142e1178c7fba320c5bc5faf4aaf885b18ab247a90b9c7446",
+        "frame-0036.png": "55ae42325edad88ae61813eb80ff72cfb076838f39074abcc112659b616db9fd",
+        "frame-0037.png": "8a60c7c2afebf0e6a31431e7cd4b9430d3fcda112fd144069643ce446fef72d9",
+        "frame-0038.png": "041cad3de5202806883b3d1f950c8f59b7b17d04de750531a453e69f329878ae",
+        "frame-0039.png": "d3b537d68d9a69539a14148ad1a814ff1ffbdf918087876b770c447ce0b45c77",
+        "frame-0040.png": "5fad75cfac526e38a5561fbbb9ef17ed6784fe1f1c07f0e15e93472ca9cbacb5",
+        "frame-0041.png": "87fa0d66bc876e177f8b534a3e871e3f83e49c9cd16aab109afb49fdcb633a7e",
+        "frame-0042.png": "eb164778fa6e58db881de05aaa8db43e4deecf898baadcadeca723655eac2118",
+        "frame-0043.png": "39556b6ffd4b334ffe7ad3c9ebd70cfb0b993197ff37b6beb297f8e90e60db91",
+        "frame-0044.png": "5eacda2c7534c4dca33c1edc0e27ec64005acaeb50e8cd7fafd2326ca0235592",
+        "frame-0045.png": "64f9081ca7e43798ae4118c393514c9685a3bacf0b5ca6566a1533499025396d",
+        "frame-0046.png": "9332101f4fcb4ef0401edc5133067dad959762051f8ed42e498edf190cc9ff30",
+        "frame-0047.png": "52f395dc0e3dddc106631bec96a0c7e5c96e3b9cf8ec36d0d742af0832d6b168",
+        "frame-0048.png": "34e1d2b5657949f3532522698a7facca0c749928f90273092fb01dcca93aa1f2",
+        "frame-0049.png": "5a185581a1a30056c515d2488d136e8ffc81286e24d0e4f310f1cfd01b8bab24",
+        "frame-0050.png": "d1325c45cbde1853e71ce314beb343bbccc4c8b31e0a9a334a2b5387324082cb",
+        "frame-0051.png": "f9c1ad9c5175d76b98122b703ca40b079ca8befa26cc67a18f75a3e9dc0c6192",
+        "frame-0052.png": "8074e79dd41d9a5c899fc75cd168e42a0707840fd05903d1a9ea32af6dd9e77e",
+        "frame-0053.png": "cb7c7434e09689730181455d211418d22a3927c6f192dcab5b7216f7061e2788",
+        "frame-0054.png": "3607237ca07b4a4d3ed52eed9ffddda57395faf5b5ba6e176adb7ed87bca15ff",
+        "frame-0055.png": "89d1466ec92304ffeaf89f1f27990eecdc82070a3e7bd5218c76e825441ddad5",
+        "frame-0056.png": "3fc7eb90dc90267bea3118119dc61e52bc055066ff9929d5240438d7386e2428",
+        "frame-0057.png": "6bd6088357fa34d15eef83da97a06a563e4136defe603bf5000f6300139e3f19",
+        "frame-0058.png": "d65afd98f17ea9454a119f8a1e926328bc404ac2a6103ff021696c7f309d5d02",
+        "frame-0059.png": "0d509472cf57972d44ee97702f16cc2479f120500843b16339f7c5bd36a7c1d6",
+        "frame-0060.png": "c55425fa4f834e2495f9de0fe02f5341b792a24df4d49e2be66474dc7f3250ef",
+        "frame-0061.png": "614d453174ec32d3343796ca62d07b7075745de4da025751cafe2269369f41c5",
+        "frame-0062.png": "378ecfb9f073ce30a9a1c5ae05ede8f860fe98200869dd8ffba8dcb9c5f3135b",
+        "frame-0063.png": "823b0aff9b80ffeaec120a670b6c923a0258cd000d3f7a095a644dc9f1fc58cc",
+        "frame-0064.png": "09be6a217c48347e2cd8a02abdcb9d82335e51c2a1324dcf96aaefec79d24733",
+        "frame-0065.png": "34bb1ed297a4eb6a0e6f2557329611e8a8bcb9708c0779c46685a12b511d3358",
+        "hub-start-state.json": "d89adad2b0517bde36ae3e3a9c31a2809abca94cfb39b7def48e676b05464031",
+        "inspection.json": "ac4f14c360697b5287f307d21a9403933ccc8a3992275ea168012f3f00a1509f",
+        "isolation.json": "813db21e0afcd4ec8d6433aa3a9d90fe89542d784de1c1dd95db7bebd8516734",
+        "observer-build.json": "e7db0be32ae0baf2c04c0bbaebb821ed62a4fe30a3af9b49a130dbf09ebe628b",
+        "phases.json": "8ceb4c0ad7ac29dd6d20c52f78c879639389656c98b237136e8dd37f2e9feae3",
+        "probe.json": "f2b02047699c1bf5ae627613feaffa71d9ad77f97b7700788cc2e0b236188801",
+        "shine.json": "36b25dbfb8c17e02b46c289e03bd9e86c986706a2e80cfb380e1451242b77ffe",
+        "start-state.json": "6dff62a195441ab5fc66548f644d6671e355f6fe719c5d70fda24d356039397b"
+      }
+    },
+    {
+      "id": "intro-third-tutorial-1280x720-native-v1-20261025",
+      "requestedScreen": [
+        1280,
+        720
+      ],
+      "actualScreen": [
+        1280,
+        720
+      ],
+      "referenceWebDpr": 1,
+      "resampled": false,
+      "frameCount": 55,
+      "start": {
+        "phase": "capture-start",
+        "frame": 2683139,
+        "elapsedMs": 0,
+        "requestedControl": "NONE",
+        "controls": {
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false,
+          "undo": false,
+          "redo": false,
+          "restart": false
+        },
+        "levelName": "hub",
+        "moveCount": 3,
+        "queued": false,
+        "player": {
+          "outerLevel": 0,
+          "x": 4,
+          "y": 7,
+          "anim": "NORMAL",
+          "animT": 0,
+          "animLength": 0.1
+        },
+        "worldState": "Playing"
+      },
+      "portalLoad": {
+        "phase": "level-after:third_puzzle",
+        "frame": 2683156,
+        "elapsedMs": 523.9258,
+        "requestedControl": "NONE",
+        "controls": {
+          "up": false,
+          "down": false,
+          "left": false,
+          "right": false,
+          "undo": false,
+          "redo": false,
+          "restart": false
+        },
+        "levelName": "third_puzzle",
+        "moveCount": 0,
+        "queued": false,
+        "player": {
+          "outerLevel": 0,
+          "x": 2,
+          "y": 4,
+          "anim": "NORMAL",
+          "animT": 0,
+          "animLength": 0
+        },
+        "worldState": "Playing"
+      },
+      "settledFrame": {
+        "file": "frame-0054.png",
+        "imageCaptured": true,
+        "frame": 2683193,
+        "elapsedMs": 1646.97266,
+        "deltaMs": 32.4326019,
+        "control": "NONE",
+        "eventIndex": 1,
+        "eventStartMs": 55.6640625,
+        "moveCount": 0,
+        "levelName": "third_puzzle",
+        "outerLevel": 0,
+        "x": 2,
+        "y": 4,
+        "anim": "NORMAL",
+        "animT": 0,
+        "animLength": 0,
+        "drawXOffset": 0,
+        "drawYOffset": 0,
+        "drawXScale": 1,
+        "drawYScale": 1,
+        "anyBlockMoving": false,
+        "cameraFlipH": false,
+        "cameraAnimT": 0.1,
+        "cameraAnimLength": 0.1,
+        "newCamT": 1,
+        "newX": 0,
+        "newY": 0,
+        "newXS": 1,
+        "newYS": 1
+      },
+      "geometrySourceDerived": {
+        "derivation": "Source formulas with float32 arithmetic; SetDrawRect truncates endpoints toward zero. Source-derived expected GUI rectangles, not V14 per-label measurements.",
+        "useScreenSpaceControls": false,
+        "focusRectSourceInputs": {
+          "center": [
+            640,
+            360
+          ],
+          "width": 590.4000244140625,
+          "height": 590.4000244140625,
+          "camZoomFactor": 1
+        },
+        "focusFractionPause": 0.6000000238418579,
+        "fontSize": 20,
+        "xCenter": 179.48797607421875,
+        "rowSpacing": 123.9840087890625,
+        "rows": [
+          {
+            "action": "Undo",
+            "text": "\nUndo",
+            "xCenter": 179.48797607421875,
+            "yCenter": 112.031982421875,
+            "fontSize": 20,
+            "captionGuiRect": [
+              -180,
+              -230.8000030517578,
+              719,
+              719
+            ],
+            "iconRect": [
+              147,
+              63,
+              64,
+              65
+            ]
+          },
+          {
+            "action": "Redo",
+            "text": "\nRedo",
+            "xCenter": 179.48797607421875,
+            "yCenter": 236.0159912109375,
+            "fontSize": 20,
+            "captionGuiRect": [
+              -180,
+              -106.80000305175781,
+              719,
+              719
+            ],
+            "iconRect": [
+              147,
+              187,
+              64,
+              65
+            ]
+          },
+          {
+            "action": "Restart",
+            "text": "\nReset puzzle",
+            "xCenter": 179.48797607421875,
+            "yCenter": 360.0,
+            "fontSize": 20,
+            "captionGuiRect": [
+              -180,
+              16.200000762939453,
+              719,
+              720
+            ],
+            "iconRect": [
+              147,
+              311,
+              64,
+              65
+            ]
+          },
+          {
+            "action": "Pause",
+            "text": "\nMenu",
+            "xCenter": 179.48797607421875,
+            "yCenter": 483.9840087890625,
+            "fontSize": 20,
+            "captionGuiRect": [
+              -180,
+              139.1999969482422,
+              719,
+              720
+            ],
+            "iconRect": [
+              147,
+              435,
+              64,
+              65
+            ]
+          },
+          {
+            "action": "",
+            "text": "Note: You can undo a reset",
+            "xCenter": 179.48797607421875,
+            "yCenter": 607.968017578125,
+            "fontSize": 20,
+            "captionGuiRect": [
+              100,
+              449,
+              158,
+              317
+            ],
+            "visibleLines": [
+              "Note: You can",
+              "undo a reset"
+            ]
+          }
+        ]
+      },
+      "noteInkMeasurement": {
+        "method": "Within source Note x extent and yCenter plus/minus2.2*fontSize, pixels with minRGB>150 and maxRGB-minRGB<10; contiguous nonempty row runs yield exclusive-edge ink bounds. Not GUI cursors/baselines.",
+        "crop": [
+          100,
+          563,
+          258,
+          651
+        ],
+        "lineInkBounds": [
+          [
+            115,
+            586,
+            243,
+            600
+          ],
+          [
+            123,
+            613,
+            235,
+            629
+          ]
+        ]
+      },
+      "isolation": {
+        "savePath": "C:/Users/lenov/AppData/LocalLow/Patrick Traynor/Patrick's Parabox/save1.txt",
+        "beforeHash": "40e7f4ce65bc9819119c0a83f967a77bfa1d20fe78651307329b23a8e271304a",
+        "afterHash": "40e7f4ce65bc9819119c0a83f967a77bfa1d20fe78651307329b23a8e271304a",
+        "unchanged": true,
+        "suppressedSaveCalls": 1,
+        "previousInMemorySaveRestored": true
+      },
+      "probe": {
+        "id": "intro-third-tutorial-1280x720-native-v1-20261025",
+        "mode": "IsolatedMotion",
+        "level": "hub",
+        "requestedScreen": [
+          1280,
+          720
+        ],
+        "save": "SAVE nexus=0 recent=Area_Intro won=first_puzzle,second_puzzle",
+        "setup": [
+          "LEFT",
+          "DOWN",
+          "DOWN"
+        ],
+        "timedCommands": [
+          "DOWN:40",
+          "NONE:1600"
+        ],
+        "inputBoundary": "controls-delivered after actual Controls.Update; ordinary portal transition to third_puzzle",
+        "note": "Actual Area_Intro third portal, not direct third_puzzle load. Existing observer exposes no tutorial Note/caption GUI rects or wrapped cursors; source-derived geometry must be labeled separately."
+      },
+      "files": {
+        "capture.json": "bf4d046bb65a96841cb69ed32c00fed7c7a7f89ee018e3876df7f7e2a161ff43",
+        "end-state.json": "9e2e3cc4a2ac11a67b8c3b79c3bcb1ace5491bb2a315df54b8b1eec01d8398c5",
+        "frame-0000.png": "57ae5a66a7f9371df198f9f55e43bdf2cfcc4fe70ce0f2780216d2acb7a1cb76",
+        "frame-0001.png": "8b7df0bf2355b75a7b1fcae8a454a5a4127fd6cd34798f0caa43aab4981421ca",
+        "frame-0002.png": "ee51894f9d5e9054266d20ec2d10eb554534bde01f02a4c95a7cee2dce9ff5f8",
+        "frame-0003.png": "09f1a0d8316fe8d7554b596380972579585420320db102224ec8d987c9a23893",
+        "frame-0004.png": "3d1e315cb655e0ceb97c0dcdb648a37eaf76adb4f59a9936d80a7c91a9676c4f",
+        "frame-0005.png": "071173493c825379aef761b22daab3ed68fad9cc2c0952cb3b79a142dfa8a0fc",
+        "frame-0006.png": "bee15416c25e6709466c33ca2115008eec7171191278f81ef851b0c51c6a29da",
+        "frame-0007.png": "35c765d6dce766618975224b94e1eac2fc75f04b65ec6ae98d27f1a587e41b51",
+        "frame-0008.png": "5f8d3134e30d6442a49f16722269a7517698943268746fa9d69dcda3e2583f52",
+        "frame-0009.png": "49482f35b2d1a0a49514a8957c07227ee78a0fe742a1ddc9be27a8238ebe39c1",
+        "frame-0010.png": "eb4790e878a5bebcce8e1f427585806b0e5c5b6c27a6ffec1b35baeab414849a",
+        "frame-0011.png": "8dbed8407392c25c0d9bb6e7e52e042cf57c2999c2573ce94bc4e8df9949ce13",
+        "frame-0012.png": "de7d7e1059bb6fc00e39c6e5562eeec99d12436f2f10994757b55b1cac788320",
+        "frame-0013.png": "c842e0a19997fcbc54166d06354bcd8b6de956fbac7d333ca432d924aaba6a00",
+        "frame-0014.png": "a33bb26c579e89172b5e97f6961b0592842f9f00bc039d82b1af920ea71a25c8",
+        "frame-0015.png": "dc91a52a22fd738a9457df5ceeba1566382f5ebfe2ec3f5c71b2c58031dc6fbe",
+        "frame-0016.png": "9682822218d6aae6e26f8241a6235f35f129fa9661b622fae8476e511ed9406c",
+        "frame-0017.png": "bb027eca5387881369a9bd17d211e37c45785efa204dd578dda337c25e66d9e8",
+        "frame-0018.png": "f367dfde52232748769bc09183fe20406f78f2c1c617b265c4fcb9eb98219f71",
+        "frame-0019.png": "9556d052e2d512394e60b947438a646c0483d82a9c04766465334bd5020c5a57",
+        "frame-0020.png": "ee2cc71bf4ec99db91a8af8f456697cb123f6a71defb0ec4b912bbb2166fa1e9",
+        "frame-0021.png": "90a310a4179fffb1a1e9a64188f835198f37b5538932e07d79f06f689da92eae",
+        "frame-0022.png": "72d9ad55d65ec66e04387645a98024979e4a8fb3cd906cea4379007661bc6b14",
+        "frame-0023.png": "99ea9cb7728f9b38ba70783e3a055fa98597b3f4f966113f94ea484a8ef0c690",
+        "frame-0024.png": "db60f5a43de2cb5f8d807247fba8c308d2d998d4921f9ebf3174dca2b6151653",
+        "frame-0025.png": "11fdecbeda776b65dd478d9334d78353654497fab949aaf3666993624fd4621c",
+        "frame-0026.png": "4c4070c82aa17074c1a64c23267268fdafeaae1267f272f8ca0d4a2d7f19d627",
+        "frame-0027.png": "0fca87e77c6e010e6070df47d32a39908d06635ea172cfbd586645d8ca673a0e",
+        "frame-0028.png": "c473eeb7d5b23c4d256df776c33a1718f8f13a2922da858d2c23e4fdf171cf76",
+        "frame-0029.png": "63138cafbad9cadcfad2f00ca40c1e478aa5f00cef07c9844817abf6d11cedba",
+        "frame-0030.png": "6003b7c0b5eb053e8c0b7e76c1775f11c1558b4209ad267b370b6331646030ae",
+        "frame-0031.png": "b4352a220b3d5130c7617e2a3d657320c3390323e1c0a43f0fd3696c0051fbd2",
+        "frame-0032.png": "ccbcd176c494e58d49ec31d8ee5f76dec178533d384e9bd23874b9324273c0f3",
+        "frame-0033.png": "1800bb6f35763ba2898776d708d7be9c6be56933f877c436d5ab205af9d330b3",
+        "frame-0034.png": "2c163b508dbaf54a69c3946825554f71bb23de82df617f90ae0d21c8b83d3391",
+        "frame-0035.png": "0abe8ec15830201fdded13a393b75ab2c7d005cf0567e97ccf0bada648cfa470",
+        "frame-0036.png": "ff44e6af4df903439e2dcc9696678c6ea27713525dc423e4634e1def40ac7f74",
+        "frame-0037.png": "7842392f5ec60b2dfb61e72aeb157be1e31e1d57aaf864b7e37ec6fe9a1e57f0",
+        "frame-0038.png": "00fee6f37687d3e16ac65447ee6317bf7378d18012bbc309d887dfefc0d09554",
+        "frame-0039.png": "9ef10738a87bbff33f7380594824e8ee83a0adb95795b706749afb6eb593954a",
+        "frame-0040.png": "bfd9f06d962cf154e3c915d6f1da2012072fdc4a57e47ff5eb54794726e18bfc",
+        "frame-0041.png": "4153920f53f9a1c78e6f145587a75ae76b21f5517012f2f6c5cbb6c28f34381e",
+        "frame-0042.png": "7222987421b2c8561985a44fe1a09b45ac197004ff8dc2f440d41bea859bdb0f",
+        "frame-0043.png": "5bcd4a5dc7e03231e1f53a5f89cdd71e036030614e352a2ac44c09b2a43bb621",
+        "frame-0044.png": "99801deeff7c90c90063dd5fd385b680408afc96e57ebc2bc46cad18038aa273",
+        "frame-0045.png": "81527ecaed3767c213d049ff3528306da364cc6cd071124454aaa7c3a35dbb7e",
+        "frame-0046.png": "01fafaa1f368fb096187969862eeaced5228456fd44b6b6413797ddd5d5662f9",
+        "frame-0047.png": "6fcdf8f80227ea911588439af76deda49007a3e71a5d5c2047bab293e3339454",
+        "frame-0048.png": "9207469fd5b0204008650a0b192e5c6a67a2bef16ac28c89c59dbf40127e972f",
+        "frame-0049.png": "1d870eb12f6cb2f9a9ad33d04bde85c5587b11f4f00922d5a9cd3522dccbeae9",
+        "frame-0050.png": "82776f98dbe17c91e0b47eac8742a3a89769bf794f26f7ea9652a87011e17a2f",
+        "frame-0051.png": "afb5301493bf72a5a8eaa3ae2fb09946617a5878c80b9f55fe3741150c27e033",
+        "frame-0052.png": "f636161fe788c38021950c936e16bb8f0355c8dafd4efbd85b1b845803895a3a",
+        "frame-0053.png": "9610ebec0214b4c20507988d4fe7ef5b88091e02ae1db2ede0d93ffc3796672b",
+        "frame-0054.png": "5de30a9ea4eaa387fe6c209a6a23609ebd180d72da4553b31cc266cf3be1dce8",
+        "hub-start-state.json": "7a7de5e4ae5f62382c462b90c00fbcf89f6831f1833495477f83eba3a2b8caeb",
+        "inspection.json": "9467f7d2a78fbf3561a5e7797d3619ae8b307e4b59551814921c02f4a0168d85",
+        "isolation.json": "813db21e0afcd4ec8d6433aa3a9d90fe89542d784de1c1dd95db7bebd8516734",
+        "observer-build.json": "e7db0be32ae0baf2c04c0bbaebb821ed62a4fe30a3af9b49a130dbf09ebe628b",
+        "phases.json": "c00e909f008132d5886a9f5561c9e7d146b05c7dd3a592825697de7cf08c14ba",
+        "probe.json": "706d57206e8c580326b500f566d8a6771996838d1fe6bf0040e0d1354cd696b0",
+        "shine.json": "461b6bae4ec049b76c4bd054cccc35b161823f648719c287baff5ff1065dc6d7",
+        "start-state.json": "6d2bfa1e06db8c97972c2ad216ee60008c3460f35232e479621748ce5dffa586"
+      }
+    }
+  ],
+  "limitations": [
+    "No per-label Note/caption GUI rect, cursor, baseline, wrap-boundary or character positions recorded by V14; its hooks retain Move/MoveNR only.",
+    "Geometry is computed from recovered source and settled normal focus inputs, not runtime internals.",
+    "Visible English breaks are manually read from all three PNGs; two thresholded line-ink boxes do not establish general wrapping.",
+    "Only three desktop keyboard English captures with DPR1 comparison dimensions are covered.",
+    "No Web parity score or fitted threshold/offset."
+  ]
+}

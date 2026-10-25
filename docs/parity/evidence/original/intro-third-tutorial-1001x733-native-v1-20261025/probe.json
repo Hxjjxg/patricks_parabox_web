@@ -1,0 +1,21 @@
+﻿{
+    "id":  "intro-third-tutorial-1001x733-native-v1-20261025",
+    "mode":  "IsolatedMotion",
+    "level":  "hub",
+    "requestedScreen":  [
+                            1001,
+                            733
+                        ],
+    "save":  "SAVE nexus=0 recent=Area_Intro won=first_puzzle,second_puzzle",
+    "setup":  [
+                  "LEFT",
+                  "DOWN",
+                  "DOWN"
+              ],
+    "timedCommands":  [
+                          "DOWN:40",
+                          "NONE:1600"
+                      ],
+    "inputBoundary":  "controls-delivered after actual Controls.Update; ordinary portal transition to third_puzzle",
+    "note":  "Actual Area_Intro third portal, not direct third_puzzle load. Existing observer exposes no tutorial Note/caption GUI rects or wrapped cursors; source-derived geometry must be labeled separately."
+}
