@@ -360,6 +360,8 @@ export class WorldModel {
   moveCount = 0;
   buttonsSatisfied = false;
   finishesSatisfied = false;
+  /** Native World.DelayFinishGlow (never enabled by this build). */
+  delayFinishGlow = false;
   winning = false;
   smile = false;
   cameraFlipH = false;
@@ -562,13 +564,18 @@ export class WorldModel {
   }
 
   /**
-   * Advance the small presentation state attached to Info/DemoEnd floors.
+   * Advance the presentation state attached to goals and Info/DemoEnd floors.
    * The original updates this independently from undo history: a player on
    * the floor ramps the value up, while leaving it ramps the value down.
    */
   updateFloorAnimations(elapsedSeconds: number, paused = false): void {
     const dt = Math.max(0, elapsedSeconds);
     for (const floor of this.floors) {
+      if (floor.type === FloorType.Button || floor.type === FloorType.PlayerButton) {
+        // Native Floor.UpdateAnimation advances goal pulses even while paused.
+        if (!this.delayFinishGlow) floor.animationT = Math.fround(floor.animationT + Math.fround(dt));
+        continue;
+      }
       if (floor.type !== FloorType.Info && floor.type !== FloorType.DemoEnd) {
         continue;
       }

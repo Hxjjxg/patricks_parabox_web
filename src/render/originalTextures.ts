@@ -9,6 +9,10 @@ export interface OriginalTextures {
   wasd: Texture;
   button: Texture;
   playerButton: Texture;
+  playerButtonEyes: Texture;
+  playerButtonEyesSmall: Texture;
+  quickButton: Texture;
+  quickPlayerButton: Texture;
   eye: Texture;
   eyeSmall: Texture;
   eyeClosed: Texture;
@@ -54,6 +58,7 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
     wasd,
     button,
     playerButton,
+    playerButtonEyes, playerButtonEyesSmall, quickButton, quickPlayerButton,
     eye,
     eyeSmall,
     eyeClosed, eyeClosedSmall,
@@ -78,6 +83,8 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
     load("keys_wasd.png"),
     load("button_2.png"),
     load("button_player_x.png"),
+    load("button_player_x_only_eyes.png"), load("button_player_x_only_eyes_small.png"),
+    load("quick_anim_goal.png"), load("quick_anim_goal_player.png"),
     load("eye1.png"),
     load("eye1_small.png"),
     load("eye2.png"), load("eye2_small.png"),
@@ -95,6 +102,7 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
     wasd,
     button,
     playerButton,
+    playerButtonEyes, playerButtonEyesSmall, quickButton, quickPlayerButton,
     eye,
     eyeSmall,
     eyeClosed, eyeClosedSmall,

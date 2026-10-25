@@ -7,7 +7,7 @@ import {
   Texture, Rectangle,
   type Shader,
 } from "pixi.js";
-import type { Block, HsvColor, Level, WorldModel } from "../core/model";
+import type { Block, Floor, HsvColor, Level, WorldModel } from "../core/model";
 import { DrawStyle, FloorType } from "../core/model";
 import { AnimType, lerp } from "../core/animation";
 import { demoEndFade, demoEndText } from "../core/demoEnd";
@@ -30,6 +30,7 @@ import { largeWallQuads } from "./wallBigRendering";
 import { faceQuads } from "./faceRendering";
 import { infinityGlyphQuads } from "./infinityRendering";
 import { flipShineQuad } from "./flipShineRendering";
+import { goalCellRect, goalStrips, goalTint } from "./goalRendering";
 import { previewClip, shouldSimpleSlide, simpleSlideRect, stackClip, type InfExitPreview, type SceneTicket } from "./renderContext";
 
 export type RendererMode =
@@ -852,7 +853,7 @@ export class GameRenderer {
     for (const floor of level.floorList) {
       const cellRect = this.cellRect(level, floor.x, floor.y, rect, flipH);
       if (!this.onScreen(cellRect)) continue;
-      this.drawFloor(graphics, floor.type, cellRect, level);
+      this.drawFloor(graphics, floor.type, cellRect, level, floor);
     }
 
     // `Draw.ProcessTicket` draws level particles between floors and blocks.
@@ -1151,6 +1152,7 @@ export class GameRenderer {
     type: FloorType,
     rect: Rect,
     level: Level,
+    floor?: Floor,
   ): void {
     const size = Math.min(rect.width, rect.height);
     const inset = size * 0.08;
@@ -1160,18 +1162,26 @@ export class GameRenderer {
     const height = rect.height - inset * 2;
 
     if (type === FloorType.Button || type === FloorType.PlayerButton) {
-      const active =
-        type === FloorType.Button
-          ? this.world?.finishesSatisfied
-          : this.world?.buttonsSatisfied;
-      const border = active ? 0xffffff : COLORS.button;
-      graphics.rect(rect.x, rect.y, rect.width, rect.height).fill({
-        texture:
-          type === FloorType.PlayerButton
-            ? this.textures.playerButton
-            : this.textures.button,
+      const resolution = this.app.renderer.resolution;
+      const player = type === FloorType.PlayerButton;
+      const cell = goalCellRect(rect, resolution);
+      if (this.world?.drawStyle === DrawStyle.QuickAnim) {
+        graphics.rect(cell.x, cell.y, cell.width, cell.height).fill({
+          texture: player ? this.textures.quickPlayerButton : this.textures.quickButton,
+          textureSpace: "local", color: 0xffffff,
+        });
+        return;
+      }
+      const active = Boolean(player ? this.world?.buttonsSatisfied : this.world?.finishesSatisfied);
+      const fraction = Math.fround(Math.fround(Math.fround(rect.width * resolution) * level.width) + Math.fround(Math.fround(rect.height * resolution) * level.height)) / 2 / (this.app.screen.height * resolution);
+      const tint = goalTint(level.getExitBlock().color, active, floor?.animationT ?? 0,
+        player && this.world?.levelName === "hub" && !this.world.buttonsSatisfied, fraction, this.world?.delayFinishGlow);
+      for (const strip of goalStrips(rect, resolution)) {
+        if (strip.width > 0 && strip.height > 0) graphics.rect(strip.x, strip.y, strip.width, strip.height).fill(tint);
+      }
+      if (player) graphics.rect(cell.x, cell.y, cell.width, cell.height).fill({
+        ...tint, texture: rect.width * resolution > 200 ? this.textures.playerButtonEyes : this.textures.playerButtonEyesSmall,
         textureSpace: "local",
-        color: border,
       });
       return;
     }
