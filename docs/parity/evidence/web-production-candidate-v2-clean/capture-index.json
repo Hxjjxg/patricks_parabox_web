@@ -1,0 +1,2932 @@
+{
+  "buildManifest": "docs/parity/evidence/web-production-candidate-v2/build-manifest.json",
+  "buildManifestSha256": "1c1b5290d694fd2def7dff003b94a8c0a6fa0c400330d5de95a388fe015b819e",
+  "captures": [
+    {
+      "directory": "carry",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureStateChanges": true,
+        "captureEveryMs": 130,
+        "settleMs": 750,
+        "level": "carry",
+        "setup": "LLL",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowLeft",
+            "duration": 40
+          }
+        ]
+      },
+      "recordedAt": "2026-10-25T01:12:34.315Z",
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "frames": 49,
+      "frameIntervalsMs": {
+        "min": 15.799999999999272,
+        "median": 16.699999999999818,
+        "max": 33.40000000000009,
+        "above50": 0
+      },
+      "starting": {
+        "timestamp": 4034.5,
+        "action": "start",
+        "levelName": "carry",
+        "moveCount": 3,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 86,
+          "x": 3,
+          "y": 6,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.23319999999999985,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 70,
+            "x": 2,
+            "y": 6,
+            "outer": 0,
+            "t": 0.11670000000000026,
+            "length": 0.1,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 86,
+            "x": 3,
+            "y": 6,
+            "outer": 0,
+            "t": 0.23319999999999985,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "ending": {
+        "timestamp": 4875.5,
+        "action": "00-Left",
+        "levelName": "carry",
+        "moveCount": 4,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 70,
+          "viewLevelId": 2,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.5,
+          "length": 0.5,
+          "phase": 1,
+          "moving": false,
+          "x": -2,
+          "y": -2,
+          "xs": 0.1111111111111111,
+          "ys": 0.1111111111111111
+        },
+        "player": {
+          "id": 86,
+          "x": 4,
+          "y": 2,
+          "outer": 2,
+          "outerId": 2,
+          "t": 0.23390000000000058,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 70,
+            "x": 2,
+            "y": 6,
+            "outer": 0,
+            "t": 0.11670000000000026,
+            "length": 0.1,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 86,
+            "x": 4,
+            "y": 2,
+            "outer": 2,
+            "t": 0.23390000000000058,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "traceSha256": "28fc92223ef8fb211b847f6c8c32975e3a52d962b8df910791bf2b72020ebc22",
+      "pngSha256": {
+        "end.png": "8ac67e4fe2759cab4bd2250bf5adf33f97fe2b697490b936a118ec34e123d6e9",
+        "motion-0001-enterExit-0.25.png": "f0b8189e0dad8284fb43691edfd91b4d0c25bdbe984c2df68ddac9643c0e558f",
+        "motion-0001-enterExit-0.5.png": "917e0cc7938f0ba075d7feaa898a3f182e98088193dd52fc13d2a396e536843c",
+        "motion-0001-enterExit-0.75.png": "6dd4e70a11ac817512b50d3d09568b38858f6fd458ab105a503ca4710e2ae47a",
+        "motion-0002-bumpHalt-0.25.png": "6cb1dae5f0b5187c314d9d2a6cfd29b1751e25fc39afa844db6e80b74019497a",
+        "motion-0002-bumpHalt-0.5.png": "9b1fec0d438d6c9f791b91885769a7d17d6dc8816b81479b0f788c765c4ab987",
+        "motion-0002-bumpHalt-0.75.png": "71ebb1d54c31e46135381473b50de68858006466df32ed51ecf4a01bb5b9a2c7",
+        "motion-0002-bumpHalt-1.png": "04baf82704086e30beae5e231544c77d7972ff0d8ca7cdc988ab37ec175f1fb4",
+        "sample-0000.png": "d6299e10b9709d96173aa5db7fe2570ba3fef932f169daa42156d248ae53c66c",
+        "sample-0007.png": "f0b8189e0dad8284fb43691edfd91b4d0c25bdbe984c2df68ddac9643c0e558f",
+        "sample-0015.png": "917e0cc7938f0ba075d7feaa898a3f182e98088193dd52fc13d2a396e536843c",
+        "sample-0023.png": "4dc76f79634d9daebe8914a7c6f8f38b1906487e1a0bd1556dd4503efd8077d5",
+        "sample-0031.png": "50613de3177b06d72d9989005b634d21535e76a610a34b83497d613edeb914f1",
+        "sample-0039.png": "17625be5ee213eb611997989b772db3e9b08d930cf431c5852d8564033a67d85",
+        "sample-0047.png": "8543f23155867ac714a331f00c9195c804e8df296b269afbf0c5b60981a0edb0",
+        "start.png": "b0a833fa150f56b06c69f4a6cd46ea9a286d5f208fd3c8e77ddfb8f4387e0b94",
+        "state-0000.png": "d6299e10b9709d96173aa5db7fe2570ba3fef932f169daa42156d248ae53c66c",
+        "state-0030.png": "d86dcb714d6a91f5fcc758e470992b524a497ae880c124ac76566082b355f668"
+      }
+    },
+    {
+      "directory": "clone",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureStateChanges": true,
+        "captureEveryMs": 130,
+        "settleMs": 650,
+        "level": "clone_first_2",
+        "setup": "DDD",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowDown",
+            "duration": 40
+          }
+        ]
+      },
+      "recordedAt": "2026-10-25T01:15:55.967Z",
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "frames": 42,
+      "frameIntervalsMs": {
+        "min": 16.300000000000182,
+        "median": 16.699999999999818,
+        "max": 17.0,
+        "above50": 0
+      },
+      "starting": {
+        "timestamp": 3433.89999999851,
+        "action": "start",
+        "levelName": "clone_first_2",
+        "moveCount": 3,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 76,
+          "x": 6,
+          "y": 3,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.23330000000000023,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 76,
+            "x": 6,
+            "y": 3,
+            "outer": 0,
+            "t": 0.23330000000000023,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "ending": {
+        "timestamp": 4146.39999999851,
+        "action": "00-Down",
+        "levelName": "clone_first_2",
+        "moveCount": 4,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 52,
+          "viewLevelId": 1,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.5,
+          "length": 0.5,
+          "phase": 1,
+          "moving": false,
+          "x": 2,
+          "y": 2,
+          "xs": 0.1111111111111111,
+          "ys": 0.1111111111111111
+        },
+        "player": {
+          "id": 76,
+          "x": 1,
+          "y": 2,
+          "outer": 1,
+          "outerId": 1,
+          "t": 0.18329999999999977,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0.006491584785875352,
+          "sx": 1.0064915847858753,
+          "sy": 0.9870168304282493
+        },
+        "animated": [
+          {
+            "id": 76,
+            "x": 1,
+            "y": 2,
+            "outer": 1,
+            "t": 0.18329999999999977,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0.006491584785875352,
+            "sx": 1.0064915847858753,
+            "sy": 0.9870168304282493
+          }
+        ]
+      },
+      "traceSha256": "fff810fab1dc7294e97e92566581b56970bc0a23d29a53a9d7a8073c1b8890b0",
+      "pngSha256": {
+        "end.png": "87f224bfd264345223839e82cb2a5b7467a0fd98e009cafd279ba1dedd3d8341",
+        "motion-0001-enterExit-0.25.png": "cf3217d37fd43e08088d5c23e4dd3d6eedc9a1485166417d6ad986da398717ea",
+        "motion-0001-enterExit-0.5.png": "6757956e5076ecdbcba0fcf18ab495a0bc064cee3f99eb2e461128f142bbe036",
+        "motion-0001-enterExit-0.75.png": "23a6da3486cc6433efea5494ea935574b13fe7574a2148d6e61f6b7fc6219a99",
+        "motion-0002-bumpHalt-0.25.png": "e0baf01cebe69c482d728657db42554462d9d05f4edab2abeb73a4ed24080271",
+        "motion-0002-bumpHalt-0.5.png": "74031617e76d9c6d32e3ab824dfbcc3ed15bb1de48afc7f9a234c8b146cdb3eb",
+        "motion-0002-bumpHalt-0.75.png": "640195ce8af266a47cf5f61a944f9c5f36551351c93717e499355828c5dfa7f3",
+        "sample-0000.png": "12c1b8df561d4ff60cee524c74ff0e3c50f2966afd3a71428503efb1ce9d44b7",
+        "sample-0008.png": "cf3217d37fd43e08088d5c23e4dd3d6eedc9a1485166417d6ad986da398717ea",
+        "sample-0016.png": "11a297e91e64335a511011b3c60e2e793c7de79232d6cea9eed7b1a20219ecb0",
+        "sample-0024.png": "8812f0c3291666c623c7ee99848966528f6d379253b922aa4b270b693fc61a79",
+        "sample-0032.png": "61dcdb876c29efd2e47ad14c0c4b78ebf45aa14b2004ce8864db338a22c3e81f",
+        "sample-0040.png": "640195ce8af266a47cf5f61a944f9c5f36551351c93717e499355828c5dfa7f3",
+        "start.png": "795c84f12e08cf047689df661d9e7c00d4dfbfd806231ffef00d0cf72924be2d",
+        "state-0000.png": "12c1b8df561d4ff60cee524c74ff0e3c50f2966afd3a71428503efb1ce9d44b7",
+        "state-0030.png": "8f7c44d3a3531e5c67e3adcac8d840e99ebf861384d8a57a5e76274af5ff98f6"
+      }
+    },
+    {
+      "directory": "cycle",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureStateChanges": true,
+        "captureEveryMs": 130,
+        "settleMs": 650,
+        "level": "cycle_line",
+        "setup": "URRURURRDDRRRRU",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowUp",
+            "duration": 40
+          }
+        ]
+      },
+      "recordedAt": "2026-10-25T01:16:23.426Z",
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "frames": 43,
+      "frameIntervalsMs": {
+        "min": 15.600000000000364,
+        "median": 16.69999999999891,
+        "max": 33.399999999999636,
+        "above50": 0
+      },
+      "starting": {
+        "timestamp": 13245.599999997765,
+        "action": "start",
+        "levelName": "cycle_line",
+        "moveCount": 15,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 156,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 95,
+          "x": 6,
+          "y": 5,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.23329999999999929,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 53,
+            "x": 4,
+            "y": 6,
+            "outer": 0,
+            "t": 0.516200000000001,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 70,
+            "x": 5,
+            "y": 6,
+            "outer": 0,
+            "t": 0.516200000000001,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 95,
+            "x": 6,
+            "y": 5,
+            "outer": 0,
+            "t": 0.23329999999999929,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 97,
+            "x": 6,
+            "y": 6,
+            "outer": 0,
+            "t": 0.516200000000001,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 105,
+            "x": 7,
+            "y": 6,
+            "outer": 0,
+            "t": 0.516200000000001,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 122,
+            "x": 8,
+            "y": 6,
+            "outer": 0,
+            "t": 0.516200000000001,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 139,
+            "x": 3,
+            "y": 6,
+            "outer": 0,
+            "t": 0.516200000000001,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "ending": {
+        "timestamp": 13991.599999997765,
+        "action": "00-Up",
+        "levelName": "cycle_line",
+        "moveCount": 16,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 97,
+          "viewLevelId": 5,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.5,
+          "length": 0.5,
+          "phase": 1,
+          "moving": false,
+          "x": 2,
+          "y": -2,
+          "xs": 0.1111111111111111,
+          "ys": 0.1111111111111111
+        },
+        "player": {
+          "id": 95,
+          "x": 1,
+          "y": 0,
+          "outer": 5,
+          "outerId": 5,
+          "t": 0.19989999999999963,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": -0.0021991378287002958,
+          "sx": 1.0021991378287003,
+          "sy": 0.9956017243425994
+        },
+        "animated": [
+          {
+            "id": 53,
+            "x": 4,
+            "y": 6,
+            "outer": 0,
+            "t": 0.516200000000001,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 70,
+            "x": 5,
+            "y": 6,
+            "outer": 0,
+            "t": 0.516200000000001,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 95,
+            "x": 1,
+            "y": 0,
+            "outer": 5,
+            "t": 0.19989999999999963,
+            "length": 0.22,
+            "ox": 0,
+            "oy": -0.0021991378287002958,
+            "sx": 1.0021991378287003,
+            "sy": 0.9956017243425994
+          },
+          {
+            "id": 97,
+            "x": 6,
+            "y": 6,
+            "outer": 0,
+            "t": 0.516200000000001,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 105,
+            "x": 7,
+            "y": 6,
+            "outer": 0,
+            "t": 0.516200000000001,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 122,
+            "x": 8,
+            "y": 6,
+            "outer": 0,
+            "t": 0.516200000000001,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 139,
+            "x": 3,
+            "y": 6,
+            "outer": 0,
+            "t": 0.516200000000001,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "traceSha256": "afb280d8613878ac273240e45311003f25024b25a43a88f4c02749b86c519676",
+      "pngSha256": {
+        "end.png": "8845fadf0fd359933028e87d94ce48f0cedbb048fcb9108ca7f6d2467d084df5",
+        "motion-0001-enterExit-0.25.png": "1a1bc70e03413cfcfaa5fbce3718c92a9722cab75c851969c3077c9f0c6fd4c2",
+        "motion-0001-enterExit-0.5.png": "b1faa1bced654d66b24050e3bcb5f3db6135e90a066e1f577a3f9a00947000a9",
+        "motion-0001-enterExit-0.75.png": "f17667b07486844386f98501541ade42eadad3175dcce59235b243fad153e22f",
+        "motion-0002-bumpHalt-0.25.png": "6e4c7595e55a1ebbe91e3085b4b56fe8d5ad0175d5861c000366052ea0ac98ef",
+        "motion-0002-bumpHalt-0.5.png": "3dfa702b60696b477d906e2d633a39da008bd98d0afea39748f64a46300efc45",
+        "motion-0002-bumpHalt-0.75.png": "5c8b1591eafb73bfafae35025cad98ef1771938d8f19800c88407b93498af04c",
+        "sample-0000.png": "099b58e98ab062cf273161f4f4b9cd579cfe9a8cb9576c182a784f2001b68335",
+        "sample-0007.png": "1a1bc70e03413cfcfaa5fbce3718c92a9722cab75c851969c3077c9f0c6fd4c2",
+        "sample-0015.png": "b1faa1bced654d66b24050e3bcb5f3db6135e90a066e1f577a3f9a00947000a9",
+        "sample-0023.png": "9800c05b7eebe60e1e446e7a6e0ebe253d6e476ec84ded301958c3f43eb4fb5d",
+        "sample-0031.png": "8bdac6a6dea5a4b9423a919b08fb7cf93c83cd67fa98b5cd685ba6ea660a2466",
+        "sample-0039.png": "c566ca60c7cf4479c16f306676777a22c7ca5541513221a506502e555dbb8422",
+        "start.png": "3d532d3a571599a9c652f42ef2ff179686ced324329fb5cd7202d422c2cec9e5",
+        "state-0000.png": "099b58e98ab062cf273161f4f4b9cd579cfe9a8cb9576c182a784f2001b68335",
+        "state-0030.png": "42eab5a7263404d97947e8715ee20b15c0dc7469a8528956a63b9a1e9c30d9a9"
+      }
+    },
+    {
+      "directory": "eat",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureStateChanges": true,
+        "captureEveryMs": 130,
+        "settleMs": 750,
+        "level": "eat_same_side",
+        "setup": "L",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowLeft",
+            "duration": 40
+          }
+        ]
+      },
+      "recordedAt": "2026-10-25T01:12:39.138Z",
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "frames": 50,
+      "frameIntervalsMs": {
+        "min": 16.299999999999955,
+        "median": 16.699999999999818,
+        "max": 17.09999999999991,
+        "above50": 0
+      },
+      "starting": {
+        "timestamp": 1927,
+        "action": "start",
+        "levelName": "eat_same_side",
+        "moveCount": 1,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 59,
+          "x": 2,
+          "y": 3,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.23340000000000014,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 59,
+            "x": 2,
+            "y": 3,
+            "outer": 0,
+            "t": 0.23340000000000014,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "ending": {
+        "timestamp": 2776.10000000149,
+        "action": "00-Left",
+        "levelName": "eat_same_side",
+        "moveCount": 2,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.5,
+          "length": 0.5,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 59,
+          "x": 1,
+          "y": 3,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.23330000000000023,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 25,
+            "x": 0,
+            "y": 2,
+            "outer": 3,
+            "t": 0.5018999999992548,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 59,
+            "x": 1,
+            "y": 3,
+            "outer": 0,
+            "t": 0.23330000000000023,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "traceSha256": "429dcfc60f10f128cd360857e62f0435a71ef3b18d435184b7a0ebf6a577f44a",
+      "pngSha256": {
+        "end.png": "89803701c8bb8cfcadc879e9f04aaec01d0c74c032b9a878cba67d4b499c6b63",
+        "motion-0001-normal-0.25.png": "95b6639650a8b2fc5cb09b35b7ea6d18881a04b37bf948fc8ef93263bc067a83",
+        "motion-0001-normal-0.5.png": "5a2d1f028f04b8ea04ce3cdba5a06e6875569391546bca93992d072548ab4476",
+        "motion-0001-normal-0.75.png": "0cbe10467ef1b407ee938cbf76f3ace70b73e7dfb101842e75f568e06e62e686",
+        "motion-0002-bumpHalt-0.25.png": "295139febeb65e5c188e6c37bdfedc4921670eb526f15c732240c14f81fc032e",
+        "motion-0002-bumpHalt-0.5.png": "e245166dc93bf52b574fabc4f5328d5f8237fb3b7ac6462d1a8533bcad448a8c",
+        "motion-0002-bumpHalt-0.75.png": "def628286efd62ebe1be3b3f20a8ae89035a0782b6821f10bc92ae0a33370f8d",
+        "motion-0002-bumpHalt-1.png": "483c15b1b3c15c840d7a5fb8ba8f54b3af47ddbdc5698f4e2b47a34735c13035",
+        "sample-0000.png": "569626b10c2f9bbe5f32268de2296903bc88192b2886599476637401dbd6e614",
+        "sample-0008.png": "95b6639650a8b2fc5cb09b35b7ea6d18881a04b37bf948fc8ef93263bc067a83",
+        "sample-0016.png": "956f410dd6e8d06b15ca4d4321be68373aecc44944725a1291a1a86313f84aa0",
+        "sample-0024.png": "7158fc918a9e91861544bbae7b50fb22f8e31002f281ca11358ea851ea09fd13",
+        "sample-0032.png": "01c2c5c594850f1d956aae45bebb5958a2b8c6f130bf32570685887b4fcf0e9c",
+        "sample-0040.png": "def628286efd62ebe1be3b3f20a8ae89035a0782b6821f10bc92ae0a33370f8d",
+        "sample-0048.png": "a70df016846e865208f1d104716b0eba85cf82fafe784a166cb85357e579d0d0",
+        "start.png": "d4595b0661a5a802fc0135e431268012836d9bbef1a07bca5d5be0e445f55ea2",
+        "state-0000.png": "569626b10c2f9bbe5f32268de2296903bc88192b2886599476637401dbd6e614",
+        "state-0030.png": "bacd250e7f4a091fd26b51a29fbf2f6a5de5676687ea88807adab5ea2eccf3c4"
+      }
+    },
+    {
+      "directory": "enter",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureStateChanges": true,
+        "captureEveryMs": 130,
+        "settleMs": 700,
+        "level": "enter",
+        "setup": "URUULURRRR",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowRight",
+            "duration": 40
+          }
+        ]
+      },
+      "recordedAt": "2026-10-25T01:28:28.840Z",
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "frames": 46,
+      "frameIntervalsMs": {
+        "min": 16.400000000001455,
+        "median": 16.69999999999891,
+        "max": 17.0,
+        "above50": 0
+      },
+      "starting": {
+        "timestamp": 9148.60000000149,
+        "action": "start",
+        "levelName": "enter",
+        "moveCount": 10,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.5,
+          "length": 0.5,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 62,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.23330000000000106,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 62,
+            "x": 5,
+            "y": 5,
+            "outer": 0,
+            "t": 0.23330000000000106,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 64,
+            "x": 0,
+            "y": 2,
+            "outer": 3,
+            "t": 0.5165000000000001,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 81,
+            "x": 6,
+            "y": 5,
+            "outer": 0,
+            "t": 0.11700000000000002,
+            "length": 0.1,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "ending": {
+        "timestamp": 9924,
+        "action": "00-Right",
+        "levelName": "enter",
+        "moveCount": 11,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 81,
+          "viewLevelId": 3,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.5,
+          "length": 0.5,
+          "phase": 1,
+          "moving": false,
+          "x": 2,
+          "y": -1,
+          "xs": 0.1111111111111111,
+          "ys": 0.1111111111111111
+        },
+        "player": {
+          "id": 62,
+          "x": 0,
+          "y": 2,
+          "outer": 3,
+          "outerId": 3,
+          "t": 0.23340000000000147,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 62,
+            "x": 0,
+            "y": 2,
+            "outer": 3,
+            "t": 0.23340000000000147,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 64,
+            "x": 1,
+            "y": 2,
+            "outer": 3,
+            "t": 0.5044999999992542,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 81,
+            "x": 6,
+            "y": 5,
+            "outer": 0,
+            "t": 0.11700000000000002,
+            "length": 0.1,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "traceSha256": "bef8d638078ee75b5246c96c2a75861c1e7646b9f708db064bf0e02f8ccdf6cd",
+      "pngSha256": {
+        "end.png": "f05c454ca15f4dc9edfe374102041b1f28303c559e240bd20118e73d64d22003",
+        "motion-0001-enterExit-0.25.png": "b4a798373f0bb9ce5a90832a0d0cef10310ffdb2bc1c53ec923fee314e513ccb",
+        "motion-0001-enterExit-0.5.png": "f1fa0592c4ecf518087e16e499b00e3f8cb04f7f64639a2d87e1ed69e345f675",
+        "motion-0001-enterExit-0.75.png": "0774091eb6ccb853c38a2170e426c250542e37ae14d8d9688538d199e129aca2",
+        "motion-0002-bumpHalt-0.25.png": "173270b5d8b1bf0791d1fa9315ca8a51da30983172aa7b87cb109af5a289a8eb",
+        "motion-0002-bumpHalt-0.5.png": "24ecd6f17bb038b32d1ea04c0ad81021965a7db93c906911433ed647d863e5e1",
+        "motion-0002-bumpHalt-0.75.png": "0b318d65c4f8003a3dbdeeb0011e92030376726859984fdefc6b6fa578cd33b7",
+        "motion-0002-bumpHalt-1.png": "efdc94600c21d8756f408ad2c0bb9a3c9bf02fd1366e75c0e243712996097f91",
+        "sample-0000.png": "82b40fc69d2626d62d830ea3fe662ae1ec248d82a0637b015b4d8a4eea4c863e",
+        "sample-0008.png": "b4a798373f0bb9ce5a90832a0d0cef10310ffdb2bc1c53ec923fee314e513ccb",
+        "sample-0016.png": "7f31222aaedf9de811ea9163303c35b0463d37f6001f5fe40400d6032fd5b82e",
+        "sample-0024.png": "cb1b361744d55487f0c09cda12588ea74a11b25ba287f9a7ab95894ccbab1853",
+        "sample-0032.png": "6b8ac000a8b8e14c144d68603e12a2a8e89c4aa026fe50dfa7b23eb231e75996",
+        "sample-0040.png": "0b318d65c4f8003a3dbdeeb0011e92030376726859984fdefc6b6fa578cd33b7",
+        "start.png": "160a909293c18f305eaa70e4352a6289a06ebd7d3fd473dce1a58cc4d307dd38",
+        "state-0000.png": "82b40fc69d2626d62d830ea3fe662ae1ec248d82a0637b015b4d8a4eea4c863e",
+        "state-0030.png": "4c1d10c86dda56ce10b99391d3d9aeb1f7d25d4ab689f10258c550a84ac4776c"
+      }
+    },
+    {
+      "directory": "exit",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureStateChanges": true,
+        "captureEveryMs": 130,
+        "settleMs": 700,
+        "level": "enter",
+        "setup": "URUULURRRRR",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowLeft",
+            "duration": 40
+          }
+        ]
+      },
+      "recordedAt": "2026-10-25T01:28:41.440Z",
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "frames": 46,
+      "frameIntervalsMs": {
+        "min": 15.700000000000728,
+        "median": 16.69999999999891,
+        "max": 17.599999999998545,
+        "above50": 0
+      },
+      "starting": {
+        "timestamp": 10267.10000000149,
+        "action": "start",
+        "levelName": "enter",
+        "moveCount": 11,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 81,
+          "viewLevelId": 3,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.5,
+          "length": 0.5,
+          "phase": 1,
+          "moving": false,
+          "x": 2,
+          "y": -1,
+          "xs": 0.1111111111111111,
+          "ys": 0.1111111111111111
+        },
+        "player": {
+          "id": 62,
+          "x": 0,
+          "y": 2,
+          "outer": 3,
+          "outerId": 3,
+          "t": 0.2331999999999989,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 62,
+            "x": 0,
+            "y": 2,
+            "outer": 3,
+            "t": 0.2331999999999989,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 64,
+            "x": 1,
+            "y": 2,
+            "outer": 3,
+            "t": 0.5163000000000011,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 81,
+            "x": 6,
+            "y": 5,
+            "outer": 0,
+            "t": 0.10000000000000002,
+            "length": 0.1,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "ending": {
+        "timestamp": 11046.300000000745,
+        "action": "00-Left",
+        "levelName": "enter",
+        "moveCount": 12,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.5,
+          "length": 0.5,
+          "phase": 1,
+          "moving": false,
+          "x": -0.2222222222222222,
+          "y": 0.1111111111111111,
+          "xs": 9,
+          "ys": 9
+        },
+        "player": {
+          "id": 62,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.23309999999999853,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 62,
+            "x": 5,
+            "y": 5,
+            "outer": 0,
+            "t": 0.23309999999999853,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 64,
+            "x": 1,
+            "y": 2,
+            "outer": 3,
+            "t": 0.5163000000000011,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 81,
+            "x": 6,
+            "y": 5,
+            "outer": 0,
+            "t": 0.10000000000000002,
+            "length": 0.1,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "traceSha256": "32ce271284a017f8d40f5f891f02686e07243f41c76580b2b021e4a2c0a3c951",
+      "pngSha256": {
+        "end.png": "c9361f7868ab2b91db767d43a722a0bd97260123eb25e4ef425e1c67fccf4535",
+        "motion-0001-enterExit-0.25.png": "eb3d1b8abb9e24fa46b6bae10af01ac5619654d16038b6092e7cc3de1d58b3d4",
+        "motion-0001-enterExit-0.5.png": "7deecae07c42d41852f830aad558542c8c66cdd69c2c9e166b944f8c3104ae08",
+        "motion-0001-enterExit-0.75.png": "b008939675f129ece7d55e1949bc2ef626fdb74e6bd857da92848864c551358d",
+        "motion-0002-bumpHalt-0.25.png": "fe048948f60878f402384aa5265a0fbda77a25358388ff56476048381251c18c",
+        "motion-0002-bumpHalt-0.5.png": "589312f0ecf37e58204f7d29dda0756f81d9aa5a399cfe9481fc1c747f3c1103",
+        "motion-0002-bumpHalt-0.75.png": "2d3624dd142dbb0cc5104814d51975141aa8891a86ac2115f73d5dcf421d260d",
+        "motion-0002-bumpHalt-1.png": "0986d1edc1241a4293fcaa5e54c0e337b88018aa16a6b5fd43c78b8286d8f23f",
+        "sample-0000.png": "6b838918b88b030275699712f9c8f7a8ce5c27d4d05002313003e44f27cc9851",
+        "sample-0008.png": "eb3d1b8abb9e24fa46b6bae10af01ac5619654d16038b6092e7cc3de1d58b3d4",
+        "sample-0016.png": "b40a2e2510bacb52d1691f34cca59cc8c7256d7057471b1fa09651a749af5c52",
+        "sample-0024.png": "9202d1a3fbc8caa935a7685cf534931dfcaf2f35656eb4514b59d44422264efc",
+        "sample-0032.png": "f12d29533eb92dba15bc03c0507f68c4a494281f7d441ae43adef59d5c901f87",
+        "sample-0040.png": "2d3624dd142dbb0cc5104814d51975141aa8891a86ac2115f73d5dcf421d260d",
+        "start.png": "974ef0edad678edc344d077ac35bd989d8282b81463f7268503649d5068d85ae",
+        "state-0000.png": "6b838918b88b030275699712f9c8f7a8ce5c27d4d05002313003e44f27cc9851",
+        "state-0030.png": "c2764df4e79d5d1a1cb83b90d6b212881f0d4328094d4d5581dffb51eb5c1c00"
+      }
+    },
+    {
+      "directory": "fixed-focus",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureStateChanges": true,
+        "captureEveryMs": 130,
+        "settleMs": 700,
+        "level": "static_focus_block",
+        "setup": "",
+        "events": []
+      },
+      "recordedAt": "2026-10-25T01:28:13.714Z",
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "frames": 44,
+      "frameIntervalsMs": {
+        "min": 16.0,
+        "median": 16.699999999999818,
+        "max": 17.300000000000182,
+        "above50": 0
+      },
+      "starting": {
+        "timestamp": 1037,
+        "action": "start",
+        "levelName": "static_focus_block",
+        "moveCount": 0,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 47,
+          "viewLevelId": 2,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0,
+          "length": 0,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 135,
+          "x": 4,
+          "y": 4,
+          "outer": 2,
+          "outerId": 2,
+          "t": 0,
+          "length": 0,
+          "anim": "normal",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": []
+      },
+      "ending": {
+        "timestamp": 1779.4000000022352,
+        "action": "start",
+        "levelName": "static_focus_block",
+        "moveCount": 0,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 47,
+          "viewLevelId": 2,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0,
+          "length": 0,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 135,
+          "x": 4,
+          "y": 4,
+          "outer": 2,
+          "outerId": 2,
+          "t": 0,
+          "length": 0,
+          "anim": "normal",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": []
+      },
+      "traceSha256": "40e12184a189f3bb5d559792ba466786cf0be6a78fcb4e2eef75ce7463d0a59b",
+      "pngSha256": {
+        "end.png": "d17a9f02e843afa3efddb07e0ff546aa888914d03405ce35e43d6249c041ddcf",
+        "sample-0000.png": "4de31632784c870e3df34dae8bd963ee466d532755fb1e9adc358cc978ca3af3",
+        "sample-0008.png": "071a6dda142d70b5bd4616dea39e10995c790b32fcd96f81e9f83018f673ee4f",
+        "sample-0016.png": "f7f8d703356f5571e69c29bfb7c61b77e1f22b2dfed800f358a1767e6e18c3fb",
+        "sample-0024.png": "c82f419818699cf0fb38ef817be24599255c7f7cfc6159d64545c73579256ee2",
+        "sample-0032.png": "b3b80eda58bcf15e1956a8c4e538fcdd338e805a9d5f7fbfbbcc2ccaa02865a6",
+        "sample-0040.png": "8b0df1b63abaa51af35f2cd74d7b2989b6d2b5a04f3c3f90e17019f2b118d653",
+        "start.png": "e3a6ddd081d5d7b6adf8f521e56ff817532b15fe882f919726f119b4434ed0cd",
+        "state-0000.png": "4de31632784c870e3df34dae8bd963ee466d532755fb1e9adc358cc978ca3af3"
+      }
+    },
+    {
+      "directory": "flip",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureStateChanges": true,
+        "captureEveryMs": 130,
+        "settleMs": 750,
+        "level": "1by1_playerr_flip2",
+        "setup": "RR",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowDown",
+            "duration": 40
+          }
+        ]
+      },
+      "recordedAt": "2026-10-25T01:12:26.008Z",
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "frames": 5,
+      "frameIntervalsMs": {
+        "min": 300.2000000000007,
+        "median": 491.39999999999964,
+        "max": 883.2000000000007,
+        "above50": 4
+      },
+      "starting": {
+        "timestamp": 4186.5,
+        "action": "start",
+        "levelName": "1by1_playerr_flip2",
+        "moveCount": 2,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 51,
+          "x": 5,
+          "y": 2,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.23329999999999976,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 51,
+            "x": 5,
+            "y": 2,
+            "outer": 0,
+            "t": 0.23329999999999976,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "ending": {
+        "timestamp": 6682,
+        "action": "00-Down",
+        "levelName": "1by1_playerr_flip2",
+        "moveCount": 3,
+        "moving": true,
+        "wentToInfZone": false,
+        "cameraFlipH": true,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 51,
+          "viewLevelId": 1,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.4,
+          "length": 0.5,
+          "phase": 0.8,
+          "moving": true,
+          "x": -1,
+          "y": 3,
+          "xs": 0.1111111111111111,
+          "ys": 0.1111111111111111
+        },
+        "player": {
+          "id": 51,
+          "x": 0,
+          "y": 0,
+          "outer": 1,
+          "outerId": 1,
+          "t": 0.4,
+          "length": 0.5,
+          "anim": "normal",
+          "ox": 0,
+          "oy": -0.19999999999999996,
+          "sx": 0.8720000000000001,
+          "sy": 1.064
+        },
+        "animated": [
+          {
+            "id": 51,
+            "x": 0,
+            "y": 0,
+            "outer": 1,
+            "t": 0.4,
+            "length": 0.5,
+            "ox": 0,
+            "oy": -0.19999999999999996,
+            "sx": 0.8720000000000001,
+            "sy": 1.064
+          }
+        ]
+      },
+      "traceSha256": "66e74e12ced17b1f680b6ed55044cedf5d5f7138fa4d6a84e1536175cb71f3ee",
+      "pngSha256": {
+        "end.png": "f63448c58736d3babbefb6574c2258e7178b0f9537a35943dcdd2d8ae3ec5dff",
+        "motion-0001-normal-0.25.png": "be988adb59397225b7eac67019f6b3924f7a151c850a6d895863a05249262746",
+        "motion-0001-normal-0.5.png": "06b6cccf63711d673a26661e15952c46725076f45fdb2f4950f8573d2272d943",
+        "motion-0001-normal-0.75.png": "f63448c58736d3babbefb6574c2258e7178b0f9537a35943dcdd2d8ae3ec5dff",
+        "sample-0000.png": "99b59fc2afbf09a19c12441070fb7427b3dae78532db35f041a5bee19e28d4b9",
+        "sample-0001.png": "09fffb77da86a2e20a5860b2ea9d134fc7bd1aa306fade5ebf5264743855a13e",
+        "sample-0002.png": "be988adb59397225b7eac67019f6b3924f7a151c850a6d895863a05249262746",
+        "sample-0003.png": "06b6cccf63711d673a26661e15952c46725076f45fdb2f4950f8573d2272d943",
+        "sample-0004.png": "f63448c58736d3babbefb6574c2258e7178b0f9537a35943dcdd2d8ae3ec5dff",
+        "start.png": "d1eb187e0eafe8becc550cb7b5c6038775657f46f6409d574d9718bce36bb307",
+        "state-0000.png": "99b59fc2afbf09a19c12441070fb7427b3dae78532db35f041a5bee19e28d4b9"
+      }
+    },
+    {
+      "directory": "grid",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureStateChanges": true,
+        "captureEveryMs": 130,
+        "settleMs": 650,
+        "level": "grid_clone",
+        "setup": "",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowRight",
+            "duration": 40
+          }
+        ]
+      },
+      "recordedAt": "2026-10-25T01:15:43.538Z",
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "frames": 44,
+      "frameIntervalsMs": {
+        "min": 16.299999999999955,
+        "median": 16.699999999999818,
+        "max": 33.700000000000045,
+        "above50": 0
+      },
+      "starting": {
+        "timestamp": 1122.0999999977648,
+        "action": "start",
+        "levelName": "grid_clone",
+        "moveCount": 0,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 33,
+          "viewLevelId": 1,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0,
+          "length": 0,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 88,
+          "x": 4,
+          "y": 5,
+          "outer": 1,
+          "outerId": 1,
+          "t": 0,
+          "length": 0,
+          "anim": "normal",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": []
+      },
+      "ending": {
+        "timestamp": 1883.5999999977648,
+        "action": "00-Right",
+        "levelName": "grid_clone",
+        "moveCount": 1,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 33,
+          "viewLevelId": 1,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 88,
+          "x": 5,
+          "y": 5,
+          "outer": 1,
+          "outerId": 1,
+          "t": 0.2334000000000001,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 88,
+            "x": 5,
+            "y": 5,
+            "outer": 1,
+            "t": 0.2334000000000001,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "traceSha256": "77fb1ae40d8879b9499639d0c786c42525cc45a09fae3f5f3a458012bc41b0b0",
+      "pngSha256": {
+        "end.png": "40f936ea70ad7d6e355fbad0cbff6751b28896007dda39361cbb7154e14b8a4e",
+        "motion-0001-normal-0.25.png": "e77b874aae2ee470e23cd5020f35d4b30e6b0ee07b4ac3f7743d779dd6767d3d",
+        "motion-0001-normal-0.5.png": "333b79bc11a45ea3981630bce52dd9708800c72845e07d6c0a45751621a9ceb2",
+        "motion-0001-normal-0.75.png": "6f41b11422c4687a586a4b6b60c37a95dc4e14cc08c10c42320c5ba8c5dfdf19",
+        "motion-0002-bumpHalt-0.25.png": "c32e751c16264ab51bfaf7103887021ef5306dfd2012568a7d8713e8a09f0dae",
+        "motion-0002-bumpHalt-0.5.png": "81f4670002cb0c43703fdb86126bfc64b2784416a8c0ca8fcd306fda7dbb5945",
+        "motion-0002-bumpHalt-0.75.png": "99f11d1af097fc54f1a43531e302a1e527343b883e316011fb04c945738d68a2",
+        "motion-0002-bumpHalt-1.png": "161681deecfddc9d83d34e375dfe90ccf97aee8bcd2a966613ad422fffc1d688",
+        "sample-0000.png": "daa67e70520b0fc8dfc763a4c50451f6edc9d18bb46ee7adbbe51be641a09288",
+        "sample-0007.png": "b46a87234d97d4f1ec50b7d609e74f7b5fb7d03a31a0ee5d1ff7a27e4105f6a8",
+        "sample-0015.png": "6efa15f235dd4abade6c070b1426cbdbf80b50a219262877640970cbd1abaa1a",
+        "sample-0023.png": "769578c3c2e25dd5b21f0a61662e8529d1ac09a6467c2ea998bb2627c4856be0",
+        "sample-0031.png": "523a2ec0ed30ed55f3242ca322fddd4eac223b4377ed6ed458fe3d8244f903e0",
+        "sample-0039.png": "e1d7508970e418be30a74eafdfe509ad6ab4b820dec6335894e5cb0df39de99f",
+        "start.png": "5b524446ccb8639475b61933db7306fc17fed8f06eeca9799345968e95101908",
+        "state-0000.png": "daa67e70520b0fc8dfc763a4c50451f6edc9d18bb46ee7adbbe51be641a09288",
+        "state-0006.png": "eab76c0654d8268c59d2645c100bf78d4d31f69ef23f2aafe0cd49503bcd265f"
+      }
+    },
+    {
+      "directory": "infexit",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureStateChanges": true,
+        "captureEveryMs": 130,
+        "settleMs": 650,
+        "level": "infexit_ref_first",
+        "setup": "DLLDRRRR",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowRight",
+            "duration": 40
+          }
+        ]
+      },
+      "recordedAt": "2026-10-25T01:16:07.101Z",
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "frames": 25,
+      "frameIntervalsMs": {
+        "min": 16.5,
+        "median": 16.75,
+        "max": 150.0,
+        "above50": 5
+      },
+      "starting": {
+        "timestamp": 8849.599999997765,
+        "action": "start",
+        "levelName": "infexit_ref_first",
+        "moveCount": 8,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 24,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 21,
+          "x": 5,
+          "y": 1,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.1,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0.04883546205860256,
+          "oy": 0,
+          "sx": 0.9023290758827949,
+          "sy": 1.0488354620586027
+        },
+        "animated": [
+          {
+            "id": 21,
+            "x": 5,
+            "y": 1,
+            "outer": 0,
+            "t": 0.1,
+            "length": 0.22,
+            "ox": 0.04883546205860256,
+            "oy": 0,
+            "sx": 0.9023290758827949,
+            "sy": 1.0488354620586027
+          },
+          {
+            "id": 24,
+            "x": 6,
+            "y": 1,
+            "outer": 0,
+            "t": 0.2,
+            "length": 0.1,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "ending": {
+        "timestamp": 9749.099999997765,
+        "action": "00-Right",
+        "levelName": "infexit_ref_first",
+        "moveCount": 9,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 24,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.5,
+          "length": 0.5,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 21,
+          "x": 6,
+          "y": 1,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.2331000000000004,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 21,
+            "x": 6,
+            "y": 1,
+            "outer": 0,
+            "t": 0.2331000000000004,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 24,
+            "x": 2,
+            "y": 4,
+            "outer": 0,
+            "t": 0.5166000000000004,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "traceSha256": "82415b92fc7462f6e14c6b696d5662be40902481f4f6cf93d8fa39ab4417f246",
+      "pngSha256": {
+        "end.png": "fc24c4647265856f6d0b6ba64b5457e38dd4c08ceb18da8ae8ad22dade313790",
+        "motion-0001-normal-0.25.png": "f943d732fa2932555c4a6d14da46daf8c0628f54b87ecfda4a4a6726ada67669",
+        "motion-0001-normal-0.5.png": "5be8ab599230afb22bb5007977bbd1ae620c6507dedaf37263594279322afaa3",
+        "motion-0001-normal-0.75.png": "c254d2b89fd5322bac215bf762980eb3e0afa438a38750f214f951e1d7fe7182",
+        "motion-0002-bumpHalt-0.25.png": "36c27f2130833262df0b1ae20d2c7f74849dddcd64e42142c7e4332411bd5fe0",
+        "motion-0002-bumpHalt-0.5.png": "a0c98e2bbf50d7ebded4974e8c9ebfec135c9dbb6e7b9c1e8d180291a4bb4960",
+        "motion-0002-bumpHalt-0.75.png": "7bddabfdd511840a00cec9bb5a8a262261bd62626b23ebef2cf55d5c4469158a",
+        "motion-0002-bumpHalt-1.png": "37e8ca4b6f1eab12eb082933a9d701ded345cfcbb130d35247863844862b1bed",
+        "sample-0000.png": "ffc2194ca4e5b44013bc951a9b6d55af2ad007c7494297774f73eae73bdc51fc",
+        "sample-0001.png": "3fca4db5704264c70a9fe41a6df4c83a990552a0b0be09af9079e41a3fe18789",
+        "sample-0004.png": "cfc894dbd33a61dcd959ade6fd1839ed415dad78e316759e3dadeaa7f53e4bca",
+        "sample-0011.png": "c254d2b89fd5322bac215bf762980eb3e0afa438a38750f214f951e1d7fe7182",
+        "sample-0013.png": "36c27f2130833262df0b1ae20d2c7f74849dddcd64e42142c7e4332411bd5fe0",
+        "sample-0020.png": "18574401e6efaaf910ff17d4b4426a1d9467015c502d117a4ed041f29c6db246",
+        "start.png": "eb9a27ad36ab3ddd0c5ff4877c111b8a4c1bf8ca2be6fdd203df2d7840348f4b",
+        "state-0000.png": "ffc2194ca4e5b44013bc951a9b6d55af2ad007c7494297774f73eae73bdc51fc",
+        "state-0012.png": "6f1ac2f30203e4cdeb270de1fb58089c176331b3cf3e1fc77725c8e03fa221c7"
+      }
+    },
+    {
+      "directory": "infinity",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureStateChanges": true,
+        "captureEveryMs": 130,
+        "settleMs": 750,
+        "level": "infenter_zone_v2",
+        "setup": "DDD",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowUp",
+            "duration": 40
+          }
+        ]
+      },
+      "recordedAt": "2026-10-25T01:12:13.147Z",
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "frames": 47,
+      "frameIntervalsMs": {
+        "min": 16.5,
+        "median": 16.69999999999709,
+        "max": 33.30000000000291,
+        "above50": 0
+      },
+      "starting": {
+        "timestamp": 57933.599999997765,
+        "action": "start",
+        "levelName": "infenter_zone_v2",
+        "moveCount": 3,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 71,
+          "viewLevelId": 7,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.5,
+          "length": 0.5,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 3,
+          "xs": 0.1111111111111111,
+          "ys": 0.1111111111111111
+        },
+        "player": {
+          "id": 57,
+          "x": 1,
+          "y": 2,
+          "outer": 7,
+          "outerId": 7,
+          "t": 0.23320000000000435,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 55,
+            "x": 1,
+            "y": 0,
+            "outer": 7,
+            "t": 0.5165000000000002,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 57,
+            "x": 1,
+            "y": 2,
+            "outer": 7,
+            "t": 0.23320000000000435,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 73,
+            "x": 4,
+            "y": 1,
+            "outer": 0,
+            "t": 0.5165000000000002,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "ending": {
+        "timestamp": 58799.5,
+        "action": "00-Up",
+        "levelName": "infenter_zone_v2",
+        "moveCount": 4,
+        "moving": false,
+        "wentToInfZone": true,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 72,
+          "viewLevelId": 14,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.5,
+          "length": 0.5,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 7,
+          "ys": 7
+        },
+        "player": {
+          "id": 57,
+          "x": 3,
+          "y": 4,
+          "outer": 14,
+          "outerId": 14,
+          "t": 0.23330000000000295,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 55,
+            "x": 1,
+            "y": 0,
+            "outer": 7,
+            "t": 0.5165000000000002,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 57,
+            "x": 3,
+            "y": 4,
+            "outer": 14,
+            "t": 0.23330000000000295,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 73,
+            "x": 4,
+            "y": 1,
+            "outer": 0,
+            "t": 0.5165000000000002,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "traceSha256": "681d717e87817fc5f99238f218dd38bc64dc1c1b043ea88039248a25be7cf9de",
+      "pngSha256": {
+        "end.png": "44e8d5fa1896893b5899ffa15567c3eae4dc7c96db91246e4a4f79ebc6e378fe",
+        "motion-0001-enterExit-0.25.png": "4394811e19cd16fe92e36e3dd94c17d56b74526d7b87464b54a1ec6051afcfff",
+        "motion-0001-enterExit-0.5.png": "2c976f476b0a10df96a9f3d78b91d0dec60e8712d29efaee9f87e78a7454e792",
+        "motion-0001-enterExit-0.75.png": "62b9842613daa8e69242afe6e88482db0f32bf2995d1ea791c9866a869cfae52",
+        "motion-0002-bumpHalt-0.25.png": "7d19e361eb8888ab384bc77b1fac66e950823151fe5353b0c692c25ceea235c9",
+        "motion-0002-bumpHalt-0.5.png": "cbbf0b68ec28b2f7161b8eacb3e2c4d6f754e72c6b223777e6c97cd35fca2d89",
+        "motion-0002-bumpHalt-0.75.png": "9afbdc64cea94a784db6b66a0f05aa38f89365ce66bc20a9a6a380da6ec262dc",
+        "motion-0002-bumpHalt-1.png": "3380d22e05f4f3682b324ea058d9c68434ae0431694a5916d4ed4b455fbc97d4",
+        "sample-0000.png": "b187c5b654320af6a9787682f33d0c1024fb1fffb79256abd4eb1088a896e350",
+        "sample-0006.png": "4394811e19cd16fe92e36e3dd94c17d56b74526d7b87464b54a1ec6051afcfff",
+        "sample-0013.png": "2c976f476b0a10df96a9f3d78b91d0dec60e8712d29efaee9f87e78a7454e792",
+        "sample-0021.png": "0776b9e62bc8af4952889dadd543f1e6a437f91857a0de8b9d12c9d70cb60164",
+        "sample-0029.png": "0a046b151c94f13eb3e72a9f49110bc7dfcd8c3a3d5763ff526d2bc48c8561f9",
+        "sample-0037.png": "2ce91805e5e3eb2ad96a2c7adceee61ed099a98fb4d124f6f40095278e1b251a",
+        "sample-0045.png": "c2b0059bbcecde8fa3ff09bca4cbc12872931bfdf05706d13c216fdee0262c3b",
+        "start.png": "0d98efe0f9eeeec011877b0752bb66c46300fcedf15cecbea74ad4372d2007da",
+        "state-0000.png": "b187c5b654320af6a9787682f33d0c1024fb1fffb79256abd4eb1088a896e350",
+        "state-0028.png": "632a9e64291c4c14d4501d330e006b93c01c40c257da4d832cc6718b23d9cdb1"
+      }
+    },
+    {
+      "directory": "inspection",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureStateChanges": true,
+        "captureEveryMs": 130,
+        "settleMs": 700,
+        "level": "third_puzzle",
+        "setup": "",
+        "events": [
+          {
+            "at": 0,
+            "pointer": {
+              "type": "pointerdown",
+              "button": 0,
+              "x": 400,
+              "y": 190
+            }
+          },
+          {
+            "at": 30,
+            "pointer": {
+              "type": "pointerup",
+              "button": 0,
+              "x": 400,
+              "y": 190
+            }
+          },
+          {
+            "at": 750,
+            "pointer": {
+              "type": "pointerdown",
+              "button": 2,
+              "x": 400,
+              "y": 190
+            }
+          },
+          {
+            "at": 780,
+            "pointer": {
+              "type": "pointerup",
+              "button": 2,
+              "x": 400,
+              "y": 190
+            }
+          }
+        ]
+      },
+      "recordedAt": "2026-10-25T01:28:10.397Z",
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "frames": 89,
+      "frameIntervalsMs": {
+        "min": 16.40000000000009,
+        "median": 16.699999999999818,
+        "max": 33.399999999999864,
+        "above50": 0
+      },
+      "starting": {
+        "timestamp": 1083.199999999255,
+        "action": "start",
+        "levelName": "third_puzzle",
+        "moveCount": 0,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0,
+          "length": 0,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 54,
+          "x": 2,
+          "y": 4,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0,
+          "length": 0,
+          "anim": "normal",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": []
+      },
+      "ending": {
+        "timestamp": 2592.699999999255,
+        "action": "03-pointerup",
+        "levelName": "third_puzzle",
+        "moveCount": 0,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": 0,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0,
+          "length": 0,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 54,
+          "x": 2,
+          "y": 4,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0,
+          "length": 0,
+          "anim": "normal",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": []
+      },
+      "traceSha256": "36588dc5aff478a26842f2d5e9f8ef5dcc93aec986affb3384e021039119f688",
+      "pngSha256": {
+        "end.png": "975684f634e3d32fec32e4e6fdcaae64bdf3e414eca5146c9c5d6a48fc60151f",
+        "motion-0001-normal-0.25.png": "8c4f80ccef89f63d86e19dff9473b94202f9323841e79b8de6a47577598b3151",
+        "motion-0001-normal-0.5.png": "8c4f80ccef89f63d86e19dff9473b94202f9323841e79b8de6a47577598b3151",
+        "motion-0001-normal-0.75.png": "8c4f80ccef89f63d86e19dff9473b94202f9323841e79b8de6a47577598b3151",
+        "motion-0001-normal-1.png": "8c4f80ccef89f63d86e19dff9473b94202f9323841e79b8de6a47577598b3151",
+        "sample-0000.png": "8c4f80ccef89f63d86e19dff9473b94202f9323841e79b8de6a47577598b3151",
+        "sample-0007.png": "3f42e3b1fa0a0313cf1f42bc1351fb6626b51e318b0dd88e4358f166481e321a",
+        "sample-0015.png": "b07e555fe6c65c140c990f550519f2da4fcc3c2b877483e11dd2af2d76c7101d",
+        "sample-0023.png": "7775070be3d6051f0913b03a01871235fe8a77d9542132f0b0e3e5cb11f8d18f",
+        "sample-0031.png": "9c4d12c78ff81c9ebd03b8f49a115e78ea59ceee071b0c7106bef94feabbc72a",
+        "sample-0039.png": "2d4f6022977806b8521bba3777a3bf46752254f623191556f4b3a9d93c05cf2f",
+        "sample-0047.png": "2279e1a791895c05554a242705139d18520575d73fff54ecc544f89568f215fa",
+        "sample-0055.png": "ffef55da3e180e7d2f3a8900cdf0f6bc4911d7a39d64b29f694e8906561d17c5",
+        "sample-0063.png": "5ca011ffc724ba883cc9dbf1e8206ebf981016c7589dc6995909983737530621",
+        "sample-0071.png": "8f3d60d44ae29697fce2992f95a6c61ab8e373aafc36b306c58ec6da2344d175",
+        "sample-0079.png": "1602bcb78edcf716dbb8927dbf010c5c9abbe39e0aace21eeb64540b6ff8b7b5",
+        "sample-0087.png": "f58ee4e7dfb7fea5c013a98f46ee9abfc79c6d936d0978afe878dcf7472e4856",
+        "start.png": "2c645d8438980025c233a54cf5248ef097aa813b60a21d04ebabbfef8bd4695e",
+        "state-0000.png": "8c4f80ccef89f63d86e19dff9473b94202f9323841e79b8de6a47577598b3151"
+      }
+    },
+    {
+      "directory": "possess",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureStateChanges": true,
+        "captureEveryMs": 130,
+        "settleMs": 750,
+        "level": "possess_first",
+        "setup": "LDDL",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowLeft",
+            "duration": 40
+          }
+        ]
+      },
+      "recordedAt": "2026-10-25T01:12:47.295Z",
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "frames": 49,
+      "frameIntervalsMs": {
+        "min": 16.399999999999636,
+        "median": 16.65000000000009,
+        "max": 16.899999999999636,
+        "above50": 0
+      },
+      "starting": {
+        "timestamp": 4651.89999999851,
+        "action": "start",
+        "levelName": "possess_first",
+        "moveCount": 4,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 41,
+          "x": 2,
+          "y": 2,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.23330000000000023,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 41,
+            "x": 2,
+            "y": 2,
+            "outer": 0,
+            "t": 0.23330000000000023,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "ending": {
+        "timestamp": 5495,
+        "action": "00-Left",
+        "levelName": "possess_first",
+        "moveCount": 5,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.5,
+          "length": 0.5,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 34,
+          "x": 1,
+          "y": 2,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.5031999999992551,
+          "length": 0.5,
+          "anim": "still",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 34,
+            "x": 1,
+            "y": 2,
+            "outer": 0,
+            "t": 0.5031999999992551,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 41,
+            "x": 2,
+            "y": 2,
+            "outer": 0,
+            "t": 0.5031999999992551,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "traceSha256": "697b2a8a01a70782c7fec8131af001f2cd9c39a4662b31c374b59a8ff3f0fade",
+      "pngSha256": {
+        "end.png": "43a847d4e35e667e1afb0ba2bf6cd7ab8c6ef39a7ecd41a65fead3823cc3fd47",
+        "motion-0001-still-0.25.png": "41924c053220912065bb6d070efb0f2f274f38400d60cf64a48ce0d2cd596548",
+        "motion-0001-still-0.5.png": "a2347bd982ab9aad4af92372a572f35e1bf685c48bafd4fab6a84c9c9811729e",
+        "motion-0001-still-0.75.png": "822547c366d7c078b14cc45524596e24dd0cf3e629c85598d0fdb76079768946",
+        "motion-0001-still-1.png": "edf2840fc53371d120002954152e81b1aeea24de9a775d8c5daec4cdd5244dee",
+        "sample-0000.png": "f7b34981ac2e70223ce1a5d3f284e80674afeb14cfc98154a64c0bebaba9529c",
+        "sample-0008.png": "41924c053220912065bb6d070efb0f2f274f38400d60cf64a48ce0d2cd596548",
+        "sample-0016.png": "4047b1653deeb87aea5ac255bc79f67d34329cb3b3082a64140ec59f53be1c8a",
+        "sample-0024.png": "3531f123a472c22d41e3cc4a1b49a266bb016beca1d0801d8119b792b85dbe9c",
+        "sample-0032.png": "547faeffdd374d1b1cafe240f04c3e833e178c71399189e6744aebbd7b57c83a",
+        "sample-0040.png": "c0579e0e0120f1419da016bf9f68835d65c08d8d3a0b3a2f9891ca0ae3774137",
+        "sample-0048.png": "43a847d4e35e667e1afb0ba2bf6cd7ab8c6ef39a7ecd41a65fead3823cc3fd47",
+        "start.png": "5f63d58884bb887b81bab959790940413cfd4d1973bbb854bb94c852fa88b4f9",
+        "state-0000.png": "f7b34981ac2e70223ce1a5d3f284e80674afeb14cfc98154a64c0bebaba9529c",
+        "state-0030.png": "edf2840fc53371d120002954152e81b1aeea24de9a775d8c5daec4cdd5244dee"
+      }
+    },
+    {
+      "directory": "quick",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureStateChanges": true,
+        "captureEveryMs": 130,
+        "settleMs": 650,
+        "level": "oldstyle_lock_two_doors",
+        "setup": "",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowRight",
+            "duration": 40
+          }
+        ]
+      },
+      "recordedAt": "2026-10-25T01:15:51.100Z",
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "frames": 44,
+      "frameIntervalsMs": {
+        "min": 16.5,
+        "median": 16.699999999999818,
+        "max": 16.90000000000009,
+        "above50": 0
+      },
+      "starting": {
+        "timestamp": 1099.699999999255,
+        "action": "start",
+        "levelName": "oldstyle_lock_two_doors",
+        "moveCount": 0,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 24,
+          "viewLevelId": 1,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0,
+          "length": 0,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 24,
+          "x": 1,
+          "y": 3,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0,
+          "length": 0,
+          "anim": "normal",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": []
+      },
+      "ending": {
+        "timestamp": 1843.699999999255,
+        "action": "00-Right",
+        "levelName": "oldstyle_lock_two_doors",
+        "moveCount": 1,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 24,
+          "viewLevelId": 1,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 24,
+          "x": 2,
+          "y": 3,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.10239999999850988,
+          "length": 0.1,
+          "anim": "normal",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 24,
+            "x": 2,
+            "y": 3,
+            "outer": 0,
+            "t": 0.10239999999850988,
+            "length": 0.1,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "traceSha256": "8db63b071350700e9f10c281af605034fe3aa80948f88002bb4a40d24483b1c8",
+      "pngSha256": {
+        "end.png": "5f77d30a220349af5c15026e0ea05098714a68737f44e62c74948e3d84f8fc8b",
+        "motion-0001-normal-0.25.png": "d552ad1424e5b1da3cb81c9ef8e134f090e651ac072f5a7dbbc268aafc4ff925",
+        "motion-0001-normal-0.5.png": "34827a92a7fbd2c993af62832df985ed0be8074b1fa923f9673bd30ecbdb10e4",
+        "motion-0001-normal-0.75.png": "c206c92fbb7660c058a546484052066bf3a90fec4546f8234f16c5d8f91dc404",
+        "motion-0001-normal-1.png": "5f77d30a220349af5c15026e0ea05098714a68737f44e62c74948e3d84f8fc8b",
+        "sample-0000.png": "315ecd71e4c2295efa5566a7552b6415e27659e6555da0d51559cb8bdab58fc4",
+        "sample-0008.png": "5f77d30a220349af5c15026e0ea05098714a68737f44e62c74948e3d84f8fc8b",
+        "sample-0016.png": "5f77d30a220349af5c15026e0ea05098714a68737f44e62c74948e3d84f8fc8b",
+        "sample-0024.png": "5f77d30a220349af5c15026e0ea05098714a68737f44e62c74948e3d84f8fc8b",
+        "sample-0032.png": "5f77d30a220349af5c15026e0ea05098714a68737f44e62c74948e3d84f8fc8b",
+        "sample-0040.png": "5f77d30a220349af5c15026e0ea05098714a68737f44e62c74948e3d84f8fc8b",
+        "start.png": "3cf53423d27c24f80742a38f7f9953c15cc42312971b27eca671203c99187a40",
+        "state-0000.png": "315ecd71e4c2295efa5566a7552b6415e27659e6555da0d51559cb8bdab58fc4",
+        "state-0006.png": "5f77d30a220349af5c15026e0ea05098714a68737f44e62c74948e3d84f8fc8b"
+      }
+    },
+    {
+      "directory": "second-push",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureStateChanges": true,
+        "captureEveryMs": 130,
+        "settleMs": 700,
+        "level": "second_puzzle",
+        "setup": "U",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowUp",
+            "duration": 40
+          }
+        ]
+      },
+      "recordedAt": "2026-10-25T01:28:17.497Z",
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "frames": 46,
+      "frameIntervalsMs": {
+        "min": 16.199999999999818,
+        "median": 16.699999999999818,
+        "max": 17.09999999999991,
+        "above50": 0
+      },
+      "starting": {
+        "timestamp": 1859.7999999970198,
+        "action": "start",
+        "levelName": "second_puzzle",
+        "moveCount": 1,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 56,
+          "x": 4,
+          "y": 3,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.23320000000000002,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 56,
+            "x": 4,
+            "y": 3,
+            "outer": 0,
+            "t": 0.23320000000000002,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "ending": {
+        "timestamp": 2638.89999999851,
+        "action": "00-Up",
+        "levelName": "second_puzzle",
+        "moveCount": 2,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 56,
+          "x": 4,
+          "y": 4,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.23320000000000007,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 56,
+            "x": 4,
+            "y": 4,
+            "outer": 0,
+            "t": 0.23320000000000007,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 58,
+            "x": 4,
+            "y": 5,
+            "outer": 0,
+            "t": 0.10180000000149017,
+            "length": 0.1,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 75,
+            "x": 4,
+            "y": 6,
+            "outer": 0,
+            "t": 0.10180000000149017,
+            "length": 0.1,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "traceSha256": "10f38c9757a2423833ae67eda484df4dd457b334e71f6c0805473923cda6d79e",
+      "pngSha256": {
+        "end.png": "72c9c3abfc5b21b14d79b1a1db6b6f29a9295f75c9509cfef2e212e63d0f8b07",
+        "motion-0001-normal-0.25.png": "4952e78dff8fdd2fc49f7b0ac53b990fd2025c3dd24b5ee43d015cdab6b0e7c1",
+        "motion-0001-normal-0.5.png": "13033753b185c9311af129a5edcf1cc7ba4b9e30ff257d6055e6e4721c0ca9d4",
+        "motion-0001-normal-0.75.png": "628fa5a63e3832735093fe147070e5408df6160bb8eb383c09735d393b04171a",
+        "motion-0002-bumpHalt-0.25.png": "c25983ca921cecd072af9533a41dd1bf6aedb449fd5adc4101018cc8de76f7de",
+        "motion-0002-bumpHalt-0.5.png": "50af01750e10c7eb90fd0984461e247b194e48d4e70e80af0119d34f4e3a1f46",
+        "motion-0002-bumpHalt-0.75.png": "3cc7cffe0acaf5b8f0382efa17c072065bc9655c9a461a18a8df604fb4e3de78",
+        "motion-0002-bumpHalt-1.png": "e6e2cf740b87a71a93807ff5aaec9770e2c82f9adb7853a548ac25cc73bca983",
+        "sample-0000.png": "da1cd5f7555070f539eb9b031d0acb39749d30e2023df8ecf53b0bc70a05bb6e",
+        "sample-0008.png": "b93766e0559777949f0822a9c45fb23872dfef34e4bf4d806c404648af00af95",
+        "sample-0016.png": "3cc7cffe0acaf5b8f0382efa17c072065bc9655c9a461a18a8df604fb4e3de78",
+        "sample-0024.png": "c12f9c71cc611b40f6f0da1552de3a8ecb19f7bf51e40629d415627edfeef8c3",
+        "sample-0032.png": "ecc034f09890f8227886035526813f3bf06a0629958aed9884e03e63169a476a",
+        "sample-0040.png": "9d27bc8d223c6433d8192ed64fb14e2e7024a8d1da7465985a048a338d1dc4d7",
+        "start.png": "fc3cda838086e24258ade1ed455fcc97548178a0969f27ade5144ee2a617b975",
+        "state-0000.png": "da1cd5f7555070f539eb9b031d0acb39749d30e2023df8ecf53b0bc70a05bb6e",
+        "state-0006.png": "b49d7fb31dab63e3fa8671b1299b4f1c0858c08983125c9f6f0937ede2642a5e"
+      }
+    },
+    {
+      "directory": "tui",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureStateChanges": true,
+        "captureEveryMs": 130,
+        "settleMs": 650,
+        "level": "text_1",
+        "setup": "",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowUp",
+            "duration": 40
+          }
+        ]
+      },
+      "recordedAt": "2026-10-25T01:15:47.700Z",
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "frames": 44,
+      "frameIntervalsMs": {
+        "min": 15.900000000000091,
+        "median": 16.700000000000045,
+        "max": 17.5,
+        "above50": 0
+      },
+      "starting": {
+        "timestamp": 1311.300000000745,
+        "action": "start",
+        "levelName": "text_1",
+        "moveCount": 0,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0,
+          "length": 0,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 30,
+          "x": 2,
+          "y": 3,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0,
+          "length": 0,
+          "anim": "normal",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": []
+      },
+      "ending": {
+        "timestamp": 2054.60000000149,
+        "action": "00-Up",
+        "levelName": "text_1",
+        "moveCount": 1,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 30,
+          "x": 2,
+          "y": 4,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.23260000000000014,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 30,
+            "x": 2,
+            "y": 4,
+            "outer": 0,
+            "t": 0.23260000000000014,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      },
+      "traceSha256": "77b5c21ce130f7a7426e7929c7700abe8441d9d386a0e02680f12833880e85ba",
+      "pngSha256": {
+        "end.png": "85b50e3d94585b5721fce838c49f9a81c61c3f093674ab98cc06f7b09693e33c",
+        "motion-0001-normal-0.25.png": "b3ae8e46b311ed155f8a7c206becd3856b0be1ede700df8e3a69a31987c225b4",
+        "motion-0001-normal-0.5.png": "1541a2cb3b47699474cbafef86ee57bc7db7a4bc581fb621c606b70fdc698035",
+        "motion-0001-normal-0.75.png": "2e0b4dcd288f6c43b1eb0070e2020b4d0ddd97a889646f37092cbe6400c182e6",
+        "motion-0002-bumpHalt-0.25.png": "95a9983f1cf4ef2f8298d6a409846ba10e3352fc751d7615805c0c2aea67f50c",
+        "motion-0002-bumpHalt-0.5.png": "2b25966d19e08f46c8642073d0bd22705a014d6f215abbdc10e21e1d9e23ed1c",
+        "motion-0002-bumpHalt-0.75.png": "41f84426c723171d6013b967dbfb2f111b2a0527a722760de4aa73408f13f34c",
+        "motion-0002-bumpHalt-1.png": "1bfe8f2bbf321eb67075f560a64baef2ecae25e080a798338d75f8a6c319f274",
+        "sample-0000.png": "bd1e3e87c2b1befb4c3b19c1bf9789688abb9076f1e522b9b0d629171016db8d",
+        "sample-0008.png": "820249e50c8cb4c58ed39cd96026ba4c55178f17e5fde2d397d28372babfefca",
+        "sample-0016.png": "41f84426c723171d6013b967dbfb2f111b2a0527a722760de4aa73408f13f34c",
+        "sample-0024.png": "70149e857a053a4bd85c8e3dda64148f90ee7df95e3ec0b9eb39e73a8aa02deb",
+        "sample-0032.png": "372fb0feed51547c884c97a61d14f5916a3d5689ce02985f51ee4bd1096cba0d",
+        "sample-0040.png": "d0592bd8d52582ff15607f4cee90f2d7186037d4899e1fd67f3ed5ef85734e31",
+        "start.png": "23473d6bf576e62818968165555b7060ac5a00b7b310a947342f93b0c9558476",
+        "state-0000.png": "bd1e3e87c2b1befb4c3b19c1bf9789688abb9076f1e522b9b0d629171016db8d",
+        "state-0006.png": "0af877150db7b1f28231975d440f4e5bfe6fbcac5619c502b605a6353ae3ccb1"
+      }
+    }
+  ]
+}

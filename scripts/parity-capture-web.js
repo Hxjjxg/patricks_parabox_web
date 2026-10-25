@@ -89,6 +89,14 @@ async () => {
   if (api.world().levelName !== options.level) {
     throw new Error('Requested level did not load: ' + options.level + ' → ' + api.world().levelName);
   }
+  const settleSetup = async () => {
+    const deadline = performance.now() + 10000;
+    while (api.world().blocks.some(block => block.moving) || api.world().cameraMoving || api.world().newCamT < 1) {
+      if (performance.now() > deadline) throw new Error('Setup did not reach a settled animation state');
+      await nextFrame();
+    }
+  };
+  await settleSetup();
   const vector = { L: [-1, 0], R: [1, 0], U: [0, 1], D: [0, -1] };
   for (const direction of options.setupActions ?? options.setup ?? '') {
     if (direction === 'UNDO') api.undo();
@@ -97,6 +105,7 @@ async () => {
     else if (vector[direction]) api.impulse(...vector[direction]);
     else throw new Error('Unknown setup action: ' + direction);
     await sleep(800);
+    await settleSetup();
   }
   if (api.world().cameraMoving || api.world().newCamT < 1) {
     throw new Error('Camera setup has not settled');

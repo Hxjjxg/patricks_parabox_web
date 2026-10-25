@@ -1,0 +1,866 @@
+{
+  "options": {
+    "expectedViewport": {
+      "width": 800,
+      "height": 600,
+      "dpr": 1
+    },
+    "captureMotion": true,
+    "captureStateChanges": true,
+    "captureEveryMs": 80,
+    "settleMs": 750,
+    "level": "1by1_playerr_flip2",
+    "setup": "RR",
+    "events": [
+      {
+        "at": 0,
+        "key": "ArrowDown",
+        "duration": 40
+      }
+    ]
+  },
+  "recordedAt": "2026-10-25T01:06:25.347Z",
+  "viewport": {
+    "width": 800,
+    "height": 600,
+    "dpr": 1.0000000298023224,
+    "canvasWidth": 800,
+    "canvasHeight": 600
+  },
+  "starting": {
+    "timestamp": 78679.60000000149,
+    "action": "start",
+    "levelName": "1by1_playerr_flip2",
+    "moveCount": 2,
+    "moving": false,
+    "wentToInfZone": false,
+    "cameraFlipH": false,
+    "inspection": {
+      "inspectedBlockId": null,
+      "viewBlockId": 0,
+      "viewLevelId": 0,
+      "flipH": false
+    },
+    "camera": {
+      "t": 0.1,
+      "length": 0.1,
+      "phase": 1,
+      "moving": false,
+      "x": 0,
+      "y": 0,
+      "xs": 1,
+      "ys": 1
+    },
+    "player": {
+      "id": 51,
+      "x": 5,
+      "y": 2,
+      "outer": 0,
+      "outerId": 0,
+      "t": 0.2331999999999971,
+      "length": 0.22,
+      "anim": "bumpHalt",
+      "ox": 0,
+      "oy": 0,
+      "sx": 1,
+      "sy": 1
+    },
+    "animated": [
+      {
+        "id": 51,
+        "x": 5,
+        "y": 2,
+        "outer": 0,
+        "t": 0.2331999999999971,
+        "length": 0.22,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      }
+    ]
+  },
+  "ending": {
+    "timestamp": 80709.80000000075,
+    "action": "00-Down",
+    "levelName": "1by1_playerr_flip2",
+    "moveCount": 3,
+    "moving": false,
+    "wentToInfZone": false,
+    "cameraFlipH": true,
+    "inspection": {
+      "inspectedBlockId": null,
+      "viewBlockId": 51,
+      "viewLevelId": 1,
+      "flipH": false
+    },
+    "camera": {
+      "t": 0.5,
+      "length": 0.5,
+      "phase": 1,
+      "moving": false,
+      "x": -1,
+      "y": 3,
+      "xs": 0.1111111111111111,
+      "ys": 0.1111111111111111
+    },
+    "player": {
+      "id": 51,
+      "x": 0,
+      "y": 0,
+      "outer": 1,
+      "outerId": 1,
+      "t": 0.09989999999999419,
+      "length": 0.22,
+      "anim": "bumpHalt",
+      "ox": 0,
+      "oy": 0.04881282126220754,
+      "sx": 1.0488128212622077,
+      "sy": 0.9023743574755849
+    },
+    "animated": [
+      {
+        "id": 51,
+        "x": 0,
+        "y": 0,
+        "outer": 1,
+        "t": 0.09989999999999419,
+        "length": 0.22,
+        "ox": 0,
+        "oy": 0.04881282126220754,
+        "sx": 1.0488128212622077,
+        "sy": 0.9023743574755849
+      }
+    ]
+  },
+  "events": [
+    {
+      "type": "keydown",
+      "key": "ArrowDown",
+      "timestamp": 78692.80000000075,
+      "state": {
+        "timestamp": 78692.90000000224,
+        "action": "00-Down",
+        "levelName": "1by1_playerr_flip2",
+        "moveCount": 2,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 51,
+          "x": 5,
+          "y": 2,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.2331999999999971,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 51,
+            "x": 5,
+            "y": 2,
+            "outer": 0,
+            "t": 0.2331999999999971,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      }
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowDown",
+      "timestamp": 79856.80000000075,
+      "state": {
+        "timestamp": 79856.80000000075,
+        "action": "00-Down",
+        "levelName": "1by1_playerr_flip2",
+        "moveCount": 3,
+        "moving": true,
+        "wentToInfZone": false,
+        "cameraFlipH": true,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 51,
+          "viewLevelId": 1,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.10039999999776775,
+          "length": 0.5,
+          "phase": 0.2007999999955355,
+          "moving": true,
+          "x": -1,
+          "y": 3,
+          "xs": 0.1111111111111111,
+          "ys": 0.1111111111111111
+        },
+        "player": {
+          "id": 51,
+          "x": 0,
+          "y": 0,
+          "outer": 1,
+          "outerId": 1,
+          "t": 0.10039999999776775,
+          "length": 0.5,
+          "anim": "normal",
+          "ox": 0,
+          "oy": -0.7992000000044646,
+          "sx": 0.8716165120021373,
+          "sy": 1.0641917439989315
+        },
+        "animated": [
+          {
+            "id": 51,
+            "x": 0,
+            "y": 0,
+            "outer": 1,
+            "t": 0.10039999999776775,
+            "length": 0.5,
+            "ox": 0,
+            "oy": -0.7992000000044646,
+            "sx": 0.8716165120021373,
+            "sy": 1.0641917439989315
+          }
+        ]
+      }
+    }
+  ],
+  "frames": [
+    {
+      "timestamp": 78693.3,
+      "action": "00-Down",
+      "levelName": "1by1_playerr_flip2",
+      "moveCount": 3,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": true,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 51,
+        "viewLevelId": 1,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.0003999999977677362,
+        "length": 0.5,
+        "phase": 0.0007999999955354724,
+        "moving": true,
+        "x": -1,
+        "y": 3,
+        "xs": 0.1111111111111111,
+        "ys": 0.1111111111111111
+      },
+      "player": {
+        "id": 51,
+        "x": 0,
+        "y": 0,
+        "outer": 1,
+        "outerId": 1,
+        "t": 0.0003999999977677362,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.9992000000044645,
+        "sx": 0.9993605120035659,
+        "sy": 1.000319743998217
+      },
+      "animated": [
+        {
+          "id": 51,
+          "x": 0,
+          "y": 0,
+          "outer": 1,
+          "t": 0.0003999999977677362,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.9992000000044645,
+          "sx": 0.9993605120035659,
+          "sy": 1.000319743998217
+        }
+      ],
+      "motionId": "motion-0001-normal"
+    },
+    {
+      "timestamp": 79359.9,
+      "action": "00-Down",
+      "levelName": "1by1_playerr_flip2",
+      "moveCount": 3,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": true,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 51,
+        "viewLevelId": 1,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.10039999999776775,
+        "length": 0.5,
+        "phase": 0.2007999999955355,
+        "moving": true,
+        "x": -1,
+        "y": 3,
+        "xs": 0.1111111111111111,
+        "ys": 0.1111111111111111
+      },
+      "player": {
+        "id": 51,
+        "x": 0,
+        "y": 0,
+        "outer": 1,
+        "outerId": 1,
+        "t": 0.10039999999776775,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.7992000000044646,
+        "sx": 0.8716165120021373,
+        "sy": 1.0641917439989315
+      },
+      "animated": [
+        {
+          "id": 51,
+          "x": 0,
+          "y": 0,
+          "outer": 1,
+          "t": 0.10039999999776775,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.7992000000044646,
+          "sx": 0.8716165120021373,
+          "sy": 1.0641917439989315
+        }
+      ],
+      "motionId": "motion-0001-normal"
+    },
+    {
+      "timestamp": 79843.1,
+      "action": "00-Down",
+      "levelName": "1by1_playerr_flip2",
+      "moveCount": 3,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": true,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 51,
+        "viewLevelId": 1,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.20039999999776775,
+        "length": 0.5,
+        "phase": 0.4007999999955355,
+        "moving": true,
+        "x": -1,
+        "y": 3,
+        "xs": 0.1111111111111111,
+        "ys": 0.1111111111111111
+      },
+      "player": {
+        "id": 51,
+        "x": 0,
+        "y": 0,
+        "outer": 1,
+        "outerId": 1,
+        "t": 0.20039999999776775,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.5992000000044645,
+        "sx": 0.8078725120007086,
+        "sy": 1.096063743999646
+      },
+      "animated": [
+        {
+          "id": 51,
+          "x": 0,
+          "y": 0,
+          "outer": 1,
+          "t": 0.20039999999776775,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.5992000000044645,
+          "sx": 0.8078725120007086,
+          "sy": 1.096063743999646
+        }
+      ],
+      "motionId": "motion-0001-normal"
+    },
+    {
+      "timestamp": 80276.4,
+      "action": "00-Down",
+      "levelName": "1by1_playerr_flip2",
+      "moveCount": 3,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": true,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 51,
+        "viewLevelId": 1,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.3003999999977678,
+        "length": 0.5,
+        "phase": 0.6007999999955356,
+        "moving": true,
+        "x": -1,
+        "y": 3,
+        "xs": 0.1111111111111111,
+        "ys": 0.1111111111111111
+      },
+      "player": {
+        "id": 51,
+        "x": 0,
+        "y": 0,
+        "outer": 1,
+        "outerId": 1,
+        "t": 0.3003999999977678,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.39920000000446443,
+        "sx": 0.80812851199928,
+        "sy": 1.09593574400036
+      },
+      "animated": [
+        {
+          "id": 51,
+          "x": 0,
+          "y": 0,
+          "outer": 1,
+          "t": 0.3003999999977678,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.39920000000446443,
+          "sx": 0.80812851199928,
+          "sy": 1.09593574400036
+        }
+      ],
+      "motionId": "motion-0001-normal"
+    },
+    {
+      "timestamp": 80359.4,
+      "action": "00-Down",
+      "levelName": "1by1_playerr_flip2",
+      "moveCount": 3,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": true,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 51,
+        "viewLevelId": 1,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.3833999999977678,
+        "length": 0.5,
+        "phase": 0.7667999999955356,
+        "moving": true,
+        "x": -1,
+        "y": 3,
+        "xs": 0.1111111111111111,
+        "ys": 0.1111111111111111
+      },
+      "player": {
+        "id": 51,
+        "x": 0,
+        "y": 0,
+        "outer": 1,
+        "outerId": 1,
+        "t": 0.3833999999977678,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.2332000000044644,
+        "sx": 0.8569457919980943,
+        "sy": 1.0715271040009529
+      },
+      "animated": [
+        {
+          "id": 51,
+          "x": 0,
+          "y": 0,
+          "outer": 1,
+          "t": 0.3833999999977678,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.2332000000044644,
+          "sx": 0.8569457919980943,
+          "sy": 1.0715271040009529
+        }
+      ],
+      "motionId": "motion-0001-normal"
+    },
+    {
+      "timestamp": 80526.2,
+      "action": "00-Down",
+      "levelName": "1by1_playerr_flip2",
+      "moveCount": 3,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": true,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 51,
+        "viewLevelId": 1,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.48339999999776784,
+        "length": 0.5,
+        "phase": 0.9667999999955357,
+        "moving": true,
+        "x": -1,
+        "y": 3,
+        "xs": 0.1111111111111111,
+        "ys": 0.1111111111111111
+      },
+      "player": {
+        "id": 51,
+        "x": 0,
+        "y": 0,
+        "outer": 1,
+        "outerId": 1,
+        "t": 0.48339999999776784,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.033200000004464325,
+        "sx": 0.9743217919966657,
+        "sy": 1.012839104001667
+      },
+      "animated": [
+        {
+          "id": 51,
+          "x": 0,
+          "y": 0,
+          "outer": 1,
+          "t": 0.48339999999776784,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.033200000004464325,
+          "sx": 0.9743217919966657,
+          "sy": 1.012839104001667
+        }
+      ],
+      "motionId": "motion-0001-normal"
+    },
+    {
+      "timestamp": 80559.5,
+      "action": "00-Down",
+      "levelName": "1by1_playerr_flip2",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": true,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 51,
+        "viewLevelId": 1,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -1,
+        "y": 3,
+        "xs": 0.1111111111111111,
+        "ys": 0.1111111111111111
+      },
+      "player": {
+        "id": 51,
+        "x": 0,
+        "y": 0,
+        "outer": 1,
+        "outerId": 1,
+        "t": 0,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 80592.8,
+      "action": "00-Down",
+      "levelName": "1by1_playerr_flip2",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": true,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 51,
+        "viewLevelId": 1,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -1,
+        "y": 3,
+        "xs": 0.1111111111111111,
+        "ys": 0.1111111111111111
+      },
+      "player": {
+        "id": 51,
+        "x": 0,
+        "y": 0,
+        "outer": 1,
+        "outerId": 1,
+        "t": 0.03330000000000291,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.010972262434261634,
+        "sx": 1.0109722624342616,
+        "sy": 0.9780554751314767
+      },
+      "animated": [
+        {
+          "id": 51,
+          "x": 0,
+          "y": 0,
+          "outer": 1,
+          "t": 0.03330000000000291,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.010972262434261634,
+          "sx": 1.0109722624342616,
+          "sy": 0.9780554751314767
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 80609.5,
+      "action": "00-Down",
+      "levelName": "1by1_playerr_flip2",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": true,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 51,
+        "viewLevelId": 1,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -1,
+        "y": 3,
+        "xs": 0.1111111111111111,
+        "ys": 0.1111111111111111
+      },
+      "player": {
+        "id": 51,
+        "x": 0,
+        "y": 0,
+        "outer": 1,
+        "outerId": 1,
+        "t": 0.05,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.021600300525920366,
+        "sx": 1.0216003005259204,
+        "sy": 0.9567993989481592
+      },
+      "animated": [
+        {
+          "id": 51,
+          "x": 0,
+          "y": 0,
+          "outer": 1,
+          "t": 0.05,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.021600300525920366,
+          "sx": 1.0216003005259204,
+          "sy": 0.9567993989481592
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 80659.4,
+      "action": "00-Down",
+      "levelName": "1by1_playerr_flip2",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": true,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 51,
+        "viewLevelId": 1,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -1,
+        "y": 3,
+        "xs": 0.1111111111111111,
+        "ys": 0.1111111111111111
+      },
+      "player": {
+        "id": 51,
+        "x": 0,
+        "y": 0,
+        "outer": 1,
+        "outerId": 1,
+        "t": 0.09989999999999419,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.04881282126220754,
+        "sx": 1.0488128212622077,
+        "sy": 0.9023743574755849
+      },
+      "animated": [
+        {
+          "id": 51,
+          "x": 0,
+          "y": 0,
+          "outer": 1,
+          "t": 0.09989999999999419,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.04881282126220754,
+          "sx": 1.0488128212622077,
+          "sy": 0.9023743574755849
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    }
+  ],
+  "images": [
+    {
+      "name": "start",
+      "timestamp": 78679.90000000224
+    },
+    {
+      "name": "sample-0000",
+      "timestamp": 78693.3,
+      "frameIndex": 0
+    },
+    {
+      "name": "state-0000",
+      "timestamp": 78693.3,
+      "frameIndex": 0
+    },
+    {
+      "name": "sample-0001",
+      "timestamp": 79359.9,
+      "frameIndex": 1
+    },
+    {
+      "name": "sample-0002",
+      "timestamp": 79843.1,
+      "frameIndex": 2
+    },
+    {
+      "name": "motion-0001-normal-0.25",
+      "action": "00-Down",
+      "timestamp": 79843.1,
+      "phase": 0.4007999999955355,
+      "frameIndex": 2
+    },
+    {
+      "name": "sample-0003",
+      "timestamp": 80276.4,
+      "frameIndex": 3
+    },
+    {
+      "name": "motion-0001-normal-0.5",
+      "action": "00-Down",
+      "timestamp": 80276.4,
+      "phase": 0.6007999999955356,
+      "frameIndex": 3
+    },
+    {
+      "name": "sample-0004",
+      "timestamp": 80359.4,
+      "frameIndex": 4
+    },
+    {
+      "name": "motion-0001-normal-0.75",
+      "action": "00-Down",
+      "timestamp": 80359.4,
+      "phase": 0.7667999999955356,
+      "frameIndex": 4
+    },
+    {
+      "name": "sample-0005",
+      "timestamp": 80526.2,
+      "frameIndex": 5
+    },
+    {
+      "name": "state-0006",
+      "timestamp": 80559.5,
+      "frameIndex": 6
+    },
+    {
+      "name": "sample-0008",
+      "timestamp": 80609.5,
+      "frameIndex": 8
+    },
+    {
+      "name": "motion-0002-bumpHalt-0.25",
+      "action": "00-Down",
+      "timestamp": 80659.4,
+      "phase": 0.4540909090908827,
+      "frameIndex": 9
+    },
+    {
+      "name": "end",
+      "timestamp": 80697.10000000149
+    }
+  ]
+}
