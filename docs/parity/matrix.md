@@ -18,22 +18,22 @@ Pure TypeScript movement/history, recursive enter/exit/push/eat/possess/shed/inf
 
 | ID / family | Fresh starting state / deterministic sequence | Required observations | Result / evidence |
 |---|---|---|---|
-| first_puzzle / first | fresh; R; RESTART; UNDO; REDO | static walls, push, history, restart | unverified; existing state fixture available |
-| second_puzzle / second | fresh; U R D L, restart between independent probes | static rendering, blocked and successful moves | unverified |
-| third_puzzle / third | fresh root 9×9, player(2,4), inner box(4,6); R U L D | baseline highlights, corners, wall connections, seams; motion/scaling | unverified; first priority |
-| enter / enter-exit | R U U U L U R R R R | motion origin, clipping, camera crossing and nesting | unverified; focused state fixture available |
-| carry / nested push | walk sequence below | player/box continuity, nested walls | unverified; state fixture available |
-| cycle_line / recursive | walk | recursive projections, nested seams/clipping | unverified; state fixture available |
+| first_puzzle / first | fresh; R; RESTART; UNDO; REDO | static walls, push, history, restart | exercised: native static3sizes; actual Web static/borders/shadows and12 controlled input cases; wall GPU decode fixed e024f58, body geometry matched in input images; final18-scene static/DPR sweep and tutorial caption approval pending |
+| second_puzzle / second | fresh; U R D L, restart between independent probes; focused push setup U then U | static rendering, blocked and successful moves | native static3sizes and second-up-push captured; Web1001×733@2 border/shadow sampled; fresh post-integration push motion review pending |
+| third_puzzle / third | fresh root9×9, player(2,4), inner box(4,6); R U L D | baseline highlights, corners, wall connections, seams; motion/scaling | reproduced baseline, fixed native GPU wall textures/shared endpoints/inside borders; sampled255 highlights and444join checks exact; native static3sizes plus1280×900 integer scale; final DPR/motion/scaling sweep pending |
+| enter / enter-exit | setup URUULURRRR then R; exit setup adds R then L | motion origin, clipping, camera crossing and nesting | actual native/Web synchronized entry/exit phases reviewed; previous-frame presentation root cause fixed0481573; sampled camera residual<3.3e-8; final integrated recursive/palette rendering review pending |
+| carry / nested push | setup LLL then L | player/box continuity, nested walls | native carry-nesting-entry-20261025 proves outer2 crossing; fresh integrated Web motion comparison pending |
+| cycle_line / recursive | setup URRURURRDDRRRRU then U | recursive projections, nested seams/clipping | native cycle-camera-entry-20261025 proves outer5 crossing; fresh integrated Web motion comparison pending |
 | infenter_first_2 / infinite enter | walk | recursive scale, ghosts, camera continuity | unverified; state fixture available |
-| infexit_ref_first / infinite exit | walk | recursive exits, camera continuity | unverified; state fixture available |
+| infexit_ref_first / infinite exit | candidate setup DLLDRRRR then R; original investigator checking pre-history accepted Exit infExitNum | recursive exits, camera continuity | native infexit-proven-crossing-20261025 captured; pre-history accepted Exit infExitNum0 reported, source proof being finalized; arbitrary old walk does not prove infinite exit; Web actual comparison pending |
 | infenter_zone_v2 / generated infinity | walk then R×5 U×5 L×5 D×4 | generated zones, projection continuity | unverified; focused fixture available |
-| infenter_zone_v2 / proven generated infinity route | fresh; D D D U | actual generated-zone entry, camera/projection and history | native snapshot proves wentToInfZone=true atmoveCount4; new per-action hash fixture passes; visual/timing comparison pending |
+| infenter_zone_v2 / proven generated infinity route | fresh; D D D U | actual generated-zone entry, camera/projection and history | native outer14/wentToInfZone=true and actual Web phases exercised; matched camera/projection but confirmed wrong palette/opaque backing; palette fixed ea78b16, transparency/depth candidate undergoing actual output review |
 | flip_first / horizontal flips | R D D R R | orientation, wall lighting and camera movement | unverified; focused state fixture available |
-| 1by1_playerr_flip2 / boundary flip | DDRURLUDDLUDDLRUDRUDLDRDULDRRRD | camera-boundary flip interpolation | unverified; cameraFlip test available |
-| possess_first / possession | L D D L L | face/phantom origin and jump phases | unverified; focused state fixture available |
-| eat_same_side / eat | L L | enter/eat projection and nested rendering | unverified; focused state fixture available |
-| shed_first / shed | R R R R U U | moving shell, projection and animation continuity | unverified; focused state fixture available |
-| hub / transitions | empty save; first→second→third→enter portals; win/restart and return | camera, state reset, queued input across transitions | unverified; hub state fixtures available |
+| 1by1_playerr_flip2 / boundary flip | setup RR then D; retain longer DDRURLUDDLUDDLRUDRUDLDRDULDRRRD fixture | camera-boundary flip interpolation | native/Web short flipfalse→true and procedural phases match; native board content missing in prior Web; palette/depth candidate under fresh actual-output review, longer fixture visual path pending |
+| possess_first / possession | setup LDDL then L | face/phantom origin and jump phases | native possess-focused-motion-20261025 proves ownership41→34 andSTILL0.5s; fresh integrated Web comparison pending |
+| eat_same_side / eat | setup L then L | enter/eat projection and nested rendering | native eat-focused-motion-20261025 proves eaten box outer0→3; fresh integrated Web comparison pending |
+| shed_first / shed | setup RRRRU then U | moving shell, projection and animation continuity | native shed-focused-motion-20261025 proves player exits and old shell moves5,5→5,4; fresh integrated Web comparison pending |
+| hub / transitions | empty save; first→second→third→enter portals; win/restart and return | camera, state reset, queued input across transitions | native two held-win repeats + natural Web sampled automatic first→second verified2d588ab; one-frame draw initialization fixedaa55139; post21af3e2 natural recapture and remaining Hub/portal transitions pending |
 
 Walk = U R D L R R U U L D R U L L D D R U R D L U. Start positions must be recorded from authoritative snapshots, and actual action effects checked rather than assuming a sequence reaches its named mechanic.
 
@@ -41,16 +41,16 @@ Walk = U R D L R R U U L D R U L L D D R U R D L U. Start positions must be reco
 
 | Case | Sequence / boundary | Required result | Status |
 |---|---|---|---|
-| tap | press/release each direction | one impulse, measured original timing | unverified |
-| hold | same direction ≥1s in open corridor | landing + repeat delay cadence | unverified |
-| rapid turn | direction change at 1/25/50/99ms and landing | at most one queued; no mid-slide state jump | unverified |
-| alternating | L/R with U/D near next-frame window | immediate anyBlockMoving refresh; correct motion origin | unverified |
-| blocked | hold wall direction, change direction | repeat suppression and correct bump phases | unverified |
-| release/repress | same direction after blocked and after landing | original re-arm rules | unverified |
-| undo / redo | idle and during slide, repeated presses | grouping, squish, camera sync | unverified |
-| restart | idle and during slide; undo restart | original instantaneous/reset rules | unverified |
-| transition | held/queued direction across win and portal | original reset/acceptance/camera rules | unverified |
-| variable frame intervals | 8/16.7/25/50/100ms; press inside frame | post-press delta only, correct start/landing and queue | existing regressions; parity unverified |
+| tap | press/release each direction; simultaneous U/R and U/D | one impulse, measured original timing | native delivered-mask/controller replay301updates and actual95body-pairs match; all-directions first3 natural final matrix pending |
+| hold | same direction≥1s in open corridor; held history6.6s | landing + repeat delay cadence | native repeat input fixtures and Web blocked hold exercised; held-history581updates/180CanvasPNGs independently reviewed; natural corridor/pacing bounded review ongoing |
+| rapid turn | direction change at1/25/50/99ms and landing | at most one queued; no mid-slide state jump | native actual queue phases and natural Web landing/application verified2d588ab; post21af3e2 queue/rapid v2 captured; literal boundary delivery remains distinct from nominal labels |
+| alternating | L/R with U/D near next-frame window | immediate anyBlockMoving refresh; correct motion origin | native overlap301-update set and body bounds match; post21af3e2 natural alternating-repress captured, review pending |
+| blocked | hold wall direction, change direction | repeat suppression and correct bump phases | native and controlled Web blocked/repress match; post21af3e2 natural blocked-repress captured, review pending |
+| release/repress | same direction after blocked and after landing | original re-arm rules | controlled native masks/reveal/repress match; natural final integration review pending |
+| undo / redo | idle and during slide, repeated presses | grouping, squish, camera sync | 12native replay cases/882controller endpoints;581exact float32 scheduler transitions; actual controlled Canvas301+581 updates reviewed with exact available body bounds; natural final history capture pending |
+| restart | idle and during slide; undo restart | original instantaneous/reset rules | queued history/restart regressions and native pre/post phases; held restart interruption72actual Web updates match native; broader natural phases pending |
+| transition | held/queued direction across win and portal | original reset/acceptance/camera rules | two native held-win repeats + natural Web first→second stage support; final integrated held-win/portal review pending |
+| variable frame intervals |8/16.7/25/50/100ms; press inside frame | post-press delta only, correct start/landing and queue | post-press1ms clamp regression at each interval; supplied variable native deltas882controller updates; actual natural frame pacing remains separately measured |
 
 ## Findings / next experiment
 

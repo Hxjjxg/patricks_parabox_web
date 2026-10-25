@@ -1,0 +1,2427 @@
+{
+  "options": {
+    "level": "first_puzzle",
+    "events": [
+      {
+        "at": 0,
+        "key": "ArrowRight",
+        "duration": 40
+      },
+      {
+        "at": 40,
+        "key": "ArrowUp",
+        "duration": 40
+      },
+      {
+        "at": 80,
+        "key": "ArrowLeft",
+        "duration": 40
+      },
+      {
+        "at": 120,
+        "key": "ArrowDown",
+        "duration": 40
+      }
+    ],
+    "settleMs": 400,
+    "captureMotion": true,
+    "captureStateChanges": true,
+    "revision": "21af3e2 + pending renderer modules"
+  },
+  "recordedAt": "2026-10-25T00:23:16.551Z",
+  "viewport": {
+    "width": 1280,
+    "height": 720,
+    "dpr": 1.0000000298023224,
+    "canvasWidth": 1280,
+    "canvasHeight": 720
+  },
+  "starting": {
+    "timestamp": 188469.29999999702,
+    "action": "start",
+    "levelName": "first_puzzle",
+    "moveCount": 0,
+    "moving": false,
+    "wentToInfZone": false,
+    "cameraFlipH": false,
+    "camera": {
+      "t": 0,
+      "length": 0,
+      "phase": 1,
+      "moving": false,
+      "x": 0,
+      "y": 0,
+      "xs": 1,
+      "ys": 1
+    },
+    "player": {
+      "id": 27,
+      "x": 2,
+      "y": 2,
+      "outer": 0,
+      "outerId": 0,
+      "t": 0,
+      "length": 0,
+      "anim": "normal",
+      "ox": 0,
+      "oy": 0,
+      "sx": 1,
+      "sy": 1
+    },
+    "animated": []
+  },
+  "ending": {
+    "timestamp": 189113.8999999985,
+    "action": "03-Down",
+    "levelName": "first_puzzle",
+    "moveCount": 3,
+    "moving": false,
+    "wentToInfZone": false,
+    "cameraFlipH": false,
+    "camera": {
+      "t": 0.1,
+      "length": 0.1,
+      "phase": 1,
+      "moving": false,
+      "x": 0,
+      "y": 0,
+      "xs": 1,
+      "ys": 1
+    },
+    "player": {
+      "id": 27,
+      "x": 3,
+      "y": 2,
+      "outer": 0,
+      "outerId": 0,
+      "t": 0.23319999999998256,
+      "length": 0.22,
+      "anim": "bumpHalt",
+      "ox": 0,
+      "oy": 0,
+      "sx": 1,
+      "sy": 1
+    },
+    "animated": [
+      {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "t": 0.23319999999998256,
+        "length": 0.22,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      }
+    ]
+  },
+  "events": [
+    {
+      "type": "keydown",
+      "key": "ArrowRight",
+      "timestamp": 188481.19999999925,
+      "state": {
+        "timestamp": 188481.19999999925,
+        "action": "00-Right",
+        "levelName": "first_puzzle",
+        "moveCount": 0,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "camera": {
+          "t": 0,
+          "length": 0,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 27,
+          "x": 2,
+          "y": 2,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0,
+          "length": 0,
+          "anim": "normal",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": []
+      }
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowRight",
+      "timestamp": 188546.29999999702,
+      "state": {
+        "timestamp": 188546.3999999985,
+        "action": "00-Right",
+        "levelName": "first_puzzle",
+        "moveCount": 1,
+        "moving": true,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "camera": {
+          "t": 0.0530000000007567,
+          "length": 0.1,
+          "phase": 1,
+          "moving": true,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.0530000000007567,
+          "length": 0.1,
+          "anim": "normal",
+          "ox": -0.469999999992433,
+          "oy": 0,
+          "sx": 1.0996399999998185,
+          "sy": 0.8007200000003633
+        },
+        "animated": [
+          {
+            "id": 27,
+            "x": 3,
+            "y": 2,
+            "outer": 0,
+            "t": 0.0530000000007567,
+            "length": 0.1,
+            "ox": -0.469999999992433,
+            "oy": 0,
+            "sx": 1.0996399999998185,
+            "sy": 0.8007200000003633
+          }
+        ]
+      }
+    },
+    {
+      "type": "keydown",
+      "key": "ArrowUp",
+      "timestamp": 188546.5,
+      "state": {
+        "timestamp": 188546.5,
+        "action": "01-Up",
+        "levelName": "first_puzzle",
+        "moveCount": 1,
+        "moving": true,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "camera": {
+          "t": 0.0530000000007567,
+          "length": 0.1,
+          "phase": 1,
+          "moving": true,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.0530000000007567,
+          "length": 0.1,
+          "anim": "normal",
+          "ox": -0.469999999992433,
+          "oy": 0,
+          "sx": 1.0996399999998185,
+          "sy": 0.8007200000003633
+        },
+        "animated": [
+          {
+            "id": 27,
+            "x": 3,
+            "y": 2,
+            "outer": 0,
+            "t": 0.0530000000007567,
+            "length": 0.1,
+            "ox": -0.469999999992433,
+            "oy": 0,
+            "sx": 1.0996399999998185,
+            "sy": 0.8007200000003633
+          }
+        ]
+      }
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowUp",
+      "timestamp": 188595.59999999776,
+      "state": {
+        "timestamp": 188595.69999999925,
+        "action": "01-Up",
+        "levelName": "first_puzzle",
+        "moveCount": 2,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": []
+      }
+    },
+    {
+      "type": "keydown",
+      "key": "ArrowLeft",
+      "timestamp": 188595.69999999925,
+      "state": {
+        "timestamp": 188595.79999999702,
+        "action": "02-Left",
+        "levelName": "first_puzzle",
+        "moveCount": 2,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": []
+      }
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowLeft",
+      "timestamp": 188635.8999999985,
+      "state": {
+        "timestamp": 188635.8999999985,
+        "action": "02-Left",
+        "levelName": "first_puzzle",
+        "moveCount": 2,
+        "moving": true,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "camera": {
+          "t": 0.04930000000150176,
+          "length": 0.1,
+          "phase": 1,
+          "moving": true,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 27,
+          "x": 3,
+          "y": 3,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.04930000000150176,
+          "length": 0.1,
+          "anim": "normal",
+          "ox": 0,
+          "oy": 0.5069999999849824,
+          "sx": 0.8000391999998319,
+          "sy": 1.0999804000000841
+        },
+        "animated": [
+          {
+            "id": 27,
+            "x": 3,
+            "y": 3,
+            "outer": 0,
+            "t": 0.04930000000150176,
+            "length": 0.1,
+            "ox": 0,
+            "oy": 0.5069999999849824,
+            "sx": 0.8000391999998319,
+            "sy": 1.0999804000000841
+          }
+        ]
+      }
+    },
+    {
+      "type": "keydown",
+      "key": "ArrowDown",
+      "timestamp": 188640.59999999776,
+      "state": {
+        "timestamp": 188640.59999999776,
+        "action": "03-Down",
+        "levelName": "first_puzzle",
+        "moveCount": 2,
+        "moving": true,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "camera": {
+          "t": 0.04930000000150176,
+          "length": 0.1,
+          "phase": 1,
+          "moving": true,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 27,
+          "x": 3,
+          "y": 3,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.04930000000150176,
+          "length": 0.1,
+          "anim": "normal",
+          "ox": 0,
+          "oy": 0.5069999999849824,
+          "sx": 0.8000391999998319,
+          "sy": 1.0999804000000841
+        },
+        "animated": [
+          {
+            "id": 27,
+            "x": 3,
+            "y": 3,
+            "outer": 0,
+            "t": 0.04930000000150176,
+            "length": 0.1,
+            "ox": 0,
+            "oy": 0.5069999999849824,
+            "sx": 0.8000391999998319,
+            "sy": 1.0999804000000841
+          }
+        ]
+      }
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowDown",
+      "timestamp": 188685.09999999776,
+      "state": {
+        "timestamp": 188685.09999999776,
+        "action": "03-Down",
+        "levelName": "first_puzzle",
+        "moveCount": 3,
+        "moving": true,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "camera": {
+          "t": 0.08260000000149012,
+          "length": 0.1,
+          "phase": 1,
+          "moving": true,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 27,
+          "x": 3,
+          "y": 3,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.08260000000149012,
+          "length": 0.1,
+          "anim": "normal",
+          "ox": 0,
+          "oy": 0.17399999998509885,
+          "sx": 0.8850208000077725,
+          "sy": 1.0574895999961138
+        },
+        "animated": [
+          {
+            "id": 27,
+            "x": 3,
+            "y": 3,
+            "outer": 0,
+            "t": 0.08260000000149012,
+            "length": 0.1,
+            "ox": 0,
+            "oy": 0.17399999998509885,
+            "sx": 0.8850208000077725,
+            "sy": 1.0574895999961138
+          }
+        ]
+      }
+    }
+  ],
+  "frames": [
+    {
+      "timestamp": 188484.3,
+      "action": "00-Right",
+      "levelName": "first_puzzle",
+      "moveCount": 1,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.0031000000007334167,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.0031000000007334167,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": -0.9689999999926658,
+        "oy": 0,
+        "sx": 1.0120156000027518,
+        "sy": 0.9759687999944965
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.0031000000007334167,
+          "length": 0.1,
+          "ox": -0.9689999999926658,
+          "oy": 0,
+          "sx": 1.0120156000027518,
+          "sy": 0.9759687999944965
+        }
+      ],
+      "motionId": "motion-0001-normal"
+    },
+    {
+      "timestamp": 188500.9,
+      "action": "00-Right",
+      "levelName": "first_puzzle",
+      "moveCount": 1,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.019700000000739237,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.019700000000739237,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": -0.8029999999926076,
+        "oy": 0,
+        "sx": 1.063276400001792,
+        "sy": 0.8734471999964162
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.019700000000739237,
+          "length": 0.1,
+          "ox": -0.8029999999926076,
+          "oy": 0,
+          "sx": 1.063276400001792,
+          "sy": 0.8734471999964162
+        }
+      ],
+      "motionId": "motion-0001-normal"
+    },
+    {
+      "timestamp": 188517.5,
+      "action": "00-Right",
+      "levelName": "first_puzzle",
+      "moveCount": 1,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.036300000000745056,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.036300000000745056,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": -0.6369999999925495,
+        "oy": 0,
+        "sx": 1.0924924000008167,
+        "sy": 0.8150151999983668
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.036300000000745056,
+          "length": 0.1,
+          "ox": -0.6369999999925495,
+          "oy": 0,
+          "sx": 1.0924924000008167,
+          "sy": 0.8150151999983668
+        }
+      ],
+      "motionId": "motion-0001-normal"
+    },
+    {
+      "timestamp": 188534.2,
+      "action": "00-Right",
+      "levelName": "first_puzzle",
+      "moveCount": 1,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.0530000000007567,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.0530000000007567,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": -0.469999999992433,
+        "oy": 0,
+        "sx": 1.0996399999998185,
+        "sy": 0.8007200000003633
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.0530000000007567,
+          "length": 0.1,
+          "ox": -0.469999999992433,
+          "oy": 0,
+          "sx": 1.0996399999998185,
+          "sy": 0.8007200000003633
+        }
+      ],
+      "motionId": "motion-0001-normal"
+    },
+    {
+      "timestamp": 188550.9,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 2,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.06970000000073924,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.06970000000073924,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": -0.3029999999926076,
+        "oy": 0,
+        "sx": 1.084476399998835,
+        "sy": 0.8310472000023301
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.06970000000073924,
+          "length": 0.1,
+          "ox": -0.3029999999926076,
+          "oy": 0,
+          "sx": 1.084476399998835,
+          "sy": 0.8310472000023301
+        }
+      ],
+      "motionId": "motion-0001-normal"
+    },
+    {
+      "timestamp": 188567.5,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 2,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.08630000000074506,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.08630000000074506,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": -0.13699999999254941,
+        "oy": 0,
+        "sx": 1.0472923999978363,
+        "sy": 0.9054152000043273
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.08630000000074506,
+          "length": 0.1,
+          "ox": -0.13699999999254941,
+          "oy": 0,
+          "sx": 1.0472923999978363,
+          "sy": 0.9054152000043273
+        }
+      ],
+      "motionId": "motion-0001-normal"
+    },
+    {
+      "timestamp": 188584.3,
+      "action": "01-Up",
+      "levelName": "first_puzzle",
+      "moveCount": 2,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 188600.8,
+      "action": "02-Left",
+      "levelName": "first_puzzle",
+      "moveCount": 2,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.0165,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.0165,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.835,
+        "sx": 0.88978,
+        "sy": 1.05511
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 3,
+          "outer": 0,
+          "t": 0.0165,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.835,
+          "sx": 0.88978,
+          "sy": 1.05511
+        }
+      ],
+      "motionId": "motion-0003-normal"
+    },
+    {
+      "timestamp": 188617.5,
+      "action": "02-Left",
+      "levelName": "first_puzzle",
+      "moveCount": 2,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.03260000000149012,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.03260000000149012,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.6739999999850989,
+        "sx": 0.8242207999958515,
+        "sy": 1.0878896000020744
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 3,
+          "outer": 0,
+          "t": 0.03260000000149012,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.6739999999850989,
+          "sx": 0.8242207999958515,
+          "sy": 1.0878896000020744
+        }
+      ],
+      "motionId": "motion-0003-normal"
+    },
+    {
+      "timestamp": 188634.2,
+      "action": "02-Left",
+      "levelName": "first_puzzle",
+      "moveCount": 2,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.04930000000150176,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.04930000000150176,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.5069999999849824,
+        "sx": 0.8000391999998319,
+        "sy": 1.0999804000000841
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 3,
+          "outer": 0,
+          "t": 0.04930000000150176,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.5069999999849824,
+          "sx": 0.8000391999998319,
+          "sy": 1.0999804000000841
+        }
+      ],
+      "motionId": "motion-0003-normal"
+    },
+    {
+      "timestamp": 188650.8,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.06590000000147847,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.06590000000147847,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.34099999998521535,
+        "sx": 0.8202248000037613,
+        "sy": 1.0898875999981195
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 3,
+          "outer": 0,
+          "t": 0.06590000000147847,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.34099999998521535,
+          "sx": 0.8202248000037613,
+          "sy": 1.0898875999981195
+        }
+      ],
+      "motionId": "motion-0003-normal"
+    },
+    {
+      "timestamp": 188667.5,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.08260000000149012,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.08260000000149012,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.17399999998509885,
+        "sx": 0.8850208000077725,
+        "sy": 1.0574895999961138
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 3,
+          "outer": 0,
+          "t": 0.08260000000149012,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.17399999998509885,
+          "sx": 0.8850208000077725,
+          "sy": 1.0574895999961138
+        }
+      ],
+      "motionId": "motion-0003-normal"
+    },
+    {
+      "timestamp": 188684.1,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.09920000000149594,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.09920000000149594,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0.00799999998504064,
+        "sx": 0.993651200011776,
+        "sy": 1.003174399994112
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 3,
+          "outer": 0,
+          "t": 0.09920000000149594,
+          "length": 0.1,
+          "ox": 0,
+          "oy": 0.00799999998504064,
+          "sx": 0.993651200011776,
+          "sy": 1.003174399994112
+        }
+      ],
+      "motionId": "motion-0003-normal"
+    },
+    {
+      "timestamp": 188700.9,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 3,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [],
+      "motionId": "motion-0004-bumpHalt"
+    },
+    {
+      "timestamp": 188717.4,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.0165,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.0165,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.835,
+        "sx": 0.88978,
+        "sy": 1.05511
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.0165,
+          "length": 0.1,
+          "ox": 0,
+          "oy": -0.835,
+          "sx": 0.88978,
+          "sy": 1.05511
+        }
+      ],
+      "motionId": "motion-0005-normal"
+    },
+    {
+      "timestamp": 188734.2,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.03260000000224682,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.03260000000224682,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.6739999999775319,
+        "sx": 0.8242207999937449,
+        "sy": 1.0878896000031277
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.03260000000224682,
+          "length": 0.1,
+          "ox": 0,
+          "oy": -0.6739999999775319,
+          "sx": 0.8242207999937449,
+          "sy": 1.0878896000031277
+        }
+      ],
+      "motionId": "motion-0005-normal"
+    },
+    {
+      "timestamp": 188750.9,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.04930000000222935,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.04930000000222935,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.5069999999777065,
+        "sx": 0.8000391999997504,
+        "sy": 1.099980400000125
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.04930000000222935,
+          "length": 0.1,
+          "ox": 0,
+          "oy": -0.5069999999777065,
+          "sx": 0.8000391999997504,
+          "sy": 1.099980400000125
+        }
+      ],
+      "motionId": "motion-0005-normal"
+    },
+    {
+      "timestamp": 188767.6,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.06600000000224099,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.06600000000224099,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.3399999999775901,
+        "sx": 0.820480000005737,
+        "sy": 1.0897599999971317
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.06600000000224099,
+          "length": 0.1,
+          "ox": 0,
+          "oy": -0.3399999999775901,
+          "sx": 0.820480000005737,
+          "sy": 1.0897599999971317
+        }
+      ],
+      "motionId": "motion-0005-normal"
+    },
+    {
+      "timestamp": 188784.2,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.0826000000022468,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.0826000000022468,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.17399999997753202,
+        "sx": 0.8850208000117193,
+        "sy": 1.0574895999941405
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.0826000000022468,
+          "length": 0.1,
+          "ox": 0,
+          "oy": -0.17399999997753202,
+          "sx": 0.8850208000117193,
+          "sy": 1.0574895999941405
+        }
+      ],
+      "motionId": "motion-0005-normal"
+    },
+    {
+      "timestamp": 188800.8,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.09920000000222352,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.09920000000222352,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.007999999977764793,
+        "sx": 0.9936512000175035,
+        "sy": 1.0031743999912481
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.09920000000222352,
+          "length": 0.1,
+          "ox": 0,
+          "oy": -0.007999999977764793,
+          "sx": 0.9936512000175035,
+          "sy": 1.0031743999912481
+        }
+      ],
+      "motionId": "motion-0005-normal"
+    },
+    {
+      "timestamp": 188817.6,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 188834.6,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.017,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.00321352366641623,
+        "sx": 1.0032135236664161,
+        "sy": 0.9935729526671675
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.017,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.00321352366641623,
+          "sx": 1.0032135236664161,
+          "sy": 0.9935729526671675
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 188850.7,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.03310000000000582,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.010857322238921444,
+        "sx": 1.0108573222389214,
+        "sy": 0.9782853555221571
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.03310000000000582,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.010857322238921444,
+          "sx": 1.0108573222389214,
+          "sy": 0.9782853555221571
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 188867.4,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.049799999999988354,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.0214651095416901,
+        "sx": 1.02146510954169,
+        "sy": 0.9570697809166198
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.049799999999988354,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.0214651095416901,
+          "sx": 1.02146510954169,
+          "sy": 0.9570697809166198
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 188884,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.06639999999999417,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.032661416679184783,
+        "sx": 1.0326614166791848,
+        "sy": 0.9346771666416305
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.06639999999999417,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.032661416679184783,
+          "sx": 1.0326614166791848,
+          "sy": 0.9346771666416305
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 188900.8,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.08319999999998254,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.04254239158526545,
+        "sx": 1.0425423915852654,
+        "sy": 0.9149152168294691
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.08319999999998254,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.04254239158526545,
+          "sx": 1.0425423915852654,
+          "sy": 0.9149152168294691
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 188917.5,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.09989999999999419,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.04881282126220754,
+        "sx": 1.0488128212622077,
+        "sy": 0.9023743574755849
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.09989999999999419,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.04881282126220754,
+          "sx": 1.0488128212622077,
+          "sy": 0.9023743574755849
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 188934.2,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.11660000000000584,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.0494815999999991,
+        "sx": 1.0494815999999991,
+        "sy": 0.9010368000000019
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.11660000000000584,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.0494815999999991,
+          "sx": 1.0494815999999991,
+          "sy": 0.9010368000000019
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 188950.7,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.13310000000000582,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.04431109999999736,
+        "sx": 1.0443110999999974,
+        "sy": 0.9113778000000053
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.13310000000000582,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.04431109999999736,
+          "sx": 1.0443110999999974,
+          "sy": 0.9113778000000053
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 188967.9,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.15029999999998836,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.03478407039820421,
+        "sx": 1.0347840703982043,
+        "sy": 0.9304318592035916
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.15029999999998836,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.03478407039820421,
+          "sx": 1.0347840703982043,
+          "sy": 0.9304318592035916
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 188984.1,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.1665,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.02397752629601803,
+        "sx": 1.023977526296018,
+        "sy": 0.952044947407964
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.1665,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.02397752629601803,
+          "sx": 1.023977526296018,
+          "sy": 0.952044947407964
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 189000.7,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.18310000000000584,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.013104601126968658,
+        "sx": 1.0131046011269687,
+        "sy": 0.9737907977460627
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.18310000000000584,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.013104601126968658,
+          "sx": 1.0131046011269687,
+          "sy": 0.9737907977460627
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 189017.5,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.1998999999999942,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.004398275657402812,
+        "sx": 1.0043982756574028,
+        "sy": 0.9912034486851944
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.1998999999999942,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.004398275657402812,
+          "sx": 1.0043982756574028,
+          "sy": 0.9912034486851944
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 189034.1,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.21650000000000003,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.00014863824192336563,
+        "sx": 1.0001486382419233,
+        "sy": 0.9997027235161533
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.21650000000000003,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.00014863824192336563,
+          "sx": 1.0001486382419233,
+          "sy": 0.9997027235161533
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 189050.8,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.23319999999998256,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.23319999999998256,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 189067.4,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.23319999999998256,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.23319999999998256,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 189084,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.23319999999998256,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.23319999999998256,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    },
+    {
+      "timestamp": 189100.6,
+      "action": "03-Down",
+      "levelName": "first_puzzle",
+      "moveCount": 3,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 27,
+        "x": 3,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.23319999999998256,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 27,
+          "x": 3,
+          "y": 2,
+          "outer": 0,
+          "t": 0.23319999999998256,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0006-bumpHalt"
+    }
+  ],
+  "images": [
+    {
+      "name": "start",
+      "timestamp": 188469.5
+    },
+    {
+      "name": "state-0000",
+      "timestamp": 188484.3,
+      "frameIndex": 0
+    },
+    {
+      "name": "motion-0001-normal-0.25",
+      "action": "00-Right",
+      "timestamp": 188517.5,
+      "phase": 0.36300000000745053,
+      "frameIndex": 2
+    },
+    {
+      "name": "motion-0001-normal-0.5",
+      "action": "00-Right",
+      "timestamp": 188534.2,
+      "phase": 0.530000000007567,
+      "frameIndex": 3
+    },
+    {
+      "name": "state-0004",
+      "timestamp": 188550.9,
+      "frameIndex": 4
+    },
+    {
+      "name": "motion-0001-normal-0.75",
+      "action": "01-Up",
+      "timestamp": 188567.5,
+      "phase": 0.8630000000074506,
+      "frameIndex": 5
+    },
+    {
+      "name": "state-0006",
+      "timestamp": 188584.3,
+      "frameIndex": 6
+    },
+    {
+      "name": "state-0007",
+      "timestamp": 188600.8,
+      "frameIndex": 7
+    },
+    {
+      "name": "motion-0003-normal-0.25",
+      "action": "02-Left",
+      "timestamp": 188617.5,
+      "phase": 0.32600000001490115,
+      "frameIndex": 8
+    },
+    {
+      "name": "state-0010",
+      "timestamp": 188650.8,
+      "frameIndex": 10
+    },
+    {
+      "name": "motion-0003-normal-0.5",
+      "action": "03-Down",
+      "timestamp": 188650.8,
+      "phase": 0.6590000000147846,
+      "frameIndex": 10
+    },
+    {
+      "name": "motion-0003-normal-0.75",
+      "action": "03-Down",
+      "timestamp": 188667.5,
+      "phase": 0.8260000000149011,
+      "frameIndex": 11
+    },
+    {
+      "name": "state-0013",
+      "timestamp": 188700.9,
+      "frameIndex": 13
+    },
+    {
+      "name": "state-0014",
+      "timestamp": 188717.4,
+      "frameIndex": 14
+    },
+    {
+      "name": "motion-0005-normal-0.25",
+      "action": "03-Down",
+      "timestamp": 188734.2,
+      "phase": 0.32600000002246815,
+      "frameIndex": 15
+    },
+    {
+      "name": "motion-0005-normal-0.5",
+      "action": "03-Down",
+      "timestamp": 188767.6,
+      "phase": 0.6600000000224099,
+      "frameIndex": 17
+    },
+    {
+      "name": "motion-0005-normal-0.75",
+      "action": "03-Down",
+      "timestamp": 188784.2,
+      "phase": 0.826000000022468,
+      "frameIndex": 18
+    },
+    {
+      "name": "state-0020",
+      "timestamp": 188817.6,
+      "frameIndex": 20
+    },
+    {
+      "name": "motion-0006-bumpHalt-0.25",
+      "action": "03-Down",
+      "timestamp": 188884,
+      "phase": 0.30181818181815534,
+      "frameIndex": 24
+    },
+    {
+      "name": "motion-0006-bumpHalt-0.5",
+      "action": "03-Down",
+      "timestamp": 188934.2,
+      "phase": 0.5300000000000266,
+      "frameIndex": 27
+    },
+    {
+      "name": "motion-0006-bumpHalt-0.75",
+      "action": "03-Down",
+      "timestamp": 188984.1,
+      "phase": 0.7568181818181818,
+      "frameIndex": 30
+    },
+    {
+      "name": "motion-0006-bumpHalt-1",
+      "action": "03-Down",
+      "timestamp": 189050.8,
+      "phase": 1.0599999999999208,
+      "frameIndex": 34
+    },
+    {
+      "name": "end",
+      "timestamp": 189102
+    }
+  ]
+}

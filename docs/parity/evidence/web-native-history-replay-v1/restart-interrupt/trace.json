@@ -1,0 +1,3275 @@
+{
+  "options": {
+    "id": "first-history-restart-interrupt-20261025",
+    "revision": "21af3e2 + pending renderer modules"
+  },
+  "captureMode": "actual Canvas, deterministic native update clock",
+  "nativeSource": "docs/parity/evidence/original/history-repeat-replay.json",
+  "nativeSourceSha256": "e2b350af384240e8ba166b87889e8169a093d1b28e228c5b37fcd81ce3863e85",
+  "recordedAt": "2026-10-25T00:21:44.375Z",
+  "viewport": {
+    "width": 800,
+    "height": 600,
+    "dpr": 1.0000000298023224,
+    "canvasWidth": 800,
+    "canvasHeight": 600
+  },
+  "starting": {
+    "timestamp": 30170.428600000007,
+    "levelName": "first_puzzle",
+    "moveCount": 6,
+    "moving": false,
+    "player": {
+      "id": 27,
+      "x": 2,
+      "y": 2,
+      "outer": 0,
+      "anim": "bumpHalt",
+      "t": 0.2240000000000001,
+      "length": 0.22,
+      "ox": 0,
+      "oy": 0,
+      "sx": 1,
+      "sy": 1
+    },
+    "camera": {
+      "x": 0,
+      "y": 0,
+      "xs": 1,
+      "ys": 1,
+      "t": 0.1,
+      "phase": 1
+    },
+    "cameraFlipH": false
+  },
+  "ending": {
+    "timestamp": 31411.95130000002,
+    "levelName": "first_puzzle",
+    "moveCount": 0,
+    "moving": false,
+    "player": {
+      "id": 27,
+      "x": 2,
+      "y": 2,
+      "outer": 0,
+      "anim": "squishInPlace",
+      "t": 0.05654479999999603,
+      "length": 0.125,
+      "ox": 0,
+      "oy": 0,
+      "sx": 1,
+      "sy": 1
+    },
+    "camera": {
+      "x": 0,
+      "y": 0,
+      "xs": 1,
+      "ys": 1,
+      "t": 0,
+      "phase": 1
+    },
+    "cameraFlipH": false
+  },
+  "events": [
+    {
+      "type": "keyup",
+      "key": "ArrowUp",
+      "timestamp": 25354.428600000007
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowDown",
+      "timestamp": 25354.428600000007
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowLeft",
+      "timestamp": 25354.428600000007
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowRight",
+      "timestamp": 25354.428600000007
+    },
+    {
+      "type": "keyup",
+      "key": "z",
+      "timestamp": 25354.428600000007
+    },
+    {
+      "type": "keyup",
+      "key": "x",
+      "timestamp": 25354.428600000007
+    },
+    {
+      "type": "keyup",
+      "key": "r",
+      "timestamp": 25354.428600000007
+    },
+    {
+      "type": "keydown",
+      "key": "z",
+      "timestamp": 30170.428600000007
+    },
+    {
+      "type": "keydown",
+      "key": "r",
+      "timestamp": 30226.973400000003
+    },
+    {
+      "type": "keyup",
+      "key": "z",
+      "timestamp": 30482.07970000001
+    },
+    {
+      "type": "keyup",
+      "key": "r",
+      "timestamp": 30482.07970000001
+    },
+    {
+      "type": "keydown",
+      "key": "x",
+      "timestamp": 30785.741200000015
+    },
+    {
+      "type": "keydown",
+      "key": "r",
+      "timestamp": 30785.741200000015
+    },
+    {
+      "type": "keyup",
+      "key": "x",
+      "timestamp": 31099.947700000008
+    },
+    {
+      "type": "keyup",
+      "key": "r",
+      "timestamp": 31099.947700000008
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowUp",
+      "timestamp": 31411.95130000002
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowDown",
+      "timestamp": 31411.95130000002
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowLeft",
+      "timestamp": 31411.95130000002
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowRight",
+      "timestamp": 31411.95130000002
+    },
+    {
+      "type": "keyup",
+      "key": "z",
+      "timestamp": 31411.95130000002
+    },
+    {
+      "type": "keyup",
+      "key": "x",
+      "timestamp": 31411.95130000002
+    },
+    {
+      "type": "keyup",
+      "key": "r",
+      "timestamp": 31411.95130000002
+    }
+  ],
+  "frames": [
+    {
+      "timestamp": 30190.378700000005,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.0199500999999982,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 0.7881187553918007,
+        "sy": 1.1059406223040995
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44938,
+      "nativeElapsedMs": 19.9508667,
+      "nativeDeltaTime": 0.0199501,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0199501,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30207.576900000004,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.03714829999999711,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 0.8518159130965022,
+        "sy": 1.074092043451749
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44939,
+      "nativeElapsedMs": 37.147522,
+      "nativeDeltaTime": 0.0171982,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0371482968,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30226.973400000003,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 0.9100266033848216,
+        "sy": 1.0449866983075893
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44940,
+      "nativeElapsedMs": 56.5452576,
+      "nativeDeltaTime": 0.0193965,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30246.031700000003,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44941,
+      "nativeElapsedMs": 75.6034851,
+      "nativeDeltaTime": 0.0190583,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30262.697700000004,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44942,
+      "nativeElapsedMs": 92.2699,
+      "nativeDeltaTime": 0.016666,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30279.371500000005,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44943,
+      "nativeElapsedMs": 108.943939,
+      "nativeDeltaTime": 0.0166738,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30296.131400000006,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44944,
+      "nativeElapsedMs": 125.701904,
+      "nativeDeltaTime": 0.0167599,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30312.782300000006,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44945,
+      "nativeElapsedMs": 142.353058,
+      "nativeDeltaTime": 0.0166509,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30330.260600000005,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44946,
+      "nativeElapsedMs": 159.832,
+      "nativeDeltaTime": 0.0174783,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30346.935100000006,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44947,
+      "nativeElapsedMs": 176.506042,
+      "nativeDeltaTime": 0.0166745,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30363.604300000006,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44948,
+      "nativeElapsedMs": 193.17627,
+      "nativeDeltaTime": 0.0166692,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30380.263200000005,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44949,
+      "nativeElapsedMs": 209.835052,
+      "nativeDeltaTime": 0.0166589,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30398.741200000004,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44950,
+      "nativeElapsedMs": 228.313446,
+      "nativeDeltaTime": 0.018478,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30415.411100000005,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44951,
+      "nativeElapsedMs": 244.983673,
+      "nativeDeltaTime": 0.0166699,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30432.079300000005,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44952,
+      "nativeElapsedMs": 261.6501,
+      "nativeDeltaTime": 0.0166682,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30448.738800000006,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44953,
+      "nativeElapsedMs": 278.308868,
+      "nativeDeltaTime": 0.0166595,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30465.408100000008,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44954,
+      "nativeElapsedMs": 294.9791,
+      "nativeDeltaTime": 0.0166693,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30482.07970000001,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44955,
+      "nativeElapsedMs": 311.649323,
+      "nativeDeltaTime": 0.0166716,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30498.745800000008,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44956,
+      "nativeElapsedMs": 328.315735,
+      "nativeDeltaTime": 0.0166661,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30515.414300000008,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44957,
+      "nativeElapsedMs": 344.985962,
+      "nativeDeltaTime": 0.0166685,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30532.612200000007,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44958,
+      "nativeElapsedMs": 362.182617,
+      "nativeDeltaTime": 0.0171979,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30549.28870000001,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44959,
+      "nativeElapsedMs": 378.860474,
+      "nativeDeltaTime": 0.0166765,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30565.95530000001,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44960,
+      "nativeElapsedMs": 395.5269,
+      "nativeDeltaTime": 0.0166666,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30582.61740000001,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44961,
+      "nativeElapsedMs": 412.189484,
+      "nativeDeltaTime": 0.0166621,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30599.28230000001,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44962,
+      "nativeElapsedMs": 428.852081,
+      "nativeDeltaTime": 0.0166649,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30616.43280000001,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44963,
+      "nativeElapsedMs": 446.00296,
+      "nativeDeltaTime": 0.0171505,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30634.09950000001,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44964,
+      "nativeElapsedMs": 463.668823,
+      "nativeDeltaTime": 0.0176667,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30650.77490000001,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44965,
+      "nativeElapsedMs": 480.34668,
+      "nativeDeltaTime": 0.0166754,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30667.432700000012,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44966,
+      "nativeElapsedMs": 497.001648,
+      "nativeDeltaTime": 0.0166578,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30684.152600000012,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44967,
+      "nativeElapsedMs": 513.721436,
+      "nativeDeltaTime": 0.0167199,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30702.26540000001,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44968,
+      "nativeElapsedMs": 531.837463,
+      "nativeDeltaTime": 0.0181128,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30718.934700000013,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44969,
+      "nativeElapsedMs": 548.5039,
+      "nativeDeltaTime": 0.0166693,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30735.734100000012,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44970,
+      "nativeElapsedMs": 565.303833,
+      "nativeDeltaTime": 0.0167994,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30752.408900000013,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44971,
+      "nativeElapsedMs": 581.977844,
+      "nativeDeltaTime": 0.0166748,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30769.071300000014,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44972,
+      "nativeElapsedMs": 598.640442,
+      "nativeDeltaTime": 0.0166624,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30785.741200000015,
+      "levelName": "first_puzzle",
+      "moveCount": 5,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 3,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44973,
+      "nativeElapsedMs": 615.310669,
+      "nativeDeltaTime": 0.0166699,
+      "expected": {
+        "moveCount": 5,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 3,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30802.401800000014,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44974,
+      "nativeElapsedMs": 631.973267,
+      "nativeDeltaTime": 0.0166606,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30821.701500000014,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44975,
+      "nativeElapsedMs": 651.271851,
+      "nativeDeltaTime": 0.0192997,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30842.571800000012,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44976,
+      "nativeElapsedMs": 672.142,
+      "nativeDeltaTime": 0.0208703,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30861.07200000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44977,
+      "nativeElapsedMs": 690.6433,
+      "nativeDeltaTime": 0.0185002,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30882.34100000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44978,
+      "nativeElapsedMs": 711.9103,
+      "nativeDeltaTime": 0.021269,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30899.00810000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44979,
+      "nativeElapsedMs": 728.580444,
+      "nativeDeltaTime": 0.0166671,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30915.68280000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44980,
+      "nativeElapsedMs": 745.2545,
+      "nativeDeltaTime": 0.0166747,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30932.35130000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44981,
+      "nativeElapsedMs": 761.9209,
+      "nativeDeltaTime": 0.0166685,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30949.007600000008,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44982,
+      "nativeElapsedMs": 778.5797,
+      "nativeDeltaTime": 0.0166563,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30965.69480000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44983,
+      "nativeElapsedMs": 795.2652,
+      "nativeDeltaTime": 0.0166872,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30982.36830000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44984,
+      "nativeElapsedMs": 811.9392,
+      "nativeDeltaTime": 0.0166735,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 30999.19100000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44985,
+      "nativeElapsedMs": 828.7621,
+      "nativeDeltaTime": 0.0168227,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31016.27810000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44986,
+      "nativeElapsedMs": 845.8481,
+      "nativeDeltaTime": 0.0170871,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31032.94690000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44987,
+      "nativeElapsedMs": 862.5183,
+      "nativeDeltaTime": 0.0166688,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31049.61190000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44988,
+      "nativeElapsedMs": 879.1809,
+      "nativeDeltaTime": 0.016665,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31066.28160000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44989,
+      "nativeElapsedMs": 895.851135,
+      "nativeDeltaTime": 0.0166697,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31082.94840000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44990,
+      "nativeElapsedMs": 912.5176,
+      "nativeDeltaTime": 0.0166668,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31099.947700000008,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44991,
+      "nativeElapsedMs": 929.519653,
+      "nativeDeltaTime": 0.0169993,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31116.61700000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44992,
+      "nativeElapsedMs": 946.186035,
+      "nativeDeltaTime": 0.0166693,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31133.28850000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44993,
+      "nativeElapsedMs": 962.8601,
+      "nativeDeltaTime": 0.0166715,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31149.95800000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44994,
+      "nativeElapsedMs": 979.530334,
+      "nativeDeltaTime": 0.0166695,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31166.74840000001,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44995,
+      "nativeElapsedMs": 996.318848,
+      "nativeDeltaTime": 0.0167904,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31184.317600000013,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44996,
+      "nativeElapsedMs": 1013.88928,
+      "nativeDeltaTime": 0.0175692,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31202.895900000014,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44997,
+      "nativeElapsedMs": 1032.46692,
+      "nativeDeltaTime": 0.0185783,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31219.564900000016,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44998,
+      "nativeElapsedMs": 1049.13708,
+      "nativeDeltaTime": 0.016669,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31238.452000000016,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 44999,
+      "nativeElapsedMs": 1068.02368,
+      "nativeDeltaTime": 0.0188871,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31255.117000000017,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 45000,
+      "nativeElapsedMs": 1084.68628,
+      "nativeDeltaTime": 0.016665,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31272.107600000018,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 45001,
+      "nativeElapsedMs": 1101.677,
+      "nativeDeltaTime": 0.0169906,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31288.772700000016,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 45002,
+      "nativeElapsedMs": 1118.34338,
+      "nativeDeltaTime": 0.0166651,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31305.548600000016,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 45003,
+      "nativeElapsedMs": 1135.12036,
+      "nativeDeltaTime": 0.0167759,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31325.699600000018,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 45004,
+      "nativeElapsedMs": 1155.26965,
+      "nativeDeltaTime": 0.020151,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31344.599100000018,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 45005,
+      "nativeElapsedMs": 1174.17139,
+      "nativeDeltaTime": 0.0188995,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31361.264900000016,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 45006,
+      "nativeElapsedMs": 1190.834,
+      "nativeDeltaTime": 0.0166658,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31377.944900000017,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 45007,
+      "nativeElapsedMs": 1207.51575,
+      "nativeDeltaTime": 0.01668,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31394.713300000018,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 45008,
+      "nativeElapsedMs": 1224.28516,
+      "nativeDeltaTime": 0.0167684,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    },
+    {
+      "timestamp": 31411.95130000002,
+      "levelName": "first_puzzle",
+      "moveCount": 0,
+      "moving": false,
+      "player": {
+        "id": 27,
+        "x": 2,
+        "y": 2,
+        "outer": 0,
+        "anim": "squishInPlace",
+        "t": 0.05654479999999603,
+        "length": 0.125,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1,
+        "t": 0,
+        "phase": 1
+      },
+      "cameraFlipH": false,
+      "nativeFrame": 45009,
+      "nativeElapsedMs": 1241.52368,
+      "nativeDeltaTime": 0.017238,
+      "expected": {
+        "moveCount": 0,
+        "anyBlockMoving": false,
+        "outerLevel": 0,
+        "x": 2,
+        "y": 2,
+        "anim": "SQUISH_IN_PLACE",
+        "animT": 0.0565447956,
+        "animLength": 0.125
+      }
+    }
+  ],
+  "images": [
+    {
+      "name": "start",
+      "timestamp": 30170.428600000007
+    },
+    {
+      "name": "native-frame-44938",
+      "timestamp": 30190.378700000005,
+      "frameIndex": 0,
+      "nativeFrame": 44938
+    },
+    {
+      "name": "native-frame-44941",
+      "timestamp": 30246.031700000003,
+      "frameIndex": 3,
+      "nativeFrame": 44941
+    },
+    {
+      "name": "native-frame-44945",
+      "timestamp": 30312.782300000006,
+      "frameIndex": 7,
+      "nativeFrame": 44945
+    },
+    {
+      "name": "native-frame-44947",
+      "timestamp": 30346.935100000006,
+      "frameIndex": 9,
+      "nativeFrame": 44947
+    },
+    {
+      "name": "native-frame-44949",
+      "timestamp": 30380.263200000005,
+      "frameIndex": 11,
+      "nativeFrame": 44949
+    },
+    {
+      "name": "native-frame-44953",
+      "timestamp": 30448.738800000006,
+      "frameIndex": 15,
+      "nativeFrame": 44953
+    },
+    {
+      "name": "native-frame-44957",
+      "timestamp": 30515.414300000008,
+      "frameIndex": 19,
+      "nativeFrame": 44957
+    },
+    {
+      "name": "native-frame-44961",
+      "timestamp": 30582.61740000001,
+      "frameIndex": 23,
+      "nativeFrame": 44961
+    },
+    {
+      "name": "native-frame-44965",
+      "timestamp": 30650.77490000001,
+      "frameIndex": 27,
+      "nativeFrame": 44965
+    },
+    {
+      "name": "native-frame-44969",
+      "timestamp": 30718.934700000013,
+      "frameIndex": 31,
+      "nativeFrame": 44969
+    },
+    {
+      "name": "native-frame-44973",
+      "timestamp": 30785.741200000015,
+      "frameIndex": 35,
+      "nativeFrame": 44973
+    },
+    {
+      "name": "native-frame-44974",
+      "timestamp": 30802.401800000014,
+      "frameIndex": 36,
+      "nativeFrame": 44974
+    },
+    {
+      "name": "native-frame-44977",
+      "timestamp": 30861.07200000001,
+      "frameIndex": 39,
+      "nativeFrame": 44977
+    },
+    {
+      "name": "native-frame-44981",
+      "timestamp": 30932.35130000001,
+      "frameIndex": 43,
+      "nativeFrame": 44981
+    },
+    {
+      "name": "native-frame-44985",
+      "timestamp": 30999.19100000001,
+      "frameIndex": 47,
+      "nativeFrame": 44985
+    },
+    {
+      "name": "native-frame-44989",
+      "timestamp": 31066.28160000001,
+      "frameIndex": 51,
+      "nativeFrame": 44989
+    },
+    {
+      "name": "native-frame-44993",
+      "timestamp": 31133.28850000001,
+      "frameIndex": 55,
+      "nativeFrame": 44993
+    },
+    {
+      "name": "native-frame-44997",
+      "timestamp": 31202.895900000014,
+      "frameIndex": 59,
+      "nativeFrame": 44997
+    },
+    {
+      "name": "native-frame-45001",
+      "timestamp": 31272.107600000018,
+      "frameIndex": 63,
+      "nativeFrame": 45001
+    },
+    {
+      "name": "native-frame-45005",
+      "timestamp": 31344.599100000018,
+      "frameIndex": 67,
+      "nativeFrame": 45005
+    },
+    {
+      "name": "native-frame-45009",
+      "timestamp": 31411.95130000002,
+      "frameIndex": 71,
+      "nativeFrame": 45009
+    },
+    {
+      "name": "end",
+      "timestamp": 31411.95130000002
+    }
+  ]
+}

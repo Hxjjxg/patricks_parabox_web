@@ -5,6 +5,13 @@ async () => {
   const api = window.__PARABOX__;
   if (!api) throw new Error('Web game is not ready');
   const canvas = document.querySelector('canvas');
+  if (options.expectedViewport) {
+    const expected = options.expectedViewport;
+    if (innerWidth !== expected.width || innerHeight !== expected.height ||
+        canvas.width !== expected.width * expected.dpr || canvas.height !== expected.height * expected.dpr) {
+      throw new Error('Capture viewport/backing dimensions do not match the declared reference');
+    }
+  }
   const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
   const nextFrame = () => new Promise(resolve => requestAnimationFrame(resolve));
   const directions = { L: 'ArrowLeft', R: 'ArrowRight', U: 'ArrowUp', D: 'ArrowDown' };
@@ -17,11 +24,13 @@ async () => {
   let previousMotionKey = null;
   let previousAnimT = Number.POSITIVE_INFINITY;
   let motionIndex = 0;
+  let lastPeriodicCapture = Number.NEGATIVE_INFINITY;
   const sample = (timestamp) => {
     const world = api.world();
     const p = world.findPlayerBlock();
     return { timestamp, action, levelName: world.levelName, moveCount: world.moveCount,
       moving: world.anyBlockMoving, wentToInfZone: world.wentToInfZone, cameraFlipH: world.cameraFlipH,
+      inspection: api.getState().inspection,
       camera: { t: world.cameraAnimT, length: world.cameraAnimLength, phase: world.newCamT, moving: world.cameraMoving,
         x: world.newX, y: world.newY, xs: world.newXS, ys: world.newYS },
       player: { id: p.id, x: p.x, y: p.y, outer: p.outerLevel ? world.levels.indexOf(p.outerLevel) : -1, outerId: p.outerLevel?.id, t: p.animT, length: p.animLength,
@@ -42,6 +51,11 @@ async () => {
     previousAnimT = frame.player.t;
     frame.motionId = 'motion-' + String(motionIndex).padStart(4, '0') + '-' + frame.player.anim;
     frames.push(frame);
+    if (options.captureEveryMs && timestamp - lastPeriodicCapture >= options.captureEveryMs) {
+      lastPeriodicCapture = timestamp;
+      images.push({ name: 'sample-' + String(frames.length - 1).padStart(4, '0'),
+        timestamp, frameIndex: frames.length - 1, dataUrl: canvas.toDataURL('image/png') });
+    }
     const stateKey = [frame.levelName, frame.moveCount, frame.player.id,
       frame.player.outer, frame.player.x, frame.player.y, frame.moving].join(':');
     if (options.captureStateChanges && stateKey !== previousStateKey) {
@@ -64,12 +78,12 @@ async () => {
     window.dispatchEvent(new KeyboardEvent(type, { key, code: key, bubbles: true }));
     events.push({ type, key, timestamp, state: sample(performance.now()) });
   };
-  const releaseDirections = () => {
-    for (const key of Object.values(directions)) {
+  const releaseControls = () => {
+    for (const key of [...Object.values(directions), 'z', 'x', 'r']) {
       window.dispatchEvent(new KeyboardEvent('keyup', { key, code: key, bubbles: true }));
     }
   };
-  releaseDirections();
+  releaseControls();
   api.loadLevel(options.level);
   await sleep(300);
   const vector = { L: [-1, 0], R: [1, 0], U: [0, 1], D: [0, -1] };
@@ -95,11 +109,21 @@ async () => {
     for (let index = 0; index < sequence.length; index++) {
       const event = sequence[index];
       await sleep(Math.max(0, start + event.at - performance.now()));
-      action = String(index).padStart(2, '0') + '-' + event.key.replace('Arrow', '');
-      keyEvent(event.type ?? 'keydown', event.key);
+      if (event.pointer) {
+        const pointer = event.pointer;
+        action = String(index).padStart(2, '0') + '-' + pointer.type;
+        canvas.dispatchEvent(new PointerEvent(pointer.type, { clientX: pointer.x, clientY: pointer.y,
+          button: pointer.button ?? 0, pointerType: 'mouse', bubbles: true, cancelable: true }));
+        events.push({ type: pointer.type, x: pointer.x, y: pointer.y, button: pointer.button ?? 0,
+          timestamp: performance.now(), state: sample(performance.now()) });
+        continue;
+      }
+      const keys = event.keys ?? [event.key];
+      action = String(index).padStart(2, '0') + '-' + keys.map(key => key.replace('Arrow', '')).join('+');
+      for (const key of keys) keyEvent(event.type ?? 'keydown', key);
       if (event.type !== 'keyup' && event.duration != null) {
         await sleep(event.duration);
-        keyEvent('keyup', event.key);
+        for (const key of keys) keyEvent('keyup', key);
       }
     }
     await sleep(options.settleMs ?? 500);
@@ -110,6 +134,6 @@ async () => {
       starting, ending: sample(performance.now()), events, frames, images };
   } finally {
     active = false;
-    releaseDirections();
+    releaseControls();
   }
 }
