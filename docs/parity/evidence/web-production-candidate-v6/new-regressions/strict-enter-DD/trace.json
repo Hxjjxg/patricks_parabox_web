@@ -1,0 +1,7510 @@
+{
+  "options": {
+    "settleMs": 1000,
+    "captureMotion": true,
+    "captureCameraMotion": true,
+    "captureStateChanges": true,
+    "expectedViewport": {
+      "width": 800,
+      "height": 600,
+      "dpr": 1
+    },
+    "level": "infenter_zone_v2",
+    "setup": "D",
+    "events": [
+      {
+        "at": 0,
+        "key": "ArrowDown",
+        "duration": 40
+      }
+    ],
+    "expectedStarting": {
+      "moveCount": 1,
+      "winning": false
+    }
+  },
+  "recordedAt": "2026-10-25T09:25:26.168Z",
+  "viewport": {
+    "width": 800,
+    "height": 600,
+    "dpr": 1.0000000298023224,
+    "canvasWidth": 800,
+    "canvasHeight": 600
+  },
+  "setupTimings": [
+    {
+      "direction": "D",
+      "began": 806.3999999985099,
+      "ended": 1634.1000000014901,
+      "state": {
+        "timestamp": 1634.1000000014901,
+        "action": "start",
+        "levelName": "infenter_zone_v2",
+        "moveCount": 1,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "pauseCamera": {
+          "zoomT": 0,
+          "controlsZoomT": 0,
+          "cameraUnpause": false,
+          "cameraUnpauseIgnoreOneDelta": false,
+          "cameraUnpauseLastY": 0
+        },
+        "player": {
+          "id": 57,
+          "x": 4,
+          "y": 3,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.22970000000000007,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 57,
+            "x": 4,
+            "y": 3,
+            "outer": 0,
+            "t": 0.22970000000000007,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 73,
+            "x": 4,
+            "y": 2,
+            "outer": 0,
+            "t": 0.10629999999999996,
+            "length": 0.1,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      }
+    }
+  ],
+  "starting": {
+    "timestamp": 1647.6000000014901,
+    "action": "start",
+    "levelName": "infenter_zone_v2",
+    "moveCount": 1,
+    "winning": false,
+    "mode": "playing",
+    "transition": {
+      "active": false,
+      "counter": 0,
+      "length": 0,
+      "scene": null
+    },
+    "session": {
+      "mode": "none",
+      "selectedIndex": 0,
+      "selectedOption": null
+    },
+    "moving": false,
+    "wentToInfZone": false,
+    "cameraFlipH": false,
+    "inspection": {
+      "inspectedBlockId": null,
+      "viewBlockId": 0,
+      "viewLevelId": 0,
+      "flipH": false
+    },
+    "camera": {
+      "t": 0.1,
+      "length": 0.1,
+      "phase": 1,
+      "moving": false,
+      "x": 0,
+      "y": 0,
+      "xs": 1,
+      "ys": 1
+    },
+    "pauseCamera": {
+      "zoomT": 0,
+      "controlsZoomT": 0,
+      "cameraUnpause": false,
+      "cameraUnpauseIgnoreOneDelta": false,
+      "cameraUnpauseLastY": 0
+    },
+    "player": {
+      "id": 57,
+      "x": 4,
+      "y": 3,
+      "outer": 0,
+      "outerId": 0,
+      "t": 0.22970000000000007,
+      "length": 0.22,
+      "anim": "bumpHalt",
+      "ox": 0,
+      "oy": 0,
+      "sx": 1,
+      "sy": 1
+    },
+    "animated": [
+      {
+        "id": 57,
+        "x": 4,
+        "y": 3,
+        "outer": 0,
+        "t": 0.22970000000000007,
+        "length": 0.22,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      {
+        "id": 73,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "t": 0.10629999999999996,
+        "length": 0.1,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      }
+    ]
+  },
+  "ending": {
+    "timestamp": 2774.2000000029802,
+    "action": "00-Down",
+    "levelName": "infenter_zone_v2",
+    "moveCount": 2,
+    "winning": false,
+    "mode": "playing",
+    "transition": {
+      "active": false,
+      "counter": 0,
+      "length": 0,
+      "scene": null
+    },
+    "session": {
+      "mode": "none",
+      "selectedIndex": 0,
+      "selectedOption": null
+    },
+    "moving": false,
+    "wentToInfZone": false,
+    "cameraFlipH": false,
+    "inspection": {
+      "inspectedBlockId": null,
+      "viewBlockId": 0,
+      "viewLevelId": 0,
+      "flipH": false
+    },
+    "camera": {
+      "t": 0.5,
+      "length": 0.5,
+      "phase": 1,
+      "moving": false,
+      "x": 0,
+      "y": 0,
+      "xs": 1,
+      "ys": 1
+    },
+    "pauseCamera": {
+      "zoomT": 0,
+      "controlsZoomT": 0,
+      "cameraUnpause": false,
+      "cameraUnpauseIgnoreOneDelta": false,
+      "cameraUnpauseLastY": 0
+    },
+    "player": {
+      "id": 57,
+      "x": 4,
+      "y": 2,
+      "outer": 0,
+      "outerId": 0,
+      "t": 0.22879999999999973,
+      "length": 0.22,
+      "anim": "bumpHalt",
+      "ox": 0,
+      "oy": 0,
+      "sx": 1,
+      "sy": 1
+    },
+    "animated": [
+      {
+        "id": 55,
+        "x": 1,
+        "y": 0,
+        "outer": 7,
+        "t": 0.5100000000014903,
+        "length": 0.5,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      {
+        "id": 73,
+        "x": 4,
+        "y": 1,
+        "outer": 0,
+        "t": 0.5100000000014903,
+        "length": 0.5,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      }
+    ]
+  },
+  "events": [
+    {
+      "type": "keydown",
+      "key": "ArrowDown",
+      "timestamp": 1659.8999999985099,
+      "state": {
+        "timestamp": 1660.3999999985099,
+        "action": "00-Down",
+        "levelName": "infenter_zone_v2",
+        "moveCount": 1,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "pauseCamera": {
+          "zoomT": 0,
+          "controlsZoomT": 0,
+          "cameraUnpause": false,
+          "cameraUnpauseIgnoreOneDelta": false,
+          "cameraUnpauseLastY": 0
+        },
+        "player": {
+          "id": 57,
+          "x": 4,
+          "y": 3,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.22970000000000007,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 57,
+            "x": 4,
+            "y": 3,
+            "outer": 0,
+            "t": 0.22970000000000007,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          },
+          {
+            "id": 73,
+            "x": 4,
+            "y": 2,
+            "outer": 0,
+            "t": 0.10629999999999996,
+            "length": 0.1,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      }
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowDown",
+      "timestamp": 1732.8000000044703,
+      "state": {
+        "timestamp": 1732.8000000044703,
+        "action": "00-Down",
+        "levelName": "infenter_zone_v2",
+        "moveCount": 2,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": true,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.05110000000149011,
+          "length": 0.5,
+          "phase": 1,
+          "moving": true,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "pauseCamera": {
+          "zoomT": 0,
+          "controlsZoomT": 0,
+          "cameraUnpause": false,
+          "cameraUnpauseIgnoreOneDelta": false,
+          "cameraUnpauseLastY": 0
+        },
+        "player": {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.05110000000149011,
+          "length": 0.5,
+          "anim": "normal",
+          "ox": 0,
+          "oy": -0.8977999999970198,
+          "sx": 0.9265958719981031,
+          "sy": 1.0367020640009486
+        },
+        "animated": [
+          {
+            "id": 55,
+            "x": 1,
+            "y": 0,
+            "outer": 7,
+            "t": 0.05110000000149011,
+            "length": 0.5,
+            "ox": 0,
+            "oy": 1.7955999999940395,
+            "sx": 2.7955999999940397,
+            "sy": 2.7955999999940397
+          },
+          {
+            "id": 57,
+            "x": 4,
+            "y": 2,
+            "outer": 0,
+            "t": 0.05110000000149011,
+            "length": 0.5,
+            "ox": 0,
+            "oy": -0.8977999999970198,
+            "sx": 0.9265958719981031,
+            "sy": 1.0367020640009486
+          },
+          {
+            "id": 73,
+            "x": 4,
+            "y": 1,
+            "outer": 0,
+            "t": 0.05110000000149011,
+            "length": 0.5,
+            "ox": 0,
+            "oy": -0.8977999999970198,
+            "sx": 0.9265958719981031,
+            "sy": 1.0367020640009486
+          }
+        ]
+      }
+    }
+  ],
+  "frames": [
+    {
+      "timestamp": 1658.7,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -1,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 2,
+          "sx": 3,
+          "sy": 3
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -1,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -1,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1711.5,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.05110000000149011,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.05110000000149011,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.8977999999970198,
+        "sx": 0.9265958719981031,
+        "sy": 1.0367020640009486
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.05110000000149011,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 1.7955999999940395,
+          "sx": 2.7955999999940397,
+          "sy": 2.7955999999940397
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.05110000000149011,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.8977999999970198,
+          "sx": 0.9265958719981031,
+          "sy": 1.0367020640009486
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.05110000000149011,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.8977999999970198,
+          "sx": 0.9265958719981031,
+          "sy": 1.0367020640009486
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1729.4,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.0690000000014902,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.0690000000014902,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.8619999999970196,
+        "sx": 0.9048351999982738,
+        "sy": 1.0475824000008631
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.0690000000014902,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 1.7239999999940392,
+          "sx": 2.723999999994039,
+          "sy": 2.723999999994039
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.0690000000014902,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.8619999999970196,
+          "sx": 0.9048351999982738,
+          "sy": 1.0475824000008631
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.0690000000014902,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.8619999999970196,
+          "sx": 0.9048351999982738,
+          "sy": 1.0475824000008631
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1746.5,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.08610000000149011,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.08610000000149011,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.8277999999970198,
+        "sx": 0.8859622719984369,
+        "sy": 1.0570188640007816
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.08610000000149011,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 1.6555999999940396,
+          "sx": 2.6555999999940396,
+          "sy": 2.6555999999940396
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.08610000000149011,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.8277999999970198,
+          "sx": 0.8859622719984369,
+          "sy": 1.0570188640007816
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.08610000000149011,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.8277999999970198,
+          "sx": 0.8859622719984369,
+          "sy": 1.0570188640007816
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1763.8,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.10340000000149006,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.10340000000149006,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.7931999999970198,
+        "sx": 0.868772991998602,
+        "sy": 1.065613504000699
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.10340000000149006,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 1.5863999999940397,
+          "sx": 2.5863999999940397,
+          "sy": 2.5863999999940397
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.10340000000149006,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.7931999999970198,
+          "sx": 0.868772991998602,
+          "sy": 1.065613504000699
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.10340000000149006,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.7931999999970198,
+          "sx": 0.868772991998602,
+          "sy": 1.065613504000699
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1781.9,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1215000000014902,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.1215000000014902,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.7569999999970196,
+        "sx": 0.8528391999987746,
+        "sy": 1.0735804000006128
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.1215000000014902,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 1.5139999999940392,
+          "sx": 2.5139999999940392,
+          "sy": 2.5139999999940392
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.1215000000014902,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.7569999999970196,
+          "sx": 0.8528391999987746,
+          "sy": 1.0735804000006128
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.1215000000014902,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.7569999999970196,
+          "sx": 0.8528391999987746,
+          "sy": 1.0735804000006128
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1800.1,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.13970000000149002,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.13970000000149002,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.72059999999702,
+        "sx": 0.8389314879989482,
+        "sy": 1.080534256000526
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.13970000000149002,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 1.44119999999404,
+          "sx": 2.4411999999940397,
+          "sy": 2.4411999999940397
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.13970000000149002,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.72059999999702,
+          "sx": 0.8389314879989482,
+          "sy": 1.080534256000526
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.13970000000149002,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.72059999999702,
+          "sx": 0.8389314879989482,
+          "sy": 1.080534256000526
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1817.7,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.15730000000149016,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.15730000000149016,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.6853999999970197,
+        "sx": 0.8274985279991159,
+        "sy": 1.086250736000442
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.15730000000149016,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 1.3707999999940395,
+          "sx": 2.3707999999940395,
+          "sy": 2.3707999999940395
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.15730000000149016,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.6853999999970197,
+          "sx": 0.8274985279991159,
+          "sy": 1.086250736000442
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.15730000000149016,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.6853999999970197,
+          "sx": 0.8274985279991159,
+          "sy": 1.086250736000442
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1835.5,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.17510000000149012,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.17510000000149012,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.6497999999970198,
+        "sx": 0.8179520319992857,
+        "sy": 1.0910239840003573
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.17510000000149012,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 1.2995999999940395,
+          "sx": 2.2995999999940393,
+          "sy": 2.2995999999940393
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.17510000000149012,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.6497999999970198,
+          "sx": 0.8179520319992857,
+          "sy": 1.0910239840003573
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.17510000000149012,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.6497999999970198,
+          "sx": 0.8179520319992857,
+          "sy": 1.0910239840003573
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1852.8,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.19240000000149007,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.19240000000149007,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.6151999999970199,
+        "sx": 0.8106168319994507,
+        "sy": 1.0946915840002747
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.19240000000149007,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 1.2303999999940398,
+          "sx": 2.23039999999404,
+          "sy": 2.23039999999404
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.19240000000149007,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.6151999999970199,
+          "sx": 0.8106168319994507,
+          "sy": 1.0946915840002747
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.19240000000149007,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.6151999999970199,
+          "sx": 0.8106168319994507,
+          "sy": 1.0946915840002747
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1870.9,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.21050000000149022,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.21050000000149022,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.5789999999970196,
+        "sx": 0.8049927999996234,
+        "sy": 1.0975036000001885
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.21050000000149022,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 1.1579999999940391,
+          "sx": 2.157999999994039,
+          "sy": 2.157999999994039
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.21050000000149022,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.5789999999970196,
+          "sx": 0.8049927999996234,
+          "sy": 1.0975036000001885
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.21050000000149022,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.5789999999970196,
+          "sx": 0.8049927999996234,
+          "sy": 1.0975036000001885
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1888.3,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.22790000000149008,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22790000000149008,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.5441999999970198,
+        "sx": 0.8015629119997894,
+        "sy": 1.0992185440001054
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.22790000000149008,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 1.0883999999940397,
+          "sx": 2.0883999999940395,
+          "sy": 2.0883999999940395
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22790000000149008,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.5441999999970198,
+          "sx": 0.8015629119997894,
+          "sy": 1.0992185440001054
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.22790000000149008,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.5441999999970198,
+          "sx": 0.8015629119997894,
+          "sy": 1.0992185440001054
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1906.1,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.24570000000149003,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.24570000000149003,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.5085999999970199,
+        "sx": 0.8000591679999591,
+        "sy": 1.0999704160000205
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.24570000000149003,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 1.0171999999940398,
+          "sx": 2.0171999999940398,
+          "sy": 2.0171999999940398
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.24570000000149003,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.5085999999970199,
+          "sx": 0.8000591679999591,
+          "sy": 1.0999704160000205
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.24570000000149003,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.5085999999970199,
+          "sx": 0.8000591679999591,
+          "sy": 1.0999704160000205
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1923.3,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.26290000000149005,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.26290000000149005,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.4741999999970199,
+        "sx": 0.800532512000123,
+        "sy": 1.0997337439999386
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.26290000000149005,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.9483999999940398,
+          "sx": 1.9483999999940398,
+          "sy": 1.9483999999940398
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.26290000000149005,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.4741999999970199,
+          "sx": 0.800532512000123,
+          "sy": 1.0997337439999386
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.26290000000149005,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.4741999999970199,
+          "sx": 0.800532512000123,
+          "sy": 1.0997337439999386
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1941,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.2806000000014901,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2806000000014901,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.4387999999970198,
+        "sx": 0.8029963520002918,
+        "sy": 1.098501823999854
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.2806000000014901,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.8775999999940396,
+          "sx": 1.8775999999940396,
+          "sy": 1.8775999999940396
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.2806000000014901,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.4387999999970198,
+          "sx": 0.8029963520002918,
+          "sy": 1.098501823999854
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.2806000000014901,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.4387999999970198,
+          "sx": 0.8029963520002918,
+          "sy": 1.098501823999854
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1958.4,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.2980000000014902,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2980000000014902,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.40399999999701963,
+        "sx": 0.8073728000004579,
+        "sy": 1.0963135999997713
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.2980000000014902,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.8079999999940393,
+          "sx": 1.8079999999940393,
+          "sy": 1.8079999999940393
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.2980000000014902,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.40399999999701963,
+          "sx": 0.8073728000004579,
+          "sy": 1.0963135999997713
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.2980000000014902,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.40399999999701963,
+          "sx": 0.8073728000004579,
+          "sy": 1.0963135999997713
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1976.6,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.31620000000149,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.31620000000149,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.36759999999702,
+        "sx": 0.8140238080006313,
+        "sy": 1.0929880959996845
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.31620000000149,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.73519999999404,
+          "sx": 1.73519999999404,
+          "sy": 1.73519999999404
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.31620000000149,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.36759999999702,
+          "sx": 0.8140238080006313,
+          "sy": 1.0929880959996845
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.31620000000149,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.36759999999702,
+          "sx": 0.8140238080006313,
+          "sy": 1.0929880959996845
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 1994.4,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.3340000000014902,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.3340000000014902,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.33199999999701957,
+        "sx": 0.8225792000008012,
+        "sy": 1.0887103999995995
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.3340000000014902,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.6639999999940391,
+          "sx": 1.6639999999940391,
+          "sy": 1.6639999999940391
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.3340000000014902,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.33199999999701957,
+          "sx": 0.8225792000008012,
+          "sy": 1.0887103999995995
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.3340000000014902,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.33199999999701957,
+          "sx": 0.8225792000008012,
+          "sy": 1.0887103999995995
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2011.8,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.3514000000014901,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.3514000000014901,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.29719999999701985,
+        "sx": 0.832902272000967,
+        "sy": 1.0835488639995166
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.3514000000014901,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.5943999999940397,
+          "sx": 1.5943999999940397,
+          "sy": 1.5943999999940397
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.3514000000014901,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.29719999999701985,
+          "sx": 0.832902272000967,
+          "sy": 1.0835488639995166
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.3514000000014901,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.29719999999701985,
+          "sx": 0.832902272000967,
+          "sy": 1.0835488639995166
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2030.1,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.36970000000149006,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.36970000000149006,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.2605999999970199,
+        "sx": 0.8458498880011416,
+        "sy": 1.0770750559994293
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.36970000000149006,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.5211999999940398,
+          "sx": 1.5211999999940398,
+          "sy": 1.5211999999940398
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.36970000000149006,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.2605999999970199,
+          "sx": 0.8458498880011416,
+          "sy": 1.0770750559994293
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.36970000000149006,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.2605999999970199,
+          "sx": 0.8458498880011416,
+          "sy": 1.0770750559994293
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2047.6,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.3872000000014901,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.3872000000014901,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.22559999999701985,
+        "sx": 0.8602362880013085,
+        "sy": 1.069881855999346
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.3872000000014901,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.4511999999940397,
+          "sx": 1.4511999999940397,
+          "sy": 1.4511999999940397
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.3872000000014901,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.22559999999701985,
+          "sx": 0.8602362880013085,
+          "sy": 1.069881855999346
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.3872000000014901,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.22559999999701985,
+          "sx": 0.8602362880013085,
+          "sy": 1.069881855999346
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2065.1,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.4047000000014901,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.4047000000014901,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.19059999999701982,
+        "sx": 0.8765826880014753,
+        "sy": 1.0617086559992623
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.4047000000014901,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.38119999999403964,
+          "sx": 1.3811999999940396,
+          "sy": 1.3811999999940396
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.4047000000014901,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.19059999999701982,
+          "sx": 0.8765826880014753,
+          "sy": 1.0617086559992623
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.4047000000014901,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.19059999999701982,
+          "sx": 0.8765826880014753,
+          "sy": 1.0617086559992623
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2082.4,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.4220000000014903,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.4220000000014903,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.1559999999970194,
+        "sx": 0.8946688000016405,
+        "sy": 1.0526655999991799
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.4220000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.3119999999940388,
+          "sx": 1.3119999999940388,
+          "sy": 1.3119999999940388
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.4220000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.1559999999970194,
+          "sx": 0.8946688000016405,
+          "sy": 1.0526655999991799
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.4220000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.1559999999970194,
+          "sx": 0.8946688000016405,
+          "sy": 1.0526655999991799
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2099.7,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.43930000000149,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.43930000000149,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.12139999999702,
+        "sx": 0.9146703680018052,
+        "sy": 1.0426648159990974
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.43930000000149,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.24279999999404,
+          "sx": 1.24279999999404,
+          "sy": 1.24279999999404
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.43930000000149,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.12139999999702,
+          "sx": 0.9146703680018052,
+          "sy": 1.0426648159990974
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.43930000000149,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.12139999999702,
+          "sx": 0.9146703680018052,
+          "sy": 1.0426648159990974
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2117.2,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.45680000000149,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.45680000000149,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.08639999999701997,
+        "sx": 0.9368519680019721,
+        "sy": 1.031574015999014
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.45680000000149,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.17279999999403994,
+          "sx": 1.17279999999404,
+          "sy": 1.17279999999404
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.45680000000149,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.08639999999701997,
+          "sx": 0.9368519680019721,
+          "sy": 1.031574015999014
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.45680000000149,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.08639999999701997,
+          "sx": 0.9368519680019721,
+          "sy": 1.031574015999014
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2135.1,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.4747000000014901,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.4747000000014901,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.05059999999701981,
+        "sx": 0.9615682880021429,
+        "sy": 1.0192158559989286
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.4747000000014901,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.10119999999403961,
+          "sx": 1.1011999999940396,
+          "sy": 1.1011999999940396
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.4747000000014901,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.05059999999701981,
+          "sx": 0.9615682880021429,
+          "sy": 1.0192158559989286
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.4747000000014901,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.05059999999701981,
+          "sx": 0.9615682880021429,
+          "sy": 1.0192158559989286
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2152.5,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.4921000000014902,
+        "length": 0.5,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.4921000000014902,
+        "length": 0.5,
+        "anim": "normal",
+        "ox": 0,
+        "oy": -0.015799999997019643,
+        "sx": 0.987559712002309,
+        "sy": 1.0062201439988456
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.4921000000014902,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.031599999994039285,
+          "sx": 1.0315999999940393,
+          "sy": 1.0315999999940393
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.4921000000014902,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.015799999997019643,
+          "sx": 0.987559712002309,
+          "sy": 1.0062201439988456
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.4921000000014902,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.015799999997019643,
+          "sx": 0.987559712002309,
+          "sy": 1.0062201439988456
+        }
+      ],
+      "motionId": "motion-0001-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2170.4,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2188.5,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.018099999999999908,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.0036157707738542115,
+        "sx": 1.0036157707738542,
+        "sy": 0.9927684584522916
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.018099999999999908,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.0036157707738542115,
+          "sx": 1.0036157707738542,
+          "sy": 0.9927684584522916
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2205.7,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.03529999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.012142590007512985,
+        "sx": 1.012142590007513,
+        "sy": 0.975714819984974
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.03529999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.012142590007512985,
+          "sx": 1.012142590007513,
+          "sy": 0.975714819984974
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2223,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.05259999999999991,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.023364674981217068,
+        "sx": 1.023364674981217,
+        "sy": 0.9532706500375658
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.05259999999999991,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.023364674981217068,
+          "sx": 1.023364674981217,
+          "sy": 0.9532706500375658
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2240.3,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.0699000000000001,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.03491055980465822,
+        "sx": 1.0349105598046582,
+        "sy": 0.9301788803906836
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.0699000000000001,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.03491055980465822,
+          "sx": 1.0349105598046582,
+          "sy": 0.9301788803906836
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2258.5,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.08809999999999991,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.04484356190833957,
+        "sx": 1.0448435619083396,
+        "sy": 0.9103128761833209
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.08809999999999991,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.04484356190833957,
+          "sx": 1.0448435619083396,
+          "sy": 0.9103128761833209
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2276.3,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.10590000000000009,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.04979678970698724,
+        "sx": 1.0497967897069873,
+        "sy": 0.9004064205860256
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.10590000000000009,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.04979678970698724,
+          "sx": 1.0497967897069873,
+          "sy": 0.9004064205860256
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2294,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.1235999999999999,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.04789609737039823,
+        "sx": 1.0478960973703983,
+        "sy": 0.9042078052592035
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.1235999999999999,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.04789609737039823,
+          "sx": 1.0478960973703983,
+          "sy": 0.9042078052592035
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2312.1,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.14169999999999983,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.03993600022539454,
+        "sx": 1.0399360002253946,
+        "sy": 0.9201279995492109
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.14169999999999983,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.03993600022539454,
+          "sx": 1.0399360002253946,
+          "sy": 0.9201279995492109
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2329.3,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.1589000000000001,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.029142037490608497,
+        "sx": 1.0291420374906086,
+        "sy": 0.941715925018783
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.1589000000000001,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.029142037490608497,
+          "sx": 1.0291420374906086,
+          "sy": 0.941715925018783
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2347.2,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.17679999999999974,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.01707798888054111,
+        "sx": 1.017077988880541,
+        "sy": 0.9658440222389177
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.17679999999999974,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.01707798888054111,
+          "sx": 1.017077988880541,
+          "sy": 0.9658440222389177
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2364.5,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.1940999999999999,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.007010493688955716,
+        "sx": 1.0070104936889557,
+        "sy": 0.9859790126220885
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.1940999999999999,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.007010493688955716,
+          "sx": 1.0070104936889557,
+          "sy": 0.9859790126220885
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2381.7,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.21129999999999974,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0.0008888314800902131,
+        "sx": 1.0008888314800901,
+        "sy": 0.9982223370398196
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.21129999999999974,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0.0008888314800902131,
+          "sx": 1.0008888314800901,
+          "sy": 0.9982223370398196
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2399.2,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2435.7,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2453,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2470.4,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2488.2,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2505.4,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2522.6,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2540.5,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2558.5,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2576.4,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2594.2,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2611.8,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2629.2,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2647.1,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2665.1,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2682.5,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2700.2,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2718.1,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2735.3,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 2753,
+      "action": "00-Down",
+      "levelName": "infenter_zone_v2",
+      "moveCount": 2,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "pauseCamera": {
+        "zoomT": 0,
+        "controlsZoomT": 0,
+        "cameraUnpause": false,
+        "cameraUnpauseIgnoreOneDelta": false,
+        "cameraUnpauseLastY": 0
+      },
+      "player": {
+        "id": 57,
+        "x": 4,
+        "y": 2,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.22879999999999973,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 55,
+          "x": 1,
+          "y": 0,
+          "outer": 7,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 57,
+          "x": 4,
+          "y": 2,
+          "outer": 0,
+          "t": 0.22879999999999973,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 73,
+          "x": 4,
+          "y": 1,
+          "outer": 0,
+          "t": 0.5100000000014903,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    }
+  ],
+  "images": [
+    {
+      "name": "start",
+      "timestamp": 1647.8000000044703
+    },
+    {
+      "name": "state-0000",
+      "timestamp": 1658.7,
+      "frameIndex": 0
+    },
+    {
+      "name": "camera-0001-0",
+      "action": "00-Down",
+      "timestamp": 1658.7,
+      "phase": 1,
+      "frameIndex": 0
+    },
+    {
+      "name": "camera-0001-0.25",
+      "action": "00-Down",
+      "timestamp": 1658.7,
+      "phase": 1,
+      "frameIndex": 0
+    },
+    {
+      "name": "camera-0001-0.5",
+      "action": "00-Down",
+      "timestamp": 1658.7,
+      "phase": 1,
+      "frameIndex": 0
+    },
+    {
+      "name": "camera-0001-0.75",
+      "action": "00-Down",
+      "timestamp": 1658.7,
+      "phase": 1,
+      "frameIndex": 0
+    },
+    {
+      "name": "camera-0001-1",
+      "action": "00-Down",
+      "timestamp": 1658.7,
+      "phase": 1,
+      "frameIndex": 0
+    },
+    {
+      "name": "motion-0001-normal-0.25",
+      "action": "00-Down",
+      "timestamp": 1800.1,
+      "phase": 0.27940000000298004,
+      "frameIndex": 6
+    },
+    {
+      "name": "motion-0001-normal-0.5",
+      "action": "00-Down",
+      "timestamp": 1923.3,
+      "phase": 0.5258000000029801,
+      "frameIndex": 13
+    },
+    {
+      "name": "motion-0001-normal-0.75",
+      "action": "00-Down",
+      "timestamp": 2047.6,
+      "phase": 0.7744000000029801,
+      "frameIndex": 20
+    },
+    {
+      "name": "state-0027",
+      "timestamp": 2170.4,
+      "frameIndex": 27
+    },
+    {
+      "name": "motion-0002-bumpHalt-0.25",
+      "action": "00-Down",
+      "timestamp": 2240.3,
+      "phase": 0.3177272727272732,
+      "frameIndex": 31
+    },
+    {
+      "name": "motion-0002-bumpHalt-0.5",
+      "action": "00-Down",
+      "timestamp": 2294,
+      "phase": 0.5618181818181813,
+      "frameIndex": 34
+    },
+    {
+      "name": "motion-0002-bumpHalt-0.75",
+      "action": "00-Down",
+      "timestamp": 2347.2,
+      "phase": 0.8036363636363625,
+      "frameIndex": 37
+    },
+    {
+      "name": "motion-0002-bumpHalt-1",
+      "action": "00-Down",
+      "timestamp": 2399.2,
+      "phase": 1.0399999999999987,
+      "frameIndex": 40
+    },
+    {
+      "name": "end",
+      "timestamp": 2757.3000000044703
+    }
+  ],
+  "structuralEnding": {
+    "levelName": "infenter_zone_v2",
+    "moveCount": 2,
+    "winning": false,
+    "buttonsSatisfied": true,
+    "finishesSatisfied": false,
+    "wentToInfZone": false,
+    "blocks": [
+      {
+        "index": 0,
+        "outer": -1,
+        "sub": 0,
+        "x": -1,
+        "y": -1,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 1,
+        "outer": 0,
+        "sub": -1,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 2,
+        "outer": 0,
+        "sub": -1,
+        "x": 0,
+        "y": 1,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 3,
+        "outer": 0,
+        "sub": -1,
+        "x": 0,
+        "y": 2,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 4,
+        "outer": 0,
+        "sub": -1,
+        "x": 0,
+        "y": 3,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 5,
+        "outer": 0,
+        "sub": -1,
+        "x": 0,
+        "y": 4,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 6,
+        "outer": 0,
+        "sub": -1,
+        "x": 0,
+        "y": 5,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 7,
+        "outer": 0,
+        "sub": -1,
+        "x": 0,
+        "y": 6,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 8,
+        "outer": 0,
+        "sub": -1,
+        "x": 0,
+        "y": 7,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 9,
+        "outer": 0,
+        "sub": -1,
+        "x": 0,
+        "y": 8,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 10,
+        "outer": 0,
+        "sub": -1,
+        "x": 1,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 11,
+        "outer": 0,
+        "sub": -1,
+        "x": 1,
+        "y": 1,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 12,
+        "outer": 0,
+        "sub": -1,
+        "x": 1,
+        "y": 8,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 13,
+        "outer": 0,
+        "sub": -1,
+        "x": 2,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 14,
+        "outer": 0,
+        "sub": -1,
+        "x": 2,
+        "y": 8,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 15,
+        "outer": 0,
+        "sub": -1,
+        "x": 3,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 16,
+        "outer": 0,
+        "sub": -1,
+        "x": 3,
+        "y": 8,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 17,
+        "outer": 0,
+        "sub": -1,
+        "x": 4,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 18,
+        "outer": 0,
+        "sub": -1,
+        "x": 4,
+        "y": 6,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 19,
+        "outer": 0,
+        "sub": -1,
+        "x": 4,
+        "y": 7,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 20,
+        "outer": 0,
+        "sub": -1,
+        "x": 4,
+        "y": 8,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 21,
+        "outer": 0,
+        "sub": -1,
+        "x": 5,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 22,
+        "outer": 0,
+        "sub": -1,
+        "x": 5,
+        "y": 7,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 23,
+        "outer": 0,
+        "sub": -1,
+        "x": 5,
+        "y": 8,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 24,
+        "outer": 0,
+        "sub": -1,
+        "x": 6,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 25,
+        "outer": 0,
+        "sub": -1,
+        "x": 6,
+        "y": 8,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 26,
+        "outer": 0,
+        "sub": -1,
+        "x": 7,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 27,
+        "outer": 0,
+        "sub": -1,
+        "x": 7,
+        "y": 7,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 28,
+        "outer": 0,
+        "sub": -1,
+        "x": 7,
+        "y": 8,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 29,
+        "outer": 0,
+        "sub": -1,
+        "x": 8,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 30,
+        "outer": 0,
+        "sub": -1,
+        "x": 8,
+        "y": 1,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 31,
+        "outer": 0,
+        "sub": -1,
+        "x": 8,
+        "y": 2,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 32,
+        "outer": 0,
+        "sub": -1,
+        "x": 8,
+        "y": 3,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 33,
+        "outer": 0,
+        "sub": -1,
+        "x": 8,
+        "y": 4,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 34,
+        "outer": 0,
+        "sub": -1,
+        "x": 8,
+        "y": 5,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 35,
+        "outer": 0,
+        "sub": -1,
+        "x": 8,
+        "y": 6,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 36,
+        "outer": 0,
+        "sub": -1,
+        "x": 8,
+        "y": 7,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 37,
+        "outer": 0,
+        "sub": -1,
+        "x": 8,
+        "y": 8,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 38,
+        "outer": 0,
+        "sub": 1,
+        "x": 1,
+        "y": 4,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 39,
+        "outer": 1,
+        "sub": -1,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 40,
+        "outer": 0,
+        "sub": 2,
+        "x": 1,
+        "y": 5,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 41,
+        "outer": 2,
+        "sub": -1,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 42,
+        "outer": 0,
+        "sub": 3,
+        "x": 1,
+        "y": 6,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 43,
+        "outer": 3,
+        "sub": -1,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 44,
+        "outer": 5,
+        "sub": 4,
+        "x": 3,
+        "y": 3,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 45,
+        "outer": -1,
+        "sub": 5,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 46,
+        "outer": 4,
+        "sub": -1,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 47,
+        "outer": 4,
+        "sub": -1,
+        "x": 0,
+        "y": 2,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 48,
+        "outer": 4,
+        "sub": -1,
+        "x": 1,
+        "y": 1,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 49,
+        "outer": 4,
+        "sub": -1,
+        "x": 2,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 50,
+        "outer": 4,
+        "sub": -1,
+        "x": 2,
+        "y": 2,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 51,
+        "outer": 0,
+        "sub": 6,
+        "x": 3,
+        "y": 1,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 52,
+        "outer": 6,
+        "sub": -1,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 53,
+        "outer": 8,
+        "sub": 7,
+        "x": 3,
+        "y": 3,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 54,
+        "outer": -1,
+        "sub": 8,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 55,
+        "outer": 7,
+        "sub": 9,
+        "x": 1,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": true
+      },
+      {
+        "index": 56,
+        "outer": 9,
+        "sub": -1,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 57,
+        "outer": 0,
+        "sub": 10,
+        "x": 4,
+        "y": 2,
+        "isPlayer": true,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": true
+      },
+      {
+        "index": 58,
+        "outer": 10,
+        "sub": -1,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 59,
+        "outer": 0,
+        "sub": 11,
+        "x": 5,
+        "y": 1,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 60,
+        "outer": 11,
+        "sub": -1,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 61,
+        "outer": 0,
+        "sub": 12,
+        "x": 6,
+        "y": 1,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 62,
+        "outer": 12,
+        "sub": -1,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 63,
+        "outer": 0,
+        "sub": 13,
+        "x": 6,
+        "y": 6,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 64,
+        "outer": 13,
+        "sub": -1,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 65,
+        "outer": 13,
+        "sub": -1,
+        "x": 0,
+        "y": 2,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 66,
+        "outer": 13,
+        "sub": -1,
+        "x": 1,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 67,
+        "outer": 13,
+        "sub": -1,
+        "x": 2,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 68,
+        "outer": 13,
+        "sub": -1,
+        "x": 2,
+        "y": 1,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 69,
+        "outer": 13,
+        "sub": -1,
+        "x": 2,
+        "y": 2,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 70,
+        "outer": 0,
+        "sub": 4,
+        "x": 3,
+        "y": 3,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 71,
+        "outer": 14,
+        "sub": 7,
+        "x": 3,
+        "y": 3,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 72,
+        "outer": -1,
+        "sub": 14,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 73,
+        "outer": 0,
+        "sub": 4,
+        "x": 4,
+        "y": 1,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": true
+      },
+      {
+        "index": 74,
+        "outer": 0,
+        "sub": 4,
+        "x": 5,
+        "y": 3,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 75,
+        "outer": 4,
+        "sub": 4,
+        "x": 0,
+        "y": 1,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 76,
+        "outer": 4,
+        "sub": 4,
+        "x": 1,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 77,
+        "outer": 4,
+        "sub": 4,
+        "x": 1,
+        "y": 2,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 78,
+        "outer": 4,
+        "sub": 4,
+        "x": 2,
+        "y": 1,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 79,
+        "outer": -1,
+        "sub": 15,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 80,
+        "outer": 15,
+        "sub": 0,
+        "x": 3,
+        "y": 3,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 81,
+        "outer": -1,
+        "sub": 16,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 82,
+        "outer": 16,
+        "sub": 4,
+        "x": 3,
+        "y": 3,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 83,
+        "outer": -1,
+        "sub": 17,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 84,
+        "outer": 17,
+        "sub": 7,
+        "x": 3,
+        "y": 3,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 85,
+        "outer": -1,
+        "sub": 18,
+        "x": 0,
+        "y": 0,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      },
+      {
+        "index": 86,
+        "outer": 18,
+        "sub": 13,
+        "x": 3,
+        "y": 3,
+        "isPlayer": false,
+        "playerOrder": 0,
+        "flipH": false,
+        "movedSinceRestart": false
+      }
+    ]
+  },
+  "provenance": {
+    "previewOrigin": "http://localhost:4184",
+    "claim": "Actual immutable production Canvas; incomplete native evidence is not a parity pass",
+    "candidate": "web-production-candidate-v6",
+    "head": "ac5afc3af2832c2aaa95d48b1cf6d836d1c1fadc",
+    "manifestSha256": "ac4f2070842dd7cfccaaad4fbe67ff364cd0ceb77116819cfb5696f50ec602c7"
+  }
+}

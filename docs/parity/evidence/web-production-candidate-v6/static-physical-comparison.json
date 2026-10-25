@@ -1,0 +1,8026 @@
+{
+  "method": "Separate matched physical framebuffer comparison: actual native2x versus raw WebDPR2 at identical PNG dimensions. Existing comparator at physical scale1, same RGB1 flat-interior tolerance and seam thresholds. No resampling, alignment or new tolerance.",
+  "limits": "Does not replace native1x report or grant independent visual approval. Physical sample counts are a separate condition set. Adjacent unsynchronized particles and blink state are not globally accepted.",
+  "historical1xReport": {
+    "path": "docs/parity/evidence/web-production-candidate-v6/static-comparison.json",
+    "sha256": "6da46ef89ca7b8dc6557be1a35fc994b6594b0d4de6d5e9a2739340bf7512b2f"
+  },
+  "script": {
+    "path": "scripts/parity-static-compare.physical.py",
+    "sha256": "1d6e188dc118f111b03f05797a6c72c7bc3e6a3a8641b7b6956062e1c13fe66d"
+  },
+  "comparator": {
+    "path": "scripts/parity-static-compare.py",
+    "sha256": "d29955dd8f57d5eee798471f12d6cdd27ccd6d219ece97a78cd91802e5fde7ce"
+  },
+  "summary": {
+    "expectedConditions": 10,
+    "completedConditions": 3,
+    "missingConditions": 0,
+    "rejectedConditions": 7,
+    "completeConditionSet": false,
+    "nativeMetadataAllVerified": true,
+    "allBackingCorrect": true,
+    "allWebFreshStatesCorrect": true,
+    "allBorderNativeRepeatsStable": true,
+    "allBorderWebRepeatsStable": true,
+    "borderSidesDifferingMatchedPhysical": 0,
+    "historicalDpr2Differences": 102,
+    "historicalDifferencesRechecked": 23,
+    "historicalDifferencesNowMatching": 23,
+    "flatNativeWallSamples": 410,
+    "flatNativeWallOutside1": 0,
+    "flatNativeFloorSamples": 63,
+    "flatNativeFloorOutside1": 0,
+    "joinSites": 178,
+    "joinMeasurements": 356,
+    "suspectJoins": 0
+  },
+  "missingInputs": [],
+  "rejectedInputs": [
+    {
+      "level": "first_puzzle",
+      "cssViewport": "1001x733-dpr2",
+      "reason": "Actual native dimensions or fresh-state metadata do not verify requested physical condition",
+      "requestedPhysical": [
+        2002,
+        1466
+      ],
+      "capturePhysical": [
+        2002,
+        1400
+      ],
+      "resolutionEvidence": {
+        "requested": [
+          2002,
+          1466
+        ],
+        "command": "CAPTURE:first_puzzle:2002:1466",
+        "actualScreen": [
+          2002,
+          1400
+        ],
+        "pngDimensions": {
+          "static-0.png": [
+            2002,
+            1400
+          ],
+          "static-1.png": [
+            2002,
+            1400
+          ],
+          "static-2.png": [
+            2002,
+            1400
+          ]
+        },
+        "status": "unsupported-request-not-applied",
+        "resampled": false,
+        "drawLogicChanged": false
+      },
+      "metadataInputs": [
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2002x1466-first-puzzle-v15-20261025/capture.json",
+          "sha256": "2883e82e76fed611bc0f706f2b7d495782826c40f5c549fb9338440ef349ddd9"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2002x1466-first-puzzle-v15-20261025/state.json",
+          "sha256": "7f9e5f47423e4eeedcd714ad454a317c1c7ea3b4e35f9f73fdcdd4b3f83f7662"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2002x1466-first-puzzle-v15-20261025/resolution-request.json",
+          "sha256": "90830d2b0d61dac59cf3c2bcb250f2e061989767537d83cb515cae4286b429fa"
+        }
+      ]
+    },
+    {
+      "level": "second_puzzle",
+      "cssViewport": "1001x733-dpr2",
+      "reason": "Actual native dimensions or fresh-state metadata do not verify requested physical condition",
+      "requestedPhysical": [
+        2002,
+        1466
+      ],
+      "capturePhysical": [
+        2002,
+        1400
+      ],
+      "resolutionEvidence": {
+        "requested": [
+          2002,
+          1466
+        ],
+        "command": "CAPTURE:second_puzzle:2002:1466",
+        "actualScreen": [
+          2002,
+          1400
+        ],
+        "pngDimensions": {
+          "static-0.png": [
+            2002,
+            1400
+          ],
+          "static-1.png": [
+            2002,
+            1400
+          ],
+          "static-2.png": [
+            2002,
+            1400
+          ]
+        },
+        "status": "unsupported-request-not-applied",
+        "resampled": false,
+        "drawLogicChanged": false
+      },
+      "metadataInputs": [
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2002x1466-second-puzzle-v15-20261025/capture.json",
+          "sha256": "796910b34975d2ece74e663245744f0536c4024db1ac17cefc5663e14ebf93a4"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2002x1466-second-puzzle-v15-20261025/state.json",
+          "sha256": "55d798c479a67c7cea88264dbc9b96cf21a1d1db8e66e60c41dd8679d0c6f4e0"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2002x1466-second-puzzle-v15-20261025/resolution-request.json",
+          "sha256": "f7e25afbfee351176ed16ccd08176a1bfe572479a8a621fa1aafdb42b90045bb"
+        }
+      ]
+    },
+    {
+      "level": "third_puzzle",
+      "cssViewport": "1001x733-dpr2",
+      "reason": "Actual native dimensions or fresh-state metadata do not verify requested physical condition",
+      "requestedPhysical": [
+        2002,
+        1466
+      ],
+      "capturePhysical": [
+        2002,
+        1400
+      ],
+      "resolutionEvidence": {
+        "requested": [
+          2002,
+          1466
+        ],
+        "command": "CAPTURE:third_puzzle:2002:1466",
+        "actualScreen": [
+          2002,
+          1400
+        ],
+        "pngDimensions": {
+          "static-0.png": [
+            2002,
+            1400
+          ],
+          "static-1.png": [
+            2002,
+            1400
+          ],
+          "static-2.png": [
+            2002,
+            1400
+          ]
+        },
+        "status": "unsupported-request-not-applied",
+        "resampled": false,
+        "drawLogicChanged": false
+      },
+      "metadataInputs": [
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2002x1466-third-puzzle-v15-20261025/capture.json",
+          "sha256": "07c562a316154494dfbd49e427bb3792dfbb27c0b48eac539b85b5e2eb3d23af"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2002x1466-third-puzzle-v15-20261025/state.json",
+          "sha256": "016360e17d33ad9967520547536acad63a0738aa305c096e50d05b3ddb3c50ca"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2002x1466-third-puzzle-v15-20261025/resolution-request.json",
+          "sha256": "40641aaf83892b0a261be320a2750917765b5b4e04bea64c745eb595ec755602"
+        }
+      ]
+    },
+    {
+      "level": "first_puzzle",
+      "cssViewport": "1280x720-dpr2",
+      "reason": "Actual native dimensions or fresh-state metadata do not verify requested physical condition",
+      "requestedPhysical": [
+        2560,
+        1440
+      ],
+      "capturePhysical": [
+        2240,
+        1400
+      ],
+      "resolutionEvidence": {
+        "requested": [
+          2560,
+          1440
+        ],
+        "command": "CAPTURE:first_puzzle:2560:1440",
+        "actualScreen": [
+          2240,
+          1400
+        ],
+        "pngDimensions": {
+          "static-0.png": [
+            2240,
+            1400
+          ],
+          "static-1.png": [
+            2240,
+            1400
+          ],
+          "static-2.png": [
+            2240,
+            1400
+          ]
+        },
+        "status": "unsupported-request-not-applied",
+        "resampled": false,
+        "drawLogicChanged": false
+      },
+      "metadataInputs": [
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2560x1440-first-puzzle-v15-20261025/capture.json",
+          "sha256": "2d6edb14abf3d9edfeec6f383ee1fc170628c5a1f8dc0ba943618b33ae57d506"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2560x1440-first-puzzle-v15-20261025/state.json",
+          "sha256": "117e128de8ecb1f21fa617374b46bf3cc30824504e0cdaf6b7a06f17bed908a8"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2560x1440-first-puzzle-v15-20261025/resolution-request.json",
+          "sha256": "35993febe22d3ceb06c3c6b807aaef81ac1859a9eac7a94af52a89e4f43d5ca5"
+        }
+      ]
+    },
+    {
+      "level": "second_puzzle",
+      "cssViewport": "1280x720-dpr2",
+      "reason": "Actual native dimensions or fresh-state metadata do not verify requested physical condition",
+      "requestedPhysical": [
+        2560,
+        1440
+      ],
+      "capturePhysical": [
+        2240,
+        1400
+      ],
+      "resolutionEvidence": {
+        "requested": [
+          2560,
+          1440
+        ],
+        "command": "CAPTURE:second_puzzle:2560:1440",
+        "actualScreen": [
+          2240,
+          1400
+        ],
+        "pngDimensions": {
+          "static-0.png": [
+            2240,
+            1400
+          ],
+          "static-1.png": [
+            2240,
+            1400
+          ],
+          "static-2.png": [
+            2240,
+            1400
+          ]
+        },
+        "status": "unsupported-request-not-applied",
+        "resampled": false,
+        "drawLogicChanged": false
+      },
+      "metadataInputs": [
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2560x1440-second-puzzle-v15-20261025/capture.json",
+          "sha256": "b50b83858afffd0163dcc0958df20e7082f7b4299f009c9e540cb5e86fa25687"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2560x1440-second-puzzle-v15-20261025/state.json",
+          "sha256": "34ca2bcf57edc4ce74fd3ead68724d23938675b43fe3df0bd184871bcc5e2e8c"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2560x1440-second-puzzle-v15-20261025/resolution-request.json",
+          "sha256": "59c7fcd231de424959efdeff5205d30d24a2f653c456555ba2cfa31eeab5c2f3"
+        }
+      ]
+    },
+    {
+      "level": "third_puzzle",
+      "cssViewport": "1280x720-dpr2",
+      "reason": "Actual native dimensions or fresh-state metadata do not verify requested physical condition",
+      "requestedPhysical": [
+        2560,
+        1440
+      ],
+      "capturePhysical": [
+        2240,
+        1400
+      ],
+      "resolutionEvidence": {
+        "requested": [
+          2560,
+          1440
+        ],
+        "command": "CAPTURE:third_puzzle:2560:1440",
+        "actualScreen": [
+          2240,
+          1400
+        ],
+        "pngDimensions": {
+          "static-0.png": [
+            2240,
+            1400
+          ],
+          "static-1.png": [
+            2240,
+            1400
+          ],
+          "static-2.png": [
+            2240,
+            1400
+          ]
+        },
+        "status": "unsupported-request-not-applied",
+        "resampled": false,
+        "drawLogicChanged": false
+      },
+      "metadataInputs": [
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2560x1440-third-puzzle-v15-20261025/capture.json",
+          "sha256": "db18e61e3c101d982cd368fd6f26841aca10def962f32d60f41882cec80adff8"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2560x1440-third-puzzle-v15-20261025/state.json",
+          "sha256": "75ffa77f49acf46ad9927949ae96fedcae94f353ade1422abf45498753564e41"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2560x1440-third-puzzle-v15-20261025/resolution-request.json",
+          "sha256": "4722ad3e8df01145d71a3aac39b984b6a27314332da900435cf87db1270eeeec"
+        }
+      ]
+    },
+    {
+      "level": "third_puzzle",
+      "cssViewport": "1280x900-dpr2",
+      "reason": "Actual native dimensions or fresh-state metadata do not verify requested physical condition",
+      "requestedPhysical": [
+        2560,
+        1800
+      ],
+      "capturePhysical": [
+        2240,
+        1400
+      ],
+      "resolutionEvidence": {
+        "requested": [
+          2560,
+          1800
+        ],
+        "command": "CAPTURE:third_puzzle:2560:1800",
+        "actualScreen": [
+          2240,
+          1400
+        ],
+        "pngDimensions": {
+          "static-0.png": [
+            2240,
+            1400
+          ],
+          "static-1.png": [
+            2240,
+            1400
+          ],
+          "static-2.png": [
+            2240,
+            1400
+          ]
+        },
+        "status": "unsupported-request-not-applied",
+        "resampled": false,
+        "drawLogicChanged": false
+      },
+      "metadataInputs": [
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2560x1800-third-puzzle-v15-20261025/capture.json",
+          "sha256": "61a7f918788f551e3c5360c3ca3f3303acc59eec3ceef5e1a24e29b45d5901e8"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2560x1800-third-puzzle-v15-20261025/state.json",
+          "sha256": "1aa3af9983546bcc92cf134d8217ebd358eb7fd551b70ef3e9f0506a57561419"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-2560x1800-third-puzzle-v15-20261025/resolution-request.json",
+          "sha256": "21c14fe6b5f374b19f28680a62b8ca05c5766eee99378685f819c6a5801ad09c"
+        }
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "level": "first_puzzle",
+      "backingCorrect": true,
+      "metadataViewportCorrect": true,
+      "freshStatesCorrect": true,
+      "nativeInputs": [
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-first-puzzle-v15-20261025/static-0.png",
+          "sha256": "10e98bc33634fa9cefcb14dc2c52fa5f525b9d867de46ee4504a50e4d11af262"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-first-puzzle-v15-20261025/static-1.png",
+          "sha256": "1d9bdf6fada0bd558200322c42dd4a75e50298e140a9652bf2162a15440a1b14"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-first-puzzle-v15-20261025/static-2.png",
+          "sha256": "4fb36d66a630779bc160f7634ee602c0114dbd10ea2a9d47b8a2fe539590f2de"
+        }
+      ],
+      "webInputs": [
+        {
+          "path": "docs/parity/evidence/web-production-candidate-v6/static/800x600-dpr2/first_puzzle/start.png",
+          "sha256": "3dbf3097b1dfa33b6a4e0cdd5cd7fd24a4804e636a84aee1932342575ea189bb"
+        },
+        {
+          "path": "docs/parity/evidence/web-production-candidate-v6/static/800x600-dpr2/first_puzzle/end.png",
+          "sha256": "d33d7b9dc96cd307ed976a4cd7db008f6e1809111b2e03b23d8a762c195d7634"
+        }
+      ],
+      "metadataInput": {
+        "path": "docs/parity/evidence/web-production-candidate-v6/static/800x600-dpr2/first_puzzle/trace.json",
+        "sha256": "4f768be4f528f87539e3f15f5f5b7c24a5b9491dd1a1e8dbb3b5e7b36397f521"
+      },
+      "webRepeatCount": 2,
+      "wallSamples": {
+        "count": 130,
+        "repeatStableCount": 130,
+        "flatNativeInteriorSampleCount": 80,
+        "maxFlatNativeInteriorChannelDelta": 1,
+        "flatNativeInteriorOutside1": [],
+        "edgeAdjacentOutside1Diagnostics": [],
+        "repeatUnverifiedOrUnstableCount": 0
+      },
+      "floorSamples": {
+        "count": 19,
+        "repeatStableCount": 19,
+        "flatNativeInteriorSampleCount": 19,
+        "maxFlatNativeInteriorChannelDelta": 0,
+        "flatNativeInteriorOutside1": [],
+        "edgeAdjacentOutside1Diagnostics": [],
+        "repeatUnverifiedOrUnstableCount": 0
+      },
+      "joinCount": 26,
+      "joinMeasurements": 52,
+      "suspectJoins": [],
+      "allJoins": [
+        {
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            448.5714285714286,
+            1021.7142857142856
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            378.28571428571433,
+            951.4285714285713
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "xyPhysical": [
+            378.28571428571433,
+            810.8571428571429
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "xyPhysical": [
+            378.28571428571433,
+            670.2857142857142
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "xyPhysical": [
+            378.28571428571433,
+            529.7142857142858
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            378.28571428571433,
+            389.14285714285717
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            378.28571428571433,
+            248.5714285714286
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              6
+            ],
+            [
+              1,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            448.5714285714286,
+            178.28571428571433
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            589.1428571428571,
+            1021.7142857142856
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            589.1428571428571,
+            178.28571428571433
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            729.7142857142858,
+            1021.7142857142856
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            729.7142857142858,
+            178.28571428571433
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            870.2857142857142,
+            1021.7142857142856
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              3,
+              6
+            ],
+            [
+              4,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            870.2857142857142,
+            178.28571428571433
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            1010.8571428571429,
+            1021.7142857142856
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              4,
+              0
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            940.5714285714284,
+            951.4285714285713
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "xyPhysical": [
+            940.5714285714284,
+            810.8571428571429
+          ],
+          "nativeSpans": [
+            2,
+            2,
+            2
+          ],
+          "webSpans": [
+            3,
+            3
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            1010.8571428571429,
+            178.28571428571433
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            1151.4285714285713,
+            1021.7142857142856
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            1151.4285714285713,
+            178.28571428571433
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              0
+            ],
+            [
+              6,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            1221.7142857142856,
+            951.4285714285713
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              1
+            ],
+            [
+              6,
+              2
+            ]
+          ],
+          "xyPhysical": [
+            1221.7142857142856,
+            810.8571428571429
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              2
+            ],
+            [
+              6,
+              3
+            ]
+          ],
+          "xyPhysical": [
+            1221.7142857142856,
+            670.2857142857142
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              3
+            ],
+            [
+              6,
+              4
+            ]
+          ],
+          "xyPhysical": [
+            1221.7142857142856,
+            529.7142857142858
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            1221.7142857142856,
+            389.14285714285717
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            1221.7142857142856,
+            248.5714285714286
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        }
+      ],
+      "borderNativeRepeatStable": true,
+      "borderWebRepeatVerified": true,
+      "borderRunDifferences": {},
+      "goldWhiteClipSamples": [],
+      "goldWhiteClipAllExact255": null,
+      "rootExteriorGuards": [
+        {
+          "xyPhysical": [
+            1291,
+            1089
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1291,
+            1088
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1291,
+            1087
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1291,
+            1086
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1291,
+            1085
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1289,
+            1091
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1288,
+            1091
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1287,
+            1091
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1286,
+            1091
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1285,
+            1091
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        }
+      ],
+      "rootExteriorAll10StableNonblackWhereNativeBlack": false,
+      "framebufferExtent": "1600x1200",
+      "comparisonScale": 1,
+      "framebufferSampling": {
+        "oneFramebufferPixelNativeRect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "oneFramebufferPixelWebRect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "allSubpixelsCompared": true,
+        "numericResampling": false,
+        "referenceRoiBoardPhysical": [
+          308.00000000000006,
+          108.00000000000006,
+          983.9999999999999,
+          983.9999999999999
+        ],
+        "fractionalTilePhysical": [
+          140.57142857142856,
+          140.57142857142856
+        ],
+        "cropMappings": [
+          {
+            "label": "rootTopLeft",
+            "framebufferBoxExclusive": [
+              304,
+              104,
+              322,
+              122
+            ],
+            "nativePhysicalBox": [
+              304,
+              104,
+              322,
+              122
+            ],
+            "webPhysicalBox": [
+              304,
+              104,
+              322,
+              122
+            ]
+          },
+          {
+            "label": "rootBottomRight",
+            "framebufferBoxExclusive": [
+              1278,
+              1078,
+              1296,
+              1096
+            ],
+            "nativePhysicalBox": [
+              1278,
+              1078,
+              1296,
+              1096
+            ],
+            "webPhysicalBox": [
+              1278,
+              1078,
+              1296,
+              1096
+            ]
+          },
+          {
+            "label": "player",
+            "framebufferBoxExclusive": [
+              582,
+              663,
+              737,
+              818
+            ],
+            "nativePhysicalBox": [
+              582,
+              663,
+              737,
+              818
+            ],
+            "webPhysicalBox": [
+              582,
+              663,
+              737,
+              818
+            ]
+          },
+          {
+            "label": "gold1",
+            "framebufferBoxExclusive": [
+              1003,
+              522,
+              1159,
+              678
+            ],
+            "nativePhysicalBox": [
+              1003,
+              522,
+              1159,
+              678
+            ],
+            "webPhysicalBox": [
+              1003,
+              522,
+              1159,
+              678
+            ]
+          }
+        ]
+      },
+      "webDpr": 2,
+      "cssViewport": "800x600-dpr2",
+      "nativeFramebuffer": [
+        1600,
+        1200
+      ],
+      "comparisonCoordinates": "physical framebuffer pixels, scale1",
+      "nativeMetadataVerified": true,
+      "nativeMetadataInputs": [
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-first-puzzle-v15-20261025/capture.json",
+          "sha256": "d05d51786a607be0ae0ce2c1a08ba6c2b2a429c458a535b228f4677d0660896e"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-first-puzzle-v15-20261025/state.json",
+          "sha256": "d963ca4b1099f624861f9d9923bd51dde6916db8a806b59239f1f25baf3ed240"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-first-puzzle-v15-20261025/resolution-request.json",
+          "sha256": "86507d4a912e97d778c7fe0146c0fb596b95d77faa3bb9eb64cf3bb16f502aaf"
+        }
+      ]
+    },
+    {
+      "level": "second_puzzle",
+      "backingCorrect": true,
+      "metadataViewportCorrect": true,
+      "freshStatesCorrect": true,
+      "nativeInputs": [
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-second-puzzle-v15-20261025/static-0.png",
+          "sha256": "983035b588b396e6a84d55f9f26695389e94abbab4d99b4aad15d8034c3dd393"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-second-puzzle-v15-20261025/static-1.png",
+          "sha256": "dd1bdf1b96d62d0d4598249509a3fdedc67c0063f6ad048175230820d5a48a66"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-second-puzzle-v15-20261025/static-2.png",
+          "sha256": "64e09364d01c9d18433fa1308128eb0d6d0e30ee7672e0955cbe24fe1bec299b"
+        }
+      ],
+      "webInputs": [
+        {
+          "path": "docs/parity/evidence/web-production-candidate-v6/static/800x600-dpr2/second_puzzle/start.png",
+          "sha256": "2fd5f75f7186e659d74dcd6d0ea9a0f0caafeca30fc3c2e3ecd3c7a3e5ee87bf"
+        },
+        {
+          "path": "docs/parity/evidence/web-production-candidate-v6/static/800x600-dpr2/second_puzzle/end.png",
+          "sha256": "48f2ea9ecf55bdc404cd7afd6a3320d0504c08e7e88fe04e9cdc42c708d05b1a"
+        }
+      ],
+      "metadataInput": {
+        "path": "docs/parity/evidence/web-production-candidate-v6/static/800x600-dpr2/second_puzzle/trace.json",
+        "sha256": "94e14825b04f6251c81bf0554bd8ede8f1639fa86f2b8d10550354ec8e4ec1c0"
+      },
+      "webRepeatCount": 2,
+      "wallSamples": {
+        "count": 229,
+        "repeatStableCount": 229,
+        "flatNativeInteriorSampleCount": 169,
+        "maxFlatNativeInteriorChannelDelta": 0,
+        "flatNativeInteriorOutside1": [],
+        "edgeAdjacentOutside1Diagnostics": [],
+        "repeatUnverifiedOrUnstableCount": 0
+      },
+      "floorSamples": {
+        "count": 20,
+        "repeatStableCount": 20,
+        "flatNativeInteriorSampleCount": 20,
+        "maxFlatNativeInteriorChannelDelta": 0,
+        "flatNativeInteriorOutside1": [],
+        "edgeAdjacentOutside1Diagnostics": [],
+        "repeatUnverifiedOrUnstableCount": 0
+      },
+      "joinCount": 78,
+      "joinMeasurements": 156,
+      "suspectJoins": [],
+      "allJoins": [
+        {
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            417.33333333333337,
+            1037.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            362.66666666666674,
+            982.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            417.33333333333337,
+            928.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "xyPhysical": [
+            362.66666666666674,
+            873.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "xyPhysical": [
+            417.33333333333337,
+            818.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "xyPhysical": [
+            362.66666666666674,
+            764.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "xyPhysical": [
+            417.33333333333337,
+            709.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "xyPhysical": [
+            362.66666666666674,
+            654.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "xyPhysical": [
+            417.33333333333337,
+            600.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            362.66666666666674,
+            545.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            417.33333333333337,
+            490.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            362.66666666666674,
+            436.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              6
+            ],
+            [
+              1,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            417.33333333333337,
+            381.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            362.66666666666674,
+            326.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              7
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            417.33333333333337,
+            272.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              7
+            ],
+            [
+              0,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            362.66666666666674,
+            217.33333333333337
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              8
+            ],
+            [
+              1,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            417.33333333333337,
+            162.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            526.6666666666667,
+            1037.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            472.0,
+            982.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "xyPhysical": [
+            472.0,
+            873.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "xyPhysical": [
+            472.0,
+            764.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "xyPhysical": [
+            472.0,
+            654.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            472.0,
+            545.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            472.0,
+            436.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            472.0,
+            326.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            526.6666666666667,
+            272.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            472.0,
+            217.33333333333337
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            526.6666666666667,
+            162.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            636.0,
+            1037.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            636.0,
+            272.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            581.3333333333333,
+            217.33333333333337
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            636.0,
+            162.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            745.3333333333333,
+            1037.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            690.6666666666667,
+            545.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            745.3333333333333,
+            272.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              3,
+              7
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            690.6666666666667,
+            217.33333333333337
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            745.3333333333333,
+            162.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            854.6666666666665,
+            1037.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              4,
+              7
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            854.6666666666665,
+            272.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              4,
+              7
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            800.0,
+            217.33333333333337
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            854.6666666666665,
+            162.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            964.0,
+            1037.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            964.0,
+            381.3333333333333
+          ],
+          "nativeSpans": [
+            2,
+            2,
+            2
+          ],
+          "webSpans": [
+            2,
+            2
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            909.3333333333333,
+            326.6666666666667
+          ],
+          "nativeSpans": [
+            2,
+            2,
+            2
+          ],
+          "webSpans": [
+            2,
+            2
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            964.0,
+            272.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            909.3333333333333,
+            217.33333333333337
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            964.0,
+            162.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            1073.3333333333333,
+            1037.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            1073.3333333333333,
+            381.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            1018.6666666666665,
+            326.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            1073.3333333333333,
+            272.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            1018.6666666666665,
+            217.33333333333337
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            1073.3333333333333,
+            162.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            1182.6666666666665,
+            1037.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              0
+            ],
+            [
+              7,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            1128.0,
+            982.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            1182.6666666666665,
+            928.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              7,
+              2
+            ]
+          ],
+          "xyPhysical": [
+            1128.0,
+            873.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              2
+            ],
+            [
+              8,
+              2
+            ]
+          ],
+          "xyPhysical": [
+            1182.6666666666665,
+            818.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              2
+            ],
+            [
+              7,
+              3
+            ]
+          ],
+          "xyPhysical": [
+            1128.0,
+            764.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              3
+            ]
+          ],
+          "xyPhysical": [
+            1182.6666666666665,
+            709.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              3
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "xyPhysical": [
+            1128.0,
+            654.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ]
+          ],
+          "xyPhysical": [
+            1182.6666666666665,
+            600.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            1128.0,
+            545.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            1182.6666666666665,
+            490.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            1128.0,
+            436.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            1182.6666666666665,
+            381.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            1128.0,
+            326.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            1182.6666666666665,
+            272.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            1128.0,
+            217.33333333333337
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            1182.6666666666665,
+            162.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              8,
+              0
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            1237.3333333333333,
+            982.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ]
+          ],
+          "xyPhysical": [
+            1237.3333333333333,
+            873.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ]
+          ],
+          "xyPhysical": [
+            1237.3333333333333,
+            764.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ]
+          ],
+          "xyPhysical": [
+            1237.3333333333333,
+            654.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            1237.3333333333333,
+            545.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            1237.3333333333333,
+            436.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            1237.3333333333333,
+            326.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            1237.3333333333333,
+            217.33333333333337
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        }
+      ],
+      "borderNativeRepeatStable": true,
+      "borderWebRepeatVerified": true,
+      "borderRunDifferences": {},
+      "goldWhiteClipSamples": [],
+      "goldWhiteClipAllExact255": null,
+      "rootExteriorGuards": [
+        {
+          "xyPhysical": [
+            1291,
+            1089
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1291,
+            1088
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1291,
+            1087
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1291,
+            1086
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1291,
+            1085
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1289,
+            1091
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1288,
+            1091
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1287,
+            1091
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1286,
+            1091
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1285,
+            1091
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        }
+      ],
+      "rootExteriorAll10StableNonblackWhereNativeBlack": false,
+      "framebufferExtent": "1600x1200",
+      "comparisonScale": 1,
+      "framebufferSampling": {
+        "oneFramebufferPixelNativeRect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "oneFramebufferPixelWebRect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "allSubpixelsCompared": true,
+        "numericResampling": false,
+        "referenceRoiBoardPhysical": [
+          308.00000000000006,
+          108.00000000000006,
+          983.9999999999999,
+          983.9999999999999
+        ],
+        "fractionalTilePhysical": [
+          109.33333333333331,
+          109.33333333333331
+        ],
+        "cropMappings": [
+          {
+            "label": "rootTopLeft",
+            "framebufferBoxExclusive": [
+              304,
+              104,
+              322,
+              122
+            ],
+            "nativePhysicalBox": [
+              304,
+              104,
+              322,
+              122
+            ],
+            "webPhysicalBox": [
+              304,
+              104,
+              322,
+              122
+            ]
+          },
+          {
+            "label": "rootBottomRight",
+            "framebufferBoxExclusive": [
+              1278,
+              1078,
+              1296,
+              1096
+            ],
+            "nativePhysicalBox": [
+              1278,
+              1078,
+              1296,
+              1096
+            ],
+            "webPhysicalBox": [
+              1278,
+              1078,
+              1296,
+              1096
+            ]
+          },
+          {
+            "label": "player",
+            "framebufferBoxExclusive": [
+              738,
+              757,
+              862,
+              881
+            ],
+            "nativePhysicalBox": [
+              738,
+              757,
+              862,
+              881
+            ],
+            "webPhysicalBox": [
+              738,
+              757,
+              862,
+              881
+            ]
+          },
+          {
+            "label": "gold1",
+            "framebufferBoxExclusive": [
+              738,
+              538,
+              862,
+              662
+            ],
+            "nativePhysicalBox": [
+              738,
+              538,
+              862,
+              662
+            ],
+            "webPhysicalBox": [
+              738,
+              538,
+              862,
+              662
+            ]
+          },
+          {
+            "label": "gold2",
+            "framebufferBoxExclusive": [
+              738,
+              429,
+              862,
+              553
+            ],
+            "nativePhysicalBox": [
+              738,
+              429,
+              862,
+              553
+            ],
+            "webPhysicalBox": [
+              738,
+              429,
+              862,
+              553
+            ]
+          }
+        ]
+      },
+      "webDpr": 2,
+      "cssViewport": "800x600-dpr2",
+      "nativeFramebuffer": [
+        1600,
+        1200
+      ],
+      "comparisonCoordinates": "physical framebuffer pixels, scale1",
+      "nativeMetadataVerified": true,
+      "nativeMetadataInputs": [
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-second-puzzle-v15-20261025/capture.json",
+          "sha256": "b14c10eab6f9e5b59cf6f58755a2064949b971cb1aaa984d79fdb5203717422e"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-second-puzzle-v15-20261025/state.json",
+          "sha256": "07d4b66b49911da2a2bc1a95ecf1eaa8c631e1575bce490e24409340c3b336ee"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-second-puzzle-v15-20261025/resolution-request.json",
+          "sha256": "bbe955da0a0ae984acab255d757a6a531bcba3810c9b4f9071e86385f7c0e078"
+        }
+      ]
+    },
+    {
+      "level": "third_puzzle",
+      "backingCorrect": true,
+      "metadataViewportCorrect": true,
+      "freshStatesCorrect": true,
+      "nativeInputs": [
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-third-puzzle-v15-20261025/static-0.png",
+          "sha256": "eb5550bb8a0204f1d1670db60f20e043563b40b1120fb1cf948e62d6d5301944"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-third-puzzle-v15-20261025/static-1.png",
+          "sha256": "5d7b556a97e4eff2bbb1e312d3733963b7dc782224420855792f17519718eeee"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-third-puzzle-v15-20261025/static-2.png",
+          "sha256": "7f1e9d4a45cd459917f1ec01d8044f92a3a15f992d6ef9156d68688ba03b2dcc"
+        }
+      ],
+      "webInputs": [
+        {
+          "path": "docs/parity/evidence/web-production-candidate-v6/static/800x600-dpr2/third_puzzle/start.png",
+          "sha256": "2ab05abd3c8f9a1deebab854fc91205c62b19f9a8f2d2d420d0eef1ab50049cf"
+        },
+        {
+          "path": "docs/parity/evidence/web-production-candidate-v6/static/800x600-dpr2/third_puzzle/end.png",
+          "sha256": "425be4be6c46d6b71d9db0520d989a23d894e28aae5b4e1a454be4b12286c5e1"
+        }
+      ],
+      "metadataInput": {
+        "path": "docs/parity/evidence/web-production-candidate-v6/static/800x600-dpr2/third_puzzle/trace.json",
+        "sha256": "bb403a1307a69282fdb162f2d1b5cede8a2963a6e88ba0d5d964fb389ba259da"
+      },
+      "webRepeatCount": 2,
+      "wallSamples": {
+        "count": 223,
+        "repeatStableCount": 223,
+        "flatNativeInteriorSampleCount": 161,
+        "maxFlatNativeInteriorChannelDelta": 0,
+        "flatNativeInteriorOutside1": [],
+        "edgeAdjacentOutside1Diagnostics": [],
+        "repeatUnverifiedOrUnstableCount": 0
+      },
+      "floorSamples": {
+        "count": 24,
+        "repeatStableCount": 24,
+        "flatNativeInteriorSampleCount": 24,
+        "maxFlatNativeInteriorChannelDelta": 0,
+        "flatNativeInteriorOutside1": [],
+        "edgeAdjacentOutside1Diagnostics": [],
+        "repeatUnverifiedOrUnstableCount": 0
+      },
+      "joinCount": 74,
+      "joinMeasurements": 148,
+      "suspectJoins": [],
+      "allJoins": [
+        {
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            417.33333333333337,
+            1037.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            362.66666666666674,
+            982.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            417.33333333333337,
+            928.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "xyPhysical": [
+            362.66666666666674,
+            873.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ],
+          "xyPhysical": [
+            362.66666666666674,
+            764.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ],
+          "xyPhysical": [
+            362.66666666666674,
+            654.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            362.66666666666674,
+            545.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              5
+            ],
+            [
+              0,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            362.66666666666674,
+            436.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            362.66666666666674,
+            326.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              7
+            ],
+            [
+              0,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            362.66666666666674,
+            217.33333333333337
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              0,
+              8
+            ],
+            [
+              1,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            417.33333333333337,
+            162.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            526.6666666666667,
+            1037.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            472.0,
+            982.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            526.6666666666667,
+            928.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            526.6666666666667,
+            162.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            636.0,
+            1037.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              2,
+              0
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            581.3333333333333,
+            982.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              2,
+              1
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            636.0,
+            928.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              2,
+              8
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            636.0,
+            162.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              3,
+              0
+            ],
+            [
+              4,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            745.3333333333333,
+            1037.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              3,
+              0
+            ],
+            [
+              3,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            690.6666666666667,
+            982.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            745.3333333333333,
+            928.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              3,
+              1
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "xyPhysical": [
+            690.6666666666667,
+            873.3333333333333
+          ],
+          "nativeSpans": [
+            2,
+            2,
+            2
+          ],
+          "webSpans": [
+            2,
+            2
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              3,
+              2
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "xyPhysical": [
+            745.3333333333333,
+            818.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            745.3333333333333,
+            162.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              4,
+              0
+            ],
+            [
+              5,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            854.6666666666665,
+            1037.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              4,
+              0
+            ],
+            [
+              4,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            800.0,
+            982.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              5,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            854.6666666666665,
+            928.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              4,
+              1
+            ],
+            [
+              4,
+              2
+            ]
+          ],
+          "xyPhysical": [
+            800.0,
+            873.3333333333333
+          ],
+          "nativeSpans": [
+            2,
+            2,
+            2
+          ],
+          "webSpans": [
+            2,
+            2
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              4,
+              8
+            ],
+            [
+              5,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            854.6666666666665,
+            162.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              6,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            964.0,
+            1037.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              0
+            ],
+            [
+              5,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            909.3333333333333,
+            982.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              1
+            ],
+            [
+              6,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            964.0,
+            928.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              4
+            ],
+            [
+              6,
+              4
+            ]
+          ],
+          "xyPhysical": [
+            964.0,
+            600.0
+          ],
+          "nativeSpans": [
+            2,
+            2,
+            2
+          ],
+          "webSpans": [
+            2,
+            2
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              4
+            ],
+            [
+              5,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            909.3333333333333,
+            545.3333333333333
+          ],
+          "nativeSpans": [
+            2,
+            2,
+            2
+          ],
+          "webSpans": [
+            2,
+            2
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              5
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            964.0,
+            490.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              5
+            ],
+            [
+              5,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            909.3333333333333,
+            436.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              6
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            964.0,
+            381.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            909.3333333333333,
+            326.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            964.0,
+            272.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            909.3333333333333,
+            217.33333333333337
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            964.0,
+            162.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              0
+            ],
+            [
+              7,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            1073.3333333333333,
+            1037.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              0
+            ],
+            [
+              6,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            1018.6666666666665,
+            982.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              1
+            ],
+            [
+              7,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            1073.3333333333333,
+            928.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              7,
+              4
+            ]
+          ],
+          "xyPhysical": [
+            1073.3333333333333,
+            600.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              4
+            ],
+            [
+              6,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            1018.6666666666665,
+            545.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              5
+            ],
+            [
+              7,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            1073.3333333333333,
+            490.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              5
+            ],
+            [
+              6,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            1018.6666666666665,
+            436.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            1073.3333333333333,
+            381.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              6
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            1018.6666666666665,
+            326.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              7
+            ],
+            [
+              7,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            1073.3333333333333,
+            272.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            1018.6666666666665,
+            217.33333333333337
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              6,
+              8
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            1073.3333333333333,
+            162.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              0
+            ],
+            [
+              8,
+              0
+            ]
+          ],
+          "xyPhysical": [
+            1182.6666666666665,
+            1037.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              0
+            ],
+            [
+              7,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            1128.0,
+            982.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              1
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            1182.6666666666665,
+            928.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              4
+            ],
+            [
+              8,
+              4
+            ]
+          ],
+          "xyPhysical": [
+            1182.6666666666665,
+            600.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              4
+            ],
+            [
+              7,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            1128.0,
+            545.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              5
+            ],
+            [
+              8,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            1182.6666666666665,
+            490.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              5
+            ],
+            [
+              7,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            1128.0,
+            436.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              6
+            ],
+            [
+              8,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            1182.6666666666665,
+            381.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              6
+            ],
+            [
+              7,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            1128.0,
+            326.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              7
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            1182.6666666666665,
+            272.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              7
+            ],
+            [
+              7,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            1128.0,
+            217.33333333333337
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              7,
+              8
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            1182.6666666666665,
+            162.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              8,
+              0
+            ],
+            [
+              8,
+              1
+            ]
+          ],
+          "xyPhysical": [
+            1237.3333333333333,
+            982.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              8,
+              1
+            ],
+            [
+              8,
+              2
+            ]
+          ],
+          "xyPhysical": [
+            1237.3333333333333,
+            873.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              8,
+              2
+            ],
+            [
+              8,
+              3
+            ]
+          ],
+          "xyPhysical": [
+            1237.3333333333333,
+            764.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              8,
+              3
+            ],
+            [
+              8,
+              4
+            ]
+          ],
+          "xyPhysical": [
+            1237.3333333333333,
+            654.6666666666665
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              8,
+              4
+            ],
+            [
+              8,
+              5
+            ]
+          ],
+          "xyPhysical": [
+            1237.3333333333333,
+            545.3333333333333
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              8,
+              5
+            ],
+            [
+              8,
+              6
+            ]
+          ],
+          "xyPhysical": [
+            1237.3333333333333,
+            436.0
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              8,
+              6
+            ],
+            [
+              8,
+              7
+            ]
+          ],
+          "xyPhysical": [
+            1237.3333333333333,
+            326.6666666666667
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        },
+        {
+          "cells": [
+            [
+              8,
+              7
+            ],
+            [
+              8,
+              8
+            ]
+          ],
+          "xyPhysical": [
+            1237.3333333333333,
+            217.33333333333337
+          ],
+          "nativeSpans": [
+            0,
+            0,
+            0
+          ],
+          "webSpans": [
+            0,
+            0
+          ],
+          "suspect": false
+        }
+      ],
+      "borderNativeRepeatStable": true,
+      "borderWebRepeatVerified": true,
+      "borderRunDifferences": {},
+      "goldWhiteClipSamples": [
+        {
+          "xyPhysical": [
+            855,
+            371
+          ],
+          "kind": "goldRightWhiteClip",
+          "nativeRGB": [
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ],
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 253,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            855,
+            381
+          ],
+          "kind": "goldRightWhiteClip",
+          "nativeRGB": [
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ],
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 253,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            855,
+            391
+          ],
+          "kind": "goldRightWhiteClip",
+          "nativeRGB": [
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ],
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 253,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            857,
+            371
+          ],
+          "kind": "goldRightWhiteClip",
+          "nativeRGB": [
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ],
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 0,
+          "flatNativeInteriorEligible": true,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            857,
+            381
+          ],
+          "kind": "goldRightWhiteClip",
+          "nativeRGB": [
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ],
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 0,
+          "flatNativeInteriorEligible": true,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            857,
+            391
+          ],
+          "kind": "goldRightWhiteClip",
+          "nativeRGB": [
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ],
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 0,
+          "flatNativeInteriorEligible": true,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            859,
+            371
+          ],
+          "kind": "goldRightWhiteClip",
+          "nativeRGB": [
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ],
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 0,
+          "flatNativeInteriorEligible": true,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            859,
+            381
+          ],
+          "kind": "goldRightWhiteClip",
+          "nativeRGB": [
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ],
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 0,
+          "flatNativeInteriorEligible": true,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            859,
+            391
+          ],
+          "kind": "goldRightWhiteClip",
+          "nativeRGB": [
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ],
+            [
+              255,
+              255,
+              255
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ],
+            [
+              [
+                255,
+                255,
+                255
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 0,
+          "flatNativeInteriorEligible": true,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        }
+      ],
+      "goldWhiteClipAllExact255": true,
+      "rootExteriorGuards": [
+        {
+          "xyPhysical": [
+            1291,
+            1089
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1291,
+            1088
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1291,
+            1087
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1291,
+            1086
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1291,
+            1085
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1289,
+            1091
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1288,
+            1091
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1287,
+            1091
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1286,
+            1091
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        },
+        {
+          "xyPhysical": [
+            1285,
+            1091
+          ],
+          "kind": "rootExteriorGuard",
+          "nativeRGB": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "webPhysicalRGB": [
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                0,
+                0
+              ]
+            ]
+          ],
+          "nativeRepeatStable": true,
+          "webRepeatVerified": true,
+          "repeatStable": true,
+          "native5x5ChannelSpan": 36,
+          "flatNativeInteriorEligible": false,
+          "maxChannelDelta": 0,
+          "withinEstablishedInterior1": true
+        }
+      ],
+      "rootExteriorAll10StableNonblackWhereNativeBlack": false,
+      "framebufferExtent": "1600x1200",
+      "comparisonScale": 1,
+      "framebufferSampling": {
+        "oneFramebufferPixelNativeRect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "oneFramebufferPixelWebRect": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "allSubpixelsCompared": true,
+        "numericResampling": false,
+        "referenceRoiBoardPhysical": [
+          308.00000000000006,
+          108.00000000000006,
+          983.9999999999999,
+          983.9999999999999
+        ],
+        "fractionalTilePhysical": [
+          109.33333333333331,
+          109.33333333333331
+        ],
+        "cropMappings": [
+          {
+            "label": "rootTopLeft",
+            "framebufferBoxExclusive": [
+              304,
+              104,
+              322,
+              122
+            ],
+            "nativePhysicalBox": [
+              304,
+              104,
+              322,
+              122
+            ],
+            "webPhysicalBox": [
+              304,
+              104,
+              322,
+              122
+            ]
+          },
+          {
+            "label": "rootBottomRight",
+            "framebufferBoxExclusive": [
+              1278,
+              1078,
+              1296,
+              1096
+            ],
+            "nativePhysicalBox": [
+              1278,
+              1078,
+              1296,
+              1096
+            ],
+            "webPhysicalBox": [
+              1278,
+              1078,
+              1296,
+              1096
+            ]
+          },
+          {
+            "label": "player",
+            "framebufferBoxExclusive": [
+              519,
+              538,
+              644,
+              662
+            ],
+            "nativePhysicalBox": [
+              519,
+              538,
+              644,
+              662
+            ],
+            "webPhysicalBox": [
+              519,
+              538,
+              644,
+              662
+            ]
+          },
+          {
+            "label": "gold1",
+            "framebufferBoxExclusive": [
+              738,
+              319,
+              862,
+              444
+            ],
+            "nativePhysicalBox": [
+              738,
+              319,
+              862,
+              444
+            ],
+            "webPhysicalBox": [
+              738,
+              319,
+              862,
+              444
+            ]
+          }
+        ]
+      },
+      "webDpr": 2,
+      "cssViewport": "800x600-dpr2",
+      "nativeFramebuffer": [
+        1600,
+        1200
+      ],
+      "comparisonCoordinates": "physical framebuffer pixels, scale1",
+      "nativeMetadataVerified": true,
+      "nativeMetadataInputs": [
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-third-puzzle-v15-20261025/capture.json",
+          "sha256": "50fe6b30c305c093640b102a1547965d5c7c69756af73c72721c7ca18197422d"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-third-puzzle-v15-20261025/state.json",
+          "sha256": "2f6f160ab0af58d2c5bd379187c692b6acae0d586cc2f368be2e818eefa98529"
+        },
+        {
+          "path": "docs/parity/evidence/original/native-framebuffer-1600x1200-third-puzzle-v15-20261025/resolution-request.json",
+          "sha256": "9604e6ca56b1a96ad8b70471e1f38813ad627bbcd9b0bd197c88329b4cfdb8d2"
+        }
+      ]
+    }
+  ],
+  "historicalBorderRechecks": [
+    {
+      "level": "first_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "root",
+      "side": "right",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            642.0,
+            645.0
+          ]
+        ],
+        "web": [
+          [
+            642.5,
+            645.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "first_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "root",
+      "side": "bottom",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            542.0,
+            545.0
+          ]
+        ],
+        "web": [
+          [
+            542.5,
+            545.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "first_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "player",
+      "side": "left",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            294.0,
+            296.0
+          ]
+        ],
+        "web": [
+          [
+            294.5,
+            297.0
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "first_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "player",
+      "side": "right",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            362.0,
+            364.0
+          ]
+        ],
+        "web": [
+          [
+            362.0,
+            364.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "first_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "player",
+      "side": "top",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            335.0,
+            337.0
+          ]
+        ],
+        "web": [
+          [
+            335.0,
+            337.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "first_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "player",
+      "side": "bottom",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            403.0,
+            405.0
+          ]
+        ],
+        "web": [
+          [
+            402.5,
+            405.0
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "first_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "gold1",
+      "side": "left",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            505.0,
+            507.0
+          ]
+        ],
+        "web": [
+          [
+            505.0,
+            507.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "first_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "gold1",
+      "side": "right",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            573.0,
+            575.0
+          ]
+        ],
+        "web": [
+          [
+            573.0,
+            575.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "first_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "gold1",
+      "side": "top",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            264.0,
+            266.0
+          ]
+        ],
+        "web": [
+          [
+            264.5,
+            267.0
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "first_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "gold1",
+      "side": "bottom",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            333.0,
+            335.0
+          ]
+        ],
+        "web": [
+          [
+            332.5,
+            335.0
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "second_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "root",
+      "side": "right",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            642.0,
+            645.0
+          ]
+        ],
+        "web": [
+          [
+            642.5,
+            645.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "second_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "root",
+      "side": "bottom",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            542.0,
+            545.0
+          ]
+        ],
+        "web": [
+          [
+            542.5,
+            545.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "second_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "player",
+      "side": "left",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            372.0,
+            374.0
+          ]
+        ],
+        "web": [
+          [
+            372.5,
+            374.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "second_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "player",
+      "side": "top",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            381.0,
+            383.0
+          ]
+        ],
+        "web": [
+          [
+            381.5,
+            383.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "second_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "player",
+      "side": "bottom",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            434.0,
+            436.0
+          ]
+        ],
+        "web": [
+          [
+            434.5,
+            436.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "second_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "gold1",
+      "side": "left",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            372.0,
+            374.0
+          ]
+        ],
+        "web": [
+          [
+            372.5,
+            374.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "second_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "gold1",
+      "side": "top",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            270.0,
+            274.0
+          ]
+        ],
+        "web": [
+          [
+            270.5,
+            274.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "second_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "gold2",
+      "side": "left",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            372.0,
+            374.0
+          ]
+        ],
+        "web": [
+          [
+            372.5,
+            374.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "second_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "gold2",
+      "side": "bottom",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            270.0,
+            274.0
+          ]
+        ],
+        "web": [
+          [
+            270.5,
+            274.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "third_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "root",
+      "side": "right",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            642.0,
+            645.0
+          ]
+        ],
+        "web": [
+          [
+            642.5,
+            645.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "third_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "root",
+      "side": "bottom",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            542.0,
+            545.0
+          ]
+        ],
+        "web": [
+          [
+            542.5,
+            545.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "third_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "player",
+      "side": "top",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            272.0,
+            274.0
+          ]
+        ],
+        "web": [
+          [
+            272.5,
+            274.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    },
+    {
+      "level": "third_puzzle",
+      "cssViewport": "800x600-dpr2",
+      "object": "gold1",
+      "side": "left",
+      "historicalNative1xVsWebDpr2Css": {
+        "native": [
+          [
+            372.0,
+            374.0
+          ]
+        ],
+        "web": [
+          [
+            372.5,
+            374.5
+          ]
+        ]
+      },
+      "matchedPhysicalNativeVsWeb": null,
+      "exactBorderSupportMatches": true
+    }
+  ]
+}

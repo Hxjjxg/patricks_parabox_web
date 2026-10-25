@@ -1,0 +1,1899 @@
+{
+  "candidate": "v6",
+  "head": "ac5afc3af2832c2aaa95d48b1cf6d836d1c1fadc",
+  "status": "immutable integrated verification candidate; known missing exact Hub fonts and unavailable native framebuffer conditions; NOT complete acceptance",
+  "buildManifestSha256": "ac4f2070842dd7cfccaaad4fbe67ff364cd0ceb77116819cfb5696f50ec602c7",
+  "groups": {
+    "cardinal": {
+      "cases": 12,
+      "frames": 492,
+      "images": 192
+    },
+    "hub-lifecycle": {
+      "cases": 3,
+      "frames": 1237,
+      "images": 207
+    },
+    "long-routes": {
+      "cases": 3,
+      "frames": 3625,
+      "images": 1124
+    },
+    "mechanics": {
+      "cases": 17,
+      "frames": 1033,
+      "images": 244
+    },
+    "natural-input": {
+      "cases": 8,
+      "frames": 691,
+      "images": 274
+    },
+    "new-regressions": {
+      "cases": 3,
+      "frames": 182,
+      "images": 48
+    },
+    "note": {
+      "cases": 6,
+      "frames": 199,
+      "images": 15
+    },
+    "odd-dpr": {
+      "cases": 1,
+      "frames": 13,
+      "images": 2
+    },
+    "static": {
+      "cases": 20,
+      "frames": 245,
+      "images": 40
+    },
+    "transitions": {
+      "cases": 4,
+      "frames": 569,
+      "images": 192
+    }
+  },
+  "caseCount": 77,
+  "frames": 8286,
+  "images": 2338,
+  "hashedCaptureFiles": 2415,
+  "hashFailures": [],
+  "distHashFailures": [],
+  "sourceHashFailures": [],
+  "provenanceFailures": [],
+  "guardFailures": [],
+  "sourceFilesVerified": 1005,
+  "distFilesVerified": 142,
+  "cases": [
+    {
+      "case": "cardinal/first_puzzle-D",
+      "category": "cardinal",
+      "level": "first_puzzle",
+      "frames": 42,
+      "images": 16,
+      "startingMoveCount": 0,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "145ef835251421d1b7222e4713fd37c294238f0fdbf013644a5845b4179e1464",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.5,
+        "max": 18.5,
+        "above50": 0
+      }
+    },
+    {
+      "case": "cardinal/first_puzzle-L",
+      "category": "cardinal",
+      "level": "first_puzzle",
+      "frames": 40,
+      "images": 16,
+      "startingMoveCount": 0,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "3a296875b9d3e4ab7d93c666574925cdf882a1385f7fc94f792737f0df5efaaa",
+      "frameIntervalsMs": {
+        "min": 17.199999999999818,
+        "median": 17.899999999999864,
+        "max": 34.89999999999998,
+        "above50": 0
+      }
+    },
+    {
+      "case": "cardinal/first_puzzle-R",
+      "category": "cardinal",
+      "level": "first_puzzle",
+      "frames": 40,
+      "images": 16,
+      "startingMoveCount": 0,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "ee3d871a4a1722d2741981644eea9197e07ea94ed09c953901e51d2d5e59c996",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.799999999999955,
+        "max": 35.40000000000009,
+        "above50": 0
+      }
+    },
+    {
+      "case": "cardinal/first_puzzle-U",
+      "category": "cardinal",
+      "level": "first_puzzle",
+      "frames": 41,
+      "images": 16,
+      "startingMoveCount": 0,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "6074f72d3c211a9988e1be16dea422ff54dee5d5a6592927fbc913efc8fdf1bf",
+      "frameIntervalsMs": {
+        "min": 17.200000000000045,
+        "median": 17.799999999999955,
+        "max": 54.0,
+        "above50": 1
+      }
+    },
+    {
+      "case": "cardinal/second_puzzle-D",
+      "category": "cardinal",
+      "level": "second_puzzle",
+      "frames": 41,
+      "images": 16,
+      "startingMoveCount": 0,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "404e2e201390e758b8bfef872eea33077daf687f1e4ae31a318a679865048eda",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.700000000000045,
+        "max": 35.5,
+        "above50": 0
+      }
+    },
+    {
+      "case": "cardinal/second_puzzle-L",
+      "category": "cardinal",
+      "level": "second_puzzle",
+      "frames": 41,
+      "images": 16,
+      "startingMoveCount": 0,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "21dfc3195c9fa82944c77282eeb380b3f26d46c813b66411e26699be537e72f0",
+      "frameIntervalsMs": {
+        "min": 17.100000000000136,
+        "median": 17.700000000000045,
+        "max": 36.10000000000002,
+        "above50": 0
+      }
+    },
+    {
+      "case": "cardinal/second_puzzle-R",
+      "category": "cardinal",
+      "level": "second_puzzle",
+      "frames": 41,
+      "images": 16,
+      "startingMoveCount": 0,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "3a62cf0f723288e5b92e3699e2b025f19f31a8cf391768ca78cc4e85edd3f26b",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.749999999999943,
+        "max": 51.89999999999998,
+        "above50": 1
+      }
+    },
+    {
+      "case": "cardinal/second_puzzle-U",
+      "category": "cardinal",
+      "level": "second_puzzle",
+      "frames": 41,
+      "images": 16,
+      "startingMoveCount": 0,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "94d8ff2b75cc29ddaf3ba4d5f7e6f9c9e5a76c25c1c7da03468593ed11406566",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.60000000000008,
+        "max": 35.60000000000002,
+        "above50": 0
+      }
+    },
+    {
+      "case": "cardinal/third_puzzle-D",
+      "category": "cardinal",
+      "level": "third_puzzle",
+      "frames": 41,
+      "images": 16,
+      "startingMoveCount": 0,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "ba5ae4074fde49edd376fd0426f8edcf53b76f64cd7ded0bc6748bf7630dc58f",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.64999999999992,
+        "max": 18.399999999999864,
+        "above50": 0
+      }
+    },
+    {
+      "case": "cardinal/third_puzzle-L",
+      "category": "cardinal",
+      "level": "third_puzzle",
+      "frames": 41,
+      "images": 16,
+      "startingMoveCount": 0,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "3e434acbd9445c63e3db596dd5b674424562d092efc13546c1bf12e54126c9c5",
+      "frameIntervalsMs": {
+        "min": 17.100000000000023,
+        "median": 17.75,
+        "max": 53.700000000000045,
+        "above50": 1
+      }
+    },
+    {
+      "case": "cardinal/third_puzzle-R",
+      "category": "cardinal",
+      "level": "third_puzzle",
+      "frames": 41,
+      "images": 16,
+      "startingMoveCount": 0,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "d7ba436affeb22064d0981ed2d1f9d925136a9b5b9f063fecb0c13d693879ae0",
+      "frameIntervalsMs": {
+        "min": 17.100000000000023,
+        "median": 17.799999999999955,
+        "max": 35.299999999999955,
+        "above50": 0
+      }
+    },
+    {
+      "case": "cardinal/third_puzzle-U",
+      "category": "cardinal",
+      "level": "third_puzzle",
+      "frames": 42,
+      "images": 16,
+      "startingMoveCount": 0,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "bcb9ccaf60c7f7aee8644ba70b611fd30633a2d8f0e5ed284e3b885e381e776b",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.59999999999991,
+        "max": 35.60000000000002,
+        "above50": 0
+      }
+    },
+    {
+      "case": "hub-lifecycle/count-pause-800x540",
+      "category": "hub-lifecycle",
+      "level": "third_puzzle then hub",
+      "frames": 319,
+      "images": 54,
+      "startingMoveCount": 32,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 800,
+        "height": 540,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 540
+      },
+      "traceSha256": "b868a1c92885e8974ca9e2d0429675970e25d4a27ae9c7f5abbe9f9f001bb486",
+      "frameIntervalsMs": {
+        "min": 17.099999999998545,
+        "median": 17.600000000000364,
+        "max": 18.600000000000364,
+        "above50": 0
+      }
+    },
+    {
+      "case": "hub-lifecycle/natural-count",
+      "category": "hub-lifecycle",
+      "level": "third_puzzle then hub",
+      "frames": 318,
+      "images": 53,
+      "startingMoveCount": 32,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "2ff63965e3345c17074b48017baec9e6c2f34b6dba1858317debb7ec3c396ebe",
+      "frameIntervalsMs": {
+        "min": 17.0,
+        "median": 17.699999999999818,
+        "max": 19.100000000000364,
+        "above50": 0
+      }
+    },
+    {
+      "case": "hub-lifecycle/nine-win-celebration-pause",
+      "category": "hub-lifecycle",
+      "level": "third_puzzle then hub",
+      "frames": 600,
+      "images": 100,
+      "startingMoveCount": 32,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "5bac2c60838efa1272a46cd2901ff7e842cf1a024727837d9a21b838ead55e4d",
+      "frameIntervalsMs": {
+        "min": 17.0,
+        "median": 17.699999999999818,
+        "max": 18.700000000000728,
+        "above50": 0
+      }
+    },
+    {
+      "case": "long-routes/1by1_playerr_flip2",
+      "category": "long-routes",
+      "level": "1by1_playerr_flip2",
+      "frames": 1209,
+      "images": 340,
+      "startingMoveCount": 0,
+      "endingMoveCount": 19,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "dea56bc838ab805d91314befade8b1237d66c533a4bf742d54cb454745508715",
+      "frameIntervalsMs": {
+        "min": 17.0,
+        "median": 17.700000000000728,
+        "max": 87.79999999999927,
+        "above50": 4
+      }
+    },
+    {
+      "case": "long-routes/infenter_first_2",
+      "category": "long-routes",
+      "level": "infenter_first_2",
+      "frames": 850,
+      "images": 308,
+      "startingMoveCount": 0,
+      "endingMoveCount": 22,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "a4d5b6be8e19bb1a3ab5134861433db1abfbb9de2b036332a76f783e90e41119",
+      "frameIntervalsMs": {
+        "min": 17.0,
+        "median": 17.700000000000273,
+        "max": 70.5,
+        "above50": 5
+      }
+    },
+    {
+      "case": "long-routes/infenter_zone_v2",
+      "category": "long-routes",
+      "level": "infenter_zone_v2",
+      "frames": 1566,
+      "images": 476,
+      "startingMoveCount": 0,
+      "endingMoveCount": 29,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "a1518524f9635c17277f79532ec7c564032150681e8ecf841275c74b16955633",
+      "frameIntervalsMs": {
+        "min": 1.3000000000010914,
+        "median": 17.700000000000728,
+        "max": 72.90000000000146,
+        "above50": 18
+      }
+    },
+    {
+      "case": "mechanics/carry",
+      "category": "mechanics",
+      "level": "carry",
+      "frames": 61,
+      "images": 16,
+      "startingMoveCount": 3,
+      "endingMoveCount": 4,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "7d3bc3b3a808d2bf485a879d445230011915fdc228fb03106f72dc5d7d0aeeb8",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.65000000000009,
+        "max": 18.5,
+        "above50": 0
+      }
+    },
+    {
+      "case": "mechanics/clone",
+      "category": "mechanics",
+      "level": "clone_first_2",
+      "frames": 61,
+      "images": 16,
+      "startingMoveCount": 3,
+      "endingMoveCount": 4,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "3c79338ff0ebea87d9b3adb7808d2293102579147fc5e38a361b9a848b4d1f23",
+      "frameIntervalsMs": {
+        "min": 17.0,
+        "median": 17.649999999999864,
+        "max": 18.300000000000182,
+        "above50": 0
+      }
+    },
+    {
+      "case": "mechanics/cycle",
+      "category": "mechanics",
+      "level": "cycle_line",
+      "frames": 61,
+      "images": 16,
+      "startingMoveCount": 15,
+      "endingMoveCount": 16,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "dd5b28f3f8a68c075e6f51b5d1cdc370625430f04085e6199db8db7488633633",
+      "frameIntervalsMs": {
+        "min": 17.100000000000364,
+        "median": 17.80000000000109,
+        "max": 18.600000000000364,
+        "above50": 0
+      }
+    },
+    {
+      "case": "mechanics/eat",
+      "category": "mechanics",
+      "level": "eat_same_side",
+      "frames": 60,
+      "images": 16,
+      "startingMoveCount": 1,
+      "endingMoveCount": 2,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "d59fe7c2fc5a42792c3d3816e604761bb30f19a3599c150f6bbf2fead44b427f",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.600000000000136,
+        "max": 35.200000000000045,
+        "above50": 0
+      }
+    },
+    {
+      "case": "mechanics/enter",
+      "category": "mechanics",
+      "level": "enter",
+      "frames": 61,
+      "images": 16,
+      "startingMoveCount": 10,
+      "endingMoveCount": 11,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "33d6fca6f7b91211ae1257c129d7b925e4a839748e45dab50ac93286709b6518",
+      "frameIntervalsMs": {
+        "min": 17.099999999998545,
+        "median": 17.699999999999818,
+        "max": 18.599999999998545,
+        "above50": 0
+      }
+    },
+    {
+      "case": "mechanics/exit",
+      "category": "mechanics",
+      "level": "enter",
+      "frames": 60,
+      "images": 16,
+      "startingMoveCount": 11,
+      "endingMoveCount": 12,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "82ad24a3e59fd35dfd7fa8af0eca10ea83f1c2e7a9c94052fe17d11a3ae366c7",
+      "frameIntervalsMs": {
+        "min": 17.100000000000364,
+        "median": 17.69999999999891,
+        "max": 18.700000000000728,
+        "above50": 0
+      }
+    },
+    {
+      "case": "mechanics/fixed-focus",
+      "category": "mechanics",
+      "level": "static_focus_block",
+      "frames": 59,
+      "images": 3,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "12d7014f1762a4e216ae675383e03f7f7dac66c823dde72dc836b036b5917729",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.5,
+        "max": 18.200000000000045,
+        "above50": 0
+      }
+    },
+    {
+      "case": "mechanics/flip",
+      "category": "mechanics",
+      "level": "1by1_playerr_flip2",
+      "frames": 44,
+      "images": 16,
+      "startingMoveCount": 2,
+      "endingMoveCount": 3,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "2454229f06aa630827790295bab11bf0d2fdebc36743a1f0cc4df35290877775",
+      "frameIntervalsMs": {
+        "min": 17.199999999999818,
+        "median": 17.90000000000009,
+        "max": 89.0,
+        "above50": 5
+      }
+    },
+    {
+      "case": "mechanics/flip-first",
+      "category": "mechanics",
+      "level": "flip_first",
+      "frames": 60,
+      "images": 16,
+      "startingMoveCount": 4,
+      "endingMoveCount": 5,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "9b562f33dfb0211d09a0bf22bacb5fa3b569fc993d3e541e7ba965663283ccd9",
+      "frameIntervalsMs": {
+        "min": 17.100000000000364,
+        "median": 17.700000000000728,
+        "max": 35.600000000000364,
+        "above50": 0
+      }
+    },
+    {
+      "case": "mechanics/grid",
+      "category": "mechanics",
+      "level": "grid_clone",
+      "frames": 59,
+      "images": 16,
+      "startingMoveCount": 0,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "b0e830df414c9e4bd96b111932419d73784f464ad6e19463240e5260aabb2dc7",
+      "frameIntervalsMs": {
+        "min": 17.100000000000136,
+        "median": 17.700000000000045,
+        "max": 71.09999999999991,
+        "above50": 1
+      }
+    },
+    {
+      "case": "mechanics/infexit",
+      "category": "mechanics",
+      "level": "infexit_ref_first",
+      "frames": 57,
+      "images": 16,
+      "startingMoveCount": 8,
+      "endingMoveCount": 9,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "4d187cca10d1abc721db0c88d239d3b0a01f7228d4456eeb470f7b562588504f",
+      "frameIntervalsMs": {
+        "min": 17.199999999999818,
+        "median": 17.799999999999727,
+        "max": 69.30000000000018,
+        "above50": 1
+      }
+    },
+    {
+      "case": "mechanics/infinity",
+      "category": "mechanics",
+      "level": "infenter_zone_v2",
+      "frames": 61,
+      "images": 16,
+      "startingMoveCount": 3,
+      "endingMoveCount": 4,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "0936c9dcf9c08212fd3f425997fcd03f3ef6eb192b8e09a210de9f531df830b8",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.699999999999818,
+        "max": 18.59999999999991,
+        "above50": 0
+      }
+    },
+    {
+      "case": "mechanics/inspection",
+      "category": "mechanics",
+      "level": "enter",
+      "frames": 89,
+      "images": 13,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "b5e1012d89ed5cd72bf5ede853f86821acb260f0e38c847c290200e21cb3f5bc",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.700000000000273,
+        "max": 35.5,
+        "above50": 0
+      }
+    },
+    {
+      "case": "mechanics/possess",
+      "category": "mechanics",
+      "level": "possess_first",
+      "frames": 60,
+      "images": 13,
+      "startingMoveCount": 4,
+      "endingMoveCount": 5,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "08f6a29bd2008f6dfeba0d26acaddf017a904ab7647d00f90dcbdd6da492fe23",
+      "frameIntervalsMs": {
+        "min": 17.099999999999454,
+        "median": 17.799999999999272,
+        "max": 36.0,
+        "above50": 0
+      }
+    },
+    {
+      "case": "mechanics/quick",
+      "category": "mechanics",
+      "level": "oldstyle_lock_two_doors",
+      "frames": 61,
+      "images": 7,
+      "startingMoveCount": 0,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "1afc951bb87f68ebd146c3a5f5ce602844e7da8a6e0a0614b22a63916855e1de",
+      "frameIntervalsMs": {
+        "min": 17.100000000000136,
+        "median": 17.59999999999991,
+        "max": 18.40000000000009,
+        "above50": 0
+      }
+    },
+    {
+      "case": "mechanics/shed",
+      "category": "mechanics",
+      "level": "shed_first",
+      "frames": 60,
+      "images": 16,
+      "startingMoveCount": 5,
+      "endingMoveCount": 6,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "30022784547589bfde5cf827df3947410d397262200090aaa221ae33e833631f",
+      "frameIntervalsMs": {
+        "min": 17.100000000000364,
+        "median": 17.699999999999818,
+        "max": 18.599999999999454,
+        "above50": 0
+      }
+    },
+    {
+      "case": "mechanics/tui",
+      "category": "mechanics",
+      "level": "text_1",
+      "frames": 59,
+      "images": 16,
+      "startingMoveCount": 0,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "69384d0b8e4de50444378b0c0e38b49c3c100d31041bcba3dd302d3199d4e3e9",
+      "frameIntervalsMs": {
+        "min": 17.0,
+        "median": 17.69999999999999,
+        "max": 35.200000000000045,
+        "above50": 0
+      }
+    },
+    {
+      "case": "natural-input/alternating-repress",
+      "category": "natural-input",
+      "level": "first_puzzle",
+      "frames": 54,
+      "images": 48,
+      "startingMoveCount": 0,
+      "endingMoveCount": 4,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "3015f362764c8dc3481ec5a6c44585fa3c0c74342b34eea59022447be427729d",
+      "frameIntervalsMs": {
+        "min": 17.200000000000045,
+        "median": 17.90000000000009,
+        "max": 70.39999999999998,
+        "above50": 4
+      }
+    },
+    {
+      "case": "natural-input/blocked-repress",
+      "category": "natural-input",
+      "level": "first_puzzle",
+      "frames": 84,
+      "images": 45,
+      "startingMoveCount": 0,
+      "endingMoveCount": 3,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "d4cade244cf82618d100295394c6e0a1ced9ff144164f9e56802118648e605b6",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.600000000000136,
+        "max": 53.80000000000007,
+        "above50": 2
+      }
+    },
+    {
+      "case": "natural-input/held-history",
+      "category": "natural-input",
+      "level": "first_puzzle",
+      "frames": 248,
+      "images": 42,
+      "startingMoveCount": 4,
+      "endingMoveCount": 4,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "1fda55c9d10be8e9f231d72b840c307c24fb9a5dd5c69fe09d5f0e35050937b0",
+      "frameIntervalsMs": {
+        "min": 17.099999999999454,
+        "median": 17.700000000000728,
+        "max": 18.700000000000728,
+        "above50": 0
+      }
+    },
+    {
+      "case": "natural-input/idle-history",
+      "category": "natural-input",
+      "level": "first_puzzle",
+      "frames": 80,
+      "images": 14,
+      "startingMoveCount": 4,
+      "endingMoveCount": 4,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "2131b4120262a55e5c981fac3a91d0d63a71ba2c2c98dba373d2fdb828c3da6f",
+      "frameIntervalsMs": {
+        "min": 17.099999999999454,
+        "median": 17.700000000000273,
+        "max": 18.800000000000182,
+        "above50": 0
+      }
+    },
+    {
+      "case": "natural-input/queue",
+      "category": "natural-input",
+      "level": "first_puzzle",
+      "frames": 41,
+      "images": 26,
+      "startingMoveCount": 0,
+      "endingMoveCount": 2,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "914fc4f1d72ff27c225b21d4cb30fe85e9efd03114c570e6e0a6160c2c5d6a40",
+      "frameIntervalsMs": {
+        "min": 17.100000000000023,
+        "median": 17.700000000000045,
+        "max": 52.19999999999993,
+        "above50": 1
+      }
+    },
+    {
+      "case": "natural-input/rapid-turns",
+      "category": "natural-input",
+      "level": "first_puzzle",
+      "frames": 49,
+      "images": 38,
+      "startingMoveCount": 0,
+      "endingMoveCount": 3,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "36cf2874143871f31f046fcdcd885ee4a71cae2576cf0d47f2523868d304d9f0",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.600000000000023,
+        "max": 35.89999999999998,
+        "above50": 0
+      }
+    },
+    {
+      "case": "natural-input/simultaneous",
+      "category": "natural-input",
+      "level": "first_puzzle",
+      "frames": 61,
+      "images": 30,
+      "startingMoveCount": 0,
+      "endingMoveCount": 2,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "17e4fed1389e8b7ff22ce9b13f122e5d488ade4b4f93c0a6f9a03060c797a93d",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.600000000000023,
+        "max": 53.5,
+        "above50": 1
+      }
+    },
+    {
+      "case": "natural-input/slide-history",
+      "category": "natural-input",
+      "level": "first_puzzle",
+      "frames": 74,
+      "images": 31,
+      "startingMoveCount": 0,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "9a57e6800767ffa3ce10cb76fd79b566fe9f7976b619b6834c82661a10dfc052",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.700000000000045,
+        "max": 53.69999999999993,
+        "above50": 1
+      }
+    },
+    {
+      "case": "new-regressions/strict-enter-DD",
+      "category": "new-regressions",
+      "level": "infenter_zone_v2",
+      "frames": 60,
+      "images": 16,
+      "startingMoveCount": 1,
+      "endingMoveCount": 2,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "be30a40b5ca4d56b72354f6d412d33a8331e89841613960994b537cd565fd1ae",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.699999999999818,
+        "max": 52.799999999999955,
+        "above50": 1
+      }
+    },
+    {
+      "case": "new-regressions/strict-enter-DDD",
+      "category": "new-regressions",
+      "level": "infenter_zone_v2",
+      "frames": 61,
+      "images": 16,
+      "startingMoveCount": 2,
+      "endingMoveCount": 3,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "26bd1f8b36d1119678edb38472c528f1f98f158c8b0dd9b6a68fcb0de2a1b477",
+      "frameIntervalsMs": {
+        "min": 17.0,
+        "median": 17.59999999999991,
+        "max": 18.5,
+        "above50": 0
+      }
+    },
+    {
+      "case": "new-regressions/terminal-LLLR",
+      "category": "new-regressions",
+      "level": "infenter_poswall_setup",
+      "frames": 61,
+      "images": 16,
+      "startingMoveCount": 3,
+      "endingMoveCount": 4,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "7711ccc61322ea1a8c951cd64426ba22a322af216b4451755fe1d3bd2bbcc360",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.699999999999818,
+        "max": 18.300000000000182,
+        "above50": 0
+      }
+    },
+    {
+      "case": "note/1001x733/activation",
+      "category": "note",
+      "level": "hub",
+      "frames": 50,
+      "images": 2,
+      "startingMoveCount": 3,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1001,
+        "height": 733,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 1001,
+        "canvasHeight": 733
+      },
+      "traceSha256": "96937a1ce1376b99bf9cf9a07e607ede0ab727d21977f2ffb85c92753f588953",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.600000000000364,
+        "max": 18.200000000000273,
+        "above50": 0
+      }
+    },
+    {
+      "case": "note/1001x733/third",
+      "category": "note",
+      "level": "third_puzzle",
+      "frames": 17,
+      "images": 3,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1001,
+        "height": 733,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 1001,
+        "canvasHeight": 733
+      },
+      "traceSha256": "44cbda5651cc52f531ac4949c9576013087f467fa52b8821359ca5e86989c444",
+      "frameIntervalsMs": {
+        "min": 17.200000000000728,
+        "median": 17.5,
+        "max": 18.099999999999454,
+        "above50": 0
+      }
+    },
+    {
+      "case": "note/1280x720/activation",
+      "category": "note",
+      "level": "hub",
+      "frames": 50,
+      "images": 2,
+      "startingMoveCount": 3,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 1280,
+        "canvasHeight": 720
+      },
+      "traceSha256": "f76238e07f8a10c91db2f734b51eb76939471d8543d2865099c0f0ae12beabf0",
+      "frameIntervalsMs": {
+        "min": 17.100000000000364,
+        "median": 17.699999999999818,
+        "max": 18.40000000000009,
+        "above50": 0
+      }
+    },
+    {
+      "case": "note/1280x720/third",
+      "category": "note",
+      "level": "third_puzzle",
+      "frames": 16,
+      "images": 3,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 1280,
+        "canvasHeight": 720
+      },
+      "traceSha256": "6a656b05afced66a4418797c7dbf72a253acdc7f7d8d0de40f8005873f6bdf6f",
+      "frameIntervalsMs": {
+        "min": 17.099999999999454,
+        "median": 17.699999999999818,
+        "max": 18.300000000000182,
+        "above50": 0
+      }
+    },
+    {
+      "case": "note/800x600/activation",
+      "category": "note",
+      "level": "hub",
+      "frames": 50,
+      "images": 2,
+      "startingMoveCount": 3,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "5f8fcb832a37bcb763ab7550a10f329861a12b9015e09d5bc1ca842bf3caa474",
+      "frameIntervalsMs": {
+        "min": 17.100000000000364,
+        "median": 17.700000000000273,
+        "max": 18.200000000000273,
+        "above50": 0
+      }
+    },
+    {
+      "case": "note/800x600/third",
+      "category": "note",
+      "level": "third_puzzle",
+      "frames": 16,
+      "images": 3,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "8b827449a6d7b6692373ab01ef0de24316abcc824c04010012cc49e611542d7a",
+      "frameIntervalsMs": {
+        "min": 17.09999999999127,
+        "median": 17.5,
+        "max": 18.19999999999709,
+        "above50": 0
+      }
+    },
+    {
+      "case": "odd-dpr/1001x699-dpr2/first_puzzle",
+      "category": "odd-dpr",
+      "level": "first_puzzle",
+      "frames": 13,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1001,
+        "height": 699,
+        "dpr": 2.0000000596046448,
+        "canvasWidth": 2002,
+        "canvasHeight": 1398
+      },
+      "traceSha256": "dda660be9f38e2a9a7988a6cd72c89c046b2a787629287000e72de1a78a6dfb4",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.700000000000045,
+        "max": 18.09999999999991,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/1001x733-dpr1/first_puzzle",
+      "category": "static",
+      "level": "first_puzzle",
+      "frames": 12,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1001,
+        "height": 733,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 1001,
+        "canvasHeight": 733
+      },
+      "traceSha256": "d1a0434b68807fb7ded4bf83344073c6742e6325a8d463812381dea6b229d1af",
+      "frameIntervalsMs": {
+        "min": 17.199999999999932,
+        "median": 17.700000000000045,
+        "max": 18.299999999999955,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/1001x733-dpr1/second_puzzle",
+      "category": "static",
+      "level": "second_puzzle",
+      "frames": 12,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1001,
+        "height": 733,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 1001,
+        "canvasHeight": 733
+      },
+      "traceSha256": "ca83963b44e9d45afa3b9f4cef9a6eac5d499e780096f7d733d33a467c32221f",
+      "frameIntervalsMs": {
+        "min": 17.100000000000136,
+        "median": 17.700000000000045,
+        "max": 18.199999999999932,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/1001x733-dpr1/third_puzzle",
+      "category": "static",
+      "level": "third_puzzle",
+      "frames": 12,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1001,
+        "height": 733,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 1001,
+        "canvasHeight": 733
+      },
+      "traceSha256": "88bdb5fba8ade1354bf672c1605583880219bfad5028c9da284617122894c9a8",
+      "frameIntervalsMs": {
+        "min": 17.300000000000068,
+        "median": 17.899999999999977,
+        "max": 18.299999999999955,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/1001x733-dpr2/first_puzzle",
+      "category": "static",
+      "level": "first_puzzle",
+      "frames": 13,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1001,
+        "height": 733,
+        "dpr": 2.0000000596046448,
+        "canvasWidth": 2002,
+        "canvasHeight": 1466
+      },
+      "traceSha256": "edeb92b3a3ebf932d0cacc9fa02ae1752089de01f8582ef540d7b1e9c6efc98a",
+      "frameIntervalsMs": {
+        "min": 17.200000000000045,
+        "median": 17.549999999999955,
+        "max": 18.09999999999991,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/1001x733-dpr2/second_puzzle",
+      "category": "static",
+      "level": "second_puzzle",
+      "frames": 13,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1001,
+        "height": 733,
+        "dpr": 2.0000000596046448,
+        "canvasWidth": 2002,
+        "canvasHeight": 1466
+      },
+      "traceSha256": "3df056f99160f67d06ef9ce8d8d10122bbf8be2c19b10fdc78c95a0f0caae604",
+      "frameIntervalsMs": {
+        "min": 17.399999999999864,
+        "median": 17.799999999999955,
+        "max": 18.100000000000136,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/1001x733-dpr2/third_puzzle",
+      "category": "static",
+      "level": "third_puzzle",
+      "frames": 12,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1001,
+        "height": 733,
+        "dpr": 2.0000000596046448,
+        "canvasWidth": 2002,
+        "canvasHeight": 1466
+      },
+      "traceSha256": "175409d2de688117dc2653708bcd227114569fc64f578188b65e7d32e97bc481",
+      "frameIntervalsMs": {
+        "min": 17.300000000000068,
+        "median": 18.09999999999991,
+        "max": 35.5,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/1280x720-dpr1/first_puzzle",
+      "category": "static",
+      "level": "first_puzzle",
+      "frames": 12,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 1280,
+        "canvasHeight": 720
+      },
+      "traceSha256": "f5f29dbac67e2c4b4e0c551da6e68b41b559779c944fdbd49871cb295ab5a670",
+      "frameIntervalsMs": {
+        "min": 17.199999999999818,
+        "median": 17.799999999999955,
+        "max": 18.299999999999955,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/1280x720-dpr1/second_puzzle",
+      "category": "static",
+      "level": "second_puzzle",
+      "frames": 12,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 1280,
+        "canvasHeight": 720
+      },
+      "traceSha256": "2d2cbbc4c9b41d52aaadc55b785b5daf2fe262d89beac4ceb3c8496d80988bff",
+      "frameIntervalsMs": {
+        "min": 17.200000000000045,
+        "median": 17.600000000000023,
+        "max": 18.600000000000023,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/1280x720-dpr1/third_puzzle",
+      "category": "static",
+      "level": "third_puzzle",
+      "frames": 12,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 1280,
+        "canvasHeight": 720
+      },
+      "traceSha256": "39cc619b2253807654eae22a75c7245c29c610576c6a9bdc7d4ce8a6b388820c",
+      "frameIntervalsMs": {
+        "min": 17.199999999999932,
+        "median": 17.59999999999991,
+        "max": 18.0,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/1280x720-dpr2/first_puzzle",
+      "category": "static",
+      "level": "first_puzzle",
+      "frames": 13,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 2.0000000596046448,
+        "canvasWidth": 2560,
+        "canvasHeight": 1440
+      },
+      "traceSha256": "848f66fb5808d7385970275194e9936707c718c92374025e22e7189dce89e359",
+      "frameIntervalsMs": {
+        "min": 17.200000000000045,
+        "median": 17.599999999999966,
+        "max": 18.199999999999818,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/1280x720-dpr2/second_puzzle",
+      "category": "static",
+      "level": "second_puzzle",
+      "frames": 13,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 2.0000000596046448,
+        "canvasWidth": 2560,
+        "canvasHeight": 1440
+      },
+      "traceSha256": "7d543effcddf7cee20ffd8fbb0cfa3d5bcb7f8ddf01ff0963fcb635be347c789",
+      "frameIntervalsMs": {
+        "min": 17.199999999999818,
+        "median": 17.650000000000034,
+        "max": 18.0,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/1280x720-dpr2/third_puzzle",
+      "category": "static",
+      "level": "third_puzzle",
+      "frames": 12,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 2.0000000596046448,
+        "canvasWidth": 2560,
+        "canvasHeight": 1440
+      },
+      "traceSha256": "f28cd1383190cf4dab8067b15d81dafab881d2dc760642dc1be434c6cb763ae8",
+      "frameIntervalsMs": {
+        "min": 17.200000000000045,
+        "median": 17.899999999999864,
+        "max": 18.40000000000009,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/1280x900-dpr1/third_puzzle",
+      "category": "static",
+      "level": "third_puzzle",
+      "frames": 12,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1280,
+        "height": 900,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 1280,
+        "canvasHeight": 900
+      },
+      "traceSha256": "8d497cf10cef1aa2ae61d284abf9a9c9715ca58b0451c46efc8f52b68d1a14ce",
+      "frameIntervalsMs": {
+        "min": 17.200000000000045,
+        "median": 17.40000000000009,
+        "max": 17.90000000000009,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/1280x900-dpr2/third_puzzle",
+      "category": "static",
+      "level": "third_puzzle",
+      "frames": 12,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 1280,
+        "height": 900,
+        "dpr": 2.0000000596046448,
+        "canvasWidth": 2560,
+        "canvasHeight": 1800
+      },
+      "traceSha256": "f51a7057ac145924599cc8265f18df3a15e753456477558d0a8cf2aac248c079",
+      "frameIntervalsMs": {
+        "min": 17.200000000000045,
+        "median": 17.40000000000009,
+        "max": 17.799999999999955,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/800x600-dpr1/first_puzzle",
+      "category": "static",
+      "level": "first_puzzle",
+      "frames": 12,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "942515da542d9854839d73051bca1b2d35829b5e964c4b81749a556cc278861b",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.600000000000023,
+        "max": 18.200000000000045,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/800x600-dpr1/second_puzzle",
+      "category": "static",
+      "level": "second_puzzle",
+      "frames": 12,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "535aaec6dc45416a07b31f6becdeab3afb8f45e641ec2ec45d3f3d4e78e12c7c",
+      "frameIntervalsMs": {
+        "min": 17.100000000000136,
+        "median": 17.600000000000023,
+        "max": 18.0,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/800x600-dpr1/third_puzzle",
+      "category": "static",
+      "level": "third_puzzle",
+      "frames": 12,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "5da345b27130b8f0b9f88042b7a7405f1dcd638b69c392a63798cc4a76ecfc3d",
+      "frameIntervalsMs": {
+        "min": 17.299999999999955,
+        "median": 17.600000000000023,
+        "max": 18.5,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/800x600-dpr2/first_puzzle",
+      "category": "static",
+      "level": "first_puzzle",
+      "frames": 12,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 2.0000000596046448,
+        "canvasWidth": 1600,
+        "canvasHeight": 1200
+      },
+      "traceSha256": "4f768be4f528f87539e3f15f5f5b7c24a5b9491dd1a1e8dbb3b5e7b36397f521",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 18.0,
+        "max": 34.60000000000002,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/800x600-dpr2/second_puzzle",
+      "category": "static",
+      "level": "second_puzzle",
+      "frames": 13,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 2.0000000596046448,
+        "canvasWidth": 1600,
+        "canvasHeight": 1200
+      },
+      "traceSha256": "94e14825b04f6251c81bf0554bd8ede8f1639fa86f2b8d10550354ec8e4ec1c0",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.5,
+        "max": 18.200000000000045,
+        "above50": 0
+      }
+    },
+    {
+      "case": "static/800x600-dpr2/third_puzzle",
+      "category": "static",
+      "level": "third_puzzle",
+      "frames": 12,
+      "images": 2,
+      "startingMoveCount": 0,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 2.0000000596046448,
+        "canvasWidth": 1600,
+        "canvasHeight": 1200
+      },
+      "traceSha256": "bb403a1307a69282fdb162f2d1b5cede8a2963a6e88ba0d5d964fb389ba259da",
+      "frameIntervalsMs": {
+        "min": 17.09999999999991,
+        "median": 17.5,
+        "max": 34.80000000000007,
+        "above50": 0
+      }
+    },
+    {
+      "case": "transitions/first-win-held",
+      "category": "transitions",
+      "level": "first_puzzle",
+      "frames": 142,
+      "images": 60,
+      "startingMoveCount": 13,
+      "endingMoveCount": 2,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "75e59292d5e2438bcecd7553fd9fd1c76e52388f5d66e86a017a944c1873bdf2",
+      "frameIntervalsMs": {
+        "min": 17.099999999998545,
+        "median": 17.700000000000728,
+        "max": 70.39999999999964,
+        "above50": 1
+      }
+    },
+    {
+      "case": "transitions/second-win-held-corrected",
+      "category": "transitions",
+      "level": "second_puzzle",
+      "frames": 149,
+      "images": 51,
+      "startingMoveCount": 22,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "ee229acff82de68ea4eb2d7e1cceb280ad5589d108254d7099d3aaed4caadd31",
+      "frameIntervalsMs": {
+        "min": 1.2999999999992724,
+        "median": 17.600000000002183,
+        "max": 36.099999999998545,
+        "above50": 0
+      }
+    },
+    {
+      "case": "transitions/third-win-held-corrected",
+      "category": "transitions",
+      "level": "third_puzzle",
+      "frames": 142,
+      "images": 49,
+      "startingMoveCount": 31,
+      "endingMoveCount": 1,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "683536f043f9253f80ed17752bfa21ceade61510ee911b63a3554824f5f06ee3",
+      "frameIntervalsMs": {
+        "min": 17.099999999998545,
+        "median": 17.700000000000728,
+        "max": 52.20000000000073,
+        "above50": 2
+      }
+    },
+    {
+      "case": "transitions/third-win-restart-undo-corrected",
+      "category": "transitions",
+      "level": "third_puzzle",
+      "frames": 136,
+      "images": 32,
+      "startingMoveCount": 31,
+      "endingMoveCount": 0,
+      "viewport": {
+        "width": 800,
+        "height": 600,
+        "dpr": 1.0000000298023224,
+        "canvasWidth": 800,
+        "canvasHeight": 600
+      },
+      "traceSha256": "71c7ecf1fe6ecd1266dd39a6a1914087b23749f15caf8758cdd651c1708e3c1b",
+      "frameIntervalsMs": {
+        "min": 17.099999999998545,
+        "median": 17.700000000000728,
+        "max": 35.70000000000073,
+        "above50": 0
+      }
+    }
+  ],
+  "supplementalImages": [
+    {
+      "path": "long-routes/1by1_playerr_flip2/phase-pairs-01.png",
+      "sha256": "84b185ce646d804569f291ba696920b7220d8ced52bbfd80083b2ef10832c41a",
+      "scope": "derived unscaled inspection plate; excluded from raw capture counts"
+    },
+    {
+      "path": "long-routes/1by1_playerr_flip2/phase-pairs-02.png",
+      "sha256": "96d5e16ce019e35771fbc9c1c43e5677f0338bc6f326bc276734046368843e60",
+      "scope": "derived unscaled inspection plate; excluded from raw capture counts"
+    },
+    {
+      "path": "long-routes/1by1_playerr_flip2/phase-pairs-03.png",
+      "sha256": "5a742459fb3efcee15feb382ba785c421ef9a4cca8e12cfb0c098182dd8802e1",
+      "scope": "derived unscaled inspection plate; excluded from raw capture counts"
+    },
+    {
+      "path": "long-routes/1by1_playerr_flip2/phase-pairs-04.png",
+      "sha256": "47f416f0f5b9288fdc45191d7137ec731473db8f5889d5e8ac88aa9a64eb00b6",
+      "scope": "derived unscaled inspection plate; excluded from raw capture counts"
+    },
+    {
+      "path": "long-routes/infenter_first_2/phase-pairs-01.png",
+      "sha256": "f4b252830cb4b061c102fc86a372a84807ee5a44e8f0efe98d74e3c9fdb89e8a",
+      "scope": "derived unscaled inspection plate; excluded from raw capture counts"
+    },
+    {
+      "path": "long-routes/infenter_first_2/phase-pairs-02.png",
+      "sha256": "4f88bb8c5f14a578ea0514c1484f267f6e9ada1f2be93335af8b5f53c91bc3b9",
+      "scope": "derived unscaled inspection plate; excluded from raw capture counts"
+    },
+    {
+      "path": "long-routes/infenter_first_2/phase-pairs-03.png",
+      "sha256": "0d16c79928745e4ff3ffe141a54bcd8a995f7d093b7e2a0d32a43cba4f0fdef6",
+      "scope": "derived unscaled inspection plate; excluded from raw capture counts"
+    },
+    {
+      "path": "long-routes/infenter_zone_v2/phase-pairs-01.png",
+      "sha256": "f5c6236bc394f807161f02e6cc0dae725df5aab65532205c87e09908626e0538",
+      "scope": "derived unscaled inspection plate; excluded from raw capture counts"
+    },
+    {
+      "path": "long-routes/infenter_zone_v2/phase-pairs-02.png",
+      "sha256": "7b07177d20fa09acd170d5671a062aa71409df7febe3c4ee24d739c8ab1ca4db",
+      "scope": "derived unscaled inspection plate; excluded from raw capture counts"
+    },
+    {
+      "path": "long-routes/infenter_zone_v2/phase-pairs-03.png",
+      "sha256": "e7dddfadf46747c159fe276d0727a6bc07d96a5266d12f1e0f5882075c625edd",
+      "scope": "derived unscaled inspection plate; excluded from raw capture counts"
+    },
+    {
+      "path": "long-routes/infenter_zone_v2/phase-pairs-04.png",
+      "sha256": "0e619fa7f06c81910e619a442f2543293208d76ac73e60fb33be1d19e542026c",
+      "scope": "derived unscaled inspection plate; excluded from raw capture counts"
+    }
+  ]
+}

@@ -4,49 +4,54 @@ Started 2026-10-25 at `f8e7539` with clean worktree. Full task is the user attac
 
 ## Current acceptance state — 2026-10-25
 
-- Latest committed production correction is5446116 (ordinary-exit old-cell copy);
-  exit-scoped71files/1098tests,typecheck/buildpass. The separate in-progress
-  strict-enter constructor and terminal-wall regression are not claimed
-  covered by that scoped run. Actual44rAF/16PNG restores the orange copy;
-  independent recheck/final immutable capture remains pending.
-  The preceding2d09419 fixes local covered-button white outlines;
-  immutable candidatev5 records1000source hashes/142dist hashes. It is a new
-  historical integrated capture target, not final acceptance.70files/1078tests,22original
-  conformance cases,typecheck/build pass. Optional sweep adds0fixture cases.
-- v5 has all20repeated static cases/40actualPNGs, plus a separate odd-axis
-  DPR2probe/2PNGs. Unchanged diagnostics find2780wall/426floor qualified
-  samples0outside established1/255,2432join measurements0suspects,72goldclip
-  samples exact255,allDPR1border supports exact. Matched1600x1200 native/Web
-  conditions3/10 have0physical border differences; remaining7native requests
-  are rejected, not passes. Separate2002x1398 probe matches12/12border sides.
-- Full retained longroutes now have94actualWeb attempts/70accepted,
-  3812rAF/1128PNGs and exact complete ordered endpoints against native71/87/
-  123blocks. Every accepted/blocked count matches recorded action ownership.
-  Their sparse native tails and global effect clocks remain explicit limits.
-  The first route's white-outline defect found during this pass is fixed:
-  after886rAF/310PNG, native/new416purewhite outline masks match exactly.
-- Source-backed Hub previews/connections/shadows/markers,pause/Leave camera,
-  generic icon captions and bounded wrapped Note are committed. Hub fraction
-  rendering/counting/unlock/celebration lifecycle and paused labels remain
-  incomplete. Exact native glyph sizes10/13/18andothers are unavailable;
-  descriptors returningnull do not establish a rendered feature.
-- Independent reviewer has directly viewed116v4primary PNGs across8cases
-  and13inspection PNGs. This is not finalv5approval. It confirms a retained
-  lower-right orange recursive-copy omission during infexit crossing; source
-  constructor correction5446116 now restores it in actual development PNGs,
-  with native time brackets retained; independent recheck is pending. A
-  separate strict-enter old-cell copy omission is confirmed and its
-  constructor integration/actual before-after check is underway. Earlier flip-strip formula accusation is
-  withdrawn because independent MiscAnimT phases were unequal; appearance
-  matching remains unverified rather than a confirmed formula defect.
-- Native-font diagnostic deployment was automatically rejected twice with
-  blocked by policy; it never ran. All134subsequent hidden-launch PNGs are
-  black/rejected. Source/DLL/save were restored byte-exact, but visible native
-  rendering was not recovered. No rejected deployment is retried or bypassed.
-- Seven requested high-resolution native framebuffers are unavailable on this
-  host:2002x1466actually2002x1400(threelevels),2560x1440actually2240x1400
-  (threelevels),third2560x1800actually2240x1400. No resampled or replacement
-  framebuffer receives credit. All original rows/cases below remain in scope.
+- Production source revision `ac5afc3` integrates Hub rendering after `cdd7c98`
+  adds native count/unlock/celebration runtime. All 80 files / 1189 tests,
+  typecheck and production build pass. Frozen v6 verifies 1005 source hashes,
+  142 immutable bundle hashes and 2415 raw capture-file hashes. Its 77 actual
+  cases contain 8286 rAF records / 2338 PNGs. Existing 62 matrix contracts
+  remain intact; additions are 3 phantom regressions, 3 complete long routes,
+  3 natural Hub lifecycle routes and 6 Note activation/third-level captures.
+  These are exercised Web cases, not 77 native-versus-Web approvals.
+- v6 repeats all 20 static cases and the odd-axis DPR2 probe. Established
+  diagnostics retain 2780 wall / 426 floor samples with zero channels outside
+  1/255, 2432 join measurements with zero seam suspects, 72 exact255 gold-clip
+  samples and exact DPR1 border supports. Only 3/10 requested matched native
+  physical conditions are available, with zero physical border differences.
+  Seven rejected native conditions remain required/unverified. The separate
+  2002x1398 probe matches 12/12 border sides. No tolerance was widened.
+- Ordinary-exit `5446116` and strict-infinite-enter `8ba2168` restore missing
+  old-cell copies. Independent development-image checks confirm the bounded
+  omissions are restored within retained native phase brackets. Exact
+  trajectories/global raster are not approved. Terminal-wall `006fba4` has
+  actual v6 LLLR output but no matching native route images.
+- v6 long routes retain 94 attempts / 70 accepted moves, 3625 rAF records and
+  1124 PNGs. Every action-owned count and all 71/87/123 ordered endpoint-block
+  fields match native traces. Sparse native tails and independent effect
+  clocks remain unverified. Local covered-button white-outline `2d09419`
+  retains its historical exact416-pixel native/Web mask evidence.
+- Hub lifecycle follows native load histories, full timer deltas, list
+  mutation/global assignments, floor-before-clock order, first-Hub skip and
+  paused portal growth. Natural count/unlock/celebration/pause are recorded;
+  supported native16px renders 1-over-9. Required ordinary18px, paused13px
+  and other count-pop sizes still have absent glyphs. This is a confirmed
+  unresolved scoped rendering discrepancy; no scaled substitute was added.
+- Final Note crops match all six line-bottom supports at 800x600, 1001x733
+  and 1280x720. The retained native20px N threshold edge differs over a gray78
+  void background; established source-over alpha explains it without an
+  offset. See `evidence/web-production-candidate-v6/note/comparison.json`.
+- Independent reviewer previously viewed 116 v4 primary PNGs across 8 cases,
+  13 inspection PNGs and targeted exit/strict-enter images. Bounded final v6
+  review is in progress. Unreviewed families remain pending. The earlier
+  flip-strip formula accusation remains withdrawn because native/Web
+  independent MiscAnimT phases differed; no global image approval follows.
+- Extended native-font diagnostic deployment was automatically rejected twice
+  with `blocked by policy`, before execution. No retry/bypass occurred. All
+  134 hidden-launch PNGs are black/rejected. Observer source/DLL/save were
+  restored byte-exact, but visible native rendering was not recovered.
+- Seven native framebuffer requests remain unavailable: 2002x1466 yielded
+  2002x1400 for three levels; 2560x1440 yielded 2240x1400 for three; third
+  2560x1800 yielded 2240x1400. No resampling/pass credit is used. All original
+  rows below remain in scope. The active goal remains incomplete.
 
 ## Inventory at starting revision
 
