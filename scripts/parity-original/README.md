@@ -207,3 +207,14 @@ Third→enter is non-immediate and requires its actual Hub portal.
 IsolatedMotion now accepts -Save 'SAVE nexus=0 recent=Area_Intro won=...'.
 Timed ESCAPE/CONFIRM/CANCEL use actual World/PauseMenu input fields;
 menuControls records held/pressed edges separately from movement controls.
+
+capture-inspection-pointer.ps1 records actual ComputeMousePosition/InspectUpdate
+branches using POINTER_x_topY_MOVE/LEFT/RIGHT. A temporary Unity InputSystem
+Mouse supplies the raw coordinate read and is removed/restored afterward;
+effective click flags use the existing post-Controls.Update boundary.
+inspection.json retains native candidates, all gates, actual device/controls,
+before/after identities and restoration audit. No OS/CUA or direct-inspection
+method replay is claimed. summarize-inspection-pointer.py validates valid
+enter push/pop and third filled-gold rejection, preserving four diagnostics.
+The earlier forced INSPECT_56 capture is internal-camera-only, not a valid
+pointer acceptance fixture. See native-inspection-pointer-evidence.md.

@@ -1211,7 +1211,11 @@
           "newXS": 1,
           "newYS": 1
         }
-      }
+      },
+      "evidenceKind": "internal-camera-method-entrypoint-only",
+      "physicalPointerCoverage": false,
+      "sourceGateCoverage": false,
+      "caveat": "Direct PushInspect(56) bypasses InspectUpdate. Third gold56 is FilledWithWalls and actual native pointer rejects it; use inspection-pointer-native-index.json for valid/blocked pointer branches."
     },
     "infexit-proven-crossing-20261025": {
       "level": "infexit_ref_first",

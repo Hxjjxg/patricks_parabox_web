@@ -1,0 +1,20 @@
+﻿{
+    "id":  "inspection-third-gold-pointer-native-v1-20261025",
+    "level":  "third_puzzle",
+    "setup":  [
+
+              ],
+    "timedCommands":  [
+                          "POINTER_400_190_MOVE:100",
+                          "POINTER_400_190_LEFT:40",
+                          "POINTER_400_190_MOVE:750",
+                          "POINTER_400_190_RIGHT:40",
+                          "POINTER_400_190_MOVE:750"
+                      ],
+    "topLeftPointer":  [
+                           400,
+                           190
+                       ],
+    "expectedBranch":  "filled-child-reject",
+    "note":  "Effective Controls injection at the existing post-Controls.Update boundary. Original InspectUpdate processes all gates and calls PushInspect/PopInspect itself. No OS mouse, CUA or physical focus replay claim."
+}

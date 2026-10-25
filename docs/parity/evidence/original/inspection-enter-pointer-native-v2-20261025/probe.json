@@ -1,0 +1,20 @@
+﻿{
+    "id":  "inspection-enter-pointer-native-v2-20261025",
+    "level":  "enter",
+    "setup":  [
+
+              ],
+    "timedCommands":  [
+                          "POINTER_340_210_MOVE:100",
+                          "POINTER_340_210_LEFT:40",
+                          "POINTER_340_210_MOVE:750",
+                          "POINTER_340_210_RIGHT:40",
+                          "POINTER_340_210_MOVE:750"
+                      ],
+    "topLeftPointer":  [
+                           340,
+                           210
+                       ],
+    "expectedBranch":  "valid-nonfilled-push-pop",
+    "note":  "Temporary Unity InputSystem Mouse device supplies raw coordinate path; effective Controls flags injected after Controls.Update. Original ComputeMousePosition/InspectUpdate process all gates and call PushInspect/PopInspect themselves. Prior device restored. No OS mouse, CUA or physical focus replay claim."
+}

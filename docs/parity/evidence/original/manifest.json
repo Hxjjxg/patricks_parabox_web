@@ -1466,7 +1466,10 @@
       "status": "valid",
       "requestCommands": " | NONE:80 INSPECT_56:600 INSPECT_OUT:600 NONE:100",
       "directory": "docs/parity/evidence/original/inspection-third-push-pop-20261025",
-      "note": "Source-gated hard path output; see hardpath-native-index.json for exact accepted phases and limits."
+      "note": "INSPECT_56 directly invokes World.PushInspect and bypasses InspectUpdate FilledWithWalls gate. Third gold56 is filled and native actual left-pointer branch rejects it. Raw camera artifacts retained; do not use as a pointer acceptance fixture. See inspection-pointer-native-index.json.",
+      "evidenceKind": "internal-camera-method-entrypoint-only",
+      "physicalPointerCoverage": false,
+      "sourceGateCoverage": false
     },
     {
       "id": "infexit-proven-crossing-20261025",
@@ -2278,6 +2281,66 @@
       "status": "valid",
       "directory": "docs/parity/evidence/original/intro-third-win-restart-undo-native-v1-20261025",
       "note": "Natural delivered control/scene boundary evidence with persisted-save isolation; see intro-transition-native-index.json for actual timings, menu and queue limits."
+    },
+    {
+      "id": "inspection-enter-pointer-native-v1-20261025",
+      "level": "enter",
+      "mode": "Motion",
+      "width": 800,
+      "height": 600,
+      "status": "diagnostic-missing-hook-raw-mouse-not-injected",
+      "directory": "docs/parity/evidence/original/inspection-enter-pointer-native-v1-20261025",
+      "note": "Effective Controls plus temporary Unity InputSystem Mouse coordinate injection through unchanged native ComputeMousePosition/InspectUpdate. Not a physical OS mouse or focus replay; no final visual or interactive-frame-pacing approval."
+    },
+    {
+      "id": "inspection-third-gold-pointer-native-v1-20261025",
+      "level": "third_puzzle",
+      "mode": "Motion",
+      "width": 800,
+      "height": 600,
+      "status": "diagnostic-missing-hook-raw-mouse-not-injected",
+      "directory": "docs/parity/evidence/original/inspection-third-gold-pointer-native-v1-20261025",
+      "note": "Effective Controls plus temporary Unity InputSystem Mouse coordinate injection through unchanged native ComputeMousePosition/InspectUpdate. Not a physical OS mouse or focus replay; no final visual or interactive-frame-pacing approval."
+    },
+    {
+      "id": "inspection-enter-pointer-hook-diagnostic-v1-20261025",
+      "level": "enter",
+      "mode": "Motion",
+      "width": 800,
+      "height": 600,
+      "status": "diagnostic-raw-mouse-coordinate-mismatch",
+      "directory": "docs/parity/evidence/original/inspection-enter-pointer-hook-diagnostic-v1-20261025",
+      "note": "Effective Controls plus temporary Unity InputSystem Mouse coordinate injection through unchanged native ComputeMousePosition/InspectUpdate. Not a physical OS mouse or focus replay; no final visual or interactive-frame-pacing approval."
+    },
+    {
+      "id": "inspection-enter-pointer-native-v2-20261025",
+      "level": "enter",
+      "mode": "Motion",
+      "width": 800,
+      "height": 600,
+      "status": "diagnostic-wrong-cell-plain-wall",
+      "directory": "docs/parity/evidence/original/inspection-enter-pointer-native-v2-20261025",
+      "note": "Effective Controls plus temporary Unity InputSystem Mouse coordinate injection through unchanged native ComputeMousePosition/InspectUpdate. Not a physical OS mouse or focus replay; no final visual or interactive-frame-pacing approval."
+    },
+    {
+      "id": "inspection-third-gold-pointer-native-v2-20261025",
+      "level": "third_puzzle",
+      "mode": "Motion",
+      "width": 800,
+      "height": 600,
+      "status": "valid-filled-child-rejection",
+      "directory": "docs/parity/evidence/original/inspection-third-gold-pointer-native-v2-20261025",
+      "note": "Effective Controls plus temporary Unity InputSystem Mouse coordinate injection through unchanged native ComputeMousePosition/InspectUpdate. Not a physical OS mouse or focus replay; no final visual or interactive-frame-pacing approval."
+    },
+    {
+      "id": "inspection-enter-pointer-native-v3-20261025",
+      "level": "enter",
+      "mode": "Motion",
+      "width": 800,
+      "height": 600,
+      "status": "valid-nonfilled-child-push-pop",
+      "directory": "docs/parity/evidence/original/inspection-enter-pointer-native-v3-20261025",
+      "note": "Effective Controls plus temporary Unity InputSystem Mouse coordinate injection through unchanged native ComputeMousePosition/InspectUpdate. Not a physical OS mouse or focus replay; no final visual or interactive-frame-pacing approval."
     }
   ],
   "gpuReadbacks": [

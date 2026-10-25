@@ -7,6 +7,8 @@ using System.Text;
 using BepInEx;
 using HarmonyLib;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 namespace AgentObserver;
 
@@ -17,6 +19,20 @@ namespace AgentObserver;
 )]
 public sealed class Plugin : BaseUnityPlugin
 {
+    private static Mouse CapturePointerMouse;
+    private static Mouse PreviousPointerMouse;
+    private static string PointerDeviceCreation;
+    private static string PointerDeviceRelease;
+    private static void ReleasePointerDevice()
+    {
+        bool hadCaptureDevice = CapturePointerMouse != null;
+        if (CapturePointerMouse != null && CapturePointerMouse.added) InputSystem.RemoveDevice(CapturePointerMouse);
+        bool temporaryRemoved = CapturePointerMouse == null || !CapturePointerMouse.added;
+        CapturePointerMouse = null;
+        if (PreviousPointerMouse != null && PreviousPointerMouse.added) PreviousPointerMouse.MakeCurrent();
+        if (hadCaptureDevice) PointerDeviceRelease = "{\"temporaryDeviceRemoved\":" + JsonBool(temporaryRemoved) + ",\"previousDeviceName\":\"" + EscapeJson(PreviousPointerMouse == null ? "" : PreviousPointerMouse.name) + "\",\"previousDeviceRestored\":" + JsonBool(Mouse.current == PreviousPointerMouse) + "}";
+        PreviousPointerMouse = null;
+    }
     private sealed class ScenarioOptions
     {
         public bool HasSaveOverride;
@@ -41,9 +57,13 @@ public sealed class Plugin : BaseUnityPlugin
         public static int DirectionMaskLast;
         public static bool Escape, Confirm, Cancel;
         public static bool EscapeLast, ConfirmLast, CancelLast;
+        public static bool PointerActive, PointerLeft, PointerRight, PointerLeftLast, PointerRightLast, PointerInitialized;
+        public static float PointerX, PointerY, PointerXLast, PointerYLast;
+        public static bool PointerIdle;
 
         public static void Clear()
         {
+            ReleasePointerDevice();
             Dx = 0;
             Dy = 0;
             DirectionMask = 0;
@@ -51,6 +71,9 @@ public sealed class Plugin : BaseUnityPlugin
             Force = Undo = Redo = Restart = UndoLast = RedoLast = RestartLast = false;
             DirectionMaskLast = 0;
             Escape = Confirm = Cancel = EscapeLast = ConfirmLast = CancelLast = false;
+            PointerActive = PointerLeft = PointerRight = PointerLeftLast = PointerRightLast = PointerInitialized = false;
+            PointerX = PointerY = PointerXLast = PointerYLast = 0;
+            PointerIdle = true;
         }
     }
 
@@ -90,8 +113,72 @@ public sealed class Plugin : BaseUnityPlugin
             HoldState.UndoLast = HoldState.Undo;
             HoldState.RedoLast = HoldState.Redo;
             HoldState.RestartLast = HoldState.Restart;
+            if (HoldState.PointerActive)
+            {
+                if (CapturePointerMouse != null) CapturePointerMouse.MakeCurrent();
+                Controls.mouseX = HoldState.PointerX;
+                Controls.mouseY = HoldState.PointerY;
+                Controls.lmb = HoldState.PointerLeft;
+                Controls.lmbPressed = HoldState.PointerLeft && !HoldState.PointerLeftLast;
+                Controls.lmbReleased = !HoldState.PointerLeft && HoldState.PointerLeftLast;
+                Controls.rmb = HoldState.PointerRight;
+                Controls.rmbPressed = HoldState.PointerRight && !HoldState.PointerRightLast;
+                Controls.rmbReleased = !HoldState.PointerRight && HoldState.PointerRightLast;
+                Controls.scrollY = 0;
+                if ((Controls.up || Controls.down || Controls.left || Controls.right || Controls.undo || Controls.redo || Controls.restart || Controls.escape || Controls.confirm || Controls.cancel) && Controls.mouseX >= 0 && Controls.mouseX <= Draw.screenWidth && Controls.mouseY >= 0 && Controls.mouseY <= Draw.screenHeight) HoldState.PointerIdle = true;
+                if (!HoldState.PointerInitialized || HoldState.PointerX != HoldState.PointerXLast || HoldState.PointerY != HoldState.PointerYLast || Controls.lmb || Controls.rmb) HoldState.PointerIdle = false;
+                World.InspectMouseIdle = HoldState.PointerIdle;
+                HoldState.PointerXLast = Controls.mouseX;
+                HoldState.PointerYLast = Controls.mouseY;
+                HoldState.PointerInitialized = true;
+            }
+            HoldState.PointerLeftLast = HoldState.PointerActive && HoldState.PointerLeft;
+            HoldState.PointerRightLast = HoldState.PointerActive && HoldState.PointerRight;
             PhaseTrace.Record("controls-delivered");
         }
+    }
+
+    internal static class InspectionTrace
+    {
+        public static readonly List<string> Samples = new List<string>();
+        private static readonly System.Reflection.MethodInfo ComputeMouse = typeof(World).GetMethod("ComputeMousePosition", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+        public static void Record(string phase, World world)
+        {
+            if (!PhaseTrace.Active) return;
+            Block focus = World.InspectBlock ?? Draw.FocusBlock;
+            int x = -1, y = -1;
+            Block candidate = null;
+            bool inBounds = false;
+            if (focus != null && focus.SubLevel != null)
+            {
+                object[] arguments = { 0, 0, focus };
+                ComputeMouse.Invoke(world, arguments);
+                x = (int)arguments[0]; y = (int)arguments[1];
+                inBounds = focus.SubLevel.InBounds(x, y);
+                if (inBounds) candidate = focus.SubLevel.blocks[x, y];
+            }
+            var row = new StringBuilder();
+            row.Append("{\"phase\":\"").Append(phase).Append("\",\"frame\":").Append(Time.frameCount).Append(",\"elapsedMs\":").Append(Invariant((Time.unscaledTime - PhaseTrace.StartTime) * 1000f));
+            row.Append(",\"requestedControl\":\"").Append(EscapeJson(HoldState.RequestedControl)).Append("\",\"injectedPointer\":").Append(JsonBool(HoldState.PointerActive)).Append(",\"applicationFocused\":").Append(JsonBool(Application.isFocused));
+            Mouse rawMouse = Mouse.current;
+            Vector2 rawPosition = rawMouse == null ? Vector2.zero : rawMouse.position.ReadValue();
+            row.Append(",\"rawMouse\":{\"name\":\"").Append(EscapeJson(rawMouse == null ? "" : rawMouse.name)).Append("\",\"temporaryCaptureDevice\":").Append(JsonBool(rawMouse != null && rawMouse == CapturePointerMouse)).Append(",\"x\":").Append(Invariant(rawPosition.x)).Append(",\"nativeBottomY\":").Append(Invariant(rawPosition.y)).Append("}");
+            row.Append(",\"mouse\":{\"x\":").Append(Invariant(Controls.mouseX)).Append(",\"nativeBottomY\":").Append(Invariant(Controls.mouseY)).Append(",\"topY\":").Append(Invariant(Screen.height - Controls.mouseY)).Append(",\"left\":").Append(JsonBool(Controls.lmb)).Append(",\"leftPressed\":").Append(JsonBool(Controls.lmbPressed)).Append(",\"leftReleased\":").Append(JsonBool(Controls.lmbReleased)).Append(",\"right\":").Append(JsonBool(Controls.rmb)).Append(",\"rightPressed\":").Append(JsonBool(Controls.rmbPressed)).Append(",\"rightReleased\":").Append(JsonBool(Controls.rmbReleased)).Append(",\"scrollY\":").Append(Invariant(Controls.scrollY)).Append("}");
+            row.Append(",\"gates\":{\"drawStyle\":\"").Append(Draw.DrawStyle).Append("\",\"cameraMode\":\"").Append(Draw.CameraMode).Append("\",\"cameraMoving\":").Append(JsonBool(Draw.cameraMoving)).Append(",\"anyBlockMoving\":").Append(JsonBool(World.AnyBlockMoving)).Append(",\"inHub\":").Append(JsonBool(World.InHub())).Append(",\"winning\":").Append(JsonBool(World.Winning)).Append(",\"mobile\":").Append(JsonBool(World.OnMobilePlatform())).Append(",\"inspectMouseIdle\":").Append(JsonBool(World.InspectMouseIdle)).Append(",\"inspectMovedSinceTouch\":").Append(JsonBool(World.InspectMovedSinceTouch)).Append("}");
+            row.Append(",\"focusBlock\":").Append(World.blocks.IndexOf(focus)).Append(",\"inspectBlock\":").Append(World.blocks.IndexOf(World.InspectBlock)).Append(",\"hoverBlockLast\":").Append(World.blocks.IndexOf(World.HoverBlockLast)).Append(",\"cellX\":").Append(x).Append(",\"cellY\":").Append(y).Append(",\"inBounds\":").Append(JsonBool(inBounds));
+            row.Append(",\"candidate\":");
+            if (candidate == null) row.Append("null");
+            else row.Append("{\"block\":").Append(World.blocks.IndexOf(candidate)).Append(",\"hasSubLevel\":").Append(JsonBool(candidate.SubLevel != null)).Append(",\"filledWithWalls\":").Append(JsonBool(candidate.SubLevel != null && candidate.SubLevel.FilledWithWalls)).Append(",\"moving\":").Append(JsonBool(candidate.Moving)).Append(",\"inspectHover\":").Append(JsonBool(candidate.InspectHover)).Append("}");
+            row.Append(",\"cameraAnimT\":").Append(Invariant(Draw.AnimT)).Append(",\"cameraAnimLength\":").Append(Invariant(Draw.AnimLength)).Append("}");
+            Samples.Add(row.ToString());
+        }
+    }
+
+    [HarmonyPatch(typeof(World), "InspectUpdate")]
+    internal static class InspectionBoundaryPatch
+    {
+        [HarmonyPrefix] private static void Prefix(World __instance) => InspectionTrace.Record("before", __instance);
+        [HarmonyPostfix] private static void Postfix(World __instance) => InspectionTrace.Record("after", __instance);
     }
 
     internal static class CaptureSaveGuard
@@ -429,6 +516,7 @@ public sealed class Plugin : BaseUnityPlugin
         _commandPath = Path.Combine(Paths.BepInExRootPath, "AgentObserver-command.txt");
         Harmony.CreateAndPatchAll(typeof(HoldInputPatch), "com.example.agentobserver.hold");
         Harmony.CreateAndPatchAll(typeof(TimedInputPatch), "com.example.agentobserver.timed");
+        Harmony.CreateAndPatchAll(typeof(InspectionBoundaryPatch), "com.example.agentobserver.inspection-boundary");
         Harmony.CreateAndPatchAll(typeof(CaptureSavePatch), "com.example.agentobserver.capture-save");
         Harmony.CreateAndPatchAll(typeof(FontTextPatch), "com.example.agentobserver.font-text");
         Harmony.CreateAndPatchAll(typeof(ControlGeometryPatch), "com.example.agentobserver.control-geometry");
@@ -1295,6 +1383,29 @@ public sealed class Plugin : BaseUnityPlugin
         HoldState.RequestedControl = command.ToUpperInvariant();
         HoldState.Undo = HoldState.Redo = HoldState.Restart = false;
         HoldState.Escape = HoldState.Confirm = HoldState.Cancel = false;
+        HoldState.PointerActive = HoldState.PointerLeft = HoldState.PointerRight = false;
+        if (command.StartsWith("POINTER_", StringComparison.OrdinalIgnoreCase))
+        {
+            string[] pointer = command.ToUpperInvariant().Split('_');
+            if (pointer.Length != 4) throw new ArgumentException("Expected POINTER_x_topY_MOVE/LEFT/RIGHT");
+            HoldState.PointerX = float.Parse(pointer[1], System.Globalization.CultureInfo.InvariantCulture);
+            HoldState.PointerY = Screen.height - float.Parse(pointer[2], System.Globalization.CultureInfo.InvariantCulture);
+            if (pointer[3] != "MOVE" && pointer[3] != "LEFT" && pointer[3] != "RIGHT") throw new ArgumentException("Unknown pointer state " + pointer[3]);
+            HoldState.PointerActive = true;
+            HoldState.PointerLeft = pointer[3] == "LEFT";
+            HoldState.PointerRight = pointer[3] == "RIGHT";
+            if (CapturePointerMouse == null)
+            {
+                PreviousPointerMouse = Mouse.current;
+                CapturePointerMouse = InputSystem.AddDevice<Mouse>("ParityEvidenceMouse");
+                PointerDeviceCreation = "{\"temporaryDeviceName\":\"" + EscapeJson(CapturePointerMouse.name) + "\",\"previousDeviceName\":\"" + EscapeJson(PreviousPointerMouse == null ? "" : PreviousPointerMouse.name) + "\"}";
+            }
+            CapturePointerMouse.MakeCurrent();
+            MouseState state = new MouseState { position = new Vector2(HoldState.PointerX, HoldState.PointerY) };
+            state = state.WithButton(MouseButton.Left, HoldState.PointerLeft).WithButton(MouseButton.Right, HoldState.PointerRight);
+            InputSystem.QueueStateEvent(CapturePointerMouse, state);
+            return;
+        }
         if (command.StartsWith("INSPECT_", StringComparison.OrdinalIgnoreCase))
         {
             ExecuteCommand(command);
@@ -1365,6 +1476,8 @@ public sealed class Plugin : BaseUnityPlugin
         if (screenshotStride > 1) { frames.Length -= "\"frames\":[".Length; frames.Append("\"screenshotStride\":").Append(screenshotStride).Append(",\"frames\":["); }
         float start = Time.unscaledTime;
         PhaseTrace.Samples.Clear();
+        InspectionTrace.Samples.Clear();
+        PointerDeviceCreation = PointerDeviceRelease = null;
         ShineTrace.Samples.Clear(); ShineTrace.Context = null;
         PhaseTrace.StartTime = start;
         PhaseTrace.Active = true;
@@ -1398,6 +1511,7 @@ public sealed class Plugin : BaseUnityPlugin
         HoldState.Clear();
         PhaseTrace.Record("capture-end");
         PhaseTrace.Active = false;
+        File.WriteAllText(Path.Combine(directory, "inspection.json"), "{\"requestId\":\"" + EscapeJson(requestId) + "\",\"note\":\"Actual World.InspectUpdate before/after effective Controls with raw Unity InputSystem Mouse coordinates. Injected values use top-left converted to native bottom-up; not a physical OS mouse or focus-gate replay. No PushInspect/PopInspect method is invoked by timed pointer controls.\",\"deviceCreation\":" + (PointerDeviceCreation ?? "null") + ",\"deviceRelease\":" + (PointerDeviceRelease ?? "null") + ",\"samples\":[" + string.Join(",", InspectionTrace.Samples) + "]}", new UTF8Encoding(false));
         File.WriteAllText(Path.Combine(directory, "shine.json"), "{\"requestId\":\"" + EscapeJson(requestId) + "\",\"note\":\"Read-only original DrawFlipShine context; requested-band is pre-clamp DrawTexture entry; submitted-band is the actual Graphics.DrawTexture screenRect after native clamping.\",\"samples\":[" + string.Join(",", ShineTrace.Samples) + "]}", new UTF8Encoding(false));
         File.WriteAllText(Path.Combine(directory, "phases.json"), "{\"requestId\":\"" + EscapeJson(requestId) + "\",\"startTime\":" + Invariant(start) + ",\"samples\":[" + string.Join(",", PhaseTrace.Samples) + "]}", new UTF8Encoding(false));
         frames.Append("]}");

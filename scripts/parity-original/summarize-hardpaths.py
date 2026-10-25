@@ -58,6 +58,8 @@ for name, (level, setup, timeline, mode, style) in CASES.items():
         item['focusGeometry'] = colors['focusGeometry']
         item['focusBlockIndex'] = colors['focusBlockIndex']
     index['captures'][name] = item
+    if name == 'inspection-third-push-pop-20261025':
+        item.update({'evidenceKind': 'internal-camera-method-entrypoint-only', 'physicalPointerCoverage': False, 'sourceGateCoverage': False, 'caveat': 'Direct PushInspect(56) bypasses InspectUpdate. Third gold56 is FilledWithWalls and actual native pointer rejects it; use inspection-pointer-native-index.json for valid/blocked pointer branches.'})
     if not any(entry['id'] == name for entry in manifest['entries']):
         manifest['entries'].append({'id': name, 'level': level, 'setup': setup.split(), 'timedCommands': timeline.split(), 'mode': mode, 'drawStyle': style, 'width': 800, 'height': 600, 'status': 'valid', 'requestCommands': setup + (' | ' + timeline if mode == 'Motion' else ''), 'directory': 'docs/parity/evidence/original/' + name, 'note': 'Source-gated hard path output; see hardpath-native-index.json for exact accepted phases and limits.'})
 
@@ -68,6 +70,8 @@ assert any(move['type'] == 'Exit' and move['infExitNum'] >= 0 for phase in exits
 inspection = index['captures']['inspection-third-push-pop-20261025']['acceptedPhases']
 assert [phase['inspectBlock'] for phase in inspection] == [56, 0]
 assert all(phase['cameraAnimLength'] == .5 for phase in inspection)
+forced = next(entry for entry in manifest['entries'] if entry['id'] == 'inspection-third-push-pop-20261025')
+forced.update({'evidenceKind': 'internal-camera-method-entrypoint-only', 'physicalPointerCoverage': False, 'sourceGateCoverage': False, 'note': 'Direct INSPECT_56 bypasses InspectUpdate FilledWithWalls gate. Third gold56 is filled and actual pointer rejects it. Raw camera artifacts retained; not a pointer acceptance fixture. See inspection-pointer-native-index.json.'})
 index['styleInventory'] = {
     'GRID': ['grid_clone', 'shed_multi_simultaneous'],
     'TUI_COLOR': ['text_1', 'text_3', 'text_clone_v2', 'text_eat_v2', 'text_flip', 'text_poswall'],
