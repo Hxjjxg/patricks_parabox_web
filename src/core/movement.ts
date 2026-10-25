@@ -189,7 +189,7 @@ export class History {
   readonly future: Turn[] = [];
   currentTurn: Turn;
 
-  constructor(world: WorldModel) {
+  constructor(world: WorldModel, private readonly onStateChanged?: () => void) {
     this.world = world;
     this.currentTurn = createTurn(world.cameraFlipH);
   }
@@ -377,6 +377,7 @@ export class History {
     this.moveBlock(block, level, x, y);
     this.world.computeBlockLists();
     this.world.updateButtonsPressed();
+    this.onStateChanged?.();
   }
 
   commitRelocation(
@@ -513,6 +514,7 @@ export class History {
       : turn.fromCameraFlipH;
     this.world.computeBlockLists();
     this.world.updateButtonsPressed();
+    this.onStateChanged?.();
   }
 
   /** `UndoManager.DoRedo`'s per-turn animation section. */
@@ -651,8 +653,12 @@ export class MovementEngine {
   private infExitUnwindTo = -1;
   private infEnterUnwinding = false;
   private infEnterUnwindTo = -1;
+  private infExitPreviewMode = false;
+  private infExitDetected = false;
   private cancelAllMovement = false;
   private portalTransition: PortalTransition | null = null;
+  /** Native World.dummyBlock is detached and has neither player nor sublevel. */
+  private readonly previewDummy = new Block(-1);
   /**
    * `Movement.WaitForMoveDirChange`: after a blocked move, holding the same
    * direction must not retry until the player changes direction.
@@ -661,8 +667,70 @@ export class MovementEngine {
 
   constructor(world: WorldModel, waitForMoveDirChange = false) {
     this.world = world;
-    this.history = new History(world);
+    this.history = new History(world, () => this.detectInfExitPreviews());
     this.waitForMoveDirChange = waitForMoveDirChange;
+    this.detectInfExitPreviews();
+  }
+
+  /**
+   * `Movement.DetectInfExitPreviews` probes the first player's outer level
+   * from its four edges. Keep accepted movement scratch and temporary flips
+   * intact: presentation probing must never consume a turn or animation.
+   */
+  detectInfExitPreviews(player = this.world.playerBlocks[0]): void {
+    this.world.infExitPreviews.length = 0;
+    const outerLevel = player?.outerLevel;
+    if (!outerLevel) return;
+
+    const scratch = {
+      moves: this.moves, interloper: this.interloper, nudge: this.nudge,
+      possess: this.possess, infExitUnwinding: this.infExitUnwinding,
+      infExitUnwindTo: this.infExitUnwindTo, infEnterUnwinding: this.infEnterUnwinding,
+      infEnterUnwindTo: this.infEnterUnwindTo, infExitPreviewMode: this.infExitPreviewMode,
+      infExitDetected: this.infExitDetected, cancelAllMovement: this.cancelAllMovement,
+      portalTransition: this.portalTransition,
+    };
+    const temporary = this.world.blocks.map(block => ({
+      block, flipH: block.tempFlipH, innerPush: block.tempInnerPush,
+    }));
+    const dummy = this.previewDummy;
+    dummy.outerLevel = outerLevel;
+    try {
+      // Literal native iteration order: left, down, up, right.
+      for (let dx = -1; dx <= 1; dx++) {
+        for (let dy = -1; dy <= 1; dy++) {
+          if (Math.abs(dx) + Math.abs(dy) !== 1) continue;
+          dummy.x = dx === 1 ? outerLevel.width - 1 : 0;
+          dummy.y = dy === 1 ? outerLevel.height - 1 : 0;
+          this.resetAttemptState();
+          this.infExitPreviewMode = true;
+          this.attemptToSlide(dummy, dx, dy);
+        }
+      }
+    } finally {
+      dummy.outerLevel = null;
+      dummy.x = dummy.y = 0;
+      dummy.tempFlipH = dummy.tempInnerPush = false;
+      for (const { block, flipH, innerPush } of temporary) {
+        block.tempFlipH = flipH; block.tempInnerPush = innerPush;
+      }
+      Object.assign(this, scratch);
+    }
+  }
+
+  /** `Movement.MarkInfExitPreview` preserves the exact Block chain. */
+  private markInfExitPreview(): void {
+    const first = this.moves[0];
+    if (!first) return;
+    const exitBlocks: Block[] = [];
+    for (const move of this.moves) {
+      if (move.block === this.previewDummy && move.moveType === MoveType.Exit && move.fromLevelBlock) {
+        exitBlocks.push(move.fromLevelBlock);
+      }
+    }
+    if (exitBlocks.length) {
+      this.world.infExitPreviews.push({ dx: first.dx, dy: first.dy, exitBlocks });
+    }
   }
 
   impulse(block: Block, dx: number, dy: number): ImpulseResult {
@@ -847,6 +915,8 @@ export class MovementEngine {
     this.infExitUnwindTo = -1;
     this.infEnterUnwinding = false;
     this.infEnterUnwindTo = -1;
+    this.infExitPreviewMode = false;
+    this.infExitDetected = false;
     this.cancelAllMovement = false;
     this.portalTransition = null;
     for (const block of this.world.blocks) {
@@ -987,8 +1057,8 @@ export class MovementEngine {
       }
     }
 
-    if (!block.subLevel && !block.isPlayer) {
-      if (!this.world.innerPushEnabled) {
+    if (!block.subLevel && !block.isPlayer && block !== this.previewDummy) {
+      if (!this.world.innerPushEnabled || this.infExitPreviewMode) {
         this.popMove();
         return false;
       }
@@ -1039,6 +1109,7 @@ export class MovementEngine {
         ) {
           return true;
         }
+        if (this.infExitPreviewMode) this.infExitDetected = true;
         if (!this.infExitUnwinding) {
           this.popMove();
           return false;
@@ -1056,6 +1127,13 @@ export class MovementEngine {
       return false;
     }
 
+    if (this.infExitPreviewMode && this.infExitDetected && !this.cancelAllMovement) {
+      this.markInfExitPreview();
+      this.cancelAllMovement = true;
+      this.popMove();
+      return false;
+    }
+
     const blockAtTarget = targetLevel.getBlock(targetX, targetY);
     if (!blockAtTarget) {
       const floor = targetLevel.getFloor(targetX, targetY);
@@ -1066,7 +1144,7 @@ export class MovementEngine {
         this.popMove();
         return false;
       }
-      this.history.registerAnimLength(
+      if (!this.infExitPreviewMode) this.history.registerAnimLength(
         computeAnimLength(
           this.moves as unknown as ProjectionMoveWithBlock[],
           getEnterLength(this.history.settings),
@@ -1109,7 +1187,7 @@ export class MovementEngine {
           break;
         }
       }
-      this.history.registerAnimLength(
+      if (!this.infExitPreviewMode) this.history.registerAnimLength(
         computeAnimLength(
           this.moves as unknown as ProjectionMoveWithBlock[],
           getEnterLength(this.history.settings),
@@ -1150,7 +1228,7 @@ export class MovementEngine {
       if (
         this.attemptToEnter(block, blockAtTarget, -1, false, null, dx, dy)
       ) {
-        if (!block.justEnteredArray) this.setJustEnteredArray(block);
+        if (!this.infExitPreviewMode && !block.justEnteredArray) this.setJustEnteredArray(block);
         return true;
       }
 
@@ -1173,12 +1251,12 @@ export class MovementEngine {
             dy,
           )
         ) {
-          if (!block.justEnteredArray) {
+          if (!this.infExitPreviewMode && !block.justEnteredArray) {
             this.setJustEnteredArray(block);
             const entered = block.justEnteredArray as Block[] | null;
             if (entered) entered[0] = blockAtTarget;
           }
-          block.justInfEntered = true;
+          if (!this.infExitPreviewMode) block.justInfEntered = true;
           return true;
         }
       }
@@ -1198,7 +1276,7 @@ export class MovementEngine {
       if (
         this.attemptToEnter(blockAtTarget, block, -1, false, null, -dx, -dy)
       ) {
-        if (!blockAtTarget.justEnteredArray) this.setJustEnteredArray(blockAtTarget);
+        if (!this.infExitPreviewMode && !blockAtTarget.justEnteredArray) this.setJustEnteredArray(blockAtTarget);
         this.resolveMove(block, targetLevel, targetX, targetY, dx, dy);
         return true;
       }
@@ -1222,12 +1300,12 @@ export class MovementEngine {
             -dy,
           )
         ) {
-          if (!blockAtTarget.justEnteredArray) {
+          if (!this.infExitPreviewMode && !blockAtTarget.justEnteredArray) {
             this.setJustEnteredArray(blockAtTarget);
             const entered = blockAtTarget.justEnteredArray as Block[] | null;
             if (entered) entered[0] = block;
           }
-          blockAtTarget.justInfEntered = true;
+          if (!this.infExitPreviewMode) blockAtTarget.justInfEntered = true;
           this.resolveMove(block, targetLevel, targetX, targetY, dx, dy);
           return true;
         }
@@ -1252,6 +1330,7 @@ export class MovementEngine {
       }
       this.nudge = true;
       this.possess = true;
+      if (this.infExitPreviewMode) return true;
       this.history.registerPlayerSwitch(block, blockAtTarget, dx, dy);
       if (!block.justEnteredArray) this.setJustEnteredArray(block);
       this.history.registerAnimLength(
@@ -1501,6 +1580,11 @@ export class MovementEngine {
         ? toExit.getExitBlock()
         : toExit.getInfExitBlock(infExitNum);
     if (infExitNum !== -1 && !exitBlock) {
+      if (this.infExitPreviewMode && this.infExitDetected && !this.cancelAllMovement) {
+        this.markInfExitPreview();
+        this.cancelAllMovement = true;
+        return false;
+      }
       this.world.createInfExitZone(toExit, infExitNum);
       exitBlock = toExit.getInfExitBlock(infExitNum);
     }
@@ -1546,7 +1630,7 @@ export class MovementEngine {
       dy,
       MoveType.Exit,
     );
-    if (this.world.shedEnabled && !moved && !this.infExitUnwinding) {
+    if (this.world.shedEnabled && !moved && !this.infExitUnwinding && !this.infExitPreviewMode) {
       move.shed = true;
       this.moves.push(move);
       const shedLevel = exitBlock.outerLevel;
@@ -1582,6 +1666,7 @@ export class MovementEngine {
     dx: number,
     dy: number,
   ): void {
+    if (this.infExitPreviewMode) return;
     const floor = toLevel.getFloor(toX, toY);
     if (
       block.isPlayer &&

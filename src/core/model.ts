@@ -305,6 +305,13 @@ export class Floor {
   }
 }
 
+/** `Draw.InfExitPreview`: ordered exit representations for one screen exterior. */
+export interface InfExitPreview {
+  dx: number;
+  dy: number;
+  exitBlocks: Block[];
+}
+
 export class WorldModel {
   readonly levelName: string;
   readonly levels: Level[] = [];
@@ -317,6 +324,7 @@ export class WorldModel {
    * added here; they move only when one of these player blocks pushes them.
    */
   readonly playerBlocks: Block[] = [];
+  readonly infExitPreviews: InfExitPreview[] = [];
   attemptOrder: Attempt[] = [
     Attempt.Push,
     Attempt.Enter,
