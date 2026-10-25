@@ -3,6 +3,7 @@ import nativeTuiAtlasUrl from "../assets/fonts/native-inconsolata-atlas.png?url"
 import nativeJostAtlasUrl from "../assets/fonts/native-jost-atlas.png?url";
 
 export interface OriginalTextures {
+  portalThumbnails: Record<string, Texture>;
   nativeJostAtlas: Texture;
   walls: Texture[];
   wallsFlip: Texture[];
@@ -60,6 +61,15 @@ async function loadWall(filename: string): Promise<Texture> {
 }
 
 export async function loadOriginalTextures(): Promise<OriginalTextures> {
+  const thumbnailUrls = import.meta.glob<string>('../assets/level-thumbnails/*.png', {
+    eager: true, import: 'default', query: '?url',
+  });
+  const portalThumbnails = Object.fromEntries(await Promise.all(Object.entries(thumbnailUrls).map(async ([path, url]) => {
+    const texture = await Assets.load<Texture>(url);
+    texture.source.style.addressMode = 'clamp-to-edge';
+    texture.source.style.scaleMode = 'linear';
+    return [path.slice(path.lastIndexOf('/') + 1, -4), texture] as const;
+  })));
   const nativeJostAtlas = await Assets.load<Texture>(nativeJostAtlasUrl);
   nativeJostAtlas.source.style.addressMode = "clamp-to-edge";
   nativeJostAtlas.source.style.scaleMode = "linear";
@@ -111,6 +121,7 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
   ]);
 
   return {
+    portalThumbnails,
     nativeJostAtlas,
     walls,
     wallsFlip,

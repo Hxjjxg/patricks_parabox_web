@@ -1296,11 +1296,6 @@ export class GameRenderer {
     floor?: Floor,
   ): void {
     const size = Math.min(rect.width, rect.height);
-    const inset = size * 0.08;
-    const x = rect.x + inset;
-    const y = rect.y + inset;
-    const width = rect.width - inset * 2;
-    const height = rect.height - inset * 2;
 
     if (type === FloorType.Button || type === FloorType.PlayerButton) {
       const resolution = this.app.renderer.resolution;
@@ -1328,10 +1323,20 @@ export class GameRenderer {
     }
 
     if (type === FloorType.LevelPortal) {
-      graphics
-        .roundRect(x, y, width, height, size * 0.12)
-        .fill({ color: 0x242424, alpha: 0.7 })
-        .stroke({ color: hsvToRgb(level.getExitBlock().color), width: size * 0.06 });
+      graphics.setFillStyle({ color: 0xffffff, alpha: 1 });
+      const cell = originalDrawRect(rect, this.app.renderer.resolution);
+      const texture = this.textures.portalThumbnails[floor?.sceneName ?? ''] ?? Texture.WHITE;
+      if (floor?.hard) {
+        graphics.texture(Texture.WHITE, guiHsvColor(floor.hard === 2
+          ? { h: .53, s: 1, v: 1 } : { h: 0, s: .9, v: .8 }),
+          cell.x, cell.y, cell.width, cell.height);
+      }
+      const inner = floor?.hard ? originalDrawRect({
+        x: rect.x + rect.width * .1, y: rect.y + rect.height * .1,
+        width: rect.width * .8, height: rect.height * .8,
+      }, this.app.renderer.resolution) : cell;
+      graphics.texture(texture, floor && !floor.won && !floor.unlocked ? 0x292929 : 0xffffff,
+        inner.x, inner.y, inner.width, inner.height);
       return;
     }
 
