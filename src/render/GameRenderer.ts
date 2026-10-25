@@ -959,7 +959,7 @@ export class GameRenderer {
       if (ticket.facePhantom) continue;
       if (!ticket.block.flipH && !ticket.block.fadeFlipH && ticket.block.specialEffect!==2 && ticket.block.specialEffect!==3 && !ticket.cloneFade) continue;
       this.activeSceneContainer=this.maskedScene(ticket.clip);
-      this.drawFlipShine(this.nextSceneLayer(),ticket.block,ticket.rect,ticket.flipH,ticket.depth,ticket.cloneFade);
+      this.drawFlipShine(this.nextSceneLayer(),ticket.block,ticket.rect,ticket.flipH,ticket.depth,ticket.cloneFade,ticket.clip);
     }
     this.pendingTickets=null;this.effectTickets=[];this.activePassRoot=previousRoot;this.activeSceneContainer=this.scene;
   }
@@ -1528,8 +1528,8 @@ export class GameRenderer {
     }
   }
 
-  private drawFlipShine(graphics:Graphics,block:Block,rect:Rect,flipH:boolean,depth:number,cloneFade=false):void {
-    const band=flipShineQuad(block,rect,this.app.screen.height,flipH,depth,this.world?.drawStyle ?? DrawStyle.Normal,this.app.renderer?.resolution ?? 1,cloneFade,this.world?cameraTransitionPhase(this.world):1);
+  private drawFlipShine(graphics:Graphics,block:Block,rect:Rect,flipH:boolean,depth:number,cloneFade=false,inheritedClip:Rect|null=null):void {
+    const band=flipShineQuad(block,rect,this.app.screen.height,flipH,depth,this.world?.drawStyle ?? DrawStyle.Normal,this.app.renderer?.resolution ?? 1,cloneFade,this.world?cameraTransitionPhase(this.world):1,inheritedClip);
     if (band) graphics.rect(band.rect.x,band.rect.y,band.rect.width,band.rect.height).fill({color:0xffffff,alpha:band.alpha});
   }
 

@@ -11,7 +11,7 @@ function quadInOut(k:number):number {
 }
 
 /** DrawFlipShine3916: clipped vertical band; never a diagonal marker. */
-export function flipShineQuad(block:Block,rect:WallRect,screenHeight:number,flipH:boolean,depth:number,style:DrawStyle,resolution=1,cloneFade=false,transitionPhase=block.animLength?f(block.animT/block.animLength):1):
+export function flipShineQuad(block:Block,rect:WallRect,screenHeight:number,flipH:boolean,depth:number,style:DrawStyle,resolution=1,cloneFade=false,transitionPhase=block.animLength?f(block.animT/block.animLength):1,inheritedClip:WallRect|null=null):
   {rect:WallRect;alpha:number}|null {
   if (!block.subLevel || block.subLevel.filledWithWalls || style===DrawStyle.Grid && depth===0) return null;
   const intensity=flipIntensity(block,transitionPhase,cloneFade);
@@ -27,9 +27,23 @@ export function flipShineQuad(block:Block,rect:WallRect,screenHeight:number,flip
   const center=f(f(rect.x)+f(f(f(rect.x+rect.width)-f(rect.x))*phase));
   const band=originalDrawRect({x:center-width/2,y:rect.y,width,height:rect.height},resolution);
   const floor=(v:number)=>Math.floor(f(v*resolution))/resolution;
-  const x=Math.max(band.x,floor(rect.x)),y=Math.max(band.y,floor(rect.y));
-  const right=Math.min(band.x+band.width,floor(rect.x+rect.width));
-  const bottom=Math.min(band.y+band.height,floor(rect.y+rect.height));
+  // ProcessTicket6188 always stacks self bounds on the queued shine ticket.
+  // EnableTicketClamp floors that double-precision intersection, then
+  // DrawFlipShine stacks the local bounds again as floats. A parent Pixi mask
+  // alone cannot express the resulting fractional local board edge.
+  const local=(v:number)=>f(v*resolution)/resolution;
+  const extent=(start:number,size:number)=>f(f(start*resolution)+f(size*resolution))/resolution;
+  const ticketLeft=inheritedClip?Math.max(inheritedClip.x,rect.x):rect.x;
+  const ticketTop=inheritedClip?Math.max(inheritedClip.y,rect.y):rect.y;
+  const ticketRight=inheritedClip?Math.min(inheritedClip.x+inheritedClip.width,rect.x+rect.width):rect.x+rect.width;
+  const ticketBottom=inheritedClip?Math.min(inheritedClip.y+inheritedClip.height,rect.y+rect.height):rect.y+rect.height;
+  const left=Math.max(floor(ticketLeft),local(rect.x));
+  const top=Math.max(floor(ticketTop),local(rect.y));
+  const clipRight=Math.min(floor(ticketRight),extent(rect.x,rect.width));
+  const clipBottom=Math.min(floor(ticketBottom),extent(rect.y,rect.height));
+  const x=Math.max(band.x,left),y=Math.max(band.y,top);
+  const right=Math.min(band.x+band.width,clipRight);
+  const bottom=Math.min(band.y+band.height,clipBottom);
   if (right<=x || bottom<=y) return null;
-  return {rect:{x,y,width:right-x,height:bottom-y},alpha:Math.min(1,alpha)};
+  return {rect:{x,y,width:local(right-x),height:local(bottom-y)},alpha:Math.min(1,alpha)};
 }
