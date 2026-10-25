@@ -186,6 +186,7 @@ export function parseLevel(
         levelIds.set(levelId, subLevel);
         block.color = color;
         block.isPlayer = isPlayer;
+        block.drawIsPlayer = isPlayer;
         block.startIsPlayer = isPlayer;
         block.possessable = possessable;
         block.playerOrder = playerOrder;
@@ -234,6 +235,7 @@ export function parseLevel(
           null,
         );
         block.isPlayer = isPlayer;
+        block.drawIsPlayer = isPlayer;
         block.startIsPlayer = isPlayer;
         block.possessable = possessable;
         block.playerOrder = playerOrder;
@@ -379,6 +381,7 @@ export function parseLevel(
       block.someInfEnterNum = infEnterNum;
     }
     block.isPlayer = isPlayer;
+    block.drawIsPlayer = isPlayer;
     block.startIsPlayer = isPlayer;
     block.possessable = possessable;
     block.playerOrder = playerOrder;
