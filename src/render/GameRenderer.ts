@@ -29,6 +29,7 @@ import { clipShadow, shadowRect, wallShadowCull } from "./shadowRendering";
 import { largeWallQuads } from "./wallBigRendering";
 import { faceQuads } from "./faceRendering";
 import { infinityGlyphQuads } from "./infinityRendering";
+import { flipShineQuad } from "./flipShineRendering";
 import { previewClip, shouldSimpleSlide, simpleSlideRect, stackClip, type InfExitPreview, type SceneTicket } from "./renderContext";
 
 export type RendererMode =
@@ -812,9 +813,9 @@ export class GameRenderer {
       this.drawInfEffect(this.nextSceneLayer(),ticket.block,ticket.rect);
     }
     for (const ticket of effects) {
-      if (!ticket.block.flipH && !ticket.block.fadeFlipH) continue;
+      if (!ticket.block.flipH && !ticket.block.fadeFlipH && ticket.block.specialEffect!==2 && ticket.block.specialEffect!==3) continue;
       this.activeSceneContainer=this.maskedScene(ticket.clip);
-      this.drawFlipMark(this.nextSceneLayer(),ticket.rect);
+      this.drawFlipShine(this.nextSceneLayer(),ticket.block,ticket.rect,ticket.flipH,ticket.depth);
     }
     this.pendingTickets=null;this.effectTickets=[];this.activeSceneContainer=this.scene;
   }
@@ -1259,7 +1260,7 @@ export class GameRenderer {
     }
 
     if (block.isPlayer || block.possessable) this.drawFace(graphics, block, rect, false, flipH);
-    if (block.flipH || block.fadeFlipH) this.drawFlipMark(graphics, rect);
+    if (block.flipH || block.fadeFlipH || block.specialEffect===2 || block.specialEffect===3) this.drawFlipShine(graphics,block,rect,flipH!==block.flipH,depth+1);
     return graphics;
   }
 
@@ -1284,16 +1285,9 @@ export class GameRenderer {
     }
   }
 
-  private drawFlipMark(graphics: Graphics, rect: Rect): void {
-    const inset = Math.min(rect.width, rect.height) * 0.1;
-    graphics
-      .moveTo(rect.x + inset, rect.y + rect.height - inset)
-      .lineTo(rect.x + rect.width - inset, rect.y + inset)
-      .stroke({
-        color: 0xffffff,
-        width: Math.max(1, inset * 0.22),
-        alpha: 0.4,
-      });
+  private drawFlipShine(graphics:Graphics,block:Block,rect:Rect,flipH:boolean,depth:number):void {
+    const band=flipShineQuad(block,rect,this.app.screen.height,flipH,depth,this.world?.drawStyle ?? DrawStyle.Normal,this.app.renderer?.resolution ?? 1);
+    if (band) graphics.rect(band.rect.x,band.rect.y,band.rect.width,band.rect.height).fill({color:0xffffff,alpha:band.alpha});
   }
 
 }
