@@ -11,7 +11,9 @@ Started 2026-10-25 at `f8e7539` with clean worktree. Full task is the user attac
   cases contain 8286 rAF records / 2338 PNGs. Existing 62 matrix contracts
   remain intact; additions are 3 phantom regressions, 3 complete long routes,
   3 natural Hub lifecycle routes and 6 Note activation/third-level captures.
-  These are exercised Web cases, not 77 native-versus-Web approvals.
+  `v6-replay-contract-check.json` verifies all 62 prior options objects are
+  exactly equal after documented folder moves. These are exercised Web cases,
+  not 77 native-versus-Web approvals.
 - v6 repeats all 20 static cases and the odd-axis DPR2 probe. Established
   diagnostics retain 2780 wall / 426 floor samples with zero channels outside
   1/255, 2432 join measurements with zero seam suspects, 72 exact255 gold-clip
@@ -52,6 +54,25 @@ Started 2026-10-25 at `f8e7539` with clean worktree. Full task is the user attac
   2002x1400 for three levels; 2560x1440 yielded 2240x1400 for three; third
   2560x1800 yielded 2240x1400. No resampling/pass credit is used. All original
   rows below remain in scope. The active goal remains incomplete.
+
+## Next required evidence
+
+1. Finish independent final-v6 output review and retain paired phase evidence.
+   Broader unreviewed families remain required even when a local fix is checked.
+2. Restore supported visible native rendering and obtain exact native 13px/18px
+   and intermediate Hub glyph telemetry/assets. The automatically rejected
+   diagnostic deployment must not be retried through a workaround.
+3. Reproduce terminal LLLR in the native game and capture its action phases.
+   Current source/Web proof alone cannot approve its native appearance.
+4. Obtain the seven requested physical framebuffer sizes without OS/window
+   clamping, then rerun the unchanged physical comparator and visual checks.
+5. Review remaining phase tails/effect clocks with matching native observations.
+   Unavailable samples stay unverified; no resampling, fitted offsets or
+   weakened thresholds may turn these into passes.
+
+The frozen v6 archive is committed as `be36d4b`; its production source remains
+`ac5afc3`. Historical investigation entries below describe their original
+checkpoints and do not override the current acceptance state.
 
 ## Inventory at starting revision
 
