@@ -71,14 +71,31 @@ export function borderStrips(level: Level, rect: WallRect, thickness: number, fl
   return strips;
 }
 
+/** DrawBlockBorder's native special full-outline predicate. */
+export function isInfinityBorder(block: Block): boolean {
+  return block.isSomeInfExitBlock || Boolean(block.outerLevel?.infZone && block.subLevel && !block.subLevel.filledWithWalls && block.specialEffect !== 12);
+}
+
 export function drawBlockBorder(
   graphics: Graphics, block: Block, rect: WallRect, staticRect: WallRect, flipH: boolean,
-  screenWidth: number, screenHeight: number, resolution = 1,
+  screenWidth: number, screenHeight: number, resolution = 1, time = 0,
 ): void {
   if (!block.subLevel) return;
   const thickness = borderThickness(block, rect, staticRect, screenWidth, screenHeight, resolution);
-  const color = block.locked ? 0xff0000 : guiHsvColor({ h: block.color.h, s: block.color.s * 1.2, v: block.color.v * 0.18 });
-  for (const strip of borderStrips(block.subLevel, rect, thickness, flipH)) {
+  const infinity = isInfinityBorder(block);
+  const phase = Math.fround(time * Math.fround(0.3)) % 1;
+  const k = (phase < 0.5 ? phase * 2 : 1 - (phase - 0.5) * 2) * 2;
+  // Util decrements k before evaluating BOTH factors in the second branch.
+  const oscillation = k < 1 ? 0.5*k*k : -0.5*((k-1)*(k-3)-1);
+  const color = block.locked ? 0xff0000 : infinity ? guiHsvColor({h:0.15,s:1,v:0.65+0.35*oscillation})
+    : guiHsvColor({ h: block.color.h, s: block.color.s * 1.2, v: block.color.v * 0.18 });
+  const strips = infinity ? [
+    {x:flipH?rect.x+rect.width-thickness:rect.x,y:rect.y,width:thickness,height:rect.height},
+    {x:flipH?rect.x:rect.x+rect.width-thickness,y:rect.y,width:thickness,height:rect.height},
+    {x:rect.x,y:rect.y,width:rect.width,height:thickness},
+    {x:rect.x,y:rect.y+rect.height-thickness,width:rect.width,height:thickness},
+  ] : borderStrips(block.subLevel, rect, thickness, flipH);
+  for (const strip of strips) {
     const snapped = originalDrawRect(strip, resolution);
     if (snapped.width > 0 && snapped.height > 0) graphics.rect(snapped.x, snapped.y, snapped.width, snapped.height).fill(color);
   }

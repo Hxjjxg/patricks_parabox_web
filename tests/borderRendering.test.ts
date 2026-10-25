@@ -5,7 +5,7 @@ import { AnimType } from "../src/core/animation";
 import { parseLevel } from "../src/core/levelParser";
 import { getLevelSource } from "../src/core/levelRepository";
 import { GameRenderer } from "../src/render/GameRenderer";
-import { borderStrips, borderThickness, guiHsvColor } from "../src/render/borderRendering";
+import { borderStrips, borderThickness, guiHsvColor, drawBlockBorder } from "../src/render/borderRendering";
 
 interface Rect { x: number; y: number; width: number; height: number }
 interface DrawingMethods {
@@ -132,5 +132,30 @@ describe("original inside block borders", () => {
     const rect = { x: 0, y: 0, width: 75, height: 75 };
     expect(borderThickness(block, rect, rect, 800, 600)).toBe(2);
     expect(borderThickness(block, rect, rect, 800, 600, 2)).toBe(2.5);
+  });
+});
+
+
+describe("native infinity-zone border override",()=>{
+  function render(exit=false,specialEffect=0,time=0) {
+    const outer=new Level(90,7,7);outer.infZone=true;
+    const block=new Block(90);block.init(1,1,outer,new Level(91,3,3));
+    block.isSomeInfExitBlock=exit;block.specialEffect=specialEffect;
+    const fills:Array<{rect:number[];color:number}>=[];let rect:number[]=[];
+    const g={rect:(...n:number[])=>{rect=n;return g;},fill:(color:number)=>{fills.push({rect,color});return g;}};
+    drawBlockBorder(g as never,block,{x:10,y:20,width:90,height:90},{x:10,y:20,width:90,height:90},false,800,600,1,time);
+    return fills;
+  }
+  it("outlines all four open sides of a nonfilled block inside an infinity zone",()=>{
+    expect(render()).toEqual([
+      {rect:[10,20,3,90],color:0xa69600},{rect:[97,20,3,90],color:0xa69600},
+      {rect:[10,20,90,3],color:0xa69600},{rect:[10,107,90,3],color:0xa69600},
+    ]);
+  });
+  it("respects special12 exemption but infinite-exit blocks force the full outline",()=>{
+    expect(render(false,12)).toEqual([]);expect(render(true,12)).toHaveLength(4);
+  });
+  it("uses the native yellow HSV oscillation instead of changing border geometry",()=>{
+    expect(render(false,0,5/3).map(row=>row.color)).toEqual([0xffe600,0xffe600,0xffe600,0xffe600]);
   });
 });

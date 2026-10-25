@@ -17,7 +17,7 @@ function actualRrdWorld() {
   world.cameraMoving = false; world.newCamT = 1;
   // Actual native flip-recursive-preview-topology-20261025: four previews,
   // each via preplaced infinity reference101, bridge from level1 to root0.
-  Object.assign(world,{infExitPreviews:[[-1,0],[0,-1],[0,1],[1,0]].map(([dx,dy])=>({dx,dy,exitBlocks:[world.blocks.find(b=>b.id===101)!]}))});
+  expect(world.infExitPreviews.map(preview=>preview.exitBlocks.map(block=>block.id))).toEqual([[101],[101],[101],[101]]);
   return world;
 }
 

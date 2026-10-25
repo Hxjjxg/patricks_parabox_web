@@ -23,7 +23,7 @@ import {
 } from "./originalTextures";
 
 import { autotileIndex, createWallShader, originalDrawRect, wallTint } from "./wallRendering";
-import { drawBlockBorder } from "./borderRendering";
+import { drawBlockBorder, isInfinityBorder } from "./borderRendering";
 import { nativeFocusRect, pixelResolution } from "./focusGeometry";
 import { clipShadow, shadowRect, wallShadowCull } from "./shadowRendering";
 import { largeWallQuads } from "./wallBigRendering";
@@ -928,9 +928,9 @@ export class GameRenderer {
     }
 
     graphics = this.nextSceneLayer();
-    if (this.world?.drawStyle !== DrawStyle.QuickAnim) {
+    if (this.world?.drawStyle !== DrawStyle.QuickAnim || isInfinityBorder(viewBlock)) {
       drawBlockBorder(graphics, viewBlock, rect, staticRect, flipH,
-        this.app.screen.width, this.app.screen.height, this.app.renderer?.resolution ?? 1);
+        this.app.screen.width, this.app.screen.height, this.app.renderer?.resolution ?? 1, this.elapsed ?? 0);
     }
     const nextAncestors = new Set(ancestors);
     nextAncestors.add(level);
@@ -1249,9 +1249,9 @@ export class GameRenderer {
       graphics
         .rect(rect.x, rect.y, rect.width, rect.height)
         .fill(filledBlockColor);
-      if (this.world?.drawStyle !== DrawStyle.QuickAnim) {
+      if (this.world?.drawStyle !== DrawStyle.QuickAnim || isInfinityBorder(block)) {
         drawBlockBorder(graphics, block, rect, staticRect, flipH !== block.flipH,
-          this.app.screen.width, this.app.screen.height, this.app.renderer?.resolution ?? 1);
+          this.app.screen.width, this.app.screen.height, this.app.renderer?.resolution ?? 1, this.elapsed ?? 0);
       }
     } else if (subLevel) {
       graphics = this.drawLevel(
