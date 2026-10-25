@@ -1,0 +1,36 @@
+﻿{
+    "id":  "intro-second-win-held-native-v1-20261025",
+    "level":  "second_puzzle",
+    "expectedNextLevel":  "third_puzzle",
+    "setup":  [
+                  "UP",
+                  "LEFT",
+                  "LEFT",
+                  "UP",
+                  "UP",
+                  "UP",
+                  "RIGHT",
+                  "RIGHT",
+                  "DOWN",
+                  "DOWN",
+                  "DOWN",
+                  "RIGHT",
+                  "DOWN",
+                  "LEFT",
+                  "LEFT",
+                  "UP",
+                  "LEFT",
+                  "DOWN",
+                  "RIGHT",
+                  "DOWN",
+                  "RIGHT",
+                  "RIGHT"
+              ],
+    "solverRoute":  "ULLUUURRDDDRDLLULDRDRRL",
+    "timedCommands":  [
+                          "LEFT:2300",
+                          "NONE:300"
+                      ],
+    "saveIsolation":  true,
+    "note":  "Route derived with existing pure model; natural original winning and GoToLevel events validate the native route. Setup is settled; all final held-input/frame phases are native. Durations are requests, not delivery boundaries."
+}

@@ -1,0 +1,24 @@
+﻿{
+    "id":  "hub-enter-cancel-reenter-native-v1-20261025",
+    "level":  "hub",
+    "save":  "SAVE nexus=0 recent=Area_Intro won=first_puzzle,second_puzzle,third_puzzle",
+    "setup":  [
+                  "LEFT",
+                  "LEFT",
+                  "LEFT",
+                  "DOWN",
+                  "DOWN",
+                  "DOWN",
+                  "DOWN"
+              ],
+    "timedCommands":  [
+                          "DOWN:40",
+                          "NONE:80",
+                          "UNDO:40",
+                          "NONE:620",
+                          "DOWN:900",
+                          "NONE:300"
+                      ],
+    "purpose":  "Undo cancels first portal jump; a later DOWN naturally re-enters.",
+    "note":  "Purpose is the tested hypothesis, not an inferred success. Phases, accepted turns, actual delivered controls and save audit are authoritative."
+}

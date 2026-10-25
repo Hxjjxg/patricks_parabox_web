@@ -38,6 +38,9 @@ public sealed class Plugin : BaseUnityPlugin
         public static bool UndoLast;
         public static bool RedoLast;
         public static bool RestartLast;
+        public static int DirectionMaskLast;
+        public static bool Escape, Confirm, Cancel;
+        public static bool EscapeLast, ConfirmLast, CancelLast;
 
         public static void Clear()
         {
@@ -46,6 +49,8 @@ public sealed class Plugin : BaseUnityPlugin
             DirectionMask = 0;
             RequestedControl = "NONE";
             Force = Undo = Redo = Restart = UndoLast = RedoLast = RestartLast = false;
+            DirectionMaskLast = 0;
+            Escape = Confirm = Cancel = EscapeLast = ConfirmLast = CancelLast = false;
         }
     }
 
@@ -60,12 +65,28 @@ public sealed class Plugin : BaseUnityPlugin
             Controls.left = HoldState.Dx < 0 || (HoldState.DirectionMask & 4) != 0;
             Controls.up = HoldState.Dy > 0 || (HoldState.DirectionMask & 1) != 0;
             Controls.down = HoldState.Dy < 0 || (HoldState.DirectionMask & 2) != 0;
+            int deliveredMask = (Controls.up ? 1 : 0) | (Controls.down ? 2 : 0) | (Controls.left ? 4 : 0) | (Controls.right ? 8 : 0);
+            int pressedMask = deliveredMask & ~HoldState.DirectionMaskLast;
+            Controls.upPressed = (pressedMask & 1) != 0;
+            Controls.downPressed = (pressedMask & 2) != 0;
+            Controls.leftPressed = (pressedMask & 4) != 0;
+            Controls.rightPressed = (pressedMask & 8) != 0;
+            HoldState.DirectionMaskLast = deliveredMask;
             Controls.undo = HoldState.Undo;
             Controls.redo = HoldState.Redo;
             Controls.restart = HoldState.Restart;
             Controls.undoPressed = HoldState.Undo && !HoldState.UndoLast;
             Controls.redoPressed = HoldState.Redo && !HoldState.RedoLast;
             Controls.restartPressed = HoldState.Restart && !HoldState.RestartLast;
+            Controls.escape = HoldState.Escape;
+            Controls.escapePressed = HoldState.Escape && !HoldState.EscapeLast;
+            Controls.confirm = HoldState.Confirm;
+            Controls.confirmPressed = HoldState.Confirm && !HoldState.ConfirmLast;
+            Controls.cancel = HoldState.Cancel;
+            Controls.cancelPressed = HoldState.Cancel && !HoldState.CancelLast;
+            HoldState.EscapeLast = HoldState.Escape;
+            HoldState.ConfirmLast = HoldState.Confirm;
+            HoldState.CancelLast = HoldState.Cancel;
             HoldState.UndoLast = HoldState.Undo;
             HoldState.RedoLast = HoldState.Redo;
             HoldState.RestartLast = HoldState.Restart;
@@ -132,6 +153,8 @@ public sealed class Plugin : BaseUnityPlugin
             row.Append(",\"levelName\":\"").Append(EscapeJson(World.currentLevelName)).Append("\",\"moveCount\":").Append(World.MoveCount).Append(",\"queued\":").Append(JsonBool(World.multiPlayerQueued)).Append(",\"queueIndex\":").Append(World.multiPlayerQueueIndex).Append(",\"queueDX\":").Append(World.multiPlayerDX).Append(",\"queueDY\":").Append(World.multiPlayerDY).Append(",\"anyBlockMoving\":").Append(JsonBool(World.AnyBlockMoving));
             row.Append(",\"winning\":").Append(JsonBool(World.Winning)).Append(",\"winCount\":").Append(Invariant(World.WinCount)).Append(",\"transitioning\":").Append(JsonBool(World.Transitioning)).Append(",\"moveDelayCounter\":").Append(Invariant(Movement.moveDelayCounter)).Append(",\"waitForMoveDirChange\":").Append(JsonBool(Movement.WaitForMoveDirChange)).Append(",\"dxLast\":").Append(Movement.dxLast).Append(",\"dyLast\":").Append(Movement.dyLast).Append(",\"dirs\":\"").Append(string.Join(",", directions)).Append("\"");
             row.Append(",\"undoDirection\":").Append(JsonBool((bool)UndoDirection.GetValue(null)));
+            row.Append(",\"worldState\":\"").Append(World.State).Append("\",\"transitionSceneName\":\"").Append(EscapeJson(World.TransitionSceneName ?? "")).Append("\",\"transitionCounter\":").Append(Invariant(World.TransitionCounter)).Append(",\"menu\":\"").Append(PauseMenu.Menu).Append("\",\"menuSelect\":").Append(PauseMenu.Select);
+            row.Append(",\"menuControls\":{\"escape\":").Append(JsonBool(Controls.escape)).Append(",\"escapePressed\":").Append(JsonBool(Controls.escapePressed)).Append(",\"confirm\":").Append(JsonBool(Controls.confirm)).Append(",\"confirmPressed\":").Append(JsonBool(Controls.confirmPressed)).Append(",\"cancel\":").Append(JsonBool(Controls.cancel)).Append(",\"cancelPressed\":").Append(JsonBool(Controls.cancelPressed)).Append(",\"upPressed\":").Append(JsonBool(Controls.upPressed)).Append(",\"downPressed\":").Append(JsonBool(Controls.downPressed)).Append(",\"leftPressed\":").Append(JsonBool(Controls.leftPressed)).Append(",\"rightPressed\":").Append(JsonBool(Controls.rightPressed)).Append("}");
             row.Append(",\"drawStyle\":\"").Append(Draw.DrawStyle).Append("\",\"inspectBlock\":").Append(World.blocks.IndexOf(World.InspectBlock)).Append(",\"inspectFlipH\":").Append(JsonBool(World.InspectFlipH)).Append(",\"cameraMoving\":").Append(JsonBool(Draw.cameraMoving)).Append(",\"cameraAnimT\":").Append(Invariant(Draw.AnimT)).Append(",\"cameraAnimLength\":").Append(Invariant(Draw.AnimLength));
             row.Append(",\"focusBlockIndex\":").Append(World.blocks.IndexOf(Draw.FocusBlock)).Append(",\"cameraMovedThisTurn\":").Append(JsonBool(Draw.CameraMovedThisTurn)).Append(",\"playerMiscAnimT\":").Append(player == null ? "null" : Invariant(player.MiscAnimT));
             var moveRows = new List<string>();
@@ -508,7 +531,7 @@ public sealed class Plugin : BaseUnityPlugin
             }
             if (levelName.StartsWith("ISOLATED_MOTION:", StringComparison.OrdinalIgnoreCase))
             {
-                StartCoroutine(RunIsolatedMotionCaptureScenario(requestId, levelName.Substring(16), commands));
+                StartCoroutine(RunIsolatedMotionCaptureScenario(requestId, levelName.Substring(16), commands, options));
                 return;
             }
             if (levelName.StartsWith("MOTION:", StringComparison.OrdinalIgnoreCase))
@@ -1271,6 +1294,7 @@ public sealed class Plugin : BaseUnityPlugin
         HoldState.DirectionMask = 0;
         HoldState.RequestedControl = command.ToUpperInvariant();
         HoldState.Undo = HoldState.Redo = HoldState.Restart = false;
+        HoldState.Escape = HoldState.Confirm = HoldState.Cancel = false;
         if (command.StartsWith("INSPECT_", StringComparison.OrdinalIgnoreCase))
         {
             ExecuteCommand(command);
@@ -1287,6 +1311,9 @@ public sealed class Plugin : BaseUnityPlugin
                 case "UNDO": HoldState.Undo = true; break;
                 case "REDO": HoldState.Redo = true; break;
                 case "RESTART": HoldState.Restart = true; break;
+                case "ESCAPE": HoldState.Escape = true; break;
+                case "CONFIRM": HoldState.Confirm = true; break;
+                case "CANCEL": HoldState.Cancel = true; break;
                 case "NONE": break;
                 default: throw new ArgumentException("Unknown timed control " + command);
             }
@@ -1330,6 +1357,7 @@ public sealed class Plugin : BaseUnityPlugin
         string directory = Path.Combine(Paths.BepInExRootPath, "parity-captures", requestId);
         Directory.CreateDirectory(directory);
         File.WriteAllText(Path.Combine(directory, "start-state.json"), BuildSnapshot(requestId, new List<KeyValuePair<string, string>>()), new UTF8Encoding(false));
+        if (World.InHub()) File.WriteAllText(Path.Combine(directory, "hub-start-state.json"), BuildHubSnapshot(requestId), new UTF8Encoding(false));
         HoldState.Force = true;
         var frames = new StringBuilder();
         frames.Append("{\"requestId\":\"").Append(EscapeJson(requestId)).Append("\",\"level\":\"").Append(EscapeJson(levelName)).Append("\",\"screenWidth\":").Append(Screen.width).Append(",\"screenHeight\":").Append(Screen.height);
@@ -1375,6 +1403,7 @@ public sealed class Plugin : BaseUnityPlugin
         frames.Append("]}");
         File.WriteAllText(Path.Combine(directory, "capture.json"), frames.ToString(), new UTF8Encoding(false));
         File.WriteAllText(Path.Combine(directory, "end-state.json"), BuildSnapshot(requestId, new List<KeyValuePair<string, string>>()), new UTF8Encoding(false));
+        if (World.InHub()) File.WriteAllText(Path.Combine(directory, "hub-end-state.json"), BuildHubSnapshot(requestId), new UTF8Encoding(false));
         WriteResult(frames.ToString());
         Application.targetFrameRate = previousTargetFrameRate;
         QualitySettings.vSyncCount = previousVSync;
@@ -1674,7 +1703,7 @@ public sealed class Plugin : BaseUnityPlugin
             return BitConverter.ToString(sha.ComputeHash(File.ReadAllBytes(path))).Replace("-", "").ToLowerInvariant();
     }
 
-    private IEnumerator RunIsolatedMotionCaptureScenario(string requestId, string levelName, IReadOnlyList<string> commands)
+    private IEnumerator RunIsolatedMotionCaptureScenario(string requestId, string levelName, IReadOnlyList<string> commands, ScenarioOptions options)
     {
         SaveFile.SaveData previousSave = SaveFile.Current;
         string savePath = (string)typeof(SaveFile).GetMethod("GetSaveFilePath", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic).Invoke(null, new object[] { SaveFile.Slot });
@@ -1683,6 +1712,22 @@ public sealed class Plugin : BaseUnityPlugin
         CaptureSaveGuard.SuppressedCalls = 0;
         CaptureSaveGuard.PendingResult = null;
         SaveFile.Current = new SaveFile.SaveData();
+        if (options.HasSaveOverride)
+        {
+            SaveFile.Current.NexusUnlocked = options.NexusUnlocked;
+            SaveFile.Current.RecentArea = options.RecentArea;
+            foreach (string wonLevel in options.WonLevels)
+            {
+                SaveFile.Current.LevelWon[wonLevel] = true;
+                SaveFile.Current.LevelAttempted[wonLevel] = true;
+            }
+            World.RecentPuzzle = null;
+            World.UnlockAllRepositionAreaName = null;
+            World.TransitionXPosOffset = 0;
+            World.TransitionYPosOffset = -1;
+            World.levelsNewlyWon = 0;
+            World.hubLoaded = false;
+        }
         try
         {
             IEnumerator inner = RunMotionCaptureScenario(requestId, levelName, commands);

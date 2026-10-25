@@ -195,3 +195,15 @@ followed by400ms release; actual delivered controls and all native frames
 are retained. summarize-intro-taps.py validates complete reset snapshots,
 actual control delivery, one accepted turn and every800x600 PNG, and adds
 intro-fresh-tap-native-index.json without replacing earlier references.
+
+capture-intro-transitions.ps1 uses solve-intro-routes.mjs-derived settled
+setups and captures actual second→third and third→Hub wins.
+capture-hub-portals.ps1 records four actual Hub portals, held controls and
+Escape/down/confirm Leave puzzle returns. capture-transition-boundaries.ps1
+adds jump cancellation, direction change during jump and win/restart/undo.
+summarize-intro-transitions.py validates all10isolated captures/1109PNGs,
+natural loads, menu selection, exact Hub return and unchanged save hashes.
+Third→enter is non-immediate and requires its actual Hub portal.
+IsolatedMotion now accepts -Save 'SAVE nexus=0 recent=Area_Intro won=...'.
+Timed ESCAPE/CONFIRM/CANCEL use actual World/PauseMenu input fields;
+menuControls records held/pressed edges separately from movement controls.

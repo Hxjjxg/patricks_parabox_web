@@ -1,0 +1,21 @@
+﻿{
+    "id":  "hub-enter-direction-change-native-v1-20261025",
+    "level":  "hub",
+    "save":  "SAVE nexus=0 recent=Area_Intro won=first_puzzle,second_puzzle,third_puzzle",
+    "setup":  [
+                  "LEFT",
+                  "LEFT",
+                  "LEFT",
+                  "DOWN",
+                  "DOWN",
+                  "DOWN",
+                  "DOWN"
+              ],
+    "timedCommands":  [
+                          "DOWN:40",
+                          "RIGHT:700",
+                          "NONE:300"
+                      ],
+    "purpose":  "RIGHT is delivered during the DOWN portal jump and remains held across natural scene load. Actual queue and accepted-turn records determine carryover.",
+    "note":  "Purpose is the tested hypothesis, not an inferred success. Phases, accepted turns, actual delivered controls and save audit are authoritative."
+}

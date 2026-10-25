@@ -1,0 +1,23 @@
+﻿{
+    "id":  "hub-third-portal-leave-native-v1-20261025",
+    "level":  "hub",
+    "destination":  "third_puzzle",
+    "save":  "SAVE nexus=0 recent=Area_Intro won=first_puzzle,second_puzzle",
+    "setup":  [
+                  "LEFT",
+                  "DOWN",
+                  "DOWN"
+              ],
+    "timedCommands":  [
+                          "DOWN:1000",
+                          "NONE:200",
+                          "ESCAPE:40",
+                          "NONE:120",
+                          "DOWN:40",
+                          "NONE:120",
+                          "CONFIRM:40",
+                          "NONE:1200"
+                      ],
+    "inputBoundary":  "controls-delivered after actual Controls.Update; native World/PauseMenu run normally",
+    "note":  "Fresh isolated save initializes only listed wins; portal step, held input, Escape/down/confirm and Leave puzzle are actual delivered native controls. No direct GoToHub/PushInspect entrypoint."
+}
