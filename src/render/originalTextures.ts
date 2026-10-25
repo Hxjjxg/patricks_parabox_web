@@ -16,6 +16,8 @@ export interface OriginalTextures {
   possessEye: Texture;
   possessEyeSmall: Texture;
   centerGradient: Texture;
+  infParticle: Texture;
+  infParticleOutline: Texture;
 }
 
 const urls = import.meta.glob<string>("../assets/textures/*.png", {
@@ -58,6 +60,7 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
     possessEye,
     possessEyeSmall,
     centerGradient,
+    infParticle, infParticleOutline,
   ] = await Promise.all([
     Promise.all(
       Array.from({ length: 48 }, (_, index) =>
@@ -81,6 +84,7 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
     load("possess_eye_1.png"),
     load("possess_eye_1_small.png"),
     load("center_gradient.png"),
+    load("infinity_particle.png"), load("infinity_particle_outline.png"),
   ]);
 
   return {
@@ -97,5 +101,6 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
     possessEye,
     possessEyeSmall,
     centerGradient,
+    infParticle, infParticleOutline,
   };
 }

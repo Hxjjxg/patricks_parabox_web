@@ -28,6 +28,7 @@ import { nativeFocusRect, pixelResolution } from "./focusGeometry";
 import { clipShadow, shadowRect, wallShadowCull } from "./shadowRendering";
 import { largeWallQuads } from "./wallBigRendering";
 import { faceQuads } from "./faceRendering";
+import { infinityGlyphQuads } from "./infinityRendering";
 
 export type RendererMode =
   | SpecialModeName
@@ -937,6 +938,7 @@ export class GameRenderer {
       }
       graphics.stroke({ color: 0xffffff, alpha: 0.16, width: 1 });
     }
+    this.drawInfEffect(graphics, viewBlock, rect);
     return graphics;
   }
 
@@ -1166,6 +1168,15 @@ export class GameRenderer {
     if (block.isPlayer || block.possessable) this.drawFace(graphics, block, rect, false, flipH);
     if (block.flipH || block.fadeFlipH) this.drawFlipMark(graphics, rect);
     return graphics;
+  }
+
+  private drawInfEffect(graphics: Graphics, block: Block, rect: Rect): void {
+    for (const glyph of infinityGlyphQuads(block, rect, this.app.screen.height, this.app.renderer?.resolution ?? 1)) {
+      if (glyph.rect.width <= 0 || glyph.rect.height <= 0 || glyph.alpha <= 0) continue;
+      graphics.rect(glyph.rect.x, glyph.rect.y, glyph.rect.width, glyph.rect.height).fill({
+        texture: this.textures[glyph.texture], textureSpace: "local", color: 0xffffff, alpha: glyph.alpha,
+      });
+    }
   }
 
   private drawFace(
