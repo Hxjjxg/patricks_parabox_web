@@ -1,0 +1,25 @@
+﻿{
+    "id":  "hub-leave-held-right-native-v1-20261025",
+    "level":  "hub",
+    "mode":  "IsolatedMotion",
+    "save":  "SAVE nexus=0 recent=Area_Intro won=",
+    "setup":  [
+                  "RIGHT",
+                  "DOWN",
+                  "DOWN"
+              ],
+    "timedCommands":  [
+                          "DOWN:1000",
+                          "NONE:200",
+                          "ESCAPE:40",
+                          "NONE:1100",
+                          "DOWN:40",
+                          "NONE:120",
+                          "RIGHT:80",
+                          "CONFIRM+RIGHT:40",
+                          "RIGHT:1100",
+                          "NONE:300"
+                      ],
+    "inputBoundary":  "controls-delivered after actual Controls.Update; native World/PauseMenu execute normally",
+    "note":  "Held direction starts in pause before Confirm and is continuously retained across actual Leave puzzle. Pause settling request is 1100ms; conclusions use delivered controls and native phases, not nominal request duration."
+}
