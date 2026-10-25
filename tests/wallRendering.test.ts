@@ -26,7 +26,10 @@ function wallDraw(rect: Rect, resolution = 1, flipH = false) {
     fill: (...args: unknown[]) => { commands.push(["fill", ...args]); return graphics; },
     texture: (...args: unknown[]) => { commands.push(["texture", ...args]); return graphics; },
   };
-  drawWall.call({ textures: { walls, wallsFlip, wallsBig, wallsBigFlip }, app: { renderer: { resolution } } }, graphics as unknown as Graphics, level, block, rect, 0xffffff, flipH);
+  const receiver = Object.assign(Object.create(GameRenderer.prototype), {
+    textures: { walls, wallsFlip, wallsBig, wallsBigFlip }, app: { renderer: { resolution } },
+  });
+  drawWall.call(receiver, graphics as unknown as Graphics, level, block, rect, 0xffffff, flipH);
   return { commands, walls, wallsFlip, wallsBig, wallsBigFlip };
 }
 

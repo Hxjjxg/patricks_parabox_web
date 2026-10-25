@@ -97,6 +97,12 @@ export function hubShortcutWallGeometry(geometry: HubPortalGeometry, countingSca
   return {...geometry, width: geometry.width * scale, height: geometry.height * scale};
 }
 
+/** DrawWall body multiplier; keep HDR channels until after texture sampling. */
+export function hubShortcutBodyBrightness(state: HubShortcutDrawState = {}): number {
+  return state.unlocking ? lerp(1, Math.fround(1.65),
+    Math.fround(Math.fround(state.unlockingT ?? 0) / Math.fround(state.unlockingLength ?? 1.75))) : 1;
+}
+
 /** Color.HSVToRGB's clamped channels, before HSVToRGBGUI divides by two. */
 function hsvChannels({h, s, v}: HsvColor): readonly number[] {
   const f = Math.fround;

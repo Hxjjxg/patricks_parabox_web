@@ -27,6 +27,8 @@ import { autotileIndex, createWallShader, originalDrawRect, wallTint } from "./w
 import { drawBlockBorder, drawInfZoneFrame, guiHsvColor, isInfinityBorder } from "./borderRendering";
 import { controlCaptionRect, controlTutorial, type ControlTutorialState } from "./controlRendering";
 import { nativeCaptionQuads } from "./nativeFontRendering";
+import {hubPausedPortalReference, hubPortalCelebrationGeometry, hubShortcutBodyBrightness,
+  hubShortcutFraction, hubShortcutWallGeometry, type HubCaptionDraw} from "./hubShortcutRendering";
 import {nativeNoteCaptionRect, nativeWrappedCaptionQuads} from './nativeCaptionWrapping';
 import { nativeFocusRect, pixelResolution, quickAnimFocusRect } from "./focusGeometry";
 import { clipShadow, shadowRect, wallShadowCull } from "./shadowRendering";
@@ -1055,9 +1057,8 @@ export class GameRenderer {
     ) {
       const centerX = rect.x + rect.width / 2;
       const centerY = rect.y + rect.height / 2;
-      const showCelebration = this.world?.levelName === "hub";
       for (const particle of level.particles) {
-        if (particle.celebration && !showCelebration) continue;
+        if (particle.celebration) continue;
         const width = Math.abs(rect.width * particle.size);
         const height = Math.abs(rect.height * particle.size);
         if (!meetsNativeDrawSize(width,height,policy.minParticleSize)) continue;
@@ -1115,23 +1116,27 @@ export class GameRenderer {
       Math.max(1, this.app.screen.height);
     const tint=wallTint(viewBlock, cellFractionOfScreen,cloneFade?1-phase:undefined);
     if(quick)for(let i=0;i<3;i++)tint[i]=tint[i]!*Math.fround(.8);
-    const wallGraphics = this.nextWallLayer(tint);
+    let wallGraphics: Graphics | null = this.nextWallLayer(tint);
+    let wallBrightness = 1;
     for (const block of level.blockList) {
       if (block.subLevel) continue;
       if(suppressMoving&&block.moving)continue;
       if(!meetsNativeDrawSize(cellWidth*block.drawXScale,cellHeight*block.drawYScale,policy.minDrawSize))continue;
       const wallRect = this.animatedCellRect(level, block, rect, flipH);
       if (!this.onScreen(wallRect)) continue;
+      const brightness = hubShortcutBodyBrightness(block.hubCaptionState ?? undefined);
+      if (!wallGraphics || brightness !== wallBrightness) {
+        const bodyTint = new Float32Array(tint);
+        for (let channel = 0; channel < 3; channel++) bodyTint[channel] = Math.fround(bodyTint[channel]! * brightness);
+        wallGraphics = this.nextWallLayer(bodyTint);
+        wallBrightness = brightness;
+      }
       this.drawWall(wallGraphics, level, block, wallRect, 0xffffff, flipH);
+      // A following body must be submitted after this wall's GUI captions/bar.
+      if (block.hubCaptionState) wallGraphics = null;
     }
 
     graphics = this.nextSceneLayer();
-    if (this.world?.drawStyle !== DrawStyle.QuickAnim || isInfinityBorder(viewBlock)) {
-      drawBlockBorder(graphics, viewBlock, rect, staticRect, flipH,
-        this.app.screen.width, this.app.screen.height, this.app.renderer?.resolution ?? 1, this.elapsed ?? 0,
-        {inHub: this.world?.levelName === "hub", buttonsSatisfied: this.world?.buttonsSatisfied ?? false,
-          drawStyle: this.world?.drawStyle ?? DrawStyle.Normal, depth});
-    }
     const nextAncestors = new Set(ancestors);
     nextAncestors.add(level);
     const containers = level.blockList.filter((block) => block.subLevel&&(!suppressMoving||!block.moving));
@@ -1195,7 +1200,10 @@ export class GameRenderer {
         const parentContainer = this.activeSceneContainer;
         this.activeSceneContainer = this.maskedScene(geometry.clip);
         // ResolveMove/history retains the block's current logical outer level.
-        this.drawWall(this.nextWallLayer(tint), phantom.block.outerLevel!, phantom.block,
+        const bodyTint = new Float32Array(tint);
+        const brightness = hubShortcutBodyBrightness(phantom.block.hubCaptionState ?? undefined);
+        for (let channel = 0; channel < 3; channel++) bodyTint[channel] = Math.fround(bodyTint[channel]! * brightness);
+        this.drawWall(this.nextWallLayer(bodyTint), phantom.block.outerLevel!, phantom.block,
           phantomRect, 0xffffff, flipH);
         if (phantom.block.possessable || phantom.block.isPlayer) {
           this.drawFace(this.nextSceneLayer(), phantom.block, phantomRect, false, flipH);
@@ -1217,6 +1225,33 @@ export class GameRenderer {
       }
     }
 
+    // Native celebration particles use a separate late, level-clipped Hub pass.
+    if (this.world?.levelName === "hub" && !this.uiState?.preferences.disableParticles
+      && level.particles.some(particle => particle.celebration)) {
+      const parentContainer = this.activeSceneContainer;
+      this.activeSceneContainer = this.maskedScene(stackClip(this.currentTicket?.clip ?? null, rect));
+      const celebrationGraphics = this.nextSceneLayer();
+      for (const particle of level.particles) {
+        if (!particle.celebration) continue;
+        const width = rect.width * particle.size, height = rect.height * particle.size;
+        if (!meetsNativeDrawSize(width, height, policy.minParticleSize)) continue;
+        const offsetX = rect.width * particle.x * (flipH ? -1 : 1);
+        const offsetY = rect.height * particle.y;
+        const particleRect = originalDrawRect({x: rect.x + rect.width / 2 + offsetX - width / 2,
+          y: rect.y + rect.height / 2 + offsetY - height / 2, width, height}, this.app.renderer?.resolution ?? 1);
+        celebrationGraphics.rect(particleRect.x, particleRect.y, particleRect.width, particleRect.height)
+          .fill({color: hsvToRgb({h: particle.hue, s: particle.sat, v: particle.val}), alpha: particle.alpha});
+      }
+      this.activeSceneContainer = parentContainer;
+      graphics = this.nextSceneLayer();
+    }
+
+    if (this.world?.drawStyle !== DrawStyle.QuickAnim || isInfinityBorder(viewBlock)) {
+      drawBlockBorder(graphics, viewBlock, rect, staticRect, flipH,
+        this.app.screen.width, this.app.screen.height, this.app.renderer?.resolution ?? 1, this.elapsed ?? 0,
+        {inHub: this.world?.levelName === "hub", buttonsSatisfied: this.world?.buttonsSatisfied ?? false,
+          drawStyle: this.world?.drawStyle ?? DrawStyle.Normal, depth});
+    }
     if (
       this.uiState?.preferences.grid &&
       depth <= 3 &&
@@ -1288,6 +1323,7 @@ export class GameRenderer {
   }
 
   private drawHubPortalMarker(graphics: Graphics, floor: Floor, rect: Rect): void {
+    if (floor.hard === 2 && this.world?.hubUnlocking) return;
     const resolution = this.app.renderer?.resolution ?? 1;
     const marker = hubPortalMarkerRect(floor, {centerX: (rect.x + rect.width / 2) * resolution,
       centerY: (rect.y + rect.height / 2) * resolution, width: rect.width * resolution, height: rect.height * resolution},
@@ -1437,7 +1473,13 @@ export class GameRenderer {
 
     if (type === FloorType.LevelPortal) {
       graphics.setFillStyle({ color: 0xffffff, alpha: 1 });
-      const cell = originalDrawRect(rect, this.app.renderer.resolution);
+      const resolution = this.app.renderer.resolution;
+      const geometry = {centerX: (rect.x + rect.width / 2) * resolution, centerY: (rect.y + rect.height / 2) * resolution,
+        width: rect.width * resolution, height: rect.height * resolution};
+      const expanded = hubPortalCelebrationGeometry(geometry, floor?.hubCelebration.celebrationSizeT);
+      const expandedRect = {x: (expanded.centerX - expanded.width / 2) / resolution,
+        y: (expanded.centerY - expanded.height / 2) / resolution, width: expanded.width / resolution, height: expanded.height / resolution};
+      const cell = originalDrawRect(expandedRect, resolution);
       const texture = this.textures.portalThumbnails[floor?.sceneName ?? ''] ?? Texture.WHITE;
       if (floor?.hard) {
         graphics.texture(Texture.WHITE, guiHsvColor(floor.hard === 2
@@ -1445,11 +1487,19 @@ export class GameRenderer {
           cell.x, cell.y, cell.width, cell.height);
       }
       const inner = floor?.hard ? originalDrawRect({
-        x: rect.x + rect.width * .1, y: rect.y + rect.height * .1,
-        width: rect.width * .8, height: rect.height * .8,
-      }, this.app.renderer.resolution) : cell;
-      graphics.texture(texture, floor && !floor.won && !floor.unlocked ? 0x292929 : 0xffffff,
+        x: expandedRect.x + expandedRect.width * .1, y: expandedRect.y + expandedRect.height * .1,
+        width: expandedRect.width * .8, height: expandedRect.height * .8,
+      }, resolution) : cell;
+      graphics.texture(texture, floor && !floor.won && (!floor.unlocked || floor.hard === 2 && this.world?.hubUnlocking) ? 0x292929 : 0xffffff,
         inner.x, inner.y, inner.width, inner.height);
+      if (floor) {
+        const reference = hubPausedPortalReference(floor, geometry, {paused: this.uiState?.mode === "paused",
+          inBreakMenu: this.uiState?.special.mode === "break", celebrationSizeT: floor.hubCelebration.celebrationSizeT});
+        if (reference) {
+          this.drawHubCaption(reference.shadow, resolution);
+          this.drawHubCaption(reference.foreground, resolution);
+        }
+      }
       return;
     }
 
@@ -1469,6 +1519,47 @@ export class GameRenderer {
   }
 
   private drawWall(
+    graphics: Graphics, level: Level, block: Block, rect: Rect, color: number, flipH: boolean,
+  ): void {
+    const state = block.hubCaptionState;
+    if (!state) {
+      this.drawWallBody(graphics, level, block, rect, color, flipH);
+      return;
+    }
+    const resolution = this.app.renderer.resolution;
+    const geometry = {centerX: (rect.x + rect.width / 2) * resolution, centerY: (rect.y + rect.height / 2) * resolution,
+      width: rect.width * resolution, height: rect.height * resolution};
+    const popped = hubShortcutWallGeometry(geometry, state?.countingScaleT);
+    this.drawWallBody(graphics, level, block, {x: (popped.centerX - popped.width / 2) / resolution,
+      y: (popped.centerY - popped.height / 2) / resolution, width: popped.width / resolution, height: popped.height / resolution}, color, flipH);
+    const fraction = hubShortcutFraction(block, geometry, this.app.screen.height * resolution, {counts: state, state});
+    if (!fraction) return;
+    this.drawHubCaption(fraction.numerator, resolution);
+    this.drawHubCaption(fraction.denominator, resolution);
+    const {rect: bar, guiColor} = fraction.bar;
+    this.nextWallLayer(new Float32Array([Math.fround(guiColor.r * 2), Math.fround(guiColor.g * 2), Math.fround(guiColor.b * 2)]))
+      .rect(bar.x / resolution, bar.y / resolution, bar.width / resolution, bar.height / resolution).fill(0xffffff);
+  }
+
+  /** Exact captured font sizes only. GUI/Text uses raw GUI RGB, without DrawTexture's x2. */
+  private drawHubCaption(caption: HubCaptionDraw, resolution: number): boolean {
+    if (!caption.glyphs || !this.textures.nativeJostAtlas) return false;
+    const graphics = this.nextWallLayer(new Float32Array([caption.guiColor.r, caption.guiColor.g, caption.guiColor.b]));
+    graphics.setFillStyle({color: 0xffffff, alpha: caption.guiColor.a});
+    for (const quad of caption.glyphs) {
+      const key = quad.frame.join(",");
+      let texture = this.controlGlyphTextures.get(key);
+      if (!texture) {
+        const [x, y, width, height] = quad.frame;
+        texture = new Texture({source: this.textures.nativeJostAtlas.source, frame: new Rectangle(x!, y!, width!, height!)});
+        this.controlGlyphTextures.set(key, texture);
+      }
+      graphics.texture(texture, 0xffffff, quad.x / resolution, quad.y / resolution, quad.width / resolution, quad.height / resolution);
+    }
+    return true;
+  }
+
+  private drawWallBody(
     graphics: Graphics,
     level: Level,
     block: Block,
