@@ -29,6 +29,19 @@ function renderControls(levelName: string, width: number, height: number, moveCo
 }
 
 describe("native Move tutorial visibility and placement", () => {
+  it("uses native atlas sprites for all four intro captions and preserves wrapped note fallback", () => {
+    const { receiver, children } = renderControls("third_puzzle", 800, 600, 0, false, false, true);
+    receiver.uiState.controls.fromIntro = true;
+    const labels = Array.from({length: 5}, () => ({visible: false, style: {}, position: {set: () => {}}}));
+    receiver.controlLabels = labels;
+    receiver.drawControls(154, 54, 492, 492, 0, 800);
+    // Native CharacterInfo advances/frames supply Undo, Redo, Reset puzzle, Menu.
+    expect(receiver.controlGlyphs).toHaveLength(24);
+    expect(labels.slice(0, 4).every(label => !label.visible)).toBe(true);
+    expect(labels[4]).toMatchObject({visible: true, text: "Note: You can undo a reset", style: {wordWrap: true, wordWrapWidth: 90}});
+    receiver.drawControls(154, 54, 492, 492, 0, 800);
+    expect(children).toHaveLength(24);
+  });
   it("uses exact atlas UV frames through four reusable sprites rather than Graphics full-source fills", () => {
     const { receiver, children, positions } = renderControls("first_puzzle", 800, 600, 0, false, false, true);
     expect(receiver.controlGlyphs).toHaveLength(4);

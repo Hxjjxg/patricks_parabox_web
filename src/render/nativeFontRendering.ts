@@ -70,18 +70,65 @@ export function nativeGlyphQuads(
   return result;
 }
 
+export type NativeHorizontalAlignment = "MiddleCenter" | "UpperLeft";
+
+// UnityPlayer 0x1806145f0 uses floor(physicalPixel + 0.48f). This is the
+// untransformed, unit-scale horizontal GUI path retained by our native probes.
+const nativeGuiSnapX = (x: number): number => Math.floor(x + Math.fround(.48));
+
+function nativeGuiAnchorX(
+  textWidth: number, rect: {x: number; width: number}, alignment: NativeHorizontalAlignment,
+): number {
+  const factor = alignment === "MiddleCenter" ? .5 : 0;
+  const left = nativeGuiSnapX(rect.x);
+  const width = nativeGuiSnapX(rect.x + rect.width) - left;
+  // GUIStyle aligns the text rect, snaps its endpoints, then recenters the
+  // render anchor inside that snapped rect and snaps the anchor once more.
+  const textX = left + (width - textWidth) * factor;
+  const textLeft = nativeGuiSnapX(textX);
+  const textExtent = nativeGuiSnapX(textX + textWidth) - textLeft;
+  return nativeGuiSnapX(textLeft + textExtent * factor);
+}
+
+/** Original GUI draw stages; the exposed GUI cursor follows a separate path. */
+export function nativeGuiPenX(
+  advance: number, rect: {x: number; width: number},
+  alignment: NativeHorizontalAlignment = "MiddleCenter",
+): number {
+  const anchor = nativeGuiAnchorX(advance, rect, alignment);
+  // 0x180c76e60 shifts every centered vertex and cursor by the negative
+  // rounded line midpoint. 0x180c7b3d0 uses floor(scale*x + .5)/scale.
+  return anchor - (alignment === "MiddleCenter" ? Math.floor(advance / 2 + .5) : 0);
+}
+
 /**
- * The staged horizontal rule has been independently verified for Move only.
- * Undo falsifies it; callers must keep other captions on the existing path
- * until their native GUI alignment is understood, rather than fit an offset.
+ * Plain, unwrapped MiddleCenter captions from the captured native atlas.
+ * Local line origins and the shared render anchor follow Unity's native
+ * generator/GUIStyle stages; signed glyph bearings remain independent.
  */
+export function nativeCaptionQuads(
+  text: string, fontSize: number, rect: {x: number; y: number; width: number; height: number},
+): NativeGlyphQuad[] | null {
+  // Native richText/wordWrap need separate shaping; retain the caller fallback.
+  if (text.includes("<") || text.includes(">")) return null;
+  const lines = text.split("\n");
+  const widths = lines.map(line => nativeTextWidth(line, fontSize));
+  if (widths.some(width => width === null)) return null;
+  const baselines = nativeGuiBaselines(text, fontSize, rect);
+  if (!baselines) return null;
+  const textWidth = Math.max(...widths as number[]);
+  const available = nativeGuiSnapX(rect.x + rect.width) - nativeGuiSnapX(rect.x);
+  if (textWidth > available) return null;
+  const anchor = nativeGuiAnchorX(textWidth, rect, "MiddleCenter");
+  return lines.flatMap((line, index) => nativeGlyphQuads(
+    line, fontSize, anchor - Math.floor(widths[index]! / 2 + .5), baselines[index]!,
+  )!);
+}
+
+/** Compatibility entry point for the already-validated Move tutorial. */
 export function nativeMoveCaptionQuads(
   text: string, fontSize: number, rect: {x: number; y: number; width: number; height: number},
 ): NativeGlyphQuad[] | null {
   if (text !== "Move" && text !== "\nMove") return null;
-  const baselines = nativeGuiBaselines(text, fontSize, rect);
-  const width = nativeTextWidth("Move", fontSize);
-  if (!baselines || width === null) return null;
-  const pen = Math.ceil(rect.x - .5) + Math.ceil((rect.width - width) / 2 - .5);
-  return nativeGlyphQuads("Move", fontSize, pen, baselines.at(-1)!);
+  return nativeCaptionQuads(text, fontSize, rect);
 }

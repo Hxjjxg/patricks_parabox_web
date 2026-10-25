@@ -1,0 +1,33 @@
+
+ RUN  v4.1.10 F:/parabox_web
+
+ ❯ tests/controlRendering.test.ts (20 tests | 1 failed | 19 skipped) 17ms
+     × uses native atlas sprites for all four intro captions and preserves wrapped note fallback 15ms
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 19 skipped (20)
+   Start at  12:55:18
+   Duration  6.98s (transform 3.27s, setup 0ms, import 6.59s, tests 17ms, environment 0ms)
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/controlRendering.test.ts > native Move tutorial visibility and placement > uses native atlas sprites for all four intro captions and preserves wrapped note fallback
+AssertionError: expected [] to have a length of 24 but got +0
+
+- Expected
++ Received
+
+- 24
++ 0
+
+ ❯ tests/controlRendering.test.ts:39:36
+     37|     receiver.drawControls(154, 54, 492, 492, 0, 800);
+     38|     // Native CharacterInfo advances/frames supply Undo, Redo, Reset p…
+     39|     expect(receiver.controlGlyphs).toHaveLength(24);
+       |                                    ^
+     40|     expect(labels.slice(0, 4).every(label => !label.visible)).toBe(tru…
+     41|     expect(labels[4]).toMatchObject({visible: true, text: "Note: You c…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
