@@ -29,6 +29,7 @@ import {
   type ProjectionMoveWithBlock,
 } from "./animation";
 import { startHubEntry } from "./hubTransition";
+import { createExitPhantom } from "./exitPhantoms";
 
 /** How a turn is applied: a fresh move animates, undo/redo squish, restart snaps. */
 type TurnMode = "move" | "undo" | "redo" | "restart";
@@ -1791,6 +1792,9 @@ export class MovementEngine {
     ) {
       this.history.registerCameraFlip();
     }
+
+    const exitPhantom = createExitPhantom(block, this.moves, dx, dy, this.history.currentTurn.animLength);
+    if (exitPhantom) fromLevel.phantoms.push(exitPhantom);
 
     if (!this.world.wentToInfZone && this.world.levelIsInfZone(toLevel)) {
       this.history.registerWentToInfZone();
