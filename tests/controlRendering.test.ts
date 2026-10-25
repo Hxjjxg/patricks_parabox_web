@@ -3,6 +3,7 @@ import { GameRenderer } from "../src/render/GameRenderer";
 import { controlTutorial } from "../src/render/controlRendering";
 import { controlCaptionRect } from "../src/render/controlRendering";
 import { nativeMoveCaptionQuads } from "../src/render/nativeFontRendering";
+import {nativeWrappedCaptionQuads} from '../src/render/nativeCaptionWrapping';
 import { Texture, TextureSource } from "pixi.js";
 
 function renderControls(levelName: string, width: number, height: number, moveCount = 0, leftHanded = false, emptySave = false, nativeAtlas = false) {
@@ -29,18 +30,30 @@ function renderControls(levelName: string, width: number, height: number, moveCo
 }
 
 describe("native Move tutorial visibility and placement", () => {
-  it("uses native atlas sprites for all four intro captions and preserves wrapped note fallback", () => {
+  it('preserves text fallback when the physical Note font has not been captured', () => {
+    const {receiver} = renderControls('third_puzzle', 600, 401, 0, false, false, true);
+    receiver.uiState.controls.fromIntro = true;
+    const labels = Array.from({length: 5}, () => ({visible: false, style: {}, position: {set() {}}}));
+    receiver.controlLabels = labels;
+    receiver.drawControls(100, 30, 330, 330, 0, 600);
+    expect(receiver.controlGlyphs).toHaveLength(0);
+    expect(labels[4]).toMatchObject({visible: true, text: 'Note: You can undo a reset', style: {wordWrap: true}});
+  });
+  it("uses native atlas sprites for the four intro captions and source-wrapped Note", () => {
     const { receiver, children } = renderControls("third_puzzle", 800, 600, 0, false, false, true);
     receiver.uiState.controls.fromIntro = true;
     const labels = Array.from({length: 5}, () => ({visible: false, style: {}, position: {set: () => {}}}));
     receiver.controlLabels = labels;
     receiver.drawControls(154, 54, 492, 492, 0, 800);
     // Native CharacterInfo advances/frames supply Undo, Redo, Reset puzzle, Menu.
-    expect(receiver.controlGlyphs).toHaveLength(24);
-    expect(labels.slice(0, 4).every(label => !label.visible)).toBe(true);
-    expect(labels[4]).toMatchObject({visible: true, text: "Note: You can undo a reset", style: {wordWrap: true, wordWrapWidth: 90}});
+    const note = nativeWrappedCaptionQuads('Note: You can undo a reset', 12, {x: 32, y: 390, width: 90, height: 180})!;
+    expect(receiver.controlGlyphs).toHaveLength(24 + note.length);
+    expect(labels.every(label => !label.visible)).toBe(true);
+    const origin = controlTutorial('third_puzzle', 800, 600, {x: 154, y: 54, width: 492, height: 492}, receiver.uiState.controls).x;
+    expect(receiver.controlGlyphs.slice(24).map((sprite: {x: number; y: number}) => [sprite.x, sprite.y]))
+      .toEqual(note.map(quad => [quad.x - origin, quad.y]));
     receiver.drawControls(154, 54, 492, 492, 0, 800);
-    expect(children).toHaveLength(24);
+    expect(children).toHaveLength(24 + note.length);
   });
   it("uses exact atlas UV frames through four reusable sprites rather than Graphics full-source fills", () => {
     const { receiver, children, positions } = renderControls("first_puzzle", 800, 600, 0, false, false, true);

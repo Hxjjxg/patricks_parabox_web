@@ -27,6 +27,7 @@ import { autotileIndex, createWallShader, originalDrawRect, wallTint } from "./w
 import { drawBlockBorder, drawInfZoneFrame, guiHsvColor, isInfinityBorder } from "./borderRendering";
 import { controlCaptionRect, controlTutorial, type ControlTutorialState } from "./controlRendering";
 import { nativeCaptionQuads } from "./nativeFontRendering";
+import {nativeNoteCaptionRect, nativeWrappedCaptionQuads} from './nativeCaptionWrapping';
 import { nativeFocusRect, pixelResolution, quickAnimFocusRect } from "./focusGeometry";
 import { clipShadow, shadowRect, wallShadowCull } from "./shadowRendering";
 import { largeWallQuads } from "./wallBigRendering";
@@ -647,9 +648,17 @@ export class GameRenderer {
       }
       const caption = action.texture ? "\n" + action.label : action.label;
       const captionRect = controlCaptionRect(tutorial.x, action.y, minimum, action.texture ? iconSize : 0, this.app.renderer?.resolution ?? 1);
-      // The note uses native word wrapping; the measured atlas path covers
-      // explicit lines only. Keep the existing fallback for that wrapped text.
-      const quads = action.texture ? nativeCaptionQuads(caption, tutorial.fontSize, captionRect) : null;
+      let quadResolution = 1;
+      let quads = action.texture ? nativeCaptionQuads(caption, tutorial.fontSize, captionRect) : null;
+      if (!action.texture) {
+        quadResolution = pixelResolution(this.app.renderer?.resolution ?? 1);
+        const physical = controlTutorial(this.world?.levelName ?? '', this.app.screen.width * quadResolution,
+          this.app.screen.height * quadResolution, {x: boardX * quadResolution, y: boardY * quadResolution,
+            width: boardWidth * quadResolution, height: boardHeight * quadResolution}, this.uiState?.controls);
+        const row = physical.actions[index];
+        if (row) quads = nativeWrappedCaptionQuads(caption, physical.fontSize, nativeNoteCaptionRect(physical.x, row.y,
+          this.app.screen.width * quadResolution, this.app.screen.height * quadResolution));
+      }
       if (quads && this.textures.nativeJostAtlas) {
         for (const quad of quads) {
           const key = quad.frame.join(",");
@@ -666,7 +675,9 @@ export class GameRenderer {
             this.controls.addChild(sprite);
           }
           sprite.texture = texture;
-          sprite.position.set(quad.x - tutorial.x, quad.y);
+          sprite.position.set(quad.x / quadResolution - tutorial.x, quad.y / quadResolution);
+          sprite.width = quad.width / quadResolution;
+          sprite.height = quad.height / quadResolution;
           sprite.alpha = action.alpha;
           sprite.visible = true;
         }
