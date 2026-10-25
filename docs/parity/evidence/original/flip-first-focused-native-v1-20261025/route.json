@@ -1,0 +1,28 @@
+﻿{
+    "id":  "flip-first-focused-native-v1-20261025",
+    "level":  "flip_first",
+    "route":  [
+                  "RIGHT",
+                  "DOWN",
+                  "DOWN",
+                  "RIGHT",
+                  "RIGHT"
+              ],
+    "fixture":  "flip_first-focused.json",
+    "timedCommands":  [
+                          "RIGHT:40",
+                          "NONE:650",
+                          "DOWN:40",
+                          "NONE:650",
+                          "DOWN:40",
+                          "NONE:650",
+                          "RIGHT:40",
+                          "NONE:650",
+                          "RIGHT:40",
+                          "NONE:650"
+                      ],
+    "mode":  "SparseMotion",
+    "tapMs":  40,
+    "releaseMs":  650,
+    "note":  "All native update/accepted phases and frame states are retained. PNGs sample each event start, every eighth frame and final 40ms; file=null explicitly marks unsaved frames. No active animation is stopped."
+}

@@ -166,3 +166,16 @@ newline-Move, Undo and newline-Undo, and exports native TextGenerator
 preferred widths/characters/lines/vertices for all four forms at12/16/20.
 V10's legacy fractionY telemetry is a row ordinal; actual rect.y is integer
 and is used by analysis. Both commands are diagnostic overlays only.
+
+New motion captures add shine.json with read-only original DrawFlipShine
+ticket/MiscAnimT/focus/cloneFade context. requested-band is the original
+DrawTexture entry rectangle; submitted-band is the actual Graphics.DrawTexture
+screen rectangle after native clamping. No band, camera or timing math changes.
+
+SPARSE_MOTION (capture.ps1 -Mode SparseMotion) preserves every original
+phase and frame state but samples PNGs on each event start/every eighth
+frame/final40ms. Unsaved images have file=null and imageCaptured=false.
+capture-recursive-family.ps1 reproduces the four existing matrix routes;
+summarize-recursive-families.py validates images, delivery, exact endpoints,
+source hashes and strict accepted-move predicates without awarding coverage
+based on a level name. See native-recursive-family-evidence.md.

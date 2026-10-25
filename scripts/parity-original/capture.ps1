@@ -1,7 +1,7 @@
 param(
     [Parameter(Mandatory=$true)][string]$Id,
     [Parameter(Mandatory=$true)][string]$Level,
-    [ValidateSet("Static","Motion","IsolatedMotion")][string]$Mode = "Static",
+    [ValidateSet("Static","Motion","IsolatedMotion","SparseMotion")][string]$Mode = "Static",
     [string]$Commands = "",
     [int]$TimeoutSeconds = 45
 )
@@ -11,7 +11,7 @@ if ($Id -notmatch "^[A-Za-z0-9_-]+$") { throw "Id must be a simple artifact dire
 $gameRoot = "F:\Patricks.Parabox_inject_debug"
 $requestPath = Join-Path $gameRoot "BepInEx\AgentObserver-command.txt"
 $resultPath = Join-Path $gameRoot "BepInEx\AgentObserver-result.json"
-$prefix = if ($Mode -eq "IsolatedMotion") { "ISOLATED_MOTION" } elseif ($Mode -eq "Motion") { "MOTION" } else { "CAPTURE" }
+$prefix = if ($Mode -eq "IsolatedMotion") { "ISOLATED_MOTION" } elseif ($Mode -eq "SparseMotion") { "SPARSE_MOTION" } elseif ($Mode -eq "Motion") { "MOTION" } else { "CAPTURE" }
 [IO.File]::WriteAllLines($requestPath, @($Id, "${prefix}:$Level", $Commands), [Text.UTF8Encoding]::new($false))
 $deadline = [DateTime]::UtcNow.AddSeconds($TimeoutSeconds)
 $result = $null

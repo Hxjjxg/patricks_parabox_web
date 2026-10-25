@@ -133,6 +133,7 @@ public sealed class Plugin : BaseUnityPlugin
             row.Append(",\"winning\":").Append(JsonBool(World.Winning)).Append(",\"winCount\":").Append(Invariant(World.WinCount)).Append(",\"transitioning\":").Append(JsonBool(World.Transitioning)).Append(",\"moveDelayCounter\":").Append(Invariant(Movement.moveDelayCounter)).Append(",\"waitForMoveDirChange\":").Append(JsonBool(Movement.WaitForMoveDirChange)).Append(",\"dxLast\":").Append(Movement.dxLast).Append(",\"dyLast\":").Append(Movement.dyLast).Append(",\"dirs\":\"").Append(string.Join(",", directions)).Append("\"");
             row.Append(",\"undoDirection\":").Append(JsonBool((bool)UndoDirection.GetValue(null)));
             row.Append(",\"drawStyle\":\"").Append(Draw.DrawStyle).Append("\",\"inspectBlock\":").Append(World.blocks.IndexOf(World.InspectBlock)).Append(",\"inspectFlipH\":").Append(JsonBool(World.InspectFlipH)).Append(",\"cameraMoving\":").Append(JsonBool(Draw.cameraMoving)).Append(",\"cameraAnimT\":").Append(Invariant(Draw.AnimT)).Append(",\"cameraAnimLength\":").Append(Invariant(Draw.AnimLength));
+            row.Append(",\"focusBlockIndex\":").Append(World.blocks.IndexOf(Draw.FocusBlock)).Append(",\"cameraMovedThisTurn\":").Append(JsonBool(Draw.CameraMovedThisTurn)).Append(",\"playerMiscAnimT\":").Append(player == null ? "null" : Invariant(player.MiscAnimT));
             var moveRows = new List<string>();
             var previewRows = new List<string>();
             foreach (Draw.InfExitPreview preview in Draw.infExitPreviews) previewRows.Add("{\"dx\":" + preview.dx + ",\"dy\":" + preview.dy + ",\"exitBlocks\":[" + string.Join(",", preview.exitBlocks.ConvertAll(item => World.blocks.IndexOf(item).ToString())) + "]}");
@@ -307,11 +308,42 @@ public sealed class Plugin : BaseUnityPlugin
         [HarmonyPrefix]
         private static void Prefix(Texture texture, Color color)
         {
+            if (ShineTrace.Context != null) ShineTrace.Record("requested-band", (Rect)typeof(Draw).GetField("drawRect", ColorTrace.Fields).GetValue(null), color);
             if (!ColorTrace.Active || ColorTrace.Context == null) return;
             Rect rect = (Rect)typeof(Draw).GetField("drawRect", ColorTrace.Fields).GetValue(null);
             Color32 candidate = color;
             ColorTrace.Samples.Add("{\"frame\":" + Time.frameCount + ",\"context\":" + ColorTrace.Context + ",\"texture\":\"" + EscapeJson(texture.name) + "\",\"rect\":[" + Invariant(rect.x) + "," + Invariant(rect.y) + "," + Invariant(rect.width) + "," + Invariant(rect.height) + "],\"rawGuiColor\":" + ColorTrace.Rgba(color) + ",\"explicitColor32Candidate\":[" + candidate.r + "," + candidate.g + "," + candidate.b + "," + candidate.a + "]}");
         }
+    }
+
+    internal static class ShineTrace
+    {
+        public static string Context;
+        public static readonly List<string> Samples = new List<string>();
+        public static void Record(string kind, Rect? rect = null, Color? color = null)
+        {
+            if (!PhaseTrace.Active || Context == null) return;
+            string r = rect.HasValue ? ",\"rect\":[" + Invariant(rect.Value.x) + "," + Invariant(rect.Value.y) + "," + Invariant(rect.Value.width) + "," + Invariant(rect.Value.height) + "]" : "";
+            Samples.Add("{\"kind\":\"" + kind + "\",\"frame\":" + Time.frameCount + ",\"elapsedMs\":" + Invariant((Time.unscaledTime - PhaseTrace.StartTime) * 1000f) + ",\"context\":" + Context + r + (color.HasValue ? ",\"color\":" + ColorTrace.Rgba(color.Value) : "") + "}");
+        }
+    }
+
+    [HarmonyPatch(typeof(Draw), "DrawFlipShine")]
+    internal static class FlipShinePatch
+    {
+        [HarmonyPrefix] private static void Prefix(double xc, double yc, double width, double height, Block block, bool flipH, bool cloneFade, int depth)
+        {
+            if (!PhaseTrace.Active) return;
+            ShineTrace.Context = "{\"blockIndex\":" + World.blocks.IndexOf(block) + ",\"outerLevel\":" + World.levels.IndexOf(block.OuterLevel) + ",\"subLevel\":" + World.levels.IndexOf(block.SubLevel) + ",\"isPlayer\":" + JsonBool(block.IsPlayer) + ",\"miscAnimT\":" + Invariant(block.MiscAnimT) + ",\"anim\":\"" + block.Anim + "\",\"animT\":" + Invariant(block.AnimT) + ",\"animLength\":" + Invariant(block.AnimLength) + ",\"specialEffect\":" + block.SpecialEffect + ",\"flipH\":" + JsonBool(flipH) + ",\"cloneFade\":" + JsonBool(cloneFade) + ",\"depth\":" + depth + ",\"filledWithWalls\":" + JsonBool(block.SubLevel.FilledWithWalls) + ",\"focusBlockIndex\":" + World.blocks.IndexOf(Draw.FocusBlock) + ",\"cameraMovedThisTurn\":" + JsonBool(Draw.CameraMovedThisTurn) + ",\"cameraAnimT\":" + Invariant(Draw.AnimT) + ",\"cameraAnimLength\":" + Invariant(Draw.AnimLength) + ",\"ticketRect\":[" + DoubleInvariant(xc) + "," + DoubleInvariant(yc) + "," + DoubleInvariant(width) + "," + DoubleInvariant(height) + "]}";
+            ShineTrace.Record("shine-call");
+        }
+        [HarmonyPostfix] private static void Postfix() { ShineTrace.Context = null; }
+    }
+
+    [HarmonyPatch(typeof(Graphics), "DrawTexture", new Type[] { typeof(Rect), typeof(Texture), typeof(Rect), typeof(int), typeof(int), typeof(int), typeof(int), typeof(Color), typeof(Material) })]
+    internal static class GraphicsShineSubmitPatch
+    {
+        [HarmonyPrefix] private static void Prefix(Rect __0, Color __7) { if (ShineTrace.Context != null) ShineTrace.Record("submitted-band", __0, __7); }
     }
 
     private string _commandPath = string.Empty;
@@ -337,6 +369,8 @@ public sealed class Plugin : BaseUnityPlugin
         Harmony.CreateAndPatchAll(typeof(BorderColorPatch), "com.example.agentobserver.color-border");
         Harmony.CreateAndPatchAll(typeof(WallColorPatch), "com.example.agentobserver.color-wall");
         Harmony.CreateAndPatchAll(typeof(TextureColorPatch), "com.example.agentobserver.color-texture");
+        Harmony.CreateAndPatchAll(typeof(FlipShinePatch), "com.example.agentobserver.flip-shine");
+        Harmony.CreateAndPatchAll(typeof(GraphicsShineSubmitPatch), "com.example.agentobserver.shine-submit");
         _resultPath = Path.Combine(Paths.BepInExRootPath, "AgentObserver-result.json");
         Logger.LogInfo($"Agent Observer ready: {_commandPath}");
     }
@@ -423,6 +457,11 @@ public sealed class Plugin : BaseUnityPlugin
             if (levelName.StartsWith("MOTION:", StringComparison.OrdinalIgnoreCase))
             {
                 StartCoroutine(RunMotionCaptureScenario(requestId, levelName.Substring(7), commands));
+                return;
+            }
+            if (levelName.StartsWith("SPARSE_MOTION:", StringComparison.OrdinalIgnoreCase))
+            {
+                StartCoroutine(RunMotionCaptureScenario(requestId, levelName.Substring(14), commands, 8));
                 return;
             }
             if (levelName.StartsWith("CAPTURE:", StringComparison.OrdinalIgnoreCase))
@@ -1197,7 +1236,7 @@ public sealed class Plugin : BaseUnityPlugin
         }
     }
 
-    private IEnumerator RunMotionCaptureScenario(string requestId, string levelName, IReadOnlyList<string> commands)
+    private IEnumerator RunMotionCaptureScenario(string requestId, string levelName, IReadOnlyList<string> commands, int screenshotStride = 1)
     {
         _busy = true;
         int previousTargetFrameRate = Application.targetFrameRate;
@@ -1238,8 +1277,10 @@ public sealed class Plugin : BaseUnityPlugin
         var frames = new StringBuilder();
         frames.Append("{\"requestId\":\"").Append(EscapeJson(requestId)).Append("\",\"level\":\"").Append(EscapeJson(levelName)).Append("\",\"screenWidth\":").Append(Screen.width).Append(",\"screenHeight\":").Append(Screen.height);
         frames.Append(",\"targetFrameRate\":60,\"vSyncCount\":0,\"moveDelay\":").Append(Prefs.MoveDelay).Append(",\"allowSkippingAnimation\":").Append(JsonBool(Prefs.AllowSkippingAnimation)).Append(",\"instantZoom\":").Append(JsonBool(Prefs.InstantZoom)).Append(",\"frames\":[");
+        if (screenshotStride > 1) { frames.Length -= "\"frames\":[".Length; frames.Append("\"screenshotStride\":").Append(screenshotStride).Append(",\"frames\":["); }
         float start = Time.unscaledTime;
         PhaseTrace.Samples.Clear();
+        ShineTrace.Samples.Clear(); ShineTrace.Context = null;
         PhaseTrace.StartTime = start;
         PhaseTrace.Active = true;
         PhaseTrace.Record("capture-start");
@@ -1252,18 +1293,19 @@ public sealed class Plugin : BaseUnityPlugin
             SetTimedControl(control);
             PhaseTrace.Record("request:" + control);
             float eventStart = Time.unscaledTime;
+            int eventFrameIndex = 0;
             while ((Time.unscaledTime - eventStart) * 1000f < duration)
             {
                 yield return new WaitForEndOfFrame();
                 Block player = World.FindPlayerBlock();
                 string filename = "frame-" + captureIndex.ToString("D4") + ".png";
+                bool imageCaptured = screenshotStride == 1 || eventFrameIndex % screenshotStride == 0 || duration - (Time.unscaledTime - eventStart) * 1000f <= 40f;
                 if (captureIndex > 0) frames.Append(",");
-                frames.Append("{\"file\":\"").Append(filename).Append("\",\"frame\":").Append(Time.frameCount).Append(",\"elapsedMs\":").Append(Invariant((Time.unscaledTime-start)*1000f)).Append(",\"deltaMs\":").Append(Invariant(Time.unscaledDeltaTime*1000f)).Append(",\"control\":\"").Append(EscapeJson(control)).Append("\",\"eventIndex\":").Append(eventIndex-timelineStart).Append(",\"eventStartMs\":").Append(Invariant((eventStart-start)*1000f));
+                frames.Append("{\"file\":").Append(imageCaptured ? "\"" + filename + "\"" : "null").Append(",\"imageCaptured\":").Append(JsonBool(imageCaptured)).Append(",\"frame\":").Append(Time.frameCount).Append(",\"elapsedMs\":").Append(Invariant((Time.unscaledTime-start)*1000f)).Append(",\"deltaMs\":").Append(Invariant(Time.unscaledDeltaTime*1000f)).Append(",\"control\":\"").Append(EscapeJson(control)).Append("\",\"eventIndex\":").Append(eventIndex-timelineStart).Append(",\"eventStartMs\":").Append(Invariant((eventStart-start)*1000f));
                 frames.Append(",\"moveCount\":").Append(World.MoveCount).Append(",\"levelName\":\"").Append(EscapeJson(World.currentLevelName)).Append("\",\"outerLevel\":").Append(World.levels.IndexOf(player.OuterLevel)).Append(",\"x\":").Append(player.xpos).Append(",\"y\":").Append(player.ypos).Append(",\"anim\":\"").Append(player.Anim).Append("\",\"animT\":").Append(Invariant(player.AnimT)).Append(",\"animLength\":").Append(Invariant(player.AnimLength)).Append(",\"drawXOffset\":").Append(Invariant(player.DrawXOffset)).Append(",\"drawYOffset\":").Append(Invariant(player.DrawYOffset)).Append(",\"drawXScale\":").Append(Invariant(player.DrawXScale)).Append(",\"drawYScale\":").Append(Invariant(player.DrawYScale));
                 frames.Append(",\"anyBlockMoving\":").Append(JsonBool(World.AnyBlockMoving)).Append(",\"cameraFlipH\":").Append(JsonBool(Draw.FlipH)).Append(",\"cameraAnimT\":").Append(Invariant(Draw.AnimT)).Append(",\"cameraAnimLength\":").Append(Invariant(Draw.AnimLength)).Append(",\"newCamT\":").Append(Invariant(Draw.newCamT)).Append(",\"newX\":").Append(DrawField("newX")).Append(",\"newY\":").Append(DrawField("newY")).Append(",\"newXS\":").Append(DrawField("newXS")).Append(",\"newYS\":").Append(DrawField("newYS")).Append("}");
-                Texture2D image = ScreenCapture.CaptureScreenshotAsTexture();
-                File.WriteAllBytes(Path.Combine(directory, filename), image.EncodeToPNG());
-                UnityEngine.Object.Destroy(image);
+                if (imageCaptured) { Texture2D image = ScreenCapture.CaptureScreenshotAsTexture(); File.WriteAllBytes(Path.Combine(directory, filename), image.EncodeToPNG()); UnityEngine.Object.Destroy(image); }
+                eventFrameIndex++;
                 captureIndex++;
                 yield return null;
             }
@@ -1271,6 +1313,7 @@ public sealed class Plugin : BaseUnityPlugin
         HoldState.Clear();
         PhaseTrace.Record("capture-end");
         PhaseTrace.Active = false;
+        File.WriteAllText(Path.Combine(directory, "shine.json"), "{\"requestId\":\"" + EscapeJson(requestId) + "\",\"note\":\"Read-only original DrawFlipShine context; requested-band is pre-clamp DrawTexture entry; submitted-band is the actual Graphics.DrawTexture screenRect after native clamping.\",\"samples\":[" + string.Join(",", ShineTrace.Samples) + "]}", new UTF8Encoding(false));
         File.WriteAllText(Path.Combine(directory, "phases.json"), "{\"requestId\":\"" + EscapeJson(requestId) + "\",\"startTime\":" + Invariant(start) + ",\"samples\":[" + string.Join(",", PhaseTrace.Samples) + "]}", new UTF8Encoding(false));
         frames.Append("]}");
         File.WriteAllText(Path.Combine(directory, "capture.json"), frames.ToString(), new UTF8Encoding(false));
