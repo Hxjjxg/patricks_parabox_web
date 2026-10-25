@@ -9,6 +9,8 @@ from PIL import Image
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'docs/parity/evidence/original/native-main-font-ascii-v3-20261025'
 metrics = json.loads((SOURCE / 'font-metrics.json').read_text(encoding='utf-8'))
+LAYOUT_SOURCE = ROOT / 'docs/parity/evidence/original/native-main-font-face-v6-20261025/font-face-metrics.json'
+layout_metrics = json.loads(LAYOUT_SOURCE.read_text(encoding='utf-8-sig'))
 original = Image.open(SOURCE / 'font-atlas.png').convert('RGBA')
 atlas = Image.new('RGBA', (512, 512), (255, 255, 255, 0))
 x = y = row_height = 1
@@ -37,9 +39,14 @@ for size in metrics['metrics']:
         glyphs[glyph['character']] = {'advance': glyph['advance'], 'bounds': glyph['bounds'], 'frame': [x, y, width, height]}
         x += width + 2
         row_height = max(row_height, height)
-    sizes[str(size['fontSize'])] = {'lineHeight': size['lineHeight'], 'singleLineHeight': size['calcSize'][1], 'glyphs': glyphs}
+    native_layout = next(row for row in layout_metrics['measurements'] if row['size'] == size['fontSize'])['textGenerator']
+    m = next(glyph for glyph in size['glyphs'] if glyph['character'] == 'M')
+    hinted_ascent = -native_layout['vertices'][0][1] + m['bounds'][3] + native_layout['characters'][1]['cursorPos']['y']
+    sizes[str(size['fontSize'])] = {'lineHeight': size['lineHeight'], 'singleLineHeight': size['calcSize'][1], 'hintedAscent': hinted_ascent, 'glyphs': glyphs}
 texture_path = ROOT / 'src/assets/fonts/native-jost-atlas.png'
 atlas.save(texture_path)
 data = {'source': SOURCE.relative_to(ROOT).as_posix(), 'sourceAtlasSha256': hashlib.sha256((SOURCE / 'font-atlas.png').read_bytes()).hexdigest(), 'sourceMetricsSha256': hashlib.sha256((SOURCE / 'font-metrics.json').read_bytes()).hexdigest(), 'atlasSha256': hashlib.sha256(texture_path.read_bytes()).hexdigest(), 'padding': metrics['sourceStyle']['padding'], 'sizes': sizes}
+data['layoutSource'] = LAYOUT_SOURCE.relative_to(ROOT).as_posix()
+data['layoutMetricsSha256'] = hashlib.sha256(LAYOUT_SOURCE.read_bytes()).hexdigest()
 (ROOT / 'src/assets/data/native-font-metrics.json').write_text(json.dumps(data, separators=(',', ':')) + chr(10), encoding='utf-8')
 print(json.dumps({'glyphs': sum(len(size['glyphs']) for size in sizes.values()), 'atlas': [atlas.width, atlas.height], 'usedHeight': y + row_height, 'sourceAtlasSha256': data['sourceAtlasSha256']}))
