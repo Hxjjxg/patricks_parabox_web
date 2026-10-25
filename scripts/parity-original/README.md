@@ -126,3 +126,22 @@ uses cameraMoving rather than newCamT>=1. Other modes keep the earlier gate.
 `summarize-hardpaths.py` generates hardpath-native-index.json, validates ten
 style/clone/inspection/infinite-exit/fixed-focus outputs and appends their
 manifest entries without changing prior references.
+
+Motion phase metadata also includes the native `Draw.infExitPreviews`: each
+direction and ordered `exitBlocks` identity chain is read-only. RRD recursive
+flip proof and source locations are in `docs/parity/recursive-flip-source`.
+
+`FONT_METRICS` as the second request line performs a read-only MainFont
+export without loading or moving a level. It requests printable ASCII at
+sizes12/16/20 before querying any final UVs, then copies the same generation
+font atlas with the neutral GPU path. Glyph advances, min/max bounds, UVs
+and flipped packing are retained. `DrawText` is observed for the exact Move
+caption, font choice, alignment, fontSize and actual drawRect; its text starts
+with a newline. V4 additionally calls GUIStyle.GetCursorPixelPosition for
+indices0/1/5 on the actual rectangle and centered600×600 rectangle. Cursor
+positions are line positions, not a direct glyph-baseline measurement.
+
+`summarize-preview-font.py` validates all36 actual RRD preview frames, the
+native four ordered[101] chains, both complete285-glyph font datasets and
+the v3/v4 atlas hash equality. It appends the new entries without deleting
+earlier partial font generations, and emits preview-font-native-index.json.

@@ -134,6 +134,9 @@ public sealed class Plugin : BaseUnityPlugin
             row.Append(",\"undoDirection\":").Append(JsonBool((bool)UndoDirection.GetValue(null)));
             row.Append(",\"drawStyle\":\"").Append(Draw.DrawStyle).Append("\",\"inspectBlock\":").Append(World.blocks.IndexOf(World.InspectBlock)).Append(",\"inspectFlipH\":").Append(JsonBool(World.InspectFlipH)).Append(",\"cameraMoving\":").Append(JsonBool(Draw.cameraMoving)).Append(",\"cameraAnimT\":").Append(Invariant(Draw.AnimT)).Append(",\"cameraAnimLength\":").Append(Invariant(Draw.AnimLength));
             var moveRows = new List<string>();
+            var previewRows = new List<string>();
+            foreach (Draw.InfExitPreview preview in Draw.infExitPreviews) previewRows.Add("{\"dx\":" + preview.dx + ",\"dy\":" + preview.dy + ",\"exitBlocks\":[" + string.Join(",", preview.exitBlocks.ConvertAll(item => World.blocks.IndexOf(item).ToString())) + "]}");
+            row.Append(",\"infExitPreviews\":[").Append(string.Join(",", previewRows)).Append("]");
             bool cloneEntry = false;
             foreach (Movement.Move move in Movement.moves) if (move.moveType == Movement.MoveType.Enter && move.toLevelBlock != null && move.toLevelBlock.SubLevel != null && move.toLevelBlock != move.toLevelBlock.SubLevel.GetExitBlock()) cloneEntry = true;
             row.Append(",\"cloneEntry\":").Append(JsonBool(cloneEntry));
@@ -192,6 +195,23 @@ public sealed class Plugin : BaseUnityPlugin
         public static readonly System.Reflection.BindingFlags Fields = System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Static;
         public static string Rgba(Color color) => "[" + Invariant(color.r) + "," + Invariant(color.g) + "," + Invariant(color.b) + "," + Invariant(color.a) + "]";
         public static string BlockContext(string kind, Block block) => "{\"kind\":\"" + kind + "\",\"blockIndex\":" + World.blocks.IndexOf(block) + ",\"outerLevel\":" + World.levels.IndexOf(block.OuterLevel) + ",\"subLevel\":" + World.levels.IndexOf(block.SubLevel) + ",\"subSize\":[" + block.SubLevel.width + "," + block.SubLevel.height + "],\"filledWithWalls\":" + JsonBool(block.SubLevel.FilledWithWalls) + ",\"hsv\":[" + Invariant(block.hue) + "," + Invariant(block.sat) + "," + Invariant(block.val) + "],\"borderColor\":" + Rgba(block.borderColor);
+    }
+
+    [HarmonyPatch(typeof(Draw), "DrawText")]
+    internal static class FontTextPatch
+    {
+        public static int MoveFontSize;
+        public static TextAnchor MoveAlignment;
+        public static Draw.SquareFont MoveFont;
+        public static string MoveText;
+        public static Rect MoveRect;
+        [HarmonyPostfix] private static void Postfix(string text, TextAnchor alignment, int fontSize, Draw.SquareFont font)
+        {
+            if (text.Trim() != "Move") return;
+            MoveFontSize = fontSize; MoveAlignment = alignment; MoveFont = font;
+            MoveText = text;
+            MoveRect = (Rect)typeof(Draw).GetField("drawRect", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
+        }
     }
 
     [HarmonyPatch(typeof(Draw), "DrawBlock")]
@@ -255,6 +275,7 @@ public sealed class Plugin : BaseUnityPlugin
         Harmony.CreateAndPatchAll(typeof(HoldInputPatch), "com.example.agentobserver.hold");
         Harmony.CreateAndPatchAll(typeof(TimedInputPatch), "com.example.agentobserver.timed");
         Harmony.CreateAndPatchAll(typeof(CaptureSavePatch), "com.example.agentobserver.capture-save");
+        Harmony.CreateAndPatchAll(typeof(FontTextPatch), "com.example.agentobserver.font-text");
         Harmony.CreateAndPatchAll(typeof(UpdatePhasePatch), "com.example.agentobserver.phase-update");
         Harmony.CreateAndPatchAll(typeof(ImpulsePhasePatch), "com.example.agentobserver.phase-impulse");
         Harmony.CreateAndPatchAll(typeof(LevelPhasePatch), "com.example.agentobserver.phase-level");
@@ -313,6 +334,11 @@ public sealed class Plugin : BaseUnityPlugin
             }
 
             _lastRequestId = requestId;
+            if (levelName == "FONT_METRICS")
+            {
+                StartCoroutine(RunFontMetricsScenario(requestId));
+                return;
+            }
             if (levelName.StartsWith("GPU_WALL:", StringComparison.OrdinalIgnoreCase))
             {
                 StartCoroutine(RunWallReadbackScenario(requestId, levelName.Substring(9)));
@@ -1254,6 +1280,68 @@ public sealed class Plugin : BaseUnityPlugin
         File.WriteAllText(Path.Combine(directory, "capture.json"), metadata.ToString(), new UTF8Encoding(false));
         WriteResult(metadata.ToString());
         Logger.LogInfo("Parity GPU readback complete: " + directory);
+        _busy = false;
+    }
+
+    private IEnumerator RunFontMetricsScenario(string requestId)
+    {
+        _busy = true;
+        var flags = System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Static;
+        object draw = typeof(Draw).GetField("instance", flags).GetValue(null);
+        Font font = (Font)typeof(Draw).GetField("MainFont", flags).GetValue(draw);
+        var alphabet = new StringBuilder();
+        for (char character = ' '; character <= '~'; character++) alphabet.Append(character);
+        string glyphCharacters = alphabet.ToString();
+        foreach (int size in new[] { 12, 16, 20 }) font.RequestCharactersInTexture(glyphCharacters, size, FontStyle.Normal);
+        yield return new WaitForEndOfFrame();
+        GUIStyle sourceStyle = (GUIStyle)typeof(Draw).GetField("textguiStyle", flags).GetValue(null);
+        string directory = Path.Combine(Paths.BepInExRootPath, "parity-captures", requestId);
+        Directory.CreateDirectory(directory);
+        string V(Vector2 value) => "[" + Invariant(value.x) + "," + Invariant(value.y) + "]";
+        string S(string value) => "\"" + EscapeJson(value ?? "") + "\"";
+        var metrics = new List<string>();
+        foreach (int size in new[] { 12, 16, 20 })
+        {
+            GUIStyle style = new GUIStyle(sourceStyle) { font = font, fontSize = size, fontStyle = FontStyle.Normal };
+            var glyphs = new List<string>();
+            foreach (char character in glyphCharacters)
+            {
+                bool found = font.GetCharacterInfo(character, out CharacterInfo glyph, size, FontStyle.Normal);
+                object flipped = typeof(CharacterInfo).GetProperty("flipped")?.GetValue(glyph) ?? typeof(CharacterInfo).GetField("flipped")?.GetValue(glyph);
+                glyphs.Add("{\"character\":" + S(character.ToString()) + ",\"found\":" + JsonBool(found) + ",\"advance\":" + glyph.advance + ",\"bounds\":[" + glyph.minX + "," + glyph.minY + "," + glyph.maxX + "," + glyph.maxY + "],\"glyphWidth\":" + glyph.glyphWidth + ",\"glyphHeight\":" + glyph.glyphHeight + ",\"bearing\":" + glyph.bearing + ",\"uvBottomLeft\":" + V(glyph.uvBottomLeft) + ",\"uvBottomRight\":" + V(glyph.uvBottomRight) + ",\"uvTopLeft\":" + V(glyph.uvTopLeft) + ",\"uvTopRight\":" + V(glyph.uvTopRight) + ",\"flipped\":" + (flipped == null ? "null" : JsonBool((bool)flipped)) + "}");
+            }
+            metrics.Add("{\"fontSize\":" + size + ",\"fontStyle\":" + S(style.fontStyle.ToString()) + ",\"alignment\":" + S(style.alignment.ToString()) + ",\"lineHeight\":" + Invariant(style.lineHeight) + ",\"calcSize\":" + V(style.CalcSize(new GUIContent("Move"))) + ",\"calcHeight1000\":" + Invariant(style.CalcHeight(new GUIContent("Move"), 1000f)) + ",\"glyphs\":[" + string.Join(",", glyphs) + "]}");
+        }
+        Texture source = font.material.mainTexture;
+        RenderTexture previous = RenderTexture.active;
+        bool previousSrgbWrite = GL.sRGBWrite;
+        RenderTexture target = RenderTexture.GetTemporary(source.width, source.height, 0, RenderTextureFormat.ARGB32, RenderTextureReadWrite.Linear);
+        Texture2D readback = new Texture2D(source.width, source.height, TextureFormat.RGBA32, false, true);
+        try
+        {
+            GL.sRGBWrite = false; Graphics.Blit(source, target); RenderTexture.active = target;
+            readback.ReadPixels(new Rect(0, 0, source.width, source.height), 0, 0, false); readback.Apply(false, false);
+            File.WriteAllBytes(Path.Combine(directory, "font-atlas.png"), readback.EncodeToPNG());
+        }
+        finally
+        {
+            RenderTexture.active = previous; GL.sRGBWrite = previousSrgbWrite;
+            RenderTexture.ReleaseTemporary(target); UnityEngine.Object.Destroy(readback);
+        }
+        string metadata = "{\"requestId\":" + S(requestId) + ",\"levelName\":" + S(World.currentLevelName) + ",\"fontAssetName\":" + S(font.name) + ",\"fontNames\":[" + string.Join(",", Array.ConvertAll(font.fontNames, S)) + "],\"dynamic\":" + JsonBool(font.dynamic) + ",\"fontFontSize\":" + font.fontSize + ",\"fontAscent\":" + font.ascent + ",\"fontLineHeight\":" + font.lineHeight + ",\"sourceStyle\":{\"fontName\":" + S(sourceStyle.font.name) + ",\"fontSize\":" + sourceStyle.fontSize + ",\"fontStyle\":" + S(sourceStyle.fontStyle.ToString()) + ",\"alignment\":" + S(sourceStyle.alignment.ToString()) + ",\"wordWrap\":" + JsonBool(sourceStyle.wordWrap) + ",\"richText\":" + JsonBool(sourceStyle.richText) + ",\"clipping\":" + S(sourceStyle.clipping.ToString()) + ",\"padding\":[" + sourceStyle.padding.left + "," + sourceStyle.padding.right + "," + sourceStyle.padding.top + "," + sourceStyle.padding.bottom + "],\"contentOffset\":" + V(sourceStyle.contentOffset) + "},\"lastMoveDraw\":{\"fontSize\":" + FontTextPatch.MoveFontSize + ",\"alignment\":" + S(FontTextPatch.MoveAlignment.ToString()) + ",\"font\":" + S(FontTextPatch.MoveFont.ToString()) + "},\"texture\":{\"file\":\"font-atlas.png\",\"name\":" + S(source.name) + ",\"width\":" + source.width + ",\"height\":" + source.height + ",\"filterMode\":" + S(source.filterMode.ToString()) + ",\"wrapMode\":" + S(source.wrapMode.ToString()) + ",\"shader\":" + S(font.material.shader.name) + "},\"metrics\":[" + string.Join(",", metrics) + "]}";
+        var captions = new List<string>();
+        foreach (int size in new[] { 12, 16, 20 })
+        {
+            GUIStyle style = new GUIStyle(sourceStyle) { font = font, fontSize = size, fontStyle = FontStyle.Normal };
+            GUIContent caption = new GUIContent("\nMove");
+            string C(Rect rect) => "[" + V(style.GetCursorPixelPosition(rect, caption, 0)) + "," + V(style.GetCursorPixelPosition(rect, caption, 1)) + "," + V(style.GetCursorPixelPosition(rect, caption, 5)) + "]";
+            captions.Add("{\"fontSize\":" + size + ",\"calcSize\":" + V(style.CalcSize(caption)) + ",\"calcHeight600\":" + Invariant(style.CalcHeight(caption, 600f)) + ",\"fontAscent\":" + font.ascent + ",\"fontLineHeight\":" + font.lineHeight + ",\"styleLineHeight\":" + Invariant(style.lineHeight) + ",\"cursorIndices\":[0,1,5],\"cursorActualRect\":" + C(FontTextPatch.MoveRect) + ",\"cursorCentered600Rect\":" + C(new Rect(-300f, -300f, 600f, 600f)) + "}");
+        }
+        metadata = metadata.Substring(0, metadata.Length - 1) + ",\"actualMoveText\":" + S(FontTextPatch.MoveText) + ",\"actualMoveRect\":[" + Invariant(FontTextPatch.MoveRect.x) + "," + Invariant(FontTextPatch.MoveRect.y) + "," + Invariant(FontTextPatch.MoveRect.width) + "," + Invariant(FontTextPatch.MoveRect.height) + "],\"captionMeasurements\":[" + string.Join(",", captions) + "]}";
+        metadata = metadata.Substring(0, metadata.Length - 1) + ",\"characterRange\":\"ASCII U+0020..U+007E\",\"charactersPerSize\":95}";
+        File.WriteAllText(Path.Combine(directory, "font-metrics.json"), metadata, new UTF8Encoding(false));
+        WriteResult(metadata);
+        Logger.LogInfo("Parity font metrics complete: " + directory);
         _busy = false;
     }
 

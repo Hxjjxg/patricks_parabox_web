@@ -427,3 +427,41 @@ gpu-infinity-effects-20261025 adds exact native InfParticleTex and
 InfParticleOutlineTex fields, both512x512 DXT5/Bilinear/Clamp, with neutral
 GPU decoded PNGs and SHA256 audit. These supply infinity/epsilon glyph
 textures; their rendering gates remain governed by Draw.DrawInfEffect.
+
+## Recursive flip preview and native MainFont evidence
+
+`flip-recursive-preview-topology-20261025` is the actual settled RIGHT RIGHT
+then DOWN40ms/NONE620ms,800×600 reproduction in `1by1_playerr_flip2`. The
+read-only native phase trace proves the missing-board root: no previews
+before DOWN; then four directional chains, each `[101]`, escaping self1×1
+level1 through a representation in root9×9 level0. Core port, lifecycle and
+nonmutation regressions are documented in `recursive-flip-source`.
+
+`native-main-font-ascii-v3-20261025` and
+`native-main-font-cursor-v4-20261025` retain285 actual glyphs per export:
+95 printable ASCII characters at12/16/20, all found, final UVs and GPU atlas
+read back without an intervening frame. Both atlas PNGs have SHA256
+`c7adceb10259e8528857315c3f17209f2e5397fedb0ec39e0f4572f81a296ae0`.
+The runtime font is Jost-SemiBold (fontNames Jost), not a browser font metric
+substitute. GUI/Text Shader uses the font texture alpha coverage. Earlier
+Move-only v1/v2 exports remain explicitly labeled partial in the manifest.
+
+Actual source caption is `\nMove`, drawn at Main/Normal/MiddleCenter. At
+800×600 the rect is(-223,55.5,600,600). Native style lineHeight is17/23/29
+and two-line CalcHeight is41/52/64 for sizes12/16/20. Font asset reports
+fontSize16, ascent17, lineHeight23; those asset properties do not change
+when querying another requested glyph size.
+
+V4 measures GUIStyle.GetCursorPixelPosition at indices0/1/5. On the
+centered(-300,-300,600,600) rect, the results are:
+
+| Size | Cursor0 | Cursor1 | Cursor5 |
+| --- | --- | --- | --- |
+| 12 | (0,-17.5) | (-15,-0.5) | (15,-0.5) |
+| 16 | (0,-23) | (-20,0) | (20,0) |
+| 20 | (0,-29) | (-25,0) | (25,0) |
+
+These are actual native text-line positions; glyph baselines must not be
+asserted from scaled asset ascent alone. `preview-font-native-index.json`
+retains actual-rect positions, exact hashes, source limits and partial-export
+status. `summarize-preview-font.py` reproduces validation and registry updates.

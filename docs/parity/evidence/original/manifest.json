@@ -1507,6 +1507,25 @@
       "requestCommands": "",
       "directory": "docs/parity/evidence/original/static-focus-block-static-v2-20261025",
       "note": "Source-gated hard path output; see hardpath-native-index.json for exact accepted phases and limits."
+    },
+    {
+      "id": "flip-recursive-preview-topology-20261025",
+      "level": "1by1_playerr_flip2",
+      "setup": [
+        "RIGHT",
+        "RIGHT"
+      ],
+      "timedCommands": [
+        "DOWN:40",
+        "NONE:620"
+      ],
+      "mode": "Motion",
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": "RIGHT RIGHT | DOWN:40 NONE:620",
+      "directory": "docs/parity/evidence/original/flip-recursive-preview-topology-20261025",
+      "note": "Read-only native infExitPreviews telemetry proves four ordered [101] escape chains. Source and purity tests: recursive-flip-source/native-preview-source.md."
     }
   ],
   "gpuReadbacks": [
@@ -1560,5 +1579,73 @@
       "directory": "docs/parity/evidence/original/gpu-infinity-effects-20261025"
     }
   ],
-  "phaseTraceMethod": "Read-only hooks around World.UpdateInner, PlayerMovementLogic, queued impulse, GoToLevel and UndoManager history calls; controls-delivered follows timed Controls.Update postfix. undoDirection and playerDrawFlags added for held-history and fresh automatic-load probes."
+  "phaseTraceMethod": "Read-only hooks around World.UpdateInner, PlayerMovementLogic, queued impulse, GoToLevel and UndoManager history calls; controls-delivered follows timed Controls.Update postfix. undoDirection and playerDrawFlags added for held-history and fresh automatic-load probes.",
+  "fontReadbacks": [
+    {
+      "id": "native-main-font-metrics-20261025",
+      "status": "valid-partial",
+      "directory": "docs/parity/evidence/original/native-main-font-metrics-20261025",
+      "font": "Jost-SemiBold",
+      "glyphCounts": [
+        4,
+        4,
+        4
+      ],
+      "hashes": {
+        "font-metrics.json": "c2417409ab1323918c3e5512fba9ddbbe296a1f279c4de1123f9790bb0c7822a",
+        "font-atlas.png": "fb35fce175688040f68b92f01b55112e848911160823cbd146d1ad31842151fb"
+      },
+      "note": "Move-only glyphs; DrawText hook missed the leading newline.",
+      "supersededBy": "native-main-font-ascii-v3-20261025"
+    },
+    {
+      "id": "native-main-font-metrics-v2-20261025",
+      "status": "valid-partial",
+      "directory": "docs/parity/evidence/original/native-main-font-metrics-v2-20261025",
+      "font": "Jost-SemiBold",
+      "glyphCounts": [
+        4,
+        4,
+        4
+      ],
+      "hashes": {
+        "font-metrics.json": "2bd65958b0d96396e47f4fae2b4502623bce7c29c1af261fdf259fef928fe98b",
+        "font-atlas.png": "580e5dfe1c5ce411026d2ef42b7bcfbc5454e47d309398d9afc2379f1865a924"
+      },
+      "note": "Correct actual caption and DrawText hook, but only Move glyphs.",
+      "supersededBy": "native-main-font-ascii-v3-20261025"
+    },
+    {
+      "id": "native-main-font-ascii-v3-20261025",
+      "status": "valid",
+      "directory": "docs/parity/evidence/original/native-main-font-ascii-v3-20261025",
+      "font": "Jost-SemiBold",
+      "glyphCounts": [
+        95,
+        95,
+        95
+      ],
+      "hashes": {
+        "font-metrics.json": "31e5e167d4e3b8a86deae1fb28b31e837c7fd691a3d4be305f1c7e746f491ef8",
+        "font-atlas.png": "c7adceb10259e8528857315c3f17209f2e5397fedb0ec39e0f4572f81a296ae0"
+      },
+      "note": "Full printable ASCII at12/16/20, final UVs and atlas from one uninterrupted font generation."
+    },
+    {
+      "id": "native-main-font-cursor-v4-20261025",
+      "status": "valid",
+      "directory": "docs/parity/evidence/original/native-main-font-cursor-v4-20261025",
+      "font": "Jost-SemiBold",
+      "glyphCounts": [
+        95,
+        95,
+        95
+      ],
+      "hashes": {
+        "font-metrics.json": "10a515b750f961879290ffdf65c5cc78e8bc14b43573769b8abb87aac68afbb6",
+        "font-atlas.png": "c7adceb10259e8528857315c3f17209f2e5397fedb0ec39e0f4572f81a296ae0"
+      },
+      "note": "Same full ASCII and atlas, plus actual GUI cursor0/1/5 positions for actual and centered600px rectangles."
+    }
+  ]
 }
