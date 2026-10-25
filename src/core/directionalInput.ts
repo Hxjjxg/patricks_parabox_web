@@ -114,7 +114,9 @@ export class DirectionalInput {
         this.directionOrder.splice(this.directionOrder.indexOf(id), 1);
       }
     }
-    return this.emitIfChanged(before);
+    // Rebuilding native dirs is independent of dxLast/dyLast. The controller
+    // marks an actual logical direction change; resampling must retain delay.
+    return this.emitIfChanged(before, false);
   }
 
   tick(
@@ -123,13 +125,10 @@ export class DirectionalInput {
     canEmit = true,
   ): DirectionCommand | null {
     const current = this.current();
-    if (!current) {
-      this.repeatElapsed = 0;
-      return null;
-    }
     // The original only advances its move delay while no block is animating,
     // so held input does not burn repeats during a slide.
     if (canRepeat) this.repeatElapsed += Math.max(0, elapsedSeconds);
+    if (!current) return null;
     // Native delay continues accumulating through a settled win/queue, but
     // only an actual eligible impulse consumes it. Automatic loads retain it.
     if (!canEmit) return null;
@@ -157,6 +156,7 @@ export class DirectionalInput {
 
   private emitIfChanged(
     before: DirectionCommand | null,
+    resetDelay = true,
   ): DirectionCommand | null {
     const after = this.current();
     if (
@@ -165,7 +165,7 @@ export class DirectionalInput {
     ) {
       return null;
     }
-    this.repeatElapsed = 0;
+    if (resetDelay) this.repeatElapsed = 0;
     return after;
   }
 }

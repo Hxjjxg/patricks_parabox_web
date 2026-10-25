@@ -193,6 +193,51 @@ function setupBeforeEnterPortal() {
   return h;
 }
 
+function setupBeforeLeave() {
+  const h = controllerHarness('hub'); h.frame(0);
+  for (const [dx, dy] of [[1, 0], [0, -1], [0, -1]]) {
+    h.api.impulse(dx!, dy!); stopAllAnimations(h.api.world());
+  }
+  h.press('ArrowDown', 1);
+  for (let t = 50; t <= 1200; t += 50) h.frame(t);
+  h.release('ArrowDown', 1201);
+  expect(h.api.getState().levelName).toBe('first_puzzle');
+  h.press('Escape', 1210); h.release('Escape', 1211); h.frame(1250);
+  h.press('ArrowDown', 1260);
+  expect(h.api.getState().session.options[h.api.getState().session.selectedIndex]).toBe('Leave puzzle');
+  return h;
+}
+
+describe('native Leave held controls', () => {
+  it('retains held Right and reserves during the first skipped Hub animation update', () => {
+    const h = setupBeforeLeave(); h.release('ArrowDown', 1261);
+    h.press('ArrowRight', 1270); h.frame(1300); h.press('Enter', 1310);
+    expect(h.api.getState()).toMatchObject({levelName: 'hub', moveCount: 0, player: {x: 6, y: 7}});
+    h.frame(1327);
+    expect(h.api.getState()).toMatchObject({moveCount: 1, player: {x: 6, y: 7}});
+    expect(h.api.world().findPlayerBlock()).toMatchObject({anim: 'jumpOut', animT: 0});
+    for (let t = 1377; t <= 1877; t += 50) h.frame(t);
+    h.frame(1894);
+    expect(h.api.getState()).toMatchObject({moveCount: 1, player: {x: 7, y: 7}});
+  });
+  it('retains held Down without a flight reservation and reenters only after landing', () => {
+    const h = setupBeforeLeave(); h.frame(1300); h.press('Enter', 1310); h.frame(1327);
+    expect(h.api.getState()).toMatchObject({levelName: 'hub', moveCount: 0, player: {x: 6, y: 7}});
+    for (let t = 1377; t <= 1827; t += 50) {
+      h.frame(t); expect(h.api.getState().moveCount).toBe(0);
+    }
+    h.frame(1877); h.frame(1894);
+    expect(h.api.getState()).toMatchObject({levelName: 'hub', moveCount: 1, player: {x: 6, y: 7}});
+    expect(h.api.world().findPlayerBlock().anim).toBe('jumpIn');
+  });
+  it('does not revive a direction released before confirming Leave', () => {
+    const h = setupBeforeLeave(); h.release('ArrowDown', 1261);
+    h.press('ArrowRight', 1270); h.release('ArrowRight', 1300); h.press('Enter', 1310);
+    h.frame(1327); h.frame(1377);
+    expect(h.api.getState()).toMatchObject({levelName: 'hub', moveCount: 0});
+  });
+});
+
 describe('native Hub portal entry', () => {
   it('does not retry held Escape after a pressed edge missed undo cooldown', () => {
     const h = setupBeforeEnterPortal();

@@ -62,6 +62,13 @@ describe("single-player directional input stack", () => {
 });
 
 describe("directional repeat timing", () => {
+  it("retains native idle counter when rebuilding physical keys after PauseMenu", () => {
+    const input = new DirectionalInput(70);
+    expect(input.tick(.2, true, false)).toBeNull();
+    input.syncPhysicalKeys(new Map([["arrowdown", {dx: 0, dy: -1}]]));
+    // Native dxLast/dyLast can already match this newly rebuilt dirs list.
+    expect(input.tick(0, false)).toEqual({dx: 0, dy: -1});
+  });
   it("tests delay retained through a win even while Hub arrival is moving", () => {
     const input = new DirectionalInput(70);
     input.press("d", { dx: 1, dy: 0 });

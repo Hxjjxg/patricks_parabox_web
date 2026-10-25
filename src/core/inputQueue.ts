@@ -30,9 +30,8 @@ export function decideDirectionRequest(
   state: DirectionRequestState,
 ): DirectionRequestDecision {
   // The original accepts at most one queued move at a time.
-  if (state.alreadyQueued) return "ignore";
+  if (state.alreadyQueued || state.waitingForDirectionChange) return "ignore";
   if (state.repeated) {
-    if (state.waitingForDirectionChange) return "ignore";
     if (!state.animating) return "apply";
     // PlayerMovementLogic tests an already eligible moveDelayCounter even
     // while moving (notably the delay retained through a win into Hub).

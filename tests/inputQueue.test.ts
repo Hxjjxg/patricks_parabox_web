@@ -43,11 +43,11 @@ describe("directional request decision", () => {
     expect(
       decideDirectionRequest({ ...base, repeated: true, waitingForDirectionChange: true }),
     ).toBe("ignore");
-    // A fresh press is a direction change; the controller clears the flag
-    // before deciding, and a press is never suppressed by the wait flag.
+    // A newly sampled physical key need not change dxLast/dyLast after Leave.
+    // The controller clears the flag only on a logical direction change.
     expect(
       decideDirectionRequest({ ...base, waitingForDirectionChange: true }),
-    ).toBe("apply");
+    ).toBe("ignore");
   });
 
   it("skips animations instead of queuing when the preference allows it", () => {

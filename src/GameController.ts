@@ -759,7 +759,12 @@ export class GameController {
         "noopener,noreferrer",
       );
     } else if (action.type === "leave-puzzle") {
-      this.loadLevel("hub", false, true);
+      this.loadLevel("hub", true, true);
+      this.movement.requireMoveDirChange();
+      // PauseMenu keeps vertical Controls in dyLast, but explicitly clears dxLast.
+      const held = [...this.physicalDirections.values()];
+      this.lastMoveDirection = {dx: 0, dy: held.some(direction => direction.dy === -1) ? -1
+        : held.some(direction => direction.dy === 1) ? 1 : 0};
     } else if (action.type === "return-title") {
       this.progression.clearRecentPuzzle();
       this.loadLevel("hub");
@@ -787,8 +792,10 @@ export class GameController {
       }
     }
     this.refreshSessionSettings();
-    this.heldKeys.clear();
-    this.resetDirectionalInput();
+    if (action.type !== "leave-puzzle") {
+      this.heldKeys.clear();
+      this.resetDirectionalInput();
+    }
     this.updateStateOutput();
     this.syncRendererUi();
   }
@@ -1076,6 +1083,22 @@ export class GameController {
       this.handleSpecialModeKeyDown(event, key);
       return;
     }
+    // Controls.Update samples gameplay directions even while PauseMenu owns UI.
+    const directions: Record<string, readonly [number, number]> = {
+      arrowleft: [-1, 0], a: [-1, 0], arrowright: [1, 0], d: [1, 0],
+      arrowup: [0, 1], w: [0, 1], arrowdown: [0, -1], s: [0, -1],
+    };
+    const direction = directions[key];
+    if (direction) {
+      this.heldKeys.add(key);
+      if (!event.repeat) {
+        if (!this.physicalDirections.has(key)) this.physicalDirections.set(key, {
+          dx: direction[0] as -1 | 0 | 1, dy: direction[1] as -1 | 0 | 1,
+          pressedAt: performance.now(),
+        });
+        this.physicalDirectionChangedAt = performance.now();
+      }
+    }
     if (this.sessionMenu.active) {
       let handled = false;
       if (
@@ -1118,28 +1141,9 @@ export class GameController {
       return;
     }
 
-    const directions: Record<string, readonly [number, number]> = {
-      arrowleft: [-1, 0],
-      a: [-1, 0],
-      arrowright: [1, 0],
-      d: [1, 0],
-      arrowup: [0, 1],
-      w: [0, 1],
-      arrowdown: [0, -1],
-      s: [0, -1],
-    };
-    const direction = directions[key];
     this.heldKeys.add(key);
     if (direction) {
       event.preventDefault();
-      if (!event.repeat) {
-        if (!this.physicalDirections.has(key)) this.physicalDirections.set(key, {
-          dx: direction[0] as -1 | 0 | 1,
-          dy: direction[1] as -1 | 0 | 1,
-          pressedAt: performance.now(),
-        });
-        this.physicalDirectionChangedAt = performance.now();
-      }
       return;
     }
     if (key === "z" || (event.ctrlKey && key === "z")) {
@@ -1169,8 +1173,6 @@ export class GameController {
       this.refreshSessionSettings();
       if (this.sessionMenu.openPause(this.currentLevelName === "hub")) {
         this.winTransitionElapsed = 0;
-        this.resetDirectionalInput();
-        this.heldKeys.clear();
         this.updateStateOutput();
         this.syncRendererUi();
       }

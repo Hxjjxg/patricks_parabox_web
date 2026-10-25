@@ -898,6 +898,10 @@ export class MovementEngine {
     this.waitForMoveDirChange = false;
   }
 
+  requireMoveDirChange(): void {
+    this.waitForMoveDirChange = true;
+  }
+
   undo(): boolean {
     return this.history.undo();
   }
