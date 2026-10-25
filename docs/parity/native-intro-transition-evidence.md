@@ -11,11 +11,13 @@ The compact index is evidence/original/intro-transition-native-index.json.
 
 ## Observed routes and boundaries
 
-- intro-second-win-held: settled native setup from pure-model-derived route
-  ULLUUURRDDDRDLLULDRDRRL; final held LEFT wins naturally, loads third at
+- intro-second-win-held: full pure-model-derived solver route
+  ULLUUURRDDDRDLLULDRDRRL has23inputs; settled setup excludes its final LEFT
+  (22accepted,count22,not-winning). The final held LEFT wins naturally, loads third at
   1605.52979ms, then accepts a held LEFT turn 21.91162ms after the load.
-- intro-third-win-held: route RUUURDDDLDRRDRRULLLLULLDDRUUULUR; final held
-  RIGHT wins naturally, loads **Hub**, not enter, at1610.5957ms. The initial
+- intro-third-win-held: full solver route RUUURDDDLDRRDRRULLLLULLDDRUUULUR
+  has32inputs; settled setup excludes its final RIGHT(count31,not-winning).
+  The final held RIGHT wins naturally, loads **Hub**, not enter, at1610.5957ms. The initial
   helper's enter expectation failed; only expectation/provenance corrected.
   Raw native screenshots and runtime traces remain unchanged.
 - Original World.GoToNextLevel(bool) follows only an immediate puzzle line on

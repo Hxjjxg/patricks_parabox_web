@@ -1,0 +1,4996 @@
+{
+  "method": "Additional actual matched2002x1398 framebuffer probe. Raw physical scanline RGB and exact-color endpoints, no resampling/alignment/tolerance. Does not replace any of20 original matrix conditions.",
+  "script": {
+    "path": "scripts/parity-static-compare.odd-probe.py",
+    "sha256": "31fac39f2291cc6be5ea7167fc08b2bfc2701eb6aa9d1df13a1736f0ea34e385"
+  },
+  "webCaptureRevision": "6427161 + physical center helper/callsite fix; bounded dev after",
+  "nativeInputs": [
+    {
+      "path": "docs/parity/evidence/original/native-framebuffer-2002x1398-first-puzzle-v15-20261025/static-0.png",
+      "sha256": "f4404c33500e6985030152b60bcbee2fdee9c1219c3a26193f7a4afa69f12359"
+    },
+    {
+      "path": "docs/parity/evidence/original/native-framebuffer-2002x1398-first-puzzle-v15-20261025/static-1.png",
+      "sha256": "c0a9aa6ea004d01c424130e4247ddfbfb5fee95b88c8bb87051d52bedf415c93"
+    },
+    {
+      "path": "docs/parity/evidence/original/native-framebuffer-2002x1398-first-puzzle-v15-20261025/static-2.png",
+      "sha256": "963dd74da4a8d505bb2bc7e6ecc04521e0d29c38ce40d25c4d66b0f3e7e09e0d"
+    },
+    {
+      "path": "docs/parity/evidence/original/native-framebuffer-2002x1398-first-puzzle-v15-20261025/capture.json",
+      "sha256": "490da372388f3fbc4e5a3cb53e50f1a9ed53af07e343181ccd7bc2a3cd97df8a"
+    },
+    {
+      "path": "docs/parity/evidence/original/native-framebuffer-2002x1398-first-puzzle-v15-20261025/state.json",
+      "sha256": "0b7bc0b569ca54b18e1c01cc26b5b1b47ebdec1f62ae0f0385b9866b365ef1a7"
+    },
+    {
+      "path": "docs/parity/evidence/original/native-framebuffer-2002x1398-first-puzzle-v15-20261025/resolution-request.json",
+      "sha256": "5a3504622974caed8ded24a39745df7915d170f56c7eb2a51481ea9db149f11c"
+    },
+    {
+      "path": "docs/parity/evidence/original/native-framebuffer-2002x1398-first-puzzle-v15-20261025/colors.json",
+      "sha256": "d603ed1fe553ab14be13f2fd8fb5a2c1b81e5e8c708be32529006a8ff39a4671"
+    }
+  ],
+  "webInputs": [
+    {
+      "path": "docs/parity/evidence/web-odd-dpr-camera-after-dev/1001x699-dpr2/first_puzzle/start.png",
+      "sha256": "198f0a67639f6c7fd36b0faab493ea8bb8e12bf7aa49c5fd02cb91de1f6417a7"
+    },
+    {
+      "path": "docs/parity/evidence/web-odd-dpr-camera-after-dev/1001x699-dpr2/first_puzzle/end.png",
+      "sha256": "592ff05038a57d487d5081cce55f1ce9a4f858d920f1fd9264b2d6bc8a423be0"
+    },
+    {
+      "path": "docs/parity/evidence/web-odd-dpr-camera-after-dev/1001x699-dpr2/first_puzzle/trace.json",
+      "sha256": "5ed23ba8e6568e19265e96859dc041653da84000cfa2b9baf14e1ffcdc6e544e"
+    }
+  ],
+  "levelInput": {
+    "path": "src/assets/levels/first_puzzle.txt",
+    "sha256": "50c833fffeaeb8be7d832cd13d81e3c4c4827a8563e7ba17c8aeff78f53bd5e6"
+  },
+  "summary": {
+    "additionalProbeOnly": true,
+    "cssViewport": [
+      1001,
+      699
+    ],
+    "framebuffer": [
+      2002,
+      1398
+    ],
+    "nativeFreshAndDimensionsVerified": true,
+    "webFreshAndDimensionsVerified": true,
+    "nativeBorderRepeatsStable": true,
+    "webBorderRepeatsStable": true,
+    "borderSides": 12,
+    "exactMatchingSides": 12,
+    "endpointShiftSignatures": [
+      {
+        "webMinusNativePhysical": [
+          0.0,
+          0.0
+        ],
+        "sides": 12
+      }
+    ],
+    "nativeCapturedFocusGeometry": [
+      1001,
+      699,
+      1146.3599900007248,
+      1146.3599900007248
+    ]
+  },
+  "borders": [
+    {
+      "object": "root",
+      "side": "left",
+      "axis": "x",
+      "borderRGB": [
+        36,
+        36,
+        36
+      ],
+      "nativePhysicalRunExclusive": [
+        427.0,
+        434.0
+      ],
+      "webPhysicalRunExclusive": [
+        427.0,
+        434.0
+      ],
+      "webMinusNativeEndpointsPhysical": [
+        0.0,
+        0.0
+      ],
+      "exactMatch": true,
+      "nativeRawProfiles": [
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            425,
+            436
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              427,
+              434
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                425,
+                427
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                427,
+                434
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                434,
+                436
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                427,
+                434
+              ],
+              "beforeRGB": [
+                0,
+                0,
+                0
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                210,
+                209,
+                210
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            425,
+            436
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              427,
+              434
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                425,
+                427
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                427,
+                434
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                434,
+                436
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                427,
+                434
+              ],
+              "beforeRGB": [
+                0,
+                0,
+                0
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                210,
+                209,
+                210
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            425,
+            436
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              427,
+              434
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                425,
+                427
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                427,
+                434
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                434,
+                436
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                427,
+                434
+              ],
+              "beforeRGB": [
+                0,
+                0,
+                0
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                210,
+                209,
+                210
+              ]
+            }
+          ]
+        }
+      ],
+      "webRawProfiles": [
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            425,
+            436
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              427,
+              434
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                425,
+                427
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                427,
+                434
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                434,
+                436
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                427,
+                434
+              ],
+              "beforeRGB": [
+                0,
+                0,
+                0
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                210,
+                209,
+                210
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            425,
+            436
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              427,
+              434
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                425,
+                427
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                427,
+                434
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                434,
+                436
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                427,
+                434
+              ],
+              "beforeRGB": [
+                0,
+                0,
+                0
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                210,
+                209,
+                210
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "object": "root",
+      "side": "right",
+      "axis": "x",
+      "borderRGB": [
+        36,
+        36,
+        36
+      ],
+      "nativePhysicalRunExclusive": [
+        1567.0,
+        1574.0
+      ],
+      "webPhysicalRunExclusive": [
+        1567.0,
+        1574.0
+      ],
+      "webMinusNativeEndpointsPhysical": [
+        0.0,
+        0.0
+      ],
+      "exactMatch": true,
+      "nativeRawProfiles": [
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            1565,
+            1576
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1567,
+              1574
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1565,
+                1567
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1567,
+                1574
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1574,
+                1576
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1567,
+                1574
+              ],
+              "beforeRGB": [
+                210,
+                209,
+                210
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            1565,
+            1576
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1567,
+              1574
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1565,
+                1567
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1567,
+                1574
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1574,
+                1576
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1567,
+                1574
+              ],
+              "beforeRGB": [
+                210,
+                209,
+                210
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            1565,
+            1576
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1567,
+              1574
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1565,
+                1567
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1567,
+                1574
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1574,
+                1576
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1567,
+                1574
+              ],
+              "beforeRGB": [
+                210,
+                209,
+                210
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "webRawProfiles": [
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            1565,
+            1576
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1567,
+              1574
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1565,
+                1567
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1567,
+                1574
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1574,
+                1576
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1567,
+                1574
+              ],
+              "beforeRGB": [
+                210,
+                209,
+                210
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            1565,
+            1576
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1567,
+              1574
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1565,
+                1567
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1567,
+                1574
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1574,
+                1576
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1567,
+                1574
+              ],
+              "beforeRGB": [
+                210,
+                209,
+                210
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "object": "root",
+      "side": "top",
+      "axis": "y",
+      "borderRGB": [
+        36,
+        36,
+        36
+      ],
+      "nativePhysicalRunExclusive": [
+        125.0,
+        132.0
+      ],
+      "webPhysicalRunExclusive": [
+        125.0,
+        132.0
+      ],
+      "webMinusNativeEndpointsPhysical": [
+        0.0,
+        0.0
+      ],
+      "exactMatch": true,
+      "nativeRawProfiles": [
+        {
+          "crossPhysical": 1001,
+          "alongPhysicalExclusive": [
+            123,
+            134
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              125,
+              132
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                123,
+                125
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                125,
+                132
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                132,
+                134
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                125,
+                132
+              ],
+              "beforeRGB": [
+                0,
+                0,
+                0
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                210,
+                209,
+                210
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 1001,
+          "alongPhysicalExclusive": [
+            123,
+            134
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              125,
+              132
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                123,
+                125
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                125,
+                132
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                132,
+                134
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                125,
+                132
+              ],
+              "beforeRGB": [
+                0,
+                0,
+                0
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                210,
+                209,
+                210
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 1001,
+          "alongPhysicalExclusive": [
+            123,
+            134
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              125,
+              132
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                123,
+                125
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                125,
+                132
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                132,
+                134
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                125,
+                132
+              ],
+              "beforeRGB": [
+                0,
+                0,
+                0
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                210,
+                209,
+                210
+              ]
+            }
+          ]
+        }
+      ],
+      "webRawProfiles": [
+        {
+          "crossPhysical": 1001,
+          "alongPhysicalExclusive": [
+            123,
+            134
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              125,
+              132
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                123,
+                125
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                125,
+                132
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                132,
+                134
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                125,
+                132
+              ],
+              "beforeRGB": [
+                0,
+                0,
+                0
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                210,
+                209,
+                210
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 1001,
+          "alongPhysicalExclusive": [
+            123,
+            134
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              125,
+              132
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                123,
+                125
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                125,
+                132
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                132,
+                134
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                125,
+                132
+              ],
+              "beforeRGB": [
+                0,
+                0,
+                0
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                210,
+                209,
+                210
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "object": "root",
+      "side": "bottom",
+      "axis": "y",
+      "borderRGB": [
+        36,
+        36,
+        36
+      ],
+      "nativePhysicalRunExclusive": [
+        1265.0,
+        1272.0
+      ],
+      "webPhysicalRunExclusive": [
+        1265.0,
+        1272.0
+      ],
+      "webMinusNativeEndpointsPhysical": [
+        0.0,
+        0.0
+      ],
+      "exactMatch": true,
+      "nativeRawProfiles": [
+        {
+          "crossPhysical": 1001,
+          "alongPhysicalExclusive": [
+            1263,
+            1274
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1265,
+              1272
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1263,
+                1265
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1265,
+                1272
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1272,
+                1274
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1265,
+                1272
+              ],
+              "beforeRGB": [
+                210,
+                209,
+                210
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 1001,
+          "alongPhysicalExclusive": [
+            1263,
+            1274
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1265,
+              1272
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1263,
+                1265
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1265,
+                1272
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1272,
+                1274
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1265,
+                1272
+              ],
+              "beforeRGB": [
+                210,
+                209,
+                210
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 1001,
+          "alongPhysicalExclusive": [
+            1263,
+            1274
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1265,
+              1272
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1263,
+                1265
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1265,
+                1272
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1272,
+                1274
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1265,
+                1272
+              ],
+              "beforeRGB": [
+                210,
+                209,
+                210
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "webRawProfiles": [
+        {
+          "crossPhysical": 1001,
+          "alongPhysicalExclusive": [
+            1263,
+            1274
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1265,
+              1272
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1263,
+                1265
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1265,
+                1272
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1272,
+                1274
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1265,
+                1272
+              ],
+              "beforeRGB": [
+                210,
+                209,
+                210
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 1001,
+          "alongPhysicalExclusive": [
+            1263,
+            1274
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1265,
+              1272
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1263,
+                1265
+              ],
+              "rgb": [
+                210,
+                209,
+                210
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1265,
+                1272
+              ],
+              "rgb": [
+                36,
+                36,
+                36
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1272,
+                1274
+              ],
+              "rgb": [
+                0,
+                0,
+                0
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1265,
+                1272
+              ],
+              "beforeRGB": [
+                210,
+                209,
+                210
+              ],
+              "firstRGB": [
+                36,
+                36,
+                36
+              ],
+              "lastRGB": [
+                36,
+                36,
+                36
+              ],
+              "afterRGB": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "object": "player",
+      "side": "left",
+      "axis": "x",
+      "borderRGB": [
+        32,
+        0,
+        16
+      ],
+      "nativePhysicalRunExclusive": [
+        755.0,
+        760.0
+      ],
+      "webPhysicalRunExclusive": [
+        755.0,
+        760.0
+      ],
+      "webMinusNativeEndpointsPhysical": [
+        0.0,
+        0.0
+      ],
+      "exactMatch": true,
+      "nativeRawProfiles": [
+        {
+          "crossPhysical": 862,
+          "alongPhysicalExclusive": [
+            753,
+            762
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              755,
+              760
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                753,
+                755
+              ],
+              "rgb": [
+                133,
+                43,
+                98
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                755,
+                760
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                760,
+                762
+              ],
+              "rgb": [
+                184,
+                0,
+                110
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                755,
+                760
+              ],
+              "beforeRGB": [
+                133,
+                43,
+                98
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                184,
+                0,
+                110
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 862,
+          "alongPhysicalExclusive": [
+            753,
+            762
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              755,
+              760
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                753,
+                755
+              ],
+              "rgb": [
+                133,
+                43,
+                98
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                755,
+                760
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                760,
+                762
+              ],
+              "rgb": [
+                184,
+                0,
+                110
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                755,
+                760
+              ],
+              "beforeRGB": [
+                133,
+                43,
+                98
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                184,
+                0,
+                110
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 862,
+          "alongPhysicalExclusive": [
+            753,
+            762
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              755,
+              760
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                753,
+                755
+              ],
+              "rgb": [
+                133,
+                43,
+                98
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                755,
+                760
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                760,
+                762
+              ],
+              "rgb": [
+                184,
+                0,
+                110
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                755,
+                760
+              ],
+              "beforeRGB": [
+                133,
+                43,
+                98
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                184,
+                0,
+                110
+              ]
+            }
+          ]
+        }
+      ],
+      "webRawProfiles": [
+        {
+          "crossPhysical": 862,
+          "alongPhysicalExclusive": [
+            753,
+            762
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              755,
+              760
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                753,
+                755
+              ],
+              "rgb": [
+                87,
+                87,
+                87
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                755,
+                760
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                760,
+                762
+              ],
+              "rgb": [
+                183,
+                0,
+                110
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                755,
+                760
+              ],
+              "beforeRGB": [
+                87,
+                87,
+                87
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                183,
+                0,
+                110
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 862,
+          "alongPhysicalExclusive": [
+            753,
+            762
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              755,
+              760
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                753,
+                755
+              ],
+              "rgb": [
+                87,
+                87,
+                87
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                755,
+                760
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                760,
+                762
+              ],
+              "rgb": [
+                183,
+                0,
+                110
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                755,
+                760
+              ],
+              "beforeRGB": [
+                87,
+                87,
+                87
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                183,
+                0,
+                110
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "object": "player",
+      "side": "right",
+      "axis": "x",
+      "borderRGB": [
+        32,
+        0,
+        16
+      ],
+      "nativePhysicalRunExclusive": [
+        914.0,
+        919.0
+      ],
+      "webPhysicalRunExclusive": [
+        914.0,
+        919.0
+      ],
+      "webMinusNativeEndpointsPhysical": [
+        0.0,
+        0.0
+      ],
+      "exactMatch": true,
+      "nativeRawProfiles": [
+        {
+          "crossPhysical": 862,
+          "alongPhysicalExclusive": [
+            912,
+            921
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              914,
+              919
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                912,
+                914
+              ],
+              "rgb": [
+                184,
+                0,
+                110
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                914,
+                919
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                919,
+                921
+              ],
+              "rgb": [
+                64,
+                64,
+                64
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                914,
+                919
+              ],
+              "beforeRGB": [
+                184,
+                0,
+                110
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                64,
+                64,
+                64
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 862,
+          "alongPhysicalExclusive": [
+            912,
+            921
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              914,
+              919
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                912,
+                914
+              ],
+              "rgb": [
+                184,
+                0,
+                110
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                914,
+                919
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                919,
+                921
+              ],
+              "rgb": [
+                64,
+                64,
+                64
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                914,
+                919
+              ],
+              "beforeRGB": [
+                184,
+                0,
+                110
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                64,
+                64,
+                64
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 862,
+          "alongPhysicalExclusive": [
+            912,
+            921
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              914,
+              919
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                912,
+                914
+              ],
+              "rgb": [
+                184,
+                0,
+                110
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                914,
+                919
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                919,
+                921
+              ],
+              "rgb": [
+                64,
+                64,
+                64
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                914,
+                919
+              ],
+              "beforeRGB": [
+                184,
+                0,
+                110
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                64,
+                64,
+                64
+              ]
+            }
+          ]
+        }
+      ],
+      "webRawProfiles": [
+        {
+          "crossPhysical": 862,
+          "alongPhysicalExclusive": [
+            912,
+            921
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              914,
+              919
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                912,
+                914
+              ],
+              "rgb": [
+                183,
+                0,
+                110
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                914,
+                919
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                919,
+                921
+              ],
+              "rgb": [
+                64,
+                64,
+                64
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                914,
+                919
+              ],
+              "beforeRGB": [
+                183,
+                0,
+                110
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                64,
+                64,
+                64
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 862,
+          "alongPhysicalExclusive": [
+            912,
+            921
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              914,
+              919
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                912,
+                914
+              ],
+              "rgb": [
+                183,
+                0,
+                110
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                914,
+                919
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                919,
+                921
+              ],
+              "rgb": [
+                79,
+                48,
+                67
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                914,
+                919
+              ],
+              "beforeRGB": [
+                183,
+                0,
+                110
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                79,
+                48,
+                67
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "object": "player",
+      "side": "top",
+      "axis": "y",
+      "borderRGB": [
+        32,
+        0,
+        16
+      ],
+      "nativePhysicalRunExclusive": [
+        780.0,
+        785.0
+      ],
+      "webPhysicalRunExclusive": [
+        780.0,
+        785.0
+      ],
+      "webMinusNativeEndpointsPhysical": [
+        0.0,
+        0.0
+      ],
+      "exactMatch": true,
+      "nativeRawProfiles": [
+        {
+          "crossPhysical": 837,
+          "alongPhysicalExclusive": [
+            778,
+            787
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              780,
+              785
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                778,
+                780
+              ],
+              "rgb": [
+                135,
+                45,
+                100
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                780,
+                785
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                785,
+                787
+              ],
+              "rgb": [
+                184,
+                0,
+                110
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                780,
+                785
+              ],
+              "beforeRGB": [
+                135,
+                45,
+                100
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                184,
+                0,
+                110
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 837,
+          "alongPhysicalExclusive": [
+            778,
+            787
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              780,
+              785
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                778,
+                780
+              ],
+              "rgb": [
+                135,
+                45,
+                100
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                780,
+                785
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                785,
+                787
+              ],
+              "rgb": [
+                184,
+                0,
+                110
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                780,
+                785
+              ],
+              "beforeRGB": [
+                135,
+                45,
+                100
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                184,
+                0,
+                110
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 837,
+          "alongPhysicalExclusive": [
+            778,
+            787
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              780,
+              785
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                778,
+                779
+              ],
+              "rgb": [
+                135,
+                45,
+                100
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                779,
+                780
+              ],
+              "rgb": [
+                157,
+                22,
+                104
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                780,
+                785
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                785,
+                787
+              ],
+              "rgb": [
+                184,
+                0,
+                110
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                780,
+                785
+              ],
+              "beforeRGB": [
+                157,
+                22,
+                104
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                184,
+                0,
+                110
+              ]
+            }
+          ]
+        }
+      ],
+      "webRawProfiles": [
+        {
+          "crossPhysical": 837,
+          "alongPhysicalExclusive": [
+            778,
+            787
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              780,
+              785
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                778,
+                780
+              ],
+              "rgb": [
+                113,
+                69,
+                95
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                780,
+                785
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                785,
+                787
+              ],
+              "rgb": [
+                183,
+                0,
+                110
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                780,
+                785
+              ],
+              "beforeRGB": [
+                113,
+                69,
+                95
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                183,
+                0,
+                110
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 837,
+          "alongPhysicalExclusive": [
+            778,
+            787
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              780,
+              785
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                778,
+                780
+              ],
+              "rgb": [
+                113,
+                69,
+                95
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                780,
+                785
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                785,
+                787
+              ],
+              "rgb": [
+                183,
+                0,
+                110
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                780,
+                785
+              ],
+              "beforeRGB": [
+                113,
+                69,
+                95
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                183,
+                0,
+                110
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "object": "player",
+      "side": "bottom",
+      "axis": "y",
+      "borderRGB": [
+        32,
+        0,
+        16
+      ],
+      "nativePhysicalRunExclusive": [
+        939.0,
+        944.0
+      ],
+      "webPhysicalRunExclusive": [
+        939.0,
+        944.0
+      ],
+      "webMinusNativeEndpointsPhysical": [
+        0.0,
+        0.0
+      ],
+      "exactMatch": true,
+      "nativeRawProfiles": [
+        {
+          "crossPhysical": 837,
+          "alongPhysicalExclusive": [
+            937,
+            946
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              939,
+              944
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                937,
+                939
+              ],
+              "rgb": [
+                184,
+                0,
+                110
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                939,
+                944
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                944,
+                946
+              ],
+              "rgb": [
+                61,
+                61,
+                61
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                939,
+                944
+              ],
+              "beforeRGB": [
+                184,
+                0,
+                110
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                61,
+                61,
+                61
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 837,
+          "alongPhysicalExclusive": [
+            937,
+            946
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              939,
+              944
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                937,
+                939
+              ],
+              "rgb": [
+                184,
+                0,
+                110
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                939,
+                944
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                944,
+                946
+              ],
+              "rgb": [
+                61,
+                61,
+                61
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                939,
+                944
+              ],
+              "beforeRGB": [
+                184,
+                0,
+                110
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                61,
+                61,
+                61
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 837,
+          "alongPhysicalExclusive": [
+            937,
+            946
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              939,
+              944
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                937,
+                939
+              ],
+              "rgb": [
+                184,
+                0,
+                110
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                939,
+                944
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                944,
+                946
+              ],
+              "rgb": [
+                61,
+                61,
+                61
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                939,
+                944
+              ],
+              "beforeRGB": [
+                184,
+                0,
+                110
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                61,
+                61,
+                61
+              ]
+            }
+          ]
+        }
+      ],
+      "webRawProfiles": [
+        {
+          "crossPhysical": 837,
+          "alongPhysicalExclusive": [
+            937,
+            946
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              939,
+              944
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                937,
+                939
+              ],
+              "rgb": [
+                183,
+                0,
+                110
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                939,
+                944
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                944,
+                946
+              ],
+              "rgb": [
+                77,
+                46,
+                65
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                939,
+                944
+              ],
+              "beforeRGB": [
+                183,
+                0,
+                110
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                77,
+                46,
+                65
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 837,
+          "alongPhysicalExclusive": [
+            937,
+            946
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              939,
+              944
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                937,
+                939
+              ],
+              "rgb": [
+                183,
+                0,
+                110
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                939,
+                944
+              ],
+              "rgb": [
+                32,
+                0,
+                16
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                944,
+                946
+              ],
+              "rgb": [
+                61,
+                61,
+                61
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                939,
+                944
+              ],
+              "beforeRGB": [
+                183,
+                0,
+                110
+              ],
+              "firstRGB": [
+                32,
+                0,
+                16
+              ],
+              "lastRGB": [
+                32,
+                0,
+                16
+              ],
+              "afterRGB": [
+                61,
+                61,
+                61
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "object": "gold1",
+      "side": "left",
+      "axis": "x",
+      "borderRGB": [
+        46,
+        28,
+        2
+      ],
+      "nativePhysicalRunExclusive": [
+        1246.0,
+        1251.0
+      ],
+      "webPhysicalRunExclusive": [
+        1246.0,
+        1251.0
+      ],
+      "webMinusNativeEndpointsPhysical": [
+        0.0,
+        0.0
+      ],
+      "exactMatch": true,
+      "nativeRawProfiles": [
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            1244,
+            1253
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1246,
+              1251
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1244,
+                1246
+              ],
+              "rgb": [
+                89,
+                89,
+                89
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1246,
+                1251
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1251,
+                1253
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1246,
+                1251
+              ],
+              "beforeRGB": [
+                89,
+                89,
+                89
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                255,
+                177,
+                52
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            1244,
+            1253
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1246,
+              1251
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1244,
+                1246
+              ],
+              "rgb": [
+                89,
+                89,
+                89
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1246,
+                1251
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1251,
+                1253
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1246,
+                1251
+              ],
+              "beforeRGB": [
+                89,
+                89,
+                89
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                255,
+                177,
+                52
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            1244,
+            1253
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1246,
+              1251
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1244,
+                1246
+              ],
+              "rgb": [
+                89,
+                89,
+                89
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1246,
+                1251
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1251,
+                1253
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1246,
+                1251
+              ],
+              "beforeRGB": [
+                89,
+                89,
+                89
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                255,
+                177,
+                52
+              ]
+            }
+          ]
+        }
+      ],
+      "webRawProfiles": [
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            1244,
+            1253
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1246,
+              1251
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1244,
+                1246
+              ],
+              "rgb": [
+                130,
+                110,
+                80
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1246,
+                1251
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1251,
+                1253
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1246,
+                1251
+              ],
+              "beforeRGB": [
+                130,
+                110,
+                80
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                255,
+                177,
+                52
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            1244,
+            1253
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1246,
+              1251
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1244,
+                1246
+              ],
+              "rgb": [
+                130,
+                110,
+                80
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1246,
+                1251
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1251,
+                1253
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1246,
+                1251
+              ],
+              "beforeRGB": [
+                130,
+                110,
+                80
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                255,
+                177,
+                52
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "object": "gold1",
+      "side": "right",
+      "axis": "x",
+      "borderRGB": [
+        46,
+        28,
+        2
+      ],
+      "nativePhysicalRunExclusive": [
+        1405.0,
+        1410.0
+      ],
+      "webPhysicalRunExclusive": [
+        1405.0,
+        1410.0
+      ],
+      "webMinusNativeEndpointsPhysical": [
+        0.0,
+        0.0
+      ],
+      "exactMatch": true,
+      "nativeRawProfiles": [
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            1403,
+            1412
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1405,
+              1410
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1403,
+                1405
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1405,
+                1410
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1410,
+                1412
+              ],
+              "rgb": [
+                255,
+                255,
+                255
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1405,
+                1410
+              ],
+              "beforeRGB": [
+                255,
+                177,
+                52
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                255,
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            1403,
+            1412
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1405,
+              1410
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1403,
+                1405
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1405,
+                1410
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1410,
+                1412
+              ],
+              "rgb": [
+                255,
+                255,
+                255
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1405,
+                1410
+              ],
+              "beforeRGB": [
+                255,
+                177,
+                52
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                255,
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            1403,
+            1412
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1405,
+              1410
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1403,
+                1405
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1405,
+                1410
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1410,
+                1412
+              ],
+              "rgb": [
+                255,
+                255,
+                255
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1405,
+                1410
+              ],
+              "beforeRGB": [
+                255,
+                177,
+                52
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                255,
+                255,
+                255
+              ]
+            }
+          ]
+        }
+      ],
+      "webRawProfiles": [
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            1403,
+            1412
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1405,
+              1410
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1403,
+                1405
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1405,
+                1410
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1410,
+                1412
+              ],
+              "rgb": [
+                255,
+                255,
+                255
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1405,
+                1410
+              ],
+              "beforeRGB": [
+                255,
+                177,
+                52
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                255,
+                255,
+                255
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 699,
+          "alongPhysicalExclusive": [
+            1403,
+            1412
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              1405,
+              1410
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                1403,
+                1405
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1405,
+                1410
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                1410,
+                1412
+              ],
+              "rgb": [
+                255,
+                255,
+                255
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                1405,
+                1410
+              ],
+              "beforeRGB": [
+                255,
+                177,
+                52
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                255,
+                255,
+                255
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "object": "gold1",
+      "side": "top",
+      "axis": "y",
+      "borderRGB": [
+        46,
+        28,
+        2
+      ],
+      "nativePhysicalRunExclusive": [
+        617.0,
+        622.0
+      ],
+      "webPhysicalRunExclusive": [
+        617.0,
+        622.0
+      ],
+      "webMinusNativeEndpointsPhysical": [
+        0.0,
+        0.0
+      ],
+      "exactMatch": true,
+      "nativeRawProfiles": [
+        {
+          "crossPhysical": 1328,
+          "alongPhysicalExclusive": [
+            615,
+            624
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              617,
+              622
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                615,
+                617
+              ],
+              "rgb": [
+                86,
+                86,
+                86
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                617,
+                622
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                622,
+                624
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                617,
+                622
+              ],
+              "beforeRGB": [
+                86,
+                86,
+                86
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                255,
+                177,
+                52
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 1328,
+          "alongPhysicalExclusive": [
+            615,
+            624
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              617,
+              622
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                615,
+                617
+              ],
+              "rgb": [
+                86,
+                86,
+                86
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                617,
+                622
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                622,
+                624
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                617,
+                622
+              ],
+              "beforeRGB": [
+                86,
+                86,
+                86
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                255,
+                177,
+                52
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 1328,
+          "alongPhysicalExclusive": [
+            615,
+            624
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              617,
+              622
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                615,
+                617
+              ],
+              "rgb": [
+                171,
+                130,
+                68
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                617,
+                622
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                622,
+                624
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                617,
+                622
+              ],
+              "beforeRGB": [
+                171,
+                130,
+                68
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                255,
+                177,
+                52
+              ]
+            }
+          ]
+        }
+      ],
+      "webRawProfiles": [
+        {
+          "crossPhysical": 1328,
+          "alongPhysicalExclusive": [
+            615,
+            624
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              617,
+              622
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                615,
+                617
+              ],
+              "rgb": [
+                86,
+                86,
+                86
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                617,
+                622
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                622,
+                624
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                617,
+                622
+              ],
+              "beforeRGB": [
+                86,
+                86,
+                86
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                255,
+                177,
+                52
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 1328,
+          "alongPhysicalExclusive": [
+            615,
+            624
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              617,
+              622
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                615,
+                616
+              ],
+              "rgb": [
+                117,
+                102,
+                80
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                616,
+                617
+              ],
+              "rgb": [
+                128,
+                108,
+                78
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                617,
+                622
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                622,
+                624
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                617,
+                622
+              ],
+              "beforeRGB": [
+                128,
+                108,
+                78
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                255,
+                177,
+                52
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "object": "gold1",
+      "side": "bottom",
+      "axis": "y",
+      "borderRGB": [
+        46,
+        28,
+        2
+      ],
+      "nativePhysicalRunExclusive": [
+        775.0,
+        780.0
+      ],
+      "webPhysicalRunExclusive": [
+        775.0,
+        780.0
+      ],
+      "webMinusNativeEndpointsPhysical": [
+        0.0,
+        0.0
+      ],
+      "exactMatch": true,
+      "nativeRawProfiles": [
+        {
+          "crossPhysical": 1328,
+          "alongPhysicalExclusive": [
+            773,
+            782
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              775,
+              780
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                773,
+                775
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                775,
+                780
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                780,
+                782
+              ],
+              "rgb": [
+                60,
+                60,
+                60
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                775,
+                780
+              ],
+              "beforeRGB": [
+                255,
+                177,
+                52
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                60,
+                60,
+                60
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 1328,
+          "alongPhysicalExclusive": [
+            773,
+            782
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              775,
+              780
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                773,
+                775
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                775,
+                780
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                780,
+                782
+              ],
+              "rgb": [
+                60,
+                60,
+                60
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                775,
+                780
+              ],
+              "beforeRGB": [
+                255,
+                177,
+                52
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                60,
+                60,
+                60
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 1328,
+          "alongPhysicalExclusive": [
+            773,
+            782
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              775,
+              780
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                773,
+                775
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                775,
+                780
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                780,
+                782
+              ],
+              "rgb": [
+                60,
+                60,
+                60
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                775,
+                780
+              ],
+              "beforeRGB": [
+                255,
+                177,
+                52
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                60,
+                60,
+                60
+              ]
+            }
+          ]
+        }
+      ],
+      "webRawProfiles": [
+        {
+          "crossPhysical": 1328,
+          "alongPhysicalExclusive": [
+            773,
+            782
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              775,
+              780
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                773,
+                775
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                775,
+                780
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                780,
+                782
+              ],
+              "rgb": [
+                60,
+                60,
+                60
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                775,
+                780
+              ],
+              "beforeRGB": [
+                255,
+                177,
+                52
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                60,
+                60,
+                60
+              ]
+            }
+          ]
+        },
+        {
+          "crossPhysical": 1328,
+          "alongPhysicalExclusive": [
+            773,
+            782
+          ],
+          "exactBorderRunsPhysical": [
+            [
+              775,
+              780
+            ]
+          ],
+          "rgbRuns": [
+            {
+              "physicalRangeExclusive": [
+                773,
+                775
+              ],
+              "rgb": [
+                255,
+                177,
+                52
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                775,
+                780
+              ],
+              "rgb": [
+                46,
+                28,
+                2
+              ]
+            },
+            {
+              "physicalRangeExclusive": [
+                780,
+                782
+              ],
+              "rgb": [
+                60,
+                60,
+                60
+              ]
+            }
+          ],
+          "transitions": [
+            {
+              "physicalRunExclusive": [
+                775,
+                780
+              ],
+              "beforeRGB": [
+                255,
+                177,
+                52
+              ],
+              "firstRGB": [
+                46,
+                28,
+                2
+              ],
+              "lastRGB": [
+                46,
+                28,
+                2
+              ],
+              "afterRGB": [
+                60,
+                60,
+                60
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

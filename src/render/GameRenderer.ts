@@ -389,8 +389,8 @@ export class GameRenderer {
     const cameraFlipH=quick?world.inputFlipH():viewFlipH;
     const camX = cameraFlipH ? -unflippedX : unflippedX;
     const focusRect = quick
-      ?quickAnimFocusRect(width,height,camXS,camYS,camX,camY,viewBlock.drawXScale,viewBlock.drawYScale)
-      :nativeFocusRect(width, height, camXS, camYS, camX, camY);
+      ?quickAnimFocusRect(width,height,camXS,camYS,camX,camY,viewBlock.drawXScale,viewBlock.drawYScale,this.app.renderer?.resolution ?? 1)
+      :nativeFocusRect(width, height, camXS, camYS, camX, camY, .82, this.app.renderer?.resolution ?? 1);
     const boardWidth = focusRect.width;
     const boardHeight = focusRect.height;
     const boardX = focusRect.x;
