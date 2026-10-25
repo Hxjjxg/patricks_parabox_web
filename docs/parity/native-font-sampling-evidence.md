@@ -69,3 +69,26 @@ analyze-gui-font-pack.py for newly captured names, then validate/index:
     python scripts/parity-original/summarize-font-sampling.py
 
 Index: docs/parity/evidence/original/font-sampling-native-index.json
+
+## Bounded independent-stage follow-up
+
+All405styles agree: padding[0,0,3,3], contentOffset[0,0], MiddleCenter,
+Normal, wordWrap/richText true, Clip. Managed Draw.DrawText forwards the rect
+directly to GUI.Label. Local read-only assembly metadata preserves the
+Label→DoLabel→GUIStyle.Draw chain and three separate native InternalCall
+boundaries for drawing, cursor position and size. Their native bodies and
+actual draw mesh are not available in managed IL.
+
+30bounded ordinary quantizer rules are evaluated against the existing
+matrix. Quantizing the full center matches at most243/405. Independently
+quantizing half-width and half-advance matches at most351/405; the best
+floor(W/2)-ceil(A/2)candidate retains54failures at even width/odd advance.
+Thus raw cursors and invariant horizontal style do not presently derive all
+actual pens through these ordinary independent stages. No hidden algebraic
+parity correction is presented as native behavior.
+
+Supplemental artifacts under the same evidence directory:
+font-sampling-managed-boundaries.json and font-sampling-stages-analysis.json.
+They retain source hashes, exact managed boundary IL, all candidate scores
+and every remaining best-candidate failure. No new native probe is needed
+for this bounded conclusion.
