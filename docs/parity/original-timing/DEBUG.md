@@ -93,3 +93,19 @@ Add only read-only history stack fields and history method boundary trace calls 
   match and deployed/built DLL hashes match. Logs are clean.
 - Debug process 26568 restored to settled third_puzzle at 800x600 in
   `third-restored-history-flags-800x600-20261025`; no timed controls held.
+
+## 2026-10-25 special paths and native source gates
+
+- Added ten native hard-path captures,250 checked800x600 images: GRID,
+  TUI_COLOR, QUICK_ANIM static/motion; noncanonical clone entry; inspection
+  push/pop; proven infinite exit; fixed SpecificBlock focus.
+- Added `hardpath-native-index.json` plus repeatable validation/index script.
+  Captures are references only; pending Web comparison is never a pass.
+- Proven infexit_ref_first route D L L D R R R R R has native accepted
+  Exit infExitNum0 at pre-TurnCompleted frame24545. Posthistory scratch
+  movement lists are reused and are not accepted-attempt archives.
+- Exact two-field infinity/epsilon GPU readback adds dataset6.
+- Fixed observer-only SpecificBlock settlement hang; native newCamT does
+  not advance in that mode. Valid capture uses original cameraMoving gate.
+- Native runtime35816 remains settled static_focus_block800x600, no held
+  timed input; camera intentionally left unchanged for handoff.

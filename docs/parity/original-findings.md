@@ -358,3 +358,72 @@ for each relevant parse branch. Draw.DrawFace starts from
 `block.DrawIsPlayer || facePhantom` and only chooses PossessEye when that
 flag is false. Block.cs:431–433 later synchronizes the flag when not Moving;
 Movement.Impulse also synchronizes it before movement.
+
+## Starting-revision hard-path inventory
+
+`hardpath-native-index.json` catalogs ten additional actual native outputs
+(250 checked 800x600 images), their original source gates, concrete levels
+and selected camera phases. These are references, not Web parity approval.
+The f8e7539 Web DrawStyle enum contains Normal, TuiColor, Grid and QuickAnim.
+Native raw TUI1 has neither an official level/parser selector nor a matching
+implemented baseline Web enum branch; `draw_style tui` selects TUI_COLOR2.
+
+- GRID: grid_clone and shed_multi_simultaneous. Representative fresh static
+  and successful RIGHT motion: style-grid-clone-static-20261025 and
+  style-grid-clone-right-motion-20261025.
+- TUI_COLOR: text_1, text_3, text_clone_v2, text_eat_v2, text_flip, text_poswall.
+  Representative fresh text_1 static and successful UP motion:
+  style-tui-color-static-20261025 and style-tui-up-motion-20261025.
+- QUICK_ANIM: oldstyle_lock_two_doors, oldstyle_squash_4_sides_v2,
+  oldstyle_transfer_then_save. Representative first level fresh static and
+  successful RIGHT motion: style-quick-anim-static-20261025 and
+  style-quick-right-motion-20261025.
+
+Draw.UseGridOrTUIDrawStyle requires Playing or Paused, !EndZoom and
+!ScreenshottingBlocks. Native7-key selection cycles NORMAL→GRID→TUI_COLOR,
+then NORMAL (oldstyle levels insert QUICK_ANIM).
+
+Clone route: fresh clone_first_2, DOWN DOWN DOWN, then timed DOWN. In
+clone-fourth-down-entry-20261025, history-before:TurnCompleted frame1125
+has cloneEntry=true and an accepted Enter from level0 to level1. The flag
+checks native move.toLevelBlock against its SubLevel.GetExitBlock. Original
+Draw.cs2952 uses that same noncanonical-representation distinction; animated
+cloneFade also depends on the camera/justEnteredArray gates recorded in the
+index. The reference preserves the actual entering-camera output.
+
+Inspection: fresh third_puzzle, left-click inner box at grid(4,6), then
+right-click out. Native block identity is56; root is0.
+inspection-third-push-pop-20261025 invokes original World.PushInspect and
+PopInspect entrypoints, then captures original interpolation naturally; it
+does not claim a mouse UI input replay. Both native camera transitions are
+.5s, with focus56 then0. World.InspectUpdate additionally requires NORMAL,
+no camera/block motion, no hub/win/SpecificBlock; a target child must have a
+non-wall-filled SubLevel and not be Moving.
+
+Fixed focus: static-focus-block-static-v2-20261025 proves focusBlock47 at
+(400,300), width/height360.00001430511475 =600*Math.fround(.6). Draw.cs1694
+selects SpecialEffect1, and1741 uses.6f. The initial capture attempt hung in
+the observer's generic newCamT wait: native SpecificBlock does not increment
+newCamT. Observer v2 instead waits cameraMoving=false for this mode only; it
+does not alter game camera state. The incomplete attempt is not a reference.
+
+## Proven infinite exit, distinct from generated-zone entry
+
+Fresh infexit_ref_first: DOWN LEFT LEFT DOWN RIGHT RIGHT RIGHT RIGHT RIGHT.
+infexit-proven-crossing-20261025 captures the final RIGHT after eight setup
+actions. At history-before:TurnCompleted frame24545, block23 has accepted
+type Exit, infExitNum0, fromLevel0→toLevel0. This is the source achievement
+predicate (Movement.cs176). This level preplaces the infinity-exit reference,
+so WentToInfZone need not become true; that flag is not an infinity-exit test.
+
+Important trace limit: TurnCompleted recomputes/reuses Movement.moves, so
+posthistory/impulse-after scratch records need not preserve the accepted
+attempt. Use history-before:TurnCompleted. The existing22-action matrix walk
+has no strict infinite Exit in the pure engine analysis; the nine-action
+route now has direct native proof instead. The index clearly labels that
+walk analysis as engine analysis rather than an additional native replay.
+
+gpu-infinity-effects-20261025 adds exact native InfParticleTex and
+InfParticleOutlineTex fields, both512x512 DXT5/Bilinear/Clamp, with neutral
+GPU decoded PNGs and SHA256 audit. These supply infinity/epsilon glyph
+textures; their rendering gates remain governed by Draw.DrawInfEffect.

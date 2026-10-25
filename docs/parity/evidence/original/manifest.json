@@ -1334,6 +1334,179 @@
       "directory": "docs/parity/evidence/original/third-restored-history-flags-800x600-20261025",
       "colorTrace": "colors.json",
       "note": "Restored settled baseline after history/drawflags probes; observer source and deployed DLL verified."
+    },
+    {
+      "id": "style-grid-clone-static-20261025",
+      "level": "grid_clone",
+      "setup": [],
+      "timedCommands": [],
+      "mode": "Static",
+      "drawStyle": "GRID",
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/style-grid-clone-static-20261025",
+      "note": "Source-gated hard path output; see hardpath-native-index.json for exact accepted phases and limits."
+    },
+    {
+      "id": "style-tui-color-static-20261025",
+      "level": "text_1",
+      "setup": [],
+      "timedCommands": [],
+      "mode": "Static",
+      "drawStyle": "TUI_COLOR",
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/style-tui-color-static-20261025",
+      "note": "Source-gated hard path output; see hardpath-native-index.json for exact accepted phases and limits."
+    },
+    {
+      "id": "style-quick-anim-static-20261025",
+      "level": "oldstyle_lock_two_doors",
+      "setup": [],
+      "timedCommands": [],
+      "mode": "Static",
+      "drawStyle": "QUICK_ANIM",
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/style-quick-anim-static-20261025",
+      "note": "Source-gated hard path output; see hardpath-native-index.json for exact accepted phases and limits."
+    },
+    {
+      "id": "style-grid-clone-right-motion-20261025",
+      "level": "grid_clone",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:40",
+        "NONE:400"
+      ],
+      "mode": "Motion",
+      "drawStyle": "GRID",
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": " | RIGHT:40 NONE:400",
+      "directory": "docs/parity/evidence/original/style-grid-clone-right-motion-20261025",
+      "note": "Source-gated hard path output; see hardpath-native-index.json for exact accepted phases and limits."
+    },
+    {
+      "id": "style-tui-up-motion-20261025",
+      "level": "text_1",
+      "setup": [],
+      "timedCommands": [
+        "UP:40",
+        "NONE:400"
+      ],
+      "mode": "Motion",
+      "drawStyle": "TUI_COLOR",
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": " | UP:40 NONE:400",
+      "directory": "docs/parity/evidence/original/style-tui-up-motion-20261025",
+      "note": "Source-gated hard path output; see hardpath-native-index.json for exact accepted phases and limits."
+    },
+    {
+      "id": "style-quick-right-motion-20261025",
+      "level": "oldstyle_lock_two_doors",
+      "setup": [],
+      "timedCommands": [
+        "RIGHT:40",
+        "NONE:500"
+      ],
+      "mode": "Motion",
+      "drawStyle": "QUICK_ANIM",
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": " | RIGHT:40 NONE:500",
+      "directory": "docs/parity/evidence/original/style-quick-right-motion-20261025",
+      "note": "Source-gated hard path output; see hardpath-native-index.json for exact accepted phases and limits."
+    },
+    {
+      "id": "clone-fourth-down-entry-20261025",
+      "level": "clone_first_2",
+      "setup": [
+        "DOWN",
+        "DOWN",
+        "DOWN"
+      ],
+      "timedCommands": [
+        "DOWN:40",
+        "NONE:650"
+      ],
+      "mode": "Motion",
+      "drawStyle": "NORMAL",
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": "DOWN DOWN DOWN | DOWN:40 NONE:650",
+      "directory": "docs/parity/evidence/original/clone-fourth-down-entry-20261025",
+      "note": "Source-gated hard path output; see hardpath-native-index.json for exact accepted phases and limits."
+    },
+    {
+      "id": "inspection-third-push-pop-20261025",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [
+        "NONE:80",
+        "INSPECT_56:600",
+        "INSPECT_OUT:600",
+        "NONE:100"
+      ],
+      "mode": "Motion",
+      "drawStyle": "NORMAL",
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": " | NONE:80 INSPECT_56:600 INSPECT_OUT:600 NONE:100",
+      "directory": "docs/parity/evidence/original/inspection-third-push-pop-20261025",
+      "note": "Source-gated hard path output; see hardpath-native-index.json for exact accepted phases and limits."
+    },
+    {
+      "id": "infexit-proven-crossing-20261025",
+      "level": "infexit_ref_first",
+      "setup": [
+        "DOWN",
+        "LEFT",
+        "LEFT",
+        "DOWN",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT",
+        "RIGHT"
+      ],
+      "timedCommands": [
+        "RIGHT:40",
+        "NONE:500"
+      ],
+      "mode": "Motion",
+      "drawStyle": "NORMAL",
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": "DOWN LEFT LEFT DOWN RIGHT RIGHT RIGHT RIGHT | RIGHT:40 NONE:500",
+      "directory": "docs/parity/evidence/original/infexit-proven-crossing-20261025",
+      "note": "Source-gated hard path output; see hardpath-native-index.json for exact accepted phases and limits."
+    },
+    {
+      "id": "static-focus-block-static-v2-20261025",
+      "level": "static_focus_block",
+      "setup": [],
+      "timedCommands": [],
+      "mode": "Static",
+      "drawStyle": "NORMAL",
+      "width": 800,
+      "height": 600,
+      "status": "valid",
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/static-focus-block-static-v2-20261025",
+      "note": "Source-gated hard path output; see hardpath-native-index.json for exact accepted phases and limits."
     }
   ],
   "gpuReadbacks": [
@@ -1377,6 +1550,14 @@
       "status": "valid",
       "purpose": "Seventeen exact original eye, button, gradient, ArrowKeys/WASD texture fields; neutral original GPU texels.",
       "directory": "docs/parity/evidence/original/gpu-eyes-buttons-gradient-20261025"
+    },
+    {
+      "id": "gpu-infinity-effects-20261025",
+      "selection": "EFFECTS",
+      "textures": 2,
+      "status": "valid",
+      "purpose": "Exact original InfParticleTex and InfParticleOutlineTex GPU decoded fields for infinity/epsilon glyphs; neutral texels, Bilinear/Clamp512x512.",
+      "directory": "docs/parity/evidence/original/gpu-infinity-effects-20261025"
     }
   ],
   "phaseTraceMethod": "Read-only hooks around World.UpdateInner, PlayerMovementLogic, queued impulse, GoToLevel and UndoManager history calls; controls-delivered follows timed Controls.Update postfix. undoDirection and playerDrawFlags added for held-history and fresh automatic-load probes."

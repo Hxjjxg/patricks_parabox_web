@@ -18,13 +18,14 @@ try {
       const route = queue.shift();
       const world = parseLevel(source, name);
       const movement = new MovementEngine(world);
+      let result = null;
       for (const index of route) {
         const [, dx, dy] = dirs[index];
-        movement.applyDirectionalInput(dx, dy);
+        result = movement.applyDirectionalInput(dx, dy);
         stopAllAnimations(world);
       }
       visited++;
-      const reached = target === "flip" ? world.cameraFlipH : target === "level" ? world.findPlayerBlock().outerLevel !== world.levels[0] : world.wentToInfZone;
+      const reached = target === "flip" ? world.cameraFlipH : target === "level" ? world.findPlayerBlock().outerLevel !== world.levels[0] : target === "infexit" ? result?.moved && movement.moves.some(move => move.moveType === "exit" && move.infExitNum >= 0) : target === "clone" ? result?.moved && world.blocks.some(block => block.justEnteredArray?.some(entered => entered !== entered.subLevel?.getExitBlock())) : world.wentToInfZone;
       if (reached) { found = route.map(index => dirs[index][0]); break; }
       const key = world.blocks.map(block => `${world.levels.indexOf(block.outerLevel)},${block.x},${block.y},${block.flipH},${block.isPlayer}`).join(";");
       if (seen.has(key)) continue;

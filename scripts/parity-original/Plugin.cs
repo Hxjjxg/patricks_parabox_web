@@ -132,6 +132,13 @@ public sealed class Plugin : BaseUnityPlugin
             row.Append(",\"levelName\":\"").Append(EscapeJson(World.currentLevelName)).Append("\",\"moveCount\":").Append(World.MoveCount).Append(",\"queued\":").Append(JsonBool(World.multiPlayerQueued)).Append(",\"queueIndex\":").Append(World.multiPlayerQueueIndex).Append(",\"queueDX\":").Append(World.multiPlayerDX).Append(",\"queueDY\":").Append(World.multiPlayerDY).Append(",\"anyBlockMoving\":").Append(JsonBool(World.AnyBlockMoving));
             row.Append(",\"winning\":").Append(JsonBool(World.Winning)).Append(",\"winCount\":").Append(Invariant(World.WinCount)).Append(",\"transitioning\":").Append(JsonBool(World.Transitioning)).Append(",\"moveDelayCounter\":").Append(Invariant(Movement.moveDelayCounter)).Append(",\"waitForMoveDirChange\":").Append(JsonBool(Movement.WaitForMoveDirChange)).Append(",\"dxLast\":").Append(Movement.dxLast).Append(",\"dyLast\":").Append(Movement.dyLast).Append(",\"dirs\":\"").Append(string.Join(",", directions)).Append("\"");
             row.Append(",\"undoDirection\":").Append(JsonBool((bool)UndoDirection.GetValue(null)));
+            row.Append(",\"drawStyle\":\"").Append(Draw.DrawStyle).Append("\",\"inspectBlock\":").Append(World.blocks.IndexOf(World.InspectBlock)).Append(",\"inspectFlipH\":").Append(JsonBool(World.InspectFlipH)).Append(",\"cameraMoving\":").Append(JsonBool(Draw.cameraMoving)).Append(",\"cameraAnimT\":").Append(Invariant(Draw.AnimT)).Append(",\"cameraAnimLength\":").Append(Invariant(Draw.AnimLength));
+            var moveRows = new List<string>();
+            bool cloneEntry = false;
+            foreach (Movement.Move move in Movement.moves) if (move.moveType == Movement.MoveType.Enter && move.toLevelBlock != null && move.toLevelBlock.SubLevel != null && move.toLevelBlock != move.toLevelBlock.SubLevel.GetExitBlock()) cloneEntry = true;
+            row.Append(",\"cloneEntry\":").Append(JsonBool(cloneEntry));
+            foreach (Movement.Move move in Movement.moves) moveRows.Add("{\"block\":" + World.blocks.IndexOf(move.block) + ",\"type\":\"" + move.moveType + "\",\"infExitNum\":" + move.infExitNum + ",\"infEnterNum\":" + move.infEnterNum + ",\"fromLevel\":" + World.levels.IndexOf(move.fromLevel) + ",\"toLevel\":" + World.levels.IndexOf(move.toLevel) + ",\"shed\":" + JsonBool(move.shed) + "}");
+            row.Append(",\"attemptMoves\":[").Append(string.Join(",", moveRows)).Append("]");
             var pastCounts = new List<string>();
             var futureCounts = new List<string>();
             foreach (UndoManager.Turn turn in UndoManager.past) pastCounts.Add(turn.MoveCount.ToString());
@@ -515,6 +522,12 @@ public sealed class Plugin : BaseUnityPlugin
     private static void ExecuteCommand(string rawCommand)
     {
         string command = rawCommand.Trim().ToUpperInvariant();
+        if (command.StartsWith("INSPECT_"))
+        {
+            if (command == "INSPECT_OUT") World.PopInspect();
+            else World.PushInspect(World.blocks[int.Parse(command.Substring(8))]);
+            return;
+        }
         switch (command)
         {
             case "LEFT":
@@ -1009,7 +1022,7 @@ public sealed class Plugin : BaseUnityPlugin
             World.ResetMultiplePlayersState();
         }
         float settleDeadline = Time.unscaledTime + 0.8f;
-        while (Time.unscaledTime < settleDeadline || Draw.newCamT < 1f) yield return null;
+        while (Time.unscaledTime < settleDeadline || (Draw.CameraMode == Draw.CM.SpecificBlock ? Draw.cameraMoving : Draw.newCamT < 1f)) yield return null;
         string directory = Path.Combine(Paths.BepInExRootPath, "parity-captures", requestId);
         Directory.CreateDirectory(directory);
         var frames = new StringBuilder();
@@ -1065,6 +1078,11 @@ public sealed class Plugin : BaseUnityPlugin
         HoldState.DirectionMask = 0;
         HoldState.RequestedControl = command.ToUpperInvariant();
         HoldState.Undo = HoldState.Redo = HoldState.Restart = false;
+        if (command.StartsWith("INSPECT_", StringComparison.OrdinalIgnoreCase))
+        {
+            ExecuteCommand(command);
+            return;
+        }
         foreach (string token in command.ToUpperInvariant().Split('+'))
         {
             switch (token)
@@ -1115,7 +1133,7 @@ public sealed class Plugin : BaseUnityPlugin
             World.ResetMultiplePlayersState();
         }
         float settleDeadline = Time.unscaledTime + 0.8f;
-        while (Time.unscaledTime < settleDeadline || Draw.newCamT < 1f) yield return null;
+        while (Time.unscaledTime < settleDeadline || (Draw.CameraMode == Draw.CM.SpecificBlock ? Draw.cameraMoving : Draw.newCamT < 1f)) yield return null;
         string directory = Path.Combine(Paths.BepInExRootPath, "parity-captures", requestId);
         Directory.CreateDirectory(directory);
         File.WriteAllText(Path.Combine(directory, "start-state.json"), BuildSnapshot(requestId, new List<KeyValuePair<string, string>>()), new UTF8Encoding(false));
@@ -1179,7 +1197,7 @@ public sealed class Plugin : BaseUnityPlugin
         metadata.Append("{\"requestId\":\"").Append(EscapeJson(requestId)).Append("\",\"kind\":\"gpu-wall-readback\",\"activeColorSpace\":\"").Append(QualitySettings.activeColorSpace).Append("\",\"graphicsDeviceType\":\"").Append(SystemInfo.graphicsDeviceType).Append("\",\"graphicsDeviceVersion\":\"").Append(EscapeJson(SystemInfo.graphicsDeviceVersion)).Append("\",\"renderTextureReadWrite\":\"Linear\",\"readbackFormat\":\"RGBA32 linear\",\"glSrgbWriteDuringBlit\":false,\"textures\":[");
         bool first = true;
         var sourceGroups = new List<KeyValuePair<string, Texture[]>>();
-        foreach (string fieldName in selection == "RENDER" ? Array.Empty<string>() : selection == "EXTRAS" ? new[] { "WallBig", "WallBigFlip" } : new[] { "WallTiles", "WallTilesFlip" })
+        foreach (string fieldName in selection == "RENDER" || selection == "EFFECTS" ? Array.Empty<string>() : selection == "EXTRAS" ? new[] { "WallBig", "WallBigFlip" } : new[] { "WallTiles", "WallTilesFlip" })
             sourceGroups.Add(new KeyValuePair<string, Texture[]>(fieldName, (Texture[])typeof(Draw).GetField(fieldName, flags | System.Reflection.BindingFlags.Instance).GetValue(draw)));
         if (selection == "RENDER")
             foreach (string fieldName in new[] { "CenterGradientTex", "ButtonTex", "PlayerButtonTex", "PlayerButtonOnlyEyesTex", "PlayerButtonOnlyEyesSmallTex", "PlayerButtonEyeTex", "PlayerButtonEyeSmallTex", "EyeOpen", "EyeOpenSmall", "EyeClosed", "EyeClosedSmall", "PossessEye", "PossessEyeSmall", "QuickAnimButtonTex", "QuickAnimPlayerButtonTex", "ArrowKeys", "WASD" })
@@ -1194,13 +1212,16 @@ public sealed class Plugin : BaseUnityPlugin
             }
             sourceGroups.Add(new KeyValuePair<string, Texture[]>("MouseZoom", new[] { (Texture)typeof(Draw).GetField("MouseZoom", flags | System.Reflection.BindingFlags.Instance).GetValue(draw) }));
         }
+        if (selection == "EFFECTS")
+            foreach (string fieldName in new[] { "InfParticleTex", "InfParticleOutlineTex" })
+                sourceGroups.Add(new KeyValuePair<string, Texture[]>(fieldName, new[] { (Texture)typeof(Draw).GetField(fieldName, flags | System.Reflection.BindingFlags.Instance).GetValue(draw) }));
         foreach (KeyValuePair<string, Texture[]> group in sourceGroups)
         {
             string fieldName = group.Key;
             Texture[] textures = group.Value;
             for (int index = 0; index < textures.Length; index++)
             {
-                if (selection != "ALL" && selection != "EXTRAS" && selection != "RENDER" && index != int.Parse(selection)) continue;
+                if (selection != "ALL" && selection != "EXTRAS" && selection != "RENDER" && selection != "EFFECTS" && index != int.Parse(selection)) continue;
                 Texture source = textures[index];
                 RenderTexture previous = RenderTexture.active;
                 bool previousSrgbWrite = GL.sRGBWrite;

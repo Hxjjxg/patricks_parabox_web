@@ -110,3 +110,19 @@ history-repeat-summary.json from the four held-history captures and the
 fresh automatic-load capture. It validates every delivered/completed update
 pair against the source float32 scheduler and verifies the fresh-load save
 isolation audit.
+
+`GPU_WALL:EFFECTS` reads only InfParticleTex and InfParticleOutlineTex.
+Timed `INSPECT_<nativeBlockIndex>:<milliseconds>` and `INSPECT_OUT:<milliseconds>`
+invoke the original public World.PushInspect/PopInspect entrypoint once at
+the request boundary, then record natural native camera animation. They are
+method-entrypoint probes, not mouse-event replay. Phase metadata includes
+drawStyle, inspection state, native camera times and accepted movement
+scratch records. For actual accepted movement proof use
+history-before:TurnCompleted: original TurnCompleted reuses Movement.moves.
+cloneEntry is true when an Enter targets a noncanonical representation.
+
+SpecificBlock camera does not advance newCamT, so its capture settling gate
+uses cameraMoving rather than newCamT>=1. Other modes keep the earlier gate.
+`summarize-hardpaths.py` generates hardpath-native-index.json, validates ten
+style/clone/inspection/infinite-exit/fixed-focus outputs and appends their
+manifest entries without changing prior references.
