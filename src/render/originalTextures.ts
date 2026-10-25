@@ -11,6 +11,8 @@ export interface OriginalTextures {
   playerButton: Texture;
   eye: Texture;
   eyeSmall: Texture;
+  eyeClosed: Texture;
+  eyeClosedSmall: Texture;
   possessEye: Texture;
   possessEyeSmall: Texture;
   centerGradient: Texture;
@@ -52,6 +54,7 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
     playerButton,
     eye,
     eyeSmall,
+    eyeClosed, eyeClosedSmall,
     possessEye,
     possessEyeSmall,
     centerGradient,
@@ -74,6 +77,7 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
     load("button_player_x.png"),
     load("eye1.png"),
     load("eye1_small.png"),
+    load("eye2.png"), load("eye2_small.png"),
     load("possess_eye_1.png"),
     load("possess_eye_1_small.png"),
     load("center_gradient.png"),
@@ -89,6 +93,7 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
     playerButton,
     eye,
     eyeSmall,
+    eyeClosed, eyeClosedSmall,
     possessEye,
     possessEyeSmall,
     centerGradient,

@@ -27,6 +27,7 @@ import { drawBlockBorder } from "./borderRendering";
 import { nativeFocusRect, pixelResolution } from "./focusGeometry";
 import { clipShadow, shadowRect, wallShadowCull } from "./shadowRendering";
 import { largeWallQuads } from "./wallBigRendering";
+import { faceQuads } from "./faceRendering";
 
 export type RendererMode =
   | SpecialModeName
@@ -139,17 +140,6 @@ function computeBlockColor(block: Block, fractionOfScreen: number): number {
     saturation *= 0.76;
   }
   return hsvToRgb({ h: block.color.h, s: saturation, v: value });
-}
-
-function channel(color: number, shift: number): number {
-  return (color >> shift) & 0xff;
-}
-
-function shade(color: number, factor: number): number {
-  const r = Math.max(0, Math.min(255, Math.round(channel(color, 16) * factor)));
-  const g = Math.max(0, Math.min(255, Math.round(channel(color, 8) * factor)));
-  const b = Math.max(0, Math.min(255, Math.round(channel(color, 0) * factor)));
-  return (r << 16) | (g << 8) | b;
 }
 
 function seededSquares(count: number): VoidSquare[] {
@@ -914,7 +904,7 @@ export class GameRenderer {
       };
       if (!this.onScreen(phantomRect)) continue;
       if (phantom.face || !phantom.block.subLevel) {
-        this.drawFace(graphics, phantom.block, phantomRect, true);
+        this.drawFace(graphics, phantom.block, phantomRect, true, flipH);
       } else {
         graphics = this.drawBlock(
           graphics,
@@ -1155,10 +1145,6 @@ export class GameRenderer {
   ): Graphics {
     // ProcessTicket refuses the entire child backing/face ticket at depth15.
     if (depth + 1 >= 15) return graphics;
-    const fractionOfScreen =
-      ((rect.width + rect.height) / 2) /
-      Math.max(1, this.app.screen.height);
-    const backingColor = computeBlockColor(block, fractionOfScreen);
     const filledBlockColor = hsvToRgb(block.color);
     const subLevel = block.subLevel;
     const terminal = !subLevel;
@@ -1177,123 +1163,21 @@ export class GameRenderer {
       );
     }
 
-    if (block.isPlayer || block.possessable) {
-      if (block.drawIsPlayer) {
-        this.drawFace(graphics, block, rect);
-      } else {
-        this.drawPossessableFace(
-          graphics,
-          rect,
-          terminal ? filledBlockColor : backingColor,
-        );
-      }
-    }
+    if (block.isPlayer || block.possessable) this.drawFace(graphics, block, rect, false, flipH);
     if (block.flipH || block.fadeFlipH) this.drawFlipMark(graphics, rect);
     return graphics;
   }
 
   private drawFace(
-    graphics: Graphics,
-    block: Block,
-    rect: Rect,
-    facePhantom = false,
+    graphics: Graphics, block: Block, rect: Rect, facePhantom = false, flipH = false,
   ): void {
-    if (!block.drawIsPlayer && !facePhantom) return;
-    const width = rect.width;
-    const height = rect.height;
-    const fractionOfScreen =
-      ((width + height) / 2) / Math.max(1, this.app.screen.height);
-    let alpha = -Math.log10(fractionOfScreen + 15) + 1.5;
-    if (block.subLevel && !block.subLevel.filledWithWalls) {
-      alpha = -Math.log10(fractionOfScreen + 1.5) + 0.5;
-    }
-    if (!block.drawIsPlayer && block.moving && block.anim === AnimType.Still) {
-      const t = block.animT / block.animLength;
-      alpha *= block.isPlayer ? 1 - t : t;
-    }
-    if (alpha < 0) return;
-
-    const blinking =
-      Math.floor(block.faceAnimT * 7.12) % 26 === 0 && block.drawIsPlayer;
-    let eyeWidth = Math.max(2.5, width * 0.2);
-    let eyeHeight = Math.max(2.5, height * 0.2);
-    if (blinking) {
-      eyeWidth *= 1.05;
-      eyeHeight *= 0.95;
-    }
-    const texture = blinking
-      ? this.textures.eyeSmall
-      : width * 0.2 < 50
-        ? this.textures.eyeSmall
-        : this.textures.eye;
-
-    // Draw.DrawFace places the eye centers at -0.25/+0.25 width around the
-    // block center and -0.05 height, biased by the look offset.
-    let leftX = -0.25;
-    let rightX = 0.25;
-    let eyeY = -0.05;
-    if (block.drawIsPlayer || facePhantom) {
-      if (block.eyeXOffset > 0) leftX += block.eyeXOffset * 1.5;
-      else leftX += block.eyeXOffset;
-      if (block.eyeXOffset < 0) rightX += block.eyeXOffset * 1.5;
-      else rightX += block.eyeXOffset;
-      eyeY += block.eyeYOffset * 1.5;
-    }
-    const direction = block.flipH ? -1 : 1;
-    leftX *= direction;
-    rightX *= direction;
-    const centerY = rect.y + height * (0.5 + eyeY);
-    const drawHeight = blinking ? Math.max(1.2, eyeHeight * 0.18) : eyeHeight;
-    graphics
-      .rect(
-        rect.x + width * (0.5 + leftX) - eyeWidth / 2,
-        centerY - drawHeight / 2,
-        eyeWidth,
-        drawHeight,
-      )
-      .fill({
-        texture,
-        textureSpace: "local",
-        color: 0x000000,
-        alpha,
+    if (this.world?.drawStyle === DrawStyle.QuickAnim) return;
+    for (const eye of faceQuads(block, rect, this.app.screen.height, flipH, this.app.renderer?.resolution ?? 1, facePhantom)) {
+      if (eye.rect.width <= 0 || eye.rect.height <= 0) continue;
+      graphics.rect(eye.rect.x, eye.rect.y, eye.rect.width, eye.rect.height).fill({
+        texture: this.textures[eye.texture], textureSpace: "local", color: 0x000000, alpha: eye.alpha,
       });
-    graphics
-      .rect(
-        rect.x + width * (0.5 + rightX) - eyeWidth / 2,
-        centerY - drawHeight / 2,
-        eyeWidth,
-        drawHeight,
-      )
-      .fill({
-        texture,
-        textureSpace: "local",
-        color: 0x000000,
-        alpha,
-      });
-  }
-
-  private drawPossessableFace(graphics: Graphics, rect: Rect, color: number): void {
-    const size = Math.min(rect.width, rect.height);
-    const eyeSize = Math.max(2.5, size * 0.2);
-    const texture =
-      size < 50 ? this.textures.possessEyeSmall : this.textures.possessEye;
-    const eyeColor = shade(color, 0.35);
-    graphics
-      .rect(
-        rect.x + rect.width * 0.25 - eyeSize / 2,
-        rect.y + rect.height * 0.5 - eyeSize / 2,
-        eyeSize,
-        eyeSize,
-      )
-      .fill({ texture, textureSpace: "local", color: eyeColor });
-    graphics
-      .rect(
-        rect.x + rect.width * 0.75 - eyeSize / 2,
-        rect.y + rect.height * 0.5 - eyeSize / 2,
-        eyeSize,
-        eyeSize,
-      )
-      .fill({ texture, textureSpace: "local", color: eyeColor });
+    }
   }
 
   private drawFlipMark(graphics: Graphics, rect: Rect): void {
