@@ -3,6 +3,8 @@ import { Assets, Texture } from "pixi.js";
 export interface OriginalTextures {
   walls: Texture[];
   wallsFlip: Texture[];
+  wallsBig: Texture[];
+  wallsBigFlip: Texture[];
   arrowKeys: Texture;
   wasd: Texture;
   button: Texture;
@@ -43,6 +45,7 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
   const [
     walls,
     wallsFlip,
+    wallsBig, wallsBigFlip,
     arrowKeys,
     wasd,
     button,
@@ -63,6 +66,8 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
         loadWall(`wall_flip_${index}.png`),
       ),
     ),
+    Promise.all(Array.from({ length: 13 }, (_, index) => loadWall(`wall_big_main_${index}.png`))),
+    Promise.all(Array.from({ length: 13 }, (_, index) => loadWall(`wall_big_flip_${index}.png`))),
     load("keys_arrow_keys.png"),
     load("keys_wasd.png"),
     load("button_2.png"),
@@ -77,6 +82,7 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
   return {
     walls,
     wallsFlip,
+    wallsBig, wallsBigFlip,
     arrowKeys,
     wasd,
     button,

@@ -18,19 +18,30 @@ function wallDraw(rect: Rect, resolution = 1, flipH = false) {
   const block = level.getBlock(0, 4)!;
   const walls = Array.from({ length: 48 }, (_, index) => ({ index, flipped: false, source: { style: { addressMode: "repeat" } } }));
   const wallsFlip = Array.from({ length: 48 }, (_, index) => ({ index, flipped: true, source: { style: { addressMode: "repeat" } } }));
+  const wallsBig = Array.from({ length: 13 }, (_, index) => ({ index, big: true, flipped: false, source: { style: { addressMode: "repeat" } } }));
+  const wallsBigFlip = Array.from({ length: 13 }, (_, index) => ({ index, big: true, flipped: true, source: { style: { addressMode: "repeat" } } }));
   const commands: unknown[] = [];
   const graphics = {
     rect: (...args: unknown[]) => { commands.push(["rect", ...args]); return graphics; },
     fill: (...args: unknown[]) => { commands.push(["fill", ...args]); return graphics; },
     texture: (...args: unknown[]) => { commands.push(["texture", ...args]); return graphics; },
   };
-  drawWall.call({ textures: { walls, wallsFlip }, app: { renderer: { resolution } } }, graphics as unknown as Graphics, level, block, rect, 0xffffff, flipH);
-  return { commands, walls, wallsFlip };
+  drawWall.call({ textures: { walls, wallsFlip, wallsBig, wallsBigFlip }, app: { renderer: { resolution } } }, graphics as unknown as Graphics, level, block, rect, 0xffffff, flipH);
+  return { commands, walls, wallsFlip, wallsBig, wallsBigFlip };
 }
 
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
 describe("original wall draw contract", () => {
+  it.each([false, true])("uses the native four-quadrant large texture path (flip%s)", (flipH) => {
+    const result = wallDraw({ x: 10, y: 20, width: 256, height: 300 }, 1, flipH);
+    const family = flipH ? result.wallsBigFlip : result.wallsBig;
+    const indices = flipH ? [3, 4, 3, 4] : [4, 5, 4, 5];
+    expect(result.commands).toEqual(indices.map((index, quadrant) => [
+      "texture", family[index], 0xffffff, 10 + quadrant % 2 * 128, 20 + Math.floor(quadrant / 2) * 150, 128, 150,
+    ]));
+  });
+
   it.each([1, 2])("uses direct clamped textured quads and shared truncated endpoints at DPR %s", (resolution) => {
     const rect = { x: 154.3, y: 54.6, width: 492 / 9, height: 492 / 9 };
     const { commands, walls } = wallDraw(rect, resolution);

@@ -26,6 +26,7 @@ import { autotileIndex, createWallShader, originalDrawRect, wallTint } from "./w
 import { drawBlockBorder } from "./borderRendering";
 import { nativeFocusRect, pixelResolution } from "./focusGeometry";
 import { clipShadow, shadowRect, wallShadowCull } from "./shadowRendering";
+import { largeWallQuads } from "./wallBigRendering";
 
 export type RendererMode =
   | SpecialModeName
@@ -1119,7 +1120,19 @@ export class GameRenderer {
     flipH: boolean,
   ): void {
     const textures = flipH ? this.textures.wallsFlip : this.textures.walls;
-    const texture = textures[autotileIndex(level, block, flipH)];
+    const index = autotileIndex(level, block, flipH);
+    const large = this.world?.drawStyle === DrawStyle.QuickAnim ? null : largeWallQuads(index, rect, this.app.renderer.resolution);
+    if (large) {
+      const family = flipH ? this.textures.wallsBigFlip : this.textures.wallsBig;
+      for (const quad of large) {
+        const texture = family[quad.textureIndex];
+        if (!texture || quad.rect.width <= 0 || quad.rect.height <= 0) continue;
+        texture.source.style.addressMode = "clamp-to-edge";
+        graphics.texture(texture, color, quad.rect.x, quad.rect.y, quad.rect.width, quad.rect.height);
+      }
+      return;
+    }
+    const texture = textures[index];
     if (!texture) return;
     const snapped = originalDrawRect(rect, this.app.renderer.resolution);
     if (snapped.width <= 0 || snapped.height <= 0) return;
