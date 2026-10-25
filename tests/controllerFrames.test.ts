@@ -11,6 +11,7 @@ function controllerHarness() {
   let clock = 0;
   let nextFrame: FrameRequestCallback | null = null;
   const listeners = new Map<string, (event: KeyboardEvent) => void>();
+  const pointerListeners = new Map<string, (event: PointerEvent) => void>();
   const storage = new Map<string, string>();
   const proto = GameController.prototype as unknown as {
     createDevPanel(): HTMLElement; createCustomLevelInput(): HTMLInputElement;
@@ -32,7 +33,8 @@ function controllerHarness() {
   const uiStates: RendererUiState[] = [];
   let controller: GameController;
   const renderer = {
-    canvas: { addEventListener: vi.fn() }, setWorld: vi.fn(), setInspection: vi.fn(),
+    canvas: { addEventListener: (type: string, listener: (event: PointerEvent) => void) => pointerListeners.set(type, listener) }, setWorld: vi.fn(), setInspection: vi.fn(),
+    inspectionHitAt: () => ({ inside: true, block: controller.getDebugApi().world().blocks.find(block => block.id === 81) }),
     setUiState: (state: RendererUiState) => uiStates.push(state),
     renderFrame: (stamp: number) => {
       const world = controller.getDebugApi().world();
@@ -44,6 +46,7 @@ function controllerHarness() {
   controller.start();
   return {
     api: controller.getDebugApi(), presented, uiStates,
+    inspect(button = 0) { pointerListeners.get('pointerdown')?.({ pointerType: 'mouse', button, clientX: 340, clientY: 250, preventDefault() {} } as PointerEvent); },
     frame(stamp: number) { clock = stamp; if (!nextFrame) throw new Error('No scheduled controller frame'); nextFrame(stamp); },
     press(key: string, stamp: number) { clock = stamp; listeners.get('keydown')?.({ key, repeat: false, preventDefault() {} } as KeyboardEvent); },
     release(key: string, stamp: number) { clock = stamp; listeners.get('keyup')?.({ key, preventDefault() {} } as KeyboardEvent); },
@@ -51,6 +54,17 @@ function controllerHarness() {
 }
 
 describe('controller update and presentation ordering', () => {
+  it.each(['cameraMoving', 'anyBlockMoving'] as const)('rejects inspection while native %s gate is active', gate => {
+    const h = controllerHarness(); h.api.loadLevel('enter'); h.frame(0);
+    h.api.world()[gate] = true; h.inspect();
+    expect(h.api.getState().inspection.inspectedBlockId).toBeNull();
+    h.api.world()[gate] = false; h.inspect();
+    expect(h.api.getState().inspection.inspectedBlockId).toBe(81);
+    expect(h.api.world().cameraMoving).toBe(true);
+    h.inspect(2);
+    expect(h.api.getState().inspection.inspectedBlockId).toBe(81);
+  });
+
   it.each([8, 16.7, 25, 50, 100])('presents the current post-press phase with a %sms frame', (interval) => {
     const h = controllerHarness();
     h.frame(0);

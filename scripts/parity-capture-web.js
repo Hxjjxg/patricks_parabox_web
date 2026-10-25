@@ -18,12 +18,16 @@ async () => {
   const images = [];
   const events = [];
   const frames = [];
+  const setupTimings = [];
   let active = true;
   let action = 'start';
   let previousStateKey = null;
   let previousMotionKey = null;
   let previousAnimT = Number.POSITIVE_INFINITY;
   let motionIndex = 0;
+  let cameraIndex = 0;
+  let previousCameraT = Number.POSITIVE_INFINITY;
+  let previousCameraMoving = false;
   let lastPeriodicCapture = Number.NEGATIVE_INFINITY;
   const sample = (timestamp) => {
     const world = api.world();
@@ -50,6 +54,10 @@ async () => {
     previousMotionKey = physicalMotionKey;
     previousAnimT = frame.player.t;
     frame.motionId = 'motion-' + String(motionIndex).padStart(4, '0') + '-' + frame.player.anim;
+    if (frame.camera.moving && (!previousCameraMoving || frame.camera.t < previousCameraT)) cameraIndex++;
+    previousCameraMoving = frame.camera.moving;
+    previousCameraT = frame.camera.t;
+    frame.cameraMotionId = 'camera-' + String(cameraIndex).padStart(4, '0');
     frames.push(frame);
     if (options.captureEveryMs && timestamp - lastPeriodicCapture >= options.captureEveryMs) {
       lastPeriodicCapture = timestamp;
@@ -64,6 +72,16 @@ async () => {
     }
     previousStateKey = stateKey;
     const phase = frame.player.length > 0 ? frame.player.t / frame.player.length : 1;
+    if (options.captureCameraMotion && cameraIndex > 0) {
+      for (const target of [0, 0.25, 0.5, 0.75, 1]) {
+        const key = frame.cameraMotionId + '-' + target;
+        if (frame.camera.phase >= target && !captured.has(key)) {
+          captured.add(key);
+          images.push({ name: key, action, timestamp, phase: frame.camera.phase,
+            frameIndex: frames.length - 1, dataUrl: canvas.toDataURL('image/png') });
+        }
+      }
+    }
     for (const target of [0.25, 0.5, 0.75, 1]) {
       const key = frame.motionId + '-' + target;
       if (options.captureMotion && action !== 'start' && phase >= target && !captured.has(key)) {
@@ -90,15 +108,17 @@ async () => {
     throw new Error('Requested level did not load: ' + options.level + ' → ' + api.world().levelName);
   }
   const settleSetup = async () => {
-    const deadline = performance.now() + 10000;
+    const deadline = performance.now() + (options.setupTimeoutMs ?? 10000);
     while (api.world().blocks.some(block => block.moving) || api.world().cameraMoving || api.world().newCamT < 1) {
-      if (performance.now() > deadline) throw new Error('Setup did not reach a settled animation state');
+      if (performance.now() > deadline) throw new Error('Setup did not reach a settled animation state: ' + JSON.stringify({
+        state: sample(performance.now()), moving: api.world().blocks.filter(block => block.moving).map(block => ({id:block.id,anim:block.anim,t:block.animT,length:block.animLength})) }));
       await nextFrame();
     }
   };
   await settleSetup();
   const vector = { L: [-1, 0], R: [1, 0], U: [0, 1], D: [0, -1] };
   for (const direction of options.setupActions ?? options.setup ?? '') {
+    const began = performance.now();
     if (direction === 'UNDO') api.undo();
     else if (direction === 'REDO') api.redo();
     else if (direction === 'RESTART') api.restart();
@@ -106,6 +126,7 @@ async () => {
     else throw new Error('Unknown setup action: ' + direction);
     await sleep(800);
     await settleSetup();
+    setupTimings.push({direction, began, ended: performance.now(), state: sample(performance.now())});
   }
   if (api.world().cameraMoving || api.world().newCamT < 1) {
     throw new Error('Camera setup has not settled');
@@ -143,7 +164,7 @@ async () => {
     images.push({ name: 'end', timestamp: performance.now(), dataUrl: canvas.toDataURL('image/png') });
     return { options, recordedAt: new Date().toISOString(), viewport: { width: innerWidth, height: innerHeight,
       dpr: devicePixelRatio, canvasWidth: canvas.width, canvasHeight: canvas.height },
-      starting, ending: sample(performance.now()), events, frames, images };
+      setupTimings, starting, ending: sample(performance.now()), events, frames, images };
   } finally {
     active = false;
     releaseControls();

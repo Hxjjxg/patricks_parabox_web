@@ -425,19 +425,18 @@ export class GameRenderer {
     let cloneTicket: {block:Block;rect:Rect;depth:number;flipH:boolean}|null=focusChoice.clone
       ? {block:focusChoice.clone,rect:{...focusRect},depth:0,flipH:viewFlipH}:null;
     const ancestorPath:Block[]=[];
-    if (!this.inspectionBlock) {
-      for (let level = 0; level < 3; level++) {
-        const outer=startBlock.outerLevel;
-        const parent = this.goOutOneLevel(startBlock, startRect, startFlipH);
-        if (!parent||!outer) break;
-        ancestorPath.push(startBlock);
-        const representation=cloneAncestor(ancestorPath,player,outer,level,transitionPhase<.5,cloneFocusEligible(world,instantZoom));
-        startBlock = representation?.block ?? parent.block;
-        startRect = parent.rect;
-        startFlipH = parent.flipH;
-        startDepth--;
-        if(!cloneTicket&&representation)cloneTicket={block:representation.clone,rect:{...startRect},depth:startDepth,flipH:startFlipH};
-      }
+    // Native DrawBlocks walks enclosing levels even when InspectBlock is set.
+    for (let level = 0; level < 3; level++) {
+      const outer=startBlock.outerLevel;
+      const parent = this.goOutOneLevel(startBlock, startRect, startFlipH);
+      if (!parent||!outer) break;
+      ancestorPath.push(startBlock);
+      const representation=cloneAncestor(ancestorPath,player,outer,level,transitionPhase<.5,cloneFocusEligible(world,instantZoom));
+      startBlock = representation?.block ?? parent.block;
+      startRect = parent.rect;
+      startFlipH = parent.flipH;
+      startDepth--;
+      if(!cloneTicket&&representation)cloneTicket={block:representation.clone,rect:{...startRect},depth:startDepth,flipH:startFlipH};
     }
     const cloneOverlay=cloneTicket!==null && world.anyBlockMoving && renderMode==="playing" && !instantZoom;
     const overlayPhase=world.cameraMoving?transitionPhase:0;
@@ -571,7 +570,7 @@ export class GameRenderer {
       1 -
       Math.floor(((y - rect.y) / rect.height) * level.height);
     const block = level.getBlock(gridX, gridY);
-    if (!block?.subLevel || block.subLevel.filledWithWalls) {
+    if (!block?.subLevel || block.subLevel.filledWithWalls || block.moving) {
       return { inside: true, block: null };
     }
     return { inside: true, block };

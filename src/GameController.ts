@@ -1432,6 +1432,8 @@ export class GameController {
       this.currentLevelName !== "hub" &&
       this.currentLevelName !== "static_focus_block" &&
       this.world.drawStyle === DrawStyle.Normal &&
+      !this.world.cameraMoving &&
+      !this.world.anyBlockMoving &&
       this.runtimeMode() === "playing" &&
       !this.world.winning
     );

@@ -1,0 +1,137 @@
+﻿diff --git a/src/GameController.ts b/src/GameController.ts
+index e39314c..c700879 100644
+--- a/src/GameController.ts
++++ b/src/GameController.ts
+@@ -1432,6 +1432,8 @@ export class GameController {
+       this.currentLevelName !== "hub" &&
+       this.currentLevelName !== "static_focus_block" &&
+       this.world.drawStyle === DrawStyle.Normal &&
++      !this.world.cameraMoving &&
++      !this.world.anyBlockMoving &&
+       this.runtimeMode() === "playing" &&
+       !this.world.winning
+     );
+diff --git a/src/core/inspection.ts b/src/core/inspection.ts
+index f7d78ce..071a18a 100644
+--- a/src/core/inspection.ts
++++ b/src/core/inspection.ts
+@@ -1,4 +1,5 @@
+ import type { Block, WorldModel } from "./model";
++import { getEnterLength, resetCameraOffset, setCameraOffset } from "./animation";
+ 
+ export interface InspectionSnapshot {
+   readonly inspectedBlockId: number | null;
+@@ -11,8 +12,8 @@ export interface InspectionSnapshot {
+  * Logical state for the original game's box-inspection camera.
+  *
+  * A click or scroll-up enters one direct child box. Right click, scroll-down,
+- * or a click outside the viewed block exits one level. Camera interpolation is
+- * a renderer concern; the selected recursive world and flip parity live here.
++ * or a click outside the viewed block exits one level. Native camera offsets
++ * are composed here; the renderer presents the shared camera animation state.
+  */
+ export class InspectionModel {
+   private inspectedBlock: Block | null = null;
+@@ -36,6 +37,7 @@ export class InspectionModel {
+     return Boolean(
+       block.subLevel &&
+         !block.subLevel.filledWithWalls &&
++        !block.moving &&
+         block.outerLevel === this.viewBlock.subLevel,
+     );
+   }
+@@ -44,6 +46,16 @@ export class InspectionModel {
+     if (!this.canPush(block)) return false;
+     this.inspectedBlock = block;
+     if (block.flipH) this.inspectFlipH = !this.inspectFlipH;
++    // World.DoInspectZoomIn uses the post-push parity, then the child's flip.
++    const outer = block.outerLevel!;
++    const sign = (this.inspectFlipH ? -1 : 1) * (block.flipH ? -1 : 1);
++    const f = Math.fround;
++    setCameraOffset(this.world,
++      f((block.x - (outer.width - 1) / 2) * sign),
++      f(-(block.y - (outer.height - 1) / 2)),
++      f(f(1 / outer.width) * f(outer.camZoomFactor)),
++      f(f(1 / outer.height) * f(outer.camZoomFactor)),
++      this.zoomLength(), false);
+     return true;
+   }
+ 
+@@ -55,16 +67,32 @@ export class InspectionModel {
+ 
+     if (from.flipH) this.inspectFlipH = !this.inspectFlipH;
+     this.inspectedBlock = from.outerLevel.getExitBlock();
++    // A missing wrapper falls back to the ordinary focus, as native multi/single paths do.
++    const to = this.inspectedBlock ?? this.world.getDefaultFocusBlock();
++    const level = to.subLevel!;
++    const sign = this.inspectFlipH ? -1 : 1;
++    const f = Math.fround;
++    setCameraOffset(this.world,
++      f(f(-(from.x - (level.width - 1) / 2) / level.width) * sign),
++      f((from.y - (level.height - 1) / 2) / level.height),
++      f(level.width * f(from.subLevel!.camZoomFactor)),
++      f(level.height * f(from.subLevel!.camZoomFactor)),
++      this.zoomLength(), false);
+     return true;
+   }
+ 
+   reset(): boolean {
+     const changed = this.inspectedBlock !== null || this.inspectFlipH;
++    if (this.inspectedBlock !== null) resetCameraOffset(this.world);
+     this.inspectedBlock = null;
+     this.inspectFlipH = false;
+     return changed;
+   }
+ 
++  private zoomLength(): number {
++    return getEnterLength({ quickAnim: false, enterSpeedIndex: this.world.enterSpeedIndex });
++  }
++
+   snapshot(): InspectionSnapshot {
+     const viewBlock = this.viewBlock;
+     const viewLevel = viewBlock.subLevel;
+diff --git a/src/render/GameRenderer.ts b/src/render/GameRenderer.ts
+index 62ebf68..67ab936 100644
+--- a/src/render/GameRenderer.ts
++++ b/src/render/GameRenderer.ts
+@@ -425,19 +425,18 @@ export class GameRenderer {
+     let cloneTicket: {block:Block;rect:Rect;depth:number;flipH:boolean}|null=focusChoice.clone
+       ? {block:focusChoice.clone,rect:{...focusRect},depth:0,flipH:viewFlipH}:null;
+     const ancestorPath:Block[]=[];
+-    if (!this.inspectionBlock) {
+-      for (let level = 0; level < 3; level++) {
+-        const outer=startBlock.outerLevel;
+-        const parent = this.goOutOneLevel(startBlock, startRect, startFlipH);
+-        if (!parent||!outer) break;
+-        ancestorPath.push(startBlock);
+-        const representation=cloneAncestor(ancestorPath,player,outer,level,transitionPhase<.5,cloneFocusEligible(world,instantZoom));
+-        startBlock = representation?.block ?? parent.block;
+-        startRect = parent.rect;
+-        startFlipH = parent.flipH;
+-        startDepth--;
+-        if(!cloneTicket&&representation)cloneTicket={block:representation.clone,rect:{...startRect},depth:startDepth,flipH:startFlipH};
+-      }
++    // Native DrawBlocks walks enclosing levels even when InspectBlock is set.
++    for (let level = 0; level < 3; level++) {
++      const outer=startBlock.outerLevel;
++      const parent = this.goOutOneLevel(startBlock, startRect, startFlipH);
++      if (!parent||!outer) break;
++      ancestorPath.push(startBlock);
++      const representation=cloneAncestor(ancestorPath,player,outer,level,transitionPhase<.5,cloneFocusEligible(world,instantZoom));
++      startBlock = representation?.block ?? parent.block;
++      startRect = parent.rect;
++      startFlipH = parent.flipH;
++      startDepth--;
++      if(!cloneTicket&&representation)cloneTicket={block:representation.clone,rect:{...startRect},depth:startDepth,flipH:startFlipH};
+     }
+     const cloneOverlay=cloneTicket!==null && world.anyBlockMoving && renderMode==="playing" && !instantZoom;
+     const overlayPhase=world.cameraMoving?transitionPhase:0;
+@@ -571,7 +570,7 @@ export class GameRenderer {
+       1 -
+       Math.floor(((y - rect.y) / rect.height) * level.height);
+     const block = level.getBlock(gridX, gridY);
+-    if (!block?.subLevel || block.subLevel.filledWithWalls) {
++    if (!block?.subLevel || block.subLevel.filledWithWalls || block.moving) {
+       return { inside: true, block: null };
+     }
+     return { inside: true, block };
