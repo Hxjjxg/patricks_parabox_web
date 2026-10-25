@@ -5,6 +5,7 @@ Image pairs are nearest recorded phases, never interpolated parity passes.
 from __future__ import annotations
 
 import hashlib
+import argparse
 import json
 from pathlib import Path
 import statistics
@@ -35,12 +36,20 @@ def assert_subset(actual: dict, expected: dict) -> None:
 
 
 def main() -> None:
+    global WEB
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--web-root', type=Path, default=WEB)
+    parser.add_argument('--level', action='append', choices=tuple(FIXTURES))
+    args = parser.parse_args()
+    WEB = args.web_root.resolve()
     contract_path = ROOT / 'docs/parity/long-route-capture-contract.json'
     contract = read(contract_path)
     result = {'contractSha256': sha(contract_path), 'routes': [],
               'imageComparison': 'Nearest actual phases only; no interpolation, pixel tolerance or image approval.',
               'historyCounts': 'Not exposed by Web debug API; actual capture does not assert past/future counts.'}
     for route in contract['routes']:
+        if args.level and route['level'] not in args.level:
+            continue
         directory = WEB / route['level']
         trace = read(directory / 'trace.json')
         integrity = read(directory / 'sha256.json')

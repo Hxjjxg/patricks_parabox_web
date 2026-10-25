@@ -30,6 +30,7 @@ import {
 } from "./animation";
 import { startHubEntry } from "./hubTransition";
 import { createExitPhantom } from "./exitPhantoms";
+import { createInfEnterPhantom } from "./infEnterPhantoms";
 
 /** How a turn is applied: a fresh move animates, undo/redo squish, restart snaps. */
 type TurnMode = "move" | "undo" | "redo" | "restart";
@@ -1795,6 +1796,10 @@ export class MovementEngine {
 
     const exitPhantom = createExitPhantom(block, this.moves, dx, dy, this.history.currentTurn.animLength);
     if (exitPhantom) fromLevel.phantoms.push(exitPhantom);
+    const infEnterPhantom = createInfEnterPhantom(
+      block, this.moves, dx, dy, projection, this.history.currentTurn.animLength,
+    );
+    if (infEnterPhantom) infEnterPhantom.outerLevel.phantoms.push(infEnterPhantom);
 
     if (!this.world.wentToInfZone && this.world.levelIsInfZone(toLevel)) {
       this.history.registerWentToInfZone();
