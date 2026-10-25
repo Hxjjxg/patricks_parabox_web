@@ -227,6 +227,55 @@ public sealed class Plugin : BaseUnityPlugin
         }
     }
 
+    [HarmonyPatch(typeof(Draw), "DrawText")]
+    internal static class TuiFontTracePatch
+    {
+        public static bool Active;
+        public static int LastFrame = -1;
+        public static GUIStyle SourceStyle;
+        public static string LevelContext;
+        public static string SetRectArguments;
+        public static readonly List<string> Samples = new List<string>();
+        public static readonly HashSet<int> FontSizes = new HashSet<int>();
+        [HarmonyPostfix] private static void Postfix(string text, Color color, TextAnchor alignment, int fontSize, Draw.SquareFont font)
+        {
+            if (!Active || font != Draw.SquareFont.FixedWidth || Event.current.type != EventType.Repaint) return;
+            if (LastFrame != Time.frameCount) { Samples.Clear(); FontSizes.Clear(); LastFrame = Time.frameCount; }
+            GUIStyle style = (GUIStyle)typeof(Draw).GetField("textguiStyle", ColorTrace.Fields).GetValue(null);
+            SourceStyle = new GUIStyle(style); FontSizes.Add(fontSize);
+            Rect rect = (Rect)typeof(Draw).GetField("drawRect", ColorTrace.Fields).GetValue(null);
+            GUIContent content = new GUIContent(text);
+            string V(Vector2 value) => "[" + Invariant(value.x) + "," + Invariant(value.y) + "]";
+            Samples.Add("{\"text\":\"" + EscapeJson(text) + "\",\"fontSize\":" + fontSize + ",\"actualFontName\":\"" + EscapeJson(style.font.name) + "\",\"actualStyleFontSize\":" + style.fontSize + ",\"actualFontStyle\":\"" + style.fontStyle + "\",\"alignment\":\"" + alignment + "\",\"actualAlignment\":\"" + style.alignment + "\",\"color\":" + ColorTrace.Rgba(color) + ",\"rect\":[" + Invariant(rect.x) + "," + Invariant(rect.y) + "," + Invariant(rect.width) + "," + Invariant(rect.height) + "],\"calcSize\":" + V(style.CalcSize(content)) + ",\"lineHeight\":" + Invariant(style.lineHeight) + ",\"cursor0\":" + V(style.GetCursorPixelPosition(rect, content, 0)) + ",\"cursorEnd\":" + V(style.GetCursorPixelPosition(rect, content, text.Length)) + ",\"frame\":" + Time.frameCount + "}");
+            if (LevelContext != null) Samples[Samples.Count - 1] = Samples[Samples.Count - 1].TrimEnd('}') + ",\"nativeLevelArguments\":" + LevelContext + ",\"setDrawRectArguments\":" + (SetRectArguments ?? "null") + "}";
+        }
+    }
+
+    [HarmonyPatch(typeof(Draw), "TUIDrawLevel")]
+    internal static class TuiLevelGeometryPatch
+    {
+        private static string Bits(float value) => "\"0x" + BitConverter.ToUInt32(BitConverter.GetBytes(value), 0).ToString("X8") + "\"";
+        [HarmonyPrefix] private static void Prefix(Level level, float leftX, float topY, int fontSize)
+        {
+            if (!TuiFontTracePatch.Active) return;
+            float ratio = (float)typeof(Draw).GetField("cellYToX", ColorTrace.Fields).GetValue(null);
+            float height = (float)typeof(Draw).GetField("cellYToH", ColorTrace.Fields).GetValue(null);
+            TuiFontTracePatch.SetRectArguments = null;
+            TuiFontTracePatch.LevelContext = "{\"levelIndex\":" + World.levels.IndexOf(level) + ",\"levelWidth\":" + level.width + ",\"levelHeight\":" + level.height + ",\"leftX\":" + DoubleInvariant(leftX) + ",\"leftXFloatBits\":" + Bits(leftX) + ",\"topY\":" + DoubleInvariant(topY) + ",\"topYFloatBits\":" + Bits(topY) + ",\"fontSize\":" + fontSize + ",\"cellYToX\":" + DoubleInvariant(ratio) + ",\"cellYToXFloatBits\":" + Bits(ratio) + ",\"cellYToH\":" + DoubleInvariant(height) + ",\"cellYToHFloatBits\":" + Bits(height) + "}";
+        }
+        [HarmonyPostfix] private static void Postfix() { TuiFontTracePatch.LevelContext = null; }
+    }
+
+    [HarmonyPatch(typeof(Draw), "SetDrawRect")]
+    internal static class TuiSetRectArgumentsPatch
+    {
+        [HarmonyPrefix] private static void Prefix(double x, double y, double width, double height)
+        {
+            if (!TuiFontTracePatch.Active || TuiFontTracePatch.LevelContext == null) return;
+            TuiFontTracePatch.SetRectArguments = "[" + DoubleInvariant(x) + "," + DoubleInvariant(y) + "," + DoubleInvariant(width) + "," + DoubleInvariant(height) + "]";
+        }
+    }
+
     [HarmonyPatch(typeof(World), "OnGUI")]
     internal static class GuiFontPackPatch
     {
@@ -360,6 +409,9 @@ public sealed class Plugin : BaseUnityPlugin
         Harmony.CreateAndPatchAll(typeof(CaptureSavePatch), "com.example.agentobserver.capture-save");
         Harmony.CreateAndPatchAll(typeof(FontTextPatch), "com.example.agentobserver.font-text");
         Harmony.CreateAndPatchAll(typeof(ControlGeometryPatch), "com.example.agentobserver.control-geometry");
+        Harmony.CreateAndPatchAll(typeof(TuiFontTracePatch), "com.example.agentobserver.tui-font");
+        Harmony.CreateAndPatchAll(typeof(TuiLevelGeometryPatch), "com.example.agentobserver.tui-level-geometry");
+        Harmony.CreateAndPatchAll(typeof(TuiSetRectArgumentsPatch), "com.example.agentobserver.tui-setrect-arguments");
         Harmony.CreateAndPatchAll(typeof(GuiFontPackPatch), "com.example.agentobserver.gui-font-pack");
         Harmony.CreateAndPatchAll(typeof(UpdatePhasePatch), "com.example.agentobserver.phase-update");
         Harmony.CreateAndPatchAll(typeof(ImpulsePhasePatch), "com.example.agentobserver.phase-impulse");
@@ -431,6 +483,11 @@ public sealed class Plugin : BaseUnityPlugin
             if (levelName == "FONT_FACE_METRICS")
             {
                 RunFontFaceMetricsScenario(requestId);
+                return;
+            }
+            if (levelName == "TUI_FONT_METRICS")
+            {
+                StartCoroutine(RunTuiFontMetricsScenario(requestId));
                 return;
             }
             if (levelName == "FONT_METRICS")
@@ -1433,6 +1490,63 @@ public sealed class Plugin : BaseUnityPlugin
             File.WriteAllText(Path.Combine(directory, "gui-font-pack.json"), metadata, new UTF8Encoding(false)); WriteResult(metadata);
         }
         finally { GuiFontPackPatch.Active = false; GuiFontPackPatch.OddRect = false; GuiFontPackPatch.FalsifyCase = false; _busy = false; }
+    }
+
+    private IEnumerator RunTuiFontMetricsScenario(string requestId)
+    {
+        _busy = true;
+        try
+        {
+            Screen.SetResolution(800, 600, FullScreenMode.Windowed);
+            World.GoToLevel("text_1");
+            int remaining = 600;
+            while (remaining-- > 0 && (World.currentLevelName != "text_1" || World.State != World.WS.Playing || World.Transitioning)) yield return null;
+            if (World.currentLevelName != "text_1" || World.State != World.WS.Playing || World.Transitioning) throw new InvalidOperationException("TUI font level load timed out");
+            float deadline = Time.unscaledTime + 0.8f;
+            while (Time.unscaledTime < deadline || World.PostInitializingT < World.initFadeLength) yield return null;
+            TuiFontTracePatch.Samples.Clear(); TuiFontTracePatch.FontSizes.Clear(); TuiFontTracePatch.SourceStyle = null; TuiFontTracePatch.Active = true;
+            yield return new WaitForEndOfFrame();
+            if (TuiFontTracePatch.SourceStyle == null) throw new InvalidOperationException("No native FixedWidth DrawText was observed");
+            Font font = TuiFontTracePatch.SourceStyle.font;
+            var alphabet = new StringBuilder(); for (char c = ' '; c <= '~'; c++) alphabet.Append(c);
+            var requestedSizes = new List<int>(TuiFontTracePatch.FontSizes); requestedSizes.Sort();
+            foreach (int size in requestedSizes) font.RequestCharactersInTexture(alphabet.ToString(), size, FontStyle.Normal);
+            yield return new WaitForEndOfFrame();
+            TuiFontTracePatch.Active = false;
+            string directory = Path.Combine(Paths.BepInExRootPath, "parity-captures", requestId); Directory.CreateDirectory(directory);
+            Texture2D screen = ScreenCapture.CaptureScreenshotAsTexture();
+            try { File.WriteAllBytes(Path.Combine(directory, "screen.png"), screen.EncodeToPNG()); } finally { UnityEngine.Object.Destroy(screen); }
+            Texture texture = font.material.mainTexture; RenderTexture previous = RenderTexture.active; bool previousSrgb = GL.sRGBWrite;
+            RenderTexture target = RenderTexture.GetTemporary(texture.width, texture.height, 0, RenderTextureFormat.ARGB32, RenderTextureReadWrite.Linear);
+            Texture2D atlas = new Texture2D(texture.width, texture.height, TextureFormat.RGBA32, false, true);
+            try { GL.sRGBWrite = false; Graphics.Blit(texture, target); RenderTexture.active = target; atlas.ReadPixels(new Rect(0, 0, texture.width, texture.height), 0, 0, false); atlas.Apply(false, false); File.WriteAllBytes(Path.Combine(directory, "font-atlas.png"), atlas.EncodeToPNG()); }
+            finally { RenderTexture.active = previous; GL.sRGBWrite = previousSrgb; RenderTexture.ReleaseTemporary(target); UnityEngine.Object.Destroy(atlas); }
+            string V(Vector2 value) => "[" + Invariant(value.x) + "," + Invariant(value.y) + "]";
+            string S(string value) => "\"" + EscapeJson(value ?? "") + "\"";
+            var metrics = new List<string>(); var generated = new List<string>(); var faces = new List<string>();
+            string initialized = UnityEngine.TextCore.LowLevel.FontEngine.InitializeFontEngine().ToString();
+            foreach (int size in requestedSizes)
+            {
+                var glyphs = new List<string>();
+                foreach (char c in alphabet.ToString())
+                {
+                    bool found = font.GetCharacterInfo(c, out CharacterInfo glyph, size, FontStyle.Normal);
+                    glyphs.Add("{\"character\":" + S(c.ToString()) + ",\"found\":" + JsonBool(found) + ",\"advance\":" + glyph.advance + ",\"bounds\":[" + glyph.minX + "," + glyph.minY + "," + glyph.maxX + "," + glyph.maxY + "],\"uvBottomLeft\":" + V(glyph.uvBottomLeft) + ",\"uvBottomRight\":" + V(glyph.uvBottomRight) + ",\"uvTopLeft\":" + V(glyph.uvTopLeft) + ",\"uvTopRight\":" + V(glyph.uvTopRight) + "}");
+                }
+                metrics.Add("{\"fontSize\":" + size + ",\"glyphs\":[" + string.Join(",", glyphs) + "]}");
+                foreach (string text in new[] { "M", ".", "#", "A", "@", "0", "i", "/", "=", "_", ":" }) generated.Add(GenerateTextMetric(font, size, text));
+                string loaded = UnityEngine.TextCore.LowLevel.FontEngine.LoadFontFace(font, size).ToString();
+                faces.Add("{\"fontSize\":" + size + ",\"loadResult\":" + S(loaded) + ",\"face\":" + JsonUtility.ToJson(UnityEngine.TextCore.LowLevel.FontEngine.GetFaceInfo()) + "}");
+            }
+            GUIStyle style = TuiFontTracePatch.SourceStyle;
+            string sourceStyle = "{\"fontName\":" + S(style.font.name) + ",\"fontSize\":" + style.fontSize + ",\"fontStyle\":" + S(style.fontStyle.ToString()) + ",\"alignment\":" + S(style.alignment.ToString()) + ",\"lineHeight\":" + Invariant(style.lineHeight) + ",\"wordWrap\":" + JsonBool(style.wordWrap) + ",\"richText\":" + JsonBool(style.richText) + ",\"clipping\":" + S(style.clipping.ToString()) + ",\"padding\":[" + style.padding.left + "," + style.padding.right + "," + style.padding.top + "," + style.padding.bottom + "],\"contentOffset\":" + V(style.contentOffset) + "}";
+            string metadata = "{\"requestId\":" + S(requestId) + ",\"levelName\":" + S(World.currentLevelName) + ",\"drawStyle\":" + S(Draw.DrawStyle.ToString()) + ",\"screenWidth\":" + Screen.width + ",\"screenHeight\":" + Screen.height + ",\"fontAssetName\":" + S(font.name) + ",\"fontNames\":[" + string.Join(",", Array.ConvertAll(font.fontNames, S)) + "],\"dynamic\":" + JsonBool(font.dynamic) + ",\"fontFontSize\":" + font.fontSize + ",\"fontAscent\":" + font.ascent + ",\"fontLineHeight\":" + font.lineHeight + ",\"sourceStyle\":" + sourceStyle + ",\"texture\":{\"width\":" + texture.width + ",\"height\":" + texture.height + ",\"filterMode\":" + S(texture.filterMode.ToString()) + ",\"wrapMode\":" + S(texture.wrapMode.ToString()) + ",\"shader\":" + S(font.material.shader.name) + "},\"characterRange\":\"ASCII U+0020..U+007E\",\"metrics\":[" + string.Join(",", metrics) + "],\"actualLabels\":[" + string.Join(",", TuiFontTracePatch.Samples) + "],\"textGeneratorMeasurements\":[" + string.Join(",", generated) + "],\"fontEngineInitializeResult\":" + S(initialized) + ",\"fontFaces\":[" + string.Join(",", faces) + "]}";
+            metadata = metadata.Substring(0, metadata.Length - 1) + ",\"postInitializingT\":" + Invariant(World.PostInitializingT) + ",\"initFadeLength\":" + Invariant(World.initFadeLength) + ",\"startupFadeComplete\":" + JsonBool(World.PostInitializingT >= World.initFadeLength) + "}";
+            File.WriteAllText(Path.Combine(directory, "tui-font-metrics.json"), metadata, new UTF8Encoding(false));
+            File.WriteAllText(Path.Combine(directory, "state.json"), BuildSnapshot(requestId, new List<KeyValuePair<string, string>>()), new UTF8Encoding(false));
+            WriteResult(metadata);
+        }
+        finally { TuiFontTracePatch.Active = false; _busy = false; }
     }
 
     private static string GenerateTextMetric(Font font, int size, string text)

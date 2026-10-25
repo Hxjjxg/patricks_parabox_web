@@ -179,3 +179,12 @@ capture-recursive-family.ps1 reproduces the four existing matrix routes;
 summarize-recursive-families.py validates images, delivery, exact endpoints,
 source hashes and strict accepted-move predicates without awarding coverage
 based on a level name. See native-recursive-family-evidence.md.
+
+TUI_FONT_METRICS loads text_1 in the authorized800x600 debug window, waits
+for the original startup fade to finish, and observes actual FixedWidth
+DrawText/GUI.Label calls. It exports95 ASCII CharacterInfo glyphs at the
+actual computed size56, same-generation Inconsolata-SemiBold atlas,100
+native LowerCenter rectangles/cursors/colors, TextGenerator and FontEngine
+metrics. analyze-tui-font.py independently measures100 exact glyph masks;
+summarize-tui-font.py appends provenance and retains the earlier fadedV1
+as diagnostic. No game font, GUI geometry or rendering math is changed.
