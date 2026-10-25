@@ -138,6 +138,19 @@ describe('native automatic level advance', () => {
   });
 });
 
+describe('native control tutorial state', () => {
+  it('tracks empty saves and playing fade time, resetting the fade on level load', () => {
+    const h = controllerHarness(); h.frame(0); h.frame(50);
+    expect(h.uiStates.at(-1)!.controls).toEqual({
+      emptySave: true, fromIntro: false, fadeT: .05, secondPuzzleWon: false,
+    });
+    h.api.loadLevel('third_puzzle');
+    expect(h.uiStates.at(-1)!.controls!.fadeT).toBe(0);
+    h.frame(100);
+    expect(h.uiStates.at(-1)!.controls!.fadeT).toBeCloseTo(.05, 10);
+  });
+});
+
 describe('native simultaneous keyboard sampling', () => {
   it.each([
     ['ArrowUp', 'ArrowRight', 3, 2],

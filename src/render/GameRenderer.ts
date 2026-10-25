@@ -25,6 +25,8 @@ import {
 
 import { autotileIndex, createWallShader, originalDrawRect, wallTint } from "./wallRendering";
 import { drawBlockBorder, drawInfZoneFrame, guiHsvColor, isInfinityBorder } from "./borderRendering";
+import { controlCaptionRect, controlTutorial, type ControlTutorialState } from "./controlRendering";
+import { nativeMoveCaptionQuads } from "./nativeFontRendering";
 import { nativeFocusRect, pixelResolution, quickAnimFocusRect } from "./focusGeometry";
 import { clipShadow, shadowRect, wallShadowCull } from "./shadowRendering";
 import { largeWallQuads } from "./wallBigRendering";
@@ -55,6 +57,7 @@ export interface RendererUiState {
   } | null;
   readonly session: SessionMenuSnapshot;
   readonly alternateStyle?: AlternateStyleContext;
+  readonly controls?: ControlTutorialState;
   readonly preferences: {
     readonly grid: boolean;
     readonly leftHanded: boolean;
@@ -188,6 +191,8 @@ export class GameRenderer {
   private readonly controls = new Container();
   private readonly controlGraphics = new Graphics();
   private readonly controlLabels: Text[] = [];
+  private readonly controlGlyphTextures = new Map<string, Texture>();
+  private readonly controlGlyphs: Sprite[] = [];
   private readonly modeOverlay = new Graphics();
   private readonly modeText = new Text({
     text: "",
@@ -287,18 +292,21 @@ export class GameRenderer {
   }
 
   private buildControlLabels(): void {
-    const move = new Text({
-      text: "Move",
-      style: new TextStyle({
-        fill: COLORS.control,
-        fontFamily: "Jost",
-        fontSize: 23,
-        fontWeight: "600",
-      }),
-    });
-    move.anchor.set(0.5);
-    this.controls.addChild(move);
-    this.controlLabels.push(move);
+    for (let index = 0; index < 5; index++) {
+      const label = new Text({
+        text: "",
+        style: new TextStyle({
+          fill: COLORS.control,
+          fontFamily: "Jost",
+          fontSize: 23,
+          // The bundled file is already SemiBold; native FontStyle is Normal.
+          fontWeight: "normal",
+        }),
+      });
+      label.anchor.set(0.5);
+      this.controls.addChild(label);
+      this.controlLabels.push(label);
+    }
   }
 
   private nextSceneLayer(): Graphics {
@@ -593,58 +601,70 @@ export class GameRenderer {
     boardY: number,
     boardWidth: number,
     boardHeight: number,
-    moveCount: number,
-    viewportWidth: number,
+    _moveCount: number,
+    _viewportWidth: number,
   ): void {
-    const visible =
-      viewportWidth >= 900 &&
-      (this.uiState?.mode ?? "playing") === "playing";
+    const tutorial = controlTutorial(this.world?.levelName ?? "", this.app.screen.width, this.app.screen.height,
+      { x: boardX, y: boardY, width: boardWidth, height: boardHeight }, this.uiState?.controls);
+    const visible = tutorial.actions.length > 0 && (this.uiState?.mode ?? "playing") === "playing";
     this.controls.visible = visible;
     if (!visible) return;
-    this.controls.alpha = moveCount === 0 ? 1 : Math.max(0, 1 - moveCount * 0.25);
+    this.controls.alpha = 1;
     const minimum = Math.min(this.app.screen.width, this.app.screen.height);
-    const iconSize = minimum * 0.13;
-    const fontSize = minimum * 0.0288;
-    const focusX = boardX + boardWidth / 2;
-    const focusY = boardY + boardHeight / 2;
-    const controlUnit = boardHeight * 0.14;
-    const spacing = controlUnit * 1.5;
-    const firstActionY = focusY - spacing * 0.4;
-    const secondActionY = firstActionY + spacing * 0.8;
-    const controlsOnRight = this.uiState?.preferences.leftHanded ?? false;
-    const xCenter = controlsOnRight
-      ? focusX + boardWidth / 2 + controlUnit * 2
-      : focusX - boardWidth / 2 - controlUnit * 2;
-    this.controls.position.set(xCenter, 0);
+    this.controls.position.set(tutorial.x, 0);
     const g = this.controlGraphics;
     g.clear();
-    g.rect(
-      -iconSize / 2,
-      firstActionY - iconSize * 0.75,
-      iconSize,
-      iconSize,
-    ).fill({
-      texture: this.textures.arrowKeys,
-      textureSpace: "local",
-      color: 0xffffff,
-    });
-    g.rect(
-      -iconSize / 2,
-      secondActionY - iconSize * 0.75,
-      iconSize,
-      iconSize,
-    ).fill({
-      texture: this.textures.wasd,
-      textureSpace: "local",
-      color: 0xffffff,
-    });
-    const move = this.controlLabels[0];
-    if (move) {
-      move.style.fontSize = fontSize;
-      move.position.set(
-        0,
-        secondActionY + iconSize * 0.25 + fontSize * 0.7,
-      );
+    for (const label of this.controlLabels) label.visible = false;
+    for (const glyph of this.controlGlyphs) glyph.visible = false;
+    let glyphIndex = 0;
+    for (let index = 0; index < tutorial.actions.length; index++) {
+      const action = tutorial.actions[index]!;
+      const bigIcon = action.texture === "arrowKeys" || action.texture === "wasd" || action.texture === "mouseZoom";
+      const iconSize = minimum * (bigIcon ? 0.13 : 0.09);
+      if (action.texture) {
+        const icon = originalDrawRect({ x: tutorial.x - iconSize / 2, y: action.y - iconSize * 0.75, width: iconSize, height: iconSize }, this.app.renderer?.resolution ?? 1);
+        g.rect(icon.x - tutorial.x, icon.y, icon.width, icon.height).fill({
+          texture: this.textures[action.texture], textureSpace: "local", color: 0xffffff, alpha: action.alpha,
+        });
+      }
+      const caption = action.texture ? "\n" + action.label : action.label;
+      const captionRect = controlCaptionRect(tutorial.x, action.y, minimum, action.texture ? iconSize : 0, this.app.renderer?.resolution ?? 1);
+      const quads = nativeMoveCaptionQuads(caption, tutorial.fontSize, captionRect);
+      if (quads && this.textures.nativeJostAtlas) {
+        for (const quad of quads) {
+          const key = quad.frame.join(",");
+          let texture = this.controlGlyphTextures.get(key);
+          if (!texture) {
+            const [x, y, width, height] = quad.frame;
+            texture = new Texture({source: this.textures.nativeJostAtlas.source, frame: new Rectangle(x!, y!, width!, height!)});
+            this.controlGlyphTextures.set(key, texture);
+          }
+          let sprite = this.controlGlyphs[glyphIndex++];
+          if (!sprite) {
+            sprite = new Sprite(texture);
+            this.controlGlyphs.push(sprite);
+            this.controls.addChild(sprite);
+          }
+          sprite.texture = texture;
+          sprite.position.set(quad.x - tutorial.x, quad.y);
+          sprite.alpha = action.alpha;
+          sprite.visible = true;
+        }
+        continue;
+      }
+      const label = this.controlLabels[index];
+      if (!label || !action.label) continue;
+      label.visible = true;
+      label.text = action.texture ? "\n" + action.label : action.label;
+      label.alpha = action.alpha;
+      label.style.fontSize = tutorial.fontSize;
+      // Jost's hhea ascent1070/descent-375, unitsPerEm1000.
+      label.style.lineHeight = tutorial.fontSize * 1.445;
+      label.style.wordWrap = !action.texture;
+      label.style.wordWrapWidth = minimum * (this.app.screen.width / this.app.screen.height < 1.51 ? 0.15 : 0.22);
+      const labelCenterX = Math.trunc(tutorial.x - minimum / 2) + minimum / 2;
+      const labelCenterY = Math.trunc(action.y - minimum / 2) + minimum / 2;
+      label.position.set(labelCenterX - tutorial.x, action.texture ? labelCenterY + iconSize * 0.25 : action.y);
     }
   }
 

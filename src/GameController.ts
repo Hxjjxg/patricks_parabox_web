@@ -171,6 +171,9 @@ export class GameController {
   private previousFrameTime: number | null = null;
   private playtimeSinceSave = 0;
   private smileActive = false;
+  private controlsFadeT = 0;
+  /** World.NexusAreaCameFrom is transient, set when leaving a Hub portal. */
+  private controlsFromIntro = false;
 
   constructor(renderer: GameRenderer) {
     this.renderer = renderer;
@@ -367,6 +370,7 @@ export class GameController {
     this.creditsFromPause = false;
     this.specialModes.reset();
     this.winTransitionElapsed = 0;
+    this.controlsFadeT = 0;
     this.currentLevelName = name;
     this.activeCustomLevelId = customLevelId;
     this.world = world;
@@ -430,6 +434,8 @@ export class GameController {
     const worldDx = this.world.inputFlipH() ? -dx : dx;
     const result = this.movement.applyDirectionalInput(worldDx, dy, acceptedMoveCount);
     if (result.transition) {
+      this.controlsFromIntro =
+        result.transition.floor.outerLevel.hubAreaName === "Area_Intro";
       this.progression.enterPortal(
         result.transition.floor,
         result.transition.fromX,
@@ -1359,6 +1365,8 @@ export class GameController {
         updateCameraAnimation(this.world, delta);
       }
       this.advanceWinTransition(elapsed);
+      this.controlsFadeT += elapsed;
+      this.syncRendererUi();
     }
 
     if (elapsed > 0) {
@@ -1604,6 +1612,14 @@ export class GameController {
       special: this.specialModes.snapshot(),
       fastTravel,
       session: this.sessionMenu.snapshot(),
+      controls: {
+        emptySave:
+          this.progression.wonLevels.size === 0 &&
+          !this.progression.nexusUnlocked,
+        fromIntro: this.controlsFromIntro,
+        fadeT: this.controlsFadeT,
+        secondPuzzleWon: this.progression.wonLevels.has("second_puzzle"),
+      },
       preferences: {
         grid: this.settings.snapshot().grid,
         leftHanded: this.settings.snapshot().leftHanded,

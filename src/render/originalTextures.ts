@@ -1,13 +1,20 @@
 import { Assets, Texture } from "pixi.js";
 import nativeTuiAtlasUrl from "../assets/fonts/native-inconsolata-atlas.png?url";
+import nativeJostAtlasUrl from "../assets/fonts/native-jost-atlas.png?url";
 
 export interface OriginalTextures {
+  nativeJostAtlas: Texture;
   walls: Texture[];
   wallsFlip: Texture[];
   wallsBig: Texture[];
   wallsBigFlip: Texture[];
   arrowKeys: Texture;
   wasd: Texture;
+  undoKey: Texture;
+  redoKey: Texture;
+  restartKey: Texture;
+  pauseKey: Texture;
+  mouseZoom: Texture;
   button: Texture;
   playerButton: Texture;
   playerButtonEyes: Texture;
@@ -53,12 +60,16 @@ async function loadWall(filename: string): Promise<Texture> {
 }
 
 export async function loadOriginalTextures(): Promise<OriginalTextures> {
+  const nativeJostAtlas = await Assets.load<Texture>(nativeJostAtlasUrl);
+  nativeJostAtlas.source.style.addressMode = "clamp-to-edge";
+  nativeJostAtlas.source.style.scaleMode = "linear";
   const [
     walls,
     wallsFlip,
     wallsBig, wallsBigFlip,
     arrowKeys,
     wasd,
+    undoKey, redoKey, restartKey, pauseKey, mouseZoom,
     button,
     playerButton,
     playerButtonEyes, playerButtonEyesSmall, quickButton, quickPlayerButton, quickBlock, nativeTuiAtlas,
@@ -84,6 +95,7 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
     Promise.all(Array.from({ length: 13 }, (_, index) => loadWall(`wall_big_flip_${index}.png`))),
     load("keys_arrow_keys.png"),
     load("keys_wasd.png"),
+    load("key_z.png"), load("key_x.png"), load("key_r.png"), load("key_esc.png"), load("mouse_left_click_scroll.png"),
     load("button_2.png"),
     load("button_player_x.png"),
     load("button_player_x_only_eyes.png"), load("button_player_x_only_eyes_small.png"),
@@ -99,11 +111,13 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
   ]);
 
   return {
+    nativeJostAtlas,
     walls,
     wallsFlip,
     wallsBig, wallsBigFlip,
     arrowKeys,
     wasd,
+    undoKey, redoKey, restartKey, pauseKey, mouseZoom,
     button,
     playerButton,
     playerButtonEyes, playerButtonEyesSmall, quickButton, quickPlayerButton, quickBlock, nativeTuiAtlas,
