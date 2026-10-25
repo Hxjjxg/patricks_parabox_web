@@ -145,3 +145,17 @@ positions are line positions, not a direct glyph-baseline measurement.
 native four ordered[101] chains, both complete285-glyph font datasets and
 the v3/v4 atlas hash equality. It appends the new entries without deleting
 earlier partial font generations, and emits preview-font-native-index.json.
+
+`FONT_METRICS:1001x733` and `FONT_METRICS:1280x720` resize only the authorized
+native window, then export matching screen.png, actual control geometry and
+font/cursor metadata. `FONT_FACE_METRICS` records native FontEngine face info
+and legacy TextGenerator lines/characters/vertices at12/16/20.
+
+`GUI_FONT_PACK`, `GUI_FONT_PACK_ODD`, and `GUI_FONT_PACK_FALSIFY` are explicit
+diagnostic overlays: one native DrawText frame over opaque black, preserving
+gameplay and restoring style/rect afterward. They are not natural gameplay
+baselines. The packs contain source-entrypoint labels with fractional origins,
+odd/even dimensions and both newline-Move/single-line Undo.
+`analyze-gui-font-pack.py` finds unique glyph mask alignments independently
+before checking a proposed layout rule. It retains failed predictions rather
+than fitting expected results. See native-font-layout-evidence.md for limits.

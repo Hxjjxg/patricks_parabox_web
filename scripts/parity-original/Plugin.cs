@@ -214,6 +214,53 @@ public sealed class Plugin : BaseUnityPlugin
         }
     }
 
+    [HarmonyPatch(typeof(Draw), "DrawControl")]
+    internal static class ControlGeometryPatch
+    {
+        public static readonly Dictionary<string, string> Samples = new Dictionary<string, string>();
+        [HarmonyPostfix] private static void Postfix(string actionName, string displayName, string groupName, float xCenter, float yCenter, int fontSize, Color color)
+        {
+            if (actionName != "Move" && actionName != "MoveNR") return;
+            Rect rect = (Rect)typeof(Draw).GetField("drawRect", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.NonPublic).GetValue(null);
+            Samples[actionName] = "{\"action\":\"" + actionName + "\",\"displayName\":\"" + EscapeJson(displayName) + "\",\"groupNameArgument\":\"" + EscapeJson(groupName) + "\",\"xCenter\":" + Invariant(xCenter) + ",\"yCenter\":" + Invariant(yCenter) + ",\"fontSize\":" + fontSize + ",\"color\":" + ColorTrace.Rgba(color) + ",\"finalIconRect\":[" + Invariant(rect.x) + "," + Invariant(rect.y) + "," + Invariant(rect.width) + "," + Invariant(rect.height) + "],\"screen\":[" + Screen.width + "," + Screen.height + "],\"frame\":" + Time.frameCount + "}";
+        }
+    }
+
+    [HarmonyPatch(typeof(World), "OnGUI")]
+    internal static class GuiFontPackPatch
+    {
+        public static bool Active;
+        public static bool OddRect;
+        public static bool FalsifyCase;
+        public static readonly List<string> Samples = new List<string>();
+        [HarmonyPostfix] private static void Postfix()
+        {
+            if (!Active || Event.current.type != EventType.Repaint) return;
+            var flags = System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static;
+            var rectField = typeof(Draw).GetField("drawRect", flags);
+            GUIStyle style = (GUIStyle)typeof(Draw).GetField("textguiStyle", flags).GetValue(null);
+            Rect previousRect = (Rect)rectField.GetValue(null);
+            Font previousFont = style.font; FontStyle previousFontStyle = style.fontStyle; int previousSize = style.fontSize; TextAnchor previousAlignment = style.alignment; Color previousTextColor = style.normal.textColor; Color previousColor = GUI.color;
+            string V(Vector2 p) => "[" + Invariant(p.x) + "," + Invariant(p.y) + "]";
+            try
+            {
+                GUI.color = Color.black; GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Texture2D.whiteTexture); GUI.color = Color.white;
+                Samples.Clear();
+                int[] sizes = { 12, 16, 20 };
+                for (int column = 0; column < 3; column++) for (int row = 0; row < 4; row++)
+                {
+                    float fraction = row * 0.25f; Rect rect = new Rect(50f + column * 240f + (OddRect ? fraction : 0f), 20f + row * 130f + fraction, OddRect ? 101f : 100f, OddRect ? 81f : 80f);
+                    string text = "\nMove";
+                    if (FalsifyCase) { bool even = row % 2 == 0; rect = new Rect(column * 240f - fraction, 20f + row * 130f + fraction, even ? 99f : 102f, even ? 79f : 82f); if (!even) text = "Undo"; }
+                    rectField.SetValue(null, rect); Draw.DrawText(text, Color.white, TextAnchor.MiddleCenter, sizes[column], Draw.SquareFont.Main);
+                    GUIContent content = new GUIContent(text);
+                    Samples.Add("{\"fontSize\":" + sizes[column] + ",\"text\":\"" + EscapeJson(text) + "\",\"placementCursor\":" + (text.StartsWith("\n") ? 1 : 0) + ",\"calcSize\":" + V(style.CalcSize(content)) + ",\"lineHeight\":" + Invariant(style.lineHeight) + ",\"fractionY\":" + Invariant(fraction) + ",\"rect\":[" + Invariant(rect.x) + "," + Invariant(rect.y) + "," + Invariant(rect.width) + "," + Invariant(rect.height) + "],\"cursorIndices\":[0,1," + text.Length + "],\"cursors\":[" + V(style.GetCursorPixelPosition(rect, content, 0)) + "," + V(style.GetCursorPixelPosition(rect, content, 1)) + "," + V(style.GetCursorPixelPosition(rect, content, text.Length)) + "]}");
+                }
+            }
+            finally { rectField.SetValue(null, previousRect); style.font = previousFont; style.fontStyle = previousFontStyle; style.fontSize = previousSize; style.alignment = previousAlignment; style.normal.textColor = previousTextColor; GUI.color = previousColor; }
+        }
+    }
+
     [HarmonyPatch(typeof(Draw), "DrawBlock")]
     internal static class BackingColorPatch
     {
@@ -276,6 +323,8 @@ public sealed class Plugin : BaseUnityPlugin
         Harmony.CreateAndPatchAll(typeof(TimedInputPatch), "com.example.agentobserver.timed");
         Harmony.CreateAndPatchAll(typeof(CaptureSavePatch), "com.example.agentobserver.capture-save");
         Harmony.CreateAndPatchAll(typeof(FontTextPatch), "com.example.agentobserver.font-text");
+        Harmony.CreateAndPatchAll(typeof(ControlGeometryPatch), "com.example.agentobserver.control-geometry");
+        Harmony.CreateAndPatchAll(typeof(GuiFontPackPatch), "com.example.agentobserver.gui-font-pack");
         Harmony.CreateAndPatchAll(typeof(UpdatePhasePatch), "com.example.agentobserver.phase-update");
         Harmony.CreateAndPatchAll(typeof(ImpulsePhasePatch), "com.example.agentobserver.phase-impulse");
         Harmony.CreateAndPatchAll(typeof(LevelPhasePatch), "com.example.agentobserver.phase-level");
@@ -334,9 +383,25 @@ public sealed class Plugin : BaseUnityPlugin
             }
 
             _lastRequestId = requestId;
+            if (levelName == "GUI_FONT_PACK" || levelName == "GUI_FONT_PACK_ODD" || levelName == "GUI_FONT_PACK_FALSIFY")
+            {
+                StartCoroutine(RunGuiFontPackScenario(requestId, levelName == "GUI_FONT_PACK_ODD", levelName == "GUI_FONT_PACK_FALSIFY"));
+                return;
+            }
+            if (levelName == "FONT_FACE_METRICS")
+            {
+                RunFontFaceMetricsScenario(requestId);
+                return;
+            }
             if (levelName == "FONT_METRICS")
             {
                 StartCoroutine(RunFontMetricsScenario(requestId));
+                return;
+            }
+            if (levelName.StartsWith("FONT_METRICS:", StringComparison.OrdinalIgnoreCase))
+            {
+                string[] size = levelName.Substring(13).Split('x');
+                StartCoroutine(RunFontMetricsScenario(requestId, int.Parse(size[0]), int.Parse(size[1])));
                 return;
             }
             if (levelName.StartsWith("GPU_WALL:", StringComparison.OrdinalIgnoreCase))
@@ -1283,9 +1348,82 @@ public sealed class Plugin : BaseUnityPlugin
         _busy = false;
     }
 
-    private IEnumerator RunFontMetricsScenario(string requestId)
+    private IEnumerator RunGuiFontPackScenario(string requestId, bool oddRect = false, bool falsify = false)
     {
         _busy = true;
+        Screen.SetResolution(800, 600, FullScreenMode.Windowed);
+        yield return new WaitForSecondsRealtime(0.5f);
+        var flags = System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Static;
+        object draw = typeof(Draw).GetField("instance", flags).GetValue(null); Font font = (Font)typeof(Draw).GetField("MainFont", flags).GetValue(draw);
+        foreach (int size in new[] { 12, 16, 20 }) font.RequestCharactersInTexture("MoveUnd", size, FontStyle.Normal);
+        GuiFontPackPatch.OddRect = oddRect;
+        GuiFontPackPatch.FalsifyCase = falsify;
+        GuiFontPackPatch.Active = true;
+        yield return new WaitForEndOfFrame();
+        string directory = Path.Combine(Paths.BepInExRootPath, "parity-captures", requestId); Directory.CreateDirectory(directory);
+        try
+        {
+            Texture2D screen = ScreenCapture.CaptureScreenshotAsTexture();
+            try { File.WriteAllBytes(Path.Combine(directory, "screen.png"), screen.EncodeToPNG()); } finally { UnityEngine.Object.Destroy(screen); }
+            Texture texture = font.material.mainTexture; RenderTexture previousTarget = RenderTexture.active; bool previousSrgb = GL.sRGBWrite;
+            RenderTexture target = RenderTexture.GetTemporary(texture.width, texture.height, 0, RenderTextureFormat.ARGB32, RenderTextureReadWrite.Linear);
+            Texture2D readback = new Texture2D(texture.width, texture.height, TextureFormat.RGBA32, false, true);
+            try { GL.sRGBWrite = false; Graphics.Blit(texture, target); RenderTexture.active = target; readback.ReadPixels(new Rect(0, 0, texture.width, texture.height), 0, 0, false); readback.Apply(false, false); File.WriteAllBytes(Path.Combine(directory, "font-atlas.png"), readback.EncodeToPNG()); }
+            finally { RenderTexture.active = previousTarget; GL.sRGBWrite = previousSrgb; RenderTexture.ReleaseTemporary(target); UnityEngine.Object.Destroy(readback); }
+            var sizes = new List<string>();
+            foreach (int size in new[] { 12, 16, 20 })
+            {
+                var glyphs = new List<string>();
+                foreach (char character in "MoveUnd") { font.GetCharacterInfo(character, out CharacterInfo glyph, size, FontStyle.Normal); glyphs.Add("{\"character\":\"" + character + "\",\"advance\":" + glyph.advance + ",\"bounds\":[" + glyph.minX + "," + glyph.minY + "," + glyph.maxX + "," + glyph.maxY + "],\"uvBottomLeft\":" + JsonUtility.ToJson(glyph.uvBottomLeft) + ",\"uvBottomRight\":" + JsonUtility.ToJson(glyph.uvBottomRight) + ",\"uvTopLeft\":" + JsonUtility.ToJson(glyph.uvTopLeft) + ",\"uvTopRight\":" + JsonUtility.ToJson(glyph.uvTopRight) + "}"); }
+                sizes.Add("{\"fontSize\":" + size + ",\"glyphs\":[" + string.Join(",", glyphs) + "]}");
+            }
+            string metadata = "{\"requestId\":\"" + EscapeJson(requestId) + "\",\"screenWidth\":" + Screen.width + ",\"screenHeight\":" + Screen.height + ",\"entrypoint\":\"Draw.DrawText / GUI.Label\",\"text\":\"\\nMove\",\"backdrop\":\"opaque black GUI.DrawTexture; diagnostic overlay only\",\"samples\":[" + string.Join(",", GuiFontPackPatch.Samples) + "],\"metrics\":[" + string.Join(",", sizes) + "]}";
+            File.WriteAllText(Path.Combine(directory, "gui-font-pack.json"), metadata, new UTF8Encoding(false)); WriteResult(metadata);
+        }
+        finally { GuiFontPackPatch.Active = false; GuiFontPackPatch.OddRect = false; GuiFontPackPatch.FalsifyCase = false; _busy = false; }
+    }
+
+    private void RunFontFaceMetricsScenario(string requestId)
+    {
+        _busy = true;
+        try
+        {
+            var flags = System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Static;
+            object draw = typeof(Draw).GetField("instance", flags).GetValue(null);
+            Font font = (Font)typeof(Draw).GetField("MainFont", flags).GetValue(draw);
+            string init = UnityEngine.TextCore.LowLevel.FontEngine.InitializeFontEngine().ToString();
+            var rows = new List<string>();
+            foreach (int size in new[] { 12, 16, 20 })
+            {
+                string load = UnityEngine.TextCore.LowLevel.FontEngine.LoadFontFace(font, size).ToString();
+                string face = JsonUtility.ToJson(UnityEngine.TextCore.LowLevel.FontEngine.GetFaceInfo());
+                using (var generator = new TextGenerator())
+                {
+                    var settings = new TextGenerationSettings { font = font, fontSize = size, fontStyle = FontStyle.Normal, color = Color.white, lineSpacing = 1f, scaleFactor = 1f, textAnchor = TextAnchor.UpperLeft, generationExtents = new Vector2(600f, 600f), pivot = new Vector2(0f, 1f), horizontalOverflow = HorizontalWrapMode.Overflow, verticalOverflow = VerticalWrapMode.Overflow, richText = true, generateOutOfBounds = true };
+                    bool populated = generator.Populate("\nMove", settings);
+                    var vertices = new List<string>(); foreach (UIVertex vertex in generator.verts) vertices.Add("[" + Invariant(vertex.position.x) + "," + Invariant(vertex.position.y) + "," + Invariant(vertex.position.z) + "]");
+                    var characters = new List<string>(); foreach (UICharInfo character in generator.characters) characters.Add(JsonUtility.ToJson(character));
+                    var lines = new List<string>(); foreach (UILineInfo line in generator.lines) lines.Add(JsonUtility.ToJson(line));
+                    rows.Add("{\"size\":" + size + ",\"loadResult\":\"" + load + "\",\"face\":" + face + ",\"textGenerator\":{\"populated\":" + JsonBool(populated) + ",\"settings\":" + JsonUtility.ToJson(settings) + ",\"rectExtents\":" + JsonUtility.ToJson(generator.rectExtents) + ",\"characters\":[" + string.Join(",", characters) + "],\"lines\":[" + string.Join(",", lines) + "],\"vertices\":[" + string.Join(",", vertices) + "]}}");
+                }
+            }
+            string metadata = "{\"requestId\":\"" + EscapeJson(requestId) + "\",\"font\":\"" + EscapeJson(font.name) + "\",\"fontFontSize\":" + font.fontSize + ",\"fontAscent\":" + font.ascent + ",\"fontLineHeight\":" + font.lineHeight + ",\"initializeResult\":\"" + init + "\",\"measurements\":[" + string.Join(",", rows) + "]}";
+            string directory = Path.Combine(Paths.BepInExRootPath, "parity-captures", requestId); Directory.CreateDirectory(directory);
+            File.WriteAllText(Path.Combine(directory, "font-face-metrics.json"), metadata, new UTF8Encoding(false));
+            WriteResult(metadata);
+        }
+        finally { _busy = false; }
+    }
+
+    private IEnumerator RunFontMetricsScenario(string requestId, int requestedWidth = 0, int requestedHeight = 0)
+    {
+        _busy = true;
+        if (requestedWidth > 0 && requestedHeight > 0)
+        {
+            Screen.SetResolution(requestedWidth, requestedHeight, FullScreenMode.Windowed);
+            yield return new WaitForSecondsRealtime(0.5f);
+            if (Screen.width != requestedWidth || Screen.height != requestedHeight) throw new InvalidOperationException("Requested font capture viewport was not applied");
+        }
         var flags = System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Static;
         object draw = typeof(Draw).GetField("instance", flags).GetValue(null);
         Font font = (Font)typeof(Draw).GetField("MainFont", flags).GetValue(draw);
@@ -1339,6 +1477,10 @@ public sealed class Plugin : BaseUnityPlugin
         }
         metadata = metadata.Substring(0, metadata.Length - 1) + ",\"actualMoveText\":" + S(FontTextPatch.MoveText) + ",\"actualMoveRect\":[" + Invariant(FontTextPatch.MoveRect.x) + "," + Invariant(FontTextPatch.MoveRect.y) + "," + Invariant(FontTextPatch.MoveRect.width) + "," + Invariant(FontTextPatch.MoveRect.height) + "],\"captionMeasurements\":[" + string.Join(",", captions) + "]}";
         metadata = metadata.Substring(0, metadata.Length - 1) + ",\"characterRange\":\"ASCII U+0020..U+007E\",\"charactersPerSize\":95}";
+        Texture2D screen = ScreenCapture.CaptureScreenshotAsTexture();
+        try { File.WriteAllBytes(Path.Combine(directory, "screen.png"), screen.EncodeToPNG()); }
+        finally { UnityEngine.Object.Destroy(screen); }
+        metadata = metadata.Substring(0, metadata.Length - 1) + ",\"screenWidth\":" + Screen.width + ",\"screenHeight\":" + Screen.height + ",\"screenshot\":\"screen.png\",\"controls\":[" + string.Join(",", ControlGeometryPatch.Samples.Values) + "]}";
         File.WriteAllText(Path.Combine(directory, "font-metrics.json"), metadata, new UTF8Encoding(false));
         WriteResult(metadata);
         Logger.LogInfo("Parity font metrics complete: " + directory);
