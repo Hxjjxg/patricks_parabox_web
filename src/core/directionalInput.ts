@@ -90,6 +90,33 @@ export class DirectionalInput {
     return this.emitIfChanged(before);
   }
 
+  /** Controls.Update samples the whole keyboard before Movement walks U/D/L/R. */
+  syncPhysicalKeys(keys: ReadonlyMap<string, DirectionCommand>): DirectionCommand | null {
+    const before = this.current();
+    const order: DirectionCommand[] = [
+      { dx: 0, dy: 1 }, { dx: 0, dy: -1 },
+      { dx: -1, dy: 0 }, { dx: 1, dy: 0 },
+    ];
+    this.physicalKeys.clear();
+    for (const [key, direction] of keys) this.physicalKeys.set(key, directionId(direction));
+    for (const direction of order) {
+      const id = directionId(direction);
+      const count = [...this.physicalKeys.values()].filter(value => value === id).length;
+      const held = this.directions.get(id);
+      if (count > 0) {
+        if (held) held.count = count;
+        else {
+          this.directions.set(id, { ...direction, count });
+          this.directionOrder.push(id);
+        }
+      } else if (held) {
+        this.directions.delete(id);
+        this.directionOrder.splice(this.directionOrder.indexOf(id), 1);
+      }
+    }
+    return this.emitIfChanged(before);
+  }
+
   tick(
     elapsedSeconds: number,
     canRepeat = true,

@@ -70,3 +70,10 @@ Walk = U R D L R R U U L D R U L L D D R U R D L U. Start positions must be reco
 - Native queued-history source/runtime cases are covered by controller regressions: successful/blocked queued Undo, Restart/undo-restart, unsuccessful redo preserving pending, successful redo cancelling pending while preserving its recorded move count. Broader actual Web/history matrix review remains in progress.
 - First-win held UP: source/runtime two isolated native repeats plus isolated actual Web show landing-based1.5s countdown, direct second_puzzle load and next-update held movement without repress. Explicit level loads still reset input; automatic loads retain controls.
 - These bounded timing results do not approve the full visual/camera/input matrix. Renderer borders/tutorial and confirmed infinity/flip scene defects remain active work.
+
+
+## Delivered-input verification ? sampled keyboard and held history
+- 12 recorded native update replays:882 endpoints match controller level/count/coordinates/AnyMoving/animationkind/time/length; 581 additional exact float32 scheduler transitions cover acceleration, minimumspacing, failed attempts, direction switches, Undo+Redo and Restart overlap.
+- Actual controlled-clock Canvas input replays:8scenarios/301updates/112PNGs; independent checker recomputes against raw native phases (not embedded expectations), exact delivered controls/state/animkind and max phase/geometry residual1.031e-7 against established1e-6. All95 available native image pairs have exact player body bounds. One last native phase has no PNG and is explicitly unverified visually.
+- These controlled-clock cases do not measure natural browser frame pacing. Existing natural queue/win stage samples remain bounded results and must be rechecked at final integration.
+- Concurrent render modules remain in progress: tutorial caption, recursive content/palettes, WallBig, and final multi-size/DPR/mechanic matrix. No overall approval is implied.

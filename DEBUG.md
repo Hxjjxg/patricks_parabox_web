@@ -589,3 +589,29 @@ Queue processing used current landing state instead of previous AnyBlockMoving, 
 - Actual browser artifact web-queue-native-phases-after: UP delivered66ms reserves count2 while still(3,2); landing101.2ms; queued action begins117.9ms on next frame with animT=.0167. This matches native phase order; requested timer duration is not treated as delivered time parity.
 - Isolated browser web-win-held-after: landing101.2ms, second_puzzle load1600.7ms, held movement on next frame1617.4ms, no repress; landing-to-load1.4995s with16.6ms landing delta. Source/native count1.5 including full landing frame is satisfied. Detailed actual events in evidence/web-controller-native-phase-summary.json.
 - Focused controller/input:27tests pass; typecheck and production build pass. Integrated run had319passing tests and8expected failing-before tutorial tests from the renderer agent's next in-progress module; no existing/controller regression failed. Full final integrated checks remain mandatory.
+
+
+## Simultaneous physical keyboard sampling ? 2026-10-25
+### Observations
+Original Controls.Update reads all physical direction values once; PlayerMovementLogic updates logical stack in Up,Down,Left,Right order and accepts one command. Native first-simultaneous-up-right and first-simultaneous-up-down prove Right and Down selection, count1. Web processes each DOM keydown immediately; both same-frame orderings accept count2, first key physically moves and second queues. Four focused controller assertions fail before fix. Exact original delivered changes/updates are in evidence/original/input-boundary-replay.json.
+### Hypotheses
+- H1 (root): per-event impulses bypass native once-per-update control sampling. Supported by event handlers and actual native phase hooks, no conflict; two events before one frame reproduce wrong count2 versus1.
+- H2: logical stack ordering alone is wrong. Reversing event order changes first movement but still count2; native always Right/Down for newly simultaneous controls, so sorting alone cannot fix multiple acceptance.
+- H3: preexisting pending turn from setup explains count2. Fresh first_puzzle starts count0/no animation; four independent fresh harnesses reject this explanation.
+### Experiment
+Add only native expected simultaneous count/position assertions to fresh controller harness, both DOM event orders, then run selected tests:4/4 fail. No production diagnostic mutation; native source and read-only runtime hooks independently identify the same root cause.
+### Root Cause / Planned Fix
+Keyboard handlers execute model movement before the next input sampling/update. Collect physical keyboard state, reconcile new logical directions once per controller frame in native order, then apply at that same frame before animation and rendering. Retain actual press timestamps so the initial animation still advances only by post-press time. Regressions for prior post-press/queue invariants will use keys present at a sampled update; subframe press-and-release absent from every sampled update follows original Controls.ReadValue behavior. This introduces no extra rendered-frame delay.
+
+
+### Simultaneous sampling results
+Physical keyboard/swipe directions are reconciled once per controller update in native U/D/L/R order. Press timestamps retain post-press animation clamping; sampled movement is presented in the same controller frame. Native frames containing undo/redo skip logical direction stack updates. Prior queue/history regressions retain their original position/count/animation assertions with keys explicitly delivered across sampled updates. Four simultaneous assertions fail before and pass after. Eight direct original replay cases now match all301 update endpoints (count, coordinates, moving state, animation kind/time/length with1e-6 float precision), including overlapping key release revealing the older held direction.
+
+## Held history cooldown investigation ? 2026-10-25
+### Observations and hypotheses
+- Native UndoInput.Update uses absolute Time.time, strict greater-than eligibility, float32 spacing .15 decreasing .005 before scheduling (first .145000011, floor .04). Empty-history attempts still accelerate. Undo has precedence, direction switches wait for the current cooldown; release resets next time and spacing but retains direction.
+- H1 (root): DOM keydown/OS-repeat handling bypasses native cooldown/acceleration. Source and581 independently observed updates support it. A new delivered controller replay fails atframe44431: Web redoes immediately tocount6 while native remainscount5 under cooldown.
+- H2: undo history itself is corrupt. Debug history conformance and prior committed queue tests pass; discrepancy occurs exactly on an ineligible redo key edge, rejecting this cause.
+- H3: animation clamping delays state changes. Core coordinates/count diverge before animation and source eligibility explains the exact frame, rejecting a curve explanation.
+### Fix and results
+Pure core/historyInput.ts mirrors native float32 scheduler. Held undo/redo and pressed-edge restart are processed after queued impulses and before animation. Restart stays independent after UndoInput; failed history attempts also clear the blocked-direction flag. Four scheduler replays match all581 measured spacing/next-time/direction states exactly after native float32 conversion. Combined controller replays now match882 native update endpoints across12 scenarios at1e-6 animation precision. Focused combined37tests pass. Actual Canvas301-update diagnostic replays saved underweb-native-input-replay-v1, with external native-delta clock and unchanged production update/draw logic; natural frame pacing is a separate verification surface. Final integrated recapture remains required after rendering fixes.

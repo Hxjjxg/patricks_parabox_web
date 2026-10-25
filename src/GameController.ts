@@ -11,6 +11,7 @@ import {
   type DirectionCommand,
 } from "./core/directionalInput";
 import { TouchSwipeInput } from "./core/touchInput";
+import { HistoryInput } from "./core/historyInput";
 import { MovementEngine, type ImpulseResult } from "./core/movement";
 import {
   computeAnyBlockMoving,
@@ -159,6 +160,12 @@ export class GameController {
   private readonly specialModes = new SpecialModes();
   private readonly sessionMenu = new SessionMenu();
   private readonly directionalInput: DirectionalInput;
+  private readonly physicalDirections = new Map<
+    string, DirectionCommand & { pressedAt: number }
+  >();
+  private physicalDirectionChangedAt: number | null = null;
+  private readonly historyInput = new HistoryInput();
+  private restartRequested = false;
   private readonly touchInput = new TouchSwipeInput();
   private readonly heldKeys = new Set<string>();
   private previousFrameTime: number | null = null;
@@ -344,7 +351,7 @@ export class GameController {
     this.sessionMenu.reset();
     this.refreshSessionSettings();
     if (!preserveControls) {
-      this.directionalInput.reset();
+      this.resetDirectionalInput();
       this.lastMoveDirection = { dx: 0, dy: 0 };
       this.directionalInput.setMoveDelayMilliseconds(
         this.settings.snapshot().moveDelay,
@@ -353,6 +360,7 @@ export class GameController {
     }
     this.lastMoveAppliedAt = null;
     this.queuedDirection = null;
+    this.restartRequested = false;
     this.touchInput.reset();
     this.fastTravelSession = null;
     this.creditsActive = false;
@@ -525,7 +533,7 @@ export class GameController {
       originY: player.y,
       selectedIndex,
     };
-    this.directionalInput.reset();
+    this.resetDirectionalInput();
     this.updateStateOutput();
     this.syncRendererUi();
     return true;
@@ -608,7 +616,7 @@ export class GameController {
     ) {
       const started = this.specialModes.start(effect);
       if (started) {
-        this.directionalInput.reset();
+        this.resetDirectionalInput();
         this.heldKeys.clear();
         this.updateStateOutput();
         this.syncRendererUi();
@@ -652,7 +660,7 @@ export class GameController {
       this.creditsActive = false;
       this.creditsFromPause = false;
       this.heldKeys.clear();
-      this.directionalInput.reset();
+      this.resetDirectionalInput();
       this.updateStateOutput();
       this.syncRendererUi();
       return;
@@ -754,7 +762,7 @@ export class GameController {
     }
     this.refreshSessionSettings();
     this.heldKeys.clear();
-    this.directionalInput.reset();
+    this.resetDirectionalInput();
     this.updateStateOutput();
     this.syncRendererUi();
   }
@@ -950,7 +958,7 @@ export class GameController {
         this.currentLevelName === "hub",
       );
       this.refreshSessionCustomLevels(selectedId);
-      this.directionalInput.reset();
+      this.resetDirectionalInput();
       this.heldKeys.clear();
     }
     if (firstError !== null) this.showCustomLevelError(firstError);
@@ -1095,26 +1103,27 @@ export class GameController {
       s: [0, -1],
     };
     const direction = directions[key];
+    this.heldKeys.add(key);
     if (direction) {
       event.preventDefault();
       if (!event.repeat) {
-        const command = this.directionalInput.press(key, {
+        if (!this.physicalDirections.has(key)) this.physicalDirections.set(key, {
           dx: direction[0] as -1 | 0 | 1,
           dy: direction[1] as -1 | 0 | 1,
+          pressedAt: performance.now(),
         });
-        this.applyDirectionCommand(command);
+        this.physicalDirectionChangedAt = performance.now();
       }
       return;
     }
     if (key === "z" || (event.ctrlKey && key === "z")) {
       event.preventDefault();
-      this.undo();
     } else if (key === "x" || (event.ctrlKey && key === "y")) {
       event.preventDefault();
-      this.redo();
+      if (event.ctrlKey) this.heldKeys.add("control");
     } else if (key === "r") {
       event.preventDefault();
-      this.restart();
+      if (!event.repeat) this.restartRequested = true;
     } else if (key === "escape") {
       event.preventDefault();
       const player = this.world.findPlayerBlock();
@@ -1129,7 +1138,7 @@ export class GameController {
       this.refreshSessionSettings();
       if (this.sessionMenu.openPause(this.currentLevelName === "hub")) {
         this.winTransitionElapsed = 0;
-        this.directionalInput.reset();
+        this.resetDirectionalInput();
         this.heldKeys.clear();
         this.updateStateOutput();
         this.syncRendererUi();
@@ -1143,17 +1152,8 @@ export class GameController {
   private readonly onKeyUp = (event: KeyboardEvent): void => {
     const key = event.key.toLowerCase();
     this.heldKeys.delete(key);
-    if (this.runtimeMode() === "playing") {
-      const command = this.directionalInput.release(key);
-      if (!command) {
-        // Releasing everything is a direction change (0,0) in the original:
-        // it clears the blocked-repeat wait so the next press can move again.
-        this.lastMoveDirection = { dx: 0, dy: 0 };
-        this.movement.clearWaitForMoveDirChange();
-      }
-      this.applyDirectionCommand(command);
-    } else {
-      this.directionalInput.release(key);
+    if (this.physicalDirections.delete(key)) {
+      this.physicalDirectionChangedAt = performance.now();
     }
   };
 
@@ -1203,10 +1203,8 @@ export class GameController {
     );
     event.preventDefault();
     if (!command) return;
-    this.directionalInput.release(touchDirectionKey);
-    this.applyDirectionCommand(
-      this.directionalInput.press(touchDirectionKey, command),
-    );
+    this.physicalDirections.set(touchDirectionKey, { ...command, pressedAt: performance.now() });
+    this.physicalDirectionChangedAt = performance.now();
   };
 
   private readonly onPointerUp = (event: PointerEvent): void => {
@@ -1216,9 +1214,8 @@ export class GameController {
     if (this.renderer.canvas.hasPointerCapture?.(event.pointerId)) {
       this.renderer.canvas.releasePointerCapture(event.pointerId);
     }
-    this.applyDirectionCommand(
-      this.directionalInput.release(touchDirectionKey),
-    );
+    this.physicalDirections.delete(touchDirectionKey);
+    this.physicalDirectionChangedAt = performance.now();
     event.preventDefault();
     if (result.moved || !this.inspectionEnabled()) return;
 
@@ -1243,9 +1240,8 @@ export class GameController {
     if (this.renderer.canvas.hasPointerCapture?.(event.pointerId)) {
       this.renderer.canvas.releasePointerCapture(event.pointerId);
     }
-    this.applyDirectionCommand(
-      this.directionalInput.release(touchDirectionKey),
-    );
+    this.physicalDirections.delete(touchDirectionKey);
+    this.physicalDirectionChangedAt = performance.now();
     event.preventDefault();
   };
 
@@ -1300,6 +1296,26 @@ export class GameController {
     this.advancePlaytime(Math.min(elapsed, 1 / 3));
 
     if (this.runtimeMode() === "playing") {
+      const undoHeld = this.heldKeys.has("z");
+      const redoHeld = this.heldKeys.has("x") ||
+        (this.heldKeys.has("y") && this.heldKeys.has("control"));
+      const historyHeld = undoHeld || redoHeld;
+      if (!historyHeld) {
+        const before = this.directionalInput.current();
+        const command = this.directionalInput.syncPhysicalKeys(this.physicalDirections);
+        if (before && !this.directionalInput.current()) {
+          this.lastMoveDirection = { dx: 0, dy: 0 };
+          this.movement.clearWaitForMoveDirChange();
+        }
+        if (command) {
+          const firstPress = Math.min(...[...this.physicalDirections.values()]
+            .filter(value => value.dx === command.dx && value.dy === command.dy)
+            .map(value => value.pressedAt));
+          const acceptedAt = firstPress > timestamp - elapsed * 1000
+            ? firstPress : this.physicalDirectionChangedAt ?? timestamp;
+          this.applyDirectionCommand(command, false, acceptedAt);
+        }
+      }
       // A move applied between frames must not advance its animation by the
       // part of the frame that elapsed before the press; otherwise slides
       // finish early and the rhythm drifts with the press phase.
@@ -1310,7 +1326,7 @@ export class GameController {
       const delta = Math.min(elapsed, sinceMove, 0.1);
       // Native PlayerMovementLogic and the queued impulse run against the
       // previous update's AnyBlockMoving, before animations are advanced.
-      this.applyDirectionCommand(
+      if (!historyHeld) this.applyDirectionCommand(
         this.directionalInput.tick(
           Math.min(elapsed, sinceMove),
           !this.world.anyBlockMoving,
@@ -1320,6 +1336,18 @@ export class GameController {
       );
       if (this.queuedDirection && !this.world.anyBlockMoving) {
         this.flushQueuedDirection();
+      }
+      const historyAction = this.historyInput.tick(timestamp / 1000, undoHeld, redoHeld);
+      if (historyAction) {
+        if (historyAction === "undo") this.undo();
+        else this.redo();
+        this.movement.clearWaitForMoveDirChange();
+      }
+      // Native restart is an independent pressed-edge action after UndoInput,
+      // including updates where held history is still cooling down.
+      if (this.restartRequested) {
+        this.restartRequested = false;
+        this.restart();
       }
       if (elapsed > 0) {
         updateWorldAnimations(this.world, {
@@ -1414,9 +1442,16 @@ export class GameController {
     );
   }
 
+  private resetDirectionalInput(): void {
+    this.directionalInput.reset();
+    this.physicalDirections.clear();
+    this.physicalDirectionChangedAt = null;
+  }
+
   private applyDirectionCommand(
     command: DirectionCommand | null,
     repeated = false,
+    acceptedAt = performance.now(),
   ): void {
     if (!command || this.runtimeMode() !== "playing") return;
     const changedDirection =
@@ -1443,11 +1478,15 @@ export class GameController {
       return;
     }
     if (decision === "skip-and-apply") this.skipAnimations();
-    this.applyMove(command);
+    this.applyMove(command, undefined, acceptedAt);
   }
 
-  private applyMove(command: DirectionCommand, acceptedMoveCount?: number): void {
-    this.lastMoveAppliedAt = performance.now();
+  private applyMove(
+    command: DirectionCommand,
+    acceptedMoveCount?: number,
+    appliedAt = performance.now(),
+  ): void {
+    this.lastMoveAppliedAt = appliedAt;
     this.directionalInput.resetRepeatDelay();
     const result = this.impulse(command.dx, command.dy, acceptedMoveCount);
     if (acceptedMoveCount !== undefined && !result.moved && !result.transition) {
