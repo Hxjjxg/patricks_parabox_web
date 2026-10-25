@@ -1188,8 +1188,19 @@ export class GameRenderer {
       if (phantom.face && this.pendingTickets) {
         this.effectTickets.push({block:phantom.block,rect:phantomRect,depth:depth+1,flipH,
           clip:geometry.clip,facePhantom:true});
-      } else if (phantom.face || !phantom.block.subLevel) {
+      } else if (phantom.face) {
         this.drawFace(graphics, phantom.block, phantomRect, true, flipH);
+      } else if (!phantom.block.subLevel) {
+        // Native terminal copies draw in this parent pass, before queued backings.
+        const parentContainer = this.activeSceneContainer;
+        this.activeSceneContainer = this.maskedScene(geometry.clip);
+        // ResolveMove/history retains the block's current logical outer level.
+        this.drawWall(this.nextWallLayer(tint), phantom.block.outerLevel!, phantom.block,
+          phantomRect, 0xffffff, flipH);
+        if (phantom.block.possessable || phantom.block.isPlayer) {
+          this.drawFace(this.nextSceneLayer(), phantom.block, phantomRect, false, flipH);
+        }
+        this.activeSceneContainer = parentContainer;
       } else if (this.pendingTickets) {
         this.pendingTickets.push({block:phantom.block,rect:phantomRect,staticRect:cell,depth:depth+1,
           flipH:flipH!==(phantom.block.flipH!==phantom.block.fadeFlipH),parents:[viewBlock,...parents],
