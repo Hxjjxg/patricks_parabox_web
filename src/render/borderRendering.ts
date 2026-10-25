@@ -100,3 +100,32 @@ export function drawBlockBorder(
     if (snapped.width > 0 && snapped.height > 0) graphics.rect(snapped.x, snapped.y, snapped.width, snapped.height).fill(color);
   }
 }
+
+/** DrawBlock's early open-edge pass, separate from later solid/gold borders. */
+export function drawInfZoneFrame(
+  graphics: Graphics,block:Block,rect:WallRect,staticRect:WallRect,
+  screenWidth:number,screenHeight:number,resolution=1,
+):void {
+  const level=block.subLevel;
+  if(!level?.infZone)return;
+  const t=borderThickness(block,rect,staticRect,screenWidth,screenHeight,resolution);
+  const solid=(x:number,y:number)=>Boolean(level.getBlock(x,y)&&!level.getBlock(x,y)!.subLevel);
+  const sides=[
+    Array.from({length:level.height},(_,y)=>solid(0,y)).every(Boolean),
+    Array.from({length:level.height},(_,y)=>solid(level.width-1,y)).every(Boolean),
+    Array.from({length:level.width},(_,x)=>solid(x,level.height-1)).every(Boolean),
+    Array.from({length:level.width},(_,x)=>solid(x,0)).every(Boolean),
+  ];
+  const strips=[
+    {x:rect.x,y:rect.y,width:t,height:rect.height},
+    {x:rect.x+rect.width-t,y:rect.y,width:t,height:rect.height},
+    {x:rect.x+t,y:rect.y,width:rect.width-t*2,height:t},
+    {x:rect.x+t,y:rect.y+rect.height-t,width:rect.width-t*2,height:t},
+  ];
+  for(let i=0;i<4;i++){
+    if(sides[i])continue;
+    const r=originalDrawRect(strips[i]!,resolution);
+    // Native direct Color.white alpha.2 goes through the GUI shader's x2.
+    if(r.width>0&&r.height>0)graphics.rect(r.x,r.y,r.width,r.height).fill({color:0xffffff,alpha:0.4});
+  }
+}

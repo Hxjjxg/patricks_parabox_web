@@ -23,7 +23,7 @@ import {
 } from "./originalTextures";
 
 import { autotileIndex, createWallShader, originalDrawRect, wallTint } from "./wallRendering";
-import { drawBlockBorder, guiHsvColor, isInfinityBorder } from "./borderRendering";
+import { drawBlockBorder, drawInfZoneFrame, guiHsvColor, isInfinityBorder } from "./borderRendering";
 import { nativeFocusRect, pixelResolution } from "./focusGeometry";
 import { clipShadow, shadowRect, wallShadowCull } from "./shadowRendering";
 import { largeWallQuads } from "./wallBigRendering";
@@ -849,6 +849,9 @@ export class GameRenderer {
       // receives the default GUI shader's x2 multiplier.
       alpha: 0.16,
     });
+
+    drawInfZoneFrame(graphics, viewBlock, rect, staticRect,
+      this.app.screen.width, this.app.screen.height, this.app.renderer?.resolution ?? 1);
 
     for (const floor of level.floorList) {
       const cellRect = this.cellRect(level, floor.x, floor.y, rect, flipH);
