@@ -4,6 +4,7 @@ import {
   Graphics,
   Text,
   TextStyle,
+  Sprite,
   Texture, Rectangle,
   type Shader,
 } from "pixi.js";
@@ -24,11 +25,13 @@ import {
 
 import { autotileIndex, createWallShader, originalDrawRect, wallTint } from "./wallRendering";
 import { drawBlockBorder, drawInfZoneFrame, guiHsvColor, isInfinityBorder } from "./borderRendering";
-import { nativeFocusRect, pixelResolution } from "./focusGeometry";
+import { nativeFocusRect, pixelResolution, quickAnimFocusRect } from "./focusGeometry";
 import { clipShadow, shadowRect, wallShadowCull } from "./shadowRendering";
 import { largeWallQuads } from "./wallBigRendering";
 import { faceQuads } from "./faceRendering";
 import { phantomGeometry, shouldDrawPhantom } from "./phantomRendering";
+import {alternateLevels,gridBoards,tuiLayout,tuiGlyphs,useAlternateDrawStyle,type AlternateStyleContext,type TuiGlyph} from "./alternateStyles";
+import {nativeTuiGlyphQuad} from "./nativeTuiFont";
 import { infinityGlyphQuads } from "./infinityRendering";
 import { flipShineQuad } from "./flipShineRendering";
 import { goalCellRect, goalStrips, goalTint } from "./goalRendering";
@@ -51,6 +54,7 @@ export interface RendererUiState {
     readonly areaName: string;
   } | null;
   readonly session: SessionMenuSnapshot;
+  readonly alternateStyle?: AlternateStyleContext;
   readonly preferences: {
     readonly grid: boolean;
     readonly leftHanded: boolean;
@@ -176,6 +180,11 @@ export class GameRenderer {
   private pendingTickets: SceneTicket[] | null = null;
   private currentTicket: SceneTicket | null = null;
   private effectTickets: EffectTicket[] = [];
+  private readonly tuiLabels: Text[] = [];
+  private tuiLabelCount = 0;
+  private readonly tuiGlyphTextures=new Map<string,Texture>();
+  private readonly tuiNativeSprites:Sprite[]=[];
+  private tuiNativeSpriteCount=0;
   private readonly controls = new Container();
   private readonly controlGraphics = new Graphics();
   private readonly controlLabels: Text[] = [];
@@ -333,8 +342,19 @@ export class GameRenderer {
     this.activeSceneContainer = this.scene;
     for (const pass of this.maskPasses) pass.container.visible = false;
     for (const layer of this.sceneLayers) layer.visible = false;
+    for (const label of this.tuiLabels ?? []) label.visible = false;
+    for (const sprite of this.tuiNativeSprites ?? []) sprite.visible=false;
+    this.tuiNativeSpriteCount=0;
+    this.tuiLabelCount=0;
     const graphics = this.nextSceneLayer();
     graphics.rect(0, 0, width, height).fill(COLORS.void);
+    const alternateContext=this.uiState?.alternateStyle ?? {};
+    const alternateMode=this.uiState?.mode ?? "playing";
+    if(useAlternateDrawStyle(world.drawStyle,alternateMode,alternateContext)){
+      this.drawAlternateStyle(width,height,alternateContext);
+      this.drawModeOverlay(width,height,world.findPlayerBlock());
+      return;
+    }
     this.drawVoid(graphics, width, height);
 
     const player = world.findPlayerBlock();
@@ -349,22 +369,26 @@ export class GameRenderer {
     // Original camera (`Draw.DrawBlocks`): the focus block always measures
     // `focusFractNormal` of the short screen edge; enter/exit transitions
     // scale that base rect between 1 and the level's camZoomFactor.
-    const camT = world.newCamT;
+    const quick=world.drawStyle===DrawStyle.QuickAnim;
+    const camT = instantZoom?1:quick?0:world.newCamT;
     const camZoom = focusLevel.camZoomFactor;
     const camXS = 1 / lerp(1 / world.newXS, 1 / camZoom, camT);
     const camYS = 1 / lerp(1 / world.newYS, 1 / camZoom, camT);
     const viewFlipH = world.inputFlipH() !== this.inspectionFlipH;
     const unflippedX = lerp(world.newX, 0, camT);
     const camY = lerp(world.newY, 0, camT);
-    const camX = viewFlipH ? -unflippedX : unflippedX;
-    const focusRect = nativeFocusRect(width, height, camXS, camYS, camX, camY);
+    const cameraFlipH=quick?world.inputFlipH():viewFlipH;
+    const camX = cameraFlipH ? -unflippedX : unflippedX;
+    const focusRect = quick
+      ?quickAnimFocusRect(width,height,camXS,camYS,camX,camY,viewBlock.drawXScale,viewBlock.drawYScale)
+      :nativeFocusRect(width, height, camXS, camYS, camX, camY);
     const boardWidth = focusRect.width;
     const boardHeight = focusRect.height;
     const boardX = focusRect.x;
     const boardY = focusRect.y;
     world.usedXS = camXS / Math.max(camZoom, 1e-6);
     world.usedYS = camYS / Math.max(camZoom, 1e-6);
-    world.usedX = unflippedX * camZoom;
+    world.usedX = (quick?camX:unflippedX) * camZoom;
     world.usedY = camY * camZoom;
 
     this.inspectionBoard = {
@@ -451,7 +475,59 @@ export class GameRenderer {
       this.drawScenePass(cloneTicket.block,cloneTicket.rect,cloneTicket.depth,cloneTicket.flipH,null,true,overlayRoot);
       this.activeSceneContainer=this.scene;
     }
+    if(quick&&renderMode==="paused")this.nextSceneLayer().rect(0,0,width,height).fill({color:0,alpha:.64});
     this.drawModeOverlay(width, height, player);
+  }
+
+  /** Native alternate modes bypass normal focus/camera/void/tutorial branches. */
+  private drawAlternateStyle(width:number,height:number,context:AlternateStyleContext):void{
+    const world=this.world!;
+    const levels=alternateLevels(world,context),resolution=this.app.renderer?.resolution ?? 1;
+    if(this.controls)this.controls.visible=false;
+    this.winText.text="";this.winText.alpha=0;
+    if(world.drawStyle===DrawStyle.Grid){
+      for(const board of gridBoards(levels,width,height,resolution)){
+        this.drawScenePass(board.level.getExitBlock(),board.rect,0,false,board.rect);
+      }
+    }else{
+      if(world.winning){
+        const alpha=Math.max(0,Math.min(1,context.winPhase??0))*.14;
+        this.nextSceneLayer().rect(0,0,width,height).fill({color:0xffffff,alpha});
+      }
+      const layout=tuiLayout(levels,width,height,world.levelName==="hub",resolution);
+      for(const glyph of tuiGlyphs(world,levels,layout,this.elapsed??0,context))this.drawTuiGlyph(glyph);
+    }
+    this.activeSceneContainer=this.scene;
+    if(this.uiState?.mode==="paused")this.nextSceneLayer().rect(0,0,width,height).fill({color:0,alpha:.64});
+  }
+
+  /** Native fixed-width Inconsolata; exact GUI label rectangle comes from TUI. */
+  private drawTuiGlyph(glyph:TuiGlyph):void{
+    if(glyph.background!==null){
+      this.nextSceneLayer().rect(glyph.cell.x,glyph.cell.y,glyph.cell.width,glyph.cell.height).fill(glyph.background);
+    }
+    const quad=nativeTuiGlyphQuad(glyph);
+    if(quad){
+      const key=quad.frame.join(",");let texture=this.tuiGlyphTextures.get(key);
+      if(!texture){
+        texture=new Texture({source:this.textures.nativeTuiAtlas.source,frame:new Rectangle(quad.frame[0]!,quad.frame[1]!,quad.frame[2]!,quad.frame[3]!)});
+        texture.source.style.scaleMode="linear";texture.source.style.addressMode="clamp-to-edge";this.tuiGlyphTextures.set(key,texture);
+      }
+      const index=this.tuiNativeSpriteCount++;let sprite=this.tuiNativeSprites[index];
+      if(!sprite){sprite=new Sprite({texture});this.tuiNativeSprites.push(sprite);}
+      sprite.texture=texture;sprite.visible=true;sprite.tint=glyph.color;
+      sprite.position.set(quad.x,quad.y);sprite.width=quad.width;sprite.height=quad.height;
+      this.scene.addChild(sprite);
+      return;
+    }
+    const index=this.tuiLabelCount++;let label=this.tuiLabels[index];
+    if(!label){
+      label=new Text({text:"",style:{fontFamily:"Inconsolata",fontWeight:"normal",fontSize:glyph.fontSize,fill:glyph.color,padding:0}});
+      label.anchor.set(.5,1);this.tuiLabels.push(label);
+    }
+    label.visible=true;label.text=glyph.text;label.style.fontSize=glyph.fontSize;label.style.fill=glyph.color;
+    label.position.set(glyph.labelRect.x+glyph.labelRect.width/2,glyph.labelRect.y+glyph.labelRect.height-3/(this.app.renderer?.resolution??1));
+    this.scene.addChild(label);
   }
 
   inspectionHitAt(clientX: number, clientY: number): InspectionHit {
@@ -869,8 +945,10 @@ export class GameRenderer {
     const interiorColor = computeBlockColor(viewBlock, fractionOfScreen,cloneFade,phase);
     // Native snaps each backing/gradient draw quad, while retaining the unrounded ticket for children.
     const backingRect = originalDrawRect(rect, this.app.renderer?.resolution ?? 1);
-    if (!level.infZone) graphics.rect(backingRect.x, backingRect.y, backingRect.width, backingRect.height).fill(interiorColor);
-    graphics.rect(backingRect.x, backingRect.y, backingRect.width, backingRect.height).fill({
+    const quick=this.world?.drawStyle===DrawStyle.QuickAnim;
+    if (!level.infZone) graphics.rect(backingRect.x, backingRect.y, backingRect.width, backingRect.height).fill(quick
+      ?{texture:this.textures.quickBlock,textureSpace:"local",color:interiorColor}:interiorColor);
+    if(!quick)graphics.rect(backingRect.x, backingRect.y, backingRect.width, backingRect.height).fill({
       texture: this.textures.centerGradient,
       textureSpace: "local",
       color: 0xffffff,
@@ -952,7 +1030,9 @@ export class GameRenderer {
     const cellFractionOfScreen =
       (rect.width / level.width + rect.height / level.height) / 2 /
       Math.max(1, this.app.screen.height);
-    const wallGraphics = this.nextWallLayer(wallTint(viewBlock, cellFractionOfScreen,cloneFade?1-phase:undefined));
+    const tint=wallTint(viewBlock, cellFractionOfScreen,cloneFade?1-phase:undefined);
+    if(quick)for(let i=0;i<3;i++)tint[i]=tint[i]!*Math.fround(.8);
+    const wallGraphics = this.nextWallLayer(tint);
     for (const block of level.blockList) {
       if (block.subLevel) continue;
       const wallRect = this.animatedCellRect(level, block, rect, flipH);
@@ -1056,7 +1136,9 @@ export class GameRenderer {
       }
       graphics.stroke({ color: 0xffffff, alpha: 0.16, width: 1 });
     }
-    if (this.pendingTickets) this.effectTickets.push({block:viewBlock,rect,depth,flipH,clip:this.currentTicket?.clip ?? null,cloneFade});
+    if (this.pendingTickets && (this.world?.drawStyle!==DrawStyle.Grid||depth!==0||this.uiState?.mode==="fast-travel")) {
+      this.effectTickets.push({block:viewBlock,rect,depth,flipH,clip:this.currentTicket?.clip ?? null,cloneFade});
+    }
     else this.drawInfEffect(graphics, viewBlock, rect);
     return graphics;
   }
@@ -1245,9 +1327,17 @@ export class GameRenderer {
     color: number,
     flipH: boolean,
   ): void {
+    if(this.world?.drawStyle===DrawStyle.QuickAnim){
+      const snapped=originalDrawRect(rect,this.app.renderer.resolution);
+      if(snapped.width<=0||snapped.height<=0)return;
+      const texture=level.filledWithWalls?this.textures.quickBlock:Texture.WHITE;
+      texture.source.style.addressMode="clamp-to-edge";
+      graphics.texture(texture,color,snapped.x,snapped.y,snapped.width,snapped.height);
+      return;
+    }
     const textures = flipH ? this.textures.wallsFlip : this.textures.walls;
     const index = autotileIndex(level, block, flipH);
-    const large = this.world?.drawStyle === DrawStyle.QuickAnim ? null : largeWallQuads(index, rect, this.app.renderer.resolution);
+    const large = largeWallQuads(index, rect, this.app.renderer.resolution);
     if (large) {
       const family = flipH ? this.textures.wallsBigFlip : this.textures.wallsBig;
       for (const quad of large) {

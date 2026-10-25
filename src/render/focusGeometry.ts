@@ -18,3 +18,11 @@ export function pixelResolution(value: number): number {
   const integer = Math.round(value);
   return Math.abs(value - integer) < 1e-6 ? integer : value;
 }
+
+/** QUICK uses .105 focus and applies player squash after locating its center. */
+export function quickAnimFocusRect(width:number,height:number,xScale:number,yScale:number,
+ xOffset:number,yOffset:number,drawXScale:number,drawYScale:number):ReturnType<typeof nativeFocusRect>{
+ const rect=nativeFocusRect(width,height,xScale,yScale,xOffset,yOffset,.105);
+ const w=rect.width*drawXScale,h=rect.height*drawYScale;
+ return {x:rect.x+rect.width/2-w/2,y:rect.y+rect.height/2-h/2,width:w,height:h};
+}

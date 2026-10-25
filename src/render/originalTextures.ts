@@ -1,4 +1,5 @@
 import { Assets, Texture } from "pixi.js";
+import nativeTuiAtlasUrl from "../assets/fonts/native-inconsolata-atlas.png?url";
 
 export interface OriginalTextures {
   walls: Texture[];
@@ -13,6 +14,8 @@ export interface OriginalTextures {
   playerButtonEyesSmall: Texture;
   quickButton: Texture;
   quickPlayerButton: Texture;
+  quickBlock: Texture;
+  nativeTuiAtlas: Texture;
   eye: Texture;
   eyeSmall: Texture;
   eyeClosed: Texture;
@@ -58,7 +61,7 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
     wasd,
     button,
     playerButton,
-    playerButtonEyes, playerButtonEyesSmall, quickButton, quickPlayerButton,
+    playerButtonEyes, playerButtonEyesSmall, quickButton, quickPlayerButton, quickBlock, nativeTuiAtlas,
     eye,
     eyeSmall,
     eyeClosed, eyeClosedSmall,
@@ -85,6 +88,7 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
     load("button_player_x.png"),
     load("button_player_x_only_eyes.png"), load("button_player_x_only_eyes_small.png"),
     load("quick_anim_goal.png"), load("quick_anim_goal_player.png"),
+    loadWall("quick_anim_block.png"), Assets.load<Texture>(nativeTuiAtlasUrl),
     load("eye1.png"),
     load("eye1_small.png"),
     load("eye2.png"), load("eye2_small.png"),
@@ -102,7 +106,7 @@ export async function loadOriginalTextures(): Promise<OriginalTextures> {
     wasd,
     button,
     playerButton,
-    playerButtonEyes, playerButtonEyesSmall, quickButton, quickPlayerButton,
+    playerButtonEyes, playerButtonEyesSmall, quickButton, quickPlayerButton, quickBlock, nativeTuiAtlas,
     eye,
     eyeSmall,
     eyeClosed, eyeClosedSmall,
