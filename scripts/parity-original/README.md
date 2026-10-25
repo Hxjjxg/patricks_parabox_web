@@ -218,3 +218,12 @@ method replay is claimed. summarize-inspection-pointer.py validates valid
 enter push/pop and third filled-gold rejection, preserving four diagnostics.
 The earlier forced INSPECT_56 capture is internal-camera-only, not a valid
 pointer acceptance fixture. See native-inspection-pointer-evidence.md.
+
+capture-font-variety.ps1 records GUI_FONT_VARIETY:size:INTEGER/FRACTION at
+12/16/20. Twelve actual DrawText strings use separate362x82rectangles with
+unchanged GUI style; each exports CalcSize/cursors/padding and four raw
+UpperLeft/MiddleCenter TextGenerator comparators. All95ASCII×3glyphs and
+current atlas are re-exported. analyze-gui-font-pack.py independently measures
+the72unique masks; summarize-font-variety.py validates glyph-prefix/width
+agreement and retains26odd-width horizontal falsifications as observations,
+without fitting an offset. See native-font-variety-evidence.md.
