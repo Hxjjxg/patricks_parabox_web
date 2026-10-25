@@ -22,6 +22,8 @@ import {
 } from "./originalTextures";
 
 import { autotileIndex, createWallShader, originalDrawRect, wallTint } from "./wallRendering";
+import { drawBlockBorder } from "./borderRendering";
+import { nativeFocusRect, pixelResolution } from "./focusGeometry";
 
 export type RendererMode =
   | SpecialModeName
@@ -218,7 +220,7 @@ export class GameRenderer {
       antialias: true,
       autoDensity: true,
       background: COLORS.void,
-      resolution: Math.min(window.devicePixelRatio, 2),
+      resolution: Math.min(pixelResolution(window.devicePixelRatio), 2),
     });
     this.app.canvas.id = "game-canvas";
     this.app.canvas.setAttribute("aria-label", "Patrick's Parabox play field");
@@ -329,8 +331,6 @@ export class GameRenderer {
     // Original camera (`Draw.DrawBlocks`): the focus block always measures
     // `focusFractNormal` of the short screen edge; enter/exit transitions
     // scale that base rect between 1 and the level's camZoomFactor.
-    const minimum = Math.min(width, height);
-    const base = minimum * 0.82;
     const camT = world.newCamT;
     const camZoom = focusLevel.camZoomFactor;
     const camXS = 1 / lerp(1 / world.newXS, 1 / camZoom, camT);
@@ -339,10 +339,11 @@ export class GameRenderer {
     const unflippedX = lerp(world.newX, 0, camT);
     const camY = lerp(world.newY, 0, camT);
     const camX = viewFlipH ? -unflippedX : unflippedX;
-    const boardWidth = base * camXS;
-    const boardHeight = base * camYS;
-    const boardX = width / 2 + camX * boardWidth - boardWidth / 2;
-    const boardY = height / 2 + camY * boardHeight - boardHeight / 2;
+    const focusRect = nativeFocusRect(width, height, camXS, camYS, camX, camY);
+    const boardWidth = focusRect.width;
+    const boardHeight = focusRect.height;
+    const boardX = focusRect.x;
+    const boardY = focusRect.y;
     world.usedXS = camXS / Math.max(camZoom, 1e-6);
     world.usedYS = camYS / Math.max(camZoom, 1e-6);
     world.usedX = unflippedX * camZoom;
@@ -755,6 +756,7 @@ export class GameRenderer {
     depth: number,
     ancestors: Set<Level>,
     flipH: boolean,
+    staticRect: Rect = rect,
   ): Graphics {
     if (!this.onScreen(rect)) return graphics;
     if (rect.width <= 0.5 || rect.height <= 0.5) return graphics;
@@ -823,6 +825,10 @@ export class GameRenderer {
     }
 
     graphics = this.nextSceneLayer();
+    if (this.world?.drawStyle !== DrawStyle.QuickAnim) {
+      drawBlockBorder(graphics, viewBlock, rect, staticRect, flipH,
+        this.app.screen.width, this.app.screen.height, this.app.renderer?.resolution ?? 1);
+    }
     const nextAncestors = new Set(ancestors);
     nextAncestors.add(level);
     const containers = level.blockList.filter((block) => block.subLevel);
@@ -847,6 +853,7 @@ export class GameRenderer {
         depth,
         nextAncestors,
         flipH,
+        this.cellRect(level, block.x, block.y, rect, flipH),
       );
     }
 
@@ -1081,6 +1088,7 @@ export class GameRenderer {
     depth: number,
     ancestors: Set<Level>,
     flipH: boolean,
+    staticRect: Rect = rect,
   ): Graphics {
     const size = Math.min(rect.width, rect.height);
     const fractionOfScreen =
@@ -1089,7 +1097,6 @@ export class GameRenderer {
     const backingColor = computeBlockColor(block, fractionOfScreen);
     const filledBlockColor = hsvToRgb(block.color);
     const shadowOffset = Math.max(1, size * 0.07);
-    const outlineWidth = Math.max(1.2, size * 0.035);
     const subLevel = block.subLevel;
     const terminal =
       !subLevel ||
@@ -1111,13 +1118,15 @@ export class GameRenderer {
     if (terminal) {
       graphics
         .rect(rect.x, rect.y, rect.width, rect.height)
-        .fill(filledBlockColor)
-        .stroke({ color: shade(filledBlockColor, 0.2), width: outlineWidth });
+        .fill(filledBlockColor);
+      if (this.world?.drawStyle !== DrawStyle.QuickAnim) {
+        drawBlockBorder(graphics, block, rect, staticRect, flipH !== block.flipH,
+          this.app.screen.width, this.app.screen.height, this.app.renderer?.resolution ?? 1);
+      }
     } else if (subLevel) {
       graphics
         .rect(rect.x, rect.y, rect.width, rect.height)
-        .fill(backingColor)
-        .stroke({ color: shade(backingColor, 0.35), width: outlineWidth });
+        .fill(backingColor);
       graphics.rect(rect.x, rect.y, rect.width, rect.height).fill({
         texture: this.textures.centerGradient,
         textureSpace: "local",
@@ -1135,6 +1144,7 @@ export class GameRenderer {
           depth + 1,
           ancestors,
           flipH !== block.flipH,
+          staticRect,
         );
       }
     }
