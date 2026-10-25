@@ -23,7 +23,7 @@ import {
 } from "./originalTextures";
 
 import { autotileIndex, createWallShader, originalDrawRect, wallTint } from "./wallRendering";
-import { drawBlockBorder, isInfinityBorder } from "./borderRendering";
+import { drawBlockBorder, guiHsvColor, isInfinityBorder } from "./borderRendering";
 import { nativeFocusRect, pixelResolution } from "./focusGeometry";
 import { clipShadow, shadowRect, wallShadowCull } from "./shadowRendering";
 import { largeWallQuads } from "./wallBigRendering";
@@ -147,7 +147,7 @@ function computeBlockColor(block: Block, fractionOfScreen: number): number {
     value += 0.42;
     saturation *= 0.76;
   }
-  return hsvToRgb({ h: block.color.h, s: saturation, v: value });
+  return guiHsvColor({ h: block.color.h, s: saturation, v: value });
 }
 
 function seededSquares(count: number): VoidSquare[] {
