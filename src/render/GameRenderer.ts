@@ -29,6 +29,7 @@ import { clipShadow, shadowRect, wallShadowCull } from "./shadowRendering";
 import { largeWallQuads } from "./wallBigRendering";
 import { faceQuads } from "./faceRendering";
 import { infinityGlyphQuads } from "./infinityRendering";
+import { previewClip, shouldSimpleSlide, simpleSlideRect, stackClip, type InfExitPreview, type SceneTicket } from "./renderContext";
 
 export type RendererMode =
   | SpecialModeName
@@ -58,6 +59,10 @@ interface Rect {
   y: number;
   width: number;
   height: number;
+}
+
+interface EffectTicket {
+  block: Block; rect: Rect; depth: number; flipH: boolean; clip: Rect | null;
 }
 
 interface InspectionBoard {
@@ -164,6 +169,12 @@ export class GameRenderer {
   private readonly sceneLayers: Graphics[] = [];
   private readonly wallShaders = new WeakMap<Graphics, Shader>();
   private sceneLayerCount = 0;
+  private activeSceneContainer: Container | null = null;
+  private readonly maskPasses: Array<{container: Container; mask: Graphics}> = [];
+  private maskPassCount = 0;
+  private pendingTickets: SceneTicket[] | null = null;
+  private currentTicket: SceneTicket | null = null;
+  private effectTickets: EffectTicket[] = [];
   private readonly controls = new Container();
   private readonly controlGraphics = new Graphics();
   private readonly controlLabels: Text[] = [];
@@ -287,6 +298,7 @@ export class GameRenderer {
       this.sceneLayers.push(graphics);
       this.scene.addChild(graphics);
     }
+    (this.activeSceneContainer ?? this.scene).addChild(graphics);
     graphics.visible = true;
     graphics.clear();
     graphics.setFillStyle({ color: 0xffffff, alpha: 1 });
@@ -314,6 +326,9 @@ export class GameRenderer {
     const height = this.app.screen.height;
     this.sceneLayerCount = 0;
     this.shadowTextureCount = 0;
+    this.maskPassCount = 0;
+    this.activeSceneContainer = this.scene;
+    for (const pass of this.maskPasses) pass.container.visible = false;
     for (const layer of this.sceneLayers) layer.visible = false;
     const graphics = this.nextSceneLayer();
     graphics.rect(0, 0, width, height).fill(COLORS.void);
@@ -367,6 +382,7 @@ export class GameRenderer {
       height: boardHeight,
     };
     let startFlipH = viewFlipH;
+    let startDepth = 0;
     if (!this.inspectionBlock) {
       for (let level = 0; level < 3; level++) {
         const parent = this.goOutOneLevel(startBlock, startRect, startFlipH);
@@ -374,20 +390,30 @@ export class GameRenderer {
         startBlock = parent.block;
         startRect = parent.rect;
         startFlipH = parent.flipH;
+        startDepth--;
       }
     }
-    const startLevel = startBlock.subLevel;
-    if (startLevel) {
-      this.drawLevel(
-        graphics,
-        startLevel,
-        startBlock,
-        startRect,
-        0,
-        new Set(),
-        startFlipH,
-      );
+    if (world.drawStyle !== DrawStyle.QuickAnim && (this.uiState?.mode ?? "playing") === "playing") {
+      const previews = (world as WorldModel & {infExitPreviews?: InfExitPreview[]}).infExitPreviews ?? [];
+      for (const preview of previews) {
+        let block = preview.exitBlocks[0];
+        if (!block) continue;
+        let rect = {...focusRect}, flipH = viewFlipH, depth = 0;
+        for (let i=0;i<3;i++) {
+          const parent = this.goOutOneLevel(block,rect,flipH);
+          if (!parent) break;
+          block = preview.exitBlocks[i+1] ?? parent.block;
+          rect=parent.rect;flipH=parent.flipH;depth--;
+        }
+        const clip = previewClip(preview,startRect,viewFlipH,width,height,this.app.renderer.resolution);
+        if (clip.width<=0 || clip.height<=0) continue;
+        this.drawScenePass(block,rect,depth,flipH,clip);
+        this.activeSceneContainer=this.maskedScene(clip);
+        this.nextSceneLayer().rect(clip.x,clip.y,clip.width,clip.height).fill({color:0x000000,alpha:0.4});
+      }
     }
+    this.drawScenePass(startBlock,startRect,startDepth,startFlipH,null);
+    this.activeSceneContainer=this.scene;
 
     this.drawControls(
       boardX,
@@ -745,6 +771,54 @@ export class GameRenderer {
     text.visible = true;
   }
 
+  private maskedScene(clip: Rect | null): Container {
+    if (!clip) return this.scene;
+    const index=this.maskPassCount++;
+    let pass=this.maskPasses[index];
+    if (!pass) {
+      const container=new Container(),mask=new Graphics();
+      container.addChild(mask);container.mask=mask;
+      pass={container,mask};this.maskPasses.push(pass);
+    }
+    pass.container.visible=true;
+    pass.mask.clear().rect(clip.x,clip.y,clip.width,clip.height).fill(0xffffff);
+    this.scene.addChild(pass.container);
+    return pass.container;
+  }
+
+  /** Native queues exhaust still/bump/moving geometry before all eye/glyph passes. */
+  private drawScenePass(block: Block, rect: Rect, depth: number, flipH: boolean, clip: Rect | null): void {
+    this.pendingTickets=[{block,rect,staticRect:rect,depth,flipH,parents:[],clip,priority:0}];
+    this.effectTickets=[];
+    while (this.pendingTickets.length) {
+      let index=0;
+      for (let i=1;i<this.pendingTickets.length;i++) if (this.pendingTickets[i]!.priority<this.pendingTickets[index]!.priority) index=i;
+      const ticket=this.pendingTickets.splice(index,1)[0]!;
+      if (!ticket.block.subLevel || ticket.depth>=15 || ticket.clip && (ticket.clip.width<=0 || ticket.clip.height<=0)) continue;
+      this.currentTicket=ticket;
+      this.activeSceneContainer=this.maskedScene(ticket.clip);
+      this.drawLevel(this.nextSceneLayer(),ticket.block.subLevel,ticket.block,ticket.rect,ticket.depth,new Set(),ticket.flipH,ticket.staticRect,ticket.parents);
+    }
+    this.currentTicket=null;
+    const effects=this.effectTickets;
+    for (const player of [false,true]) for (const ticket of effects) {
+      if ((!ticket.block.isPlayer && !ticket.block.possessable) || ticket.block.drawIsPlayer!==player) continue;
+      this.activeSceneContainer=this.maskedScene(ticket.clip);
+      this.drawFace(this.nextSceneLayer(),ticket.block,ticket.rect,false,ticket.flipH!==ticket.block.flipH);
+    }
+    for (const ticket of effects) {
+      if (!ticket.block.isSomeInfEnterBlock && !ticket.block.isSomeInfExitBlock) continue;
+      this.activeSceneContainer=this.maskedScene(ticket.clip);
+      this.drawInfEffect(this.nextSceneLayer(),ticket.block,ticket.rect);
+    }
+    for (const ticket of effects) {
+      if (!ticket.block.flipH && !ticket.block.fadeFlipH) continue;
+      this.activeSceneContainer=this.maskedScene(ticket.clip);
+      this.drawFlipMark(this.nextSceneLayer(),ticket.rect);
+    }
+    this.pendingTickets=null;this.effectTickets=[];this.activeSceneContainer=this.scene;
+  }
+
   private drawLevel(
     graphics: Graphics,
     level: Level,
@@ -754,6 +828,7 @@ export class GameRenderer {
     ancestors: Set<Level>,
     flipH: boolean,
     staticRect: Rect = rect,
+    parents: Block[] = [],
   ): Graphics {
     if (depth >= 15) return graphics;
     if (!this.onScreen(rect)) return graphics;
@@ -873,6 +948,14 @@ export class GameRenderer {
     for (const block of ordered) {
       const blockRect = this.animatedCellRect(level, block, rect, flipH);
       if (!this.onScreen(blockRect)) continue;
+      if (this.pendingTickets) {
+        const simple=shouldSimpleSlide({block:viewBlock,parents,depth},block,this.world?.drawStyle ?? DrawStyle.Normal);
+        const clip=simple?stackClip(this.currentTicket?.clip ?? null,rect):this.currentTicket?.clip ?? null;
+        this.pendingTickets.push({block,rect:blockRect,staticRect:this.cellRect(level,block.x,block.y,rect,flipH),
+          depth:depth+1,flipH:flipH!==block.flipH,parents:[viewBlock,...parents],clip,
+          priority:!block.moving?0:block.anim===AnimType.Bump?1:block.drawXScaleStart<1?5:4});
+        continue;
+      }
       graphics = this.drawBlock(
         graphics,
         block,
@@ -907,6 +990,10 @@ export class GameRenderer {
       if (!this.onScreen(phantomRect)) continue;
       if (phantom.face || !phantom.block.subLevel) {
         this.drawFace(graphics, phantom.block, phantomRect, true, flipH);
+      } else if (this.pendingTickets) {
+        this.pendingTickets.push({block:phantom.block,rect:phantomRect,staticRect:cell,depth:depth+1,
+          flipH:flipH!==(phantom.block.flipH!==phantom.block.fadeFlipH),parents:[viewBlock,...parents],
+          clip:this.currentTicket?.clip ?? null,priority:2});
       } else {
         graphics = this.drawBlock(
           graphics,
@@ -939,7 +1026,8 @@ export class GameRenderer {
       }
       graphics.stroke({ color: 0xffffff, alpha: 0.16, width: 1 });
     }
-    this.drawInfEffect(graphics, viewBlock, rect);
+    if (this.pendingTickets) this.effectTickets.push({block:viewBlock,rect,depth,flipH,clip:this.currentTicket?.clip ?? null});
+    else this.drawInfEffect(graphics, viewBlock, rect);
     return graphics;
   }
 
@@ -1017,6 +1105,10 @@ export class GameRenderer {
     flipH: boolean,
   ): Rect {
     const cell = this.cellRect(level, block.x, block.y, rect, flipH);
+    if (this.currentTicket && shouldSimpleSlide(this.currentTicket,block,this.world?.drawStyle ?? DrawStyle.Normal)) {
+      const player=this.world!.findPlayerBlock();
+      return simpleSlideRect(block,cell,flipH,player.animLength?player.animT/player.animLength:1);
+    }
     const width = cell.width * block.drawXScale;
     const height = cell.height * block.drawYScale;
     const offsetX = (flipH ? -1 : 1) * block.drawXOffset * cell.width;
