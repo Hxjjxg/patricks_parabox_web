@@ -4,6 +4,7 @@ import type { Block, Level } from "../src/core/model";
 import { parseLevel } from "../src/core/levelParser";
 import { getLevelSource } from "../src/core/levelRepository";
 import { GameRenderer } from "../src/render/GameRenderer";
+import { nativeFocusRect } from "../src/render/focusGeometry";
 
 interface Rect { x: number; y: number; width: number; height: number }
 interface DrawingMethods {
@@ -73,4 +74,19 @@ describe("original block backing gradient", () => {
     // The independently observed third-puzzle peripheral floor is ~83, not89.
     expect(Math.round(95 * (1 - command!.alpha! * 0.8))).toBe(83);
   });
+});
+
+
+it("snaps both solid backing and gradient to native draw endpoints without an exterior gray fringe", () => {
+  const world = parseLevel(getLevelSource("first_puzzle"), "first_puzzle");
+  const root = world.rootBlock!, level = root.subLevel!;
+  level.blockList.length = 0; level.floorList.length = 0; level.particles.length = 0;
+  const rects: number[][] = [];
+  const graphics = { rect: (...rect: number[]) => { rects.push(rect); return graphics; }, fill: () => graphics, stroke: () => graphics };
+  const receiver = Object.assign(Object.create(GameRenderer.prototype), {
+    app: { screen: { width: 800, height: 600 }, renderer: { resolution: 1 } }, world, textures: { centerGradient: {} },
+    onScreen: () => true, nextWallLayer: () => graphics, nextSceneLayer: () => graphics,
+  });
+  receiver.drawLevel(graphics, level, root, nativeFocusRect(800,600,1,1,0,0), 0, new Set(), false);
+  expect(rects.slice(0,2)).toEqual([[154,54,491,491],[154,54,491,491]]);
 });

@@ -761,9 +761,10 @@ export class GameRenderer {
     const fractionOfScreen =
       ((rect.width + rect.height) / 2) / Math.max(1, this.app.screen.height);
     const interiorColor = computeBlockColor(viewBlock, fractionOfScreen);
-    // Native DrawBlock makes only the backing transparent in infinity zones.
-    if (!level.infZone) graphics.rect(rect.x, rect.y, rect.width, rect.height).fill(interiorColor);
-    graphics.rect(rect.x, rect.y, rect.width, rect.height).fill({
+    // Native snaps each backing/gradient draw quad, while retaining the unrounded ticket for children.
+    const backingRect = originalDrawRect(rect, this.app.renderer?.resolution ?? 1);
+    if (!level.infZone) graphics.rect(backingRect.x, backingRect.y, backingRect.width, backingRect.height).fill(interiorColor);
+    graphics.rect(backingRect.x, backingRect.y, backingRect.width, backingRect.height).fill({
       texture: this.textures.centerGradient,
       textureSpace: "local",
       color: 0xffffff,
