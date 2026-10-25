@@ -1,0 +1,3845 @@
+{
+  "options": {
+    "level": "shed_first",
+    "setup": "RRRRU",
+    "events": [
+      {
+        "at": 0,
+        "key": "ArrowUp",
+        "duration": 40
+      }
+    ],
+    "settleMs": 800,
+    "captureMotion": true,
+    "captureStateChanges": true,
+    "captureEveryMs": 50,
+    "expectedViewport": {
+      "width": 800,
+      "height": 600,
+      "dpr": 1
+    },
+    "revision": "f47468c + native exit-scale precision"
+  },
+  "recordedAt": "2026-10-25T00:44:22.499Z",
+  "viewport": {
+    "width": 800,
+    "height": 600,
+    "dpr": 1.0000000298023224,
+    "canvasWidth": 800,
+    "canvasHeight": 600
+  },
+  "starting": {
+    "timestamp": 7898.20000000298,
+    "action": "start",
+    "levelName": "shed_first",
+    "moveCount": 5,
+    "moving": false,
+    "wentToInfZone": false,
+    "cameraFlipH": false,
+    "inspection": {
+      "inspectedBlockId": null,
+      "viewBlockId": 44,
+      "viewLevelId": 3,
+      "flipH": false
+    },
+    "camera": {
+      "t": 0.1,
+      "length": 0.1,
+      "phase": 1,
+      "moving": false,
+      "x": 2,
+      "y": -2,
+      "xs": 0.14285714285714285,
+      "ys": 0.14285714285714285
+    },
+    "player": {
+      "id": 42,
+      "x": 0,
+      "y": 2,
+      "outer": 3,
+      "outerId": 3,
+      "t": 0.23369999999999982,
+      "length": 0.22,
+      "anim": "bumpHalt",
+      "ox": 0,
+      "oy": 0,
+      "sx": 1,
+      "sy": 1
+    },
+    "animated": [
+      {
+        "id": 42,
+        "x": 0,
+        "y": 2,
+        "outer": 3,
+        "t": 0.23369999999999982,
+        "length": 0.22,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      }
+    ]
+  },
+  "ending": {
+    "timestamp": 8781.300000000745,
+    "action": "00-Up",
+    "levelName": "shed_first",
+    "moveCount": 6,
+    "moving": false,
+    "wentToInfZone": false,
+    "cameraFlipH": false,
+    "inspection": {
+      "inspectedBlockId": null,
+      "viewBlockId": 0,
+      "viewLevelId": 0,
+      "flipH": false
+    },
+    "camera": {
+      "t": 0.5,
+      "length": 0.5,
+      "phase": 1,
+      "moving": false,
+      "x": -0.2857142857142857,
+      "y": 0.2857142857142857,
+      "xs": 3.5,
+      "ys": 3.5
+    },
+    "player": {
+      "id": 42,
+      "x": 5,
+      "y": 5,
+      "outer": 0,
+      "outerId": 0,
+      "t": 0.23329999999999929,
+      "length": 0.22,
+      "anim": "bumpHalt",
+      "ox": 0,
+      "oy": 0,
+      "sx": 1,
+      "sy": 1
+    },
+    "animated": [
+      {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "t": 0.23329999999999929,
+        "length": 0.22,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      {
+        "id": 44,
+        "x": 5,
+        "y": 4,
+        "outer": 0,
+        "t": 0.5007999999977656,
+        "length": 0.5,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      }
+    ]
+  },
+  "events": [
+    {
+      "type": "keydown",
+      "key": "ArrowUp",
+      "timestamp": 7912,
+      "state": {
+        "timestamp": 7912.400000002235,
+        "action": "00-Up",
+        "levelName": "shed_first",
+        "moveCount": 5,
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 44,
+          "viewLevelId": 3,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 2,
+          "y": -2,
+          "xs": 0.14285714285714285,
+          "ys": 0.14285714285714285
+        },
+        "player": {
+          "id": 42,
+          "x": 0,
+          "y": 2,
+          "outer": 3,
+          "outerId": 3,
+          "t": 0.23369999999999982,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 42,
+            "x": 0,
+            "y": 2,
+            "outer": 3,
+            "t": 0.23369999999999982,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      }
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowUp",
+      "timestamp": 7959.70000000298,
+      "state": {
+        "timestamp": 7959.800000000745,
+        "action": "00-Up",
+        "levelName": "shed_first",
+        "moveCount": 6,
+        "moving": true,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.034299999997764646,
+          "length": 0.5,
+          "phase": 0.06859999999552929,
+          "moving": true,
+          "x": -0.2857142857142857,
+          "y": 0.2857142857142857,
+          "xs": 3.5,
+          "ys": 3.5
+        },
+        "player": {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.034299999997764646,
+          "length": 0.5,
+          "anim": "enterExit",
+          "ox": -0.3104666759207846,
+          "oy": -0.31046666204184303,
+          "sx": 0.3790666759163139,
+          "sy": 0.3790666759163139
+        },
+        "animated": [
+          {
+            "id": 42,
+            "x": 5,
+            "y": 5,
+            "outer": 0,
+            "t": 0.034299999997764646,
+            "length": 0.5,
+            "ox": -0.3104666759207846,
+            "oy": -0.31046666204184303,
+            "sx": 0.3790666759163139,
+            "sy": 0.3790666759163139
+          },
+          {
+            "id": 44,
+            "x": 5,
+            "y": 4,
+            "outer": 0,
+            "t": 0.034299999997764646,
+            "length": 0.5,
+            "ox": 0,
+            "oy": -0.9314000000044707,
+            "sx": 0.9488847680030859,
+            "sy": 1.0255576159984572
+          }
+        ]
+      }
+    }
+  ],
+  "frames": [
+    {
+      "timestamp": 7913.5,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.0010999999977648258,
+        "length": 0.5,
+        "phase": 0.0021999999955296516,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.0010999999977648258,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.33260000991374256,
+        "oy": -0.3325999950453639,
+        "sx": 0.33480000990927217,
+        "sy": 0.33480000990927217
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.0010999999977648258,
+          "length": 0.5,
+          "ox": -0.33260000991374256,
+          "oy": -0.3325999950453639,
+          "sx": 0.33480000990927217,
+          "sy": 0.33480000990927217
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.0010999999977648258,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.9978000000044703,
+          "sx": 0.9982438720035606,
+          "sy": 1.0008780639982198
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 7930.1,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.01769999999776519,
+        "length": 0.5,
+        "phase": 0.03539999999553038,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.01769999999776519,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.32153334291726327,
+        "oy": -0.32153332854360317,
+        "sx": 0.35693334291279366,
+        "sy": 0.35693334291279366
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.01769999999776519,
+          "length": 0.5,
+          "ox": -0.32153334291726327,
+          "oy": -0.32153332854360317,
+          "sx": 0.35693334291279366,
+          "sy": 0.35693334291279366
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.01769999999776519,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.9646000000044697,
+          "sx": 0.9726825280033226,
+          "sy": 1.0136587359983387
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 7946.7,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.034299999997764646,
+        "length": 0.5,
+        "phase": 0.06859999999552929,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.034299999997764646,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.3104666759207846,
+        "oy": -0.31046666204184303,
+        "sx": 0.3790666759163139,
+        "sy": 0.3790666759163139
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.034299999997764646,
+          "length": 0.5,
+          "ox": -0.3104666759207846,
+          "oy": -0.31046666204184303,
+          "sx": 0.3790666759163139,
+          "sy": 0.3790666759163139
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.034299999997764646,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.9314000000044707,
+          "sx": 0.9488847680030859,
+          "sy": 1.0255576159984572
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 7963.3,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.05089999999776501,
+        "length": 0.5,
+        "phase": 0.10179999999553002,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.05089999999776501,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.2994000089243053,
+        "oy": -0.29939999554008234,
+        "sx": 0.4012000089198353,
+        "sy": 0.4012000089198353
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.05089999999776501,
+          "length": 0.5,
+          "ox": -0.2994000089243053,
+          "oy": -0.29939999554008234,
+          "sx": 0.4012000089198353,
+          "sy": 0.4012000089198353
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.05089999999776501,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.89820000000447,
+          "sx": 0.9268505920028479,
+          "sy": 1.036574703998576
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 7980.1,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.06769999999776519,
+        "length": 0.5,
+        "phase": 0.13539999999553037,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.06769999999776519,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.2882000085905192,
+        "oy": -0.28819999570697524,
+        "sx": 0.42360000858604957,
+        "sy": 0.42360000858604957
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.06769999999776519,
+          "length": 0.5,
+          "ox": -0.2882000085905192,
+          "oy": -0.28819999570697524,
+          "sx": 0.42360000858604957,
+          "sy": 0.42360000858604957
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.06769999999776519,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.8646000000044696,
+          "sx": 0.9063465280026074,
+          "sy": 1.0468267359986962
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 7996.6,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.08419999999776519,
+        "length": 0.5,
+        "phase": 0.16839999999553038,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.08419999999776519,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.27720000826269364,
+        "oy": -0.277199995870888,
+        "sx": 0.445600008258224,
+        "sy": 0.445600008258224
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.08419999999776519,
+          "length": 0.5,
+          "ox": -0.27720000826269364,
+          "oy": -0.277199995870888,
+          "sx": 0.445600008258224,
+          "sy": 0.445600008258224
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.08419999999776519,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.8316000000044697,
+          "sx": 0.8879668480023715,
+          "sy": 1.0560165759988143
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8013.4,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.10099999999776446,
+        "length": 0.5,
+        "phase": 0.20199999999552892,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.10099999999776446,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.2660000079289081,
+        "oy": -0.26599999603778146,
+        "sx": 0.4680000079244371,
+        "sy": 0.4680000079244371
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.10099999999776446,
+          "length": 0.5,
+          "ox": -0.2660000079289081,
+          "oy": -0.26599999603778146,
+          "sx": 0.4680000079244371,
+          "sy": 0.4680000079244371
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.10099999999776446,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.7980000000044711,
+          "sx": 0.8710432000021319,
+          "sy": 1.0644783999989342
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8030,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.11759999999776483,
+        "length": 0.5,
+        "phase": 0.23519999999552965,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.11759999999776483,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.2549333409324288,
+        "oy": -0.25493332953602077,
+        "sx": 0.49013334092795846,
+        "sy": 0.49013334092795846
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.11759999999776483,
+          "length": 0.5,
+          "ox": -0.2549333409324288,
+          "oy": -0.25493332953602077,
+          "sx": 0.49013334092795846,
+          "sy": 0.49013334092795846
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.11759999999776483,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.7648000000044703,
+          "sx": 0.856095232001894,
+          "sy": 1.071952383999053
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8046.6,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1341999999977652,
+        "length": 0.5,
+        "phase": 0.2683999999955304,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.1341999999977652,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.24386667393594957,
+        "oy": -0.24386666303426002,
+        "sx": 0.51226667393148,
+        "sy": 0.51226667393148
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.1341999999977652,
+          "length": 0.5,
+          "ox": -0.24386667393594957,
+          "oy": -0.24386666303426002,
+          "sx": 0.51226667393148,
+          "sy": 0.51226667393148
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.1341999999977652,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.7316000000044696,
+          "sx": 0.8429108480016563,
+          "sy": 1.0785445759991719
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8063.4,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.15099999999776448,
+        "length": 0.5,
+        "phase": 0.30199999999552896,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.15099999999776448,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.23266667360216403,
+        "oy": -0.2326666632011535,
+        "sx": 0.534666673597693,
+        "sy": 0.534666673597693
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.15099999999776448,
+          "length": 0.5,
+          "ox": -0.23266667360216403,
+          "oy": -0.2326666632011535,
+          "sx": 0.534666673597693,
+          "sy": 0.534666673597693
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.15099999999776448,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.698000000004471,
+          "sx": 0.8313632000014165,
+          "sy": 1.0843183999992918
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8080.6,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1681999999977652,
+        "length": 0.5,
+        "phase": 0.3363999999955304,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.1681999999977652,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.2212000065937636,
+        "oy": -0.221199996705353,
+        "sx": 0.557600006589294,
+        "sy": 0.557600006589294
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.1681999999977652,
+          "length": 0.5,
+          "ox": -0.2212000065937636,
+          "oy": -0.221199996705353,
+          "sx": 0.557600006589294,
+          "sy": 0.557600006589294
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.1681999999977652,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.6636000000044696,
+          "sx": 0.82141196800117,
+          "sy": 1.089294015999415
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8096.7,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.18429999999776464,
+        "length": 0.5,
+        "phase": 0.3685999999955293,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.18429999999776464,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.21046667294055235,
+        "oy": -0.2104666635319592,
+        "sx": 0.5790666729360816,
+        "sy": 0.5790666729360816
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.18429999999776464,
+          "length": 0.5,
+          "ox": -0.21046667294055235,
+          "oy": -0.2104666635319592,
+          "sx": 0.5790666729360816,
+          "sy": 0.5790666729360816
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.18429999999776464,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.6314000000044707,
+          "sx": 0.8138127680009399,
+          "sy": 1.0930936159995301
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8113.8,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.201399999997765,
+        "length": 0.5,
+        "phase": 0.40279999999553,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.201399999997765,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.19906667260080563,
+        "oy": -0.19906666370183218,
+        "sx": 0.6018666725963356,
+        "sy": 0.6018666725963356
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.201399999997765,
+          "length": 0.5,
+          "ox": -0.19906667260080563,
+          "oy": -0.19906666370183218,
+          "sx": 0.6018666725963356,
+          "sy": 0.6018666725963356
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.201399999997765,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.5972000000044699,
+          "sx": 0.8075582720006953,
+          "sy": 1.0962208639996525
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8130,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.21759999999776483,
+        "length": 0.5,
+        "phase": 0.43519999999552966,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.21759999999776483,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.18826667227894067,
+        "oy": -0.18826666386276483,
+        "sx": 0.6234666722744704,
+        "sy": 0.6234666722744704
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.21759999999776483,
+          "length": 0.5,
+          "ox": -0.18826667227894067,
+          "oy": -0.18826666386276483,
+          "sx": 0.6234666722744704,
+          "sy": 0.6234666722744704
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.21759999999776483,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.5648000000044704,
+          "sx": 0.8033592320004634,
+          "sy": 1.0983203839997684
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8147.3,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.234899999997765,
+        "length": 0.5,
+        "phase": 0.46979999999553,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.234899999997765,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.1767333386018871,
+        "oy": -0.17673333070129144,
+        "sx": 0.6465333385974171,
+        "sy": 0.6465333385974171
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.234899999997765,
+          "length": 0.5,
+          "ox": -0.1767333386018871,
+          "oy": -0.17673333070129144,
+          "sx": 0.6465333385974171,
+          "sy": 0.6465333385974171
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.234899999997765,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.53020000000447,
+          "sx": 0.800729632000216,
+          "sy": 1.0996351839998921
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8163.4,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.25099999999776446,
+        "length": 0.5,
+        "phase": 0.5019999999955289,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.25099999999776446,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.16600000494867587,
+        "oy": -0.1659999975278976,
+        "sx": 0.6680000049442048,
+        "sy": 0.6680000049442048
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.25099999999776446,
+          "length": 0.5,
+          "ox": -0.16600000494867587,
+          "oy": -0.1659999975278976,
+          "sx": 0.6680000049442048,
+          "sy": 0.6680000049442048
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.25099999999776446,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.4980000000044711,
+          "sx": 0.8000031999999857,
+          "sy": 1.0999984000000071
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8180.1,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.26769999999776517,
+        "length": 0.5,
+        "phase": 0.5353999999955303,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.26769999999776517,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.15486667128354287,
+        "oy": -0.1548666643604634,
+        "sx": 0.6902666712790733,
+        "sy": 0.6902666712790733
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.26769999999776517,
+          "length": 0.5,
+          "ox": -0.15486667128354287,
+          "oy": -0.1548666643604634,
+          "sx": 0.6902666712790733,
+          "sy": 0.6902666712790733
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.26769999999776517,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.46460000000446966,
+          "sx": 0.8010025279997469,
+          "sy": 1.0994987360001267
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8196.6,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.2841999999977652,
+        "length": 0.5,
+        "phase": 0.5683999999955304,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2841999999977652,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.1438666709557173,
+        "oy": -0.14386666452437616,
+        "sx": 0.7122666709512477,
+        "sy": 0.7122666709512477
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.2841999999977652,
+          "length": 0.5,
+          "ox": -0.1438666709557173,
+          "oy": -0.14386666452437616,
+          "sx": 0.7122666709512477,
+          "sy": 0.7122666709512477
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.2841999999977652,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.43160000000446963,
+          "sx": 0.8037428479995109,
+          "sy": 1.0981285760002446
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8213.4,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.30099999999776444,
+        "length": 0.5,
+        "phase": 0.6019999999955289,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.30099999999776444,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.1326666706219318,
+        "oy": -0.13266666469126964,
+        "sx": 0.7346666706174607,
+        "sy": 0.7346666706174607
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.30099999999776444,
+          "length": 0.5,
+          "ox": -0.1326666706219318,
+          "oy": -0.13266666469126964,
+          "sx": 0.7346666706174607,
+          "sy": 0.7346666706174607
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.30099999999776444,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.3980000000044711,
+          "sx": 0.8083231999992704,
+          "sy": 1.095838400000365
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8230,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.3175999999977648,
+        "length": 0.5,
+        "phase": 0.6351999999955296,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.3175999999977648,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.12160000362545254,
+        "oy": -0.12159999818950895,
+        "sx": 0.7568000036209821,
+        "sy": 0.7568000036209821
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.3175999999977648,
+          "length": 0.5,
+          "ox": -0.12160000362545254,
+          "oy": -0.12159999818950895,
+          "sx": 0.7568000036209821,
+          "sy": 0.7568000036209821
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.3175999999977648,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.36480000000447044,
+          "sx": 0.814623231999033,
+          "sy": 1.0926883840004835
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8246.7,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.3342999999977655,
+        "length": 0.5,
+        "phase": 0.668599999995531,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.3342999999977655,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.11046666996031954,
+        "oy": -0.11046666502207472,
+        "sx": 0.7790666699558506,
+        "sy": 0.7790666699558506
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.3342999999977655,
+          "length": 0.5,
+          "ox": -0.11046666996031954,
+          "oy": -0.11046666502207472,
+          "sx": 0.7790666699558506,
+          "sy": 0.7790666699558506
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.3342999999977655,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.331400000004469,
+          "sx": 0.8227407679987945,
+          "sy": 1.0886296160006028
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8263.4,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.35099999999776443,
+        "length": 0.5,
+        "phase": 0.7019999999955289,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.35099999999776443,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.09933333629518773,
+        "oy": -0.09933333185464169,
+        "sx": 0.8013333362907167,
+        "sy": 0.8013333362907167
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.35099999999776443,
+          "length": 0.5,
+          "ox": -0.09933333629518773,
+          "oy": -0.09933333185464169,
+          "sx": 0.8013333362907167,
+          "sy": 0.8013333362907167
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.35099999999776443,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.29800000000447113,
+          "sx": 0.832643199998555,
+          "sy": 1.0836784000007227
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8280,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.3675999999977648,
+        "length": 0.5,
+        "phase": 0.7351999999955297,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.3675999999977648,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.08826666929870844,
+        "oy": -0.08826666535288097,
+        "sx": 0.8234666692942381,
+        "sy": 0.8234666692942381
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.3675999999977648,
+          "length": 0.5,
+          "ox": -0.08826666929870844,
+          "oy": -0.08826666535288097,
+          "sx": 0.8234666692942381,
+          "sy": 0.8234666692942381
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.3675999999977648,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.26480000000447035,
+          "sx": 0.8442552319983178,
+          "sy": 1.0778723840008413
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8296.7,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.38429999999776554,
+        "length": 0.5,
+        "phase": 0.7685999999955311,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.38429999999776554,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.07713333563357544,
+        "oy": -0.07713333218544671,
+        "sx": 0.8457333356291066,
+        "sy": 0.8457333356291066
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.38429999999776554,
+          "length": 0.5,
+          "ox": -0.07713333563357544,
+          "oy": -0.07713333218544671,
+          "sx": 0.8457333356291066,
+          "sy": 0.8457333356291066
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.38429999999776554,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.23140000000446892,
+          "sx": 0.8577167679980795,
+          "sy": 1.0711416160009604
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8313.3,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.4008999999977641,
+        "length": 0.5,
+        "phase": 0.8017999999955282,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.4008999999977641,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.06606666863709737,
+        "oy": -0.06606666568368724,
+        "sx": 0.8678666686326255,
+        "sy": 0.8678666686326255
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.4008999999977641,
+          "length": 0.5,
+          "ox": -0.06606666863709737,
+          "oy": -0.06606666568368724,
+          "sx": 0.8678666686326255,
+          "sy": 0.8678666686326255
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.4008999999977641,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.1982000000044718,
+          "sx": 0.8728665919978407,
+          "sy": 1.0635667040010797
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8330,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.4175999999977648,
+        "length": 0.5,
+        "phase": 0.8351999999955296,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.4175999999977648,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.05493333497196434,
+        "oy": -0.054933332516252986,
+        "sx": 0.890133334967494,
+        "sy": 0.890133334967494
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.4175999999977648,
+          "length": 0.5,
+          "ox": -0.05493333497196434,
+          "oy": -0.054933332516252986,
+          "sx": 0.890133334967494,
+          "sy": 0.890133334967494
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.4175999999977648,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.16480000000447037,
+          "sx": 0.8898872319976024,
+          "sy": 1.0550563840011988
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8347.1,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.4346999999977652,
+        "length": 0.5,
+        "phase": 0.8693999999955304,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.4346999999977652,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.043533334632217646,
+        "oy": -0.04353333268612597,
+        "sx": 0.9129333346277481,
+        "sy": 0.9129333346277481
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.4346999999977652,
+          "length": 0.5,
+          "ox": -0.043533334632217646,
+          "oy": -0.04353333268612597,
+          "sx": 0.9129333346277481,
+          "sy": 0.9129333346277481
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.4346999999977652,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.13060000000446959,
+          "sx": 0.9091650879973583,
+          "sy": 1.045417456001321
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8363.4,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.45099999999776447,
+        "length": 0.5,
+        "phase": 0.9019999999955289,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.45099999999776447,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.032666667641699565,
+        "oy": -0.03266666618138575,
+        "sx": 0.9346666676372285,
+        "sy": 0.9346666676372285
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.45099999999776447,
+          "length": 0.5,
+          "ox": -0.032666667641699565,
+          "oy": -0.03266666618138575,
+          "sx": 0.9346666676372285,
+          "sy": 0.9346666676372285
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.45099999999776447,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.09800000000447107,
+          "sx": 0.9292831999971243,
+          "sy": 1.035358400001438
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8379.9,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.4674999999977645,
+        "length": 0.5,
+        "phase": 0.934999999995529,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.4674999999977645,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.02166666731387401,
+        "oy": -0.021666666345298513,
+        "sx": 0.956666667309403,
+        "sy": 0.956666667309403
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.4674999999977645,
+          "length": 0.5,
+          "ox": -0.02166666731387401,
+          "oy": -0.021666666345298513,
+          "sx": 0.956666667309403,
+          "sy": 0.956666667309403
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.4674999999977645,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.06500000000447104,
+          "sx": 0.9513799999968882,
+          "sy": 1.024310000001556
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8396.6,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.4841999999977652,
+        "length": 0.5,
+        "phase": 0.9683999999955304,
+        "moving": true,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.4841999999977652,
+        "length": 0.5,
+        "anim": "enterExit",
+        "ox": -0.010533333648740983,
+        "oy": -0.010533333177864312,
+        "sx": 0.9789333336442714,
+        "sy": 0.9789333336442714
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.4841999999977652,
+          "length": 0.5,
+          "ox": -0.010533333648740983,
+          "oy": -0.010533333177864312,
+          "sx": 0.9789333336442714,
+          "sy": 0.9789333336442714
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.4841999999977652,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.03160000000446961,
+          "sx": 0.9755188479966503,
+          "sy": 1.0122405760016748
+        }
+      ],
+      "motionId": "motion-0001-enterExit"
+    },
+    {
+      "timestamp": 8413.2,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8429.9,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.01669999999999891,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.0015536959804656242,
+        "oy": 0,
+        "sx": 0.9968926080390688,
+        "sy": 1.0015536959804656
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.01669999999999891,
+          "length": 0.22,
+          "ox": 0.0015536959804656242,
+          "oy": 0,
+          "sx": 0.9968926080390688,
+          "sy": 1.0015536959804656
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8446.6,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.03339999999999964,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.005514939744552865,
+        "oy": 0,
+        "sx": 0.9889701205108943,
+        "sy": 1.0055149397445529
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.03339999999999964,
+          "length": 0.22,
+          "ox": 0.005514939744552865,
+          "oy": 0,
+          "sx": 0.9889701205108943,
+          "sy": 1.0055149397445529
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8463.2,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.05,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.010800150262960183,
+        "oy": 0,
+        "sx": 0.9783996994740796,
+        "sy": 1.0108001502629602
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.05,
+          "length": 0.22,
+          "ox": 0.010800150262960183,
+          "oy": 0,
+          "sx": 0.9783996994740796,
+          "sy": 1.0108001502629602
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8479.9,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.06669999999999891,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.01642847058602519,
+        "oy": 0,
+        "sx": 0.9671430588279496,
+        "sy": 1.0164284705860251
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.06669999999999891,
+          "length": 0.22,
+          "ox": 0.01642847058602519,
+          "oy": 0,
+          "sx": 0.9671430588279496,
+          "sy": 1.0164284705860251
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8496.5,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.08329999999999928,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.02129629274981199,
+        "oy": 0,
+        "sx": 0.957407414500376,
+        "sy": 1.021296292749812
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.08329999999999928,
+          "length": 0.22,
+          "ox": 0.02129629274981199,
+          "oy": 0,
+          "sx": 0.957407414500376,
+          "sy": 1.021296292749812
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8513.2,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.1,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.02441773102930128,
+        "oy": 0,
+        "sx": 0.9511645379413974,
+        "sy": 1.0244177310293012
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.1,
+          "length": 0.22,
+          "ox": 0.02441773102930128,
+          "oy": 0,
+          "sx": 0.9511645379413974,
+          "sy": 1.0244177310293012
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8529.9,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.11669999999999892,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.024733054583020372,
+        "oy": 0,
+        "sx": 0.9505338908339592,
+        "sy": 1.0247330545830202
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.11669999999999892,
+          "length": 0.22,
+          "ox": 0.024733054583020372,
+          "oy": 0,
+          "sx": 0.9505338908339592,
+          "sy": 1.0247330545830202
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8546.6,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.13339999999999963,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.02208735927873788,
+        "oy": 0,
+        "sx": 0.9558252814425242,
+        "sy": 1.0220873592787378
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.13339999999999963,
+          "length": 0.22,
+          "ox": 0.02208735927873788,
+          "oy": 0,
+          "sx": 0.9558252814425242,
+          "sy": 1.0220873592787378
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8563.8,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.15059999999999854,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.01729692021036861,
+        "oy": 0,
+        "sx": 0.9654061595792628,
+        "sy": 1.0172969202103685
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.15059999999999854,
+          "length": 0.22,
+          "ox": 0.01729692021036861,
+          "oy": 0,
+          "sx": 0.9654061595792628,
+          "sy": 1.0172969202103685
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8579.9,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.1666999999999989,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.011920639105935764,
+        "oy": 0,
+        "sx": 0.9761587217881285,
+        "sy": 1.0119206391059357
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.1666999999999989,
+          "length": 0.22,
+          "ox": 0.011920639105935764,
+          "oy": 0,
+          "sx": 0.9761587217881285,
+          "sy": 1.0119206391059357
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8596.5,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.18329999999999927,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.0064915847858755095,
+        "oy": 0,
+        "sx": 0.987016830428249,
+        "sy": 1.0064915847858755
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.18329999999999927,
+          "length": 0.22,
+          "ox": 0.0064915847858755095,
+          "oy": 0,
+          "sx": 0.987016830428249,
+          "sy": 1.0064915847858755
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8613.2,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.0021788129226145733,
+        "oy": 0,
+        "sx": 0.9956423741547709,
+        "sy": 1.0021788129226146
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.2,
+          "length": 0.22,
+          "ox": 0.0021788129226145733,
+          "oy": 0,
+          "sx": 0.9956423741547709,
+          "sy": 1.0021788129226146
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8629.8,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.21659999999999857,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.0000701764087153084,
+        "oy": 0,
+        "sx": 0.9998596471825694,
+        "sy": 1.0000701764087152
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.21659999999999857,
+          "length": 0.22,
+          "ox": 0.0000701764087153084,
+          "oy": 0,
+          "sx": 0.9998596471825694,
+          "sy": 1.0000701764087152
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8646.5,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.23329999999999929,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.23329999999999929,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8663.1,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.23329999999999929,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.23329999999999929,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8679.8,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.23329999999999929,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.23329999999999929,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8696.5,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.23329999999999929,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.23329999999999929,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8713.2,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.23329999999999929,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.23329999999999929,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8730.2,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.23329999999999929,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.23329999999999929,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8746.4,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.23329999999999929,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.23329999999999929,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    },
+    {
+      "timestamp": 8763.2,
+      "action": "00-Up",
+      "levelName": "shed_first",
+      "moveCount": 6,
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.5,
+        "length": 0.5,
+        "phase": 1,
+        "moving": false,
+        "x": -0.2857142857142857,
+        "y": 0.2857142857142857,
+        "xs": 3.5,
+        "ys": 3.5
+      },
+      "player": {
+        "id": 42,
+        "x": 5,
+        "y": 5,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.23329999999999929,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 42,
+          "x": 5,
+          "y": 5,
+          "outer": 0,
+          "t": 0.23329999999999929,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        {
+          "id": 44,
+          "x": 5,
+          "y": 4,
+          "outer": 0,
+          "t": 0.5007999999977656,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0002-bumpHalt"
+    }
+  ],
+  "images": [
+    {
+      "name": "start",
+      "timestamp": 7898.70000000298
+    },
+    {
+      "name": "sample-0000",
+      "timestamp": 7913.5,
+      "frameIndex": 0
+    },
+    {
+      "name": "state-0000",
+      "timestamp": 7913.5,
+      "frameIndex": 0
+    },
+    {
+      "name": "sample-0004",
+      "timestamp": 7980.1,
+      "frameIndex": 4
+    },
+    {
+      "name": "sample-0008",
+      "timestamp": 8046.6,
+      "frameIndex": 8
+    },
+    {
+      "name": "motion-0001-enterExit-0.25",
+      "action": "00-Up",
+      "timestamp": 8046.6,
+      "phase": 0.2683999999955304,
+      "frameIndex": 8
+    },
+    {
+      "name": "sample-0011",
+      "timestamp": 8096.7,
+      "frameIndex": 11
+    },
+    {
+      "name": "sample-0014",
+      "timestamp": 8147.3,
+      "frameIndex": 14
+    },
+    {
+      "name": "motion-0001-enterExit-0.5",
+      "action": "00-Up",
+      "timestamp": 8163.4,
+      "phase": 0.5019999999955289,
+      "frameIndex": 15
+    },
+    {
+      "name": "sample-0018",
+      "timestamp": 8213.4,
+      "frameIndex": 18
+    },
+    {
+      "name": "sample-0021",
+      "timestamp": 8263.4,
+      "frameIndex": 21
+    },
+    {
+      "name": "motion-0001-enterExit-0.75",
+      "action": "00-Up",
+      "timestamp": 8296.7,
+      "phase": 0.7685999999955311,
+      "frameIndex": 23
+    },
+    {
+      "name": "sample-0025",
+      "timestamp": 8330,
+      "frameIndex": 25
+    },
+    {
+      "name": "sample-0029",
+      "timestamp": 8396.6,
+      "frameIndex": 29
+    },
+    {
+      "name": "state-0030",
+      "timestamp": 8413.2,
+      "frameIndex": 30
+    },
+    {
+      "name": "sample-0032",
+      "timestamp": 8446.6,
+      "frameIndex": 32
+    },
+    {
+      "name": "motion-0002-bumpHalt-0.25",
+      "action": "00-Up",
+      "timestamp": 8479.9,
+      "phase": 0.3031818181818132,
+      "frameIndex": 34
+    },
+    {
+      "name": "sample-0036",
+      "timestamp": 8513.2,
+      "frameIndex": 36
+    },
+    {
+      "name": "motion-0002-bumpHalt-0.5",
+      "action": "00-Up",
+      "timestamp": 8529.9,
+      "phase": 0.5304545454545405,
+      "frameIndex": 37
+    },
+    {
+      "name": "sample-0039",
+      "timestamp": 8563.8,
+      "frameIndex": 39
+    },
+    {
+      "name": "motion-0002-bumpHalt-0.75",
+      "action": "00-Up",
+      "timestamp": 8579.9,
+      "phase": 0.7577272727272677,
+      "frameIndex": 40
+    },
+    {
+      "name": "sample-0043",
+      "timestamp": 8629.8,
+      "frameIndex": 43
+    },
+    {
+      "name": "motion-0002-bumpHalt-1",
+      "action": "00-Up",
+      "timestamp": 8646.5,
+      "phase": 1.0604545454545422,
+      "frameIndex": 44
+    },
+    {
+      "name": "sample-0046",
+      "timestamp": 8679.8,
+      "frameIndex": 46
+    },
+    {
+      "name": "sample-0049",
+      "timestamp": 8730.2,
+      "frameIndex": 49
+    },
+    {
+      "name": "end",
+      "timestamp": 8764.5
+    }
+  ]
+}

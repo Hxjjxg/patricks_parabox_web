@@ -634,8 +634,10 @@ export function computeProjection(
       const fromLevel = move.fromLevel;
       const fromBlock = move.fromLevelBlock;
       if (!fromLevel || !fromBlock) continue;
-      xscale /= fromLevel.width;
-      yscale /= fromLevel.height;
+      // Native float assignments matter to the strict landing-axis comparison:
+      // a shed exit from a3x3 box otherwise flips the near-tied X/Y magnitudes.
+      xscale = Math.fround(xscale / fromLevel.width);
+      yscale = Math.fround(yscale / fromLevel.height);
       if (move.dx !== 0) {
         dx =
           -move.dx *
