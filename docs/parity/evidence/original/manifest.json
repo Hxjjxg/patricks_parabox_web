@@ -2341,6 +2341,1273 @@
       "status": "valid-nonfilled-child-push-pop",
       "directory": "docs/parity/evidence/original/inspection-enter-pointer-native-v3-20261025",
       "note": "Effective Controls plus temporary Unity InputSystem Mouse coordinate injection through unchanged native ComputeMousePosition/InspectUpdate. Not a physical OS mouse or focus replay; no final visual or interactive-frame-pacing approval."
+    },
+    {
+      "id": "native-framebuffer-1600x1200-first-puzzle-v15-20261025",
+      "kind": "native-physical-framebuffer-reference",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/native-framebuffer-1600x1200-first-puzzle-v15-20261025",
+      "requestedWidth": 1600,
+      "requestedHeight": 1200,
+      "width": 1600,
+      "height": 1200,
+      "status": "valid",
+      "dpr2ReferenceEligible": true,
+      "requestedLogicalViewport": [
+        800.0,
+        600.0
+      ],
+      "screenPngAgreement": true,
+      "nativeFramebufferNotResampled": true,
+      "exactFreshStateMatch": true,
+      "freshStateBaseline": "first_puzzle-static-20261025",
+      "freshStateSha256": "29f115fff73f9446d46a26c2ce52e377b8345a1d8e618e703cf8a63e100afd17",
+      "focusGeometry": [
+        800,
+        600,
+        983.9999914169312,
+        983.9999914169312
+      ],
+      "images": [
+        {
+          "file": "static-0.png",
+          "pngDimensions": [
+            1600,
+            1200
+          ],
+          "nativeFrame": 328363,
+          "nativeTime": 365.1736,
+          "deltaTime": 0.0043904,
+          "sha256": "10e98bc33634fa9cefcb14dc2c52fa5f525b9d867de46ee4504a50e4d11af262",
+          "nonblackPixels": 1009261,
+          "changedPixelsVsFirst": 0,
+          "changedBoundingBoxVsFirst": null,
+          "maximumChannelDifferenceVsFirst": 0
+        },
+        {
+          "file": "static-1.png",
+          "pngDimensions": [
+            1600,
+            1200
+          ],
+          "nativeFrame": 328364,
+          "nativeTime": 365.2532,
+          "deltaTime": 0.0795936,
+          "sha256": "1d9bdf6fada0bd558200322c42dd4a75e50298e140a9652bf2162a15440a1b14",
+          "nonblackPixels": 1009313,
+          "changedPixelsVsFirst": 15210,
+          "changedBoundingBoxVsFirst": [
+            0,
+            0,
+            1600,
+            1200
+          ],
+          "maximumChannelDifferenceVsFirst": 96
+        },
+        {
+          "file": "static-2.png",
+          "pngDimensions": [
+            1600,
+            1200
+          ],
+          "nativeFrame": 328365,
+          "nativeTime": 365.3183,
+          "deltaTime": 0.065121,
+          "sha256": "4fb36d66a630779bc160f7634ee602c0114dbd10ea2a9d47b8a2fe539590f2de",
+          "nonblackPixels": 1008917,
+          "changedPixelsVsFirst": 24854,
+          "changedBoundingBoxVsFirst": [
+            0,
+            0,
+            1600,
+            1200
+          ],
+          "maximumChannelDifferenceVsFirst": 96
+        }
+      ],
+      "observerBuild": {
+        "sourceSha256": "78f656710c7f39193887a0d1c70d4103a3953656e7ba3d6ff4ea5aa64fb9bc45",
+        "dllSha256": "e0e22b2b9be36a02c49cf1f0cd8aa10f3ca67c05edd6344bf810ca1a6e3f9360",
+        "buildWarnings": 0,
+        "buildErrors": 0,
+        "resolutionPath": "Existing ConfigureCaptureResolution鈫扴creen.SetResolution(width,height,false)",
+        "capturePath": "Existing RunCaptureScenario鈫扺aitForEndOfFrame鈫扴creenCapture.CaptureScreenshotAsTexture",
+        "freshStatePath": "Existing World.GoToLevel with no setup commands",
+        "referenceLogicalViewport": [
+          800,
+          600
+        ],
+        "intendedWebDpr": 2,
+        "resampled": false,
+        "nativeDrawLogicChanged": false,
+        "cuaOrOsBypass": false,
+        "note": "Actual native framebuffer dimensions checked independently from PNG IHDR and capture Screen.width/height. Unsupported/clamped requests are retained with explicit status."
+      },
+      "hashes": {
+        "capture.json": "d05d51786a607be0ae0ce2c1a08ba6c2b2a429c458a535b228f4677d0660896e",
+        "colors.json": "478e619be782f5ece99955a576dea710b2c9b486cea88fb6df8193006b0951e1",
+        "observer-build.json": "759dfecc75a60ed890f4b99a1f0aa55ada91a3f647f749f4c76e6787d12f9140",
+        "resolution-request.json": "86507d4a912e97d778c7fe0146c0fb596b95d77faa3bb9eb64cf3bb16f502aaf",
+        "state.json": "d963ca4b1099f624861f9d9923bd51dde6916db8a806b59239f1f25baf3ed240",
+        "static-0.png": "10e98bc33634fa9cefcb14dc2c52fa5f525b9d867de46ee4504a50e4d11af262",
+        "static-1.png": "1d9bdf6fada0bd558200322c42dd4a75e50298e140a9652bf2162a15440a1b14",
+        "static-2.png": "4fb36d66a630779bc160f7634ee602c0114dbd10ea2a9d47b8a2fe539590f2de"
+      }
+    },
+    {
+      "id": "native-framebuffer-1600x1200-second-puzzle-v15-20261025",
+      "kind": "native-physical-framebuffer-reference",
+      "level": "second_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/native-framebuffer-1600x1200-second-puzzle-v15-20261025",
+      "requestedWidth": 1600,
+      "requestedHeight": 1200,
+      "width": 1600,
+      "height": 1200,
+      "status": "valid",
+      "dpr2ReferenceEligible": true,
+      "requestedLogicalViewport": [
+        800.0,
+        600.0
+      ],
+      "screenPngAgreement": true,
+      "nativeFramebufferNotResampled": true,
+      "exactFreshStateMatch": true,
+      "freshStateBaseline": "second_puzzle-static-20261025",
+      "freshStateSha256": "6282a069c4c091d026882e7bf24656bfe5f0f5ce8ab4328d35a711f8a4e4f2f9",
+      "focusGeometry": [
+        800,
+        600,
+        983.9999914169312,
+        983.9999914169312
+      ],
+      "images": [
+        {
+          "file": "static-0.png",
+          "pngDimensions": [
+            1600,
+            1200
+          ],
+          "nativeFrame": 390743,
+          "nativeTime": 507.5703,
+          "deltaTime": 0.0016147,
+          "sha256": "983035b588b396e6a84d55f9f26695389e94abbab4d99b4aad15d8034c3dd393",
+          "nonblackPixels": 1008552,
+          "changedPixelsVsFirst": 0,
+          "changedBoundingBoxVsFirst": null,
+          "maximumChannelDifferenceVsFirst": 0
+        },
+        {
+          "file": "static-1.png",
+          "pngDimensions": [
+            1600,
+            1200
+          ],
+          "nativeFrame": 390744,
+          "nativeTime": 507.6407,
+          "deltaTime": 0.070359,
+          "sha256": "dd1bdf1b96d62d0d4598249509a3fdedc67c0063f6ad048175230820d5a48a66",
+          "nonblackPixels": 1008699,
+          "changedPixelsVsFirst": 14085,
+          "changedBoundingBoxVsFirst": [
+            5,
+            1,
+            1600,
+            1200
+          ],
+          "maximumChannelDifferenceVsFirst": 96
+        },
+        {
+          "file": "static-2.png",
+          "pngDimensions": [
+            1600,
+            1200
+          ],
+          "nativeFrame": 390745,
+          "nativeTime": 507.6976,
+          "deltaTime": 0.0568962,
+          "sha256": "64e09364d01c9d18433fa1308128eb0d6d0e30ee7672e0955cbe24fe1bec299b",
+          "nonblackPixels": 1008857,
+          "changedPixelsVsFirst": 27165,
+          "changedBoundingBoxVsFirst": [
+            4,
+            0,
+            1600,
+            1200
+          ],
+          "maximumChannelDifferenceVsFirst": 96
+        }
+      ],
+      "observerBuild": {
+        "sourceSha256": "78f656710c7f39193887a0d1c70d4103a3953656e7ba3d6ff4ea5aa64fb9bc45",
+        "dllSha256": "e0e22b2b9be36a02c49cf1f0cd8aa10f3ca67c05edd6344bf810ca1a6e3f9360",
+        "buildWarnings": 0,
+        "buildErrors": 0,
+        "resolutionPath": "Existing ConfigureCaptureResolution鈫扴creen.SetResolution(width,height,false)",
+        "capturePath": "Existing RunCaptureScenario鈫扺aitForEndOfFrame鈫扴creenCapture.CaptureScreenshotAsTexture",
+        "freshStatePath": "Existing World.GoToLevel with no setup commands",
+        "referenceLogicalViewport": [
+          800,
+          600
+        ],
+        "intendedWebDpr": 2,
+        "resampled": false,
+        "nativeDrawLogicChanged": false,
+        "cuaOrOsBypass": false,
+        "note": "Actual native framebuffer dimensions checked independently from PNG IHDR and capture Screen.width/height. Unsupported/clamped requests are retained with explicit status."
+      },
+      "hashes": {
+        "capture.json": "b14c10eab6f9e5b59cf6f58755a2064949b971cb1aaa984d79fdb5203717422e",
+        "colors.json": "5173a01b3b2af42ec96ad618d76f631274ca567b2b1055a59649cb15b7606385",
+        "observer-build.json": "759dfecc75a60ed890f4b99a1f0aa55ada91a3f647f749f4c76e6787d12f9140",
+        "resolution-request.json": "bbe955da0a0ae984acab255d757a6a531bcba3810c9b4f9071e86385f7c0e078",
+        "state.json": "07d4b66b49911da2a2bc1a95ecf1eaa8c631e1575bce490e24409340c3b336ee",
+        "static-0.png": "983035b588b396e6a84d55f9f26695389e94abbab4d99b4aad15d8034c3dd393",
+        "static-1.png": "dd1bdf1b96d62d0d4598249509a3fdedc67c0063f6ad048175230820d5a48a66",
+        "static-2.png": "64e09364d01c9d18433fa1308128eb0d6d0e30ee7672e0955cbe24fe1bec299b"
+      }
+    },
+    {
+      "id": "native-framebuffer-1600x1200-third-puzzle-v15-20261025",
+      "kind": "native-physical-framebuffer-reference",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/native-framebuffer-1600x1200-third-puzzle-v15-20261025",
+      "requestedWidth": 1600,
+      "requestedHeight": 1200,
+      "width": 1600,
+      "height": 1200,
+      "status": "valid",
+      "dpr2ReferenceEligible": true,
+      "requestedLogicalViewport": [
+        800.0,
+        600.0
+      ],
+      "screenPngAgreement": true,
+      "nativeFramebufferNotResampled": true,
+      "exactFreshStateMatch": true,
+      "freshStateBaseline": "third-baseline-settled-20261025",
+      "freshStateSha256": "3df02d1868dcd6dd8a1500b31c2060f5644a37bfe15931740944e6e9a4b6f8b5",
+      "focusGeometry": [
+        800,
+        600,
+        983.9999914169312,
+        983.9999914169312
+      ],
+      "images": [
+        {
+          "file": "static-0.png",
+          "pngDimensions": [
+            1600,
+            1200
+          ],
+          "nativeFrame": 391119,
+          "nativeTime": 508.7632,
+          "deltaTime": 0.0016977,
+          "sha256": "eb5550bb8a0204f1d1670db60f20e043563b40b1120fb1cf948e62d6d5301944",
+          "nonblackPixels": 1007729,
+          "changedPixelsVsFirst": 0,
+          "changedBoundingBoxVsFirst": null,
+          "maximumChannelDifferenceVsFirst": 0
+        },
+        {
+          "file": "static-1.png",
+          "pngDimensions": [
+            1600,
+            1200
+          ],
+          "nativeFrame": 391120,
+          "nativeTime": 508.8353,
+          "deltaTime": 0.0720363,
+          "sha256": "5d7b556a97e4eff2bbb1e312d3733963b7dc782224420855792f17519718eeee",
+          "nonblackPixels": 1007725,
+          "changedPixelsVsFirst": 8804,
+          "changedBoundingBoxVsFirst": [
+            0,
+            0,
+            1569,
+            1165
+          ],
+          "maximumChannelDifferenceVsFirst": 96
+        },
+        {
+          "file": "static-2.png",
+          "pngDimensions": [
+            1600,
+            1200
+          ],
+          "nativeFrame": 391121,
+          "nativeTime": 508.8963,
+          "deltaTime": 0.0609787,
+          "sha256": "7f1e9d4a45cd459917f1ec01d8044f92a3a15f992d6ef9156d68688ba03b2dcc",
+          "nonblackPixels": 1007198,
+          "changedPixelsVsFirst": 18163,
+          "changedBoundingBoxVsFirst": [
+            0,
+            0,
+            1569,
+            1165
+          ],
+          "maximumChannelDifferenceVsFirst": 96
+        }
+      ],
+      "observerBuild": {
+        "sourceSha256": "78f656710c7f39193887a0d1c70d4103a3953656e7ba3d6ff4ea5aa64fb9bc45",
+        "dllSha256": "e0e22b2b9be36a02c49cf1f0cd8aa10f3ca67c05edd6344bf810ca1a6e3f9360",
+        "buildWarnings": 0,
+        "buildErrors": 0,
+        "resolutionPath": "Existing ConfigureCaptureResolution鈫扴creen.SetResolution(width,height,false)",
+        "capturePath": "Existing RunCaptureScenario鈫扺aitForEndOfFrame鈫扴creenCapture.CaptureScreenshotAsTexture",
+        "freshStatePath": "Existing World.GoToLevel with no setup commands",
+        "referenceLogicalViewport": [
+          800,
+          600
+        ],
+        "intendedWebDpr": 2,
+        "resampled": false,
+        "nativeDrawLogicChanged": false,
+        "cuaOrOsBypass": false,
+        "note": "Actual native framebuffer dimensions checked independently from PNG IHDR and capture Screen.width/height. Unsupported/clamped requests are retained with explicit status."
+      },
+      "hashes": {
+        "capture.json": "50fe6b30c305c093640b102a1547965d5c7c69756af73c72721c7ca18197422d",
+        "colors.json": "24078b616a677ef21da687368e907f6ec4e00fb5b3ffe342b879b2f3cd9bd06b",
+        "observer-build.json": "759dfecc75a60ed890f4b99a1f0aa55ada91a3f647f749f4c76e6787d12f9140",
+        "resolution-request.json": "9604e6ca56b1a96ad8b70471e1f38813ad627bbcd9b0bd197c88329b4cfdb8d2",
+        "state.json": "2f6f160ab0af58d2c5bd379187c692b6acae0d586cc2f368be2e818eefa98529",
+        "static-0.png": "eb5550bb8a0204f1d1670db60f20e043563b40b1120fb1cf948e62d6d5301944",
+        "static-1.png": "5d7b556a97e4eff2bbb1e312d3733963b7dc782224420855792f17519718eeee",
+        "static-2.png": "7f1e9d4a45cd459917f1ec01d8044f92a3a15f992d6ef9156d68688ba03b2dcc"
+      }
+    },
+    {
+      "id": "native-framebuffer-2002x1466-first-puzzle-v15-20261025",
+      "kind": "native-windowed-resolution-limit-diagnostic",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/native-framebuffer-2002x1466-first-puzzle-v15-20261025",
+      "requestedWidth": 2002,
+      "requestedHeight": 1466,
+      "width": 2002,
+      "height": 1400,
+      "status": "unsupported-requested-resolution",
+      "dpr2ReferenceEligible": false,
+      "requestedLogicalViewport": [
+        1001.0,
+        733.0
+      ],
+      "screenPngAgreement": true,
+      "nativeFramebufferNotResampled": true,
+      "exactFreshStateMatch": true,
+      "freshStateBaseline": "first_puzzle-static-20261025",
+      "freshStateSha256": "29f115fff73f9446d46a26c2ce52e377b8345a1d8e618e703cf8a63e100afd17",
+      "focusGeometry": [
+        1001,
+        700,
+        1147.9999899864197,
+        1147.9999899864197
+      ],
+      "images": [
+        {
+          "file": "static-0.png",
+          "pngDimensions": [
+            2002,
+            1400
+          ],
+          "nativeFrame": 391234,
+          "nativeTime": 509.9937,
+          "deltaTime": 0.01664431,
+          "sha256": "34527732f25f459cdc19700177dde27e494bc66261ec77c37db786df9a549292",
+          "nonblackPixels": 1365239,
+          "changedPixelsVsFirst": 0,
+          "changedBoundingBoxVsFirst": null,
+          "maximumChannelDifferenceVsFirst": 0
+        },
+        {
+          "file": "static-1.png",
+          "pngDimensions": [
+            2002,
+            1400
+          ],
+          "nativeFrame": 391235,
+          "nativeTime": 510.0104,
+          "deltaTime": 0.01664431,
+          "sha256": "a60205c472ddec7bdce7c364ef6c863bc833bc4cf1a04a904160af271a397202",
+          "nonblackPixels": 1365022,
+          "changedPixelsVsFirst": 1639,
+          "changedBoundingBoxVsFirst": [
+            16,
+            45,
+            1923,
+            1390
+          ],
+          "maximumChannelDifferenceVsFirst": 88
+        },
+        {
+          "file": "static-2.png",
+          "pngDimensions": [
+            2002,
+            1400
+          ],
+          "nativeFrame": 391236,
+          "nativeTime": 510.0886,
+          "deltaTime": 0.0781799,
+          "sha256": "154facdc8cf0e4bfaf98fe044e8937eae4f2502f09799a3906b5d8d4a14dcccc",
+          "nonblackPixels": 1365035,
+          "changedPixelsVsFirst": 19017,
+          "changedBoundingBoxVsFirst": [
+            0,
+            42,
+            1923,
+            1400
+          ],
+          "maximumChannelDifferenceVsFirst": 129
+        }
+      ],
+      "observerBuild": {
+        "sourceSha256": "78f656710c7f39193887a0d1c70d4103a3953656e7ba3d6ff4ea5aa64fb9bc45",
+        "dllSha256": "e0e22b2b9be36a02c49cf1f0cd8aa10f3ca67c05edd6344bf810ca1a6e3f9360",
+        "buildWarnings": 0,
+        "buildErrors": 0,
+        "resolutionPath": "Existing ConfigureCaptureResolution鈫扴creen.SetResolution(width,height,false)",
+        "capturePath": "Existing RunCaptureScenario鈫扺aitForEndOfFrame鈫扴creenCapture.CaptureScreenshotAsTexture",
+        "freshStatePath": "Existing World.GoToLevel with no setup commands",
+        "referenceLogicalViewport": [
+          1001,
+          733
+        ],
+        "intendedWebDpr": 2,
+        "resampled": false,
+        "nativeDrawLogicChanged": false,
+        "cuaOrOsBypass": false,
+        "note": "Actual native framebuffer dimensions checked independently from PNG IHDR and capture Screen.width/height. Unsupported/clamped requests are retained with explicit status."
+      },
+      "hashes": {
+        "capture.json": "2883e82e76fed611bc0f706f2b7d495782826c40f5c549fb9338440ef349ddd9",
+        "colors.json": "6251135cad2d903570c82079f2063678b5b2e05d72cbd3805d3ce06a33e89650",
+        "observer-build.json": "576a7e2378b7b78cf79064ba412bf927496dc47fe6c628f93596431a2f574b59",
+        "resolution-request.json": "90830d2b0d61dac59cf3c2bcb250f2e061989767537d83cb515cae4286b429fa",
+        "state.json": "7f9e5f47423e4eeedcd714ad454a317c1c7ea3b4e35f9f73fdcdd4b3f83f7662",
+        "static-0.png": "34527732f25f459cdc19700177dde27e494bc66261ec77c37db786df9a549292",
+        "static-1.png": "a60205c472ddec7bdce7c364ef6c863bc833bc4cf1a04a904160af271a397202",
+        "static-2.png": "154facdc8cf0e4bfaf98fe044e8937eae4f2502f09799a3906b5d8d4a14dcccc"
+      }
+    },
+    {
+      "id": "native-framebuffer-2002x1466-second-puzzle-v15-20261025",
+      "kind": "native-windowed-resolution-limit-diagnostic",
+      "level": "second_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/native-framebuffer-2002x1466-second-puzzle-v15-20261025",
+      "requestedWidth": 2002,
+      "requestedHeight": 1466,
+      "width": 2002,
+      "height": 1400,
+      "status": "unsupported-requested-resolution",
+      "dpr2ReferenceEligible": false,
+      "requestedLogicalViewport": [
+        1001.0,
+        733.0
+      ],
+      "screenPngAgreement": true,
+      "nativeFramebufferNotResampled": true,
+      "exactFreshStateMatch": true,
+      "freshStateBaseline": "second_puzzle-static-20261025",
+      "freshStateSha256": "6282a069c4c091d026882e7bf24656bfe5f0f5ce8ab4328d35a711f8a4e4f2f9",
+      "focusGeometry": [
+        1001,
+        700,
+        1147.9999899864197,
+        1147.9999899864197
+      ],
+      "images": [
+        {
+          "file": "static-0.png",
+          "pngDimensions": [
+            2002,
+            1400
+          ],
+          "nativeFrame": 391298,
+          "nativeTime": 511.2959,
+          "deltaTime": 0.01664431,
+          "sha256": "561ba4723d34c3e8f022606711db9bdc0bcbf6f66e74c89039e9c2292e1b91e1",
+          "nonblackPixels": 1372846,
+          "changedPixelsVsFirst": 0,
+          "changedBoundingBoxVsFirst": null,
+          "maximumChannelDifferenceVsFirst": 0
+        },
+        {
+          "file": "static-1.png",
+          "pngDimensions": [
+            2002,
+            1400
+          ],
+          "nativeFrame": 391299,
+          "nativeTime": 511.3125,
+          "deltaTime": 0.01664431,
+          "sha256": "a49cfd67a0ef018431246dfd95cfbd80af5f0db24b3581f82d081d106258a100",
+          "nonblackPixels": 1372460,
+          "changedPixelsVsFirst": 3246,
+          "changedBoundingBoxVsFirst": [
+            32,
+            23,
+            2002,
+            1387
+          ],
+          "maximumChannelDifferenceVsFirst": 94
+        },
+        {
+          "file": "static-2.png",
+          "pngDimensions": [
+            2002,
+            1400
+          ],
+          "nativeFrame": 391300,
+          "nativeTime": 511.3907,
+          "deltaTime": 0.07814669,
+          "sha256": "53dec0b0ef0905ea2625142c13521b5bbc5ee24c726a04887690432bbbe60243",
+          "nonblackPixels": 1372818,
+          "changedPixelsVsFirst": 25255,
+          "changedBoundingBoxVsFirst": [
+            8,
+            0,
+            2002,
+            1388
+          ],
+          "maximumChannelDifferenceVsFirst": 94
+        }
+      ],
+      "observerBuild": {
+        "sourceSha256": "78f656710c7f39193887a0d1c70d4103a3953656e7ba3d6ff4ea5aa64fb9bc45",
+        "dllSha256": "e0e22b2b9be36a02c49cf1f0cd8aa10f3ca67c05edd6344bf810ca1a6e3f9360",
+        "buildWarnings": 0,
+        "buildErrors": 0,
+        "resolutionPath": "Existing ConfigureCaptureResolution鈫扴creen.SetResolution(width,height,false)",
+        "capturePath": "Existing RunCaptureScenario鈫扺aitForEndOfFrame鈫扴creenCapture.CaptureScreenshotAsTexture",
+        "freshStatePath": "Existing World.GoToLevel with no setup commands",
+        "referenceLogicalViewport": [
+          1001,
+          733
+        ],
+        "intendedWebDpr": 2,
+        "resampled": false,
+        "nativeDrawLogicChanged": false,
+        "cuaOrOsBypass": false,
+        "note": "Actual native framebuffer dimensions checked independently from PNG IHDR and capture Screen.width/height. Unsupported/clamped requests are retained with explicit status."
+      },
+      "hashes": {
+        "capture.json": "796910b34975d2ece74e663245744f0536c4024db1ac17cefc5663e14ebf93a4",
+        "colors.json": "1db1f4534e7e3eb2926bec4ecc4c3ef51b13ff237ad3e814986bc6427410a36f",
+        "observer-build.json": "576a7e2378b7b78cf79064ba412bf927496dc47fe6c628f93596431a2f574b59",
+        "resolution-request.json": "f7e25afbfee351176ed16ccd08176a1bfe572479a8a621fa1aafdb42b90045bb",
+        "state.json": "55d798c479a67c7cea88264dbc9b96cf21a1d1db8e66e60c41dd8679d0c6f4e0",
+        "static-0.png": "561ba4723d34c3e8f022606711db9bdc0bcbf6f66e74c89039e9c2292e1b91e1",
+        "static-1.png": "a49cfd67a0ef018431246dfd95cfbd80af5f0db24b3581f82d081d106258a100",
+        "static-2.png": "53dec0b0ef0905ea2625142c13521b5bbc5ee24c726a04887690432bbbe60243"
+      }
+    },
+    {
+      "id": "native-framebuffer-2002x1466-third-puzzle-v15-20261025",
+      "kind": "native-windowed-resolution-limit-diagnostic",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/native-framebuffer-2002x1466-third-puzzle-v15-20261025",
+      "requestedWidth": 2002,
+      "requestedHeight": 1466,
+      "width": 2002,
+      "height": 1400,
+      "status": "unsupported-requested-resolution",
+      "dpr2ReferenceEligible": false,
+      "requestedLogicalViewport": [
+        1001.0,
+        733.0
+      ],
+      "screenPngAgreement": true,
+      "nativeFramebufferNotResampled": true,
+      "exactFreshStateMatch": true,
+      "freshStateBaseline": "third-baseline-settled-20261025",
+      "freshStateSha256": "3df02d1868dcd6dd8a1500b31c2060f5644a37bfe15931740944e6e9a4b6f8b5",
+      "focusGeometry": [
+        1001,
+        700,
+        1147.9999899864197,
+        1147.9999899864197
+      ],
+      "images": [
+        {
+          "file": "static-0.png",
+          "pngDimensions": [
+            2002,
+            1400
+          ],
+          "nativeFrame": 391363,
+          "nativeTime": 512.5729,
+          "deltaTime": 0.01664431,
+          "sha256": "729c6b1b2bf937da70be7071f84c2909b626cdf4f3fad7e4586b5aefddd27843",
+          "nonblackPixels": 1376679,
+          "changedPixelsVsFirst": 0,
+          "changedBoundingBoxVsFirst": null,
+          "maximumChannelDifferenceVsFirst": 0
+        },
+        {
+          "file": "static-1.png",
+          "pngDimensions": [
+            2002,
+            1400
+          ],
+          "nativeFrame": 391364,
+          "nativeTime": 512.5896,
+          "deltaTime": 0.01664431,
+          "sha256": "a6ff2e297c69d2bc4fde398c6748fe283c784556388e6107aeb12def94c4a8dd",
+          "nonblackPixels": 1376844,
+          "changedPixelsVsFirst": 4608,
+          "changedBoundingBoxVsFirst": [
+            11,
+            0,
+            1988,
+            1400
+          ],
+          "maximumChannelDifferenceVsFirst": 96
+        },
+        {
+          "file": "static-2.png",
+          "pngDimensions": [
+            2002,
+            1400
+          ],
+          "nativeFrame": 391365,
+          "nativeTime": 512.6756,
+          "deltaTime": 0.08600672,
+          "sha256": "a8dcd246f213a9818eb59595a8bd3855a6d214a646e51da9439039de9eeca960",
+          "nonblackPixels": 1377160,
+          "changedPixelsVsFirst": 33394,
+          "changedBoundingBoxVsFirst": [
+            0,
+            0,
+            1988,
+            1400
+          ],
+          "maximumChannelDifferenceVsFirst": 96
+        }
+      ],
+      "observerBuild": {
+        "sourceSha256": "78f656710c7f39193887a0d1c70d4103a3953656e7ba3d6ff4ea5aa64fb9bc45",
+        "dllSha256": "e0e22b2b9be36a02c49cf1f0cd8aa10f3ca67c05edd6344bf810ca1a6e3f9360",
+        "buildWarnings": 0,
+        "buildErrors": 0,
+        "resolutionPath": "Existing ConfigureCaptureResolution鈫扴creen.SetResolution(width,height,false)",
+        "capturePath": "Existing RunCaptureScenario鈫扺aitForEndOfFrame鈫扴creenCapture.CaptureScreenshotAsTexture",
+        "freshStatePath": "Existing World.GoToLevel with no setup commands",
+        "referenceLogicalViewport": [
+          1001,
+          733
+        ],
+        "intendedWebDpr": 2,
+        "resampled": false,
+        "nativeDrawLogicChanged": false,
+        "cuaOrOsBypass": false,
+        "note": "Actual native framebuffer dimensions checked independently from PNG IHDR and capture Screen.width/height. Unsupported/clamped requests are retained with explicit status."
+      },
+      "hashes": {
+        "capture.json": "07c562a316154494dfbd49e427bb3792dfbb27c0b48eac539b85b5e2eb3d23af",
+        "colors.json": "2555c63d243e98b1f2b568b5e6302ade1dc00315e642b2bbb14b9ae36203d937",
+        "observer-build.json": "576a7e2378b7b78cf79064ba412bf927496dc47fe6c628f93596431a2f574b59",
+        "resolution-request.json": "40641aaf83892b0a261be320a2750917765b5b4e04bea64c745eb595ec755602",
+        "state.json": "016360e17d33ad9967520547536acad63a0738aa305c096e50d05b3ddb3c50ca",
+        "static-0.png": "729c6b1b2bf937da70be7071f84c2909b626cdf4f3fad7e4586b5aefddd27843",
+        "static-1.png": "a6ff2e297c69d2bc4fde398c6748fe283c784556388e6107aeb12def94c4a8dd",
+        "static-2.png": "a8dcd246f213a9818eb59595a8bd3855a6d214a646e51da9439039de9eeca960"
+      }
+    },
+    {
+      "id": "native-framebuffer-2560x1440-first-puzzle-v15-20261025",
+      "kind": "native-windowed-resolution-limit-diagnostic",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/native-framebuffer-2560x1440-first-puzzle-v15-20261025",
+      "requestedWidth": 2560,
+      "requestedHeight": 1440,
+      "width": 2240,
+      "height": 1400,
+      "status": "unsupported-requested-resolution",
+      "dpr2ReferenceEligible": false,
+      "requestedLogicalViewport": [
+        1280.0,
+        720.0
+      ],
+      "screenPngAgreement": true,
+      "nativeFramebufferNotResampled": true,
+      "exactFreshStateMatch": true,
+      "freshStateBaseline": "first_puzzle-static-20261025",
+      "freshStateSha256": "29f115fff73f9446d46a26c2ce52e377b8345a1d8e618e703cf8a63e100afd17",
+      "focusGeometry": [
+        1120,
+        700,
+        1147.9999899864197,
+        1147.9999899864197
+      ],
+      "images": [
+        {
+          "file": "static-0.png",
+          "pngDimensions": [
+            2240,
+            1400
+          ],
+          "nativeFrame": 391429,
+          "nativeTime": 513.8917,
+          "deltaTime": 0.01664431,
+          "sha256": "d30945fb8e931657480e07e74d2310a62c631380be4df38e0a74f3516ea43b88",
+          "nonblackPixels": 1379843,
+          "changedPixelsVsFirst": 0,
+          "changedBoundingBoxVsFirst": null,
+          "maximumChannelDifferenceVsFirst": 0
+        },
+        {
+          "file": "static-1.png",
+          "pngDimensions": [
+            2240,
+            1400
+          ],
+          "nativeFrame": 391430,
+          "nativeTime": 513.9083,
+          "deltaTime": 0.01664431,
+          "sha256": "975b25cd9b8fe604dd0d4b557f2f47d61b060f9dd39ae4222ff988f1f0ae5a13",
+          "nonblackPixels": 1379559,
+          "changedPixelsVsFirst": 8221,
+          "changedBoundingBoxVsFirst": [
+            14,
+            0,
+            2224,
+            1400
+          ],
+          "maximumChannelDifferenceVsFirst": 94
+        },
+        {
+          "file": "static-2.png",
+          "pngDimensions": [
+            2240,
+            1400
+          ],
+          "nativeFrame": 391431,
+          "nativeTime": 513.925,
+          "deltaTime": 0.01664431,
+          "sha256": "fb3200d337eb67abdb6254f0e76a877ed893a59af1b04680aec15da7c2b716a4",
+          "nonblackPixels": 1379940,
+          "changedPixelsVsFirst": 12539,
+          "changedBoundingBoxVsFirst": [
+            14,
+            0,
+            2224,
+            1400
+          ],
+          "maximumChannelDifferenceVsFirst": 94
+        }
+      ],
+      "observerBuild": {
+        "sourceSha256": "78f656710c7f39193887a0d1c70d4103a3953656e7ba3d6ff4ea5aa64fb9bc45",
+        "dllSha256": "e0e22b2b9be36a02c49cf1f0cd8aa10f3ca67c05edd6344bf810ca1a6e3f9360",
+        "buildWarnings": 0,
+        "buildErrors": 0,
+        "resolutionPath": "Existing ConfigureCaptureResolution鈫扴creen.SetResolution(width,height,false)",
+        "capturePath": "Existing RunCaptureScenario鈫扺aitForEndOfFrame鈫扴creenCapture.CaptureScreenshotAsTexture",
+        "freshStatePath": "Existing World.GoToLevel with no setup commands",
+        "referenceLogicalViewport": [
+          1280,
+          720
+        ],
+        "intendedWebDpr": 2,
+        "resampled": false,
+        "nativeDrawLogicChanged": false,
+        "cuaOrOsBypass": false,
+        "note": "Actual native framebuffer dimensions checked independently from PNG IHDR and capture Screen.width/height. Unsupported/clamped requests are retained with explicit status."
+      },
+      "hashes": {
+        "capture.json": "2d6edb14abf3d9edfeec6f383ee1fc170628c5a1f8dc0ba943618b33ae57d506",
+        "colors.json": "8340c498613032fb4e3992da1f69427f345a503a61255ea39c6d26b437b92e53",
+        "observer-build.json": "e3174cc688786eb0ba2bc45c6b36020827e62b254f8bafa2bcc0582f641c432a",
+        "resolution-request.json": "35993febe22d3ceb06c3c6b807aaef81ac1859a9eac7a94af52a89e4f43d5ca5",
+        "state.json": "117e128de8ecb1f21fa617374b46bf3cc30824504e0cdaf6b7a06f17bed908a8",
+        "static-0.png": "d30945fb8e931657480e07e74d2310a62c631380be4df38e0a74f3516ea43b88",
+        "static-1.png": "975b25cd9b8fe604dd0d4b557f2f47d61b060f9dd39ae4222ff988f1f0ae5a13",
+        "static-2.png": "fb3200d337eb67abdb6254f0e76a877ed893a59af1b04680aec15da7c2b716a4"
+      }
+    },
+    {
+      "id": "native-framebuffer-2560x1440-second-puzzle-v15-20261025",
+      "kind": "native-windowed-resolution-limit-diagnostic",
+      "level": "second_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/native-framebuffer-2560x1440-second-puzzle-v15-20261025",
+      "requestedWidth": 2560,
+      "requestedHeight": 1440,
+      "width": 2240,
+      "height": 1400,
+      "status": "unsupported-requested-resolution",
+      "dpr2ReferenceEligible": false,
+      "requestedLogicalViewport": [
+        1280.0,
+        720.0
+      ],
+      "screenPngAgreement": true,
+      "nativeFramebufferNotResampled": true,
+      "exactFreshStateMatch": true,
+      "freshStateBaseline": "second_puzzle-static-20261025",
+      "freshStateSha256": "6282a069c4c091d026882e7bf24656bfe5f0f5ce8ab4328d35a711f8a4e4f2f9",
+      "focusGeometry": [
+        1120,
+        700,
+        1147.9999899864197,
+        1147.9999899864197
+      ],
+      "images": [
+        {
+          "file": "static-0.png",
+          "pngDimensions": [
+            2240,
+            1400
+          ],
+          "nativeFrame": 391493,
+          "nativeTime": 515.1188,
+          "deltaTime": 0.01664431,
+          "sha256": "cd996a5c11e2f02807a3173bba84a1a68a7824c9b2eee447a00d056e2a2d58ac",
+          "nonblackPixels": 1387963,
+          "changedPixelsVsFirst": 0,
+          "changedBoundingBoxVsFirst": null,
+          "maximumChannelDifferenceVsFirst": 0
+        },
+        {
+          "file": "static-1.png",
+          "pngDimensions": [
+            2240,
+            1400
+          ],
+          "nativeFrame": 391494,
+          "nativeTime": 515.1354,
+          "deltaTime": 0.01664431,
+          "sha256": "7d4b139f9193665344f9fb5487f2d2e15c6f514230f0f81c12866f32738776b3",
+          "nonblackPixels": 1387815,
+          "changedPixelsVsFirst": 5679,
+          "changedBoundingBoxVsFirst": [
+            1,
+            0,
+            2222,
+            1400
+          ],
+          "maximumChannelDifferenceVsFirst": 96
+        },
+        {
+          "file": "static-2.png",
+          "pngDimensions": [
+            2240,
+            1400
+          ],
+          "nativeFrame": 391495,
+          "nativeTime": 515.2302,
+          "deltaTime": 0.09484029,
+          "sha256": "eddb0c1334d29fdb2de24c16b6eaa941300be0fe24d0a9bc8acb02b67c10377f",
+          "nonblackPixels": 1387666,
+          "changedPixelsVsFirst": 33765,
+          "changedBoundingBoxVsFirst": [
+            0,
+            0,
+            2223,
+            1400
+          ],
+          "maximumChannelDifferenceVsFirst": 96
+        }
+      ],
+      "observerBuild": {
+        "sourceSha256": "78f656710c7f39193887a0d1c70d4103a3953656e7ba3d6ff4ea5aa64fb9bc45",
+        "dllSha256": "e0e22b2b9be36a02c49cf1f0cd8aa10f3ca67c05edd6344bf810ca1a6e3f9360",
+        "buildWarnings": 0,
+        "buildErrors": 0,
+        "resolutionPath": "Existing ConfigureCaptureResolution鈫扴creen.SetResolution(width,height,false)",
+        "capturePath": "Existing RunCaptureScenario鈫扺aitForEndOfFrame鈫扴creenCapture.CaptureScreenshotAsTexture",
+        "freshStatePath": "Existing World.GoToLevel with no setup commands",
+        "referenceLogicalViewport": [
+          1280,
+          720
+        ],
+        "intendedWebDpr": 2,
+        "resampled": false,
+        "nativeDrawLogicChanged": false,
+        "cuaOrOsBypass": false,
+        "note": "Actual native framebuffer dimensions checked independently from PNG IHDR and capture Screen.width/height. Unsupported/clamped requests are retained with explicit status."
+      },
+      "hashes": {
+        "capture.json": "b50b83858afffd0163dcc0958df20e7082f7b4299f009c9e540cb5e86fa25687",
+        "colors.json": "1bca68fe1e5f4d125e662eccbabc3ca4b0357470398bbd3c07e3277a0380199d",
+        "observer-build.json": "e3174cc688786eb0ba2bc45c6b36020827e62b254f8bafa2bcc0582f641c432a",
+        "resolution-request.json": "59c7fcd231de424959efdeff5205d30d24a2f653c456555ba2cfa31eeab5c2f3",
+        "state.json": "34ca2bcf57edc4ce74fd3ead68724d23938675b43fe3df0bd184871bcc5e2e8c",
+        "static-0.png": "cd996a5c11e2f02807a3173bba84a1a68a7824c9b2eee447a00d056e2a2d58ac",
+        "static-1.png": "7d4b139f9193665344f9fb5487f2d2e15c6f514230f0f81c12866f32738776b3",
+        "static-2.png": "eddb0c1334d29fdb2de24c16b6eaa941300be0fe24d0a9bc8acb02b67c10377f"
+      }
+    },
+    {
+      "id": "native-framebuffer-2560x1440-third-puzzle-v15-20261025",
+      "kind": "native-windowed-resolution-limit-diagnostic",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/native-framebuffer-2560x1440-third-puzzle-v15-20261025",
+      "requestedWidth": 2560,
+      "requestedHeight": 1440,
+      "width": 2240,
+      "height": 1400,
+      "status": "unsupported-requested-resolution",
+      "dpr2ReferenceEligible": false,
+      "requestedLogicalViewport": [
+        1280.0,
+        720.0
+      ],
+      "screenPngAgreement": true,
+      "nativeFramebufferNotResampled": true,
+      "exactFreshStateMatch": true,
+      "freshStateBaseline": "third-baseline-settled-20261025",
+      "freshStateSha256": "3df02d1868dcd6dd8a1500b31c2060f5644a37bfe15931740944e6e9a4b6f8b5",
+      "focusGeometry": [
+        1120,
+        700,
+        1147.9999899864197,
+        1147.9999899864197
+      ],
+      "images": [
+        {
+          "file": "static-0.png",
+          "pngDimensions": [
+            2240,
+            1400
+          ],
+          "nativeFrame": 391557,
+          "nativeTime": 516.4208,
+          "deltaTime": 0.01664431,
+          "sha256": "17f66d0e50fea4deacbf511b1d62e01eb58f62d91ce8a89e17a84b5a8936b79c",
+          "nonblackPixels": 1388885,
+          "changedPixelsVsFirst": 0,
+          "changedBoundingBoxVsFirst": null,
+          "maximumChannelDifferenceVsFirst": 0
+        },
+        {
+          "file": "static-1.png",
+          "pngDimensions": [
+            2240,
+            1400
+          ],
+          "nativeFrame": 391558,
+          "nativeTime": 516.4374,
+          "deltaTime": 0.01664431,
+          "sha256": "bc0550e3ccf606ce60da57224bd41e75a04314585c4032872c338308c00a272a",
+          "nonblackPixels": 1388909,
+          "changedPixelsVsFirst": 3483,
+          "changedBoundingBoxVsFirst": [
+            1,
+            0,
+            2236,
+            1400
+          ],
+          "maximumChannelDifferenceVsFirst": 96
+        },
+        {
+          "file": "static-2.png",
+          "pngDimensions": [
+            2240,
+            1400
+          ],
+          "nativeFrame": 391559,
+          "nativeTime": 516.5323,
+          "deltaTime": 0.09484829,
+          "sha256": "d49942da78d5a02a866eea8e758e8fd958bc50371033c9c0f62eef961745907d",
+          "nonblackPixels": 1388905,
+          "changedPixelsVsFirst": 34468,
+          "changedBoundingBoxVsFirst": [
+            1,
+            0,
+            2237,
+            1400
+          ],
+          "maximumChannelDifferenceVsFirst": 96
+        }
+      ],
+      "observerBuild": {
+        "sourceSha256": "78f656710c7f39193887a0d1c70d4103a3953656e7ba3d6ff4ea5aa64fb9bc45",
+        "dllSha256": "e0e22b2b9be36a02c49cf1f0cd8aa10f3ca67c05edd6344bf810ca1a6e3f9360",
+        "buildWarnings": 0,
+        "buildErrors": 0,
+        "resolutionPath": "Existing ConfigureCaptureResolution鈫扴creen.SetResolution(width,height,false)",
+        "capturePath": "Existing RunCaptureScenario鈫扺aitForEndOfFrame鈫扴creenCapture.CaptureScreenshotAsTexture",
+        "freshStatePath": "Existing World.GoToLevel with no setup commands",
+        "referenceLogicalViewport": [
+          1280,
+          720
+        ],
+        "intendedWebDpr": 2,
+        "resampled": false,
+        "nativeDrawLogicChanged": false,
+        "cuaOrOsBypass": false,
+        "note": "Actual native framebuffer dimensions checked independently from PNG IHDR and capture Screen.width/height. Unsupported/clamped requests are retained with explicit status."
+      },
+      "hashes": {
+        "capture.json": "db18e61e3c101d982cd368fd6f26841aca10def962f32d60f41882cec80adff8",
+        "colors.json": "a3a669331bd707e4b89e1cbe2370b36404bc89d53ffe639590e415b1ac566f0d",
+        "observer-build.json": "e3174cc688786eb0ba2bc45c6b36020827e62b254f8bafa2bcc0582f641c432a",
+        "resolution-request.json": "4722ad3e8df01145d71a3aac39b984b6a27314332da900435cf87db1270eeeec",
+        "state.json": "75ffa77f49acf46ad9927949ae96fedcae94f353ade1422abf45498753564e41",
+        "static-0.png": "17f66d0e50fea4deacbf511b1d62e01eb58f62d91ce8a89e17a84b5a8936b79c",
+        "static-1.png": "bc0550e3ccf606ce60da57224bd41e75a04314585c4032872c338308c00a272a",
+        "static-2.png": "d49942da78d5a02a866eea8e758e8fd958bc50371033c9c0f62eef961745907d"
+      }
+    },
+    {
+      "id": "native-framebuffer-2560x1800-third-puzzle-v15-20261025",
+      "kind": "native-windowed-resolution-limit-diagnostic",
+      "level": "third_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/native-framebuffer-2560x1800-third-puzzle-v15-20261025",
+      "requestedWidth": 2560,
+      "requestedHeight": 1800,
+      "width": 2240,
+      "height": 1400,
+      "status": "unsupported-requested-resolution",
+      "dpr2ReferenceEligible": false,
+      "requestedLogicalViewport": [
+        1280.0,
+        900.0
+      ],
+      "screenPngAgreement": true,
+      "nativeFramebufferNotResampled": true,
+      "exactFreshStateMatch": true,
+      "freshStateBaseline": "third-baseline-settled-20261025",
+      "freshStateSha256": "3df02d1868dcd6dd8a1500b31c2060f5644a37bfe15931740944e6e9a4b6f8b5",
+      "focusGeometry": [
+        1120,
+        700,
+        1147.9999899864197,
+        1147.9999899864197
+      ],
+      "images": [
+        {
+          "file": "static-0.png",
+          "pngDimensions": [
+            2240,
+            1400
+          ],
+          "nativeFrame": 391622,
+          "nativeTime": 517.7479,
+          "deltaTime": 0.01664431,
+          "sha256": "994893d390f0ac5a8d45de749532572f56e14feb51fb6d37ee1cfc904a4a7c6b",
+          "nonblackPixels": 1384025,
+          "changedPixelsVsFirst": 0,
+          "changedBoundingBoxVsFirst": null,
+          "maximumChannelDifferenceVsFirst": 0
+        },
+        {
+          "file": "static-1.png",
+          "pngDimensions": [
+            2240,
+            1400
+          ],
+          "nativeFrame": 391623,
+          "nativeTime": 517.7645,
+          "deltaTime": 0.01664431,
+          "sha256": "b4af38c65ea9e6f2379ec435c6bff9ab2691c239139df765bdf629c9bbc93719",
+          "nonblackPixels": 1384102,
+          "changedPixelsVsFirst": 4432,
+          "changedBoundingBoxVsFirst": [
+            59,
+            0,
+            2240,
+            1400
+          ],
+          "maximumChannelDifferenceVsFirst": 94
+        },
+        {
+          "file": "static-2.png",
+          "pngDimensions": [
+            2240,
+            1400
+          ],
+          "nativeFrame": 391624,
+          "nativeTime": 517.7844,
+          "deltaTime": 0.01987022,
+          "sha256": "46245adb37baaf86dd84ea23bd6674e9eb23a216582201922b4259373cc0ff10",
+          "nonblackPixels": 1383698,
+          "changedPixelsVsFirst": 14321,
+          "changedBoundingBoxVsFirst": [
+            19,
+            0,
+            2240,
+            1400
+          ],
+          "maximumChannelDifferenceVsFirst": 94
+        }
+      ],
+      "observerBuild": {
+        "sourceSha256": "78f656710c7f39193887a0d1c70d4103a3953656e7ba3d6ff4ea5aa64fb9bc45",
+        "dllSha256": "e0e22b2b9be36a02c49cf1f0cd8aa10f3ca67c05edd6344bf810ca1a6e3f9360",
+        "buildWarnings": 0,
+        "buildErrors": 0,
+        "resolutionPath": "Existing ConfigureCaptureResolution鈫扴creen.SetResolution(width,height,false)",
+        "capturePath": "Existing RunCaptureScenario鈫扺aitForEndOfFrame鈫扴creenCapture.CaptureScreenshotAsTexture",
+        "freshStatePath": "Existing World.GoToLevel with no setup commands",
+        "referenceLogicalViewport": [
+          1280,
+          900
+        ],
+        "intendedWebDpr": 2,
+        "resampled": false,
+        "nativeDrawLogicChanged": false,
+        "cuaOrOsBypass": false,
+        "note": "Actual native framebuffer dimensions checked independently from PNG IHDR and capture Screen.width/height. Unsupported/clamped requests are retained with explicit status."
+      },
+      "hashes": {
+        "capture.json": "61a7f918788f551e3c5360c3ca3f3303acc59eec3ceef5e1a24e29b45d5901e8",
+        "colors.json": "63cd5931394aa717ba7e10d02c918250042daf12fa7f05297c4624a591ebcec8",
+        "observer-build.json": "43ee6bfb50f355badc1ba4da5670223244e139dba05c50c9f31fb2e2af6767d4",
+        "resolution-request.json": "21c14fe6b5f374b19f28680a62b8ca05c5766eee99378685f819c6a5801ad09c",
+        "state.json": "1aa3af9983546bcc92cf134d8217ebd358eb7fd551b70ef3e9f0506a57561419",
+        "static-0.png": "994893d390f0ac5a8d45de749532572f56e14feb51fb6d37ee1cfc904a4a7c6b",
+        "static-1.png": "b4af38c65ea9e6f2379ec435c6bff9ab2691c239139df765bdf629c9bbc93719",
+        "static-2.png": "46245adb37baaf86dd84ea23bd6674e9eb23a216582201922b4259373cc0ff10"
+      }
+    },
+    {
+      "id": "native-framebuffer-2002x1398-first-puzzle-v15-20261025",
+      "kind": "native-physical-framebuffer-reference",
+      "level": "first_puzzle",
+      "setup": [],
+      "timedCommands": [],
+      "requestCommands": "",
+      "directory": "docs/parity/evidence/original/native-framebuffer-2002x1398-first-puzzle-v15-20261025",
+      "requestedWidth": 2002,
+      "requestedHeight": 1398,
+      "width": 2002,
+      "height": 1398,
+      "status": "valid",
+      "dpr2ReferenceEligible": true,
+      "requestedLogicalViewport": [
+        1001.0,
+        699.0
+      ],
+      "screenPngAgreement": true,
+      "nativeFramebufferNotResampled": true,
+      "exactFreshStateMatch": true,
+      "freshStateBaseline": "first_puzzle-static-20261025",
+      "freshStateSha256": "29f115fff73f9446d46a26c2ce52e377b8345a1d8e618e703cf8a63e100afd17",
+      "focusGeometry": [
+        1001,
+        699,
+        1146.3599900007248,
+        1146.3599900007248
+      ],
+      "images": [
+        {
+          "file": "static-0.png",
+          "pngDimensions": [
+            2002,
+            1398
+          ],
+          "nativeFrame": 426792,
+          "nativeTime": 815.8404,
+          "deltaTime": 0.01664431,
+          "sha256": "f4404c33500e6985030152b60bcbee2fdee9c1219c3a26193f7a4afa69f12359",
+          "nonblackPixels": 1360901,
+          "changedPixelsVsFirst": 0,
+          "changedBoundingBoxVsFirst": null,
+          "maximumChannelDifferenceVsFirst": 0
+        },
+        {
+          "file": "static-1.png",
+          "pngDimensions": [
+            2002,
+            1398
+          ],
+          "nativeFrame": 426793,
+          "nativeTime": 815.8571,
+          "deltaTime": 0.01664431,
+          "sha256": "c0a9aa6ea004d01c424130e4247ddfbfb5fee95b88c8bb87051d52bedf415c93",
+          "nonblackPixels": 1361031,
+          "changedPixelsVsFirst": 1639,
+          "changedBoundingBoxVsFirst": [
+            44,
+            92,
+            2002,
+            1398
+          ],
+          "maximumChannelDifferenceVsFirst": 90
+        },
+        {
+          "file": "static-2.png",
+          "pngDimensions": [
+            2002,
+            1398
+          ],
+          "nativeFrame": 426794,
+          "nativeTime": 815.9353,
+          "deltaTime": 0.0782674,
+          "sha256": "963dd74da4a8d505bb2bc7e6ecc04521e0d29c38ce40d25c4d66b0f3e7e09e0d",
+          "nonblackPixels": 1361288,
+          "changedPixelsVsFirst": 23720,
+          "changedBoundingBoxVsFirst": [
+            44,
+            8,
+            2002,
+            1398
+          ],
+          "maximumChannelDifferenceVsFirst": 90
+        }
+      ],
+      "observerBuild": {
+        "sourceSha256": "78f656710c7f39193887a0d1c70d4103a3953656e7ba3d6ff4ea5aa64fb9bc45",
+        "dllSha256": "e0e22b2b9be36a02c49cf1f0cd8aa10f3ca67c05edd6344bf810ca1a6e3f9360",
+        "buildWarnings": 0,
+        "buildErrors": 0,
+        "resolutionPath": "Existing ConfigureCaptureResolution鈫扴creen.SetResolution(width,height,false)",
+        "capturePath": "Existing RunCaptureScenario鈫扺aitForEndOfFrame鈫扴creenCapture.CaptureScreenshotAsTexture",
+        "freshStatePath": "Existing World.GoToLevel with no setup commands",
+        "referenceLogicalViewport": [
+          1001,
+          699
+        ],
+        "intendedWebDpr": 2,
+        "resampled": false,
+        "nativeDrawLogicChanged": false,
+        "cuaOrOsBypass": false,
+        "note": "Actual native framebuffer dimensions checked independently from PNG IHDR and capture Screen.width/height. Unsupported/clamped requests are retained with explicit status."
+      },
+      "hashes": {
+        "capture.json": "490da372388f3fbc4e5a3cb53e50f1a9ed53af07e343181ccd7bc2a3cd97df8a",
+        "colors.json": "d603ed1fe553ab14be13f2fd8fb5a2c1b81e5e8c708be32529006a8ff39a4671",
+        "observer-build.json": "e9c88cde81ea1277a1afa5e3dc1918ed12f6be09ac0ab9842209bd9fec5e39eb",
+        "resolution-request.json": "5a3504622974caed8ded24a39745df7915d170f56c7eb2a51481ea9db149f11c",
+        "state.json": "0b7bc0b569ca54b18e1c01cc26b5b1b47ebdec1f62ae0f0385b9866b365ef1a7",
+        "static-0.png": "f4404c33500e6985030152b60bcbee2fdee9c1219c3a26193f7a4afa69f12359",
+        "static-1.png": "c0a9aa6ea004d01c424130e4247ddfbfb5fee95b88c8bb87051d52bedf415c93",
+        "static-2.png": "963dd74da4a8d505bb2bc7e6ecc04521e0d29c38ce40d25c4d66b0f3e7e09e0d"
+      },
+      "additionalOddCssAxesDiscriminator": true,
+      "notSubstituteForUnsupportedOriginalRequest": true
     }
   ],
   "gpuReadbacks": [
