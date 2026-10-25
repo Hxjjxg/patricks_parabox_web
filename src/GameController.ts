@@ -12,6 +12,7 @@ import {
 } from "./core/directionalInput";
 import { TouchSwipeInput } from "./core/touchInput";
 import { HistoryInput } from "./core/historyInput";
+import { startHubArrival } from "./core/hubTransition";
 import { MovementEngine, type ImpulseResult } from "./core/movement";
 import {
   computeAnyBlockMoving,
@@ -144,6 +145,7 @@ export class GameController {
   private readonly levelSelect: HTMLSelectElement;
   private readonly customLevelInput: HTMLInputElement;
   private winTransitionElapsed = 0;
+  private firstFrameInHub = false;
   private customLevelErrorTimer: number | null = null;
   private fastTravelSession: FastTravelSession | null = null;
   private lastMoveDirection: DirectionCommand = { dx: 0, dy: 0 };
@@ -309,13 +311,13 @@ export class GameController {
     };
   }
 
-  loadLevel(name: string, preserveControls = false): void {
+  loadLevel(name: string, preserveControls = false, jumpOut = false): void {
     try {
       const source = getLevelSource(name);
       const world = parseLevel(source, name, {
         randomOrientation: this.progression.randomize,
       });
-      this.activateWorld(name, world, null, preserveControls);
+      this.activateWorld(name, world, null, preserveControls, jumpOut);
     } catch (error) {
       console.error(`Exception when loading level "${name}"`, error);
       if (name === "hub") throw error;
@@ -349,6 +351,7 @@ export class GameController {
     world: WorldModel,
     customLevelId: string | null,
     preserveControls = false,
+    jumpOut = false,
   ): void {
     this.clearCustomLevelError();
     this.sessionMenu.reset();
@@ -389,6 +392,8 @@ export class GameController {
     this.world.enterSpeedIndex = animationSettings.enterSpeedIndex;
     this.world.allowSkippingAnimation =
       animationSettings.allowSkippingAnimation;
+    this.firstFrameInHub = name === "hub";
+    if (jumpOut) startHubArrival(this.world, this.progression.recentPuzzle);
     this.inspection = new InspectionModel(this.world);
     this.renderer.setInspection(null, false);
     this.renderer.setWorld(this.world);
@@ -739,7 +744,7 @@ export class GameController {
         "noopener,noreferrer",
       );
     } else if (action.type === "leave-puzzle") {
-      this.loadLevel("hub");
+      this.loadLevel("hub", false, true);
     } else if (action.type === "return-title") {
       this.progression.clearRecentPuzzle();
       this.loadLevel("hub");
@@ -795,7 +800,7 @@ export class GameController {
       newlyWon,
     );
     this.persistProgression();
-    this.loadLevel(nextLevel, true);
+    this.loadLevel(nextLevel, true, nextLevel === "hub");
   }
 
   private persistProgression(): void {
@@ -1299,6 +1304,8 @@ export class GameController {
         ? 0
         : Math.max(0, (timestamp - this.previousFrameTime) / 1000);
     this.previousFrameTime = timestamp;
+    const skipHubAnimation = this.firstFrameInHub;
+    this.firstFrameInHub = false;
     this.advancePlaytime(Math.min(elapsed, 1 / 3));
 
     if (this.runtimeMode() === "playing") {
@@ -1356,11 +1363,12 @@ export class GameController {
         this.restart();
       }
       if (elapsed > 0) {
-        updateWorldAnimations(this.world, {
+        if (!skipHubAnimation) updateWorldAnimations(this.world, {
           deltaTime: delta,
           quickAnim: this.world.drawStyle === DrawStyle.QuickAnim,
           handleActionFloor: (block) => this.blockIsOnActionFloor(block),
           random: Math.random,
+          onJumpOutComplete: () => this.movement.clearWaitForMoveDirChange(),
         });
         updateCameraAnimation(this.world, delta);
       }
@@ -1378,7 +1386,7 @@ export class GameController {
       });
     }
 
-    this.world.updateFloorAnimations(
+    if (!skipHubAnimation) this.world.updateFloorAnimations(
       elapsed,
       this.runtimeMode() !== "playing",
     );

@@ -124,6 +124,34 @@ function setupBeforeFirstWin(h: ReturnType<typeof controllerHarness>) {
 }
 
 describe('native automatic level advance', () => {
+  it('returns from third win with native JumpOut and one retained held turn', () => {
+    const h = controllerHarness(); h.api.loadLevel('third_puzzle'); h.frame(0);
+    for (const key of 'RUUURDDDLDRRDRRULLLLULLDDRUUULUR'.slice(0, -1)) {
+      const [dx, dy] = { U: [0, 1], D: [0, -1], L: [-1, 0], R: [1, 0] }[key]!;
+      h.api.impulse(dx!, dy!); stopAllAnimations(h.api.world());
+    }
+    expect(h.api.getState()).toMatchObject({ moveCount: 31, winning: false, player: { x: 1, y: 6 } });
+    h.press('ArrowRight', 1); h.frame(50); h.frame(102);
+    for (let stamp = 152; stamp <= 1552; stamp += 50) h.frame(stamp);
+    expect(h.api.getState()).toMatchObject({ levelName: 'hub', moveCount: 0, player: { x: 4, y: 5 } });
+    const player = h.api.world().findPlayerBlock();
+    expect(player).toMatchObject({ anim: 'jumpOut', animT: 0, animLength: .5, moving: true, drawXOffset: 0, drawYOffset: -1 });
+    expect(player.drawXScale).toBeCloseTo(.15, 7);
+    expect(h.api.world().anyBlockMoving).toBe(true);
+    // World.FirstFrameInHub allows reservation but skips animation advancement.
+    h.frame(1568.7);
+    expect(h.api.getState()).toMatchObject({ moveCount: 1, player: { x: 4, y: 5 } });
+    expect(player.animT).toBe(0);
+    for (let stamp = 1618.7; stamp <= 2068.7; stamp += 50) h.frame(stamp);
+    expect(h.api.getState().player).toMatchObject({ x: 4, y: 5 });
+    h.frame(2118.7); // strict > .5 lands into nonblocking BUMP_HALT
+    expect(player.anim).toBe('bumpHalt');
+    expect(h.api.world().anyBlockMoving).toBe(false);
+    h.frame(2135.4);
+    expect(h.api.getState()).toMatchObject({ moveCount: 1, player: { x: 5, y: 5 } });
+    expect(player.animT).toBeCloseTo(.0167, 7);
+  });
+
   it('counts full landing updates and preserves held direction until the next level update', () => {
     const h = controllerHarness();
     h.frame(0); setupBeforeFirstWin(h);

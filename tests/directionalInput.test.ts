@@ -11,6 +11,7 @@ describe("single-player directional input stack", () => {
     expect(input.press("w", { dx: 0, dy: 1 })).toBeNull();
     expect(input.tick(0.07)).toBeNull();
     expect(input.tick(0.001)).toEqual({ dx: 0, dy: 1 });
+    input.resetRepeatDelay(); // Movement.Impulse consumes the eligible delay.
     expect(input.tick(0.03)).toBeNull();
   });
 
@@ -61,6 +62,16 @@ describe("single-player directional input stack", () => {
 });
 
 describe("directional repeat timing", () => {
+  it("tests delay retained through a win even while Hub arrival is moving", () => {
+    const input = new DirectionalInput(70);
+    input.press("d", { dx: 1, dy: 0 });
+    expect(input.tick(1.5, true, false)).toBeNull();
+    expect(input.tick(.0167, false)).toEqual({ dx: 1, dy: 0 });
+    // Reservation leaves the counter intact until its physical impulse.
+    expect(input.tick(.0167, false)).toEqual({ dx: 1, dy: 0 });
+    input.resetRepeatDelay();
+    expect(input.tick(.5, false)).toBeNull();
+  });
   it("does not accumulate repeat time while repeats are blocked", () => {
     const input = new DirectionalInput(70);
     expect(input.press("d", { dx: 1, dy: 0 })).toEqual({ dx: 1, dy: 0 });

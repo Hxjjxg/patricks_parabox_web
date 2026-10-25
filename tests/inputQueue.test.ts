@@ -33,9 +33,9 @@ describe("directional request decision", () => {
     ).toBe("ignore");
   });
 
-  it("drops held repeats that fire during an animation", () => {
+  it("queues an already eligible held repeat during an animation", () => {
     expect(decideDirectionRequest({ ...base, repeated: true, animating: true })).toBe(
-      "ignore",
+      "queue",
     );
   });
 

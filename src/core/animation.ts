@@ -100,6 +100,8 @@ export interface AnimationContext {
   readonly random: () => number;
   /** `Projection.GetBumpLength()` for this frame. */
   readonly bumpLength?: number;
+  /** Block.UpdateAnimation clears Movement.WaitForMoveDirChange on JUMP_OUT landing. */
+  readonly onJumpOutComplete?: () => void;
 }
 
 export interface AnimationSettings {
@@ -224,6 +226,7 @@ export function updateAnimation(
     block.anim !== AnimType.JumpIn
   ) {
     const finishedAnimation = block.anim;
+    if (finishedAnimation === AnimType.JumpOut) context.onJumpOutComplete?.();
     stopMoving(block);
     if (
       (finishedAnimation === AnimType.Normal ||

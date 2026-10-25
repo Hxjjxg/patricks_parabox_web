@@ -129,13 +129,11 @@ export class DirectionalInput {
     }
     // The original only advances its move delay while no block is animating,
     // so held input does not burn repeats during a slide.
-    if (!canRepeat) return null;
-    this.repeatElapsed += Math.max(0, elapsedSeconds);
+    if (canRepeat) this.repeatElapsed += Math.max(0, elapsedSeconds);
     // Native delay continues accumulating through a settled win/queue, but
     // only an actual eligible impulse consumes it. Automatic loads retain it.
     if (!canEmit) return null;
     if (this.repeatElapsed <= this.moveDelaySeconds) return null;
-    this.repeatElapsed = 0;
     return current;
   }
 

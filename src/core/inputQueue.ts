@@ -34,7 +34,9 @@ export function decideDirectionRequest(
   if (state.repeated) {
     if (state.waitingForDirectionChange) return "ignore";
     if (!state.animating) return "apply";
-    return state.allowSkippingAnimation ? "skip-and-apply" : "ignore";
+    // PlayerMovementLogic tests an already eligible moveDelayCounter even
+    // while moving (notably the delay retained through a win into Hub).
+    return state.allowSkippingAnimation ? "skip-and-apply" : "queue";
   }
   if (!state.animating) return "apply";
   return state.allowSkippingAnimation ? "skip-and-apply" : "queue";
