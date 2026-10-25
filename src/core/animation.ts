@@ -59,7 +59,8 @@ export function quadOut(k: number): number {
 export function quadInOut(k: number): number {
   const j = k * 2;
   if (j < 1) return 0.5 * j * j;
-  return -0.5 * ((j - 1) * (j - 2) - 1);
+  // Util.QuadInOut mutates k before evaluating the second multiplicand.
+  return -0.5 * ((j - 1) * (j - 3) - 1);
 }
 
 export function quadParabola(k: number): number {

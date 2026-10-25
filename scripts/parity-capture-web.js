@@ -86,6 +86,9 @@ async () => {
   releaseControls();
   api.loadLevel(options.level);
   await sleep(300);
+  if (api.world().levelName !== options.level) {
+    throw new Error('Requested level did not load: ' + options.level + ' → ' + api.world().levelName);
+  }
   const vector = { L: [-1, 0], R: [1, 0], U: [0, 1], D: [0, -1] };
   for (const direction of options.setupActions ?? options.setup ?? '') {
     if (direction === 'UNDO') api.undo();
