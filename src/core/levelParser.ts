@@ -7,6 +7,7 @@ import {
   WorldModel,
 } from "./model";
 import { localizeEnglish } from "./localization";
+import { applyScenePalette } from "./palettes";
 import {
   chooseRandomOrientation,
   identityOrientation,
@@ -414,5 +415,6 @@ export function parseLevel(
   }
   world.computeBlockLists();
   world.updateButtonsPressed();
+  applyScenePalette(world, source);
   return world;
 }
