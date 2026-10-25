@@ -22,6 +22,8 @@ SPECS = [
     ("native-gui-font-pack-v7-20261025", "valid-diagnostic", "explicit-gui-overlay"),
     ("native-gui-font-pack-odd-v8-20261025", "valid-diagnostic", "explicit-gui-overlay"),
     ("native-gui-font-pack-falsify-v9-20261025", "valid-diagnostic", "explicit-gui-overlay"),
+    ("native-gui-font-pack-cross-v10-20261025", "valid-diagnostic", "explicit-gui-overlay"),
+    ("native-gui-font-pack-text-cross-v11-20261025", "valid-diagnostic", "explicit-gui-overlay"),
 ]
 manifest = read(EVIDENCE / "manifest.json")
 entries = []
@@ -36,24 +38,25 @@ for name, status, kind in SPECS:
         entry.update(width=metrics["screenWidth"], height=metrics["screenHeight"], actualFontSize=metrics["lastMoveDraw"]["fontSize"], captionRect=metrics["actualMoveRect"], controls=metrics["controls"])
     if kind == "explicit-gui-overlay":
         analysis = read(directory / "mask-alignment-analysis.json")
-        assert len(analysis["samples"]) == 12
+        count = 18 if "cross-v10" in name else 12
+        assert len(analysis["samples"]) == count
         assert all(sample["whiteMaskDiff"] == 0 for sample in analysis["samples"])
         samples.extend(analysis["samples"])
-        entry.update(width=800, height=600, exactMaskSamples=12, note="Explicit native DrawText diagnostic overlay, not a gameplay screenshot.")
+        entry.update(width=800, height=600, exactMaskSamples=count, note="Explicit native DrawText diagnostic overlay, not a gameplay screenshot.")
     entries.append(entry)
     if not any(existing["id"] == name for existing in manifest.setdefault("fontReadbacks", [])):
         manifest["fontReadbacks"].append(entry)
 
-assert len(samples) == 36
+assert len(samples) == 66
 failed = [sample for sample in samples if not sample["genericSnapPrediction"]["matches"]]
-assert len(failed) == 6 and all(sample["text"] == "Undo" for sample in failed)
+assert len(failed) == 12 and all(sample["text"].strip() == "Undo" for sample in failed)
 assert all(sample["genericSnapPrediction"]["baseline"] == sample["baseline"] for sample in samples)
-index = dict(schemaVersion=1, captures=entries, exactDiagnosticMaskSamples=36,
-             verticalPredictionMatches=36, unchangedGenericHorizontalFalsifiedBy=failed,
+index = dict(schemaVersion=1, captures=entries, exactDiagnosticMaskSamples=66,
+             verticalPredictionMatches=66, unchangedGenericHorizontalFalsifiedBy=failed,
              limits=["Diagnostic overlays are not natural game references.",
                      "Vertical staged snap is experimentally supported, not Unity native C++ source-confirmed.",
-                     "Horizontal advance-width formula is falsified for single-line Undo; no fitted correction is asserted.",
+                     "Horizontal advance-width formula is falsified for both single-line and newline Undo; no fitted correction is asserted.",
                      "The1001 viewport's four extra threshold-white pixels are explained exactly by alpha over its recorded gray60 void particle."])
 write(EVIDENCE / "font-layout-native-index.json", index)
 write(EVIDENCE / "manifest.json", manifest)
-print(json.dumps(dict(captures=len(entries), exactMasks=36, baselinePredictionsCorrect=36, horizontalFalsifications=len(failed))))
+print(json.dumps(dict(captures=len(entries), exactMasks=66, baselinePredictionsCorrect=66, horizontalFalsifications=len(failed))))

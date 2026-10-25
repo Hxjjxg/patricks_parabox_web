@@ -159,3 +159,10 @@ odd/even dimensions and both newline-Move/single-line Undo.
 `analyze-gui-font-pack.py` finds unique glyph mask alignments independently
 before checking a proposed layout rule. It retains failed predictions rather
 than fitting expected results. See native-font-layout-evidence.md for limits.
+
+`GUI_FONT_PACK_CROSS` holds newline-Move at102x82 with signed fractional X
+origins. `GUI_FONT_PACK_TEXT_CROSS` holds geometry fixed across Move,
+newline-Move, Undo and newline-Undo, and exports native TextGenerator
+preferred widths/characters/lines/vertices for all four forms at12/16/20.
+V10's legacy fractionY telemetry is a row ordinal; actual rect.y is integer
+and is used by analysis. Both commands are diagnostic overlays only.

@@ -232,6 +232,8 @@ public sealed class Plugin : BaseUnityPlugin
         public static bool Active;
         public static bool OddRect;
         public static bool FalsifyCase;
+        public static bool CrossCase;
+        public static bool TextCrossCase;
         public static readonly List<string> Samples = new List<string>();
         [HarmonyPostfix] private static void Postfix()
         {
@@ -247,11 +249,13 @@ public sealed class Plugin : BaseUnityPlugin
                 GUI.color = Color.black; GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Texture2D.whiteTexture); GUI.color = Color.white;
                 Samples.Clear();
                 int[] sizes = { 12, 16, 20 };
-                for (int column = 0; column < 3; column++) for (int row = 0; row < 4; row++)
+                for (int column = 0; column < 3; column++) for (int row = 0; row < (CrossCase ? 6 : 4); row++)
                 {
                     float fraction = row * 0.25f; Rect rect = new Rect(50f + column * 240f + (OddRect ? fraction : 0f), 20f + row * 130f + fraction, OddRect ? 101f : 100f, OddRect ? 81f : 80f);
                     string text = "\nMove";
                     if (FalsifyCase) { bool even = row % 2 == 0; rect = new Rect(column * 240f - fraction, 20f + row * 130f + fraction, even ? 99f : 102f, even ? 79f : 82f); if (!even) text = "Undo"; }
+                    if (CrossCase) rect = new Rect(column * 240f + (row < 3 ? 1f : -1f) * ((row % 3 + 1) * 0.25f), 10f + row * 95f, 102f, 82f);
+                    if (TextCrossCase) { fraction = 0.25f; rect = new Rect(column * 240f - 0.25f, 20.25f + row * 130f, 102f, 82f); text = new[] { "Move", "\nMove", "Undo", "\nUndo" }[row]; }
                     rectField.SetValue(null, rect); Draw.DrawText(text, Color.white, TextAnchor.MiddleCenter, sizes[column], Draw.SquareFont.Main);
                     GUIContent content = new GUIContent(text);
                     Samples.Add("{\"fontSize\":" + sizes[column] + ",\"text\":\"" + EscapeJson(text) + "\",\"placementCursor\":" + (text.StartsWith("\n") ? 1 : 0) + ",\"calcSize\":" + V(style.CalcSize(content)) + ",\"lineHeight\":" + Invariant(style.lineHeight) + ",\"fractionY\":" + Invariant(fraction) + ",\"rect\":[" + Invariant(rect.x) + "," + Invariant(rect.y) + "," + Invariant(rect.width) + "," + Invariant(rect.height) + "],\"cursorIndices\":[0,1," + text.Length + "],\"cursors\":[" + V(style.GetCursorPixelPosition(rect, content, 0)) + "," + V(style.GetCursorPixelPosition(rect, content, 1)) + "," + V(style.GetCursorPixelPosition(rect, content, text.Length)) + "]}");
@@ -383,8 +387,10 @@ public sealed class Plugin : BaseUnityPlugin
             }
 
             _lastRequestId = requestId;
-            if (levelName == "GUI_FONT_PACK" || levelName == "GUI_FONT_PACK_ODD" || levelName == "GUI_FONT_PACK_FALSIFY")
+            if (levelName == "GUI_FONT_PACK" || levelName == "GUI_FONT_PACK_ODD" || levelName == "GUI_FONT_PACK_FALSIFY" || levelName == "GUI_FONT_PACK_CROSS" || levelName == "GUI_FONT_PACK_TEXT_CROSS")
             {
+                GuiFontPackPatch.CrossCase = levelName == "GUI_FONT_PACK_CROSS";
+                GuiFontPackPatch.TextCrossCase = levelName == "GUI_FONT_PACK_TEXT_CROSS";
                 StartCoroutine(RunGuiFontPackScenario(requestId, levelName == "GUI_FONT_PACK_ODD", levelName == "GUI_FONT_PACK_FALSIFY"));
                 return;
             }
@@ -1377,10 +1383,27 @@ public sealed class Plugin : BaseUnityPlugin
                 foreach (char character in "MoveUnd") { font.GetCharacterInfo(character, out CharacterInfo glyph, size, FontStyle.Normal); glyphs.Add("{\"character\":\"" + character + "\",\"advance\":" + glyph.advance + ",\"bounds\":[" + glyph.minX + "," + glyph.minY + "," + glyph.maxX + "," + glyph.maxY + "],\"uvBottomLeft\":" + JsonUtility.ToJson(glyph.uvBottomLeft) + ",\"uvBottomRight\":" + JsonUtility.ToJson(glyph.uvBottomRight) + ",\"uvTopLeft\":" + JsonUtility.ToJson(glyph.uvTopLeft) + ",\"uvTopRight\":" + JsonUtility.ToJson(glyph.uvTopRight) + "}"); }
                 sizes.Add("{\"fontSize\":" + size + ",\"glyphs\":[" + string.Join(",", glyphs) + "]}");
             }
+            var generatedTexts = new List<string>();
+            if (GuiFontPackPatch.TextCrossCase) foreach (int size in new[] { 12, 16, 20 }) foreach (string text in new[] { "Move", "\nMove", "Undo", "\nUndo" }) generatedTexts.Add(GenerateTextMetric(font, size, text));
             string metadata = "{\"requestId\":\"" + EscapeJson(requestId) + "\",\"screenWidth\":" + Screen.width + ",\"screenHeight\":" + Screen.height + ",\"entrypoint\":\"Draw.DrawText / GUI.Label\",\"text\":\"\\nMove\",\"backdrop\":\"opaque black GUI.DrawTexture; diagnostic overlay only\",\"samples\":[" + string.Join(",", GuiFontPackPatch.Samples) + "],\"metrics\":[" + string.Join(",", sizes) + "]}";
+            metadata = metadata.Substring(0, metadata.Length - 1) + ",\"textGeneratorMeasurements\":[" + string.Join(",", generatedTexts) + "]}";
             File.WriteAllText(Path.Combine(directory, "gui-font-pack.json"), metadata, new UTF8Encoding(false)); WriteResult(metadata);
         }
         finally { GuiFontPackPatch.Active = false; GuiFontPackPatch.OddRect = false; GuiFontPackPatch.FalsifyCase = false; _busy = false; }
+    }
+
+    private static string GenerateTextMetric(Font font, int size, string text)
+    {
+        using (var generator = new TextGenerator())
+        {
+            var settings = new TextGenerationSettings { font = font, fontSize = size, fontStyle = FontStyle.Normal, color = Color.white, lineSpacing = 1f, scaleFactor = 1f, textAnchor = TextAnchor.UpperLeft, generationExtents = new Vector2(600f, 600f), pivot = new Vector2(0f, 1f), horizontalOverflow = HorizontalWrapMode.Overflow, verticalOverflow = VerticalWrapMode.Overflow, richText = true, generateOutOfBounds = true };
+            bool populated = generator.Populate(text, settings);
+            var vertices = new List<string>(); foreach (UIVertex vertex in generator.verts) vertices.Add("[" + Invariant(vertex.position.x) + "," + Invariant(vertex.position.y) + "," + Invariant(vertex.position.z) + "]");
+            var characters = new List<string>(); foreach (UICharInfo character in generator.characters) characters.Add(JsonUtility.ToJson(character));
+            var lines = new List<string>(); foreach (UILineInfo line in generator.lines) lines.Add(JsonUtility.ToJson(line));
+            float preferredWidth = generator.GetPreferredWidth(text, settings);
+            return "{\"fontSize\":" + size + ",\"text\":\"" + EscapeJson(text) + "\",\"populated\":" + JsonBool(populated) + ",\"settings\":" + JsonUtility.ToJson(settings) + ",\"preferredWidth\":" + Invariant(preferredWidth) + ",\"rectExtents\":" + JsonUtility.ToJson(generator.rectExtents) + ",\"characters\":[" + string.Join(",", characters) + "],\"lines\":[" + string.Join(",", lines) + "],\"vertices\":[" + string.Join(",", vertices) + "]}";
+        }
     }
 
     private void RunFontFaceMetricsScenario(string requestId)

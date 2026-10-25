@@ -64,3 +64,25 @@ newline-Move cases pass. Do not claim it as a universal text layout rule.
 Native generated quad bounds/overhangs are a possible further hypothesis,
 not an established fix. Raw measurements and failed predictions remain in
 each pack's mask-alignment-analysis.json.
+
+V10 holds newline Move at width102/height82 and integer Y, crossing signed
+quarter/half/three-quarter X origins at sizes12/16/20 (18 labels). All18
+uniquely match their same-generation atlas and both staged predictions.
+Thus width102 and fractional-origin combination alone does not explain V9.
+Text, advance parity, overhang, and line structure remain confounded; the
+horizontal rule stays open. Absolute negative X is covered by the size12
+column; the other sizes use integer-translated signed fractions. The raw
+legacy `fractionY` field is a row ordinal in V10; actual `rect.y` is integer
+and is what the analysis uses. Across V7–V10, all54 vertical predictions
+pass and the same six V9 horizontal failures are retained.
+
+V11 compares Move/newline-Move/Undo/newline-Undo at the same width102,
+height82 and fractional geometry for all three sizes. All12 exact masks
+confirm that Move passes with or without newline, while Undo is one pixel
+left of the horizontal rule with or without newline. All12 vertical
+predictions pass. Thus actual newline-Undo also falsifies the current
+horizontal rule; line structure is not the cause. Native TextGenerator
+preferred widths equal30/40/50 for Move and29/39/49 for Undo. Complete
+characters, lines, vertices and settings are in the raw pack. Advance parity
+and quad layout remain unresolved. Across V7–V11 there are66 exact masks,
+66 vertical matches and12 retained horizontal failures.
