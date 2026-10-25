@@ -34,6 +34,7 @@ import { faceQuads } from "./faceRendering";
 import { phantomGeometry, shouldDrawPhantom } from "./phantomRendering";
 import {alternateLevels,gridBoards,tuiLayout,tuiGlyphs,useAlternateDrawStyle,type AlternateStyleContext,type TuiGlyph} from "./alternateStyles";
 import {nativeTuiGlyphQuad} from "./nativeTuiFont";
+import {meetsNativeDrawSize,nativeDrawPolicy} from "./drawPolicy";
 import { infinityGlyphQuads } from "./infinityRendering";
 import { flipShineQuad } from "./flipShineRendering";
 import { goalCellRect, goalStrips, goalTint } from "./goalRendering";
@@ -957,7 +958,10 @@ export class GameRenderer {
   ): Graphics {
     if (depth >= 15) return graphics;
     if (!this.onScreen(rect)) return graphics;
-    if (rect.width <= 0.5 || rect.height <= 0.5) return graphics;
+    const policy=nativeDrawPolicy(this.world?.levelName??"",this.app.screen.width,this.app.screen.height,this.app.renderer?.resolution??1);
+    const cellWidth=rect.width/level.width,cellHeight=rect.height/level.height;
+    const suppressMoving=policy.maxDepthMovingBlocks!==-1&&depth>policy.maxDepthMovingBlocks;
+    const suppressSpecial=policy.suppressIiiEffects&&depth>=1&&viewBlock.specialEffect===13;
     const fractionOfScreen =
       ((rect.width + rect.height) / 2) / Math.max(1, this.app.screen.height);
     const cloneFade=this.currentTicket?.cloneFade ?? false;
@@ -981,6 +985,7 @@ export class GameRenderer {
       this.app.screen.width, this.app.screen.height, this.app.renderer?.resolution ?? 1);
 
     for (const floor of level.floorList) {
+      if(!meetsNativeDrawSize(cellWidth,cellHeight,policy.minDrawSize))continue;
       const cellRect = this.cellRect(level, floor.x, floor.y, rect, flipH);
       if (!this.onScreen(cellRect)) continue;
       this.drawFloor(graphics, floor.type, cellRect, level, floor);
@@ -989,6 +994,7 @@ export class GameRenderer {
     // `Draw.ProcessTicket` draws level particles between floors and blocks.
     if (
       !this.uiState?.preferences.disableParticles &&
+      !suppressMoving&&!suppressSpecial&&
       this.world?.drawStyle !== DrawStyle.QuickAnim
     ) {
       const centerX = rect.x + rect.width / 2;
@@ -998,7 +1004,7 @@ export class GameRenderer {
         if (particle.celebration && !showCelebration) continue;
         const width = Math.abs(rect.width * particle.size);
         const height = Math.abs(rect.height * particle.size);
-        if (width < 0.6 || height < 0.6) continue;
+        if (!meetsNativeDrawSize(width,height,policy.minParticleSize)) continue;
         let offsetX = rect.width * particle.x;
         if (flipH) offsetX *= -1;
         const offsetY = rect.height * particle.y;
@@ -1021,9 +1027,10 @@ export class GameRenderer {
     }
 
     // Native ProcessTicket submits every child shadow before walls or boxes.
-    if (this.world?.drawStyle !== DrawStyle.QuickAnim) {
+    if (this.world?.drawStyle !== DrawStyle.QuickAnim&&!suppressMoving&&!suppressSpecial) {
       const resolution = this.app.renderer?.resolution ?? 1;
       for (const block of level.blockList) {
+        if(!meetsNativeDrawSize(cellWidth*block.drawXScale,cellHeight*block.drawYScale,policy.minDrawSize))continue;
         if (!block.subLevel && wallShadowCull(level, block)) continue;
         const blockRect = this.animatedCellRect(level, block, rect, flipH);
         const staticCell = this.cellRect(level, block.x, block.y, rect, flipH);
@@ -1055,6 +1062,8 @@ export class GameRenderer {
     const wallGraphics = this.nextWallLayer(tint);
     for (const block of level.blockList) {
       if (block.subLevel) continue;
+      if(suppressMoving&&block.moving)continue;
+      if(!meetsNativeDrawSize(cellWidth*block.drawXScale,cellHeight*block.drawYScale,policy.minDrawSize))continue;
       const wallRect = this.animatedCellRect(level, block, rect, flipH);
       if (!this.onScreen(wallRect)) continue;
       this.drawWall(wallGraphics, level, block, wallRect, 0xffffff, flipH);
@@ -1067,7 +1076,7 @@ export class GameRenderer {
     }
     const nextAncestors = new Set(ancestors);
     nextAncestors.add(level);
-    const containers = level.blockList.filter((block) => block.subLevel);
+    const containers = level.blockList.filter((block) => block.subLevel&&(!suppressMoving||!block.moving));
     // Mirrors the original draw queues (still, bump, moving): moving boxes
     // must land on top of the frame they are sliding across.
     const ordered = [
@@ -1080,6 +1089,7 @@ export class GameRenderer {
       ),
     ];
     for (const block of ordered) {
+      if(!meetsNativeDrawSize(cellWidth*block.drawXScale,cellHeight*block.drawYScale,policy.minDrawSize))continue;
       const blockRect = this.animatedCellRect(level, block, rect, flipH);
       if (!this.onScreen(blockRect)) continue;
       if (this.pendingTickets) {
@@ -1102,6 +1112,8 @@ export class GameRenderer {
     }
 
     for (const phantom of level.phantoms) {
+      if(suppressMoving)break;
+      if(!meetsNativeDrawSize(cellWidth*phantom.xScale,cellHeight*phantom.yScale,policy.minDrawSize))continue;
       if (!shouldDrawPhantom(phantom,viewBlock,this.world?.drawStyle ?? DrawStyle.Normal)) {
         continue;
       }
