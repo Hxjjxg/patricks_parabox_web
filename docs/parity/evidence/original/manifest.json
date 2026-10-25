@@ -5093,6 +5093,50 @@
         "observer-build.json": "bc1f713282da3e70e0740c2163bc2a31f7591e3925946b5f3b69d49c8e17bf07",
         "screen.png": "e1bfe76c677e7d169aec9f1d8c5abd8480d191bf9a91145b6b20b255868492fa"
       }
+    },
+    {
+      "id": "native-gui-font-alignment-pairs-v14-20261025",
+      "kind": "actual-native-gui-alignment-pair-overlay",
+      "status": "valid-diagnostic",
+      "directory": "docs/parity/evidence/original/native-gui-font-alignment-pairs-v14-20261025",
+      "width": 800,
+      "height": 600,
+      "fontSize": 16,
+      "pairs": 8,
+      "samples": 16,
+      "observerBuild": {
+        "sourceSha256": "78f656710c7f39193887a0d1c70d4103a3953656e7ba3d6ff4ea5aa64fb9bc45",
+        "dllSha256": "e0e22b2b9be36a02c49cf1f0cd8aa10f3ca67c05edd6344bf810ca1a6e3f9360",
+        "buildWarnings": 0,
+        "buildErrors": 0,
+        "requestedFontSize": 16,
+        "texts": [
+          "Move",
+          "U"
+        ],
+        "widths": [
+          361,
+          362
+        ],
+        "origins": [
+          0,
+          -0.25
+        ],
+        "pairs": 8,
+        "labels": 16,
+        "columnTranslation": 400,
+        "rectHeight": 82,
+        "diagnosticOverlay": true,
+        "nativeGuiMeshVerticesExposed": false,
+        "note": "Actual GUI.Label MiddleCenter and actual GUI.Label UpperLeft paired using native center cursor and native padding/contentOffset. Explicit disjoint analysisRegion tiles isolate ink where shifted label rectangles overlap. Raw TextGenerator vertices remain separate comparators."
+      },
+      "hashes": {
+        "font-atlas.png": "8b23ffdf5f771229bd580b656ab9d583d22963778eda4c7b49b7ba4d00057ec4",
+        "gui-font-pack.json": "c184e95af2c373045bb32f3b09df634ef4500ea1f40088d1510839472ca2af51",
+        "mask-alignment-analysis.json": "e450416008b25e51cb8716618074168cbda255b3800461e0942cab64ff7b5738",
+        "observer-build.json": "fef43578876629a870bd4ad489401df3bee5e2a23aa4242fa8d0920359185d56",
+        "screen.png": "a7934a87f85a00f7cc22ad661c239ba5a363e8df66e175228f14d69d1570de65"
+      }
     }
   ]
 }

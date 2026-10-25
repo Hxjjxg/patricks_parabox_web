@@ -45,7 +45,8 @@ for name in NAMES:
         text = sample.get("text", "\nMove")
         cursor_x, cursor_y = sample["cursors"][sample.get("placementCursor", 1)]
         rect_x, rect_y, width, height = sample["rect"]
-        actual = {(x, y) for y in range(max(0, math.floor(rect_y)), min(screen.height, math.ceil(rect_y + height))) for x in range(max(0, math.floor(rect_x)), min(screen.width, math.ceil(rect_x + width))) if min(screen.getpixel((x, y))) >= 240}
+        scan_x, scan_y, scan_w, scan_h = sample.get('analysisRegion', sample['rect'])
+        actual = {(x, y) for y in range(max(0, math.floor(scan_y)), min(screen.height, math.ceil(scan_y + scan_h))) for x in range(max(0, math.floor(scan_x)), min(screen.width, math.ceil(scan_x + scan_w))) if min(screen.getpixel((x, y))) >= 240}
         candidates = []
         for pen_x in range(math.floor(cursor_x) - 2, math.ceil(cursor_x) + 3):
             for baseline in range(math.floor(cursor_y), math.ceil(cursor_y) + 40):

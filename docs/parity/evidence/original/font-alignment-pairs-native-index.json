@@ -1,0 +1,852 @@
+{
+  "schemaVersion": 1,
+  "capture": {
+    "id": "native-gui-font-alignment-pairs-v14-20261025",
+    "kind": "actual-native-gui-alignment-pair-overlay",
+    "status": "valid-diagnostic",
+    "directory": "docs/parity/evidence/original/native-gui-font-alignment-pairs-v14-20261025",
+    "width": 800,
+    "height": 600,
+    "fontSize": 16,
+    "pairs": 8,
+    "samples": 16,
+    "observerBuild": {
+      "sourceSha256": "78f656710c7f39193887a0d1c70d4103a3953656e7ba3d6ff4ea5aa64fb9bc45",
+      "dllSha256": "e0e22b2b9be36a02c49cf1f0cd8aa10f3ca67c05edd6344bf810ca1a6e3f9360",
+      "buildWarnings": 0,
+      "buildErrors": 0,
+      "requestedFontSize": 16,
+      "texts": [
+        "Move",
+        "U"
+      ],
+      "widths": [
+        361,
+        362
+      ],
+      "origins": [
+        0,
+        -0.25
+      ],
+      "pairs": 8,
+      "labels": 16,
+      "columnTranslation": 400,
+      "rectHeight": 82,
+      "diagnosticOverlay": true,
+      "nativeGuiMeshVerticesExposed": false,
+      "note": "Actual GUI.Label MiddleCenter and actual GUI.Label UpperLeft paired using native center cursor and native padding/contentOffset. Explicit disjoint analysisRegion tiles isolate ink where shifted label rectangles overlap. Raw TextGenerator vertices remain separate comparators."
+    },
+    "hashes": {
+      "font-atlas.png": "8b23ffdf5f771229bd580b656ab9d583d22963778eda4c7b49b7ba4d00057ec4",
+      "gui-font-pack.json": "c184e95af2c373045bb32f3b09df634ef4500ea1f40088d1510839472ca2af51",
+      "mask-alignment-analysis.json": "e450416008b25e51cb8716618074168cbda255b3800461e0942cab64ff7b5738",
+      "observer-build.json": "fef43578876629a870bd4ad489401df3bee5e2a23aa4242fa8d0920359185d56",
+      "screen.png": "a7934a87f85a00f7cc22ad661c239ba5a363e8df66e175228f14d69d1570de65"
+    }
+  },
+  "results": {
+    "actualGuiSamples": 16,
+    "actualGuiPairs": 8,
+    "sameNativeFrame": true,
+    "exactUniqueMasks": 16,
+    "matchedNativeCursorPairs": 8,
+    "matchedBaselinePairs": 8,
+    "matchedFullRgbPairs": 8,
+    "completeAtlasAlphaRgbExactSamples": 16,
+    "upperLeftFinalCursorSnapMatches": 8,
+    "centeredFinalCursorSnapMatches": 6,
+    "onePixelPairDifferences": 2,
+    "normalizedRgbInvariantTextGroups": 2,
+    "samplesPerRgbGroup": 8,
+    "rawGeneratorComparators": 64,
+    "rawVerticesChecked": 640,
+    "currentAtlasQuadUvMatches": 160,
+    "nonblackPixelsAccounted": 2856,
+    "atlasByteIdenticalToV13": true
+  },
+  "pairs": [
+    {
+      "pairIndex": 0,
+      "text": "Move",
+      "width": 361,
+      "origin": 0,
+      "centerCursor": [
+        180.5,
+        39.5
+      ],
+      "upperLeftCursor": [
+        580.5,
+        39.5
+      ],
+      "centerPenX": 180,
+      "upperLeftPenX": 580,
+      "upperLeftMinusColumnTranslation": 180,
+      "upperLeftMinusCenterPenX": 0,
+      "exactMatchingBaseline": 57,
+      "normalizedFullRgbEqual": true
+    },
+    {
+      "pairIndex": 1,
+      "text": "Move",
+      "width": 361,
+      "origin": -0.25,
+      "centerCursor": [
+        180.25,
+        103.5
+      ],
+      "upperLeftCursor": [
+        580.25,
+        103.5
+      ],
+      "centerPenX": 180,
+      "upperLeftPenX": 580,
+      "upperLeftMinusColumnTranslation": 180,
+      "upperLeftMinusCenterPenX": 0,
+      "exactMatchingBaseline": 121,
+      "normalizedFullRgbEqual": true
+    },
+    {
+      "pairIndex": 2,
+      "text": "Move",
+      "width": 362,
+      "origin": 0,
+      "centerCursor": [
+        181,
+        167.5
+      ],
+      "upperLeftCursor": [
+        581,
+        167.5
+      ],
+      "centerPenX": 181,
+      "upperLeftPenX": 581,
+      "upperLeftMinusColumnTranslation": 181,
+      "upperLeftMinusCenterPenX": 0,
+      "exactMatchingBaseline": 185,
+      "normalizedFullRgbEqual": true
+    },
+    {
+      "pairIndex": 3,
+      "text": "Move",
+      "width": 362,
+      "origin": -0.25,
+      "centerCursor": [
+        180.75,
+        231.5
+      ],
+      "upperLeftCursor": [
+        580.75,
+        231.5
+      ],
+      "centerPenX": 181,
+      "upperLeftPenX": 581,
+      "upperLeftMinusColumnTranslation": 181,
+      "upperLeftMinusCenterPenX": 0,
+      "exactMatchingBaseline": 249,
+      "normalizedFullRgbEqual": true
+    },
+    {
+      "pairIndex": 4,
+      "text": "U",
+      "width": 361,
+      "origin": 0,
+      "centerCursor": [
+        194.5,
+        295.5
+      ],
+      "upperLeftCursor": [
+        594.5,
+        295.5
+      ],
+      "centerPenX": 194,
+      "upperLeftPenX": 594,
+      "upperLeftMinusColumnTranslation": 194,
+      "upperLeftMinusCenterPenX": 0,
+      "exactMatchingBaseline": 313,
+      "normalizedFullRgbEqual": true
+    },
+    {
+      "pairIndex": 5,
+      "text": "U",
+      "width": 361,
+      "origin": -0.25,
+      "centerCursor": [
+        194.25,
+        359.5
+      ],
+      "upperLeftCursor": [
+        594.25,
+        359.5
+      ],
+      "centerPenX": 194,
+      "upperLeftPenX": 594,
+      "upperLeftMinusColumnTranslation": 194,
+      "upperLeftMinusCenterPenX": 0,
+      "exactMatchingBaseline": 377,
+      "normalizedFullRgbEqual": true
+    },
+    {
+      "pairIndex": 6,
+      "text": "U",
+      "width": 362,
+      "origin": 0,
+      "centerCursor": [
+        195,
+        423.5
+      ],
+      "upperLeftCursor": [
+        595,
+        423.5
+      ],
+      "centerPenX": 194,
+      "upperLeftPenX": 595,
+      "upperLeftMinusColumnTranslation": 195,
+      "upperLeftMinusCenterPenX": 1,
+      "exactMatchingBaseline": 441,
+      "normalizedFullRgbEqual": true
+    },
+    {
+      "pairIndex": 7,
+      "text": "U",
+      "width": 362,
+      "origin": -0.25,
+      "centerCursor": [
+        194.75,
+        487.5
+      ],
+      "upperLeftCursor": [
+        594.75,
+        487.5
+      ],
+      "centerPenX": 194,
+      "upperLeftPenX": 595,
+      "upperLeftMinusColumnTranslation": 195,
+      "upperLeftMinusCenterPenX": 1,
+      "exactMatchingBaseline": 505,
+      "normalizedFullRgbEqual": true
+    }
+  ],
+  "samples": [
+    {
+      "index": 0,
+      "pairIndex": 0,
+      "role": "MiddleCenter",
+      "text": "Move",
+      "rect": [
+        20,
+        10,
+        361,
+        82
+      ],
+      "analysisRegion": [
+        0,
+        10,
+        400,
+        64
+      ],
+      "pairOrigin": 0,
+      "sourceCenterCursor": [
+        180.5,
+        39.5
+      ],
+      "actualCursor": [
+        180.5,
+        39.5
+      ],
+      "advanceWidth": 40,
+      "actualPenX": 180,
+      "actualBaseline": 57,
+      "whiteMaskDiff": 0,
+      "secondBestMaskDiff": 84,
+      "normalizedFullRgbSha256": "911c6233d8aca2b60a5621cbc47df3e52355c40825a41e6db931003670fe766d",
+      "nonblackPixels": 274,
+      "completeAtlasAlphaRgbDifferences": 0,
+      "finalCursorSnapPrediction": 180,
+      "finalCursorSnapMatches": true
+    },
+    {
+      "index": 1,
+      "pairIndex": 0,
+      "role": "UpperLeft",
+      "text": "Move",
+      "rect": [
+        580.5,
+        36.5,
+        361,
+        82
+      ],
+      "analysisRegion": [
+        400,
+        10,
+        400,
+        64
+      ],
+      "pairOrigin": 0,
+      "sourceCenterCursor": [
+        180.5,
+        39.5
+      ],
+      "actualCursor": [
+        580.5,
+        39.5
+      ],
+      "advanceWidth": 40,
+      "actualPenX": 580,
+      "actualBaseline": 57,
+      "whiteMaskDiff": 0,
+      "secondBestMaskDiff": 84,
+      "normalizedFullRgbSha256": "911c6233d8aca2b60a5621cbc47df3e52355c40825a41e6db931003670fe766d",
+      "nonblackPixels": 274,
+      "completeAtlasAlphaRgbDifferences": 0,
+      "finalCursorSnapPrediction": 580,
+      "finalCursorSnapMatches": true
+    },
+    {
+      "index": 2,
+      "pairIndex": 1,
+      "role": "MiddleCenter",
+      "text": "Move",
+      "rect": [
+        19.75,
+        74,
+        361,
+        82
+      ],
+      "analysisRegion": [
+        0,
+        74,
+        400,
+        64
+      ],
+      "pairOrigin": -0.25,
+      "sourceCenterCursor": [
+        180.25,
+        103.5
+      ],
+      "actualCursor": [
+        180.25,
+        103.5
+      ],
+      "advanceWidth": 40,
+      "actualPenX": 180,
+      "actualBaseline": 121,
+      "whiteMaskDiff": 0,
+      "secondBestMaskDiff": 84,
+      "normalizedFullRgbSha256": "911c6233d8aca2b60a5621cbc47df3e52355c40825a41e6db931003670fe766d",
+      "nonblackPixels": 274,
+      "completeAtlasAlphaRgbDifferences": 0,
+      "finalCursorSnapPrediction": 180,
+      "finalCursorSnapMatches": true
+    },
+    {
+      "index": 3,
+      "pairIndex": 1,
+      "role": "UpperLeft",
+      "text": "Move",
+      "rect": [
+        580.25,
+        100.5,
+        361,
+        82
+      ],
+      "analysisRegion": [
+        400,
+        74,
+        400,
+        64
+      ],
+      "pairOrigin": -0.25,
+      "sourceCenterCursor": [
+        180.25,
+        103.5
+      ],
+      "actualCursor": [
+        580.25,
+        103.5
+      ],
+      "advanceWidth": 40,
+      "actualPenX": 580,
+      "actualBaseline": 121,
+      "whiteMaskDiff": 0,
+      "secondBestMaskDiff": 84,
+      "normalizedFullRgbSha256": "911c6233d8aca2b60a5621cbc47df3e52355c40825a41e6db931003670fe766d",
+      "nonblackPixels": 274,
+      "completeAtlasAlphaRgbDifferences": 0,
+      "finalCursorSnapPrediction": 580,
+      "finalCursorSnapMatches": true
+    },
+    {
+      "index": 4,
+      "pairIndex": 2,
+      "role": "MiddleCenter",
+      "text": "Move",
+      "rect": [
+        20,
+        138,
+        362,
+        82
+      ],
+      "analysisRegion": [
+        0,
+        138,
+        400,
+        64
+      ],
+      "pairOrigin": 0,
+      "sourceCenterCursor": [
+        181,
+        167.5
+      ],
+      "actualCursor": [
+        181,
+        167.5
+      ],
+      "advanceWidth": 40,
+      "actualPenX": 181,
+      "actualBaseline": 185,
+      "whiteMaskDiff": 0,
+      "secondBestMaskDiff": 84,
+      "normalizedFullRgbSha256": "911c6233d8aca2b60a5621cbc47df3e52355c40825a41e6db931003670fe766d",
+      "nonblackPixels": 274,
+      "completeAtlasAlphaRgbDifferences": 0,
+      "finalCursorSnapPrediction": 181,
+      "finalCursorSnapMatches": true
+    },
+    {
+      "index": 5,
+      "pairIndex": 2,
+      "role": "UpperLeft",
+      "text": "Move",
+      "rect": [
+        581,
+        164.5,
+        362,
+        82
+      ],
+      "analysisRegion": [
+        400,
+        138,
+        400,
+        64
+      ],
+      "pairOrigin": 0,
+      "sourceCenterCursor": [
+        181,
+        167.5
+      ],
+      "actualCursor": [
+        581,
+        167.5
+      ],
+      "advanceWidth": 40,
+      "actualPenX": 581,
+      "actualBaseline": 185,
+      "whiteMaskDiff": 0,
+      "secondBestMaskDiff": 84,
+      "normalizedFullRgbSha256": "911c6233d8aca2b60a5621cbc47df3e52355c40825a41e6db931003670fe766d",
+      "nonblackPixels": 274,
+      "completeAtlasAlphaRgbDifferences": 0,
+      "finalCursorSnapPrediction": 581,
+      "finalCursorSnapMatches": true
+    },
+    {
+      "index": 6,
+      "pairIndex": 3,
+      "role": "MiddleCenter",
+      "text": "Move",
+      "rect": [
+        19.75,
+        202,
+        362,
+        82
+      ],
+      "analysisRegion": [
+        0,
+        202,
+        400,
+        64
+      ],
+      "pairOrigin": -0.25,
+      "sourceCenterCursor": [
+        180.75,
+        231.5
+      ],
+      "actualCursor": [
+        180.75,
+        231.5
+      ],
+      "advanceWidth": 40,
+      "actualPenX": 181,
+      "actualBaseline": 249,
+      "whiteMaskDiff": 0,
+      "secondBestMaskDiff": 84,
+      "normalizedFullRgbSha256": "911c6233d8aca2b60a5621cbc47df3e52355c40825a41e6db931003670fe766d",
+      "nonblackPixels": 274,
+      "completeAtlasAlphaRgbDifferences": 0,
+      "finalCursorSnapPrediction": 181,
+      "finalCursorSnapMatches": true
+    },
+    {
+      "index": 7,
+      "pairIndex": 3,
+      "role": "UpperLeft",
+      "text": "Move",
+      "rect": [
+        580.75,
+        228.5,
+        362,
+        82
+      ],
+      "analysisRegion": [
+        400,
+        202,
+        400,
+        64
+      ],
+      "pairOrigin": -0.25,
+      "sourceCenterCursor": [
+        180.75,
+        231.5
+      ],
+      "actualCursor": [
+        580.75,
+        231.5
+      ],
+      "advanceWidth": 40,
+      "actualPenX": 581,
+      "actualBaseline": 249,
+      "whiteMaskDiff": 0,
+      "secondBestMaskDiff": 84,
+      "normalizedFullRgbSha256": "911c6233d8aca2b60a5621cbc47df3e52355c40825a41e6db931003670fe766d",
+      "nonblackPixels": 274,
+      "completeAtlasAlphaRgbDifferences": 0,
+      "finalCursorSnapPrediction": 581,
+      "finalCursorSnapMatches": true
+    },
+    {
+      "index": 8,
+      "pairIndex": 4,
+      "role": "MiddleCenter",
+      "text": "U",
+      "rect": [
+        20,
+        266,
+        361,
+        82
+      ],
+      "analysisRegion": [
+        0,
+        266,
+        400,
+        64
+      ],
+      "pairOrigin": 0,
+      "sourceCenterCursor": [
+        194.5,
+        295.5
+      ],
+      "actualCursor": [
+        194.5,
+        295.5
+      ],
+      "advanceWidth": 11,
+      "actualPenX": 194,
+      "actualBaseline": 313,
+      "whiteMaskDiff": 0,
+      "secondBestMaskDiff": 14,
+      "normalizedFullRgbSha256": "3a2eb9a8319b74f1b31367043fd5217a799f9c20637d5905f5d503154066675e",
+      "nonblackPixels": 83,
+      "completeAtlasAlphaRgbDifferences": 0,
+      "finalCursorSnapPrediction": 194,
+      "finalCursorSnapMatches": true
+    },
+    {
+      "index": 9,
+      "pairIndex": 4,
+      "role": "UpperLeft",
+      "text": "U",
+      "rect": [
+        594.5,
+        292.5,
+        361,
+        82
+      ],
+      "analysisRegion": [
+        400,
+        266,
+        400,
+        64
+      ],
+      "pairOrigin": 0,
+      "sourceCenterCursor": [
+        194.5,
+        295.5
+      ],
+      "actualCursor": [
+        594.5,
+        295.5
+      ],
+      "advanceWidth": 11,
+      "actualPenX": 594,
+      "actualBaseline": 313,
+      "whiteMaskDiff": 0,
+      "secondBestMaskDiff": 14,
+      "normalizedFullRgbSha256": "3a2eb9a8319b74f1b31367043fd5217a799f9c20637d5905f5d503154066675e",
+      "nonblackPixels": 83,
+      "completeAtlasAlphaRgbDifferences": 0,
+      "finalCursorSnapPrediction": 594,
+      "finalCursorSnapMatches": true
+    },
+    {
+      "index": 10,
+      "pairIndex": 5,
+      "role": "MiddleCenter",
+      "text": "U",
+      "rect": [
+        19.75,
+        330,
+        361,
+        82
+      ],
+      "analysisRegion": [
+        0,
+        330,
+        400,
+        64
+      ],
+      "pairOrigin": -0.25,
+      "sourceCenterCursor": [
+        194.25,
+        359.5
+      ],
+      "actualCursor": [
+        194.25,
+        359.5
+      ],
+      "advanceWidth": 11,
+      "actualPenX": 194,
+      "actualBaseline": 377,
+      "whiteMaskDiff": 0,
+      "secondBestMaskDiff": 14,
+      "normalizedFullRgbSha256": "3a2eb9a8319b74f1b31367043fd5217a799f9c20637d5905f5d503154066675e",
+      "nonblackPixels": 83,
+      "completeAtlasAlphaRgbDifferences": 0,
+      "finalCursorSnapPrediction": 194,
+      "finalCursorSnapMatches": true
+    },
+    {
+      "index": 11,
+      "pairIndex": 5,
+      "role": "UpperLeft",
+      "text": "U",
+      "rect": [
+        594.25,
+        356.5,
+        361,
+        82
+      ],
+      "analysisRegion": [
+        400,
+        330,
+        400,
+        64
+      ],
+      "pairOrigin": -0.25,
+      "sourceCenterCursor": [
+        194.25,
+        359.5
+      ],
+      "actualCursor": [
+        594.25,
+        359.5
+      ],
+      "advanceWidth": 11,
+      "actualPenX": 594,
+      "actualBaseline": 377,
+      "whiteMaskDiff": 0,
+      "secondBestMaskDiff": 14,
+      "normalizedFullRgbSha256": "3a2eb9a8319b74f1b31367043fd5217a799f9c20637d5905f5d503154066675e",
+      "nonblackPixels": 83,
+      "completeAtlasAlphaRgbDifferences": 0,
+      "finalCursorSnapPrediction": 594,
+      "finalCursorSnapMatches": true
+    },
+    {
+      "index": 12,
+      "pairIndex": 6,
+      "role": "MiddleCenter",
+      "text": "U",
+      "rect": [
+        20,
+        394,
+        362,
+        82
+      ],
+      "analysisRegion": [
+        0,
+        394,
+        400,
+        64
+      ],
+      "pairOrigin": 0,
+      "sourceCenterCursor": [
+        195,
+        423.5
+      ],
+      "actualCursor": [
+        195,
+        423.5
+      ],
+      "advanceWidth": 11,
+      "actualPenX": 194,
+      "actualBaseline": 441,
+      "whiteMaskDiff": 0,
+      "secondBestMaskDiff": 14,
+      "normalizedFullRgbSha256": "3a2eb9a8319b74f1b31367043fd5217a799f9c20637d5905f5d503154066675e",
+      "nonblackPixels": 83,
+      "completeAtlasAlphaRgbDifferences": 0,
+      "finalCursorSnapPrediction": 195,
+      "finalCursorSnapMatches": false
+    },
+    {
+      "index": 13,
+      "pairIndex": 6,
+      "role": "UpperLeft",
+      "text": "U",
+      "rect": [
+        595,
+        420.5,
+        362,
+        82
+      ],
+      "analysisRegion": [
+        400,
+        394,
+        400,
+        64
+      ],
+      "pairOrigin": 0,
+      "sourceCenterCursor": [
+        195,
+        423.5
+      ],
+      "actualCursor": [
+        595,
+        423.5
+      ],
+      "advanceWidth": 11,
+      "actualPenX": 595,
+      "actualBaseline": 441,
+      "whiteMaskDiff": 0,
+      "secondBestMaskDiff": 14,
+      "normalizedFullRgbSha256": "3a2eb9a8319b74f1b31367043fd5217a799f9c20637d5905f5d503154066675e",
+      "nonblackPixels": 83,
+      "completeAtlasAlphaRgbDifferences": 0,
+      "finalCursorSnapPrediction": 595,
+      "finalCursorSnapMatches": true
+    },
+    {
+      "index": 14,
+      "pairIndex": 7,
+      "role": "MiddleCenter",
+      "text": "U",
+      "rect": [
+        19.75,
+        458,
+        362,
+        82
+      ],
+      "analysisRegion": [
+        0,
+        458,
+        400,
+        64
+      ],
+      "pairOrigin": -0.25,
+      "sourceCenterCursor": [
+        194.75,
+        487.5
+      ],
+      "actualCursor": [
+        194.75,
+        487.5
+      ],
+      "advanceWidth": 11,
+      "actualPenX": 194,
+      "actualBaseline": 505,
+      "whiteMaskDiff": 0,
+      "secondBestMaskDiff": 14,
+      "normalizedFullRgbSha256": "3a2eb9a8319b74f1b31367043fd5217a799f9c20637d5905f5d503154066675e",
+      "nonblackPixels": 83,
+      "completeAtlasAlphaRgbDifferences": 0,
+      "finalCursorSnapPrediction": 195,
+      "finalCursorSnapMatches": false
+    },
+    {
+      "index": 15,
+      "pairIndex": 7,
+      "role": "UpperLeft",
+      "text": "U",
+      "rect": [
+        594.75,
+        484.5,
+        362,
+        82
+      ],
+      "analysisRegion": [
+        400,
+        458,
+        400,
+        64
+      ],
+      "pairOrigin": -0.25,
+      "sourceCenterCursor": [
+        194.75,
+        487.5
+      ],
+      "actualCursor": [
+        594.75,
+        487.5
+      ],
+      "advanceWidth": 11,
+      "actualPenX": 595,
+      "actualBaseline": 505,
+      "whiteMaskDiff": 0,
+      "secondBestMaskDiff": 14,
+      "normalizedFullRgbSha256": "3a2eb9a8319b74f1b31367043fd5217a799f9c20637d5905f5d503154066675e",
+      "nonblackPixels": 83,
+      "completeAtlasAlphaRgbDifferences": 0,
+      "finalCursorSnapPrediction": 595,
+      "finalCursorSnapMatches": true
+    }
+  ],
+  "fontSource": {
+    "fontAssetName": "Jost-SemiBold",
+    "fontNames": [
+      "Jost"
+    ],
+    "assetFontSize": 16,
+    "assetAscent": 17,
+    "assetLineHeight": 23,
+    "materialName": "Font Material",
+    "shaderName": "GUI/Text Shader",
+    "textureName": "Font Texture",
+    "textureWidth": 256,
+    "textureHeight": 256,
+    "filterMode": "Bilinear",
+    "wrapMode": "Repeat",
+    "graphicsFormat": "54"
+  },
+  "interpretation": {
+    "centering": "At matched actual native cursors and identical full RGB glyph raster, only even-width U pairs have centered pen one pixel left of actual UpperLeft. This bounded discrepancy is alignment layout rather than generic UpperLeft glyph sampling.",
+    "origin": "Actual UpperLeft pen follows ceil(cursorX-0.5) for all8sampled origins; this does not establish a universal draw rule for other glyphs/alignments/rects.",
+    "mechanism": "Native GUI drawing/cursor/size implementations remain separate closed InternalCalls. No source-derived universal center rule or odd-specific correction is proved."
+  },
+  "limits": [
+    "Only16pxMove/U, widths361/362, origins0/-0.25, MiddleCenter/UpperLeft and one800x600native frame are sampled.",
+    "Disjoint analysisRegion tiles isolate actual ink; nominal shifted label rectangles overlap neighboring rows and some extend past screen right, but all nonblack pixels are accounted within the16tiles.",
+    "The generic centered baseline/prediction fields in the reusable analyzer are not applicable to UpperLeft and are not used as its verification.",
+    "Raw TextGenerator meshes remain comparators, not private GUI.Label geometry.",
+    "No production source or font offset changes are applied."
+  ]
+}
