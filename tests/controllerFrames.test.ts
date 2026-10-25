@@ -42,6 +42,7 @@ function controllerHarness(initialLevel = 'first_puzzle', wonLevels: string[] = 
     renderFrame: (stamp: number) => {
       const world = controller.getDebugApi().world();
       const p = world.findPlayerBlock();
+      world.pauseCamera?.sample({width: 800, height: 600, paused: controller.getDebugApi().getState().mode === 'paused'});
       presented.push({ stamp, x: p.x, y: p.y, t: p.animT, moving: world.anyBlockMoving });
     },
   } as unknown as GameRenderer;
@@ -209,6 +210,21 @@ function setupBeforeLeave() {
 }
 
 describe('native Leave held controls', () => {
+  it('keeps the pause camera on Leave and skips precisely the first Hub camera delta', () => {
+    const h = setupBeforeLeave(); h.release('ArrowDown', 1261);
+    for (const t of [1300, 1400, 1600, 1800, 2000, 2200]) h.frame(t);
+    const pause = h.api.world().pauseCamera;
+    expect(pause.snapshot().zoomT).toBe(1);
+    const before = pause.sample({width: 800, height: 600, paused: true})!;
+    h.press('Enter', 2210);
+    expect(h.api.world().pauseCamera).toBe(pause);
+    const load = pause.sample({width: 800, height: 600, paused: false})!;
+    expect(load.size).toBe(before.size);
+    h.frame(2227);
+    expect(pause.sample({width: 800, height: 600, paused: false})!.size).toBe(load.size);
+    h.frame(2244);
+    expect(pause.sample({width: 800, height: 600, paused: false})!.size).toBeGreaterThan(load.size);
+  });
   it('retains held Right and reserves during the first skipped Hub animation update', () => {
     const h = setupBeforeLeave(); h.release('ArrowDown', 1261);
     h.press('ArrowRight', 1270); h.frame(1300); h.press('Enter', 1310);
@@ -235,6 +251,28 @@ describe('native Leave held controls', () => {
     h.press('ArrowRight', 1270); h.release('ArrowRight', 1300); h.press('Enter', 1310);
     h.frame(1327); h.frame(1377);
     expect(h.api.getState()).toMatchObject({levelName: 'hub', moveCount: 0});
+  });
+});
+
+describe('native pause camera controller dispatch', () => {
+  it('advances pause once per update and resumes from the last actually drawn weight', () => {
+    const h = controllerHarness(); h.frame(0); h.press('Escape', 1); h.frame(16.7);
+    const pause = h.api.world().pauseCamera;
+    expect(pause.snapshot().zoomT).toBe(Math.fround(.0167));
+    h.frame(116.7);
+    expect(pause.snapshot().zoomT).toBe(Math.fround(Math.fround(.0167) + Math.fround(.1)));
+    const last = pause.snapshot().cameraUnpauseLastY;
+    h.press('Enter', 120);
+    expect(pause.snapshot().cameraUnpause).toBe(true);
+    expect(pause.snapshot().zoomT).toBe(Math.fround(1 - Math.fround(Math.pow(last, .125))));
+    const start = pause.snapshot().zoomT; h.frame(133.4);
+    expect(pause.snapshot().zoomT).toBe(Math.fround(start + Math.fround(Math.fround(.0167) * 2)));
+  });
+  it('also starts unpause when Escape cancels the root pause menu', () => {
+    const h = controllerHarness(); h.frame(0); h.press('Escape', 1); h.frame(100);
+    h.release('Escape', 101); h.press('Escape', 102);
+    expect(h.api.getState().mode).toBe('playing');
+    expect(h.api.world().pauseCamera.snapshot().cameraUnpause).toBe(true);
   });
 });
 

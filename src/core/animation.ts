@@ -745,6 +745,7 @@ export function computeAnimLength(
 // ---------------------------------------------------------------------------
 
 export function resetCameraOffset(world: WorldModel): void {
+  if (world.cameraModeForPause() === 'synced' || world.cameraModeForPause() === 'gradual') world.pauseCamera.clearCameraUnpause();
   world.cameraMoving = false;
   world.cameraAnimT = 0;
   world.cameraAnimLength = 0;
@@ -772,6 +773,7 @@ export function setCameraOffset(
   world.cameraAnimT = 0;
   world.cameraAnimLength = animLength;
   if (dxScale === 1 && dyScale === 1 && dx === 0 && dy === 0) return;
+  if (world.cameraModeForPause() === 'synced' || world.cameraModeForPause() === 'gradual') world.pauseCamera.clearCameraUnpause();
   world.newCamT = 0;
   if (changedFlipH) world.usedX *= -1;
   world.usedX /= dxScale;
@@ -793,6 +795,7 @@ export function quickAnimCameraOffset(
   if (world.cameraTitle || world.levelName === "static_focus_block" ||
       world.levelName === "zoom_out_anim" || world.levelName === "zoom_in_anim") return;
   if (world.drawStyle === DrawStyle.QuickAnim && world.findPlayerBlock().flipH) dx *= -1;
+  world.pauseCamera.clearCameraUnpause();
   world.usedX = world.usedX * dxScale + dx;
   world.usedY = world.usedY * dyScale + dy;
   world.usedXS /= dxScale;

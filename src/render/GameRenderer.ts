@@ -396,17 +396,27 @@ export class GameRenderer {
     const camY = lerp(world.newY, 0, camT);
     const cameraFlipH=quick?world.inputFlipH():viewFlipH;
     const camX = cameraFlipH ? -unflippedX : unflippedX;
-    const focusRect = quick
+    const resolution = pixelResolution(this.app.renderer?.resolution ?? 1);
+    const pause = world.pauseCamera?.sample({width: width * resolution, height: height * resolution,
+      paused: renderMode === 'paused', playing: renderMode === 'playing', quickAnim: quick,
+      cameraMode: world.cameraModeForPause(), normalFocusFraction: Math.fround(world.levelName === 'static_focus_block' ? .6 : .82),
+      camZoomFactor: camZoom, overrideCamera: renderMode === 'credits' || renderMode === 'title'});
+    const focusRect = pause
+      ? {x: (pause.centerX - pause.size / 2) / resolution, y: (pause.centerY - pause.size / 2) / resolution,
+        width: pause.size / resolution, height: pause.size / resolution}
+      : quick
       ?quickAnimFocusRect(width,height,camXS,camYS,camX,camY,viewBlock.drawXScale,viewBlock.drawYScale,this.app.renderer?.resolution ?? 1)
       :nativeFocusRect(width, height, camXS, camYS, camX, camY, .82, this.app.renderer?.resolution ?? 1);
     const boardWidth = focusRect.width;
     const boardHeight = focusRect.height;
     const boardX = focusRect.x;
     const boardY = focusRect.y;
-    world.usedXS = camXS / Math.max(camZoom, 1e-6);
-    world.usedYS = camYS / Math.max(camZoom, 1e-6);
-    world.usedX = (quick?camX:unflippedX) * camZoom;
-    world.usedY = camY * camZoom;
+    if (!pause) {
+      world.usedXS = camXS / Math.max(camZoom, 1e-6);
+      world.usedYS = camYS / Math.max(camZoom, 1e-6);
+      world.usedX = (quick?camX:unflippedX) * camZoom;
+      world.usedY = camY * camZoom;
+    }
 
     this.inspectionBoard = {
       rect: {

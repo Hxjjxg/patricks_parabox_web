@@ -1,3 +1,5 @@
+import {PauseCamera, type PauseCameraMode} from './pauseCamera';
+
 export enum Attempt {
   Push = "push",
   Enter = "enter",
@@ -350,6 +352,13 @@ export class WorldModel {
   particleT = 0;
   /** Draw.CameraMode == Title makes the player stop looking around. */
   cameraTitle = false;
+  pauseCamera = new PauseCamera();
+  cameraModeForPause(): PauseCameraMode {
+    if (this.levelName === 'zoom_out_anim' || this.levelName === 'zoom_in_anim') return 'perpetualZoomOut';
+    if (this.cameraTitle) return 'title';
+    if (this.levelName === 'static_focus_block') return 'specificBlock';
+    return this.drawStyle === DrawStyle.QuickAnim ? 'gradual' : 'synced';
+  }
   // --- Camera animation state (Draw.SetCameraOffset) ---
   /** Movement.Impulse resets this; cross-level player/possession paths set it. */
   cameraMovedThisTurn = false;

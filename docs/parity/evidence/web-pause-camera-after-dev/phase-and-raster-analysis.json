@@ -1,0 +1,447 @@
+{
+  "scope": "Actual Canvas evidence; native controls-delivered and Web KeyboardEvent schedules differ. Compare source pause geometry/order, not equal frame indices or wall-clock milliseconds. Web first Hub rAF is already the first full update, not native load-dispatch frame. No Web load-dispatch PNG claim.",
+  "nativeFixtureSha256": "ede559c7fabf0a89e93c5d4622078fed34c8e2a2c56fd936d1eb4e03e2808726",
+  "predicate": "Bounding box, exclusive max edges, of RGB pixels with B>=100, B>G+20, G>R+20. Interior blue board ink only; not Draw.blockWidthLast, border bounds or private camera flags.",
+  "cases": [
+    {
+      "case": "held-right",
+      "frames": 214,
+      "images": 64,
+      "firstHubFrame": 140,
+      "firstHubImages": [
+        {
+          "file": "loaded-hub-0140.png",
+          "frameIndex": 140,
+          "timeSinceFirstHubRafMs": 0.0,
+          "bluePixelBounds": [
+            268,
+            168,
+            531,
+            431
+          ],
+          "pauseCamera": {
+            "zoomT": 0,
+            "controlsZoomT": 0,
+            "cameraUnpause": true,
+            "cameraUnpauseIgnoreOneDelta": false,
+            "cameraUnpauseLastY": 1
+          }
+        },
+        {
+          "file": "loaded-hub-0141.png",
+          "frameIndex": 141,
+          "timeSinceFirstHubRafMs": 16.700000000000728,
+          "bluePixelBounds": [
+            241,
+            141,
+            558,
+            458
+          ],
+          "pauseCamera": {
+            "zoomT": 0.033399999141693115,
+            "controlsZoomT": 0,
+            "cameraUnpause": true,
+            "cameraUnpauseIgnoreOneDelta": false,
+            "cameraUnpauseLastY": 0.762033998966217
+          }
+        },
+        {
+          "file": "loaded-hub-0142.png",
+          "frameIndex": 142,
+          "timeSinceFirstHubRafMs": 33.30000000000291,
+          "bluePixelBounds": [
+            221,
+            121,
+            578,
+            478
+          ],
+          "pauseCamera": {
+            "zoomT": 0.06659999489784241,
+            "controlsZoomT": 0,
+            "cameraUnpause": true,
+            "cameraUnpauseIgnoreOneDelta": false,
+            "cameraUnpauseLastY": 0.5761590003967285
+          }
+        }
+      ],
+      "modeChanges": [
+        {
+          "frameIndex": 0,
+          "mode": "playing",
+          "pauseCamera": {
+            "zoomT": 0,
+            "controlsZoomT": 0,
+            "cameraUnpause": false,
+            "cameraUnpauseIgnoreOneDelta": false,
+            "cameraUnpauseLastY": 0
+          }
+        },
+        {
+          "frameIndex": 60,
+          "mode": "paused",
+          "pauseCamera": {
+            "zoomT": 0.016599999740719795,
+            "controlsZoomT": 0,
+            "cameraUnpause": false,
+            "cameraUnpauseIgnoreOneDelta": false,
+            "cameraUnpauseLastY": 0.12533524632453918
+          }
+        },
+        {
+          "frameIndex": 140,
+          "mode": "playing",
+          "pauseCamera": {
+            "zoomT": 0,
+            "controlsZoomT": 0,
+            "cameraUnpause": true,
+            "cameraUnpauseIgnoreOneDelta": false,
+            "cameraUnpauseLastY": 1
+          }
+        }
+      ],
+      "ending": {
+        "timestamp": 32540.10000000149,
+        "action": "05-Right",
+        "levelName": "hub",
+        "moveCount": 3,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 1033,
+          "viewLevelId": 47,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "pauseCamera": {
+          "zoomT": 1,
+          "controlsZoomT": 0,
+          "cameraUnpause": true,
+          "cameraUnpauseIgnoreOneDelta": false,
+          "cameraUnpauseLastY": 0
+        },
+        "player": {
+          "id": 1077,
+          "x": 9,
+          "y": 7,
+          "outer": 47,
+          "outerId": 47,
+          "t": 0.21659999999999857,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0.0001403528174306168,
+          "oy": 0,
+          "sx": 0.9997192943651387,
+          "sy": 1.0001403528174306
+        },
+        "animated": [
+          {
+            "id": 1077,
+            "x": 9,
+            "y": 7,
+            "outer": 47,
+            "t": 0.21659999999999857,
+            "length": 0.22,
+            "ox": 0.0001403528174306168,
+            "oy": 0,
+            "sx": 0.9997192943651387,
+            "sy": 1.0001403528174306
+          }
+        ]
+      }
+    },
+    {
+      "case": "held-down",
+      "frames": 214,
+      "images": 57,
+      "firstHubFrame": 139,
+      "firstHubImages": [
+        {
+          "file": "loaded-hub-0139.png",
+          "frameIndex": 139,
+          "timeSinceFirstHubRafMs": 0,
+          "bluePixelBounds": [
+            268,
+            168,
+            531,
+            431
+          ],
+          "pauseCamera": {
+            "zoomT": 0,
+            "controlsZoomT": 0,
+            "cameraUnpause": true,
+            "cameraUnpauseIgnoreOneDelta": false,
+            "cameraUnpauseLastY": 1
+          }
+        },
+        {
+          "file": "loaded-hub-0140.png",
+          "frameIndex": 140,
+          "timeSinceFirstHubRafMs": 16.800000000000182,
+          "bluePixelBounds": [
+            241,
+            141,
+            558,
+            458
+          ],
+          "pauseCamera": {
+            "zoomT": 0.03359999880194664,
+            "controlsZoomT": 0,
+            "cameraUnpause": true,
+            "cameraUnpauseIgnoreOneDelta": false,
+            "cameraUnpauseLastY": 0.7607734799385071
+          }
+        },
+        {
+          "file": "loaded-hub-0141.png",
+          "frameIndex": 141,
+          "timeSinceFirstHubRafMs": 33.5,
+          "bluePixelBounds": [
+            220,
+            120,
+            579,
+            479
+          ],
+          "pauseCamera": {
+            "zoomT": 0.06700000166893005,
+            "controlsZoomT": 0,
+            "cameraUnpause": true,
+            "cameraUnpauseIgnoreOneDelta": false,
+            "cameraUnpauseLastY": 0.5741867423057556
+          }
+        }
+      ],
+      "modeChanges": [
+        {
+          "frameIndex": 0,
+          "mode": "playing",
+          "pauseCamera": {
+            "zoomT": 0,
+            "controlsZoomT": 0,
+            "cameraUnpause": false,
+            "cameraUnpauseIgnoreOneDelta": false,
+            "cameraUnpauseLastY": 0
+          }
+        },
+        {
+          "frameIndex": 60,
+          "mode": "paused",
+          "pauseCamera": {
+            "zoomT": 0.016599999740719795,
+            "controlsZoomT": 0,
+            "cameraUnpause": false,
+            "cameraUnpauseIgnoreOneDelta": false,
+            "cameraUnpauseLastY": 0.12533524632453918
+          }
+        },
+        {
+          "frameIndex": 139,
+          "mode": "playing",
+          "pauseCamera": {
+            "zoomT": 0,
+            "controlsZoomT": 0,
+            "cameraUnpause": true,
+            "cameraUnpauseIgnoreOneDelta": false,
+            "cameraUnpauseLastY": 1
+          }
+        }
+      ],
+      "ending": {
+        "timestamp": 8118.10000000149,
+        "action": "04-Down",
+        "levelName": "first_puzzle",
+        "moveCount": 0,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0.5165000000000001,
+          "length": 0.5,
+          "scene": "first_puzzle"
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0,
+          "length": 0,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "pauseCamera": {
+          "zoomT": 1,
+          "controlsZoomT": 0,
+          "cameraUnpause": false,
+          "cameraUnpauseIgnoreOneDelta": false,
+          "cameraUnpauseLastY": 0
+        },
+        "player": {
+          "id": 27,
+          "x": 2,
+          "y": 2,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0,
+          "length": 0,
+          "anim": "normal",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": []
+      }
+    },
+    {
+      "case": "resume-interruption",
+      "frames": 81,
+      "images": 29,
+      "firstHubFrame": null,
+      "firstHubImages": [],
+      "modeChanges": [
+        {
+          "frameIndex": 0,
+          "mode": "paused",
+          "pauseCamera": {
+            "zoomT": 0.016599999740719795,
+            "controlsZoomT": 0,
+            "cameraUnpause": false,
+            "cameraUnpauseIgnoreOneDelta": false,
+            "cameraUnpauseLastY": 0.12533524632453918
+          }
+        },
+        {
+          "frameIndex": 13,
+          "mode": "playing",
+          "pauseCamera": {
+            "zoomT": 0.0531422384083271,
+            "controlsZoomT": 0,
+            "cameraUnpause": true,
+            "cameraUnpauseIgnoreOneDelta": false,
+            "cameraUnpauseLastY": 0.6460676193237305
+          }
+        },
+        {
+          "frameIndex": 18,
+          "mode": "paused",
+          "pauseCamera": {
+            "zoomT": 0.043298810720443726,
+            "controlsZoomT": 0,
+            "cameraUnpause": false,
+            "cameraUnpauseIgnoreOneDelta": false,
+            "cameraUnpauseLastY": 0.29820460081100464
+          }
+        },
+        {
+          "frameIndex": 30,
+          "mode": "playing",
+          "pauseCamera": {
+            "zoomT": 0.05019489303231239,
+            "controlsZoomT": 0,
+            "cameraUnpause": true,
+            "cameraUnpauseIgnoreOneDelta": false,
+            "cameraUnpauseLastY": 0.6623324155807495
+          }
+        }
+      ],
+      "ending": {
+        "timestamp": 157063,
+        "action": "03-Escape",
+        "levelName": "first_puzzle",
+        "moveCount": 0,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0,
+          "length": 0,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "pauseCamera": {
+          "zoomT": 1,
+          "controlsZoomT": 0,
+          "cameraUnpause": true,
+          "cameraUnpauseIgnoreOneDelta": false,
+          "cameraUnpauseLastY": 0
+        },
+        "player": {
+          "id": 27,
+          "x": 2,
+          "y": 2,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0,
+          "length": 0,
+          "anim": "normal",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": []
+      }
+    }
+  ]
+}

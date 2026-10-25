@@ -29,6 +29,7 @@ async () => {
   let previousCameraT = Number.POSITIVE_INFINITY;
   let previousCameraMoving = false;
   let lastPeriodicCapture = Number.NEGATIVE_INFINITY;
+  let previousPauseKey = '', pauseIndex = 0, previousLevelName = null, levelFrame = 0;
   const sample = (timestamp) => {
     const world = api.world();
     const p = world.findPlayerBlock();
@@ -43,6 +44,7 @@ async () => {
       inspection: state.inspection,
       camera: { t: world.cameraAnimT, length: world.cameraAnimLength, phase: world.newCamT, moving: world.cameraMoving,
         x: world.newX, y: world.newY, xs: world.newXS, ys: world.newYS },
+      pauseCamera: world.pauseCamera?.snapshot() ?? null,
       player: { id: p.id, x: p.x, y: p.y, outer: p.outerLevel ? world.levels.indexOf(p.outerLevel) : -1, outerId: p.outerLevel?.id, t: p.animT, length: p.animLength,
         anim: p.anim, ox: p.drawXOffset, oy: p.drawYOffset, sx: p.drawXScale, sy: p.drawYScale },
       animated: world.blocks.filter(b => b.animT > 0 || b.drawXOffset !== 0 || b.drawYOffset !== 0).map(b => ({
@@ -65,6 +67,25 @@ async () => {
     previousCameraT = frame.camera.t;
     frame.cameraMotionId = 'camera-' + String(cameraIndex).padStart(4, '0');
     frames.push(frame);
+    levelFrame = frame.levelName === previousLevelName ? levelFrame + 1 : 0;
+    previousLevelName = frame.levelName;
+    if (options.captureLoadedFrames && levelFrame < options.captureLoadedFrames) {
+      images.push({name: 'loaded-' + frame.levelName + '-' + String(frames.length - 1).padStart(4, '0'),
+        timestamp, frameIndex: frames.length - 1, dataUrl: canvas.toDataURL('image/png')});
+    }
+    const pauseKey = frame.mode + ':' + !!frame.pauseCamera?.cameraUnpause;
+    if (pauseKey !== previousPauseKey) pauseIndex++;
+    previousPauseKey = pauseKey;
+    if (options.capturePauseCamera && frame.pauseCamera && (frame.mode === 'paused' || frame.pauseCamera.cameraUnpause)) {
+      for (const target of [0, .033, .067, .1, .167, .25, .5, 1]) {
+        const key = 'pause-' + pauseIndex + '-' + target;
+        if (frame.pauseCamera.zoomT >= target && !captured.has(key)) {
+          captured.add(key);
+          images.push({name: key, action, timestamp, phase: frame.pauseCamera.zoomT,
+            frameIndex: frames.length - 1, dataUrl: canvas.toDataURL('image/png')});
+        }
+      }
+    }
     if (options.captureEveryMs && timestamp - lastPeriodicCapture >= options.captureEveryMs) {
       lastPeriodicCapture = timestamp;
       images.push({ name: 'sample-' + String(frames.length - 1).padStart(4, '0'),

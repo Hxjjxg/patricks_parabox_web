@@ -175,6 +175,7 @@ export class GameController {
   private playtimeSinceSave = 0;
   private smileActive = false;
   private controlsFadeT = 0;
+  private pauseEntryPending = false;
   /** World.NexusAreaCameFrom is transient, set when leaving a Hub portal. */
   private controlsFromIntro = false;
 
@@ -378,7 +379,11 @@ export class GameController {
     this.controlsFadeT = 0;
     this.currentLevelName = name;
     this.activeCustomLevelId = customLevelId;
+    const pauseCamera = this.world?.pauseCamera ?? world.pauseCamera;
+    pauseCamera.clearCameraUnpause();
+    this.pauseEntryPending = false;
     this.world = world;
+    this.world.pauseCamera = pauseCamera;
     this.world.smile = this.smileActive;
     if (name === "hub") {
       this.progression.applyToHub(this.world);
@@ -713,7 +718,9 @@ export class GameController {
 
   private applySessionMenuAction(action: SessionMenuAction): void {
     if (action.type === "none") return;
-    if (action.type === "settings-changed") {
+    if (action.type === "resume") {
+      this.startCameraUnpause();
+    } else if (action.type === "settings-changed") {
       const previousSettings = this.settings.snapshot();
       if (this.settings.replace({ version: 1, ...action.settings })) {
         this.applySettingsRuntime(previousSettings);
@@ -760,6 +767,7 @@ export class GameController {
       );
     } else if (action.type === "leave-puzzle") {
       this.loadLevel("hub", true, true);
+      this.startCameraUnpause(true);
       this.movement.requireMoveDirChange();
       // PauseMenu keeps vertical Controls in dyLast, but explicitly clears dxLast.
       const held = [...this.physicalDirections.values()];
@@ -823,6 +831,12 @@ export class GameController {
     );
     this.persistProgression();
     this.loadLevel(nextLevel, true, nextLevel === "hub");
+  }
+
+  private startCameraUnpause(leavingPuzzle = false): void {
+    this.world.pauseCamera.startUnpause({cameraMoving: this.world.cameraMoving,
+      quickAnim: this.world.drawStyle === DrawStyle.QuickAnim,
+      cameraMode: this.world.cameraModeForPause(), leavingPuzzle});
   }
 
   private persistProgression(): void {
@@ -1125,6 +1139,7 @@ export class GameController {
           key === "z"
         ) {
           handled = this.sessionMenu.cancel();
+          if (handled && !this.sessionMenu.active) this.startCameraUnpause();
         }
       }
       if (handled) {
@@ -1172,6 +1187,7 @@ export class GameController {
       this.refreshSessionSaveSlots();
       this.refreshSessionSettings();
       if (this.sessionMenu.openPause(this.currentLevelName === "hub")) {
+        this.pauseEntryPending = true;
         this.winTransitionElapsed = 0;
         this.updateStateOutput();
         this.syncRendererUi();
@@ -1329,6 +1345,17 @@ export class GameController {
     const skipHubAnimation = this.firstFrameInHub;
     this.firstFrameInHub = false;
     this.advancePlaytime(Math.min(elapsed, 1 / 3));
+    if (this.runtimeMode() === 'paused') {
+      if (this.pauseEntryPending) {
+        this.world.pauseCamera.enterPause(elapsed);
+        this.pauseEntryPending = false;
+      } else {
+        const menu = this.sessionMenu.currentMode;
+        this.world.pauseCamera.tick(elapsed, {paused: true,
+          controlsExpanded: menu === 'keyboard-controls' || menu === 'gamepad-controls'});
+      }
+      this.syncRendererUi();
+    }
 
     if (this.runtimeMode() === "playing") {
       const undoHeld = this.heldKeys.has("z") ||
@@ -1395,6 +1422,7 @@ export class GameController {
           onJumpOutComplete: () => this.movement.clearWaitForMoveDirChange(),
         });
         updateCameraAnimation(this.world, delta);
+        this.world.pauseCamera.tick(elapsed, {paused: false});
       }
       const destination = advanceHubEntry(this.world, elapsed);
       if (destination) {
