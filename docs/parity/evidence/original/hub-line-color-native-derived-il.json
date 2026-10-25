@@ -1,0 +1,992 @@
+﻿{
+    "assemblyPath":  "F:/Patricks.Parabox_inject_debug\\Patrick\u0027s Parabox_Data\\Managed\\Assembly-CSharp.dll",
+    "assemblySha256":  "cfcb386a623cf6c86c225163c0f90b0e1409357fcdb39222dd446acecb7240bc",
+    "methods":  [
+                    {
+                        "name":  "LineColor",
+                        "signature":  "UnityEngine.Color Draw::LineColor(Block,System.Boolean,System.Double)",
+                        "instructions":  [
+                                             {
+                                                 "offset":  0,
+                                                 "opcode":  "ldarg.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  1,
+                                                 "opcode":  "ldfld",
+                                                 "operand":  "System.Single Block::val"
+                                             },
+                                             {
+                                                 "offset":  6,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "0.4"
+                                             },
+                                             {
+                                                 "offset":  11,
+                                                 "opcode":  "call",
+                                                 "operand":  "System.Single UnityEngine.Mathf::Max(System.Single,System.Single)"
+                                             },
+                                             {
+                                                 "offset":  16,
+                                                 "opcode":  "stloc.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  17,
+                                                 "opcode":  "ldloc.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  18,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "-0.4"
+                                             },
+                                             {
+                                                 "offset":  23,
+                                                 "opcode":  "ldarg.2",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  24,
+                                                 "opcode":  "ldc.r8",
+                                                 "operand":  "0"
+                                             },
+                                             {
+                                                 "offset":  33,
+                                                 "opcode":  "add",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  34,
+                                                 "opcode":  "conv.r4",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  35,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "20"
+                                             },
+                                             {
+                                                 "offset":  40,
+                                                 "opcode":  "call",
+                                                 "operand":  "System.Single UnityEngine.Mathf::Log(System.Single,System.Single)"
+                                             },
+                                             {
+                                                 "offset":  45,
+                                                 "opcode":  "mul",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  46,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "0.8"
+                                             },
+                                             {
+                                                 "offset":  51,
+                                                 "opcode":  "add",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  52,
+                                                 "opcode":  "mul",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  53,
+                                                 "opcode":  "stloc.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  54,
+                                                 "opcode":  "ldarg.1",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  55,
+                                                 "opcode":  "brfalse.s",
+                                                 "operand":  "IL_006d: ldarg.0"
+                                             },
+                                             {
+                                                 "offset":  57,
+                                                 "opcode":  "ldarg.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  58,
+                                                 "opcode":  "ldfld",
+                                                 "operand":  "System.Single Block::hue"
+                                             },
+                                             {
+                                                 "offset":  63,
+                                                 "opcode":  "ldsfld",
+                                                 "operand":  "System.Single Draw::hueOffset"
+                                             },
+                                             {
+                                                 "offset":  68,
+                                                 "opcode":  "add",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  69,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "1"
+                                             },
+                                             {
+                                                 "offset":  74,
+                                                 "opcode":  "rem",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  75,
+                                                 "opcode":  "ldarg.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  76,
+                                                 "opcode":  "ldfld",
+                                                 "operand":  "System.Single Block::sat"
+                                             },
+                                             {
+                                                 "offset":  81,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "0.85"
+                                             },
+                                             {
+                                                 "offset":  86,
+                                                 "opcode":  "mul",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  87,
+                                                 "opcode":  "stloc.1",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  88,
+                                                 "opcode":  "ldloc.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  89,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "0.9"
+                                             },
+                                             {
+                                                 "offset":  94,
+                                                 "opcode":  "mul",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  95,
+                                                 "opcode":  "stloc.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  96,
+                                                 "opcode":  "ldloc.1",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  97,
+                                                 "opcode":  "ldloc.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  98,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "1"
+                                             },
+                                             {
+                                                 "offset":  103,
+                                                 "opcode":  "call",
+                                                 "operand":  "UnityEngine.Color Draw::HSVToRGBGUI(System.Single,System.Single,System.Single,System.Single)"
+                                             },
+                                             {
+                                                 "offset":  108,
+                                                 "opcode":  "ret",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  109,
+                                                 "opcode":  "ldarg.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  110,
+                                                 "opcode":  "ldfld",
+                                                 "operand":  "System.Single Block::hue"
+                                             },
+                                             {
+                                                 "offset":  115,
+                                                 "opcode":  "ldsfld",
+                                                 "operand":  "System.Single Draw::hueOffset"
+                                             },
+                                             {
+                                                 "offset":  120,
+                                                 "opcode":  "add",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  121,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "1"
+                                             },
+                                             {
+                                                 "offset":  126,
+                                                 "opcode":  "rem",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  127,
+                                                 "opcode":  "ldarg.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  128,
+                                                 "opcode":  "ldfld",
+                                                 "operand":  "System.Single Block::sat"
+                                             },
+                                             {
+                                                 "offset":  133,
+                                                 "opcode":  "stloc.2",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  134,
+                                                 "opcode":  "ldloc.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  135,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "0.25"
+                                             },
+                                             {
+                                                 "offset":  140,
+                                                 "opcode":  "mul",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  141,
+                                                 "opcode":  "stloc.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  142,
+                                                 "opcode":  "ldloc.2",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  143,
+                                                 "opcode":  "ldloc.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  144,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "1"
+                                             },
+                                             {
+                                                 "offset":  149,
+                                                 "opcode":  "call",
+                                                 "operand":  "UnityEngine.Color Draw::HSVToRGBGUI(System.Single,System.Single,System.Single,System.Single)"
+                                             },
+                                             {
+                                                 "offset":  154,
+                                                 "opcode":  "ret",
+                                                 "operand":  ""
+                                             }
+                                         ]
+                    },
+                    {
+                        "name":  "DrawPortalShadow",
+                        "signature":  "System.Void Draw::DrawPortalShadow(System.Double,System.Double,System.Double,System.Double,Floor,System.Boolean,System.Double,System.Double)",
+                        "instructions":  [
+                                             {
+                                                 "offset":  0,
+                                                 "opcode":  "ldsfld",
+                                                 "operand":  "System.Boolean Draw::receptionPerformanceHack"
+                                             },
+                                             {
+                                                 "offset":  5,
+                                                 "opcode":  "brfalse.s",
+                                                 "operand":  "IL_0050: ldarg.s floor"
+                                             },
+                                             {
+                                                 "offset":  7,
+                                                 "opcode":  "ldarg.s",
+                                                 "operand":  "floor"
+                                             },
+                                             {
+                                                 "offset":  9,
+                                                 "opcode":  "ldfld",
+                                                 "operand":  "Level Floor::OuterLevel"
+                                             },
+                                             {
+                                                 "offset":  14,
+                                                 "opcode":  "ldfld",
+                                                 "operand":  "System.String Level::hubAreaName"
+                                             },
+                                             {
+                                                 "offset":  19,
+                                                 "opcode":  "ldstr",
+                                                 "operand":  "Area_Priority"
+                                             },
+                                             {
+                                                 "offset":  24,
+                                                 "opcode":  "call",
+                                                 "operand":  "System.Boolean System.String::op_Equality(System.String,System.String)"
+                                             },
+                                             {
+                                                 "offset":  29,
+                                                 "opcode":  "brtrue.s",
+                                                 "operand":  "IL_004f: ret"
+                                             },
+                                             {
+                                                 "offset":  31,
+                                                 "opcode":  "ldarg.s",
+                                                 "operand":  "floor"
+                                             },
+                                             {
+                                                 "offset":  33,
+                                                 "opcode":  "ldfld",
+                                                 "operand":  "Level Floor::OuterLevel"
+                                             },
+                                             {
+                                                 "offset":  38,
+                                                 "opcode":  "ldfld",
+                                                 "operand":  "System.String Level::hubAreaName"
+                                             },
+                                             {
+                                                 "offset":  43,
+                                                 "opcode":  "ldstr",
+                                                 "operand":  "Area_Extrude"
+                                             },
+                                             {
+                                                 "offset":  48,
+                                                 "opcode":  "call",
+                                                 "operand":  "System.Boolean System.String::op_Equality(System.String,System.String)"
+                                             },
+                                             {
+                                                 "offset":  53,
+                                                 "opcode":  "brtrue.s",
+                                                 "operand":  "IL_004f: ret"
+                                             },
+                                             {
+                                                 "offset":  55,
+                                                 "opcode":  "ldarg.s",
+                                                 "operand":  "floor"
+                                             },
+                                             {
+                                                 "offset":  57,
+                                                 "opcode":  "ldfld",
+                                                 "operand":  "Level Floor::OuterLevel"
+                                             },
+                                             {
+                                                 "offset":  62,
+                                                 "opcode":  "ldfld",
+                                                 "operand":  "System.String Level::hubAreaName"
+                                             },
+                                             {
+                                                 "offset":  67,
+                                                 "opcode":  "ldstr",
+                                                 "operand":  "Area_Push"
+                                             },
+                                             {
+                                                 "offset":  72,
+                                                 "opcode":  "call",
+                                                 "operand":  "System.Boolean System.String::op_Equality(System.String,System.String)"
+                                             },
+                                             {
+                                                 "offset":  77,
+                                                 "opcode":  "brfalse.s",
+                                                 "operand":  "IL_0050: ldarg.s floor"
+                                             },
+                                             {
+                                                 "offset":  79,
+                                                 "opcode":  "ret",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  80,
+                                                 "opcode":  "ldarg.s",
+                                                 "operand":  "floor"
+                                             },
+                                             {
+                                                 "offset":  82,
+                                                 "opcode":  "call",
+                                                 "operand":  "System.Single Draw::PortalSize(Floor)"
+                                             },
+                                             {
+                                                 "offset":  87,
+                                                 "opcode":  "stloc.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  88,
+                                                 "opcode":  "ldarg.2",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  89,
+                                                 "opcode":  "ldloc.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  90,
+                                                 "opcode":  "conv.r8",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  91,
+                                                 "opcode":  "mul",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  92,
+                                                 "opcode":  "starg.s",
+                                                 "operand":  "width"
+                                             },
+                                             {
+                                                 "offset":  94,
+                                                 "opcode":  "ldarg.3",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  95,
+                                                 "opcode":  "ldloc.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  96,
+                                                 "opcode":  "conv.r8",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  97,
+                                                 "opcode":  "mul",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  98,
+                                                 "opcode":  "starg.s",
+                                                 "operand":  "height"
+                                             },
+                                             {
+                                                 "offset":  100,
+                                                 "opcode":  "ldarg.s",
+                                                 "operand":  "staticWidth"
+                                             },
+                                             {
+                                                 "offset":  102,
+                                                 "opcode":  "conv.r4",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  103,
+                                                 "opcode":  "ldarg.s",
+                                                 "operand":  "staticHeight"
+                                             },
+                                             {
+                                                 "offset":  105,
+                                                 "opcode":  "conv.r4",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  106,
+                                                 "opcode":  "call",
+                                                 "operand":  "System.Single Draw::ComputeBorderThickness(System.Single,System.Single)"
+                                             },
+                                             {
+                                                 "offset":  111,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "2"
+                                             },
+                                             {
+                                                 "offset":  116,
+                                                 "opcode":  "mul",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  117,
+                                                 "opcode":  "dup",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  118,
+                                                 "opcode":  "stloc.1",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  119,
+                                                 "opcode":  "stloc.2",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  120,
+                                                 "opcode":  "ldarg.2",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  121,
+                                                 "opcode":  "stloc.3",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  122,
+                                                 "opcode":  "ldarg.3",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  123,
+                                                 "opcode":  "stloc.s",
+                                                 "operand":  "V_4"
+                                             },
+                                             {
+                                                 "offset":  125,
+                                                 "opcode":  "ldarg.s",
+                                                 "operand":  "flipH"
+                                             },
+                                             {
+                                                 "offset":  127,
+                                                 "opcode":  "brfalse.s",
+                                                 "operand":  "IL_0089: ldarg.s floor"
+                                             },
+                                             {
+                                                 "offset":  129,
+                                                 "opcode":  "ldloc.1",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  130,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "-1"
+                                             },
+                                             {
+                                                 "offset":  135,
+                                                 "opcode":  "mul",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  136,
+                                                 "opcode":  "stloc.1",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  137,
+                                                 "opcode":  "ldarg.s",
+                                                 "operand":  "floor"
+                                             },
+                                             {
+                                                 "offset":  139,
+                                                 "opcode":  "ldfld",
+                                                 "operand":  "System.Boolean Floor::Unlocked"
+                                             },
+                                             {
+                                                 "offset":  144,
+                                                 "opcode":  "brfalse.s",
+                                                 "operand":  "IL_00bb: ldarg.0"
+                                             },
+                                             {
+                                                 "offset":  146,
+                                                 "opcode":  "ldarg.s",
+                                                 "operand":  "floor"
+                                             },
+                                             {
+                                                 "offset":  148,
+                                                 "opcode":  "ldfld",
+                                                 "operand":  "System.Boolean Floor::Won"
+                                             },
+                                             {
+                                                 "offset":  153,
+                                                 "opcode":  "brtrue.s",
+                                                 "operand":  "IL_00bb: ldarg.0"
+                                             },
+                                             {
+                                                 "offset":  155,
+                                                 "opcode":  "ldarg.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  156,
+                                                 "opcode":  "conv.r4",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  157,
+                                                 "opcode":  "call",
+                                                 "operand":  "System.Single UnityEngine.Mathf::Floor(System.Single)"
+                                             },
+                                             {
+                                                 "offset":  162,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "0.25"
+                                             },
+                                             {
+                                                 "offset":  167,
+                                                 "opcode":  "add",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  168,
+                                                 "opcode":  "conv.r8",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  169,
+                                                 "opcode":  "starg.s",
+                                                 "operand":  "centerX"
+                                             },
+                                             {
+                                                 "offset":  171,
+                                                 "opcode":  "ldarg.1",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  172,
+                                                 "opcode":  "conv.r4",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  173,
+                                                 "opcode":  "call",
+                                                 "operand":  "System.Single UnityEngine.Mathf::Floor(System.Single)"
+                                             },
+                                             {
+                                                 "offset":  178,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "0.25"
+                                             },
+                                             {
+                                                 "offset":  183,
+                                                 "opcode":  "add",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  184,
+                                                 "opcode":  "conv.r8",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  185,
+                                                 "opcode":  "starg.s",
+                                                 "operand":  "centerY"
+                                             },
+                                             {
+                                                 "offset":  187,
+                                                 "opcode":  "ldarg.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  188,
+                                                 "opcode":  "ldarg.2",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  189,
+                                                 "opcode":  "ldc.r8",
+                                                 "operand":  "2"
+                                             },
+                                             {
+                                                 "offset":  198,
+                                                 "opcode":  "div",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  199,
+                                                 "opcode":  "sub",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  200,
+                                                 "opcode":  "ldloc.1",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  201,
+                                                 "opcode":  "conv.r8",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  202,
+                                                 "opcode":  "add",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  203,
+                                                 "opcode":  "ldarg.1",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  204,
+                                                 "opcode":  "ldarg.3",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  205,
+                                                 "opcode":  "ldc.r8",
+                                                 "operand":  "2"
+                                             },
+                                             {
+                                                 "offset":  214,
+                                                 "opcode":  "div",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  215,
+                                                 "opcode":  "sub",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  216,
+                                                 "opcode":  "ldloc.2",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  217,
+                                                 "opcode":  "conv.r8",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  218,
+                                                 "opcode":  "add",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  219,
+                                                 "opcode":  "ldloc.3",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  220,
+                                                 "opcode":  "ldloc.s",
+                                                 "operand":  "V_4"
+                                             },
+                                             {
+                                                 "offset":  222,
+                                                 "opcode":  "call",
+                                                 "operand":  "System.Void Draw::SetDrawRect(System.Double,System.Double,System.Double,System.Double)"
+                                             },
+                                             {
+                                                 "offset":  227,
+                                                 "opcode":  "ldsfld",
+                                                 "operand":  "Draw Draw::instance"
+                                             },
+                                             {
+                                                 "offset":  232,
+                                                 "opcode":  "ldfld",
+                                                 "operand":  "UnityEngine.Texture Draw::FullWhiteTex"
+                                             },
+                                             {
+                                                 "offset":  237,
+                                                 "opcode":  "ldsfld",
+                                                 "operand":  "UnityEngine.Color Draw::shadowColor"
+                                             },
+                                             {
+                                                 "offset":  242,
+                                                 "opcode":  "call",
+                                                 "operand":  "System.Void Draw::DrawTexture(UnityEngine.Texture,UnityEngine.Color)"
+                                             },
+                                             {
+                                                 "offset":  247,
+                                                 "opcode":  "ret",
+                                                 "operand":  ""
+                                             }
+                                         ]
+                    },
+                    {
+                        "name":  "HSVToRGBGUI",
+                        "signature":  "UnityEngine.Color Draw::HSVToRGBGUI(System.Single,System.Single,System.Single,System.Single)",
+                        "instructions":  [
+                                             {
+                                                 "offset":  0,
+                                                 "opcode":  "ldarg.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  1,
+                                                 "opcode":  "ldarg.1",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  2,
+                                                 "opcode":  "ldarg.2",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  3,
+                                                 "opcode":  "call",
+                                                 "operand":  "UnityEngine.Color UnityEngine.Color::HSVToRGB(System.Single,System.Single,System.Single)"
+                                             },
+                                             {
+                                                 "offset":  8,
+                                                 "opcode":  "stloc.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  9,
+                                                 "opcode":  "ldloca.s",
+                                                 "operand":  "V_0"
+                                             },
+                                             {
+                                                 "offset":  11,
+                                                 "opcode":  "ldflda",
+                                                 "operand":  "System.Single UnityEngine.Color::r"
+                                             },
+                                             {
+                                                 "offset":  16,
+                                                 "opcode":  "dup",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  17,
+                                                 "opcode":  "ldind.r4",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  18,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "2"
+                                             },
+                                             {
+                                                 "offset":  23,
+                                                 "opcode":  "div",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  24,
+                                                 "opcode":  "stind.r4",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  25,
+                                                 "opcode":  "ldloca.s",
+                                                 "operand":  "V_0"
+                                             },
+                                             {
+                                                 "offset":  27,
+                                                 "opcode":  "ldflda",
+                                                 "operand":  "System.Single UnityEngine.Color::g"
+                                             },
+                                             {
+                                                 "offset":  32,
+                                                 "opcode":  "dup",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  33,
+                                                 "opcode":  "ldind.r4",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  34,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "2"
+                                             },
+                                             {
+                                                 "offset":  39,
+                                                 "opcode":  "div",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  40,
+                                                 "opcode":  "stind.r4",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  41,
+                                                 "opcode":  "ldloca.s",
+                                                 "operand":  "V_0"
+                                             },
+                                             {
+                                                 "offset":  43,
+                                                 "opcode":  "ldflda",
+                                                 "operand":  "System.Single UnityEngine.Color::b"
+                                             },
+                                             {
+                                                 "offset":  48,
+                                                 "opcode":  "dup",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  49,
+                                                 "opcode":  "ldind.r4",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  50,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "2"
+                                             },
+                                             {
+                                                 "offset":  55,
+                                                 "opcode":  "div",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  56,
+                                                 "opcode":  "stind.r4",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  57,
+                                                 "opcode":  "ldloca.s",
+                                                 "operand":  "V_0"
+                                             },
+                                             {
+                                                 "offset":  59,
+                                                 "opcode":  "ldarg.3",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  60,
+                                                 "opcode":  "ldc.r4",
+                                                 "operand":  "2"
+                                             },
+                                             {
+                                                 "offset":  65,
+                                                 "opcode":  "div",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  66,
+                                                 "opcode":  "stfld",
+                                                 "operand":  "System.Single UnityEngine.Color::a"
+                                             },
+                                             {
+                                                 "offset":  71,
+                                                 "opcode":  "ldloc.0",
+                                                 "operand":  ""
+                                             },
+                                             {
+                                                 "offset":  72,
+                                                 "opcode":  "ret",
+                                                 "operand":  ""
+                                             }
+                                         ]
+                    }
+                ],
+    "constantExcerpts":  [
+                             "IL_00ef: stsfld UnityEngine.Color Draw::neutralColor",
+                             "IL_00f4: ldc.r4 0",
+                             "IL_00f9: ldc.r4 0",
+                             "IL_00fe: ldc.r4 0",
+                             "IL_0103: ldc.r4 0.15",
+                             "IL_0108: newobj System.Void UnityEngine.Color::.ctor(System.Single,System.Single,System.Single,System.Single)",
+                             "IL_010d: stsfld UnityEngine.Color Draw::shadowColor",
+                             "IL_010d: stsfld UnityEngine.Color Draw::shadowColor",
+                             "IL_0112: ldc.r4 0",
+                             "IL_0117: ldc.r4 0",
+                             "IL_011c: ldc.r4 0",
+                             "IL_0121: ldc.r4 0.25",
+                             "IL_0126: newobj System.Void UnityEngine.Color::.ctor(System.Single,System.Single,System.Single,System.Single)",
+                             "IL_012b: stsfld UnityEngine.Color Draw::shadowColorQuickAnim",
+                             "IL_01e9: stsfld UnityEngine.Color Draw::portalFlashColor",
+                             "IL_01ee: call UnityEngine.Color UnityEngine.Color::get_white()",
+                             "IL_01f3: stsfld UnityEngine.Color Draw::portalBorderColor",
+                             "IL_01f8: call UnityEngine.Color UnityEngine.Color::get_black()",
+                             "IL_01fd: stsfld UnityEngine.Color Draw::blackColor",
+                             "IL_0202: ldc.r4 0.82",
+                             "IL_0207: stsfld System.Single Draw::focusFractNormal"
+                         ]
+}
