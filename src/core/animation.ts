@@ -1,4 +1,4 @@
-import type { Block, Level, Phantom, WorldModel } from "./model";
+import { DrawStyle, type Block, type Level, type Phantom, type WorldModel } from "./model";
 
 /**
  * Procedural block animation, ported from the original game's
@@ -104,12 +104,16 @@ export interface AnimationContext {
 
 export interface AnimationSettings {
   readonly quickAnim: boolean;
+  /** Projection's TUI/TUI_COLOR gate is separate from QUICK_ANIM. */
+  readonly textStyle?: boolean;
+  readonly syncedCamera?: boolean;
   /** Index into `EnterLengths` (Prefs.EnterSpeedIndex). */
   readonly enterSpeedIndex: number;
 }
 
 export function getEnterLength(settings: AnimationSettings): number {
-  if (settings.quickAnim) return 0.1;
+  if (settings.textStyle) return 0.1;
+  if (settings.quickAnim || settings.syncedCamera === false) return EnterLengths[0];
   return EnterLengths[settings.enterSpeedIndex] ?? EnterLengths[0]!;
 }
 
@@ -118,7 +122,7 @@ export function getPossessLength(settings: AnimationSettings): number {
 }
 
 export function getBumpLength(world: WorldModel, settings: AnimationSettings): number {
-  if (settings.quickAnim) return 0;
+  if (settings.textStyle) return 0;
   if (world.playerBlocks.length >= 4) return BumpLengthMulti;
   return BumpLengthNormal;
 }
@@ -510,6 +514,8 @@ export function computeAnyBlockMoving(world: WorldModel): boolean {
 }
 
 export function stopAllAnimations(world: WorldModel): void {
+  // UndoManager.StopAnimations deliberately leaves QUICK squishes running.
+  if (world.drawStyle === DrawStyle.QuickAnim) return;
   for (const block of world.blocks) {
     if (isAnimatedBlock(block)) stopMoving(block);
   }
@@ -541,7 +547,7 @@ export function updateWorldAnimations(
   const fullContext: AnimationContext = {
     ...context,
     anyBlockMoving: world.anyBlockMoving,
-    bumpLength: context.quickAnim
+    bumpLength: world.drawStyle === DrawStyle.TuiColor
       ? 0
       : world.playerBlocks.length >= 4
         ? BumpLengthMulti
@@ -777,6 +783,26 @@ export function setCameraOffset(
   world.newYS = world.usedYS;
 }
 
+/** Draw.QuickAnimCamOff: player-relative displacement, inverse scale composition. */
+export function quickAnimCameraOffset(
+  world: WorldModel, dx: number, dy: number, dxScale: number, dyScale: number,
+): void {
+  if (world.cameraTitle || world.levelName === "static_focus_block" ||
+      world.levelName === "zoom_out_anim" || world.levelName === "zoom_in_anim") return;
+  if (world.drawStyle === DrawStyle.QuickAnim && world.findPlayerBlock().flipH) dx *= -1;
+  world.usedX = world.usedX * dxScale + dx;
+  world.usedY = world.usedY * dyScale + dy;
+  world.usedXS /= dxScale;
+  world.usedYS /= dyScale;
+  world.newX = world.usedX;
+  world.newY = world.usedY;
+  world.newXS = world.usedXS;
+  world.newYS = world.usedYS;
+  world.cameraMoving = true;
+  world.newCamT = 0;
+  // The native method does not reset AnimT or AnimLength.
+}
+
 export function updateCameraAnimation(world: WorldModel, deltaTime: number): void {
   if (world.cameraMoving) {
     world.cameraAnimT += deltaTime;
@@ -788,8 +814,17 @@ export function updateCameraAnimation(world: WorldModel, deltaTime: number): voi
   if (world.newCamT < 1) {
     world.newCamT = Math.min(
       1,
-      world.newCamT + deltaTime / Math.max(world.cameraAnimLength, 1e-6),
+      world.newCamT + deltaTime / (world.drawStyle === DrawStyle.QuickAnim
+        ? 3 : Math.max(world.cameraAnimLength, 1e-6)),
     );
+  }
+  // Called only during the controller's unpaused playing update.
+  if (world.drawStyle === DrawStyle.QuickAnim) {
+    const t = 1.65 * deltaTime;
+    world.newXS = 1 / lerp(1 / world.newXS, 1, t);
+    world.newYS = 1 / lerp(1 / world.newYS, 1, t);
+    world.newX = lerp(world.newX, 0, t);
+    world.newY = lerp(world.newY, 0, t);
   }
 }
 

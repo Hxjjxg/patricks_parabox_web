@@ -20,6 +20,8 @@ import {
   getEnterLength,
   getPossessLength,
   makePhantom,
+  quickAnimCameraOffset,
+  QuickAnimSquishLength,
   resetCameraOffset,
   setCameraOffset,
   stopAllAnimations,
@@ -197,6 +199,10 @@ export class History {
   get settings(): AnimationSettings {
     return {
       quickAnim: this.world.drawStyle === DrawStyle.QuickAnim,
+      textStyle: this.world.drawStyle === DrawStyle.TuiColor,
+      syncedCamera: !this.world.cameraTitle &&
+        this.world.drawStyle !== DrawStyle.QuickAnim &&
+        !["static_focus_block", "zoom_out_anim", "zoom_in_anim"].includes(this.world.levelName),
       enterSpeedIndex: this.world.enterSpeedIndex,
     };
   }
@@ -528,9 +534,18 @@ export class History {
     previousFlip: boolean,
   ): void {
     const context = { quickAnim: this.settings.quickAnim };
+    let quickX = 0, quickY = 0, quickXS = 1, quickYS = 1;
     for (const move of turn.moves) {
       if (animate) {
-        if (move.nudge) {
+        if (context.quickAnim) {
+          doSquishInPlace(move.block, Math.abs(move.dx) > Math.abs(move.dy), QuickAnimSquishLength, context);
+          if (move.block.isPlayer) {
+            quickX = move.animXOffset;
+            quickY = move.animYOffset;
+            quickXS = move.animXScale;
+            quickYS = move.animYScale;
+          }
+        } else if (move.nudge) {
           if (move.block.isPlayer) {
             doBumpAnim(move.block, move.dx, move.dy, false, context);
             move.block.animLength = turn.animLength;
@@ -584,7 +599,9 @@ export class History {
       }
     }
     if (animate) {
-      setCameraOffset(
+      if (context.quickAnim) {
+        quickAnimCameraOffset(this.world, -quickX, -quickY, quickXS, quickYS);
+      } else setCameraOffset(
         this.world,
         turn.camX,
         turn.camY,

@@ -148,8 +148,8 @@ export class DirectionalInput {
   }
 
   /** Physical impulses reset the native delay, including deferred inputs. */
-  resetRepeatDelay(): void {
-    this.repeatElapsed = 0;
+  resetRepeatDelay(quickAnim = false): void {
+    this.repeatElapsed = quickAnim ? -0.1 : 0;
   }
 
   private emitIfChanged(

@@ -1487,7 +1487,7 @@ export class GameController {
     appliedAt = performance.now(),
   ): void {
     this.lastMoveAppliedAt = appliedAt;
-    this.directionalInput.resetRepeatDelay();
+    this.directionalInput.resetRepeatDelay(this.world.drawStyle === DrawStyle.QuickAnim);
     const result = this.impulse(command.dx, command.dy, acceptedMoveCount);
     if (acceptedMoveCount !== undefined && !result.moved && !result.transition) {
       this.world.moveCount--;
