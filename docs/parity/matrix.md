@@ -2,6 +2,52 @@
 
 Started 2026-10-25 at `f8e7539` with clean worktree. Full task is the user attachment `pasted-text-1.txt`; completion requires every required case exercised, no confirmed scoped discrepancy remaining, passing checks, independent output review, and incremental commits. Pending/unverified is never a pass.
 
+## Current acceptance state — 2026-10-25
+
+- Latest committed production correction is5446116 (ordinary-exit old-cell copy);
+  exit-scoped71files/1098tests,typecheck/buildpass. The separate in-progress
+  strict-enter constructor and terminal-wall regression are not claimed
+  covered by that scoped run. Actual44rAF/16PNG restores the orange copy;
+  independent recheck/final immutable capture remains pending.
+  The preceding2d09419 fixes local covered-button white outlines;
+  immutable candidatev5 records1000source hashes/142dist hashes. It is a new
+  historical integrated capture target, not final acceptance.70files/1078tests,22original
+  conformance cases,typecheck/build pass. Optional sweep adds0fixture cases.
+- v5 has all20repeated static cases/40actualPNGs, plus a separate odd-axis
+  DPR2probe/2PNGs. Unchanged diagnostics find2780wall/426floor qualified
+  samples0outside established1/255,2432join measurements0suspects,72goldclip
+  samples exact255,allDPR1border supports exact. Matched1600x1200 native/Web
+  conditions3/10 have0physical border differences; remaining7native requests
+  are rejected, not passes. Separate2002x1398 probe matches12/12border sides.
+- Full retained longroutes now have94actualWeb attempts/70accepted,
+  3812rAF/1128PNGs and exact complete ordered endpoints against native71/87/
+  123blocks. Every accepted/blocked count matches recorded action ownership.
+  Their sparse native tails and global effect clocks remain explicit limits.
+  The first route's white-outline defect found during this pass is fixed:
+  after886rAF/310PNG, native/new416purewhite outline masks match exactly.
+- Source-backed Hub previews/connections/shadows/markers,pause/Leave camera,
+  generic icon captions and bounded wrapped Note are committed. Hub fraction
+  rendering/counting/unlock/celebration lifecycle and paused labels remain
+  incomplete. Exact native glyph sizes10/13/18andothers are unavailable;
+  descriptors returningnull do not establish a rendered feature.
+- Independent reviewer has directly viewed116v4primary PNGs across8cases
+  and13inspection PNGs. This is not finalv5approval. It confirms a retained
+  lower-right orange recursive-copy omission during infexit crossing; source
+  constructor correction5446116 now restores it in actual development PNGs,
+  with native time brackets retained; independent recheck is pending. A
+  separate strict-enter old-cell copy omission is confirmed and its
+  constructor integration/actual before-after check is underway. Earlier flip-strip formula accusation is
+  withdrawn because independent MiscAnimT phases were unequal; appearance
+  matching remains unverified rather than a confirmed formula defect.
+- Native-font diagnostic deployment was automatically rejected twice with
+  blocked by policy; it never ran. All134subsequent hidden-launch PNGs are
+  black/rejected. Source/DLL/save were restored byte-exact, but visible native
+  rendering was not recovered. No rejected deployment is retried or bypassed.
+- Seven requested high-resolution native framebuffers are unavailable on this
+  host:2002x1466actually2002x1400(threelevels),2560x1440actually2240x1400
+  (threelevels),third2560x1800actually2240x1400. No resampled or replacement
+  framebuffer receives credit. All original rows/cases below remain in scope.
+
 ## Inventory at starting revision
 
 Pure TypeScript movement/history, recursive enter/exit/push/eat/possess/shed/infinite zones; horizontal camera flips; procedural NORMAL/ENTER_EXIT/BUMP/BUMP_HALT/NUDGE/STILL/JUMP_IN/JUMP_OUT/SQUISH animations, phantoms/particles; keyboard queue/repeat, touch and inspection; undo/redo/restart; hub/puzzle transitions; PixiJS recursive textures/masks/camera; draw-style and special-mode paths. Existing fixture state hashes do not prove visual or timing parity. Documented partial clone clipping, clone fade, special visuals and wall-flip paths remain in scope where implemented; audio is outside this pass.
@@ -24,19 +70,19 @@ Pure TypeScript movement/history, recursive enter/exit/push/eat/possess/shed/inf
 | enter / enter-exit | setup URUULURRRR then R; exit setup adds R then L | motion origin, clipping, camera crossing and nesting | actual native/Web synchronized entry/exit phases reviewed; previous-frame presentation root cause fixed0481573; sampled camera residual<3.3e-8; final integrated recursive/palette rendering review pending |
 | carry / nested push | setup LLL then L | player/box continuity, nested walls | native carry-nesting-entry-20261025 proves outer2 crossing; clean frozen-production v2 actual49frames/18PNGs reaches outer2; independent image review ongoing, final integration pending |
 | cycle_line / recursive | setup URRURURRDDRRRRU then U | recursive projections, nested seams/clipping | native cycle-camera-entry-20261025 proves outer5 crossing; clean production v2 actual43frames/16PNGs reaches outer5; final integrated review pending |
-| infenter_first_2 / infinite enter | walk | recursive scale, ghosts, camera continuity | native exact22-input walk recorded910states/214PNGs, endpoint matches fixture; no strict infinite enter/exit occurs, so level-name credit is rejected; matching integrated Web capture/review pending |
+| infenter_first_2 / infinite enter | walk | recursive scale, ghosts, camera continuity | actual Web881rAF/310PNG retains all22attempts/22accepted and complete71-block native endpoint. Native local-goal white outline defect fixed2d09419 with886rAF/310PNG after and exact416pixelmask; no strict infinity credit. Final immutable image/timing review pending |
 | infexit_ref_first / infinite exit | setup DLLDRRRR then R | recursive exits, camera continuity | native pre-history accepted Exit infExitNum0 proven in hardpath-native-index; clean production v2 25frames/17PNGs exercises crossing, but starting BUMP_HALT residual t.1 is a setup mismatch; later phases separately reviewable, settled recapture pending |
-| infenter_zone_v2 / generated infinity | walk then R×5 U×5 L×5 D×4 | generated zones, projection continuity | native41inputs/29accepted/1633states/376PNGs, exact fixture endpoint; final input records strict Enter infEnterNum0 into existing level7, not a generated zone; integrated Web capture/review pending |
+| infenter_zone_v2 / generated infinity | walk then R×5 U×5 L×5 D×4 | generated zones, projection continuity | native41inputs/29accepted/1633states/376PNGs; actual Web1656rAF/479PNG preserves every blocked attempt and exact87-block endpoint. Final strict Enter infEnterNum0 goes into existing7, not generated-zone credit. Global clocks/sparse tails/final immutable image review remain open |
 | infenter_zone_v2 / proven generated infinity route | fresh; D D D U | actual generated-zone entry, camera/projection and history | clean production v2 47frames/18PNGs reaches outer14/wentToInfZone; epsilon/gold restored, exact camera.5/BUMP_HALT0 still lacks gray enclosure. Root missing native early open-edge pass fixed82bea3b; fresh PNG review pending |
 | flip_first / horizontal flips | R D D R R | orientation, wall lighting and camera movement | native5accepted/210states/50PNGs, fixture player45 outer0(2,4) flipHtrue; integrated Web capture/review pending |
-| 1by1_playerr_flip2 / boundary flip | setup RR then D; retain longer DDRURLUDDLUDDLRUDRUDLDRDULDRRRD fixture | camera-boundary flip interpolation | core previews restore board topology; clean production v2 still mirrors early and omits native focus/clone fade; renderer source investigation active. PNG readback severely perturbs motion, clean capture only5frames; separate no-PNG77frame trace median16.7ms/max183.3ms,4long frames. No timing/full visual approval; longer route pending |
+| 1by1_playerr_flip2 / boundary flip | setup RR then D; retain longer DDRURLUDDLUDDLRUDRUDLDRDULDRRRD fixture | camera-boundary flip interpolation | short RR/D and long fresh31input cases remain distinct. Actual long Web1275rAF/339PNG preserves31attempts/19accepted and exact123-block native endpoint, no RRprefix. Source camera/focus/clone-blackout/shine-clamp fixes are implemented; unequal MiscAnimT cannot prove missing shine. Source midpoint opaque-black plateau is native, not omitted board. Final image/timing review pending |
 | possess_first / possession | setup LDDL then L | face/phantom origin and jump phases | native proves ownership41→34/STILL.5; clean v2 actual49frames/15PNGs reproduces ownership, independent actual image review ongoing; final integration pending |
 | eat_same_side / eat | setup L then L | enter/eat projection and nested rendering | native proves eaten box outer0→3; clean v2 actual50frames/18PNGs recorded; independent image review ongoing, final integration pending |
 | shed_first / shed | setup RRRRU then U | moving shell, projection and animation continuity | e0bcec9 fixes native float32 exit division and strict landing axis;306measured phase checks pass unchanged1e-6. Independent15unique actual Web PNGs support sampled halt axis only; late reference frames absent. Separate goal tint root fixedce2826c awaiting final PNG |
 | grid_clone / GRID | fresh R | alternate style static/motion | native hardpath index; clean production44frames/17PNGs, independent review pending |
 | text_1 / TUI_COLOR | fresh U | alternate style static/motion | native hardpath index; clean production44frames/17PNGs, independent review pending |
 | oldstyle_lock_two_doors / QUICK_ANIM | fresh R | fixed focus, fast motion/textures | native hardpath index; clean production44frames/14PNGs, independent review pending |
-| clone_first_2 / noncanonical entry | setup DDD then D | clone clipping, camera fade | native clone-fourth-down-entry; clean production42frames/16PNGs reaches outer1; native first-half focus/clone fade implementation pending |
+| clone_first_2 / noncanonical entry | setup DDD then D | clone clipping, camera fade | native clone-fourth-down-entry; source focus/clone composition implemented after oldv2 gap. Actual v4/v5 source-phase image review remains required; no blanket clone clipping/fade approval |
 | third_puzzle / inspection filled rejection | left click gold at400,190 | preserve native filled-box eligibility rejection | actual source-gated native pointer reference40cd690 rejects filled56, matching Web. Old forced INSPECT_56 bypassed InspectUpdate and is internal-camera diagnostic only; no physical push/pop credit |
 | enter / inspection animation | left click340,250 then right click after850ms | actual eligible81 push/pop, half-second camera phases | source-gated native83PNGs validates both. Immutable Web v3 focus changes but camera remains identity: confirmed defect. Core port plus6 failing-before regressions now pass; actual dev96rAF/23PNGs has native .5 offsets/scales. Independent dev and immutable integrated review pending |
 | static_focus_block / fixed focus | fresh | native focus47 and360.0000143px focus size | native static-focus-block-v2; production44frames/9PNGs records view47; independent actual geometry review pending |
