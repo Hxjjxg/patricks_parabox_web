@@ -37,6 +37,13 @@ Started 2026-10-25 at `f8e7539` with clean worktree. Full task is the user attac
   supported native16px renders 1-over-9. Required ordinary18px, paused13px
   and other count-pop sizes still have absent glyphs. This is a confirmed
   unresolved scoped rendering discrepancy; no scaled substitute was added.
+- Independent final-v6 native/static review confirms 14 localized curved-edge
+  pixels with channel differences above1 in two fixed ROIs; maxima17/20 at
+  (428,321)/(323,382). Native7x7 neighborhoods repeat byte-exact across three
+  frames, and neighboring backgrounds match. Cause remains under investigation;
+  no clock waiver, fitted shift or new edge tolerance is used. This does not
+  alter the existing qualified flat-interior/seam detector results. See
+  `final-note-static-review.md` and its exact residual metrics.
 - Final Note crops match all six line-bottom supports at 800x600, 1001x733
   and 1280x720. The retained native20px N threshold edge differs over a gray78
   void background; established source-over alpha explains it without an
