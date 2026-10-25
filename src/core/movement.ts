@@ -28,6 +28,7 @@ import {
   type AnimationSettings,
   type ProjectionMoveWithBlock,
 } from "./animation";
+import { startHubEntry } from "./hubTransition";
 
 /** How a turn is applied: a fresh move animates, undo/redo squish, restart snaps. */
 type TurnMode = "move" | "undo" | "redo" | "restart";
@@ -844,6 +845,8 @@ export class MovementEngine {
         candidate.tempInnerPush = false;
       }
       this.history.discardTurn();
+      this.world.moveCount = moveCount;
+      startHubEntry(this.world, transition);
       return {
         moved: true,
         won: this.world.winning,

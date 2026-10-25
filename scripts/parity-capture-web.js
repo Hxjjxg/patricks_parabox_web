@@ -32,9 +32,15 @@ async () => {
   const sample = (timestamp) => {
     const world = api.world();
     const p = world.findPlayerBlock();
+    const state = api.getState();
     return { timestamp, action, levelName: world.levelName, moveCount: world.moveCount,
+      winning: world.winning, mode: state.mode,
+      transition: { active: world.transitioning ?? false, counter: world.transitionCounter ?? 0,
+        length: world.transitionLength ?? 0, scene: world.transitionSceneName ?? null },
+      session: { mode: state.session.mode, selectedIndex: state.session.selectedIndex,
+        selectedOption: state.session.options[state.session.selectedIndex] ?? null },
       moving: world.anyBlockMoving, wentToInfZone: world.wentToInfZone, cameraFlipH: world.cameraFlipH,
-      inspection: api.getState().inspection,
+      inspection: state.inspection,
       camera: { t: world.cameraAnimT, length: world.cameraAnimLength, phase: world.newCamT, moving: world.cameraMoving,
         x: world.newX, y: world.newY, xs: world.newXS, ys: world.newYS },
       player: { id: p.id, x: p.x, y: p.y, outer: p.outerLevel ? world.levels.indexOf(p.outerLevel) : -1, outerId: p.outerLevel?.id, t: p.animT, length: p.animLength,
@@ -64,7 +70,7 @@ async () => {
       images.push({ name: 'sample-' + String(frames.length - 1).padStart(4, '0'),
         timestamp, frameIndex: frames.length - 1, dataUrl: canvas.toDataURL('image/png') });
     }
-    const stateKey = [frame.levelName, frame.moveCount, frame.player.id,
+    const stateKey = [frame.levelName, frame.moveCount, frame.winning, frame.mode, frame.session.selectedIndex, frame.player.id,
       frame.player.outer, frame.player.x, frame.player.y, frame.moving].join(':');
     if (options.captureStateChanges && stateKey !== previousStateKey) {
       images.push({ name: 'state-' + String(frames.length - 1).padStart(4, '0'),
@@ -133,6 +139,14 @@ async () => {
   }
   await nextFrame();
   const starting = sample(performance.now());
+  if (starting.levelName !== options.level) throw new Error('Setup changed level before timed capture: ' + starting.levelName);
+  const assertStarting = (actual, expected, path = 'starting') => {
+    for (const [key, value] of Object.entries(expected)) {
+      if (value !== null && typeof value === 'object') assertStarting(actual[key], value, path + '.' + key);
+      else if (actual[key] !== value) throw new Error('Native setup mismatch at ' + path + '.' + key + ': expected ' + value + ', actual ' + actual[key]);
+    }
+  };
+  if (options.expectedStarting) assertStarting(starting, options.expectedStarting);
   images.push({ name: 'start', timestamp: performance.now(), dataUrl: canvas.toDataURL('image/png') });
   requestAnimationFrame(record);
   try {

@@ -145,6 +145,11 @@ export class DirectionalInput {
       : null;
   }
 
+  /** PlayerMovementLogic makes a changed direction immediately eligible. */
+  markDirectionChanged(): void {
+    this.repeatElapsed = 1000;
+  }
+
   /** Physical impulses reset the native delay, including deferred inputs. */
   resetRepeatDelay(quickAnim = false): void {
     this.repeatElapsed = quickAnim ? -0.1 : 0;

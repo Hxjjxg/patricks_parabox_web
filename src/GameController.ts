@@ -12,7 +12,7 @@ import {
 } from "./core/directionalInput";
 import { TouchSwipeInput } from "./core/touchInput";
 import { HistoryInput } from "./core/historyInput";
-import { startHubArrival } from "./core/hubTransition";
+import { advanceHubEntry, cancelHubEntry, startHubArrival } from "./core/hubTransition";
 import { MovementEngine, type ImpulseResult } from "./core/movement";
 import {
   computeAnyBlockMoving,
@@ -168,6 +168,7 @@ export class GameController {
   private physicalDirectionChangedAt: number | null = null;
   private readonly historyInput = new HistoryInput();
   private restartRequested = false;
+  private escapeUndoRequested = false;
   private readonly touchInput = new TouchSwipeInput();
   private readonly heldKeys = new Set<string>();
   private previousFrameTime: number | null = null;
@@ -367,6 +368,7 @@ export class GameController {
     this.lastMoveAppliedAt = null;
     this.queuedDirection = null;
     this.restartRequested = false;
+    this.escapeUndoRequested = false;
     this.touchInput.reset();
     this.fastTravelSession = null;
     this.creditsActive = false;
@@ -447,7 +449,8 @@ export class GameController {
         result.transition.fromY,
       );
       this.persistProgression();
-      this.loadLevel(result.transition.floor.sceneName);
+      this.renderer.setWorld(this.world);
+      this.updateStateOutput();
       return result;
     }
     this.renderer.setWorld(this.world);
@@ -462,8 +465,19 @@ export class GameController {
     return result;
   }
 
+  private cancelPortalEntry(): boolean {
+    if (!cancelHubEntry(this.world)) return false;
+    this.queuedDirection = null;
+    this.resetInspection();
+    this.renderer.setWorld(this.world);
+    this.updateStateOutput();
+    this.syncRendererUi();
+    return true;
+  }
+
   private undo(): boolean {
     if (this.runtimeMode() !== "playing") return false;
+    if (this.cancelPortalEntry()) return true;
     const inspectionChanged = this.resetInspection();
     // UndoManager refuses an empty past before flushing, otherwise commits
     // the accepted impulse and undoes that newest move-count group.
@@ -502,6 +516,7 @@ export class GameController {
 
   private restart(): boolean {
     if (this.runtimeMode() !== "playing") return false;
+    if (this.cancelPortalEntry()) return true;
     const inspectionChanged = this.resetInspection();
     this.flushQueuedDirection();
     const changed = this.movement.restart();
@@ -1137,6 +1152,11 @@ export class GameController {
       if (!event.repeat) this.restartRequested = true;
     } else if (key === "escape") {
       event.preventDefault();
+      // Native Escape becomes an undo control while jumping into a portal.
+      if (this.world.transitioning) {
+        if (!event.repeat) this.escapeUndoRequested = true;
+        return;
+      }
       const player = this.world.findPlayerBlock();
       const playerFloor =
         player.outerLevel?.getFloor(player.x, player.y) ?? null;
@@ -1309,7 +1329,9 @@ export class GameController {
     this.advancePlaytime(Math.min(elapsed, 1 / 3));
 
     if (this.runtimeMode() === "playing") {
-      const undoHeld = this.heldKeys.has("z");
+      const undoHeld = this.heldKeys.has("z") ||
+        (this.world.transitioning && this.escapeUndoRequested);
+      this.escapeUndoRequested = false;
       const redoHeld = this.heldKeys.has("x") ||
         (this.heldKeys.has("y") && this.heldKeys.has("control"));
       const historyHeld = undoHeld || redoHeld;
@@ -1371,6 +1393,20 @@ export class GameController {
           onJumpOutComplete: () => this.movement.clearWaitForMoveDirChange(),
         });
         updateCameraAnimation(this.world, delta);
+      }
+      const destination = advanceHubEntry(this.world, elapsed);
+      if (destination) {
+        const carriedMoving = this.world.anyBlockMoving;
+        const transitionState = {
+          transitionCounter: this.world.transitionCounter,
+          transitionLength: this.world.transitionLength,
+          transitionSceneName: this.world.transitionSceneName,
+          transitionXPosOffset: this.world.transitionXPosOffset,
+          transitionYPosOffset: this.world.transitionYPosOffset,
+        };
+        this.loadLevel(destination, true);
+        Object.assign(this.world, transitionState);
+        this.world.anyBlockMoving = carriedMoving;
       }
       this.advanceWinTransition(elapsed);
       this.controlsFadeT += elapsed;
@@ -1478,8 +1514,9 @@ export class GameController {
     if (changedDirection) {
       this.lastMoveDirection = { dx: command.dx, dy: command.dy };
       this.movement.clearWaitForMoveDirChange();
+      this.directionalInput.markDirectionChanged();
     }
-    if (this.world.winning) return;
+    if (this.world.winning || this.world.transitioning) return;
     const decision = decideDirectionRequest({
       repeated,
       animating: this.world.anyBlockMoving,

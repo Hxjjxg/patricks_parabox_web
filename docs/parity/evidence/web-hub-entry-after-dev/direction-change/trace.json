@@ -1,0 +1,5271 @@
+{
+  "options": {
+    "level": "hub",
+    "setup": "LLLDDDD",
+    "expectedStarting": {
+      "moveCount": 7,
+      "player": {
+        "x": 2,
+        "y": 5
+      }
+    },
+    "events": [
+      {
+        "at": 0,
+        "key": "ArrowDown",
+        "duration": 40
+      },
+      {
+        "at": 40,
+        "key": "ArrowRight",
+        "duration": 700
+      }
+    ],
+    "settleMs": 300,
+    "captureMotion": true,
+    "captureStateChanges": true,
+    "expectedViewport": {
+      "width": 800,
+      "height": 600,
+      "dpr": 1
+    },
+    "revision": "dev native entry repair after e39051d; not immutable production"
+  },
+  "recordedAt": "2026-10-25T04:24:58.664Z",
+  "viewport": {
+    "width": 800,
+    "height": 600,
+    "dpr": 1.0000000298023224,
+    "canvasWidth": 800,
+    "canvasHeight": 600
+  },
+  "setupTimings": [
+    {
+      "direction": "L",
+      "began": 11272,
+      "ended": 12088.60000000149,
+      "state": {
+        "timestamp": 12088.60000000149,
+        "action": "start",
+        "levelName": "hub",
+        "moveCount": 1,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 1033,
+          "viewLevelId": 47,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 1077,
+          "x": 4,
+          "y": 9,
+          "outer": 47,
+          "outerId": 47,
+          "t": 0.23329999999999929,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 1077,
+            "x": 4,
+            "y": 9,
+            "outer": 47,
+            "t": 0.23329999999999929,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      }
+    },
+    {
+      "direction": "L",
+      "began": 12089.60000000149,
+      "ended": 12898.89999999851,
+      "state": {
+        "timestamp": 12898.89999999851,
+        "action": "start",
+        "levelName": "hub",
+        "moveCount": 2,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 1033,
+          "viewLevelId": 47,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 1077,
+          "x": 3,
+          "y": 9,
+          "outer": 47,
+          "outerId": 47,
+          "t": 0.2333000000000011,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 1077,
+            "x": 3,
+            "y": 9,
+            "outer": 47,
+            "t": 0.2333000000000011,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      }
+    },
+    {
+      "direction": "L",
+      "began": 12899.29999999702,
+      "ended": 13705.60000000149,
+      "state": {
+        "timestamp": 13705.60000000149,
+        "action": "start",
+        "levelName": "hub",
+        "moveCount": 3,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 1033,
+          "viewLevelId": 47,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 1077,
+          "x": 2,
+          "y": 9,
+          "outer": 47,
+          "outerId": 47,
+          "t": 0.23320000000000074,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 1077,
+            "x": 2,
+            "y": 9,
+            "outer": 47,
+            "t": 0.23320000000000074,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      }
+    },
+    {
+      "direction": "D",
+      "began": 13705.89999999851,
+      "ended": 14521.19999999553,
+      "state": {
+        "timestamp": 14521.19999999553,
+        "action": "start",
+        "levelName": "hub",
+        "moveCount": 4,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 1033,
+          "viewLevelId": 47,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 1077,
+          "x": 2,
+          "y": 8,
+          "outer": 47,
+          "outerId": 47,
+          "t": 0.23320000000000074,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 1077,
+            "x": 2,
+            "y": 8,
+            "outer": 47,
+            "t": 0.23320000000000074,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      }
+    },
+    {
+      "direction": "D",
+      "began": 14521.5,
+      "ended": 15331.39999999851,
+      "state": {
+        "timestamp": 15331.39999999851,
+        "action": "start",
+        "levelName": "hub",
+        "moveCount": 5,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 1033,
+          "viewLevelId": 47,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 1077,
+          "x": 2,
+          "y": 7,
+          "outer": 47,
+          "outerId": 47,
+          "t": 0.23299999999999998,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 1077,
+            "x": 2,
+            "y": 7,
+            "outer": 47,
+            "t": 0.23299999999999998,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      }
+    },
+    {
+      "direction": "D",
+      "began": 15331.60000000149,
+      "ended": 16138.10000000149,
+      "state": {
+        "timestamp": 16138.10000000149,
+        "action": "start",
+        "levelName": "hub",
+        "moveCount": 6,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 1033,
+          "viewLevelId": 47,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 1077,
+          "x": 2,
+          "y": 6,
+          "outer": 47,
+          "outerId": 47,
+          "t": 0.23319999999999894,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 1077,
+            "x": 2,
+            "y": 6,
+            "outer": 47,
+            "t": 0.23319999999999894,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      }
+    },
+    {
+      "direction": "D",
+      "began": 16138.39999999851,
+      "ended": 16941.19999999553,
+      "state": {
+        "timestamp": 16941.19999999553,
+        "action": "start",
+        "levelName": "hub",
+        "moveCount": 7,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 1033,
+          "viewLevelId": 47,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "outerId": 47,
+          "t": 0.23309999999999853,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 1077,
+            "x": 2,
+            "y": 5,
+            "outer": 47,
+            "t": 0.23309999999999853,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      }
+    }
+  ],
+  "starting": {
+    "timestamp": 16953.19999999553,
+    "action": "start",
+    "levelName": "hub",
+    "moveCount": 7,
+    "winning": false,
+    "mode": "playing",
+    "transition": {
+      "active": false,
+      "counter": 0,
+      "length": 0,
+      "scene": null
+    },
+    "session": {
+      "mode": "none",
+      "selectedIndex": 0,
+      "selectedOption": null
+    },
+    "moving": false,
+    "wentToInfZone": false,
+    "cameraFlipH": false,
+    "inspection": {
+      "inspectedBlockId": null,
+      "viewBlockId": 1033,
+      "viewLevelId": 47,
+      "flipH": false
+    },
+    "camera": {
+      "t": 0.1,
+      "length": 0.1,
+      "phase": 1,
+      "moving": false,
+      "x": 0,
+      "y": 0,
+      "xs": 1,
+      "ys": 1
+    },
+    "player": {
+      "id": 1077,
+      "x": 2,
+      "y": 5,
+      "outer": 47,
+      "outerId": 47,
+      "t": 0.23309999999999853,
+      "length": 0.22,
+      "anim": "bumpHalt",
+      "ox": 0,
+      "oy": 0,
+      "sx": 1,
+      "sy": 1
+    },
+    "animated": [
+      {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "t": 0.23309999999999853,
+        "length": 0.22,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      }
+    ]
+  },
+  "ending": {
+    "timestamp": 18026,
+    "action": "01-Right",
+    "levelName": "enter",
+    "moveCount": 1,
+    "winning": false,
+    "mode": "playing",
+    "transition": {
+      "active": false,
+      "counter": 0,
+      "length": 0,
+      "scene": null
+    },
+    "session": {
+      "mode": "none",
+      "selectedIndex": 0,
+      "selectedOption": null
+    },
+    "moving": false,
+    "wentToInfZone": false,
+    "cameraFlipH": false,
+    "inspection": {
+      "inspectedBlockId": null,
+      "viewBlockId": 0,
+      "viewLevelId": 0,
+      "flipH": false
+    },
+    "camera": {
+      "t": 0.1,
+      "length": 0.1,
+      "phase": 1,
+      "moving": false,
+      "x": 0,
+      "y": 0,
+      "xs": 1,
+      "ys": 1
+    },
+    "player": {
+      "id": 62,
+      "x": 2,
+      "y": 1,
+      "outer": 0,
+      "outerId": 0,
+      "t": 0.2331999999999971,
+      "length": 0.22,
+      "anim": "bumpHalt",
+      "ox": 0,
+      "oy": 0,
+      "sx": 1,
+      "sy": 1
+    },
+    "animated": [
+      {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "t": 0.2331999999999971,
+        "length": 0.22,
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      }
+    ]
+  },
+  "events": [
+    {
+      "type": "keydown",
+      "key": "ArrowDown",
+      "timestamp": 16963.29999999702,
+      "state": {
+        "timestamp": 16963.69999999553,
+        "action": "00-Down",
+        "levelName": "hub",
+        "moveCount": 7,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 1033,
+          "viewLevelId": 47,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "outerId": 47,
+          "t": 0.23309999999999853,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        },
+        "animated": [
+          {
+            "id": 1077,
+            "x": 2,
+            "y": 5,
+            "outer": 47,
+            "t": 0.23309999999999853,
+            "length": 0.22,
+            "ox": 0,
+            "oy": 0,
+            "sx": 1,
+            "sy": 1
+          }
+        ]
+      }
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowDown",
+      "timestamp": 17005.39999999851,
+      "state": {
+        "timestamp": 17005.39999999851,
+        "action": "00-Down",
+        "levelName": "hub",
+        "moveCount": 8,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": true,
+          "counter": 0.04990000000000146,
+          "length": 0.5,
+          "scene": "enter"
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": true,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 1033,
+          "viewLevelId": 47,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "outerId": 47,
+          "t": 0.03659999999851061,
+          "length": 0.5,
+          "anim": "jumpIn",
+          "ox": 0,
+          "oy": -0.19816703999280805,
+          "sx": 0.9349333333965792,
+          "sy": 0.9349333333965792
+        },
+        "animated": [
+          {
+            "id": 1077,
+            "x": 2,
+            "y": 5,
+            "outer": 47,
+            "t": 0.03659999999851061,
+            "length": 0.5,
+            "ox": 0,
+            "oy": -0.19816703999280805,
+            "sx": 0.9349333333965792,
+            "sy": 0.9349333333965792
+          }
+        ]
+      }
+    },
+    {
+      "type": "keydown",
+      "key": "ArrowRight",
+      "timestamp": 17005.69999999553,
+      "state": {
+        "timestamp": 17005.69999999553,
+        "action": "01-Right",
+        "levelName": "hub",
+        "moveCount": 8,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": true,
+          "counter": 0.04990000000000146,
+          "length": 0.5,
+          "scene": "enter"
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": true,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 1033,
+          "viewLevelId": 47,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "outerId": 47,
+          "t": 0.03659999999851061,
+          "length": 0.5,
+          "anim": "jumpIn",
+          "ox": 0,
+          "oy": -0.19816703999280805,
+          "sx": 0.9349333333965792,
+          "sy": 0.9349333333965792
+        },
+        "animated": [
+          {
+            "id": 1077,
+            "x": 2,
+            "y": 5,
+            "outer": 47,
+            "t": 0.03659999999851061,
+            "length": 0.5,
+            "ox": 0,
+            "oy": -0.19816703999280805,
+            "sx": 0.9349333333965792,
+            "sy": 0.9349333333965792
+          }
+        ]
+      }
+    },
+    {
+      "type": "keyup",
+      "key": "ArrowRight",
+      "timestamp": 17710.10000000149,
+      "state": {
+        "timestamp": 17710.10000000149,
+        "action": "01-Right",
+        "levelName": "enter",
+        "moveCount": 1,
+        "winning": false,
+        "mode": "playing",
+        "transition": {
+          "active": false,
+          "counter": 0,
+          "length": 0,
+          "scene": null
+        },
+        "session": {
+          "mode": "none",
+          "selectedIndex": 0,
+          "selectedOption": null
+        },
+        "moving": false,
+        "wentToInfZone": false,
+        "cameraFlipH": false,
+        "inspection": {
+          "inspectedBlockId": null,
+          "viewBlockId": 0,
+          "viewLevelId": 0,
+          "flipH": false
+        },
+        "camera": {
+          "t": 0.1,
+          "length": 0.1,
+          "phase": 1,
+          "moving": false,
+          "x": 0,
+          "y": 0,
+          "xs": 1,
+          "ys": 1
+        },
+        "player": {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "outerId": 0,
+          "t": 0.06659999999999855,
+          "length": 0.22,
+          "anim": "bumpHalt",
+          "ox": 0.03279181848234316,
+          "oy": 0,
+          "sx": 0.9344163630353137,
+          "sy": 1.0327918184823432
+        },
+        "animated": [
+          {
+            "id": 62,
+            "x": 2,
+            "y": 1,
+            "outer": 0,
+            "t": 0.06659999999999855,
+            "length": 0.22,
+            "ox": 0.03279181848234316,
+            "oy": 0,
+            "sx": 0.9344163630353137,
+            "sy": 1.0327918184823432
+          }
+        ]
+      }
+    }
+  ],
+  "frames": [
+    {
+      "timestamp": 16966.9,
+      "action": "00-Down",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.016600000000002182,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.0032999999985113392,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.019625759991225154,
+        "sx": 0.9941333333414436,
+        "sy": 0.9941333333414436
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.0032999999985113392,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.019625759991225154,
+          "sx": 0.9941333333414436,
+          "sy": 0.9941333333414436
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 16983.6,
+      "action": "00-Down",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.033299999999999275,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.019999999998508426,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.11359999999200522,
+        "sx": 0.9644444444802098,
+        "sy": 0.9644444444802098
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.019999999998508426,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.11359999999200522,
+          "sx": 0.9644444444802098,
+          "sy": 0.9644444444802098
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17000.2,
+      "action": "00-Down",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.04990000000000146,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.03659999999851061,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.19816703999280805,
+        "sx": 0.9349333333965792,
+        "sy": 0.9349333333965792
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.03659999999851061,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.19816703999280805,
+          "sx": 0.9349333333965792,
+          "sy": 0.9349333333965792
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17016.9,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.06660000000000219,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.05329999999851134,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.27434575999360716,
+        "sx": 0.9052444445353389,
+        "sy": 0.9052444445353389
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.05329999999851134,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.27434575999360716,
+          "sx": 0.9052444445353389,
+          "sy": 0.9052444445353389
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17033.6,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.08329999999999928,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.06999999999850842,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.3415999999943916,
+        "sx": 0.8755555556741051,
+        "sy": 0.8755555556741051
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.06999999999850842,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.3415999999943916,
+          "sx": 0.8755555556741051,
+          "sy": 0.8755555556741051
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17050.2,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.09990000000000146,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.0865999999985106,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.399607039995191,
+        "sx": 0.8460444445904746,
+        "sy": 0.8460444445904746
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.0865999999985106,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.399607039995191,
+          "sx": 0.8460444445904746,
+          "sy": 0.8460444445904746
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17066.9,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.11660000000000219,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.10329999999851133,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.4490657599959889,
+        "sx": 0.8163555557292344,
+        "sy": 0.8163555557292344
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.10329999999851133,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.4490657599959889,
+          "sx": 0.8163555557292344,
+          "sy": 0.8163555557292344
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17083.5,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.13320000000000073,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.11989999999850988,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.4893838399967765,
+        "sx": 0.7868444446456101,
+        "sy": 0.7868444446456101
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.11989999999850988,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.4893838399967765,
+          "sx": 0.7868444446456101,
+          "sy": 0.7868444446456101
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17100.7,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.15040000000000148,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.1370999999985106,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.5218574399975979,
+        "sx": 0.7562666668963088,
+        "sy": 0.7562666668963088
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.1370999999985106,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.5218574399975979,
+          "sx": 0.7562666668963088,
+          "sy": 0.7562666668963088
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17116.9,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.1666000000000022,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.15329999999851135,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.5437857599983708,
+        "sx": 0.7274666669231296,
+        "sy": 0.7274666669231296
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.15329999999851135,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.5437857599983708,
+          "sx": 0.7274666669231296,
+          "sy": 0.7274666669231296
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17133.6,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.18329999999999927,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.16999999999850843,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.5575999999991648,
+        "sx": 0.6977777780618959,
+        "sy": 0.6977777780618959
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.16999999999850843,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.5575999999991648,
+          "sx": 0.6977777780618959,
+          "sy": 0.6977777780618959
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17150.1,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.19979999999999926,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.18649999999850841,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.5624839999999522,
+        "sx": 0.6684444447558813,
+        "sy": 0.6684444447558813
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.18649999999850841,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.5624839999999522,
+          "sx": 0.6684444447558813,
+          "sy": 0.6684444447558813
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17166.8,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.21649999999999997,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.20319999999850913,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.558556160000749,
+        "sx": 0.6387555558946412,
+        "sy": 0.6387555558946412
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.20319999999850913,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.558556160000749,
+          "sx": 0.6387555558946412,
+          "sy": 0.6387555558946412
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17184.1,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.23379999999999923,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.2204999999985084,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.5450760000015752,
+        "sx": 0.6080000003677302,
+        "sy": 0.6080000003677302
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.2204999999985084,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.5450760000015752,
+          "sx": 0.6080000003677302,
+          "sy": 0.6080000003677302
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17200.2,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.2499000000000014,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.23659999999851056,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.5239270400023402,
+        "sx": 0.5793777781721606,
+        "sy": 0.5793777781721606
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.23659999999851056,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.5239270400023402,
+          "sx": 0.5793777781721606,
+          "sy": 0.5793777781721606
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17216.8,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.26649999999999996,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.2531999999985091,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.4934361600031344,
+        "sx": 0.5498666670885364,
+        "sy": 0.5498666670885364
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.2531999999985091,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.4934361600031344,
+          "sx": 0.5498666670885364,
+          "sy": 0.5498666670885364
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17233.6,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.2832999999999992,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.2699999999985084,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.45360000000393785,
+        "sx": 0.5200000004496865,
+        "sy": 0.5200000004496865
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.2699999999985084,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.45360000000393785,
+          "sx": 0.5200000004496865,
+          "sy": 0.5200000004496865
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17250.2,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.2999000000000014,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.28659999999851055,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.40536704000472334,
+        "sx": 0.49048888936605606,
+        "sy": 0.49048888936605606
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.28659999999851055,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.40536704000472334,
+          "sx": 0.49048888936605606,
+          "sy": 0.49048888936605606
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17266.8,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.31649999999999995,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.3031999999985091,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.3483161600055199,
+        "sx": 0.4609777782824318,
+        "sy": 0.4609777782824318
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.3031999999985091,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.3483161600055199,
+          "sx": 0.4609777782824318,
+          "sy": 0.4609777782824318
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17283.5,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.33320000000000066,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.3198999999985098,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.28202384000631353,
+        "sx": 0.4312888894211916,
+        "sy": 0.4312888894211916
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.3198999999985098,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.28202384000631353,
+          "sx": 0.4312888894211916,
+          "sy": 0.4312888894211916
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17300.1,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.3497999999999992,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.3364999999985084,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.207284000007112,
+        "sx": 0.40177777833756745,
+        "sy": 0.40177777833756745
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.3364999999985084,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.207284000007112,
+          "sx": 0.40177777833756745,
+          "sy": 0.40177777833756745
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17316.8,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.36649999999999994,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.3531999999985091,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.12319616000790534,
+        "sx": 0.37208888947632723,
+        "sy": 0.37208888947632723
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.3531999999985091,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.12319616000790534,
+          "sx": 0.37208888947632723,
+          "sy": 0.37208888947632723
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17333.4,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.3831000000000021,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.36979999999851126,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": -0.03076736000868474,
+        "sx": 0.34257777839269654,
+        "sy": 0.34257777839269654
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.36979999999851126,
+          "length": 0.5,
+          "ox": 0,
+          "oy": -0.03076736000868474,
+          "sx": 0.34257777839269654,
+          "sy": 0.34257777839269654
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17350.7,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.40040000000000137,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.3870999999985105,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": 0.07494255999048649,
+        "sx": 0.31182222286578565,
+        "sy": 0.31182222286578565
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.3870999999985105,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.07494255999048649,
+          "sx": 0.31182222286578565,
+          "sy": 0.31182222286578565
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17366.8,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.4164999999999999,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.4031999999985091,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": 0.18192383998970918,
+        "sx": 0.28320000067022255,
+        "sy": 0.28320000067022255
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.4031999999985091,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.18192383998970918,
+          "sx": 0.28320000067022255,
+          "sy": 0.28320000067022255
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17383.7,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.4334000000000014,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.42009999999851055,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": 0.30314415998891375,
+        "sx": 0.2531555562537565,
+        "sy": 0.2531555562537565
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.42009999999851055,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.30314415998891375,
+          "sx": 0.2531555562537565,
+          "sy": 0.2531555562537565
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17400.1,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.4497999999999992,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.43649999999850836,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": 0.4295159999881146,
+        "sx": 0.22400000072535808,
+        "sy": 0.22400000072535808
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.43649999999850836,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.4295159999881146,
+          "sx": 0.22400000072535808,
+          "sy": 0.22400000072535808
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17416.8,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.4664999999999999,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.4531999999985091,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": 0.5670438399873236,
+        "sx": 0.19431111186411787,
+        "sy": 0.19431111186411787
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.4531999999985091,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.5670438399873236,
+          "sx": 0.19431111186411787,
+          "sy": 0.19431111186411787
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17433.4,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.4831000000000021,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.46979999999851124,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": 0.7125926399865512,
+        "sx": 0.1648000007804873,
+        "sy": 0.1648000007804873
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.46979999999851124,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.7125926399865512,
+          "sx": 0.1648000007804873,
+          "sy": 0.1648000007804873
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17450.2,
+      "action": "01-Right",
+      "levelName": "hub",
+      "moveCount": 8,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": true,
+        "counter": 0.49990000000000134,
+        "length": 0.5,
+        "scene": "enter"
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 1033,
+        "viewLevelId": 47,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 1077,
+        "x": 2,
+        "y": 5,
+        "outer": 47,
+        "outerId": 47,
+        "t": 0.4865999999985105,
+        "length": 0.5,
+        "anim": "jumpIn",
+        "ox": 0,
+        "oy": 0.8688729599857438,
+        "sx": 0.13493333414163744,
+        "sy": 0.13493333414163744
+      },
+      "animated": [
+        {
+          "id": 1077,
+          "x": 2,
+          "y": 5,
+          "outer": 47,
+          "t": 0.4865999999985105,
+          "length": 0.5,
+          "ox": 0,
+          "oy": 0.8688729599857438,
+          "sx": 0.13493333414163744,
+          "sy": 0.13493333414163744
+        }
+      ],
+      "motionId": "motion-0001-jumpIn",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17466.7,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 0,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0,
+        "length": 0,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 1,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0,
+        "length": 0,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [],
+      "motionId": "motion-0002-normal",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17516.7,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0,
+        "length": 0,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 1,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0,
+        "length": 0,
+        "anim": "normal",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [],
+      "motionId": "motion-0002-normal",
+      "cameraMotionId": "camera-0000"
+    },
+    {
+      "timestamp": 17533.4,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.016700000000000728,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.016700000000000728,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": -0.8329999999999927,
+        "oy": 0,
+        "sx": 1.055644400000002,
+        "sy": 0.8887111999999961
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.016700000000000728,
+          "length": 0.1,
+          "ox": -0.8329999999999927,
+          "oy": 0,
+          "sx": 1.055644400000002,
+          "sy": 0.8887111999999961
+        }
+      ],
+      "motionId": "motion-0003-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17550.1,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.03300000000297951,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.03300000000297951,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": -0.6699999999702049,
+        "oy": 0,
+        "sx": 1.0884400000040522,
+        "sy": 0.8231199999918958
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.03300000000297951,
+          "length": 0.1,
+          "ox": -0.6699999999702049,
+          "oy": 0,
+          "sx": 1.0884400000040522,
+          "sy": 0.8231199999918958
+        }
+      ],
+      "motionId": "motion-0003-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17566.7,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.04960000000298169,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.04960000000298169,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": -0.5039999999701832,
+        "oy": 0,
+        "sx": 1.0999936000000956,
+        "sy": 0.8000127999998092
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.04960000000298169,
+          "length": 0.1,
+          "ox": -0.5039999999701832,
+          "oy": 0,
+          "sx": 1.0999936000000956,
+          "sy": 0.8000127999998092
+        }
+      ],
+      "motionId": "motion-0003-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17583.3,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.06620000000298024,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.06620000000298024,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": -0.3379999999701977,
+        "oy": 0,
+        "sx": 1.0895023999961377,
+        "sy": 0.8209952000077247
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.06620000000298024,
+          "length": 0.1,
+          "ox": -0.3379999999701977,
+          "oy": 0,
+          "sx": 1.0895023999961377,
+          "sy": 0.8209952000077247
+        }
+      ],
+      "motionId": "motion-0003-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17600.2,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.08310000000298169,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.08310000000298169,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": -0.1689999999701831,
+        "oy": 0,
+        "sx": 1.0561755999921045,
+        "sy": 0.887648800015791
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.08310000000298169,
+          "length": 0.1,
+          "ox": -0.1689999999701831,
+          "oy": 0,
+          "sx": 1.0561755999921045,
+          "sy": 0.887648800015791
+        }
+      ],
+      "motionId": "motion-0003-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17616.7,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": true,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.09960000000298169,
+        "length": 0.1,
+        "phase": 1,
+        "moving": true,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.09960000000298169,
+        "length": 0.1,
+        "anim": "normal",
+        "ox": -0.003999999970183077,
+        "oy": 0,
+        "sx": 1.0015935999881687,
+        "sy": 0.9968128000236627
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.09960000000298169,
+          "length": 0.1,
+          "ox": -0.003999999970183077,
+          "oy": 0,
+          "sx": 1.0015935999881687,
+          "sy": 0.9968128000236627
+        }
+      ],
+      "motionId": "motion-0003-normal",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17633.4,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17650.1,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.01669999999999709,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.003107391960930608,
+        "oy": 0,
+        "sx": 0.9937852160781387,
+        "sy": 1.0031073919609306
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.01669999999999709,
+          "length": 0.22,
+          "ox": 0.003107391960930608,
+          "oy": 0,
+          "sx": 0.9937852160781387,
+          "sy": 1.0031073919609306
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17666.7,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.033299999999999275,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.010972262434259538,
+        "oy": 0,
+        "sx": 0.978055475131481,
+        "sy": 1.0109722624342596
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.033299999999999275,
+          "length": 0.22,
+          "ox": 0.010972262434259538,
+          "oy": 0,
+          "sx": 0.978055475131481,
+          "sy": 1.0109722624342596
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17683.4,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.05,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.021600300525920366,
+        "oy": 0,
+        "sx": 0.9567993989481592,
+        "sy": 1.0216003005259204
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.05,
+          "length": 0.22,
+          "ox": 0.021600300525920366,
+          "oy": 0,
+          "sx": 0.9567993989481592,
+          "sy": 1.0216003005259204
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17700,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.06659999999999855,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.03279181848234316,
+        "oy": 0,
+        "sx": 0.9344163630353137,
+        "sy": 1.0327918184823432
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.06659999999999855,
+          "length": 0.22,
+          "ox": 0.03279181848234316,
+          "oy": 0,
+          "sx": 0.9344163630353137,
+          "sy": 1.0327918184823432
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17716.6,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.0831999999999971,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.04254239158527277,
+        "oy": 0,
+        "sx": 0.9149152168294545,
+        "sy": 1.0425423915852727
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.0831999999999971,
+          "length": 0.22,
+          "ox": 0.04254239158527277,
+          "oy": 0,
+          "sx": 0.9149152168294545,
+          "sy": 1.0425423915852727
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17733.4,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.1,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.04883546205860256,
+        "oy": 0,
+        "sx": 0.9023290758827949,
+        "sy": 1.0488354620586027
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.1,
+          "length": 0.22,
+          "ox": 0.04883546205860256,
+          "oy": 0,
+          "sx": 0.9023290758827949,
+          "sy": 1.0488354620586027
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17750,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.11659999999999855,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.04948160000000023,
+        "oy": 0,
+        "sx": 0.9010367999999995,
+        "sy": 1.0494816000000002
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.11659999999999855,
+          "length": 0.22,
+          "ox": 0.04948160000000023,
+          "oy": 0,
+          "sx": 0.9010367999999995,
+          "sy": 1.0494816000000002
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17766.6,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.1331999999999971,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.0442657827197609,
+        "oy": 0,
+        "sx": 0.9114684345604782,
+        "sy": 1.044265782719761
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.1331999999999971,
+          "length": 0.22,
+          "ox": 0.0442657827197609,
+          "oy": 0,
+          "sx": 0.9114684345604782,
+          "sy": 1.044265782719761
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17783.4,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.15000000000000002,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.03497370398196844,
+        "oy": 0,
+        "sx": 0.9300525920360632,
+        "sy": 1.0349737039819684
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.15000000000000002,
+          "length": 0.22,
+          "ox": 0.03497370398196844,
+          "oy": 0,
+          "sx": 0.9300525920360632,
+          "sy": 1.0349737039819684
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17799.9,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.16650000000000004,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.02397752629601801,
+        "oy": 0,
+        "sx": 0.952044947407964,
+        "sy": 1.023977526296018
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.16650000000000004,
+          "length": 0.22,
+          "ox": 0.02397752629601801,
+          "oy": 0,
+          "sx": 0.952044947407964,
+          "sy": 1.023977526296018
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17816.6,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.18319999999999712,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.013043844327575,
+        "oy": 0,
+        "sx": 0.97391231134485,
+        "sy": 1.013043844327575
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.18319999999999712,
+          "length": 0.22,
+          "ox": 0.013043844327575,
+          "oy": 0,
+          "sx": 0.97391231134485,
+          "sy": 1.013043844327575
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17833.3,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.19989999999999786,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.004398275657401324,
+        "oy": 0,
+        "sx": 0.9912034486851974,
+        "sy": 1.0043982756574013
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.19989999999999786,
+          "length": 0.22,
+          "ox": 0.004398275657401324,
+          "oy": 0,
+          "sx": 0.9912034486851974,
+          "sy": 1.0043982756574013
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17849.9,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.21650000000000003,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0.00014863824192336563,
+        "oy": 0,
+        "sx": 0.9997027235161533,
+        "sy": 1.0001486382419233
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.21650000000000003,
+          "length": 0.22,
+          "ox": 0.00014863824192336563,
+          "oy": 0,
+          "sx": 0.9997027235161533,
+          "sy": 1.0001486382419233
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17866.6,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2331999999999971,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.2331999999999971,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17883.3,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2331999999999971,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.2331999999999971,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17899.9,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2331999999999971,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.2331999999999971,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17916.6,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2331999999999971,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.2331999999999971,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17933.2,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2331999999999971,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.2331999999999971,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17949.9,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2331999999999971,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.2331999999999971,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17966.6,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2331999999999971,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.2331999999999971,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17983.3,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2331999999999971,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.2331999999999971,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 17999.9,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2331999999999971,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.2331999999999971,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    },
+    {
+      "timestamp": 18016.6,
+      "action": "01-Right",
+      "levelName": "enter",
+      "moveCount": 1,
+      "winning": false,
+      "mode": "playing",
+      "transition": {
+        "active": false,
+        "counter": 0,
+        "length": 0,
+        "scene": null
+      },
+      "session": {
+        "mode": "none",
+        "selectedIndex": 0,
+        "selectedOption": null
+      },
+      "moving": false,
+      "wentToInfZone": false,
+      "cameraFlipH": false,
+      "inspection": {
+        "inspectedBlockId": null,
+        "viewBlockId": 0,
+        "viewLevelId": 0,
+        "flipH": false
+      },
+      "camera": {
+        "t": 0.1,
+        "length": 0.1,
+        "phase": 1,
+        "moving": false,
+        "x": 0,
+        "y": 0,
+        "xs": 1,
+        "ys": 1
+      },
+      "player": {
+        "id": 62,
+        "x": 2,
+        "y": 1,
+        "outer": 0,
+        "outerId": 0,
+        "t": 0.2331999999999971,
+        "length": 0.22,
+        "anim": "bumpHalt",
+        "ox": 0,
+        "oy": 0,
+        "sx": 1,
+        "sy": 1
+      },
+      "animated": [
+        {
+          "id": 62,
+          "x": 2,
+          "y": 1,
+          "outer": 0,
+          "t": 0.2331999999999971,
+          "length": 0.22,
+          "ox": 0,
+          "oy": 0,
+          "sx": 1,
+          "sy": 1
+        }
+      ],
+      "motionId": "motion-0004-bumpHalt",
+      "cameraMotionId": "camera-0001"
+    }
+  ],
+  "images": [
+    {
+      "name": "start",
+      "timestamp": 16953.60000000149
+    },
+    {
+      "name": "state-0000",
+      "timestamp": 16966.9,
+      "frameIndex": 0
+    },
+    {
+      "name": "motion-0001-jumpIn-0.25",
+      "action": "01-Right",
+      "timestamp": 17100.7,
+      "phase": 0.2741999999970212,
+      "frameIndex": 8
+    },
+    {
+      "name": "motion-0001-jumpIn-0.5",
+      "action": "01-Right",
+      "timestamp": 17216.8,
+      "phase": 0.5063999999970182,
+      "frameIndex": 15
+    },
+    {
+      "name": "motion-0001-jumpIn-0.75",
+      "action": "01-Right",
+      "timestamp": 17350.7,
+      "phase": 0.774199999997021,
+      "frameIndex": 23
+    },
+    {
+      "name": "state-0030",
+      "timestamp": 17466.7,
+      "frameIndex": 30
+    },
+    {
+      "name": "motion-0002-normal-0.25",
+      "action": "01-Right",
+      "timestamp": 17466.7,
+      "phase": 1,
+      "frameIndex": 30
+    },
+    {
+      "name": "motion-0002-normal-0.5",
+      "action": "01-Right",
+      "timestamp": 17466.7,
+      "phase": 1,
+      "frameIndex": 30
+    },
+    {
+      "name": "motion-0002-normal-0.75",
+      "action": "01-Right",
+      "timestamp": 17466.7,
+      "phase": 1,
+      "frameIndex": 30
+    },
+    {
+      "name": "motion-0002-normal-1",
+      "action": "01-Right",
+      "timestamp": 17466.7,
+      "phase": 1,
+      "frameIndex": 30
+    },
+    {
+      "name": "state-0031",
+      "timestamp": 17516.7,
+      "frameIndex": 31
+    },
+    {
+      "name": "state-0032",
+      "timestamp": 17533.4,
+      "frameIndex": 32
+    },
+    {
+      "name": "motion-0003-normal-0.25",
+      "action": "01-Right",
+      "timestamp": 17550.1,
+      "phase": 0.33000000002979507,
+      "frameIndex": 33
+    },
+    {
+      "name": "motion-0003-normal-0.5",
+      "action": "01-Right",
+      "timestamp": 17583.3,
+      "phase": 0.6620000000298023,
+      "frameIndex": 35
+    },
+    {
+      "name": "motion-0003-normal-0.75",
+      "action": "01-Right",
+      "timestamp": 17600.2,
+      "phase": 0.8310000000298169,
+      "frameIndex": 36
+    },
+    {
+      "name": "state-0038",
+      "timestamp": 17633.4,
+      "frameIndex": 38
+    },
+    {
+      "name": "motion-0004-bumpHalt-0.25",
+      "action": "01-Right",
+      "timestamp": 17700,
+      "phase": 0.30272727272726613,
+      "frameIndex": 42
+    },
+    {
+      "name": "motion-0004-bumpHalt-0.5",
+      "action": "01-Right",
+      "timestamp": 17750,
+      "phase": 0.5299999999999934,
+      "frameIndex": 45
+    },
+    {
+      "name": "motion-0004-bumpHalt-0.75",
+      "action": "01-Right",
+      "timestamp": 17799.9,
+      "phase": 0.756818181818182,
+      "frameIndex": 48
+    },
+    {
+      "name": "motion-0004-bumpHalt-1",
+      "action": "01-Right",
+      "timestamp": 17866.6,
+      "phase": 1.0599999999999867,
+      "frameIndex": 52
+    },
+    {
+      "name": "end",
+      "timestamp": 18018.39999999851
+    }
+  ]
+}

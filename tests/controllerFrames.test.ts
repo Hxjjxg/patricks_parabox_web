@@ -7,12 +7,15 @@ import nativeHistoryRepeats from './fixtures/original-history-repeat.json';
 
 afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 
-function controllerHarness() {
+function controllerHarness(initialLevel = 'first_puzzle', wonLevels: string[] = []) {
   let clock = 0;
   let nextFrame: FrameRequestCallback | null = null;
   const listeners = new Map<string, (event: KeyboardEvent) => void>();
   const pointerListeners = new Map<string, (event: PointerEvent) => void>();
   const storage = new Map<string, string>();
+  if (initialLevel === 'hub') storage.set('parabox-web-progress-v1', JSON.stringify({
+    version: 3, wonLevels, attemptedLevels: [], recentArea: 'Area_Intro', nexusUnlocked: false, playtimeSeconds: 0,
+  }));
   const proto = GameController.prototype as unknown as {
     createDevPanel(): HTMLElement; createCustomLevelInput(): HTMLInputElement;
   };
@@ -20,7 +23,7 @@ function controllerHarness() {
   vi.spyOn(proto, 'createCustomLevelInput').mockReturnValue({} as HTMLInputElement);
   vi.spyOn(performance, 'now').mockImplementation(() => clock);
   vi.stubGlobal('window', {
-    location: { search: '?level=first_puzzle' },
+    location: { search: '?level=' + initialLevel },
     localStorage: { getItem: (key: string) => storage.get(key) ?? null, setItem: (key: string, value: string) => storage.set(key, value) },
     addEventListener: (type: string, listener: (event: KeyboardEvent) => void) => listeners.set(type, listener),
     requestAnimationFrame: (callback: FrameRequestCallback) => { nextFrame = callback; return 1; },
@@ -177,6 +180,73 @@ describe('native automatic level advance', () => {
     h.api.loadLevel('second_puzzle');
     h.frame(100); h.frame(200);
     expect(h.api.getState()).toMatchObject({ levelName: 'second_puzzle', moveCount: 0, player: { x: 4, y: 2 } });
+  });
+});
+
+function setupBeforeEnterPortal() {
+  const h = controllerHarness('hub', ['first_puzzle', 'second_puzzle', 'third_puzzle']); h.frame(0);
+  for (const key of 'LLLDDDD') {
+    const [dx, dy] = { L: [-1, 0], D: [0, -1] }[key]!;
+    h.api.impulse(dx!, dy!); stopAllAnimations(h.api.world());
+  }
+  expect(h.api.getState()).toMatchObject({ levelName: 'hub', moveCount: 7, player: { x: 2, y: 5 } });
+  return h;
+}
+
+describe('native Hub portal entry', () => {
+  it('does not retry held Escape after a pressed edge missed undo cooldown', () => {
+    const h = setupBeforeEnterPortal();
+    h.press('z', 1); h.frame(10);
+    expect(h.api.redo()).toBe(true);
+    h.api.impulse(0, -1);
+    h.release('z', 11); h.press('Escape', 12); h.frame(20);
+    expect(h.api.world().transitioning).toBe(true);
+    h.frame(200);
+    expect(h.api.world().transitioning).toBe(true);
+    expect(h.api.getState().mode).toBe('playing');
+  });
+  it.each(['z', 'Escape', 'r'])('%s cancellation precedes the crossing-frame transition timer', key => {
+    const h = setupBeforeEnterPortal();
+    h.press('ArrowDown', 1); h.frame(50); h.release('ArrowDown', 51);
+    for (let t = 100; t <= 450; t += 50) h.frame(t);
+    h.press(key, 499); h.frame(500); h.release(key, 501);
+    expect(h.api.getState()).toMatchObject({ levelName: 'hub', moveCount: 8, mode: 'playing' });
+    expect(h.api.world().findPlayerBlock().anim).toBe('squishInPlace');
+    h.frame(600);
+    expect(h.api.getState().levelName).toBe('hub');
+  });
+
+  it('animates beside the portal, blocks directional reservation, and defers retained direction after load', () => {
+    const h = setupBeforeEnterPortal();
+    h.press('ArrowDown', 1); h.frame(50); h.release('ArrowDown', 51);
+    expect(h.api.getState()).toMatchObject({ levelName: 'hub', moveCount: 8, player: { x: 2, y: 5 } });
+    expect(h.api.world().findPlayerBlock()).toMatchObject({ anim: 'jumpIn', animLength: .5, moving: true });
+    h.press('ArrowRight', 60); h.frame(70);
+    for (let t = 120; t <= 470; t += 50) h.frame(t);
+    expect(h.api.getState()).toMatchObject({ levelName: 'hub', moveCount: 8, player: { x: 2, y: 5 } });
+    h.frame(520);
+    expect(h.api.getState()).toMatchObject({ levelName: 'enter', moveCount: 0, player: { x: 1, y: 1 } });
+    expect(h.api.world().anyBlockMoving).toBe(true);
+    h.frame(536.7);
+    expect(h.api.getState()).toMatchObject({ moveCount: 1, player: { x: 1, y: 1 } });
+    expect(h.api.world().anyBlockMoving).toBe(false);
+    h.frame(553.4);
+    expect(h.api.getState()).toMatchObject({ moveCount: 1, player: { x: 2, y: 1 } });
+  });
+
+  it.each(['undo', 'restart'] as const)('%s cancels entry without changing Hub count or history', action => {
+    const h = setupBeforeEnterPortal();
+    h.press('ArrowDown', 1); h.frame(50); h.release('ArrowDown', 51); h.frame(100);
+    expect(h.api[action]()).toBe(true);
+    expect(h.api.getState()).toMatchObject({ levelName: 'hub', moveCount: 8, player: { x: 2, y: 5 } });
+    expect(h.api.world().findPlayerBlock()).toMatchObject({ anim: 'squishInPlace', animT: 0, animLength: .125 });
+    expect(h.api.redo()).toBe(false);
+    for (let t = 150; t <= 700; t += 50) h.frame(t);
+    expect(h.api.getState().levelName).toBe('hub');
+    h.press('ArrowDown', 701); h.frame(750); h.release('ArrowDown', 751);
+    expect(h.api.getState().moveCount).toBe(9);
+    for (let t = 800; t <= 1250; t += 50) h.frame(t);
+    expect(h.api.getState()).toMatchObject({ levelName: 'enter', moveCount: 0 });
   });
 });
 

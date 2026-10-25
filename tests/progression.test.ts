@@ -118,7 +118,10 @@ describe("hub progression and portals", () => {
       dx: 1,
       dy: 0,
     });
-    expect([player.x, player.y, world.moveCount]).toEqual([1, 1, 0]);
+    // Native reservation counts a portal attempt without completing history.
+    expect([player.x, player.y, world.moveCount]).toEqual([1, 1, 1]);
+    expect(world.transitioning).toBe(true);
+    expect(player.anim).toBe('jumpIn');
     expect(movement.history.past).toHaveLength(0);
   });
 

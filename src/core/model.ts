@@ -335,6 +335,12 @@ export class WorldModel {
   /** Prefs.EnterSpeedIndex (index into EnterLengths). */
   enterSpeedIndex = 0;
   allowSkippingAnimation = false;
+  transitioning = false;
+  transitionCounter = 0;
+  transitionLength = 0;
+  transitionSceneName: string | null = null;
+  transitionXPosOffset = 0;
+  transitionYPosOffset = 0;
   /** Mirrors `World.AnyBlockMoving` for the frame currently being drawn. */
   anyBlockMoving = false;
   /** Mirrors `Particle.particleT`. */

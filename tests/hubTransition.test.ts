@@ -2,8 +2,10 @@ import { describe, expect, it } from 'vitest';
 import { parseLevel } from '../src/core/levelParser';
 import { getLevelSource } from '../src/core/levelRepository';
 import { ProgressionModel } from '../src/core/progression';
-import { startHubArrival } from '../src/core/hubTransition';
+import { advanceHubEntry, cancelHubEntry, startHubArrival, startHubEntry } from '../src/core/hubTransition';
 import { updateAnimation, updateWorldAnimations } from '../src/core/animation';
+import { MovementEngine } from '../src/core/movement';
+import nativeEntry from '../docs/parity/evidence/original/hub-entry-cancellation-native-derived.json';
 
 function hubAt(puzzle: string) {
   const world = parseLevel(getLevelSource('hub'), 'hub');
@@ -91,5 +93,64 @@ describe('native Hub.PositionPlayerOnHubStart arrival', () => {
     expect(startHubArrival(hub, null)).toBe(false);
     expect(startHubArrival(hub, 'missing')).toBe(false);
     expect(hub.findPlayerBlock().moving).toBe(false);
+  });
+});
+
+describe('native Hub entry phases and cancellation', () => {
+  for (const [id, capture] of Object.entries(nativeEntry.measured.portalEntries)) {
+    const puzzle = capture.loadedPuzzleHook.levelName;
+    it('matches measured body draw phases: ' + id, () => {
+      for (const frame of capture.firstMidLastJumpDraw) {
+        const world = hubAt(puzzle); const player = world.findPlayerBlock();
+        const floor = world.floors.find(floor => floor.sceneName === puzzle)!;
+        player.x = frame.x; player.y = frame.y;
+        startHubEntry(world, { block: player, floor, fromX: player.x, fromY: player.y,
+          toX: floor.x, toY: floor.y, dx: 0, dy: -1 });
+        advance(world, frame.animT);
+        expect(player.anim).toBe('jumpIn');
+        expect(player.drawXOffset).toBeCloseTo(frame.drawXOffset, 6);
+        expect(player.drawYOffset).toBeCloseTo(frame.drawYOffset, 6);
+        expect(player.drawXScale).toBeCloseTo(frame.drawXScale, 6);
+        expect(player.drawYScale).toBeCloseTo(frame.drawYScale, 6);
+        expect(world.anyBlockMoving).toBe(frame.anyBlockMoving);
+      }
+    });
+  }
+
+  it('increments a portal attempt without clearing future or completing history', () => {
+    const world = hubAt('first_puzzle'); const movement = new MovementEngine(world);
+    expect(movement.applyDirectionalInput(1, 0).moved).toBe(true);
+    expect(movement.undo()).toBe(true);
+    expect(movement.history.future).toHaveLength(1);
+    // Native isolated first return below the first portal.
+    const result = movement.applyDirectionalInput(0, 1);
+    expect(result.transition?.floor.sceneName).toBe('first_puzzle');
+    expect(world.moveCount).toBe(1);
+    expect(movement.history.past).toHaveLength(0);
+    expect(cancelHubEntry(world)).toBe(true);
+    expect(world.moveCount).toBe(1);
+    expect(movement.history.past).toHaveLength(0);
+    expect(movement.history.future).toHaveLength(1);
+  });
+
+  it('uses >= for timer completion while JumpIn draw remains moving at/beyond length', () => {
+    const world = hubAt('first_puzzle'); const movement = new MovementEngine(world);
+    movement.applyDirectionalInput(0, 1);
+    advance(world, .5);
+    expect(world.findPlayerBlock().anim).toBe('jumpIn');
+    expect(world.anyBlockMoving).toBe(true);
+    expect(advanceHubEntry(world, .499)).toBeNull();
+    expect(advanceHubEntry(world, .001)).toBe('first_puzzle');
+    expect(advanceHubEntry(world, 10)).toBeNull();
+  });
+
+  it('cancellation before the timer phase prevents a crossing-frame load', () => {
+    const world = hubAt('first_puzzle'); new MovementEngine(world).applyDirectionalInput(0, 1);
+    expect(advanceHubEntry(world, .49)).toBeNull();
+    expect(cancelHubEntry(world)).toBe(true);
+    expect(advanceHubEntry(world, .1)).toBeNull();
+    expect(world.transitionCounter).toBe(0);
+    expect(world.findPlayerBlock()).toMatchObject({ anim: 'squishInPlace', animLength: .125 });
+    expect(world.anyBlockMoving).toBe(false);
   });
 });
