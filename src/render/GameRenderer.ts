@@ -1132,6 +1132,11 @@ export class GameRenderer {
         wallBrightness = brightness;
       }
       this.drawWall(wallGraphics, level, block, wallRect, 0xffffff, flipH);
+      // Native terminal faces draw immediately, before later walls/backings.
+      if (block.possessable || block.isPlayer) {
+        this.drawFace(this.nextSceneLayer(), block, wallRect, flipH, false, false);
+        wallGraphics = null;
+      }
       // A following body must be submitted after this wall's GUI captions/bar.
       if (block.hubCaptionState) wallGraphics = null;
     }
