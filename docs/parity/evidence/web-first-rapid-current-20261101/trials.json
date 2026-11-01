@@ -1,0 +1,60 @@
+{
+  "kind": "reported sampled transitions; not a full frame trace",
+  "sourceHead": "5f49d5a772e3fbfd1894e2237ca17423402b2aa8",
+  "viewport": {
+    "css": [800, 600],
+    "dpr": 1.0000000298023224,
+    "canvas": [800, 600]
+  },
+  "input": {
+    "scheduled": [
+      { "key": "ArrowRight", "atMs": 0, "durationMs": 40 },
+      { "key": "ArrowUp", "atMs": 40, "durationMs": 40 }
+    ],
+    "delivery": "synthetic DOM KeyboardEvent; timestamps use performance.now() relative to each trial start"
+  },
+  "trials": [
+    {
+      "eventsMs": [
+        { "type": "keydown", "key": "ArrowRight", "at": 0.4 },
+        { "type": "keyup", "key": "ArrowRight", "at": 48.9 },
+        { "type": "keydown", "key": "ArrowUp", "at": 51.4 },
+        { "type": "keyup", "key": "ArrowUp", "at": 102.4 }
+      ],
+      "transitions": [
+        { "at": 15.2, "moveCount": 1, "moving": true, "x": 3, "y": 2, "anim": "normal", "animT": 0.0148 },
+        { "at": 65.1, "moveCount": 2, "moving": true, "x": 3, "y": 2, "anim": "normal", "animT": 0.0647 },
+        { "at": 115.2, "moveCount": 2, "moving": false, "x": 3, "y": 2, "anim": "bumpHalt", "animT": 0 },
+        { "at": 131.8, "moveCount": 2, "moving": true, "x": 3, "y": 3, "anim": "normal", "animT": 0.0166 }
+      ]
+    },
+    {
+      "eventsMs": [
+        { "type": "keydown", "key": "ArrowRight", "at": 0.3 },
+        { "type": "keyup", "key": "ArrowRight", "at": 49.3 },
+        { "type": "keydown", "key": "ArrowUp", "at": 51.2 },
+        { "type": "keyup", "key": "ArrowUp", "at": 99.1 }
+      ],
+      "transitions": [
+        { "at": 15.7, "moveCount": 1, "moving": true, "x": 3, "y": 2, "anim": "normal", "animT": 0.0153 },
+        { "at": 65.8, "moveCount": 2, "moving": true, "x": 3, "y": 2, "anim": "normal", "animT": 0.0654 },
+        { "at": 115.9, "moveCount": 2, "moving": false, "x": 3, "y": 2, "anim": "bumpHalt", "animT": 0 },
+        { "at": 132.3, "moveCount": 2, "moving": true, "x": 3, "y": 3, "anim": "normal", "animT": 0.0164 }
+      ]
+    },
+    {
+      "eventsMs": [
+        { "type": "keydown", "key": "ArrowRight", "at": 0.2 },
+        { "type": "keyup", "key": "ArrowRight", "at": 47.8 },
+        { "type": "keydown", "key": "ArrowUp", "at": 47.9 },
+        { "type": "keyup", "key": "ArrowUp", "at": 97.8 }
+      ],
+      "transitions": [
+        { "at": 15.1, "moveCount": 1, "moving": true, "x": 3, "y": 2, "anim": "normal", "animT": 0.0148 },
+        { "at": 48.6, "moveCount": 2, "moving": true, "x": 3, "y": 2, "anim": "normal", "animT": 0.0483 },
+        { "at": 115.3, "moveCount": 2, "moving": false, "x": 3, "y": 2, "anim": "bumpHalt", "animT": 0 },
+        { "at": 131.9, "moveCount": 2, "moving": true, "x": 3, "y": 3, "anim": "normal", "animT": 0.0166 }
+      ]
+    }
+  ]
+}
