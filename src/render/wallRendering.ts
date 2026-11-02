@@ -45,8 +45,7 @@ export function wallTint(block: Block, cellFractionOfScreen: number, cloneFadeIn
   ][Math.floor(sector) % 6]!);
 }
 
-/** Keep the tint above one until AFTER sampling; 8-bit Pixi tint clips bevels. */
-export function createWallShader(maxTextures: number): Shader {
+function compileWallPrograms(maxTextures: number) {
   const glLocal = {
     ...localUniformBitGl,
     vertex: {
@@ -71,9 +70,28 @@ export function createWallShader(maxTextures: number): Shader {
   const gpuClamp = { name: "native-gui-rgb-clamp", fragment: {
     end: "finalColor = vec4<f32>(min(finalColor.rgb, vec3<f32>(finalColor.a)), finalColor.a);",
   } };
-  return new Shader({
+  return {
     glProgram: compileHighShaderGlProgram({ name: "original-walls", bits: [colorBitGl, generateTextureBatchBitGl(maxTextures), glLocal, roundPixelsBitGl, glClamp] }),
     gpuProgram: compileHighShaderGpuProgram({ name: "original-walls", bits: [colorBit, generateTextureBatchBit(maxTextures), gpuLocal, roundPixelsBit, gpuClamp] }),
+  };
+}
+
+const wallPrograms = new Map<number, ReturnType<typeof compileWallPrograms>>();
+
+/** Keep the tint above one until AFTER sampling; 8-bit Pixi tint clips bevels. */
+export function createWallShader(maxTextures: number): Shader {
+  // Pixi's GL compiler constructs a fresh, uniquely named program on every call.
+  // Recursive passes grow the Graphics pool during crossings; compiling the same
+  // source for each new wall layer stalls those frames and retains redundant code.
+  // Programs are immutable and renderer-independent; each layer still owns its
+  // Shader/uniforms so differently tinted recursive copies cannot affect each other.
+  let programs = wallPrograms.get(maxTextures);
+  if (!programs) {
+    programs = compileWallPrograms(maxTextures);
+    wallPrograms.set(maxTextures, programs);
+  }
+  return new Shader({
+    ...programs,
     resources: {
       localUniforms: new UniformGroup({
         uColor: { value: new Float32Array([1, 1, 1, 1]), type: "vec4<f32>" },
