@@ -1,0 +1,340 @@
+{
+  "source": {
+    "revision": "82593337f4fbb5b68f52f9004ee7f0b4bd49c52b",
+    "sha256": {
+      "src/GameController.ts": "bd914add0116a842624417d286cd420eb57cb6f6780d394330f4ce96e0695693",
+      "src/core/movement.ts": "b1907d6fef7a87e06e53570b2001a69039786a65efc0528188ee594205431387",
+      "src/core/animation.ts": "ca1890b2c6376984879e705dfb5d906da515a50799fa4033003c967205e0373e",
+      "src/render/GameRenderer.ts": "7a73ae5de21cc24bd3fa0b9d7aa3b0cde594f220131750aca34428a53c63c030",
+      "src/render/wallRendering.ts": "3547e22812ebbdff6e8b56a3204b2a4f411bbb3c322c3268e1f3fdbf799d62ba",
+      "scripts/parity-capture-web.js": "6ffae31c62be86e57477abdd627fc70c746d51113e5120f7ec70e96867f9a26c"
+    }
+  },
+  "cases": [
+    {
+      "name": "enter",
+      "options": {
+        "level": "enter",
+        "setup": "URUULURRRR",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowRight",
+            "duration": 40
+          }
+        ],
+        "settleMs": 1000,
+        "captureMotion": true,
+        "captureCameraMotion": true,
+        "captureStateChanges": true,
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "revision": "82593337f4fbb5b68f52f9004ee7f0b4bd49c52b",
+        "inputMethod": "Synthetic DOM keyboard; debug API setup; natural browser rAF"
+      }
+    },
+    {
+      "name": "exit",
+      "options": {
+        "level": "enter",
+        "setup": "URUULURRRRR",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowLeft",
+            "duration": 40
+          }
+        ],
+        "settleMs": 1000,
+        "captureMotion": true,
+        "captureCameraMotion": true,
+        "captureStateChanges": true,
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "revision": "82593337f4fbb5b68f52f9004ee7f0b4bd49c52b",
+        "inputMethod": "Synthetic DOM keyboard; debug API setup; natural browser rAF"
+      }
+    },
+    {
+      "name": "carry",
+      "options": {
+        "level": "carry",
+        "setup": "LLL",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowLeft",
+            "duration": 40
+          }
+        ],
+        "settleMs": 1000,
+        "captureMotion": true,
+        "captureCameraMotion": true,
+        "captureStateChanges": true,
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "revision": "82593337f4fbb5b68f52f9004ee7f0b4bd49c52b",
+        "inputMethod": "Synthetic DOM keyboard; debug API setup; natural browser rAF"
+      }
+    },
+    {
+      "name": "cycle",
+      "options": {
+        "level": "cycle_line",
+        "setup": "URRURURRDDRRRRU",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowUp",
+            "duration": 40
+          }
+        ],
+        "settleMs": 1000,
+        "captureMotion": true,
+        "captureCameraMotion": true,
+        "captureStateChanges": true,
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "revision": "82593337f4fbb5b68f52f9004ee7f0b4bd49c52b",
+        "inputMethod": "Synthetic DOM keyboard; debug API setup; natural browser rAF"
+      }
+    },
+    {
+      "name": "infexit",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureCameraMotion": true,
+        "captureStateChanges": true,
+        "settleMs": 1000,
+        "revision": "82593337f4fbb5b68f52f9004ee7f0b4bd49c52b",
+        "level": "infexit_ref_first",
+        "setup": "DLLDRRRR",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowRight",
+            "duration": 40
+          }
+        ],
+        "inputMethod": "Synthetic DOM keyboard; debug API setup; natural browser rAF"
+      }
+    },
+    {
+      "name": "infinity",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureCameraMotion": true,
+        "captureStateChanges": true,
+        "revision": "82593337f4fbb5b68f52f9004ee7f0b4bd49c52b",
+        "level": "infenter_zone_v2",
+        "setup": "DDD",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowUp",
+            "duration": 40
+          }
+        ],
+        "settleMs": 1000,
+        "inputMethod": "Synthetic DOM keyboard; debug API setup; natural browser rAF"
+      }
+    },
+    {
+      "name": "clone",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureCameraMotion": true,
+        "captureStateChanges": true,
+        "settleMs": 1000,
+        "revision": "82593337f4fbb5b68f52f9004ee7f0b4bd49c52b",
+        "level": "clone_first_2",
+        "setup": "DDD",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowDown",
+            "duration": 40
+          }
+        ],
+        "inputMethod": "Synthetic DOM keyboard; debug API setup; natural browser rAF"
+      }
+    },
+    {
+      "name": "possess",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureCameraMotion": true,
+        "captureStateChanges": true,
+        "settleMs": 1000,
+        "revision": "82593337f4fbb5b68f52f9004ee7f0b4bd49c52b",
+        "level": "possess_first",
+        "setup": "LDDL",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowLeft",
+            "duration": 40
+          }
+        ],
+        "inputMethod": "Synthetic DOM keyboard; debug API setup; natural browser rAF"
+      }
+    },
+    {
+      "name": "flip-first",
+      "options": {
+        "level": "flip_first",
+        "setup": "RDDR",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowRight",
+            "duration": 40
+          }
+        ],
+        "settleMs": 1000,
+        "captureMotion": true,
+        "captureCameraMotion": true,
+        "captureStateChanges": true,
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "revision": "82593337f4fbb5b68f52f9004ee7f0b4bd49c52b",
+        "inputMethod": "Synthetic DOM keyboard; debug API setup; natural browser rAF"
+      }
+    },
+    {
+      "name": "flip",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureCameraMotion": true,
+        "captureStateChanges": true,
+        "revision": "82593337f4fbb5b68f52f9004ee7f0b4bd49c52b",
+        "level": "1by1_playerr_flip2",
+        "setup": "RR",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowDown",
+            "duration": 40
+          }
+        ],
+        "settleMs": 1000,
+        "inputMethod": "Synthetic DOM keyboard; debug API setup; natural browser rAF"
+      }
+    },
+    {
+      "name": "infexit-player",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureCameraMotion": true,
+        "captureStateChanges": true,
+        "settleMs": 1000,
+        "revision": "82593337f4fbb5b68f52f9004ee7f0b4bd49c52b",
+        "level": "infexit_ref_first",
+        "setup": "DLLDRRRRUR",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowRight",
+            "duration": 40
+          }
+        ],
+        "inputMethod": "Synthetic DOM keyboard; debug API setup; natural browser rAF"
+      }
+    },
+    {
+      "name": "terminal",
+      "options": {
+        "level": "infenter_poswall_setup",
+        "setup": "LLL",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowRight",
+            "duration": 40
+          }
+        ],
+        "settleMs": 1000,
+        "captureMotion": true,
+        "captureCameraMotion": true,
+        "captureStateChanges": true,
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "revision": "82593337f4fbb5b68f52f9004ee7f0b4bd49c52b",
+        "inputMethod": "Synthetic DOM keyboard; debug API setup; natural browser rAF"
+      }
+    },
+    {
+      "name": "strict-enter",
+      "options": {
+        "expectedViewport": {
+          "width": 800,
+          "height": 600,
+          "dpr": 1
+        },
+        "captureMotion": true,
+        "captureCameraMotion": true,
+        "captureStateChanges": true,
+        "revision": "82593337f4fbb5b68f52f9004ee7f0b4bd49c52b",
+        "level": "infenter_zone_v2",
+        "setup": "DD",
+        "events": [
+          {
+            "at": 0,
+            "key": "ArrowDown",
+            "duration": 40
+          }
+        ],
+        "settleMs": 1000,
+        "inputMethod": "Synthetic DOM keyboard; debug API setup; natural browser rAF"
+      }
+    }
+  ]
+}
